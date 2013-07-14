@@ -1,0 +1,4 @@
+D:\Gito\DotNetProjects\SO.HyeList\SO.HyeList\SO.HyeList.Manager\bin\Release\SO.HyeList.Manager.dll
+D:\Gito\DotNetProjects\SO.HyeList\SO.HyeList\SO.HyeList.Manager\bin\Release\SO.HyeList.Manager.pdb
+D:\Gito\DotNetProjects\SO.HyeList\SO.HyeList\SO.HyeList.Manager\obj\Release\SO.HyeList.Manager.dll
+D:\Gito\DotNetProjects\SO.HyeList\SO.HyeList\SO.HyeList.Manager\obj\Release\SO.HyeList.Manager.pdb

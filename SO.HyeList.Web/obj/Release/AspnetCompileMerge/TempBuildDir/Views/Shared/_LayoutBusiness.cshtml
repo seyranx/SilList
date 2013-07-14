@@ -1,0 +1,53 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row-fluid">
+
+<div id="leftColumn" class="span2 searchPageLeftColumn"  >
+        
+<div style="font-size:17px; font-weight:bold; text-align:center; padding-top:20px;">Business Search:</div>
+<hr />
+<form >
+    <label>Name:</label>
+    <input type="text" style="width:90%;">
+
+   
+     <label>City, State or Zip:</label>
+    <input type="text" style="width:90%;">
+
+     <label>Category:</label>
+     <input type="text" style="width:90%;" placeholder="Filter">
+
+        <button type="submit" class="btn btn-success pull-right">Search</button>
+
+       
+</form>
+ <br />
+  <ul class="nav nav-list" style="background-color:none; color:white; margin-top:10px; " >
+        <li class="nav-header">Top Categories:</li>
+
+  <li ><a href="/Clubs/Los-Angeles-CA/Adventures/">Markets</a></li>
+  <li ><a href="/Clubs/Los-Angeles-CA/Art/">Contractors</a></li>
+  <li ><a href="/Clubs/Los-Angeles-CA/Business/">Plumbers</a></li>
+ 
+
+</ul>
+  
+
+
+
+    </div>
+
+     <div id="mainContent" class="span7" style="padding-left:0px; padding-right:0px; background-color:white;">
+        
+         @RenderBody()
+
+    </div>
+
+      <div class="span3" style="background-color:black;">
+          right
+
+    </div>
+
+</div>
