@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AppDataModelStoreContainer" CdmEntityContainer="DbContextAppData">
+    <EntitySetMapping Name="FamousPeopleVoes">
+      <EntityTypeMapping TypeName="AppDataModel.FamousPeopleVo">
+        <MappingFragment StoreEntitySet="FamousPeople">
+          <ScalarProperty Name="famousPersonId" ColumnName="famousPersonId" />
+          <ScalarProperty Name="fullName" ColumnName="fullName" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="born" ColumnName="born" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="modified" ColumnName="modified" />
+          <ScalarProperty Name="created" ColumnName="created" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PeopleNameVoes">
+      <EntityTypeMapping TypeName="AppDataModel.PeopleNameVo">
+        <MappingFragment StoreEntitySet="PeopleNames">
+          <ScalarProperty Name="nameId" ColumnName="nameId" />
+          <ScalarProperty Name="fullName" ColumnName="fullName" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="meaning" ColumnName="meaning" />
+          <ScalarProperty Name="origin" ColumnName="origin" />
+          <ScalarProperty Name="modified" ColumnName="modified" />
+          <ScalarProperty Name="created" ColumnName="created" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

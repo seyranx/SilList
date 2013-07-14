@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LocalClubModelStoreContainer" CdmEntityContainer="LocalClubEntities">
+    <EntitySetMapping Name="Clubs">
+      <EntityTypeMapping TypeName="LocalClubModel.Club">
+        <MappingFragment StoreEntitySet="Club">
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ClubZip" ColumnName="ClubZip" />
+          <ScalarProperty Name="ClubState" ColumnName="ClubState" />
+          <ScalarProperty Name="ClubCity" ColumnName="ClubCity" />
+          <ScalarProperty Name="ClubAddress" ColumnName="ClubAddress" />
+          <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="ZipId" ColumnName="ZipId" />
+          <ScalarProperty Name="ClubSearch" ColumnName="ClubSearch" />
+          <ScalarProperty Name="ClubType" ColumnName="ClubType" />
+          <ScalarProperty Name="ClubDescription" ColumnName="ClubDescription" />
+          <ScalarProperty Name="ClubUrl" ColumnName="ClubUrl" />
+          <ScalarProperty Name="ClubName" ColumnName="ClubName" />
+          <ScalarProperty Name="ClubId" ColumnName="ClubId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClubCategories">
+      <EntityTypeMapping TypeName="LocalClubModel.ClubCategory">
+        <MappingFragment StoreEntitySet="ClubCategory">
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ClubType" ColumnName="ClubType" />
+          <ScalarProperty Name="ClubCategory1" ColumnName="ClubCategory" />
+          <ScalarProperty Name="ClubCategoryId" ColumnName="ClubCategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClubComments">
+      <EntityTypeMapping TypeName="LocalClubModel.ClubComment">
+        <MappingFragment StoreEntitySet="ClubComment">
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ReplyCommentId" ColumnName="ReplyCommentId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClubId" ColumnName="ClubId" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClubMemberships">
+      <EntityTypeMapping TypeName="LocalClubModel.ClubMembership">
+        <MappingFragment StoreEntitySet="ClubMembership">
+          <ScalarProperty Name="MembershipRoleId" ColumnName="MembershipRoleId" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClubId" ColumnName="ClubId" />
+          <ScalarProperty Name="MembershipId" ColumnName="MembershipId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClubMembershipTypes">
+      <EntityTypeMapping TypeName="LocalClubModel.ClubMembershipType">
+        <MappingFragment StoreEntitySet="ClubMembershipType">
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ClubMembershipType1" ColumnName="ClubMembershipType" />
+          <ScalarProperty Name="ClubMembershipTypeId" ColumnName="ClubMembershipTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClubTypes">
+      <EntityTypeMapping TypeName="LocalClubModel.ClubType">
+        <MappingFragment StoreEntitySet="ClubType">
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsSpecialtyClub" ColumnName="IsSpecialtyClub" />
+          <ScalarProperty Name="ClubType1" ColumnName="ClubType" />
+          <ScalarProperty Name="ClubTypeId" ColumnName="ClubTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClubUsers">
+      <EntityTypeMapping TypeName="LocalClubModel.ClubUser">
+        <MappingFragment StoreEntitySet="ClubUser">
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="DefaultImageId" ColumnName="DefaultImageId" />
+          <ScalarProperty Name="EmailHashKey" ColumnName="EmailHashKey" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="UserHash" ColumnName="UserHash" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClubUserCommunities">
+      <EntityTypeMapping TypeName="LocalClubModel.ClubUserCommunity">
+        <MappingFragment StoreEntitySet="ClubUserCommunity">
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="ZipId" ColumnName="ZipId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrivateMessages">
+      <EntityTypeMapping TypeName="LocalClubModel.PrivateMessage">
+        <MappingFragment StoreEntitySet="PrivateMessage">
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+          <ScalarProperty Name="InitalMessageId" ColumnName="InitalMessageId" />
+          <ScalarProperty Name="ToUserId" ColumnName="ToUserId" />
+          <ScalarProperty Name="FromUserId" ColumnName="FromUserId" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="PrivateMessageId" ColumnName="PrivateMessageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Schools">
+      <EntityTypeMapping TypeName="LocalClubModel.School">
+        <MappingFragment StoreEntitySet="School">
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="InstitutionIPEDSUnitID" ColumnName="InstitutionIPEDSUnitID" />
+          <ScalarProperty Name="InstitutionOPEID" ColumnName="InstitutionOPEID" />
+          <ScalarProperty Name="SchoolWebsite" ColumnName="SchoolWebsite" />
+          <ScalarProperty Name="SchoolPhone" ColumnName="SchoolPhone" />
+          <ScalarProperty Name="SchoolZip" ColumnName="SchoolZip" />
+          <ScalarProperty Name="SchoolState" ColumnName="SchoolState" />
+          <ScalarProperty Name="SchoolCity" ColumnName="SchoolCity" />
+          <ScalarProperty Name="SchoolAddress" ColumnName="SchoolAddress" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="InstitutionID" ColumnName="InstitutionID" />
+          <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

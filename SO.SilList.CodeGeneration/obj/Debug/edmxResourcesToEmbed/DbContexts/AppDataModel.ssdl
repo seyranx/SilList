@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AppDataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="AppDataModelStoreContainer">
+    <EntitySet Name="FamousPeople" EntityType="AppDataModel.Store.FamousPeople" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PeopleNames" EntityType="AppDataModel.Store.PeopleNames" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="FamousPeople">
+    <Key>
+      <PropertyRef Name="famousPersonId" />
+    </Key>
+    <Property Name="famousPersonId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="fullName" Type="varchar" MaxLength="100" />
+    <Property Name="firstName" Type="varchar" MaxLength="50" />
+    <Property Name="lastName" Type="varchar" MaxLength="50" />
+    <Property Name="born" Type="varchar" MaxLength="50" />
+    <Property Name="title" Type="varchar(max)" />
+    <Property Name="modified" Type="datetime" Nullable="false" />
+    <Property Name="created" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PeopleNames">
+    <Key>
+      <PropertyRef Name="nameId" />
+    </Key>
+    <Property Name="nameId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="fullName" Type="varchar" MaxLength="50" />
+    <Property Name="firstName" Type="varchar" MaxLength="50" />
+    <Property Name="lastName" Type="varchar" MaxLength="50" />
+    <Property Name="gender" Type="varchar" MaxLength="50" />
+    <Property Name="meaning" Type="varchar" MaxLength="50" />
+    <Property Name="origin" Type="varchar" MaxLength="50" />
+    <Property Name="modified" Type="datetime" Nullable="false" />
+    <Property Name="created" Type="datetime" Nullable="false" />
+  </EntityType>
+</Schema>

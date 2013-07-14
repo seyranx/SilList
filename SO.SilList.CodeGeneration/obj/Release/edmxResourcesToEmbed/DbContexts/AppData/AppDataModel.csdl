@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AppDataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="AppDataDbContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="FamousPeopleVoes" EntityType="AppDataModel.FamousPeople" />
+    <EntitySet Name="PeopleNameVoes" EntityType="AppDataModel.PeopleName" />
+    <EntitySet Name="NameOrigins" EntityType="AppDataModel.NameOrigins" />
+  </EntityContainer>
+  <EntityType Name="FamousPeople">
+    <Key>
+      <PropertyRef Name="famousPersonId" />
+    </Key>
+    <Property Name="famousPersonId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fullName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="firstName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="lastName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="born" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="title" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="modified" Type="DateTime" Nullable="false" />
+    <Property Name="created" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PeopleName">
+    <Key>
+      <PropertyRef Name="nameId" />
+    </Key>
+    <Property Name="nameId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fullName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="firstName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="lastName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="gender" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="meaning" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="origin" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="modified" Type="DateTime" Nullable="false" />
+    <Property Name="created" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NameOrigins">
+    <Key>
+      <PropertyRef Name="nameOriginId" />
+    </Key>
+    <Property Type="Int32" Name="nameOriginId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="origin" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="originName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="created" Nullable="false" />
+  </EntityType>
+</Schema>

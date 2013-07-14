@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AppDataModel1StoreContainer" CdmEntityContainer="AppDataEntities">
+    <EntitySetMapping Name="Menus">
+      <EntityTypeMapping TypeName="AppDataModel1.Menu">
+        <MappingFragment StoreEntitySet="Menu">
+          <ScalarProperty Name="menuId" ColumnName="menuId" />
+          <ScalarProperty Name="websiteId" ColumnName="websiteId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="parentId" ColumnName="parentId" />
+          <ScalarProperty Name="modified" ColumnName="modified" />
+          <ScalarProperty Name="created" ColumnName="created" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MenuItems">
+      <EntityTypeMapping TypeName="AppDataModel1.MenuItem">
+        <MappingFragment StoreEntitySet="MenuItem">
+          <ScalarProperty Name="menuItem1" ColumnName="menuItem" />
+          <ScalarProperty Name="menuId" ColumnName="menuId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="menuItemType" ColumnName="menuItemType" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="target" ColumnName="target" />
+          <ScalarProperty Name="query" ColumnName="query" />
+          <ScalarProperty Name="modified" ColumnName="modified" />
+          <ScalarProperty Name="created" ColumnName="created" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pages">
+      <EntityTypeMapping TypeName="AppDataModel1.Page">
+        <MappingFragment StoreEntitySet="Page">
+          <ScalarProperty Name="pageId" ColumnName="pageId" />
+          <ScalarProperty Name="websiteId" ColumnName="websiteId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="published" ColumnName="published" />
+          <ScalarProperty Name="modified" ColumnName="modified" />
+          <ScalarProperty Name="created" ColumnName="created" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="AppDataModel1.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="roleId" ColumnName="roleId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="modified" ColumnName="modified" />
+          <ScalarProperty Name="created" ColumnName="created" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Themes">
+      <EntityTypeMapping TypeName="AppDataModel1.Theme">
+        <MappingFragment StoreEntitySet="Theme">
+          <ScalarProperty Name="themeId" ColumnName="themeId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="thumbnailUrl" ColumnName="thumbnailUrl" />
+          <ScalarProperty Name="modified" ColumnName="modified" />
+          <ScalarProperty Name="created" ColumnName="created" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRoles">
+      <EntityTypeMapping TypeName="AppDataModel1.UserRole">
+        <MappingFragment StoreEntitySet="UserRoles">
+          <ScalarProperty Name="userRoleId" ColumnName="userRoleId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="roleId" ColumnName="roleId" />
+          <ScalarProperty Name="modified" ColumnName="modified" />
+          <ScalarProperty Name="created" ColumnName="created" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="AppDataModel1.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+          <ScalarProperty Name="modified" ColumnName="modified" />
+          <ScalarProperty Name="created" ColumnName="created" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Websites">
+      <EntityTypeMapping TypeName="AppDataModel1.Website">
+        <MappingFragment StoreEntitySet="Website">
+          <ScalarProperty Name="websiteId" ColumnName="websiteId" />
+          <ScalarProperty Name="domain" ColumnName="domain" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="slogan" ColumnName="slogan" />
+          <ScalarProperty Name="logoUrl" ColumnName="logoUrl" />
+          <ScalarProperty Name="homePageId" ColumnName="homePageId" />
+          <ScalarProperty Name="adsenseId" ColumnName="adsenseId" />
+          <ScalarProperty Name="googleAnalyticsId" ColumnName="googleAnalyticsId" />
+          <ScalarProperty Name="themeId" ColumnName="themeId" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="enableAds" ColumnName="enableAds" />
+          <ScalarProperty Name="modified" ColumnName="modified" />
+          <ScalarProperty Name="created" ColumnName="created" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

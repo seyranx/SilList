@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AppDataModel1" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="AppDataEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+    <EntitySet Name="Menus" EntityType="AppDataModel1.Menu" />
+    <EntitySet Name="MenuItems" EntityType="AppDataModel1.MenuItem" />
+    <EntitySet Name="Pages" EntityType="AppDataModel1.Page" />
+    <EntitySet Name="Roles" EntityType="AppDataModel1.Role" />
+    <EntitySet Name="Themes" EntityType="AppDataModel1.Theme" />
+    <EntitySet Name="UserRoles" EntityType="AppDataModel1.UserRole" />
+    <EntitySet Name="Users" EntityType="AppDataModel1.User" />
+    <EntitySet Name="Websites" EntityType="AppDataModel1.Website" />
+    <AssociationSet Name="FK_Menu_Website" Association="AppDataModel1.FK_Menu_Website">
+      <End Role="Website" EntitySet="Websites" />
+      <End Role="Menu" EntitySet="Menus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MenuWidget_Menu" Association="AppDataModel1.FK_MenuWidget_Menu">
+      <End Role="Menu" EntitySet="Menus" />
+      <End Role="MenuItem" EntitySet="MenuItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Page_Website" Association="AppDataModel1.FK_Page_Website">
+      <End Role="Website" EntitySet="Websites" />
+      <End Role="Page" EntitySet="Pages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRoles_Roles" Association="AppDataModel1.FK_UserRoles_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="UserRoles" EntitySet="UserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRoles_Users" Association="AppDataModel1.FK_UserRoles_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserRoles" EntitySet="UserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Website_Theme" Association="AppDataModel1.FK_Website_Theme">
+      <End Role="Theme" EntitySet="Themes" />
+      <End Role="Website" EntitySet="Websites" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="menuId" />
+    </Key>
+    <Property Name="menuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="websiteId" Type="Int32" />
+    <Property Name="name" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="parentId" Type="Int32" Nullable="false" />
+    <Property Name="modified" Type="DateTime" Nullable="false" />
+    <Property Name="created" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Website" Relationship="AppDataModel1.FK_Menu_Website" FromRole="Menu" ToRole="Website" />
+    <NavigationProperty Name="MenuItems" Relationship="AppDataModel1.FK_MenuWidget_Menu" FromRole="Menu" ToRole="MenuItem" />
+  </EntityType>
+  <EntityType Name="MenuItem">
+    <Key>
+      <PropertyRef Name="menuItem1" />
+    </Key>
+    <Property Name="menuItem1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="menuId" Type="Int32" />
+    <Property Name="name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="menuItemType" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="link" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="target" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="query" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="modified" Type="DateTime" />
+    <Property Name="created" Type="DateTime" />
+    <NavigationProperty Name="Menu" Relationship="AppDataModel1.FK_MenuWidget_Menu" FromRole="MenuItem" ToRole="Menu" />
+  </EntityType>
+  <EntityType Name="Page">
+    <Key>
+      <PropertyRef Name="pageId" />
+    </Key>
+    <Property Name="pageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="websiteId" Type="Int32" />
+    <Property Name="name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="title" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="content" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="published" Type="Byte" Nullable="false" />
+    <Property Name="modified" Type="DateTime" Nullable="false" />
+    <Property Name="created" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Website" Relationship="AppDataModel1.FK_Page_Website" FromRole="Page" ToRole="Website" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="roleId" />
+    </Key>
+    <Property Name="roleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="description" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="modified" Type="DateTime" Nullable="false" />
+    <Property Name="created" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="UserRoles" Relationship="AppDataModel1.FK_UserRoles_Roles" FromRole="Roles" ToRole="UserRoles" />
+  </EntityType>
+  <EntityType Name="Theme">
+    <Key>
+      <PropertyRef Name="themeId" />
+    </Key>
+    <Property Name="themeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="thumbnailUrl" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="modified" Type="DateTime" Nullable="false" />
+    <Property Name="created" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Websites" Relationship="AppDataModel1.FK_Website_Theme" FromRole="Theme" ToRole="Website" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="userRoleId" />
+    </Key>
+    <Property Name="userRoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="userId" Type="Int32" />
+    <Property Name="roleId" Type="Int32" />
+    <Property Name="modified" Type="DateTime" />
+    <Property Name="created" Type="DateTime" />
+    <NavigationProperty Name="Role" Relationship="AppDataModel1.FK_UserRoles_Roles" FromRole="UserRoles" ToRole="Roles" />
+    <NavigationProperty Name="User" Relationship="AppDataModel1.FK_UserRoles_Users" FromRole="UserRoles" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="firstName" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="lastName" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="email" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="username" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="password" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="address" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="city" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="state" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="zip" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="modified" Type="DateTime" Nullable="false" />
+    <Property Name="created" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="UserRoles" Relationship="AppDataModel1.FK_UserRoles_Users" FromRole="Users" ToRole="UserRoles" />
+  </EntityType>
+  <EntityType Name="Website">
+    <Key>
+      <PropertyRef Name="websiteId" />
+    </Key>
+    <Property Name="websiteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="domain" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="title" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="slogan" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="logoUrl" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="homePageId" Type="Int32" />
+    <Property Name="adsenseId" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="googleAnalyticsId" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="themeId" Type="Int32" Nullable="false" />
+    <Property Name="active" Type="Byte" Nullable="false" />
+    <Property Name="enableAds" Type="Byte" Nullable="false" />
+    <Property Name="modified" Type="DateTime" Nullable="false" />
+    <Property Name="created" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Menus" Relationship="AppDataModel1.FK_Menu_Website" FromRole="Website" ToRole="Menu" />
+    <NavigationProperty Name="Pages" Relationship="AppDataModel1.FK_Page_Website" FromRole="Website" ToRole="Page" />
+    <NavigationProperty Name="Theme" Relationship="AppDataModel1.FK_Website_Theme" FromRole="Website" ToRole="Theme" />
+  </EntityType>
+  <Association Name="FK_Menu_Website">
+    <End Role="Website" Type="AppDataModel1.Website" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Menu" Type="AppDataModel1.Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Website">
+        <PropertyRef Name="websiteId" />
+      </Principal>
+      <Dependent Role="Menu">
+        <PropertyRef Name="websiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MenuWidget_Menu">
+    <End Role="Menu" Type="AppDataModel1.Menu" Multiplicity="0..1" />
+    <End Role="MenuItem" Type="AppDataModel1.MenuItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="menuId" />
+      </Principal>
+      <Dependent Role="MenuItem">
+        <PropertyRef Name="menuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Page_Website">
+    <End Role="Website" Type="AppDataModel1.Website" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Page" Type="AppDataModel1.Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Website">
+        <PropertyRef Name="websiteId" />
+      </Principal>
+      <Dependent Role="Page">
+        <PropertyRef Name="websiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRoles_Roles">
+    <End Role="Roles" Type="AppDataModel1.Role" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserRoles" Type="AppDataModel1.UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="roleId" />
+      </Principal>
+      <Dependent Role="UserRoles">
+        <PropertyRef Name="roleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRoles_Users">
+    <End Role="Users" Type="AppDataModel1.User" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserRoles" Type="AppDataModel1.UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="UserRoles">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Website_Theme">
+    <End Type="AppDataModel1.Theme" Role="Theme" Multiplicity="1" />
+    <End Type="AppDataModel1.Website" Role="Website" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Theme">
+        <PropertyRef Name="themeId" />
+      </Principal>
+      <Dependent Role="Website">
+        <PropertyRef Name="themeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
