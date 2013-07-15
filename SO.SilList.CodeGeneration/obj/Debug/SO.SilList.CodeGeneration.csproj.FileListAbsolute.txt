@@ -1,8 +1,0 @@
-D:\Projects\Git\SO.SilList\SO.SilList.CodeGeneration\bin\Debug\SO.SilList.CodeGeneration.dll.config
-D:\Projects\Git\SO.SilList\SO.SilList.CodeGeneration\bin\Debug\SO.SilList.CodeGeneration.dll
-D:\Projects\Git\SO.SilList\SO.SilList.CodeGeneration\bin\Debug\SO.SilList.CodeGeneration.pdb
-D:\Projects\Git\SO.SilList\SO.SilList.CodeGeneration\bin\Debug\EntityFramework.xml
-D:\Projects\Git\SO.SilList\SO.SilList.CodeGeneration\bin\Debug\PagedList.xml
-D:\Projects\Git\SO.SilList\SO.SilList.CodeGeneration\obj\Debug\SO.SilList.CodeGeneration.csprojResolveAssemblyReference.cache
-D:\Projects\Git\SO.SilList\SO.SilList.CodeGeneration\obj\Debug\SO.SilList.CodeGeneration.dll
-D:\Projects\Git\SO.SilList\SO.SilList.CodeGeneration\obj\Debug\SO.SilList.CodeGeneration.pdb

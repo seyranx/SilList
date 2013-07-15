@@ -1,4 +1,0 @@
-D:\Gito\DotNetProjects\SO.HyeList\SO.HyeList\SO.HyeList.Manager\bin\Debug\SO.HyeList.Manager.dll
-D:\Gito\DotNetProjects\SO.HyeList\SO.HyeList\SO.HyeList.Manager\bin\Debug\SO.HyeList.Manager.pdb
-D:\Gito\DotNetProjects\SO.HyeList\SO.HyeList\SO.HyeList.Manager\obj\Debug\SO.HyeList.Manager.dll
-D:\Gito\DotNetProjects\SO.HyeList\SO.HyeList\SO.HyeList.Manager\obj\Debug\SO.HyeList.Manager.pdb

@@ -1,5 +1,0 @@
-D:\Projects\Git\SO.SilList\SO.SilList.Manager\bin\Debug\SO.SilList.Manager.dll
-D:\Projects\Git\SO.SilList\SO.SilList.Manager\bin\Debug\SO.SilList.Manager.pdb
-D:\Projects\Git\SO.SilList\SO.SilList.Manager\obj\Debug\SO.SilList.Manager.csprojResolveAssemblyReference.cache
-D:\Projects\Git\SO.SilList\SO.SilList.Manager\obj\Debug\SO.SilList.Manager.dll
-D:\Projects\Git\SO.SilList\SO.SilList.Manager\obj\Debug\SO.SilList.Manager.pdb
