@@ -29,3 +29,5 @@ _ReSharper*/
 *.dll
 *.ldf
 *.mdf
+*.dbmdl
+*.refactorlog
