@@ -14,7 +14,12 @@
     [phone] NVARCHAR(50) NULL, 
     [isEmailConfirmed] BIT NULL DEFAULT 0, 
     [ipAddress] NVARCHAR(50) NULL, 
-    [lastLogin] DATETIME NULL DEFAULT getdate(), 
+    [lastLogin] DATETIME NOT NULL DEFAULT getdate(), 
     [isEmailSubscribed] BIT NULL DEFAULT 0, 
+    [created] DATETIME NOT NULL DEFAULT getdate(), 
+    [modified] DATETIME NOT NULL DEFAULT getdate(), 
+    [createdBy] INT NULL, 
+    [modifiedBy] INT NULL, 
+    [isActive] BIT NULL, 
     CONSTRAINT [PK_Member] PRIMARY KEY ([memberId])
 )
