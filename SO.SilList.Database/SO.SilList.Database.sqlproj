@@ -120,7 +120,7 @@
     <Build Include="data\Tables\BusinessCategoryType.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Compare_Update_Local.scmp" />
+    <None Include="Compare_Update_Code.scmp" />
     <None Include="Compare_Update_Server.scmp" />
   </ItemGroup>
   <ItemGroup>
