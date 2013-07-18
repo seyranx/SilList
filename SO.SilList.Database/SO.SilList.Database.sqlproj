@@ -108,6 +108,8 @@
     <Folder Include="data\" />
     <Folder Include="data\Tables\" />
     <Folder Include="Security\" />
+    <Folder Include="app\Tables" />
+    <Folder Include="app" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="data\Tables\Business.sql">
@@ -118,12 +120,12 @@
     <Build Include="Security\data.sql" />
     <Build Include="Security\app.sql" />
     <Build Include="data\Tables\BusinessCategoryType.sql" />
+    <Build Include="data\Tables\BusinessCategories.sql" />
+    <Build Include="data\Tables\Member.sql" />
+    <Build Include="app\Tables\Site.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />
     <None Include="Compare_Update_Server.scmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <RefactorLog Include="SO.SilList.Database.refactorlog" />
   </ItemGroup>
 </Project>
