@@ -123,14 +123,9 @@
     <Build Include="data\Tables\BusinessCategories.sql" />
     <Build Include="data\Tables\Member.sql" />
     <Build Include="app\Tables\Site.sql" />
-    <Build Include="data\Tables\Rental.sql" />
-    <Build Include="data\Tables\LeaseTermType.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />
     <None Include="Compare_Update_Server.scmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <RefactorLog Include="SO.SilList.Database.refactorlog" />
   </ItemGroup>
 </Project>
