@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Table1]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[memberId] INT NOT NULL , 
     [siteID] INT NULL, 
     [firstName] NVARCHAR(50) NULL, 
     [lastName] NVARCHAR(50) NULL, 
@@ -15,5 +15,6 @@
     [isEmailConfirmed] BIT NULL, 
     [ipAddress] NVARCHAR(50) NULL, 
     [lastLogin] DATETIME NULL, 
-    [isEmailSubscribed] BIT NULL
+    [isEmailSubscribed] BIT NULL, 
+    CONSTRAINT [PK_Table1] PRIMARY KEY ([Id])
 )
