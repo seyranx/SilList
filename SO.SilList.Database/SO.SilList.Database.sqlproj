@@ -119,12 +119,12 @@
     <Build Include="Security\dev.sql" />
     <Build Include="Security\data.sql" />
     <Build Include="Security\app.sql" />
-    <Build Include="data\Tables\BusinessCategoryType.sql" />
     <Build Include="data\Tables\BusinessCategories.sql" />
     <Build Include="data\Tables\Member.sql" />
     <Build Include="app\Tables\Site.sql" />
     <Build Include="data\Tables\ListingDetail.sql" />
     <Build Include="data\Tables\Image.sql" />
+    <Build Include="app\Tables\BusinessCategoryType.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />
