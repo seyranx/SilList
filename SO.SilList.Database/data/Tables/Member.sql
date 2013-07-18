@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Table1]
+﻿CREATE TABLE [data].[Member]
 (
 	[Id] INT NOT NULL PRIMARY KEY, 
     [siteID] INT NULL, 
