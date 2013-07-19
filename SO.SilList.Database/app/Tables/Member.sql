@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [data].[Member]
 (
-	[memberId] UNIQUEIDENTIFIER NOT NULL DEFAULT newid() , 
+	[memberId] INT NOT NULL  , 
     [siteId] INT NULL, 
     [firstName] NVARCHAR(50) NULL, 
     [lastName] NVARCHAR(50) NULL, 
