@@ -20,6 +20,6 @@
     [modified] DATETIME NOT NULL DEFAULT getdate(), 
     [createdBy] INT NULL, 
     [modifiedBy] INT NULL, 
-    [isActive] BIT NULL, 
+    [isActive] BIT NULL DEFAULT 1, 
     CONSTRAINT [PK_Member] PRIMARY KEY ([memberId])
 )

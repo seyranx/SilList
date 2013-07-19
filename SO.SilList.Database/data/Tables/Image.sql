@@ -8,11 +8,11 @@
 	[height] [int] NULL,
 	[width] [int] NULL,
 	[size] [int] NULL,
-	[created] [datetime] NOT NULL,
-	[modified] [datetime] NOT NULL,
+	[created] [datetime] NOT NULL DEFAULT getdate(),
+	[modified] [datetime] NOT NULL DEFAULT getdate(),
 	[createdBy] [int] NULL,
 	[modifiedBy] [int] NULL,
-	[isActive] [bit] NULL,
+	[isActive] [bit] NULL DEFAULT 1,
 -- generated from SSMS
 -- CONSTRAINT [PK_Image] PRIMARY KEY CLUSTERED 
 
