@@ -11,8 +11,11 @@
     [lotSize]         INT              NULL,
     [acceptsSection8] BIT              NULL,
     [rentTypeId]      INT              NULL,
+    [modifiedBy]      INT              NULL,
+    [modified]        DATETIME         CONSTRAINT [DF_Rental_modified] DEFAULT (getdate()) NOT NULL,
+    [createdBy]       INT              NULL,
+    [created]         DATETIME         CONSTRAINT [DF_Rental_created] DEFAULT (getdate()) NOT NULL,
+    [isActive]        BIT              CONSTRAINT [DF_Rental_isActive] DEFAULT ((1)) NOT NULL,
     PRIMARY KEY CLUSTERED ([rentalId] ASC)
 );
-
-
 
