@@ -124,7 +124,17 @@
     <Build Include="data\Tables\ListingDetail.sql" />
     <Build Include="data\Tables\Image.sql" />
     <Build Include="app\Tables\BusinessCategoryType.sql" />
-    <Build Include="app\Tables\Member.sql" />
+    <Build Include="app\Tables\Member.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
+    <Build Include="data\Tables\Rental.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
+    <Build Include="data\Tables\LeaseTermType.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />
