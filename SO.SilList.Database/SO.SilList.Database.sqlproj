@@ -129,7 +129,9 @@
     </Build>
     <Build Include="data\Tables\BusinessRatings.sql" />
     <Build Include="data\Tables\Rating.sql" />
-    <Build Include="data\Tables\BusinessCategories.sql" />
+    <Build Include="data\Tables\BusinessCategories.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
     <Build Include="data\Tables\LeaseTermType.sql">
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
