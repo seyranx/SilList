@@ -119,7 +119,6 @@
     <Build Include="Security\dev.sql" />
     <Build Include="Security\data.sql" />
     <Build Include="Security\app.sql" />
-    <Build Include="data\Tables\BusinessCategories.sql" />
     <Build Include="app\Tables\Site.sql" />
     <Build Include="data\Tables\ListingDetail.sql" />
     <Build Include="data\Tables\Image.sql" />
@@ -128,6 +127,9 @@
     <Build Include="data\Tables\Rental.sql">
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
+    <Build Include="data\Tables\BusinessRatings.sql" />
+    <Build Include="data\Tables\Rating.sql" />
+    <Build Include="data\Tables\BusinessCategories.sql" />
     <Build Include="data\Tables\LeaseTermType.sql">
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
