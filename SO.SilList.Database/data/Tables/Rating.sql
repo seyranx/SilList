@@ -1,7 +1,9 @@
-﻿CREATE TABLE [data].[BusinessCategories]
+﻿CREATE TABLE [data].[Rating]
 (
-	[businessCategoryTypeId] INT NOT NULL PRIMARY KEY, 
-    [businessId] UNIQUEIDENTIFIER NULL, 
+	[ratingId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
+    [rating] INT NULL, 
+    [review] NVARCHAR(50) NULL, 
+    [memberId] INT NULL, 
     [created] DATETIME NOT NULL DEFAULT getdate(), 
     [modified] DATETIME NOT NULL DEFAULT getdate(), 
     [createdBy] INT NULL, 

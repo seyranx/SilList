@@ -1,6 +1,6 @@
-﻿CREATE TABLE [data].[BusinessCategories]
+﻿CREATE TABLE [data].[BusinessRatings]
 (
-	[businessCategoryTypeId] INT NOT NULL PRIMARY KEY, 
+	[ratingId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
     [businessId] UNIQUEIDENTIFIER NULL, 
     [created] DATETIME NOT NULL DEFAULT getdate(), 
     [modified] DATETIME NOT NULL DEFAULT getdate(), 
