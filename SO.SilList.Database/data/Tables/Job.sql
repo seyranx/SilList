@@ -16,6 +16,10 @@
     [createdBy]        INT              NULL,
     [modifiedBy]       INT              NULL,
     [isActive]         BIT              NULL,
-    PRIMARY KEY CLUSTERED ([Id] ASC)
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Job_JobCompany] FOREIGN KEY ([jobCompanyId]) REFERENCES [data].[JobCompany] ([jobCompanyId]),
+    CONSTRAINT [FK_Job_JobType] FOREIGN KEY ([jobTypeId]) REFERENCES [app].[JobType] ([jobTypeId])
 );
+
+
 

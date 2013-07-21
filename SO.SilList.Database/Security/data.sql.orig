@@ -1,0 +1,16 @@
+﻿CREATE SCHEMA [data]
+    AUTHORIZATION [dbo];
+
+
+
+
+
+
+
+
+
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 3047be04ff171af4eaeccda0b10dce381a07cdae
