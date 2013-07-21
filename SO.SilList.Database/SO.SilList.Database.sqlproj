@@ -120,6 +120,8 @@
     <Build Include="Security\data.sql" />
     <Build Include="Security\app.sql" />
     <Build Include="app\Tables\Site.sql" />
+    <Build Include="data\Tables\JobCompany.sql" />
+    <Build Include="data\Tables\JobType.sql" />
     <Build Include="data\Tables\ListingDetail.sql" />
     <Build Include="data\Tables\Image.sql" />
     <Build Include="app\Tables\BusinessCategoryType.sql" />
@@ -135,6 +137,9 @@
     <Build Include="data\Tables\LeaseTermType.sql">
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
+    <Build Include="data\Tables\BusinessImages.sql" />
+    <Build Include="data\Tables\BusinessServices.sql" />
+    <Build Include="data\Tables\ServiceType.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />
