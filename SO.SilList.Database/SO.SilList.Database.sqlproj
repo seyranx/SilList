@@ -144,6 +144,7 @@
     <Build Include="app\Tables\LeaseTermType.sql" />
     <Build Include="app\Tables\RentType.sql" />
     <Build Include="app\Tables\JobType.sql" />
+    <Build Include="app\Tables\JobType.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />
