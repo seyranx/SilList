@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [data].[BusinessServices]
 (
-	[serviceTypeId] INT NOT NULL PRIMARY KEY, 
-    [businessId] UNIQUEIDENTIFIER NULL, 
+	[serviceTypeId] INT NOT NULL, 
+    [businessId] UNIQUEIDENTIFIER NOT NULL, 
     [created] DATETIME NULL DEFAULT getdate(), 
     [modified] DATETIME NULL DEFAULT getdate(), 
     [createdBy] INT NULL, 
