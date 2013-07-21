@@ -1,4 +1,4 @@
-﻿CREATE TABLE [data].[LeaseTermType] (
+﻿CREATE TABLE [app].[LeaseTermType] (
     [leaseTermTypeId] INT            NOT NULL,
     [name]            NVARCHAR (50)  NULL,
     [description]     NVARCHAR (MAX) NULL,

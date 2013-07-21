@@ -131,17 +131,17 @@
     <Build Include="data\Tables\JobCompany.sql" />
     <Build Include="data\Tables\Job.sql" />
     <Build Include="data\Tables\JobType.sql" />
-    <Build Include="data\Tables\LeaseTermType.sql" />
     <Build Include="data\Tables\ListingDetail.sql" />
     <Build Include="data\Tables\Member.sql" />
-    <Build Include="data\Tables\PropertyType.sql" />
     <Build Include="data\Tables\Rating.sql" />
     <Build Include="data\Tables\Rental.sql" />
     <Build Include="data\Tables\BusinessImages.sql" />
     <Build Include="data\Tables\BusinessRatings.sql" />
     <Build Include="data\Tables\RentalImages.sql" />
-    <Build Include="data\Tables\RentType.sql" />
-    <Build Include="data\Tables\ServiceType.sql" />
+    <Build Include="app\Tables\ServiceType.sql" />
+    <Build Include="app\Tables\PropertyType.sql" />
+    <Build Include="app\Tables\LeaseTermType.sql" />
+    <Build Include="app\Tables\RentType.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />
