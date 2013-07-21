@@ -2,15 +2,19 @@
 <SchemaComparison>
   <Version>10</Version>
   <SourceModelProvider>
+    <ConnectionBasedModelProvider>
+<<<<<<< HEAD
+      <ConnectionString>Data Source=localhost\SQLEXPRESS;Initial Catalog=SilList;Integrated Security=True;Pooling=False</ConnectionString>
+=======
+      <ConnectionString>Data Source=localhost\SQLEXPRESS;Initial Catalog=SilList;Integrated Security=True;Pooling=False;MultipleActiveResultSets=False;Application Name="Microsoft SQL Server Data Tools, Schema Compare"</ConnectionString>
+>>>>>>> 1d964128c53b894a61f15fc55802805b07a5dda1
+    </ConnectionBasedModelProvider>
+  </SourceModelProvider>
+  <TargetModelProvider>
     <ProjectBasedModelProvider>
       <ProjectGuid>{68778b0f-63ba-4d6f-b227-6e69b8b97688}</ProjectGuid>
       <Name>SO.SilList.Database</Name>
     </ProjectBasedModelProvider>
-  </SourceModelProvider>
-  <TargetModelProvider>
-    <ConnectionBasedModelProvider>
-      <ConnectionString>Data Source=localhost\SQLEXPRESS;Initial Catalog=SilList;Integrated Security=True;Pooling=False</ConnectionString>
-    </ConnectionBasedModelProvider>
   </TargetModelProvider>
   <SchemaCompareSettingsService>
     <SchemaCompareSettingsService>
