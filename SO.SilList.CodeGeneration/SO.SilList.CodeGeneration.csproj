@@ -64,7 +64,6 @@
     <Compile Include="DbContexts\DefaultTT\BusinessCategoryType.cs">
       <DependentUpon>EF5_DbContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="DbContexts\DefaultTT\EF5_DbContext.Context.cs" />
     <Compile Include="DbContexts\DefaultTT\EF5_DbContext.Context1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

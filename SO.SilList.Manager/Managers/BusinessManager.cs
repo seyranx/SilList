@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SO.SilList.DbContexts;
-using SO.SilList.Manager.ValueObjects.AppData.All;
 using System.Data.Entity;
-using SO.Manager.Interfaces;
 using EntityFramework.Extensions;
+using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Manager.Interfaces;
+using SO.SilList.Manager.DbContexts;
 
 namespace SO.SilList.Manager.Managers
 {
@@ -19,9 +19,14 @@ namespace SO.SilList.Manager.Managers
 
         }
 
-        public BusinessVo findByName(string name)
+        /// <summary>
+        /// Find The business with matching the name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public BusinessVo getByName(string name)
         {
-            using (var db = new SilListDb())
+            using (var db = new MainDb())
             {
                 var res = db.businesses.FirstOrDefault(e => e.name == name);
 
@@ -29,22 +34,28 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-
-        public BusinessVo find(Guid businessId)
+        /// <summary>
+        /// Find Businesses matching the businessId (primary key)
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public BusinessVo get(Guid businessId)
         {
-            using (var db = new SilListDb())
+            using (var db = new MainDb())
             {
-                var res = db.businesses.FirstOrDefault(e => e.businessId == businessId);
+                var res = db.businesses.Find(businessId);
                  
                 return res;
             }
         }
 
-        public List<BusinessVo> findAll(bool? isActive=true)
+        //
+        public List<BusinessVo> getAll(bool? isActive=true)
         {
-            using (var db = new SilListDb())
+            using (var db = new MainDb())
             {
-                var list = db.businesses.Where(e => isActive==null || e.isActive == isActive )
+                var list = db.businesses
+                             .Where(e => isActive==null || e.isActive == isActive )
                              .ToList();
 
                 return list;
@@ -54,7 +65,7 @@ namespace SO.SilList.Manager.Managers
 
         public bool delete(Guid businessId)
         {
-            using (var db = new SilListDb())
+            using (var db = new MainDb())
             {
                 var res = db.businesses
                      .Where(e => e.businessId == businessId)
@@ -63,13 +74,13 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public BusinessVo update(BusinessVo input, Guid businessId=-1)
+        public BusinessVo update(BusinessVo input, Guid? businessId= null)
         {
         
-            using (var db = new SilListDb())
+            using (var db = new MainDb())
             {
 
-                if (businessId == -1)
+                if (businessId == null)
                     businessId = input.businessId; 
 
                 var res = db.businesses.FirstOrDefault(e => e.businessId == businessId);
@@ -89,7 +100,7 @@ namespace SO.SilList.Manager.Managers
 
         public BusinessVo insert(BusinessVo input)
         {
-            using (var db = new SilListDb())
+            using (var db = new MainDb())
             {
                 
                 db.businesses.Add(input);
@@ -100,9 +111,9 @@ namespace SO.SilList.Manager.Managers
 
         }
 
-        public Guid count()
+        public int count()
         {
-            using (var db = new SilListDb())
+            using (var db = new MainDb())
             {
                 return db.businesses.Count();
             }
