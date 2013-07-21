@@ -120,23 +120,22 @@
     <Build Include="Security\data.sql" />
     <Build Include="Security\app.sql" />
     <Build Include="app\Tables\Site.sql" />
-    <Build Include="data\Tables\JobCompany.sql" />
-    <Build Include="data\Tables\JobType.sql" />
     <Build Include="data\Tables\ListingDetail.sql" />
     <Build Include="data\Tables\Image.sql" />
     <Build Include="app\Tables\BusinessCategoryType.sql" />
     <Build Include="app\Tables\Member.sql" />
+<<<<<<< HEAD
     <Build Include="data\Tables\Rental.sql">
       <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="data\Tables\BusinessRatings.sql" />
-    <Build Include="data\Tables\Rating.sql" />
-    <Build Include="data\Tables\BusinessCategories.sql">
-      <AnsiNulls>Off</AnsiNulls>
     </Build>
     <Build Include="data\Tables\LeaseTermType.sql">
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
+=======
+    <Build Include="data\Tables\BusinessRatings.sql" />
+    <Build Include="data\Tables\Rating.sql" />
+    <Build Include="data\Tables\BusinessCategories.sql" />
+>>>>>>> cea9f1327a17939671abf916914f52f37509987b
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />

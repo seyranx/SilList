@@ -5,3 +5,4 @@
     CONSTRAINT [FK_BusinessCategories_BusinessCategoryType] FOREIGN KEY ([businessCategoryTypeId]) REFERENCES [app].[BusinessCategoryType] ([businessCategoryTypeId]) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+
