@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Table3]
+﻿CREATE TABLE [dbo].[JobType]
 (
 	[jobTypeId] INT NOT NULL PRIMARY KEY, 
     [name] NVARCHAR(50) NULL, 
