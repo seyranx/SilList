@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[JobCompany]
+﻿CREATE TABLE [data].[JobCompany]
 (
 	[jobCompanyId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
     [name] NVARCHAR(50) NULL, 
