@@ -1,5 +1,4 @@
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,10 +10,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 
-namespace SO.SilList.CodeGeneration.DbContexts.SilList
+namespace SO.SilList.Manager.Models.ValueObjects
 {
      
-    [Table("Site", Schema = "dbo" )]
+    [Table("Site", Schema = "app" )]
     [Serializable]
     public partial class SiteVo
     {

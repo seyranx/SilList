@@ -17,6 +17,7 @@ namespace SO.SilList.Manager.DbContexts
         {
             this.Configuration.LazyLoadingEnabled = false;
             this.Configuration.ProxyCreationEnabled = false;
+           
 
         }
 
@@ -27,6 +28,7 @@ namespace SO.SilList.Manager.DbContexts
 
 
         public DbSet<BusinessVo> businesses { get; set; }
+        public DbSet<SiteVo> sites { get; set; }
       
 
     }

@@ -1,12 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SO.SilList.Manager.Managers;
 
 namespace SO.SilList.Tests.Managers
 {
-    class BusinessManagerTest
+    [TestClass]
+    public class BusinessManagerTest
     {
+        private BusinessManager businessManager = new BusinessManager();
+
+        [TestMethod]
+        public void getAllTest()
+        {
+
+            var res = businessManager.getAll(null);
+
+            Assert.IsTrue(true);
+        }
     }
 }

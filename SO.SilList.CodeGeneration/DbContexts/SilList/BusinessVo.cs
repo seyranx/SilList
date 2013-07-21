@@ -14,13 +14,13 @@ using System.Data.Entity;
 namespace SO.SilList.CodeGeneration.DbContexts.SilList
 {
      
-    [Table("Business", Schema = "dbo" )]
+    [Table("Business", Schema = "data" )]
     [Serializable]
     public partial class BusinessVo
     {
     		
     	[DisplayName("business Id")]
-    	[Required]
+        [Key]
         public System.Guid businessId { get; set; }
     		
     	[DisplayName("site Id")]
@@ -63,8 +63,9 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     	[Required]
         public bool isActive { get; set; }
 
-    
 
+        [ForeignKey("siteId")]
+        public SiteVo site { get; set; }
 
     }
 }

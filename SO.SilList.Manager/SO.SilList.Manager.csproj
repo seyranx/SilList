@@ -52,6 +52,7 @@
     <Compile Include="Interfaces\IBusinessManager.cs" />
     <Compile Include="Managers\BusinessManager.cs" />
     <Compile Include="Models\ValueObjects\BusinessVo.cs" />
+    <Compile Include="Models\ValueObjects\SiteVo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

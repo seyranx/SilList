@@ -6,23 +6,22 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 
 namespace SO.SilList.Manager.Models.ValueObjects
 {
-    [Table("Business", Schema = "dbo")]
+    [Table("Business", Schema = "data")]
     [Serializable]
     public partial class BusinessVo
     {
 
         [DisplayName("business Id")]
-        [Required]
+        [Key]
         public System.Guid businessId { get; set; }
 
-        [DisplayName("site Id")]
-        public Nullable<int> siteId { get; set; }
+       // [DisplayName("site Id")]
+       // public Nullable<int> siteId { get; set; }
 
         [DisplayName("name")]
         [StringLength(250)]
@@ -62,7 +61,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public bool isActive { get; set; }
 
 
+        //  [Association("Business_BusinessCategories", "businessId", "businessId", IsForeignKey = true)]
+       // public List<BusinessCategories> businessCategories { get; set; }
 
+        //[ForeignKey("siteId")]
+        //public SiteVo site { get; set; }
 
     }
 }

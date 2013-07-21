@@ -77,15 +77,6 @@
     <Compile Include="DbContexts\DefaultTT\Site.cs">
       <DependentUpon>EF5_DbContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="DbContexts\SilList\Business.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DbContexts\SilList\BusinessCategory.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DbContexts\SilList\BusinessCategoryType.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
-    </Compile>
     <Compile Include="DbContexts\SilList\BusinessCategoryTypeVo.cs">
       <DependentUpon>SilListDbContext.tt</DependentUpon>
     </Compile>
@@ -95,28 +86,10 @@
     <Compile Include="DbContexts\SilList\BusinessVo.cs">
       <DependentUpon>SilListDbContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="DbContexts\SilList\Model3.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model3.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DbContexts\SilList\Model3.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DbContexts\SilList\Model3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model3.edmx</DependentUpon>
-    </Compile>
     <Compile Include="DbContexts\SilList\SilListDbContext.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SilListDbContext.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DbContexts\SilList\Site.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
     <Compile Include="DbContexts\SilList\SiteVo.cs">
       <DependentUpon>SilListDbContext.tt</DependentUpon>
@@ -139,10 +112,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <EntityDeploy Include="DbContexts\SilList\Model3.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model3.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="DbContexts\DefaultTT\EF5_DbContext.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>EF5_DbContext.Context1.cs</LastGenOutput>
@@ -150,19 +119,6 @@
     <None Include="DbContexts\DefaultTT\EF5_DbContext.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>EF5_DbContext.cs</LastGenOutput>
-    </None>
-    <None Include="DbContexts\SilList\Model3.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model3.edmx</DependentUpon>
-      <LastGenOutput>Model3.Context.cs</LastGenOutput>
-    </None>
-    <None Include="DbContexts\SilList\Model3.edmx.diagram">
-      <DependentUpon>Model3.edmx</DependentUpon>
-    </None>
-    <None Include="DbContexts\SilList\Model3.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model3.edmx</DependentUpon>
-      <LastGenOutput>Model3.cs</LastGenOutput>
     </None>
     <None Include="DbContexts\SilList\SilListDbContext.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
