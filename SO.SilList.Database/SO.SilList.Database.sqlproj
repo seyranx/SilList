@@ -110,6 +110,8 @@
     <Folder Include="Security\" />
     <Folder Include="app\Tables" />
     <Folder Include="app" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="data\Tables\Business.sql">
@@ -120,32 +122,29 @@
     <Build Include="Security\data.sql" />
     <Build Include="Security\app.sql" />
     <Build Include="app\Tables\Site.sql" />
-    <Build Include="data\Tables\JobCompany.sql" />
-    <Build Include="data\Tables\JobType.sql" />
-    <Build Include="data\Tables\ListingDetail.sql" />
-    <Build Include="data\Tables\Image.sql" />
     <Build Include="app\Tables\BusinessCategoryType.sql" />
-    <Build Include="app\Tables\Member.sql" />
-    <Build Include="data\Tables\Rental.sql">
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="data\Tables\BusinessRatings.sql" />
-    <Build Include="data\Tables\Rating.sql" />
     <Build Include="data\Tables\BusinessCategories.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
-    <Build Include="data\Tables\LeaseTermType.sql">
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="data\Tables\BusinessImages.sql" />
     <Build Include="data\Tables\BusinessServices.sql" />
-    <Build Include="data\Tables\ServiceType.sql" />
+    <Build Include="data\Tables\Image.sql" />
+    <Build Include="data\Tables\JobCompany.sql" />
+    <Build Include="data\Tables\Job.sql" />
+    <Build Include="data\Tables\JobType.sql" />
+    <Build Include="data\Tables\ListingDetail.sql" />
+    <Build Include="data\Tables\Member.sql" />
+    <Build Include="data\Tables\Rating.sql" />
+    <Build Include="data\Tables\Rental.sql" />
+    <Build Include="data\Tables\BusinessImages.sql" />
+    <Build Include="data\Tables\BusinessRatings.sql" />
+    <Build Include="data\Tables\RentalImages.sql" />
+    <Build Include="app\Tables\ServiceType.sql" />
+    <Build Include="app\Tables\PropertyType.sql" />
+    <Build Include="app\Tables\LeaseTermType.sql" />
+    <Build Include="app\Tables\RentType.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />
     <None Include="Compare_Update_Server.scmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <RefactorLog Include="SO.SilList.Database.refactorlog" />
   </ItemGroup>
 </Project>
