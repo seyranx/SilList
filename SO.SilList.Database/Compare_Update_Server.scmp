@@ -9,7 +9,7 @@
   </SourceModelProvider>
   <TargetModelProvider>
     <ConnectionBasedModelProvider>
-      <ConnectionString>Data Source=SAKO-HP-17\HPLTSQL12;Initial Catalog=SilList;Integrated Security=True;Pooling=False</ConnectionString>
+      <ConnectionString>Data Source=localhost\SQLEXPRESS;Initial Catalog=SilList;Integrated Security=True;Pooling=False</ConnectionString>
     </ConnectionBasedModelProvider>
   </TargetModelProvider>
   <SchemaCompareSettingsService>
