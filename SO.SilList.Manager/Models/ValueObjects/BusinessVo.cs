@@ -46,7 +46,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public Nullable<int> createdBy { get; set; }
 
         [DisplayName("modified By")]
-        public Nullable<int> modifiedBy { get; set; }
+        public int? modifiedBy { get; set; }
 
         [DisplayName("modified")]
         [Required]
@@ -64,8 +64,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         //  [Association("Business_BusinessCategories", "businessId", "businessId", IsForeignKey = true)]
        // public List<BusinessCategories> businessCategories { get; set; }
 
-        //[ForeignKey("siteId")]
-        //public SiteVo site { get; set; }
+        [ForeignKey("siteId")]
+        public SiteVo site { get; set; }
 
     }
 }

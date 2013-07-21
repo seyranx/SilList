@@ -20,7 +20,7 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     {
     		
     	[DisplayName("site Id")]
-    	[Key]
+    	[Required]
         public int siteId { get; set; }
     		
     	[DisplayName("name")]
@@ -30,5 +30,10 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     	[DisplayName("domain")]
     	[StringLength(250)]
         public string domain { get; set; }
+
+
+         [Association("Site_Business", "siteId", "siteId", IsForeignKey = true)]
+         public List<BusinessVo> businesses { get; set; }
+
     }
 }

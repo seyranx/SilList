@@ -29,5 +29,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("domain")]
     	[StringLength(250)]
         public string domain { get; set; }
+
+        [Association("Site_Business", "siteId", "siteId", IsForeignKey = true)]
+        public List<BusinessVo> businesses { get; set; }
     }
 }

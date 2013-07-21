@@ -14,18 +14,42 @@ using System.Data.Entity;
 namespace SO.SilList.CodeGeneration.DbContexts.SilList
 {
      
-    [Table("BusinessCategory", Schema = "dbo" )]
+    [Table("Image", Schema = "dbo" )]
     [Serializable]
-    public partial class BusinessCategoryVo
+    public partial class ImageVo
     {
     		
-    	[DisplayName("business Id")]
+    	[DisplayName("image Id")]
     	[Required]
-        public System.Guid businessId { get; set; }
+        public System.Guid imageId { get; set; }
     		
-    	[DisplayName("business Category Type Id")]
-    	[Required]
-        public int businessCategoryTypeId { get; set; }
+    	[DisplayName("name")]
+    	[StringLength(50)]
+        public string name { get; set; }
+    		
+    	[DisplayName("url")]
+    	[StringLength(50)]
+        public string url { get; set; }
+    		
+    	[DisplayName("path")]
+    	[StringLength(50)]
+        public string path { get; set; }
+    		
+    	[DisplayName("file Type")]
+    	[StringLength(50)]
+        public string fileType { get; set; }
+    		
+    	[DisplayName("site Id")]
+        public Nullable<int> siteId { get; set; }
+    		
+    	[DisplayName("height")]
+        public Nullable<int> height { get; set; }
+    		
+    	[DisplayName("width")]
+        public Nullable<int> width { get; set; }
+    		
+    	[DisplayName("size")]
+        public Nullable<int> size { get; set; }
     		
     	[DisplayName("created")]
     	[Required]

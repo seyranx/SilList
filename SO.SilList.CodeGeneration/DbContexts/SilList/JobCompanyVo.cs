@@ -14,28 +14,25 @@ using System.Data.Entity;
 namespace SO.SilList.CodeGeneration.DbContexts.SilList
 {
      
-    [Table("Business", Schema = "dbo" )]
+    [Table("JobCompany", Schema = "dbo" )]
     [Serializable]
-    public partial class BusinessVo
+    public partial class JobCompanyVo
     {
     		
-    	[DisplayName("business Id")]
+    	[DisplayName("job Company Id")]
     	[Required]
-        public System.Guid businessId { get; set; }
-    		
-    	[DisplayName("site Id")]
-        public Nullable<int> siteId { get; set; }
+        public System.Guid jobCompanyId { get; set; }
     		
     	[DisplayName("name")]
-    	[StringLength(250)]
+    	[StringLength(50)]
         public string name { get; set; }
     		
     	[DisplayName("address")]
-    	[StringLength(250)]
+    	[StringLength(50)]
         public string address { get; set; }
     		
     	[DisplayName("city")]
-    	[StringLength(250)]
+    	[StringLength(50)]
         public string city { get; set; }
     		
     	[DisplayName("state")]
@@ -45,22 +42,30 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     	[DisplayName("zip")]
         public Nullable<int> zip { get; set; }
     		
+    	[DisplayName("website")]
+    	[StringLength(50)]
+        public string website { get; set; }
+    		
+    	[DisplayName("phone")]
+    	[StringLength(50)]
+        public string phone { get; set; }
+    		
+    	[DisplayName("site Id")]
+        public Nullable<int> siteId { get; set; }
+    		
+    	[DisplayName("created")]
+        public Nullable<System.DateTime> created { get; set; }
+    		
+    	[DisplayName("modified")]
+        public Nullable<System.DateTime> modified { get; set; }
+    		
     	[DisplayName("created By")]
         public Nullable<int> createdBy { get; set; }
     		
     	[DisplayName("modified By")]
         public Nullable<int> modifiedBy { get; set; }
     		
-    	[DisplayName("modified")]
-    	[Required]
-        public System.DateTime modified { get; set; }
-    		
-    	[DisplayName("created")]
-    	[Required]
-        public System.DateTime created { get; set; }
-    		
     	[DisplayName("is Active")]
-    	[Required]
-        public bool isActive { get; set; }
+        public Nullable<bool> isActive { get; set; }
     }
 }

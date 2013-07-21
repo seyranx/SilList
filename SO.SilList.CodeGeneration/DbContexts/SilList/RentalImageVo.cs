@@ -14,18 +14,18 @@ using System.Data.Entity;
 namespace SO.SilList.CodeGeneration.DbContexts.SilList
 {
      
-    [Table("BusinessCategory", Schema = "dbo" )]
+    [Table("RentalImage", Schema = "dbo" )]
     [Serializable]
-    public partial class BusinessCategoryVo
+    public partial class RentalImageVo
     {
     		
-    	[DisplayName("business Id")]
+    	[DisplayName("image Id")]
     	[Required]
-        public System.Guid businessId { get; set; }
+        public System.Guid imageId { get; set; }
     		
-    	[DisplayName("business Category Type Id")]
+    	[DisplayName("rental Id")]
     	[Required]
-        public int businessCategoryTypeId { get; set; }
+        public System.Guid rentalId { get; set; }
     		
     	[DisplayName("created")]
     	[Required]
