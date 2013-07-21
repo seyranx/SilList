@@ -1,4 +1,4 @@
-﻿CREATE TABLE [data].[Jobs] (
+﻿CREATE TABLE [data].[Job] (
     [Id]               INT              NOT NULL,
     [jobId]            UNIQUEIDENTIFIER NULL,
     [listingDetailId]  UNIQUEIDENTIFIER NULL,
