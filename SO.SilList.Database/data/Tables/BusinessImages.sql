@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[BusinessImages]
+﻿CREATE TABLE [data].[BusinessImages]
 (
 	[imageId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
     [businessId] UNIQUEIDENTIFIER, 
@@ -7,5 +7,4 @@
     [craetedBy] INT NULL, 
     [modifiedBy] INT NULL, 
     [isActive] BIT NULL 
-
-)
+	)

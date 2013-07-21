@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[ServiceType]
+﻿CREATE TABLE [data].[ServiceType]
 (
 	[serviceTypeId] INT NOT NULL PRIMARY KEY, 
     [description] NVARCHAR(MAX) NULL, 
@@ -11,3 +11,4 @@
     [isActive] BIT NULL
 
 )
+

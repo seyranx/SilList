@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[BusinessServices]
+﻿CREATE TABLE [data].[BusinessServices]
 (
 	[serviceTypeId] INT NOT NULL PRIMARY KEY, 
     [businessId] UNIQUEIDENTIFIER NULL, 
