@@ -20,8 +20,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [Key]
         public System.Guid businessId { get; set; }
 
-       // [DisplayName("site Id")]
-       // public Nullable<int> siteId { get; set; }
+        [DisplayName("site Id")]
+        public Nullable<int> siteId { get; set; }
 
         [DisplayName("name")]
         [StringLength(250)]
@@ -65,7 +65,13 @@ namespace SO.SilList.Manager.Models.ValueObjects
        // public List<BusinessCategories> businessCategories { get; set; }
 
         [ForeignKey("siteId")]
-        public SiteVo site { get; set; }
+        public virtual SiteVo site { get; set; }
+
+         public BusinessVo(){
+    			
+    		this.businessId = Guid.NewGuid();
+    	    this.isActive = true;
+    	 }
 
     }
 }

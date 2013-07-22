@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 
@@ -30,7 +29,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[StringLength(250)]
         public string domain { get; set; }
 
-        [Association("Site_Business", "siteId", "siteId", IsForeignKey = true)]
-        public List<BusinessVo> businesses { get; set; }
+       // [Association("Site_Business", "siteId", "siteId", IsForeignKey = true)]
+       /// public List<BusinessVo> businesses { get; set; }
     }
 }

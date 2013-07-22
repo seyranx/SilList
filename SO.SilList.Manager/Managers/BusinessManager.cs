@@ -22,8 +22,6 @@ namespace SO.SilList.Manager.Managers
         /// <summary>
         /// Find The business with matching the name
         /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
         public BusinessVo getByName(string name)
         {
             using (var db = new MainDb())
@@ -37,14 +35,29 @@ namespace SO.SilList.Manager.Managers
         /// <summary>
         /// Find Businesses matching the businessId (primary key)
         /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
         public BusinessVo get(Guid businessId)
         {
             using (var db = new MainDb())
             {
-                var res = db.businesses.Find(businessId);
+                var res = db.businesses
+                            .Include(s => s.site)
+                            .FirstOrDefault(p=>p.businessId==businessId);
                  
+                return res;
+            }
+        }
+
+        /// <summary>
+        /// Get First Item
+        /// </summary>
+        public BusinessVo getFirst()
+        {
+            using (var db = new MainDb())
+            {
+                var res = db.businesses
+                            .Include(s=>s.site)
+                            .FirstOrDefault();
+               
                 return res;
             }
         }
@@ -55,6 +68,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var list = db.businesses
+                             .Include(s => s.site)
                              .Where(e => isActive==null || e.isActive == isActive )
                              .ToList();
 

@@ -6,17 +6,18 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Utility.Base;
 
 
 namespace SO.SilList.Manager.DbContexts
 {
-    public partial class MainDb : DbContext
+    public partial class MainDb : BaseDbContext
     {
         public MainDb()
             : base("name=MainDb")
         {
-            this.Configuration.LazyLoadingEnabled = false;
-            this.Configuration.ProxyCreationEnabled = false;
+           // this.Configuration.LazyLoadingEnabled = false;
+           // this.Configuration.ProxyCreationEnabled = false;
            
 
         }

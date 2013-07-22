@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -40,6 +44,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.Extensions" />
@@ -107,6 +112,10 @@
     <ProjectReference Include="..\SO.SilList.Manager\SO.SilList.Manager.csproj">
       <Project>{b224cd00-0ec0-43fc-b90b-f1f05f760abf}</Project>
       <Name>SO.SilList.Manager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SO.SilList.Utility\SO.SilList.Utility.csproj">
+      <Project>{6fe90691-f7da-42a0-b3a9-3b822cf0e713}</Project>
+      <Name>SO.SilList.Utility</Name>
     </ProjectReference>
     <ProjectReference Include="..\SO.SilList.Web\SO.SilList.Web.csproj">
       <Project>{77e8c0ff-44cb-44fe-957f-364f8b5d0e55}</Project>

@@ -218,7 +218,6 @@
       <DependentUpon>SilListDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValueObjects\Business\BusinessCategoryTypeVo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />

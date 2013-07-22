@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 
@@ -96,5 +95,11 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     		
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
+      
+    	public MemberVo(){
+    			
+    	
+    	 //this.isActive = true;
+    	}
     }
 }
