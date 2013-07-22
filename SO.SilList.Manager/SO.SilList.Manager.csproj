@@ -54,6 +54,7 @@
     <Compile Include="Models\ValueObjects\BusinessVo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\ValueObjects\Class1.cs" />
     <Compile Include="Models\ValueObjects\SiteVo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

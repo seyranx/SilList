@@ -1,5 +1,0 @@
-﻿CREATE TABLE [data].[RentalImages]
-(
-	[imageId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
-    [rentalId] UNIQUEIDENTIFIER NOT NULL
-)
