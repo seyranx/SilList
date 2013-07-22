@@ -20,9 +20,11 @@
     CONSTRAINT [FK_Rental_LeaseTermType] FOREIGN KEY ([leaseTermTypeId]) REFERENCES [app].[LeaseTermType] ([leaseTermTypeId]) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT [FK_Rental_ListingDetail] FOREIGN KEY ([listingDetailId]) REFERENCES [data].[ListingDetail] ([listingDetailId]) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT [FK_Rental_Member] FOREIGN KEY ([rentTypeId]) REFERENCES [data].[Member] ([memberId]) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT [FK_Rental_PropertyType] FOREIGN KEY ([propertyTypeId]) REFERENCES [app].[PropertyType] ([propertyTypeId]) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT [FK_Rental_RentType] FOREIGN KEY ([rentTypeId]) REFERENCES [app].[RentType] ([rentTypeId]) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT [FK_Rental_PropertyType1] FOREIGN KEY ([propertyTypeId]) REFERENCES [app].[PropertyType] ([propertyTypeId]),
+    CONSTRAINT [FK_Rental_RentType1] FOREIGN KEY ([rentTypeId]) REFERENCES [app].[RentType] ([rentTypeId])
 );
+
+
 
 
 
