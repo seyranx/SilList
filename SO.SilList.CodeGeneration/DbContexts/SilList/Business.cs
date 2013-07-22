@@ -14,6 +14,11 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     
     public partial class Business
     {
+        public Business()
+        {
+            this.BusinessServices = new HashSet<BusinessService>();
+        }
+    
         public System.Guid businessId { get; set; }
         public Nullable<int> siteId { get; set; }
         public string name { get; set; }
@@ -28,6 +33,6 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
         public bool isActive { get; set; }
     
         public virtual Site Site { get; set; }
-        public virtual BusinessCategory BusinessCategory { get; set; }
+        public virtual ICollection<BusinessService> BusinessServices { get; set; }
     }
 }

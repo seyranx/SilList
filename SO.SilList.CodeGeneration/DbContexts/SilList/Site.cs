@@ -16,6 +16,7 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     {
         public Site()
         {
+            this.BusinessCategoryTypes = new HashSet<BusinessCategoryType>();
             this.Businesses = new HashSet<Business>();
         }
     
@@ -23,6 +24,7 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
         public string name { get; set; }
         public string domain { get; set; }
     
+        public virtual ICollection<BusinessCategoryType> BusinessCategoryTypes { get; set; }
         public virtual ICollection<Business> Businesses { get; set; }
     }
 }

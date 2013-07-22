@@ -30,8 +30,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.Extended">
+      <HintPath>..\packages\EntityFramework.Extended.5.0.0.73\lib\net45\EntityFramework.Extended.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,10 +48,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Connection.cs" />
+    <Compile Include="DbContexts\MainDb.cs" />
+    <Compile Include="Interfaces\IBusinessManager.cs" />
+    <Compile Include="Managers\BusinessManager.cs" />
+    <Compile Include="Models\ValueObjects\BusinessVo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\ValueObjects\Class1.cs" />
+    <Compile Include="Models\ValueObjects\SiteVo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\ValueObjects\" />
+    <ProjectReference Include="..\SO.SilList.Utility\SO.SilList.Utility.csproj">
+      <Project>{6fe90691-f7da-42a0-b3a9-3b822cf0e713}</Project>
+      <Name>SO.SilList.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

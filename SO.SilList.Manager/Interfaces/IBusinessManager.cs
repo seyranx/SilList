@@ -1,3 +1,4 @@
+using SO.SilList.Manager.Models.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,11 @@ namespace SO.SilList.Manager.Interfaces
 {
     interface IBusinessManager
     {
-
-         BusinessVo findByName(string name);
-         BusinessVo find(Guid businessId);
-         List<BusinessVo> findAll(bool? isActive=true);
+         BusinessVo getByName(string name);
+         BusinessVo get(Guid businessId);
+         List<BusinessVo> getAll(bool? isActive=true);
          bool delete(Guid businessId);
-         BusinessVo update(BusinessVo input, Guid businessId = -1);
+         BusinessVo update(BusinessVo input, Guid? businessId = null);
          BusinessVo insert(BusinessVo input);
     }
 }
