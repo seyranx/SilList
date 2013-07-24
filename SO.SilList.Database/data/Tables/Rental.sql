@@ -16,6 +16,15 @@
     [createdBy]       INT              NULL,
     [created]         DATETIME         CONSTRAINT [DF_Rental_created] DEFAULT (getdate()) NOT NULL,
     [isActive]        BIT              CONSTRAINT [DF_Rental_isActive] DEFAULT ((1)) NOT NULL,
-    PRIMARY KEY CLUSTERED ([rentalId] ASC)
+    PRIMARY KEY CLUSTERED ([rentalId] ASC),
+    CONSTRAINT [FK_Rental_LeaseTermType] FOREIGN KEY ([leaseTermTypeId]) REFERENCES [app].[LeaseTermType] ([leaseTermTypeId]) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT [FK_Rental_ListingDetail] FOREIGN KEY ([listingDetailId]) REFERENCES [data].[ListingDetail] ([listingDetailId]) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT [FK_Rental_Member] FOREIGN KEY ([rentTypeId]) REFERENCES [data].[Member] ([memberId]) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT [FK_Rental_PropertyType1] FOREIGN KEY ([propertyTypeId]) REFERENCES [app].[PropertyType] ([propertyTypeId]),
+    CONSTRAINT [FK_Rental_RentType1] FOREIGN KEY ([rentTypeId]) REFERENCES [app].[RentType] ([rentTypeId])
 );
+
+
+
+
 

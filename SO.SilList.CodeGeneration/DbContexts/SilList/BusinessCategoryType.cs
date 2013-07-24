@@ -27,7 +27,9 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
         public System.DateTime modified { get; set; }
         public System.DateTime created { get; set; }
         public bool isActive { get; set; }
+        public Nullable<int> siteId { get; set; }
     
         public virtual ICollection<BusinessCategory> BusinessCategories { get; set; }
+        public virtual Site Site { get; set; }
     }
 }

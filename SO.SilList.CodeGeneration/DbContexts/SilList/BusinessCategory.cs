@@ -16,8 +16,12 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     {
         public System.Guid businessId { get; set; }
         public int businessCategoryTypeId { get; set; }
+        public System.DateTime created { get; set; }
+        public System.DateTime modified { get; set; }
+        public Nullable<int> createdBy { get; set; }
+        public Nullable<int> modifiedBy { get; set; }
+        public Nullable<bool> isActive { get; set; }
     
         public virtual BusinessCategoryType BusinessCategoryType { get; set; }
-        public virtual Business Business { get; set; }
     }
 }
