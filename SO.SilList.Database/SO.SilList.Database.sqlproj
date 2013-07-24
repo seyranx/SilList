@@ -147,8 +147,11 @@
     <Build Include="app\Tables\PropertyType.sql" />
     <Build Include="app\Tables\LeaseTermType.sql" />
     <Build Include="app\Tables\RentType.sql" />
+    <Build Include="dbo\Tables\JobType.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
     <Build Include="app\Tables\JobCategories.sql" />
-    <Build Include="app\Tables\JobCategoryTypeId.sql" />
+    <Build Include="app\Tables\JobCategoryType.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />
