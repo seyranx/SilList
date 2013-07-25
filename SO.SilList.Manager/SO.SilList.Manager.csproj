@@ -49,8 +49,10 @@
   <ItemGroup>
     <Compile Include="Classes\Connection.cs" />
     <Compile Include="DbContexts\MainDb.cs" />
+    <Compile Include="Interfaces\ISiteManager.cs" />
     <Compile Include="Interfaces\IBusinessManager.cs" />
     <Compile Include="Managers\BusinessManager.cs" />
+    <Compile Include="Managers\SiteManager.cs" />
     <Compile Include="Models\ValueObjects\BusinessCategoryTypeVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessCategoryVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessImagesVo.cs" />
