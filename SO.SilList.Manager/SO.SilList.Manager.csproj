@@ -58,7 +58,7 @@
     <Compile Include="Models\ValueObjects\LeaseTermTypeVo.cs" />
     <Compile Include="Models\ValueObjects\RentalVo.cs" />
     <Compile Include="Models\ValueObjects\PropertyTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\RentType.cs" />
+    <Compile Include="Models\ValueObjects\RentTypeVo.cs" />
     <Compile Include="Models\ValueObjects\SiteVo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -71,6 +71,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
