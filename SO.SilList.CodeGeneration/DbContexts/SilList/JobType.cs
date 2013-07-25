@@ -12,17 +12,22 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     using System;
     using System.Collections.Generic;
     
-    public partial class JobCategoryType
+    public partial class JobType
     {
-        public int jobCategoryTypeId { get; set; }
+        public JobType()
+        {
+            this.Jobs = new HashSet<Job>();
+        }
+    
+        public int jobTypeId { get; set; }
         public string name { get; set; }
         public string description { get; set; }
-        public System.DateTime created { get; set; }
-        public System.DateTime modified { get; set; }
+        public Nullable<System.DateTime> created { get; set; }
+        public Nullable<System.DateTime> modified { get; set; }
         public Nullable<int> createdBy { get; set; }
         public Nullable<int> modifiedBy { get; set; }
         public Nullable<bool> isActive { get; set; }
     
-        public virtual JobCategory JobCategory { get; set; }
+        public virtual ICollection<Job> Jobs { get; set; }
     }
 }

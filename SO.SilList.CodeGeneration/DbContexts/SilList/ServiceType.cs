@@ -12,17 +12,18 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     using System;
     using System.Collections.Generic;
     
-    public partial class JobCategoryType
+    public partial class ServiceType
     {
-        public int jobCategoryTypeId { get; set; }
-        public string name { get; set; }
+        public int serviceTypeId { get; set; }
         public string description { get; set; }
+        public string name { get; set; }
+        public Nullable<int> siteId { get; set; }
         public System.DateTime created { get; set; }
         public System.DateTime modified { get; set; }
         public Nullable<int> createdBy { get; set; }
         public Nullable<int> modifiedBy { get; set; }
         public Nullable<bool> isActive { get; set; }
     
-        public virtual JobCategory JobCategory { get; set; }
+        public virtual BusinessService BusinessService { get; set; }
     }
 }

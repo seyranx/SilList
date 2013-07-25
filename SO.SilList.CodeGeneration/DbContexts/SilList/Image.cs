@@ -12,17 +12,29 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     using System;
     using System.Collections.Generic;
     
-    public partial class JobCategoryType
+    public partial class Image
     {
-        public int jobCategoryTypeId { get; set; }
+        public Image()
+        {
+            this.RentalImages = new HashSet<RentalImage>();
+        }
+    
+        public System.Guid imageId { get; set; }
         public string name { get; set; }
-        public string description { get; set; }
+        public string url { get; set; }
+        public string path { get; set; }
+        public string fileType { get; set; }
+        public Nullable<int> siteId { get; set; }
+        public Nullable<int> height { get; set; }
+        public Nullable<int> width { get; set; }
+        public Nullable<int> size { get; set; }
         public System.DateTime created { get; set; }
         public System.DateTime modified { get; set; }
         public Nullable<int> createdBy { get; set; }
         public Nullable<int> modifiedBy { get; set; }
         public Nullable<bool> isActive { get; set; }
     
-        public virtual JobCategory JobCategory { get; set; }
+        public virtual BusinessImage BusinessImage { get; set; }
+        public virtual ICollection<RentalImage> RentalImages { get; set; }
     }
 }
