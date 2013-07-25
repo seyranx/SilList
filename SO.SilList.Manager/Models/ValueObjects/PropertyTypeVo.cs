@@ -49,7 +49,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 
 
-namespace SO.SilList.CodeGeneration.DbContexts.SilList
+namespace SO.SilList.Manager.Models.ValueObjects
 {
     [Table("PropertyType", Schema = "app")]
     [Serializable]

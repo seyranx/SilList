@@ -52,13 +52,21 @@
     <Compile Include="Interfaces\IBusinessManager.cs" />
     <Compile Include="Managers\BusinessManager.cs" />
     <Compile Include="Models\ValueObjects\BusinessCategoryTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\BusinessCategoryVo.cs" />
+    <Compile Include="Models\ValueObjects\BusinessImagesVo.cs" />
+    <Compile Include="Models\ValueObjects\BusinessRatingVo.cs" />
+    <Compile Include="Models\ValueObjects\BusinessServicesVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessVo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\ValueObjects\ImageVo.cs" />
     <Compile Include="Models\ValueObjects\LeaseTermTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\ListingDetailVo.cs" />
+    <Compile Include="Models\ValueObjects\MemberVo.cs" />
+    <Compile Include="Models\ValueObjects\RatingVo.cs" />
     <Compile Include="Models\ValueObjects\RentalVo.cs" />
     <Compile Include="Models\ValueObjects\PropertyTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\RentType.cs" />
+    <Compile Include="Models\ValueObjects\ServiceTypeVo.cs" />
     <Compile Include="Models\ValueObjects\SiteVo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
