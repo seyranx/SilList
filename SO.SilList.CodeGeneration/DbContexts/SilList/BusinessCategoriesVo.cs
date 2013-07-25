@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,27 +10,21 @@ using System.Data;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 
-namespace SO.SilList.Manager.Models.ValueObjects
+namespace SO.SilList.CodeGeneration.DbContexts.SilList
 {
      
-    [Table("PropertyType", Schema = "app" )]
+    [Table("BusinessCategories", Schema = "dbo" )]
     [Serializable]
-    public partial class PropertyTypeVo
+    public partial class BusinessCategoriesVo
     {
     		
-    	[DisplayName("property Type Id")]
-    	[Key]
-        public int propertyTypeId { get; set; }
-    		
-    	[DisplayName("name")]
+    	[DisplayName("business Id")]
     	[Required]
-    	[StringLength(50)]
-        public string name { get; set; }
+        public System.Guid businessId { get; set; }
     		
-    	[DisplayName("description")]
+    	[DisplayName("business Category Type Id")]
     	[Required]
-    	[StringLength(50)]
-        public string description { get; set; }
+        public int businessCategoryTypeId { get; set; }
     		
     	[DisplayName("created")]
     	[Required]
@@ -49,11 +43,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
       
-    	public PropertyTypeVo(){
+    	public BusinessCategoriesVo(){
     			
+    		this.businessId = Guid.NewGuid();
     	
-    	 this.isActive = true;
+    	 //this.isActive = true;
     	}
     }
 }
-

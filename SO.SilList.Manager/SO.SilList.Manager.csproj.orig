@@ -1,18 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{81A18771-C324-4BBB-81F8-E1F79988E483}</ProjectGuid>
+    <ProjectGuid>{B224CD00-0EC0-43FC-B90B-F1F05F760ABF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SO.SilList.CodeGeneration</RootNamespace>
-    <AssemblyName>SO.SilList.CodeGeneration</AssemblyName>
+    <RootNamespace>SO.SilList.Manager</RootNamespace>
+    <AssemblyName>SO.SilList.Manager</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,7 +20,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,23 +28,18 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="PagedList">
-      <HintPath>..\packages\PagedList.1.14\lib\net40\PagedList.dll</HintPath>
+    <Reference Include="EntityFramework.Extended">
+      <HintPath>..\packages\EntityFramework.Extended.5.0.0.73\lib\net45\EntityFramework.Extended.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
-    <Reference Include="System.Web.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,31 +47,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Connection.cs" />
+    <Compile Include="DbContexts\MainDb.cs" />
+    <Compile Include="Interfaces\IBusinessManager.cs" />
+    <Compile Include="Managers\BusinessManager.cs" />
+    <Compile Include="Models\ValueObjects\BusinessCategoryTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\BusinessCategoryVo.cs" />
+    <Compile Include="Models\ValueObjects\BusinessImagesVo.cs" />
+    <Compile Include="Models\ValueObjects\BusinessRatingVo.cs" />
+    <Compile Include="Models\ValueObjects\BusinessServicesVo.cs" />
+    <Compile Include="Models\ValueObjects\BusinessVo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\ValueObjects\ImageVo.cs" />
+    <Compile Include="Models\ValueObjects\LeaseTermTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\ListingDetailVo.cs" />
+    <Compile Include="Models\ValueObjects\MemberVo.cs" />
+    <Compile Include="Models\ValueObjects\RatingVo.cs" />
+    <Compile Include="Models\ValueObjects\RentalVo.cs" />
+    <Compile Include="Models\ValueObjects\PropertyTypeVo.cs" />
+<<<<<<< HEAD
+    <Compile Include="Models\ValueObjects\RentTypeVo.cs" />
+=======
+    <Compile Include="Models\ValueObjects\ServiceTypeVo.cs" />
+>>>>>>> 0340bc08c373cf05d7f1495f164a2fcf44635529
+    <Compile Include="Models\ValueObjects\SiteVo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App.config" />
+    <ProjectReference Include="..\SO.SilList.Utility\SO.SilList.Utility.csproj">
+      <Project>{6fe90691-f7da-42a0-b3a9-3b822cf0e713}</Project>
+      <Name>SO.SilList.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.Debug.config">
-      <DependentUpon>App.config</DependentUpon>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Web.Release.config">
-      <DependentUpon>App.config</DependentUpon>
-    </Content>
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <None Include="DbContexts\SilList\SilListDbContext.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SilListDbContext.cs</LastGenOutput>
-    </None>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

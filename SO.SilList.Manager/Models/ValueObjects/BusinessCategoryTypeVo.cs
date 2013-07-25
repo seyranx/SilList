@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,32 +13,22 @@ using System.Data.Entity;
 namespace SO.SilList.Manager.Models.ValueObjects
 {
      
-    [Table("PropertyType", Schema = "app" )]
+    [Table("BusinessCategoryType", Schema = "app" )]
     [Serializable]
-    public partial class PropertyTypeVo
+    public partial class BusinessCategoryTypeVo
     {
     		
-    	[DisplayName("property Type Id")]
+    	[DisplayName("business Category Type Id")]
     	[Key]
-        public int propertyTypeId { get; set; }
+        public int businessCategoryTypeId { get; set; }
     		
     	[DisplayName("name")]
     	[Required]
-    	[StringLength(50)]
+    	[StringLength(200)]
         public string name { get; set; }
     		
     	[DisplayName("description")]
-    	[Required]
-    	[StringLength(50)]
         public string description { get; set; }
-    		
-    	[DisplayName("created")]
-    	[Required]
-        public System.DateTime created { get; set; }
-    		
-    	[DisplayName("modified")]
-    	[Required]
-        public System.DateTime modified { get; set; }
     		
     	[DisplayName("created By")]
         public Nullable<int> createdBy { get; set; }
@@ -46,14 +36,26 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("modified By")]
         public Nullable<int> modifiedBy { get; set; }
     		
+    	[DisplayName("modified")]
+    	[Required]
+        public System.DateTime modified { get; set; }
+    		
+    	[DisplayName("created")]
+    	[Required]
+        public System.DateTime created { get; set; }
+    		
     	[DisplayName("is Active")]
-        public Nullable<bool> isActive { get; set; }
-      
-    	public PropertyTypeVo(){
-    			
-    	
-    	 this.isActive = true;
+    	[Required]
+        public bool isActive { get; set; }
+    		
+    	[DisplayName("site Id")]
+        public int? siteId { get; set; }
+
+        [ForeignKey("siteId")]
+        public virtual SiteVo site { get; set; }
+
+    	public BusinessCategoryTypeVo(){
+    	    this.isActive = true;
     	}
     }
 }
-

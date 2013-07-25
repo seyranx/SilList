@@ -29,7 +29,37 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[StringLength(250)]
         public string domain { get; set; }
 
+        [DisplayName("description")]
+        public string description { get; set; }
+
+        [DisplayName("logo")]
+        [StringLength(250)]
+        public string logo { get; set; }
+
+        [DisplayName("logo Url")]
+        public string logoUrl { get; set; }
+
+        [DisplayName("created")]
+        [Required]
+        public System.DateTime created { get; set; }
+
+        [DisplayName("modified")]
+        [Required]
+        public System.DateTime modified { get; set; }
+
+        [DisplayName("created By")]
+        public Nullable<int> createdBy { get; set; }
+
+        [DisplayName("modified By")]
+        public Nullable<int> modifiedBy { get; set; }
+
+        [DisplayName("is Active")]
+        public Nullable<bool> isActive { get; set; }
+
        // [Association("Site_Business", "siteId", "siteId", IsForeignKey = true)]
        /// public List<BusinessVo> businesses { get; set; }
+
+       [Association("Site_Member", "siteId", "siteId", IsForeignKey = true)]
+       public List<MemberVo> member { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,24 +13,24 @@ using System.Data.Entity;
 namespace SO.SilList.Manager.Models.ValueObjects
 {
      
-    [Table("PropertyType", Schema = "app" )]
+    [Table("ServiceType", Schema = "app" )]
     [Serializable]
-    public partial class PropertyTypeVo
+    public partial class ServiceTypeVo
     {
     		
-    	[DisplayName("property Type Id")]
+    	[DisplayName("service Type Id")]
     	[Key]
-        public int propertyTypeId { get; set; }
+        public int serviceTypeId { get; set; }
+    		
+    	[DisplayName("description")]
+        public string description { get; set; }
     		
     	[DisplayName("name")]
-    	[Required]
     	[StringLength(50)]
         public string name { get; set; }
     		
-    	[DisplayName("description")]
-    	[Required]
-    	[StringLength(50)]
-        public string description { get; set; }
+    	[DisplayName("site Id")]
+        public Nullable<int> siteId { get; set; }
     		
     	[DisplayName("created")]
     	[Required]
@@ -48,12 +48,12 @@ namespace SO.SilList.Manager.Models.ValueObjects
     		
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
-      
-    	public PropertyTypeVo(){
+
+
+    	public ServiceTypeVo(){
     			
     	
     	 this.isActive = true;
     	}
     }
 }
-

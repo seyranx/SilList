@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,28 +13,24 @@ using System.Data.Entity;
 namespace SO.SilList.Manager.Models.ValueObjects
 {
      
-    [Table("PropertyType", Schema = "app" )]
+    [Table("LeaseTermType", Schema = "app" )]
     [Serializable]
-    public partial class PropertyTypeVo
+    public partial class LeaseTermTypeVo
     {
     		
-    	[DisplayName("property Type Id")]
+    	[DisplayName("lease Term Type Id")]
     	[Key]
-        public int propertyTypeId { get; set; }
+        public int leaseTermTypeId { get; set; }
     		
     	[DisplayName("name")]
-    	[Required]
     	[StringLength(50)]
         public string name { get; set; }
     		
     	[DisplayName("description")]
-    	[Required]
-    	[StringLength(50)]
         public string description { get; set; }
     		
-    	[DisplayName("created")]
-    	[Required]
-        public System.DateTime created { get; set; }
+    	[DisplayName("modified By")]
+        public Nullable<int> modifiedBy { get; set; }
     		
     	[DisplayName("modified")]
     	[Required]
@@ -43,17 +39,16 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("created By")]
         public Nullable<int> createdBy { get; set; }
     		
-    	[DisplayName("modified By")]
-        public Nullable<int> modifiedBy { get; set; }
+    	[DisplayName("created")]
+    	[Required]
+        public System.DateTime created { get; set; }
     		
     	[DisplayName("is Active")]
-        public Nullable<bool> isActive { get; set; }
+    	[Required]
+        public bool isActive { get; set; }
       
-    	public PropertyTypeVo(){
-    			
-    	
-    	 this.isActive = true;
+    	public LeaseTermTypeVo(){
+    			this.isActive = true;
     	}
     }
 }
-

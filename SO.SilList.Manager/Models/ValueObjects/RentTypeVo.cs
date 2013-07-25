@@ -12,48 +12,47 @@ using System.Data.Entity;
 
 namespace SO.SilList.Manager.Models.ValueObjects
 {
-     
-    [Table("PropertyType", Schema = "app" )]
+
+    [Table("RentType", Schema = "dbo")]
     [Serializable]
-    public partial class PropertyTypeVo
+    public partial class RentTypeVo
     {
-    		
-    	[DisplayName("property Type Id")]
-    	[Key]
-        public int propertyTypeId { get; set; }
-    		
-    	[DisplayName("name")]
-    	[Required]
-    	[StringLength(50)]
+
+        [DisplayName("rent Type Id")]
+        [Key]
+        public int rentTypeId { get; set; }
+
+        [DisplayName("name")]
+        [Required]
+        [StringLength(50)]
         public string name { get; set; }
-    		
-    	[DisplayName("description")]
-    	[Required]
-    	[StringLength(50)]
+
+        [DisplayName("description")]
+        [Required]
         public string description { get; set; }
-    		
-    	[DisplayName("created")]
-    	[Required]
+
+        [DisplayName("created")]
+        [Required]
         public System.DateTime created { get; set; }
-    		
-    	[DisplayName("modified")]
-    	[Required]
+
+        [DisplayName("modified")]
+        [Required]
         public System.DateTime modified { get; set; }
-    		
-    	[DisplayName("created By")]
+
+        [DisplayName("created By")]
         public Nullable<int> createdBy { get; set; }
-    		
-    	[DisplayName("modified By")]
+
+        [DisplayName("modified By")]
         public Nullable<int> modifiedBy { get; set; }
-    		
-    	[DisplayName("is Active")]
+
+        [DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
-      
-    	public PropertyTypeVo(){
-    			
-    	
-    	 this.isActive = true;
-    	}
+
+        public RentTypeVo()
+        {
+
+
+            this.isActive = true;
+        }
     }
 }
-

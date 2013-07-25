@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,24 +13,24 @@ using System.Data.Entity;
 namespace SO.SilList.Manager.Models.ValueObjects
 {
      
-    [Table("PropertyType", Schema = "app" )]
+    [Table("Rating", Schema = "data" )]
     [Serializable]
-    public partial class PropertyTypeVo
+    public partial class RatingVo
     {
     		
-    	[DisplayName("property Type Id")]
+    	[DisplayName("rating Id")]
     	[Key]
-        public int propertyTypeId { get; set; }
+        public System.Guid ratingId { get; set; }
     		
-    	[DisplayName("name")]
-    	[Required]
-    	[StringLength(50)]
-        public string name { get; set; }
+    	[DisplayName("rating")]
+        public Nullable<int> rating { get; set; }
     		
-    	[DisplayName("description")]
-    	[Required]
+    	[DisplayName("review")]
     	[StringLength(50)]
-        public string description { get; set; }
+        public string review { get; set; }
+    		
+    	[DisplayName("member Id")]
+        public Nullable<int> memberId { get; set; }
     		
     	[DisplayName("created")]
     	[Required]
@@ -48,12 +48,16 @@ namespace SO.SilList.Manager.Models.ValueObjects
     		
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
-      
-    	public PropertyTypeVo(){
+
+
+        //[ForeignKey("foreignKeyname")]
+        // public virtual SiteVo site { get; set; }
+
+    	public RatingVo(){
     			
+    	 this.ratingId = Guid.NewGuid();
     	
     	 this.isActive = true;
     	}
     }
 }
-

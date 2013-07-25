@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,24 +13,26 @@ using System.Data.Entity;
 namespace SO.SilList.Manager.Models.ValueObjects
 {
      
-    [Table("PropertyType", Schema = "app" )]
+    [Table("ListingDetail", Schema = "data" )]
     [Serializable]
-    public partial class PropertyTypeVo
+    public partial class ListingDetailVo
     {
-    		
-    	[DisplayName("property Type Id")]
-    	[Key]
-        public int propertyTypeId { get; set; }
-    		
-    	[DisplayName("name")]
+
+    	[DisplayName("listing Detail Id")]
     	[Required]
-    	[StringLength(50)]
-        public string name { get; set; }
+        [Key]
+        public System.Guid listingDetailId { get; set; }
     		
-    	[DisplayName("description")]
+    	[DisplayName("start Date")]
     	[Required]
-    	[StringLength(50)]
-        public string description { get; set; }
+        public System.DateTime startDate { get; set; }
+    		
+    	[DisplayName("end Date")]
+    	[Required]
+        public System.DateTime endDate { get; set; }
+    		
+    	[DisplayName("is Approved")]
+        public Nullable<bool> isApproved { get; set; }
     		
     	[DisplayName("created")]
     	[Required]
@@ -48,12 +50,15 @@ namespace SO.SilList.Manager.Models.ValueObjects
     		
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
-      
-    	public PropertyTypeVo(){
+
+        [Association("ListingDetail_Business", "listingDetailId", "listingDetailId", IsForeignKey = true)]
+        public List<BusinessVo> business { get; set; }
+
+    	public ListingDetailVo(){
     			
+    		this.listingDetailId = Guid.NewGuid();
     	
-    	 this.isActive = true;
+    	    this.isActive = true;
     	}
     }
 }
-

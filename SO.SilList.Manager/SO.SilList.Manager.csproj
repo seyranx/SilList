@@ -49,12 +49,28 @@
   <ItemGroup>
     <Compile Include="Classes\Connection.cs" />
     <Compile Include="DbContexts\MainDb.cs" />
+    <Compile Include="Interfaces\ISiteManager.cs" />
     <Compile Include="Interfaces\IBusinessManager.cs" />
     <Compile Include="Managers\BusinessManager.cs" />
+    <Compile Include="Managers\SiteManager.cs" />
+    <Compile Include="Models\ValueObjects\BusinessCategoryTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\BusinessCategoryVo.cs" />
+    <Compile Include="Models\ValueObjects\BusinessImagesVo.cs" />
+    <Compile Include="Models\ValueObjects\BusinessRatingVo.cs" />
+    <Compile Include="Models\ValueObjects\BusinessServicesVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessVo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\ValueObjects\Class1.cs" />
+    <Compile Include="Models\ValueObjects\ImageVo.cs" />
+    <Compile Include="Models\ValueObjects\LeaseTermTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\ListingDetailVo.cs" />
+    <Compile Include="Models\ValueObjects\MemberVo.cs" />
+    <Compile Include="Models\ValueObjects\RatingVo.cs" />
+    <Compile Include="Models\ValueObjects\RentalImageVo.cs" />
+    <Compile Include="Models\ValueObjects\RentalVo.cs" />
+    <Compile Include="Models\ValueObjects\PropertyTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\RentTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\ServiceTypeVo.cs" />
     <Compile Include="Models\ValueObjects\SiteVo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -67,6 +83,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
