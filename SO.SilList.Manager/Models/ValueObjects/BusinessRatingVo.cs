@@ -43,7 +43,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public Nullable<bool> isActive { get; set; }
 
 
-       // [ForeignKey("foreignKeyname")]
+       //[ForeignKey("foreignKeyname")]
        // public virtual SiteVo site { get; set; }
       
     	public BusinessRatingVo(){

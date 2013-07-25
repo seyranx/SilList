@@ -22,8 +22,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[Key]
         public System.Guid ratingId { get; set; }
     		
-    	[DisplayName("rating1")]
-        public Nullable<int> rating1 { get; set; }
+    	[DisplayName("rating")]
+        public Nullable<int> rating { get; set; }
     		
     	[DisplayName("review")]
     	[StringLength(50)]
@@ -50,7 +50,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public Nullable<bool> isActive { get; set; }
 
 
-        // [ForeignKey("foreignKeyname")]
+        //[ForeignKey("foreignKeyname")]
         // public virtual SiteVo site { get; set; }
 
     	public RatingVo(){
