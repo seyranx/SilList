@@ -14,11 +14,6 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     
     public partial class JobCompany
     {
-        public JobCompany()
-        {
-            this.Jobs = new HashSet<Job>();
-        }
-    
         public System.Guid jobCompanyId { get; set; }
         public string name { get; set; }
         public string address { get; set; }
@@ -33,7 +28,5 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
         public Nullable<int> createdBy { get; set; }
         public Nullable<int> modifiedBy { get; set; }
         public Nullable<bool> isActive { get; set; }
-    
-        public virtual ICollection<Job> Jobs { get; set; }
     }
 }

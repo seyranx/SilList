@@ -13,18 +13,21 @@ using System.Data.Entity;
 namespace SO.SilList.CodeGeneration.DbContexts.SilList
 {
      
-    [Table("BusinessCategory", Schema = "dbo" )]
+    [Table("JobCategoryType", Schema = "dbo" )]
     [Serializable]
-    public partial class BusinessCategoryVo
+    public partial class JobCategoryTypeVo
     {
     		
-    	[DisplayName("business Id")]
+    	[DisplayName("job Category Type Id")]
     	[Required]
-        public System.Guid businessId { get; set; }
+        public int jobCategoryTypeId { get; set; }
     		
-    	[DisplayName("business Category Type Id")]
-    	[Required]
-        public int businessCategoryTypeId { get; set; }
+    	[DisplayName("name")]
+    	[StringLength(50)]
+        public string name { get; set; }
+    		
+    	[DisplayName("description")]
+        public string description { get; set; }
     		
     	[DisplayName("created")]
     	[Required]
@@ -43,9 +46,8 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
       
-    	public BusinessCategoryVo(){
+    	public JobCategoryTypeVo(){
     			
-    		this.businessId = Guid.NewGuid();
     	
     	 //this.isActive = true;
     	}

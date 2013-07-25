@@ -7,6 +7,8 @@
       <Schema Namespace="SilListModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="SilListModelStoreContainer">
           <EntitySet Name="BusinessCategoryType" EntityType="SilListModel.Store.BusinessCategoryType" store:Type="Tables" Schema="app" />
+          <EntitySet Name="JobCategories" EntityType="SilListModel.Store.JobCategories" store:Type="Tables" Schema="app" />
+          <EntitySet Name="JobCategoryType" EntityType="SilListModel.Store.JobCategoryType" store:Type="Tables" Schema="app" />
           <EntitySet Name="JobType" EntityType="SilListModel.Store.JobType" store:Type="Tables" Schema="app" />
           <EntitySet Name="LeaseTermType" EntityType="SilListModel.Store.LeaseTermType" store:Type="Tables" Schema="app" />
           <EntitySet Name="PropertyType" EntityType="SilListModel.Store.PropertyType" store:Type="Tables" Schema="app" />
@@ -94,13 +96,9 @@
             <End Role="ServiceType" EntitySet="ServiceType" />
             <End Role="BusinessServices" EntitySet="BusinessServices" />
           </AssociationSet>
-          <AssociationSet Name="FK_Job_JobCompany" Association="SilListModel.Store.FK_Job_JobCompany">
-            <End Role="JobCompany" EntitySet="JobCompany" />
-            <End Role="Job" EntitySet="Job" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Job_JobType" Association="SilListModel.Store.FK_Job_JobType">
-            <End Role="JobType" EntitySet="JobType" />
-            <End Role="Job" EntitySet="Job" />
+          <AssociationSet Name="FK_Member_Site" Association="SilListModel.Store.FK_Member_Site">
+            <End Role="Site" EntitySet="Site" />
+            <End Role="Member" EntitySet="Member" />
           </AssociationSet>
           <AssociationSet Name="FK_Rental_LeaseTermType" Association="SilListModel.Store.FK_Rental_LeaseTermType">
             <End Role="LeaseTermType" EntitySet="LeaseTermType" />
@@ -114,11 +112,11 @@
             <End Role="Member" EntitySet="Member" />
             <End Role="Rental" EntitySet="Rental" />
           </AssociationSet>
-          <AssociationSet Name="FK_Rental_PropertyType" Association="SilListModel.Store.FK_Rental_PropertyType">
+          <AssociationSet Name="FK_Rental_PropertyType1" Association="SilListModel.Store.FK_Rental_PropertyType1">
             <End Role="PropertyType" EntitySet="PropertyType" />
             <End Role="Rental" EntitySet="Rental" />
           </AssociationSet>
-          <AssociationSet Name="FK_Rental_RentType" Association="SilListModel.Store.FK_Rental_RentType">
+          <AssociationSet Name="FK_Rental_RentType1" Association="SilListModel.Store.FK_Rental_RentType1">
             <End Role="RentType" EntitySet="RentType" />
             <End Role="Rental" EntitySet="Rental" />
           </AssociationSet>
@@ -136,6 +134,31 @@
           <Property Name="created" Type="datetime" Nullable="false" />
           <Property Name="isActive" Type="bit" Nullable="false" />
           <Property Name="siteId" Type="int" />
+        </EntityType>
+        <EntityType Name="JobCategories">
+          <Key>
+            <PropertyRef Name="jobCategoryTypeId" />
+          </Key>
+          <Property Name="jobCategoryTypeId" Type="int" Nullable="false" />
+          <Property Name="jobId" Type="uniqueidentifier" />
+          <Property Name="created" Type="datetime" Nullable="false" />
+          <Property Name="modified" Type="datetime" Nullable="false" />
+          <Property Name="createdBy" Type="int" />
+          <Property Name="modifiedBy" Type="int" />
+          <Property Name="isActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="JobCategoryType">
+          <Key>
+            <PropertyRef Name="jobCategoryTypeId" />
+          </Key>
+          <Property Name="jobCategoryTypeId" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="created" Type="datetime" Nullable="false" />
+          <Property Name="modified" Type="datetime" Nullable="false" />
+          <Property Name="createdBy" Type="int" />
+          <Property Name="modifiedBy" Type="int" />
+          <Property Name="isActive" Type="bit" />
         </EntityType>
         <EntityType Name="JobType">
           <Key>
@@ -182,7 +205,7 @@
           </Key>
           <Property Name="rentTypeId" Type="int" Nullable="false" />
           <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="description" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="description" Type="nvarchar(max)" Nullable="false" />
           <Property Name="created" Type="datetime" Nullable="false" />
           <Property Name="modified" Type="datetime" Nullable="false" />
           <Property Name="createdBy" Type="int" />
@@ -210,6 +233,14 @@
           <Property Name="siteId" Type="int" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="250" />
           <Property Name="domain" Type="nvarchar" MaxLength="250" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="logo" Type="nvarchar" MaxLength="250" />
+          <Property Name="logoUrl" Type="nvarchar(max)" />
+          <Property Name="created" Type="datetime" Nullable="false" />
+          <Property Name="modified" Type="datetime" Nullable="false" />
+          <Property Name="createdBy" Type="int" />
+          <Property Name="modifiedBy" Type="int" />
+          <Property Name="isActive" Type="bit" />
         </EntityType>
         <EntityType Name="Business">
           <Key>
@@ -314,11 +345,10 @@
         </EntityType>
         <EntityType Name="Job">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="jobId" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="jobId" Type="uniqueidentifier" />
-          <Property Name="listingDetailId" Type="uniqueidentifier" />
+          <Property Name="jobId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="listingDetailId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="siteId" Type="int" />
           <Property Name="title" Type="nvarchar" MaxLength="50" />
           <Property Name="description" Type="nvarchar" MaxLength="50" />
@@ -537,27 +567,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Job_JobCompany">
-          <End Role="JobCompany" Type="SilListModel.Store.JobCompany" Multiplicity="0..1" />
-          <End Role="Job" Type="SilListModel.Store.Job" Multiplicity="*" />
+        <Association Name="FK_Member_Site">
+          <End Role="Site" Type="SilListModel.Store.Site" Multiplicity="0..1" />
+          <End Role="Member" Type="SilListModel.Store.Member" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="JobCompany">
-              <PropertyRef Name="jobCompanyId" />
+            <Principal Role="Site">
+              <PropertyRef Name="siteId" />
             </Principal>
-            <Dependent Role="Job">
-              <PropertyRef Name="jobCompanyId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Job_JobType">
-          <End Role="JobType" Type="SilListModel.Store.JobType" Multiplicity="0..1" />
-          <End Role="Job" Type="SilListModel.Store.Job" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="JobType">
-              <PropertyRef Name="jobTypeId" />
-            </Principal>
-            <Dependent Role="Job">
-              <PropertyRef Name="jobTypeId" />
+            <Dependent Role="Member">
+              <PropertyRef Name="siteId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -603,10 +621,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Rental_PropertyType">
-          <End Role="PropertyType" Type="SilListModel.Store.PropertyType" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
+        <Association Name="FK_Rental_PropertyType1">
+          <End Role="PropertyType" Type="SilListModel.Store.PropertyType" Multiplicity="0..1" />
           <End Role="Rental" Type="SilListModel.Store.Rental" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PropertyType">
@@ -617,10 +633,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Rental_RentType">
-          <End Role="RentType" Type="SilListModel.Store.RentType" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
+        <Association Name="FK_Rental_RentType1">
+          <End Role="RentType" Type="SilListModel.Store.RentType" Multiplicity="0..1" />
           <End Role="Rental" Type="SilListModel.Store.Rental" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="RentType">
@@ -636,82 +650,80 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SilListModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="SilListEntities6" p1:LazyLoadingEnabled="true">
-          <EntitySet Name="BusinessCategoryTypes" EntityType="SilListModel.BusinessCategoryType" />
-          <EntitySet Name="JobTypes" EntityType="SilListModel.JobType" />
-          <EntitySet Name="LeaseTermTypes" EntityType="SilListModel.LeaseTermType" />
-          <EntitySet Name="PropertyTypes" EntityType="SilListModel.PropertyType" />
-          <EntitySet Name="RentTypes" EntityType="SilListModel.RentType" />
-          <EntitySet Name="ServiceTypes" EntityType="SilListModel.ServiceType" />
-          <EntitySet Name="Sites" EntityType="SilListModel.Site" />
-          <EntitySet Name="Businesses" EntityType="SilListModel.Business" />
-          <EntitySet Name="BusinessCategories" EntityType="SilListModel.BusinessCategory" />
-          <EntitySet Name="BusinessImages" EntityType="SilListModel.BusinessImage" />
-          <EntitySet Name="BusinessRatings" EntityType="SilListModel.BusinessRating" />
-          <EntitySet Name="BusinessServices" EntityType="SilListModel.BusinessService" />
-          <EntitySet Name="Images" EntityType="SilListModel.Image" />
-          <EntitySet Name="Jobs" EntityType="SilListModel.Job" />
-          <EntitySet Name="JobCompanies" EntityType="SilListModel.JobCompany" />
-          <EntitySet Name="ListingDetails" EntityType="SilListModel.ListingDetail" />
-          <EntitySet Name="Members" EntityType="SilListModel.Member" />
-          <EntitySet Name="Ratings" EntityType="SilListModel.Rating" />
-          <EntitySet Name="Rentals" EntityType="SilListModel.Rental" />
-          <EntitySet Name="RentalImages" EntityType="SilListModel.RentalImage" />
+        <EntityContainer Name="SilListEntities7" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="BusinessCategoryType" EntityType="SilListModel.BusinessCategoryType" />
+          <EntitySet Name="JobCategories" EntityType="SilListModel.JobCategories" />
+          <EntitySet Name="JobCategoryType" EntityType="SilListModel.JobCategoryType" />
+          <EntitySet Name="JobType" EntityType="SilListModel.JobType" />
+          <EntitySet Name="LeaseTermType" EntityType="SilListModel.LeaseTermType" />
+          <EntitySet Name="PropertyType" EntityType="SilListModel.PropertyType" />
+          <EntitySet Name="RentType" EntityType="SilListModel.RentType" />
+          <EntitySet Name="ServiceType" EntityType="SilListModel.ServiceType" />
+          <EntitySet Name="Site" EntityType="SilListModel.Site" />
+          <EntitySet Name="Business" EntityType="SilListModel.Business" />
+          <EntitySet Name="BusinessCategories" EntityType="SilListModel.BusinessCategories" />
+          <EntitySet Name="BusinessImages" EntityType="SilListModel.BusinessImages" />
+          <EntitySet Name="BusinessRatings" EntityType="SilListModel.BusinessRatings" />
+          <EntitySet Name="BusinessServices" EntityType="SilListModel.BusinessServices" />
+          <EntitySet Name="Image" EntityType="SilListModel.Image" />
+          <EntitySet Name="Job" EntityType="SilListModel.Job" />
+          <EntitySet Name="JobCompany" EntityType="SilListModel.JobCompany" />
+          <EntitySet Name="ListingDetail" EntityType="SilListModel.ListingDetail" />
+          <EntitySet Name="Member" EntityType="SilListModel.Member" />
+          <EntitySet Name="Rating" EntityType="SilListModel.Rating" />
+          <EntitySet Name="Rental" EntityType="SilListModel.Rental" />
+          <EntitySet Name="RentalImages" EntityType="SilListModel.RentalImages" />
           <AssociationSet Name="FK_BusinessCategories_BusinessCategoryType" Association="SilListModel.FK_BusinessCategories_BusinessCategoryType">
-            <End Role="BusinessCategoryType" EntitySet="BusinessCategoryTypes" />
+            <End Role="BusinessCategoryType" EntitySet="BusinessCategoryType" />
             <End Role="BusinessCategories" EntitySet="BusinessCategories" />
           </AssociationSet>
           <AssociationSet Name="FK_BusinessCategoryType_Site" Association="SilListModel.FK_BusinessCategoryType_Site">
-            <End Role="Site" EntitySet="Sites" />
-            <End Role="BusinessCategoryType" EntitySet="BusinessCategoryTypes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Job_JobType" Association="SilListModel.FK_Job_JobType">
-            <End Role="JobType" EntitySet="JobTypes" />
-            <End Role="Job" EntitySet="Jobs" />
+            <End Role="Site" EntitySet="Site" />
+            <End Role="BusinessCategoryType" EntitySet="BusinessCategoryType" />
           </AssociationSet>
           <AssociationSet Name="FK_Rental_LeaseTermType" Association="SilListModel.FK_Rental_LeaseTermType">
-            <End Role="LeaseTermType" EntitySet="LeaseTermTypes" />
-            <End Role="Rental" EntitySet="Rentals" />
+            <End Role="LeaseTermType" EntitySet="LeaseTermType" />
+            <End Role="Rental" EntitySet="Rental" />
           </AssociationSet>
-          <AssociationSet Name="FK_Rental_PropertyType" Association="SilListModel.FK_Rental_PropertyType">
-            <End Role="PropertyType" EntitySet="PropertyTypes" />
-            <End Role="Rental" EntitySet="Rentals" />
+          <AssociationSet Name="FK_Rental_PropertyType1" Association="SilListModel.FK_Rental_PropertyType1">
+            <End Role="PropertyType" EntitySet="PropertyType" />
+            <End Role="Rental" EntitySet="Rental" />
           </AssociationSet>
-          <AssociationSet Name="FK_Rental_RentType" Association="SilListModel.FK_Rental_RentType">
-            <End Role="RentType" EntitySet="RentTypes" />
-            <End Role="Rental" EntitySet="Rentals" />
+          <AssociationSet Name="FK_Rental_RentType1" Association="SilListModel.FK_Rental_RentType1">
+            <End Role="RentType" EntitySet="RentType" />
+            <End Role="Rental" EntitySet="Rental" />
           </AssociationSet>
           <AssociationSet Name="FK_BusinessServices_ServiceType" Association="SilListModel.FK_BusinessServices_ServiceType">
-            <End Role="ServiceType" EntitySet="ServiceTypes" />
+            <End Role="ServiceType" EntitySet="ServiceType" />
             <End Role="BusinessServices" EntitySet="BusinessServices" />
           </AssociationSet>
           <AssociationSet Name="FK_Business_Site" Association="SilListModel.FK_Business_Site">
-            <End Role="Site" EntitySet="Sites" />
-            <End Role="Business" EntitySet="Businesses" />
+            <End Role="Site" EntitySet="Site" />
+            <End Role="Business" EntitySet="Business" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Member_Site" Association="SilListModel.FK_Member_Site">
+            <End Role="Site" EntitySet="Site" />
+            <End Role="Member" EntitySet="Member" />
           </AssociationSet>
           <AssociationSet Name="FK_BusinessServices_Business" Association="SilListModel.FK_BusinessServices_Business">
-            <End Role="Business" EntitySet="Businesses" />
+            <End Role="Business" EntitySet="Business" />
             <End Role="BusinessServices" EntitySet="BusinessServices" />
           </AssociationSet>
           <AssociationSet Name="FK_BusinessImages_Image" Association="SilListModel.FK_BusinessImages_Image">
-            <End Role="Image" EntitySet="Images" />
+            <End Role="Image" EntitySet="Image" />
             <End Role="BusinessImages" EntitySet="BusinessImages" />
           </AssociationSet>
           <AssociationSet Name="FK_BusinessRatings_Rating" Association="SilListModel.FK_BusinessRatings_Rating">
-            <End Role="Rating" EntitySet="Ratings" />
+            <End Role="Rating" EntitySet="Rating" />
             <End Role="BusinessRatings" EntitySet="BusinessRatings" />
           </AssociationSet>
-          <AssociationSet Name="FK_Job_JobCompany" Association="SilListModel.FK_Job_JobCompany">
-            <End Role="JobCompany" EntitySet="JobCompanies" />
-            <End Role="Job" EntitySet="Jobs" />
-          </AssociationSet>
           <AssociationSet Name="FK_Rental_ListingDetail" Association="SilListModel.FK_Rental_ListingDetail">
-            <End Role="ListingDetail" EntitySet="ListingDetails" />
-            <End Role="Rental" EntitySet="Rentals" />
+            <End Role="ListingDetail" EntitySet="ListingDetail" />
+            <End Role="Rental" EntitySet="Rental" />
           </AssociationSet>
           <AssociationSet Name="FK_Rental_Member" Association="SilListModel.FK_Rental_Member">
-            <End Role="Member" EntitySet="Members" />
-            <End Role="Rental" EntitySet="Rentals" />
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Rental" EntitySet="Rental" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="BusinessCategoryType">
@@ -730,6 +742,31 @@
           <NavigationProperty Name="BusinessCategories" Relationship="SilListModel.FK_BusinessCategories_BusinessCategoryType" FromRole="BusinessCategoryType" ToRole="BusinessCategories" />
           <NavigationProperty Name="Site" Relationship="SilListModel.FK_BusinessCategoryType_Site" FromRole="BusinessCategoryType" ToRole="Site" />
         </EntityType>
+        <EntityType Name="JobCategories">
+          <Key>
+            <PropertyRef Name="jobCategoryTypeId" />
+          </Key>
+          <Property Name="jobCategoryTypeId" Type="Int32" Nullable="false" />
+          <Property Name="jobId" Type="Guid" />
+          <Property Name="created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modified" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="createdBy" Type="Int32" />
+          <Property Name="modifiedBy" Type="Int32" />
+          <Property Name="isActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="JobCategoryType">
+          <Key>
+            <PropertyRef Name="jobCategoryTypeId" />
+          </Key>
+          <Property Name="jobCategoryTypeId" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modified" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="createdBy" Type="Int32" />
+          <Property Name="modifiedBy" Type="Int32" />
+          <Property Name="isActive" Type="Boolean" />
+        </EntityType>
         <EntityType Name="JobType">
           <Key>
             <PropertyRef Name="jobTypeId" />
@@ -742,7 +779,6 @@
           <Property Name="createdBy" Type="Int32" />
           <Property Name="modifiedBy" Type="Int32" />
           <Property Name="isActive" Type="Boolean" />
-          <NavigationProperty Name="Jobs" Relationship="SilListModel.FK_Job_JobType" FromRole="JobType" ToRole="Job" />
         </EntityType>
         <EntityType Name="LeaseTermType">
           <Key>
@@ -756,7 +792,7 @@
           <Property Name="createdBy" Type="Int32" />
           <Property Name="created" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="isActive" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Rentals" Relationship="SilListModel.FK_Rental_LeaseTermType" FromRole="LeaseTermType" ToRole="Rental" />
+          <NavigationProperty Name="Rental" Relationship="SilListModel.FK_Rental_LeaseTermType" FromRole="LeaseTermType" ToRole="Rental" />
         </EntityType>
         <EntityType Name="PropertyType">
           <Key>
@@ -770,7 +806,7 @@
           <Property Name="createdBy" Type="Int32" />
           <Property Name="modifiedBy" Type="Int32" />
           <Property Name="isActive" Type="Boolean" />
-          <NavigationProperty Name="Rentals" Relationship="SilListModel.FK_Rental_PropertyType" FromRole="PropertyType" ToRole="Rental" />
+          <NavigationProperty Name="Rental" Relationship="SilListModel.FK_Rental_PropertyType1" FromRole="PropertyType" ToRole="Rental" />
         </EntityType>
         <EntityType Name="RentType">
           <Key>
@@ -778,13 +814,13 @@
           </Key>
           <Property Name="rentTypeId" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="description" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="created" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="modified" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="createdBy" Type="Int32" />
           <Property Name="modifiedBy" Type="Int32" />
           <Property Name="isActive" Type="Boolean" />
-          <NavigationProperty Name="Rentals" Relationship="SilListModel.FK_Rental_RentType" FromRole="RentType" ToRole="Rental" />
+          <NavigationProperty Name="Rental" Relationship="SilListModel.FK_Rental_RentType1" FromRole="RentType" ToRole="Rental" />
         </EntityType>
         <EntityType Name="ServiceType">
           <Key>
@@ -799,7 +835,7 @@
           <Property Name="createdBy" Type="Int32" />
           <Property Name="modifiedBy" Type="Int32" />
           <Property Name="isActive" Type="Boolean" />
-          <NavigationProperty Name="BusinessService" Relationship="SilListModel.FK_BusinessServices_ServiceType" FromRole="ServiceType" ToRole="BusinessServices" />
+          <NavigationProperty Name="BusinessServices" Relationship="SilListModel.FK_BusinessServices_ServiceType" FromRole="ServiceType" ToRole="BusinessServices" />
         </EntityType>
         <EntityType Name="Site">
           <Key>
@@ -808,8 +844,17 @@
           <Property Name="siteId" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
           <Property Name="domain" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="BusinessCategoryTypes" Relationship="SilListModel.FK_BusinessCategoryType_Site" FromRole="Site" ToRole="BusinessCategoryType" />
-          <NavigationProperty Name="Businesses" Relationship="SilListModel.FK_Business_Site" FromRole="Site" ToRole="Business" />
+          <Property Name="description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="logo" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="logoUrl" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modified" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="createdBy" Type="Int32" />
+          <Property Name="modifiedBy" Type="Int32" />
+          <Property Name="isActive" Type="Boolean" />
+          <NavigationProperty Name="BusinessCategoryType" Relationship="SilListModel.FK_BusinessCategoryType_Site" FromRole="Site" ToRole="BusinessCategoryType" />
+          <NavigationProperty Name="Business" Relationship="SilListModel.FK_Business_Site" FromRole="Site" ToRole="Business" />
+          <NavigationProperty Name="Member" Relationship="SilListModel.FK_Member_Site" FromRole="Site" ToRole="Member" />
         </EntityType>
         <EntityType Name="Business">
           <Key>
@@ -830,7 +875,7 @@
           <NavigationProperty Name="Site" Relationship="SilListModel.FK_Business_Site" FromRole="Business" ToRole="Site" />
           <NavigationProperty Name="BusinessServices" Relationship="SilListModel.FK_BusinessServices_Business" FromRole="Business" ToRole="BusinessServices" />
         </EntityType>
-        <EntityType Name="BusinessCategory">
+        <EntityType Name="BusinessCategories">
           <Key>
             <PropertyRef Name="businessId" />
             <PropertyRef Name="businessCategoryTypeId" />
@@ -846,7 +891,7 @@
           <Property Name="isActive" Type="Boolean" />
           <NavigationProperty Name="BusinessCategoryType" Relationship="SilListModel.FK_BusinessCategories_BusinessCategoryType" FromRole="BusinessCategories" ToRole="BusinessCategoryType" />
         </EntityType>
-        <EntityType Name="BusinessImage">
+        <EntityType Name="BusinessImages">
           <Key>
             <PropertyRef Name="imageId" />
           </Key>
@@ -859,7 +904,7 @@
           <Property Name="isActive" Type="Boolean" />
           <NavigationProperty Name="Image" Relationship="SilListModel.FK_BusinessImages_Image" FromRole="BusinessImages" ToRole="Image" />
         </EntityType>
-        <EntityType Name="BusinessRating">
+        <EntityType Name="BusinessRatings">
           <Key>
             <PropertyRef Name="ratingId" />
             <PropertyRef Name="created" />
@@ -874,7 +919,7 @@
           <Property Name="isActive" Type="Boolean" />
           <NavigationProperty Name="Rating" Relationship="SilListModel.FK_BusinessRatings_Rating" FromRole="BusinessRatings" ToRole="Rating" />
         </EntityType>
-        <EntityType Name="BusinessService">
+        <EntityType Name="BusinessServices">
           <Key>
             <PropertyRef Name="serviceTypeId" />
           </Key>
@@ -906,15 +951,14 @@
           <Property Name="createdBy" Type="Int32" />
           <Property Name="modifiedBy" Type="Int32" />
           <Property Name="isActive" Type="Boolean" />
-          <NavigationProperty Name="BusinessImage" Relationship="SilListModel.FK_BusinessImages_Image" FromRole="Image" ToRole="BusinessImages" />
+          <NavigationProperty Name="BusinessImages" Relationship="SilListModel.FK_BusinessImages_Image" FromRole="Image" ToRole="BusinessImages" />
         </EntityType>
         <EntityType Name="Job">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="jobId" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="jobId" Type="Guid" />
-          <Property Name="listingDetailId" Type="Guid" />
+          <Property Name="jobId" Type="Guid" Nullable="false" />
+          <Property Name="listingDetailId" Type="Guid" Nullable="false" />
           <Property Name="siteId" Type="Int32" />
           <Property Name="title" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="description" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
@@ -929,8 +973,6 @@
           <Property Name="createdBy" Type="Int32" />
           <Property Name="modifiedBy" Type="Int32" />
           <Property Name="isActive" Type="Boolean" />
-          <NavigationProperty Name="JobType" Relationship="SilListModel.FK_Job_JobType" FromRole="Job" ToRole="JobType" />
-          <NavigationProperty Name="JobCompany" Relationship="SilListModel.FK_Job_JobCompany" FromRole="Job" ToRole="JobCompany" />
         </EntityType>
         <EntityType Name="JobCompany">
           <Key>
@@ -950,7 +992,6 @@
           <Property Name="createdBy" Type="Int32" />
           <Property Name="modifiedBy" Type="Int32" />
           <Property Name="isActive" Type="Boolean" />
-          <NavigationProperty Name="Jobs" Relationship="SilListModel.FK_Job_JobCompany" FromRole="JobCompany" ToRole="Job" />
         </EntityType>
         <EntityType Name="ListingDetail">
           <Key>
@@ -965,7 +1006,7 @@
           <Property Name="createdBy" Type="Int32" />
           <Property Name="modifiedBy" Type="Int32" />
           <Property Name="isActive" Type="Boolean" />
-          <NavigationProperty Name="Rentals" Relationship="SilListModel.FK_Rental_ListingDetail" FromRole="ListingDetail" ToRole="Rental" />
+          <NavigationProperty Name="Rental" Relationship="SilListModel.FK_Rental_ListingDetail" FromRole="ListingDetail" ToRole="Rental" />
         </EntityType>
         <EntityType Name="Member">
           <Key>
@@ -992,7 +1033,8 @@
           <Property Name="createdBy" Type="Int32" />
           <Property Name="modifiedBy" Type="Int32" />
           <Property Name="isActive" Type="Boolean" />
-          <NavigationProperty Name="Rentals" Relationship="SilListModel.FK_Rental_Member" FromRole="Member" ToRole="Rental" />
+          <NavigationProperty Name="Site" Relationship="SilListModel.FK_Member_Site" FromRole="Member" ToRole="Site" />
+          <NavigationProperty Name="Rental" Relationship="SilListModel.FK_Rental_Member" FromRole="Member" ToRole="Rental" />
         </EntityType>
         <EntityType Name="Rating">
           <Key>
@@ -1031,12 +1073,12 @@
           <Property Name="created" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="isActive" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="LeaseTermType" Relationship="SilListModel.FK_Rental_LeaseTermType" FromRole="Rental" ToRole="LeaseTermType" />
-          <NavigationProperty Name="PropertyType" Relationship="SilListModel.FK_Rental_PropertyType" FromRole="Rental" ToRole="PropertyType" />
-          <NavigationProperty Name="RentType" Relationship="SilListModel.FK_Rental_RentType" FromRole="Rental" ToRole="RentType" />
+          <NavigationProperty Name="PropertyType" Relationship="SilListModel.FK_Rental_PropertyType1" FromRole="Rental" ToRole="PropertyType" />
+          <NavigationProperty Name="RentType" Relationship="SilListModel.FK_Rental_RentType1" FromRole="Rental" ToRole="RentType" />
           <NavigationProperty Name="ListingDetail" Relationship="SilListModel.FK_Rental_ListingDetail" FromRole="Rental" ToRole="ListingDetail" />
           <NavigationProperty Name="Member" Relationship="SilListModel.FK_Rental_Member" FromRole="Rental" ToRole="Member" />
         </EntityType>
-        <EntityType Name="RentalImage">
+        <EntityType Name="RentalImages">
           <Key>
             <PropertyRef Name="imageId" />
           </Key>
@@ -1052,7 +1094,7 @@
           <End Role="BusinessCategoryType" Type="SilListModel.BusinessCategoryType" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="BusinessCategories" Type="SilListModel.BusinessCategory" Multiplicity="*" />
+          <End Role="BusinessCategories" Type="SilListModel.BusinessCategories" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BusinessCategoryType">
               <PropertyRef Name="businessCategoryTypeId" />
@@ -1076,18 +1118,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Job_JobType">
-          <End Role="JobType" Type="SilListModel.JobType" Multiplicity="0..1" />
-          <End Role="Job" Type="SilListModel.Job" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="JobType">
-              <PropertyRef Name="jobTypeId" />
-            </Principal>
-            <Dependent Role="Job">
-              <PropertyRef Name="jobTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Rental_LeaseTermType">
           <End Role="LeaseTermType" Type="SilListModel.LeaseTermType" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -1102,10 +1132,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Rental_PropertyType">
-          <End Role="PropertyType" Type="SilListModel.PropertyType" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
+        <Association Name="FK_Rental_PropertyType1">
+          <End Role="PropertyType" Type="SilListModel.PropertyType" Multiplicity="0..1" />
           <End Role="Rental" Type="SilListModel.Rental" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PropertyType">
@@ -1116,10 +1144,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Rental_RentType">
-          <End Role="RentType" Type="SilListModel.RentType" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
+        <Association Name="FK_Rental_RentType1">
+          <End Role="RentType" Type="SilListModel.RentType" Multiplicity="0..1" />
           <End Role="Rental" Type="SilListModel.Rental" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="RentType">
@@ -1134,7 +1160,7 @@
           <End Role="ServiceType" Type="SilListModel.ServiceType" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="BusinessServices" Type="SilListModel.BusinessService" Multiplicity="0..1" />
+          <End Role="BusinessServices" Type="SilListModel.BusinessServices" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="ServiceType">
               <PropertyRef Name="serviceTypeId" />
@@ -1156,11 +1182,23 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Member_Site">
+          <End Role="Site" Type="SilListModel.Site" Multiplicity="0..1" />
+          <End Role="Member" Type="SilListModel.Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Site">
+              <PropertyRef Name="siteId" />
+            </Principal>
+            <Dependent Role="Member">
+              <PropertyRef Name="siteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_BusinessServices_Business">
           <End Role="Business" Type="SilListModel.Business" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="BusinessServices" Type="SilListModel.BusinessService" Multiplicity="*" />
+          <End Role="BusinessServices" Type="SilListModel.BusinessServices" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Business">
               <PropertyRef Name="businessId" />
@@ -1174,7 +1212,7 @@
           <End Role="Image" Type="SilListModel.Image" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="BusinessImages" Type="SilListModel.BusinessImage" Multiplicity="0..1" />
+          <End Role="BusinessImages" Type="SilListModel.BusinessImages" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Image">
               <PropertyRef Name="imageId" />
@@ -1188,25 +1226,13 @@
           <End Role="Rating" Type="SilListModel.Rating" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="BusinessRatings" Type="SilListModel.BusinessRating" Multiplicity="*" />
+          <End Role="BusinessRatings" Type="SilListModel.BusinessRatings" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Rating">
               <PropertyRef Name="ratingId" />
             </Principal>
             <Dependent Role="BusinessRatings">
               <PropertyRef Name="ratingId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Job_JobCompany">
-          <End Role="JobCompany" Type="SilListModel.JobCompany" Multiplicity="0..1" />
-          <End Role="Job" Type="SilListModel.Job" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="JobCompany">
-              <PropertyRef Name="jobCompanyId" />
-            </Principal>
-            <Dependent Role="Job">
-              <PropertyRef Name="jobCompanyId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1243,8 +1269,8 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SilListModelStoreContainer" CdmEntityContainer="SilListEntities6">
-          <EntitySetMapping Name="BusinessCategoryTypes">
+        <EntityContainerMapping StorageEntityContainer="SilListModelStoreContainer" CdmEntityContainer="SilListEntities7">
+          <EntitySetMapping Name="BusinessCategoryType">
             <EntityTypeMapping TypeName="SilListModel.BusinessCategoryType">
               <MappingFragment StoreEntitySet="BusinessCategoryType">
                 <ScalarProperty Name="businessCategoryTypeId" ColumnName="businessCategoryTypeId" />
@@ -1259,7 +1285,34 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="JobTypes">
+          <EntitySetMapping Name="JobCategories">
+            <EntityTypeMapping TypeName="SilListModel.JobCategories">
+              <MappingFragment StoreEntitySet="JobCategories">
+                <ScalarProperty Name="jobCategoryTypeId" ColumnName="jobCategoryTypeId" />
+                <ScalarProperty Name="jobId" ColumnName="jobId" />
+                <ScalarProperty Name="created" ColumnName="created" />
+                <ScalarProperty Name="modified" ColumnName="modified" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobCategoryType">
+            <EntityTypeMapping TypeName="SilListModel.JobCategoryType">
+              <MappingFragment StoreEntitySet="JobCategoryType">
+                <ScalarProperty Name="jobCategoryTypeId" ColumnName="jobCategoryTypeId" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="created" ColumnName="created" />
+                <ScalarProperty Name="modified" ColumnName="modified" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobType">
             <EntityTypeMapping TypeName="SilListModel.JobType">
               <MappingFragment StoreEntitySet="JobType">
                 <ScalarProperty Name="jobTypeId" ColumnName="jobTypeId" />
@@ -1273,7 +1326,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="LeaseTermTypes">
+          <EntitySetMapping Name="LeaseTermType">
             <EntityTypeMapping TypeName="SilListModel.LeaseTermType">
               <MappingFragment StoreEntitySet="LeaseTermType">
                 <ScalarProperty Name="leaseTermTypeId" ColumnName="leaseTermTypeId" />
@@ -1287,7 +1340,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PropertyTypes">
+          <EntitySetMapping Name="PropertyType">
             <EntityTypeMapping TypeName="SilListModel.PropertyType">
               <MappingFragment StoreEntitySet="PropertyType">
                 <ScalarProperty Name="propertyTypeId" ColumnName="propertyTypeId" />
@@ -1301,7 +1354,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="RentTypes">
+          <EntitySetMapping Name="RentType">
             <EntityTypeMapping TypeName="SilListModel.RentType">
               <MappingFragment StoreEntitySet="RentType">
                 <ScalarProperty Name="rentTypeId" ColumnName="rentTypeId" />
@@ -1315,7 +1368,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ServiceTypes">
+          <EntitySetMapping Name="ServiceType">
             <EntityTypeMapping TypeName="SilListModel.ServiceType">
               <MappingFragment StoreEntitySet="ServiceType">
                 <ScalarProperty Name="serviceTypeId" ColumnName="serviceTypeId" />
@@ -1330,16 +1383,24 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Sites">
+          <EntitySetMapping Name="Site">
             <EntityTypeMapping TypeName="SilListModel.Site">
               <MappingFragment StoreEntitySet="Site">
                 <ScalarProperty Name="siteId" ColumnName="siteId" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="domain" ColumnName="domain" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="logo" ColumnName="logo" />
+                <ScalarProperty Name="logoUrl" ColumnName="logoUrl" />
+                <ScalarProperty Name="created" ColumnName="created" />
+                <ScalarProperty Name="modified" ColumnName="modified" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Businesses">
+          <EntitySetMapping Name="Business">
             <EntityTypeMapping TypeName="SilListModel.Business">
               <MappingFragment StoreEntitySet="Business">
                 <ScalarProperty Name="businessId" ColumnName="businessId" />
@@ -1358,7 +1419,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BusinessCategories">
-            <EntityTypeMapping TypeName="SilListModel.BusinessCategory">
+            <EntityTypeMapping TypeName="SilListModel.BusinessCategories">
               <MappingFragment StoreEntitySet="BusinessCategories">
                 <ScalarProperty Name="businessId" ColumnName="businessId" />
                 <ScalarProperty Name="businessCategoryTypeId" ColumnName="businessCategoryTypeId" />
@@ -1371,7 +1432,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BusinessImages">
-            <EntityTypeMapping TypeName="SilListModel.BusinessImage">
+            <EntityTypeMapping TypeName="SilListModel.BusinessImages">
               <MappingFragment StoreEntitySet="BusinessImages">
                 <ScalarProperty Name="imageId" ColumnName="imageId" />
                 <ScalarProperty Name="businessId" ColumnName="businessId" />
@@ -1384,7 +1445,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BusinessRatings">
-            <EntityTypeMapping TypeName="SilListModel.BusinessRating">
+            <EntityTypeMapping TypeName="SilListModel.BusinessRatings">
               <MappingFragment StoreEntitySet="BusinessRatings">
                 <ScalarProperty Name="ratingId" ColumnName="ratingId" />
                 <ScalarProperty Name="businessId" ColumnName="businessId" />
@@ -1397,7 +1458,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BusinessServices">
-            <EntityTypeMapping TypeName="SilListModel.BusinessService">
+            <EntityTypeMapping TypeName="SilListModel.BusinessServices">
               <MappingFragment StoreEntitySet="BusinessServices">
                 <ScalarProperty Name="serviceTypeId" ColumnName="serviceTypeId" />
                 <ScalarProperty Name="businessId" ColumnName="businessId" />
@@ -1409,7 +1470,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Images">
+          <EntitySetMapping Name="Image">
             <EntityTypeMapping TypeName="SilListModel.Image">
               <MappingFragment StoreEntitySet="Image">
                 <ScalarProperty Name="imageId" ColumnName="imageId" />
@@ -1429,10 +1490,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Jobs">
+          <EntitySetMapping Name="Job">
             <EntityTypeMapping TypeName="SilListModel.Job">
               <MappingFragment StoreEntitySet="Job">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="jobId" ColumnName="jobId" />
                 <ScalarProperty Name="listingDetailId" ColumnName="listingDetailId" />
                 <ScalarProperty Name="siteId" ColumnName="siteId" />
@@ -1452,7 +1512,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="JobCompanies">
+          <EntitySetMapping Name="JobCompany">
             <EntityTypeMapping TypeName="SilListModel.JobCompany">
               <MappingFragment StoreEntitySet="JobCompany">
                 <ScalarProperty Name="jobCompanyId" ColumnName="jobCompanyId" />
@@ -1472,7 +1532,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ListingDetails">
+          <EntitySetMapping Name="ListingDetail">
             <EntityTypeMapping TypeName="SilListModel.ListingDetail">
               <MappingFragment StoreEntitySet="ListingDetail">
                 <ScalarProperty Name="listingDetailId" ColumnName="listingDetailId" />
@@ -1487,7 +1547,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Members">
+          <EntitySetMapping Name="Member">
             <EntityTypeMapping TypeName="SilListModel.Member">
               <MappingFragment StoreEntitySet="Member">
                 <ScalarProperty Name="memberId" ColumnName="memberId" />
@@ -1514,7 +1574,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Ratings">
+          <EntitySetMapping Name="Rating">
             <EntityTypeMapping TypeName="SilListModel.Rating">
               <MappingFragment StoreEntitySet="Rating">
                 <ScalarProperty Name="ratingId" ColumnName="ratingId" />
@@ -1529,7 +1589,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Rentals">
+          <EntitySetMapping Name="Rental">
             <EntityTypeMapping TypeName="SilListModel.Rental">
               <MappingFragment StoreEntitySet="Rental">
                 <ScalarProperty Name="rentalId" ColumnName="rentalId" />
@@ -1553,7 +1613,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RentalImages">
-            <EntityTypeMapping TypeName="SilListModel.RentalImage">
+            <EntityTypeMapping TypeName="SilListModel.RentalImages">
               <MappingFragment StoreEntitySet="RentalImages">
                 <ScalarProperty Name="imageId" ColumnName="imageId" />
                 <ScalarProperty Name="rentalId" ColumnName="rentalId" />
@@ -1581,7 +1641,6 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
