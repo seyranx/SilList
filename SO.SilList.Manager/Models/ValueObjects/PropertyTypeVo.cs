@@ -1,4 +1,4 @@
-
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +19,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     {
     		
     	[DisplayName("property Type Id")]
-    	[Key]
+    	[Required]
         public int propertyTypeId { get; set; }
     		
     	[DisplayName("name")]
@@ -56,3 +56,4 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	}
     }
 }
+

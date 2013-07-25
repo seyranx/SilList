@@ -13,24 +13,24 @@ using System.Data.Entity;
 namespace SO.SilList.Manager.Models.ValueObjects
 {
      
-    [Table("Rating", Schema = "data" )]
+    [Table("ServiceType", Schema = "app" )]
     [Serializable]
-    public partial class RatingVo
+    public partial class ServiceTypeVo
     {
     		
-    	[DisplayName("rating Id")]
+    	[DisplayName("service Type Id")]
     	[Key]
-        public System.Guid ratingId { get; set; }
+        public int serviceTypeId { get; set; }
     		
-    	[DisplayName("rating1")]
-        public Nullable<int> rating1 { get; set; }
+    	[DisplayName("description")]
+        public string description { get; set; }
     		
-    	[DisplayName("review")]
+    	[DisplayName("name")]
     	[StringLength(50)]
-        public string review { get; set; }
+        public string name { get; set; }
     		
-    	[DisplayName("member Id")]
-        public Nullable<int> memberId { get; set; }
+    	[DisplayName("site Id")]
+        public Nullable<int> siteId { get; set; }
     		
     	[DisplayName("created")]
     	[Required]
@@ -50,12 +50,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public Nullable<bool> isActive { get; set; }
 
 
-        // [ForeignKey("foreignKeyname")]
-        // public virtual SiteVo site { get; set; }
-
-    	public RatingVo(){
+    	public ServiceTypeVo(){
     			
-    	 this.ratingId = Guid.NewGuid();
     	
     	 this.isActive = true;
     	}

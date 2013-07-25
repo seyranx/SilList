@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
-//using EntityFramework.Extensions;
+using EntityFramework.Extensions;
 using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Interfaces;
 using SO.SilList.Manager.DbContexts;
@@ -82,8 +82,8 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.businesses
-                     .Where(e => e.businessId == businessId);
-                   //  .Delete();
+                     .Where(e => e.businessId == businessId)
+                     .Delete();
                 return true;
             }
         }

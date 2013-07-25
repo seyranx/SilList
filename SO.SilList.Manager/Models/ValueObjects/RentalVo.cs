@@ -84,10 +84,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         [ForeignKey("listingDetailId")]
         public virtual ListingDetailVo listingDetail { get; set; }
-
-        [ForeignKey("siteId")]
-        public virtual MemberVo member { get; set; }
 */
+        [ForeignKey("siteId")]
+        public virtual SiteVo site { get; set; }
+
     	public RentalVo(){
     			
     		this.rentalId = Guid.NewGuid();

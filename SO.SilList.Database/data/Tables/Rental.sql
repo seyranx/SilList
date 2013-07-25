@@ -19,10 +19,12 @@
     PRIMARY KEY CLUSTERED ([rentalId] ASC),
     CONSTRAINT [FK_Rental_LeaseTermType] FOREIGN KEY ([leaseTermTypeId]) REFERENCES [app].[LeaseTermType] ([leaseTermTypeId]) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT [FK_Rental_ListingDetail] FOREIGN KEY ([listingDetailId]) REFERENCES [data].[ListingDetail] ([listingDetailId]) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT [FK_Rental_Member] FOREIGN KEY ([siteId]) REFERENCES [data].[Member] ([memberId]) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT [FK_Rental_PropertyType1] FOREIGN KEY ([propertyTypeId]) REFERENCES [app].[PropertyType] ([propertyTypeId]),
-    CONSTRAINT [FK_Rental_RentType1] FOREIGN KEY ([rentTypeId]) REFERENCES [app].[RentType] ([rentTypeId])
+    CONSTRAINT [FK_Rental_RentType1] FOREIGN KEY ([rentTypeId]) REFERENCES [app].[RentType] ([rentTypeId]),
+    CONSTRAINT [FK_Rental_Site] FOREIGN KEY ([siteId]) REFERENCES [app].[Site] ([siteId]) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+
 
 
 

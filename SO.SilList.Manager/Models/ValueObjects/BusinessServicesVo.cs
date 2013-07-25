@@ -13,32 +13,23 @@ using System.Data.Entity;
 namespace SO.SilList.Manager.Models.ValueObjects
 {
      
-    [Table("Rating", Schema = "data" )]
+    [Table("BusinessServices", Schema = "data" )]
     [Serializable]
-    public partial class RatingVo
+    public partial class BusinessServicesVo
     {
     		
-    	[DisplayName("rating Id")]
+    	[DisplayName("service Type Id")]
     	[Key]
-        public System.Guid ratingId { get; set; }
+        public int serviceTypeId { get; set; }
     		
-    	[DisplayName("rating1")]
-        public Nullable<int> rating1 { get; set; }
-    		
-    	[DisplayName("review")]
-    	[StringLength(50)]
-        public string review { get; set; }
-    		
-    	[DisplayName("member Id")]
-        public Nullable<int> memberId { get; set; }
+    	[DisplayName("business Id")]
+        public Nullable<System.Guid> businessId { get; set; }
     		
     	[DisplayName("created")]
-    	[Required]
-        public System.DateTime created { get; set; }
+        public Nullable<System.DateTime> created { get; set; }
     		
     	[DisplayName("modified")]
-    	[Required]
-        public System.DateTime modified { get; set; }
+        public Nullable<System.DateTime> modified { get; set; }
     		
     	[DisplayName("created By")]
         public Nullable<int> createdBy { get; set; }
@@ -49,13 +40,14 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
 
+        //[ForeignKey("businessId")]
+        // public virtual BusinessVo business { get; set; }
 
-        // [ForeignKey("foreignKeyname")]
-        // public virtual SiteVo site { get; set; }
+        //[ForeignKey("serviceId")]
+        // public virtual ServiceVo service { get; set; }
 
-    	public RatingVo(){
+    	public BusinessServicesVo(){
     			
-    	 this.ratingId = Guid.NewGuid();
     	
     	 this.isActive = true;
     	}
