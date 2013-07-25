@@ -57,6 +57,8 @@
     </Compile>
     <Compile Include="Models\ValueObjects\LeaseTermTypeVo.cs" />
     <Compile Include="Models\ValueObjects\RentalVo.cs" />
+    <Compile Include="Models\ValueObjects\PropertyTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\RentType.cs" />
     <Compile Include="Models\ValueObjects\SiteVo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
