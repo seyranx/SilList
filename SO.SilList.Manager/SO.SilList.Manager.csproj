@@ -51,10 +51,12 @@
     <Compile Include="DbContexts\MainDb.cs" />
     <Compile Include="Interfaces\IBusinessManager.cs" />
     <Compile Include="Managers\BusinessManager.cs" />
+    <Compile Include="Models\ValueObjects\BusinessCategoryTypeVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessVo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\ValueObjects\Class1.cs" />
+    <Compile Include="Models\ValueObjects\LeaseTermTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\RentalVo.cs" />
     <Compile Include="Models\ValueObjects\SiteVo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
