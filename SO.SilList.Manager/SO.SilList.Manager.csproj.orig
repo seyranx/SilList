@@ -55,10 +55,13 @@
     <Compile Include="Models\ValueObjects\BusinessVo.cs">
       <SubType>Code</SubType>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Models\ValueObjects\LeaseTermTypeVo.cs" />
     <Compile Include="Models\ValueObjects\RentalVo.cs" />
+=======
     <Compile Include="Models\ValueObjects\PropertyTypeVo.cs" />
     <Compile Include="Models\ValueObjects\RentType.cs" />
+>>>>>>> b2d439c4b78266df5f1165b82b00342036e37147
     <Compile Include="Models\ValueObjects\SiteVo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

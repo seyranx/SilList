@@ -13,38 +13,44 @@ using System.Data.Entity;
 namespace SO.SilList.CodeGeneration.DbContexts.SilList
 {
      
-    [Table("BusinessImage", Schema = "dbo" )]
+    [Table("BusinessRating", Schema = "data" )]
     [Serializable]
-    public partial class BusinessImageVo
+    public partial class BusinessRatingVo
     {
     		
-    	[DisplayName("image Id")]
-    	[Required]
-        public System.Guid imageId { get; set; }
+    	[DisplayName("rating Id")]
+    	[Key]
+        public System.Guid ratingId { get; set; }
     		
     	[DisplayName("business Id")]
         public Nullable<System.Guid> businessId { get; set; }
     		
     	[DisplayName("created")]
-        public Nullable<System.DateTime> created { get; set; }
+    	[Required]
+        public System.DateTime created { get; set; }
     		
     	[DisplayName("modified")]
-        public Nullable<System.DateTime> modified { get; set; }
+    	[Required]
+        public System.DateTime modified { get; set; }
     		
-    	[DisplayName("craeted By")]
-        public Nullable<int> craetedBy { get; set; }
+    	[DisplayName("created By")]
+        public Nullable<int> createdBy { get; set; }
     		
     	[DisplayName("modified By")]
         public Nullable<int> modifiedBy { get; set; }
     		
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
+
+
+       // [ForeignKey("foreignKeyname")]
+       // public virtual SiteVo site { get; set; }
       
-    	public BusinessImageVo(){
+    	public BusinessRatingVo(){
     			
-    		this.imageId = Guid.NewGuid();
+    	this.ratingId = Guid.NewGuid();
     	
-    	 //this.isActive = true;
+    	this.isActive = true;
     	}
     }
 }

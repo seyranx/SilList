@@ -10,30 +10,27 @@ using System.Data;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 
-namespace SO.SilList.CodeGeneration.DbContexts.SilList
+namespace SO.SilList.Manager.Models.ValueObjects
 {
      
-    [Table("RentType", Schema = "dbo" )]
+    [Table("LeaseTermType", Schema = "app" )]
     [Serializable]
-    public partial class RentTypeVo
+    public partial class LeaseTermTypeVo
     {
     		
-    	[DisplayName("rent Type Id")]
-    	[Required]
-        public int rentTypeId { get; set; }
+    	[DisplayName("lease Term Type Id")]
+    	[Key]
+        public int leaseTermTypeId { get; set; }
     		
     	[DisplayName("name")]
-    	[Required]
     	[StringLength(50)]
         public string name { get; set; }
     		
     	[DisplayName("description")]
-    	[Required]
         public string description { get; set; }
     		
-    	[DisplayName("created")]
-    	[Required]
-        public System.DateTime created { get; set; }
+    	[DisplayName("modified By")]
+        public Nullable<int> modifiedBy { get; set; }
     		
     	[DisplayName("modified")]
     	[Required]
@@ -42,16 +39,16 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     	[DisplayName("created By")]
         public Nullable<int> createdBy { get; set; }
     		
-    	[DisplayName("modified By")]
-        public Nullable<int> modifiedBy { get; set; }
+    	[DisplayName("created")]
+    	[Required]
+        public System.DateTime created { get; set; }
     		
     	[DisplayName("is Active")]
-        public Nullable<bool> isActive { get; set; }
+    	[Required]
+        public bool isActive { get; set; }
       
-    	public RentTypeVo(){
-    			
-    	
-    	 //this.isActive = true;
+    	public LeaseTermTypeVo(){
+    			this.isActive = true;
     	}
     }
 }

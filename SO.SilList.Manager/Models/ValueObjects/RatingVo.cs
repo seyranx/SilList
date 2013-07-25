@@ -13,23 +13,24 @@ using System.Data.Entity;
 namespace SO.SilList.CodeGeneration.DbContexts.SilList
 {
      
-    [Table("RentType", Schema = "dbo" )]
+    [Table("Rating", Schema = "data" )]
     [Serializable]
-    public partial class RentTypeVo
+    public partial class RatingVo
     {
     		
-    	[DisplayName("rent Type Id")]
-    	[Required]
-        public int rentTypeId { get; set; }
+    	[DisplayName("rating Id")]
+    	[Key]
+        public System.Guid ratingId { get; set; }
     		
-    	[DisplayName("name")]
-    	[Required]
+    	[DisplayName("rating1")]
+        public Nullable<int> rating1 { get; set; }
+    		
+    	[DisplayName("review")]
     	[StringLength(50)]
-        public string name { get; set; }
+        public string review { get; set; }
     		
-    	[DisplayName("description")]
-    	[Required]
-        public string description { get; set; }
+    	[DisplayName("member Id")]
+        public Nullable<int> memberId { get; set; }
     		
     	[DisplayName("created")]
     	[Required]
@@ -47,11 +48,16 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     		
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
-      
-    	public RentTypeVo(){
+
+
+        // [ForeignKey("foreignKeyname")]
+        // public virtual SiteVo site { get; set; }
+
+    	public RatingVo(){
     			
+    	 this.ratingId = Guid.NewGuid();
     	
-    	 //this.isActive = true;
+    	 this.isActive = true;
     	}
     }
 }

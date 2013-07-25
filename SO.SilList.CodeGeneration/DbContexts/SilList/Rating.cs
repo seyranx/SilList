@@ -16,7 +16,7 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     {
         public Rating()
         {
-            this.BusinessRatings = new HashSet<BusinessRating>();
+            this.BusinessRatings = new HashSet<BusinessRatings>();
         }
     
         public System.Guid ratingId { get; set; }
@@ -29,6 +29,6 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
         public Nullable<int> modifiedBy { get; set; }
         public Nullable<bool> isActive { get; set; }
     
-        public virtual ICollection<BusinessRating> BusinessRatings { get; set; }
+        public virtual ICollection<BusinessRatings> BusinessRatings { get; set; }
     }
 }

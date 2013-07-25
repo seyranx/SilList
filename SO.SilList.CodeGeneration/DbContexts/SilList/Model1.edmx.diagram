@@ -4,39 +4,40 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1923261deb6d40e9962e07a2403560f7" Name="Diagram1">
-        <EntityTypeShape EntityType="SilListModel.BusinessCategoryType" Width="1.5" PointX="10" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SilListModel.JobType" Width="1.5" PointX="5.75" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="SilListModel.LeaseTermType" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SilListModel.PropertyType" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SilListModel.RentType" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SilListModel.ServiceType" Width="1.5" PointX="10" PointY="16.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SilListModel.Site" Width="1.5" PointX="7.75" PointY="10" IsExpanded="true" />
-        <EntityTypeShape EntityType="SilListModel.Business" Width="1.5" PointX="10" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SilListModel.BusinessCategory" Width="1.5" PointX="12.25" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SilListModel.BusinessImage" Width="1.5" PointX="5" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SilListModel.BusinessRating" Width="1.5" PointX="13" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SilListModel.BusinessService" Width="1.5" PointX="12.25" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SilListModel.Image" Width="1.5" PointX="2.75" PointY="13" IsExpanded="true" />
-        <EntityTypeShape EntityType="SilListModel.Job" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="SilListModel.JobCompany" Width="1.5" PointX="5.75" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SilListModel.ListingDetail" Width="1.5" PointX="0.75" PointY="14.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SilListModel.Member" Width="1.5" PointX="0.75" PointY="17.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SilListModel.Rating" Width="1.5" PointX="10.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="SilListModel.Rental" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SilListModel.RentalImage" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
+      <Diagram DiagramId="b47d9e6ae5fb46bf995f367a5269f426" Name="Diagram1">
+        <EntityTypeShape EntityType="SilListModel.BusinessCategoryType" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SilListModel.JobCategories" Width="1.5" PointX="7.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SilListModel.JobCategoryType" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SilListModel.JobType" Width="1.5" PointX="11.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SilListModel.LeaseTermType" Width="1.5" PointX="3" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SilListModel.PropertyType" Width="1.5" PointX="3" PointY="24.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SilListModel.RentType" Width="1.5" PointX="3" PointY="28.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SilListModel.ServiceType" Width="1.5" PointX="3" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SilListModel.Site" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SilListModel.Business" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SilListModel.BusinessCategories" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SilListModel.BusinessImages" Width="1.5" PointX="10" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SilListModel.BusinessRatings" Width="1.5" PointX="10" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SilListModel.BusinessServices" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SilListModel.Image" Width="1.5" PointX="7.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SilListModel.Job" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SilListModel.JobCompany" Width="1.5" PointX="13.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SilListModel.ListingDetail" Width="1.5" PointX="3" PointY="32.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SilListModel.Member" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SilListModel.Rating" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SilListModel.Rental" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="SilListModel.RentalImages" Width="1.5" PointX="7.75" PointY="13.75" IsExpanded="true" />
         <AssociationConnector Association="SilListModel.FK_BusinessCategories_BusinessCategoryType" ManuallyRouted="false" />
         <AssociationConnector Association="SilListModel.FK_BusinessCategoryType_Site" ManuallyRouted="false" />
-        <AssociationConnector Association="SilListModel.FK_Job_JobType" ManuallyRouted="false" />
         <AssociationConnector Association="SilListModel.FK_Rental_LeaseTermType" ManuallyRouted="false" />
-        <AssociationConnector Association="SilListModel.FK_Rental_PropertyType" ManuallyRouted="false" />
-        <AssociationConnector Association="SilListModel.FK_Rental_RentType" ManuallyRouted="false" />
+        <AssociationConnector Association="SilListModel.FK_Rental_PropertyType1" ManuallyRouted="false" />
+        <AssociationConnector Association="SilListModel.FK_Rental_RentType1" ManuallyRouted="false" />
         <AssociationConnector Association="SilListModel.FK_BusinessServices_ServiceType" ManuallyRouted="false" />
         <AssociationConnector Association="SilListModel.FK_Business_Site" ManuallyRouted="false" />
+        <AssociationConnector Association="SilListModel.FK_Member_Site" ManuallyRouted="false" />
         <AssociationConnector Association="SilListModel.FK_BusinessServices_Business" ManuallyRouted="false" />
         <AssociationConnector Association="SilListModel.FK_BusinessImages_Image" ManuallyRouted="false" />
         <AssociationConnector Association="SilListModel.FK_BusinessRatings_Rating" ManuallyRouted="false" />
-        <AssociationConnector Association="SilListModel.FK_Job_JobCompany" ManuallyRouted="false" />
         <AssociationConnector Association="SilListModel.FK_Rental_ListingDetail" ManuallyRouted="false" />
         <AssociationConnector Association="SilListModel.FK_Rental_Member" ManuallyRouted="false" />
       </Diagram>
