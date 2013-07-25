@@ -10,27 +10,21 @@ using System.Data;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 
-namespace SO.SilList.CodeGeneration.DbContexts.SilList
+namespace SO.SilList.Manager.Models.ValueObjects
 {
      
-    [Table("Rating", Schema = "dbo" )]
+    [Table("RentalImage", Schema = "data" )]
     [Serializable]
-    public partial class RatingVo
+    public partial class RentalImageVo
     {
     		
-    	[DisplayName("rating Id")]
+    	[DisplayName("image Id")]
+    	[Key]
+        public System.Guid imageId { get; set; }
+    		
+    	[DisplayName("rental Id")]
     	[Required]
-        public System.Guid ratingId { get; set; }
-    		
-    	[DisplayName("rating1")]
-        public Nullable<int> rating1 { get; set; }
-    		
-    	[DisplayName("review")]
-    	[StringLength(50)]
-        public string review { get; set; }
-    		
-    	[DisplayName("member Id")]
-        public Nullable<int> memberId { get; set; }
+        public System.Guid rentalId { get; set; }
     		
     	[DisplayName("created")]
     	[Required]
@@ -48,12 +42,15 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     		
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
+
+        [ForeignKey("imageId")]
+        [ForeignKey("rentalId")]
       
-    	public RatingVo(){
+    	public RentalImageVo(){
     			
-    		this.ratingId = Guid.NewGuid();
+    		this.imageId = Guid.NewGuid();
     	
-    	 //this.isActive = true;
+    	 this.isActive = true;
     	}
     }
 }
