@@ -130,21 +130,11 @@
         <Name>Event</Name>
         <Access>Public</Access>
         <Location left="648" top="52" />
-        <Size width="185" height="145" />
+        <Size width="185" height="128" />
         <Collapsed>False</Collapsed>
         <Member type="Field">Guid eventId</Member>
         <Member type="Field">Guid venueId</Member>
-        <Member type="Field">int eventTableSetupTypeId</Member>
         <Member type="Field">int eventTypeId</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>SpeedEventTable</Name>
-        <Access>Public</Access>
-        <Location left="257" top="333" />
-        <Size width="162" height="94" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">Guid speedEventTableId</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -159,22 +149,32 @@
       <Entity type="Class">
         <Name>SpeedEventCycle</Name>
         <Access>Public</Access>
-        <Location left="257" top="472" />
-        <Size width="162" height="94" />
+        <Location left="290" top="396" />
+        <Size width="213" height="196" />
         <Collapsed>False</Collapsed>
         <Member type="Field">Guid speedEventCycleId</Member>
+        <Member type="Field">Guid speedEventId</Member>
+        <Member type="Field">Guid caveId</Member>
+        <Member type="Field">int memberId</Member>
+        <Member type="Field">int cycleNumber</Member>
+        <Member type="Field">int tableNumber</Member>
+        <Member type="Field">int personNumber</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>SpeedEvent</Name>
         <Access>Public</Access>
-        <Location left="257" top="130" />
-        <Size width="162" height="145" />
+        <Location left="258" top="130" />
+        <Size width="188" height="213" />
         <Collapsed>False</Collapsed>
         <Member type="Field">Guid speedEventId</Member>
         <Member type="Field">Guid eventId</Member>
+        <Member type="Field">int tableCount</Member>
+        <Member type="Field">int tableSeatCount</Member>
+        <Member type="Field">int forceTableEmptySeatCount</Member>
         <Member type="Field">int cycleCount</Member>
         <Member type="Field">int cycleMinutes</Member>
+        <Member type="Field">bool hasTableHost</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -187,22 +187,9 @@
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
-        <Name>EventTableSetupType</Name>
-        <Access>Public</Access>
-        <Location left="930" top="204" />
-        <Size width="211" height="162" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">int eventTableSetupTypeId</Member>
-        <Member type="Field">int tableCount</Member>
-        <Member type="Field">int tableSeatCount</Member>
-        <Member type="Field">string name</Member>
-        <Member type="Field">Guid venueId</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
         <Name>EventMembers</Name>
         <Access>Public</Access>
-        <Location left="648" top="291" />
+        <Location left="636" top="279" />
         <Size width="162" height="145" />
         <Collapsed>False</Collapsed>
         <Member type="Field">Guid eventMemberId</Member>
@@ -227,6 +214,11 @@
         <Location left="1127" top="579" />
         <Size width="115" height="54" />
       </Entity>
+      <Entity type="Comment">
+        <Text>Evenly distrubute members on tables. tableSeatCount is the max, but tables may have less. </Text>
+        <Location left="74" top="175" />
+        <Size width="160" height="75" />
+      </Entity>
     </Entities>
     <Relationships>
       <Relationship type="Association" first="1" second="0">
@@ -237,19 +229,7 @@
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="1" second="7">
-        <Label>
-        </Label>
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>858</X>
-          <Y>144</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Composition</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="1" second="6">
+      <Relationship type="Association" first="1" second="5">
         <Label>
         </Label>
         <StartOrientation>Horizontal</StartOrientation>
@@ -259,17 +239,17 @@
           <Y>177</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>875</X>
-          <Y>407</Y>
+          <X>905</X>
+          <Y>405</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
-      <Relationship type="Comment" first="10" second="9">
+      <Relationship type="Comment" first="8" second="7">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
-      <Relationship type="Association" first="8" second="1">
+      <Relationship type="Association" first="6" second="1">
         <Label>
         </Label>
         <StartOrientation>Vertical</StartOrientation>
@@ -277,26 +257,26 @@
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="8" second="3">
+      <Relationship type="Association" first="6" second="2">
         <Label>
         </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>698</X>
-          <Y>266</Y>
+          <X>686</X>
+          <Y>254</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="8" second="9">
+      <Relationship type="Association" first="6" second="7">
         <Label>
         </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>835</X>
-          <Y>417</Y>
+          <X>823</X>
+          <Y>405</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>905</X>
@@ -305,15 +285,23 @@
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="5" second="1">
+      <Relationship type="Association" first="4" second="1">
         <Label>
         </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>373</X>
+          <X>374</X>
           <Y>85</Y>
         </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="3" second="4">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
