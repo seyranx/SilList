@@ -159,6 +159,7 @@
     <Build Include="app\Tables\JobType.sql">
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
+    <Build Include="app\Tables\JobType.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />

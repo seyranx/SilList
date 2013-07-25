@@ -64,6 +64,7 @@
     <Compile Include="Models\ValueObjects\ListingDetailVo.cs" />
     <Compile Include="Models\ValueObjects\MemberVo.cs" />
     <Compile Include="Models\ValueObjects\RatingVo.cs" />
+    <Compile Include="Models\ValueObjects\RentalImageVo.cs" />
     <Compile Include="Models\ValueObjects\RentalVo.cs" />
     <Compile Include="Models\ValueObjects\PropertyTypeVo.cs" />
     <Compile Include="Models\ValueObjects\RentTypeVo.cs" />
