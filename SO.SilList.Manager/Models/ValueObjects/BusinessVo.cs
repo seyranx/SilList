@@ -67,7 +67,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [ForeignKey("siteId")]
         public virtual SiteVo site { get; set; }
 
-         public BusinessVo(){
+        [ForeignKey("listingDetailId")]
+        public virtual ListingDetailVo site { get; set; }
+
+        public BusinessVo()
+        {
     			
     		this.businessId = Guid.NewGuid();
     	    this.isActive = true;

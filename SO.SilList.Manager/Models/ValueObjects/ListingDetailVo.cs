@@ -50,7 +50,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
     		
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
-      
+
+        [Association("ListingDetail_Business", "listingDetailId", "listingDetailId", IsForeignKey = true)]
+        public List<BusinessVo> business { get; set; }
+
     	public ListingDetailVo(){
     			
     		this.listingDetailId = Guid.NewGuid();
