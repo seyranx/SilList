@@ -42,6 +42,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
     		
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
+
+        [ForeignKey("imageId")]
+        [ForeignKey("rentalId")]
       
     	public RentalImageVo(){
     			
