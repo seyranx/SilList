@@ -19,7 +19,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     {
 
         [DisplayName("rent Type Id")]
-        [Required]
+        [Key]
         public int rentTypeId { get; set; }
 
         [DisplayName("name")]

@@ -44,7 +44,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public Nullable<bool> isActive { get; set; }
 
         [ForeignKey("imageId")]
+        public virtual ImageVo image { get; set; }
         [ForeignKey("rentalId")]
+        public virtual RentalVo rental { get; set; }
       
     	public RentalImageVo(){
     			
