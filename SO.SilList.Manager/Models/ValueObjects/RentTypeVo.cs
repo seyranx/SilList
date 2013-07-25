@@ -13,14 +13,15 @@ using System.Data.Entity;
 namespace SO.SilList.Manager.Models.ValueObjects
 {
      
-    [Table("PropertyType", Schema = "app" )]
+    [Table("RentType", Schema = "app" )]
     [Serializable]
-    public partial class PropertyTypeVo
+    public partial class RentTypeVo
     {
     		
-    	[DisplayName("property Type Id")]
+    	[DisplayName("rent Type Id")]
     	[Key]
-        public int propertyTypeId { get; set; }
+        public int rentTypeId { get; set; }
+
     		
     	[DisplayName("name")]
     	[Required]
@@ -49,7 +50,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
       
-    	public PropertyTypeVo(){
+    	public RentTypeVo(){
     			
     	
     	 this.isActive = true;
