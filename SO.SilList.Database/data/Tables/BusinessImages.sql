@@ -6,6 +6,9 @@
     [craetedBy]  INT              NULL,
     [modifiedBy] INT              NULL,
     [isActive]   BIT              NULL,
+    CONSTRAINT [FK_BusinessImages_Business] FOREIGN KEY ([businessId]) REFERENCES [data].[Business] ([businessId]) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT [FK_BusinessImages_Image] FOREIGN KEY ([imageId]) REFERENCES [data].[Image] ([imageId]) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+
 

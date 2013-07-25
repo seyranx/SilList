@@ -16,7 +16,7 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     {
         public Member()
         {
-            this.Rentals = new HashSet<Rental>();
+            this.Rental = new HashSet<Rental>();
         }
     
         public int memberId { get; set; }
@@ -41,6 +41,7 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
         public Nullable<int> modifiedBy { get; set; }
         public Nullable<bool> isActive { get; set; }
     
-        public virtual ICollection<Rental> Rentals { get; set; }
+        public virtual Site Site { get; set; }
+        public virtual ICollection<Rental> Rental { get; set; }
     }
 }

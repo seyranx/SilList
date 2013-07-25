@@ -12,29 +12,16 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     using System;
     using System.Collections.Generic;
     
-    public partial class Site
+    public partial class BusinessCategories
     {
-        public Site()
-        {
-            this.BusinessCategoryType = new HashSet<BusinessCategoryType>();
-            this.Business = new HashSet<Business>();
-            this.Member = new HashSet<Member>();
-        }
-    
-        public int siteId { get; set; }
-        public string name { get; set; }
-        public string domain { get; set; }
-        public string description { get; set; }
-        public string logo { get; set; }
-        public string logoUrl { get; set; }
+        public System.Guid businessId { get; set; }
+        public int businessCategoryTypeId { get; set; }
         public System.DateTime created { get; set; }
         public System.DateTime modified { get; set; }
         public Nullable<int> createdBy { get; set; }
         public Nullable<int> modifiedBy { get; set; }
         public Nullable<bool> isActive { get; set; }
     
-        public virtual ICollection<BusinessCategoryType> BusinessCategoryType { get; set; }
-        public virtual ICollection<Business> Business { get; set; }
-        public virtual ICollection<Member> Member { get; set; }
+        public virtual BusinessCategoryType BusinessCategoryType { get; set; }
     }
 }

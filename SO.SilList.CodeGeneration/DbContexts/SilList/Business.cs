@@ -16,7 +16,7 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     {
         public Business()
         {
-            this.BusinessServices = new HashSet<BusinessService>();
+            this.BusinessServices = new HashSet<BusinessServices>();
         }
     
         public System.Guid businessId { get; set; }
@@ -33,6 +33,6 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
         public bool isActive { get; set; }
     
         public virtual Site Site { get; set; }
-        public virtual ICollection<BusinessService> BusinessServices { get; set; }
+        public virtual ICollection<BusinessServices> BusinessServices { get; set; }
     }
 }

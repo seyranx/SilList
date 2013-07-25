@@ -18,15 +18,13 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     public partial class JobVo
     {
     		
-    	[DisplayName("Id")]
-    	[Required]
-        public int Id { get; set; }
-    		
     	[DisplayName("job Id")]
-        public Nullable<System.Guid> jobId { get; set; }
+    	[Required]
+        public System.Guid jobId { get; set; }
     		
     	[DisplayName("listing Detail Id")]
-        public Nullable<System.Guid> listingDetailId { get; set; }
+    	[Required]
+        public System.Guid listingDetailId { get; set; }
     		
     	[DisplayName("site Id")]
         public Nullable<int> siteId { get; set; }
@@ -76,6 +74,7 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
       
     	public JobVo(){
     			
+    		this.jobId = Guid.NewGuid();
     	
     	 //this.isActive = true;
     	}
