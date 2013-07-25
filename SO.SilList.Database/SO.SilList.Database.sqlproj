@@ -128,7 +128,6 @@
     </Build>
     <Build Include="data\Tables\BusinessServices.sql" />
     <Build Include="data\Tables\Image.sql" />
-    <Build Include="data\Tables\JobCompany.sql" />
     <Build Include="data\Tables\Job.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
@@ -140,8 +139,12 @@
     <Build Include="data\Tables\Rental.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
-    <Build Include="data\Tables\BusinessImages.sql" />
-    <Build Include="data\Tables\BusinessRatings.sql" />
+    <Build Include="data\Tables\BusinessImages.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
+    <Build Include="data\Tables\BusinessRatings.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
     <Build Include="data\Tables\RentalImages.sql" />
     <Build Include="app\Tables\ServiceType.sql" />
     <Build Include="app\Tables\PropertyType.sql" />
