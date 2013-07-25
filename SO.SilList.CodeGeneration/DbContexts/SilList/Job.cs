@@ -14,9 +14,8 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     
     public partial class Job
     {
-        public int Id { get; set; }
-        public Nullable<System.Guid> jobId { get; set; }
-        public Nullable<System.Guid> listingDetailId { get; set; }
+        public System.Guid jobId { get; set; }
+        public System.Guid listingDetailId { get; set; }
         public Nullable<int> siteId { get; set; }
         public string title { get; set; }
         public string description { get; set; }
@@ -31,8 +30,5 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
         public Nullable<int> createdBy { get; set; }
         public Nullable<int> modifiedBy { get; set; }
         public Nullable<bool> isActive { get; set; }
-    
-        public virtual JobType JobType { get; set; }
-        public virtual JobCompany JobCompany { get; set; }
     }
 }

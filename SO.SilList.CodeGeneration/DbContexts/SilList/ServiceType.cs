@@ -24,6 +24,6 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
         public Nullable<int> modifiedBy { get; set; }
         public Nullable<bool> isActive { get; set; }
     
-        public virtual BusinessService BusinessService { get; set; }
+        public virtual BusinessServices BusinessServices { get; set; }
     }
 }

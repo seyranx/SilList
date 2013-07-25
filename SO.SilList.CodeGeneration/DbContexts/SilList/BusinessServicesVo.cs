@@ -13,14 +13,14 @@ using System.Data.Entity;
 namespace SO.SilList.CodeGeneration.DbContexts.SilList
 {
      
-    [Table("BusinessImage", Schema = "dbo" )]
+    [Table("BusinessServices", Schema = "dbo" )]
     [Serializable]
-    public partial class BusinessImageVo
+    public partial class BusinessServicesVo
     {
     		
-    	[DisplayName("image Id")]
+    	[DisplayName("service Type Id")]
     	[Required]
-        public System.Guid imageId { get; set; }
+        public int serviceTypeId { get; set; }
     		
     	[DisplayName("business Id")]
         public Nullable<System.Guid> businessId { get; set; }
@@ -31,8 +31,8 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     	[DisplayName("modified")]
         public Nullable<System.DateTime> modified { get; set; }
     		
-    	[DisplayName("craeted By")]
-        public Nullable<int> craetedBy { get; set; }
+    	[DisplayName("created By")]
+        public Nullable<int> createdBy { get; set; }
     		
     	[DisplayName("modified By")]
         public Nullable<int> modifiedBy { get; set; }
@@ -40,9 +40,8 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
       
-    	public BusinessImageVo(){
+    	public BusinessServicesVo(){
     			
-    		this.imageId = Guid.NewGuid();
     	
     	 //this.isActive = true;
     	}
