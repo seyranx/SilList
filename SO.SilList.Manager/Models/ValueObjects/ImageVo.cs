@@ -67,7 +67,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
     		
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
-      
+
+        [Association("Image_BusinessImages", "imageId", "imageId", IsForeignKey = true)]
+        public List<BusinessImagesVo> businessimages { get; set; }
+
     	public ImageVo(){
     			
     		this.imageId = Guid.NewGuid();
