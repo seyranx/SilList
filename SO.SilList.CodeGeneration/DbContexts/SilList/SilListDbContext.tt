@@ -8,7 +8,7 @@
 <#@ template language="C#" debug="false" hostspecific="true"#>
 <#@ import namespace="System.Text.RegularExpressions" #>
 <#@ include file="EF.Utility.CS.ttinclude"#><#@
- output extension=".cs"#><#
+ output extension=".cs"#><#  
   
 CodeGenerationTools code = new CodeGenerationTools(this);
 MetadataLoader loader = new MetadataLoader(this); 

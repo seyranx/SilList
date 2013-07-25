@@ -13,10 +13,10 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SilListEntities6 : DbContext
+    public partial class SilListEntities7 : DbContext
     {
-        public SilListEntities6()
-            : base("name=SilListEntities6")
+        public SilListEntities7()
+            : base("name=SilListEntities7")
         {
         }
     
@@ -25,25 +25,27 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<BusinessCategoryType> BusinessCategoryTypes { get; set; }
-        public DbSet<JobType> JobTypes { get; set; }
-        public DbSet<LeaseTermType> LeaseTermTypes { get; set; }
-        public DbSet<PropertyType> PropertyTypes { get; set; }
-        public DbSet<RentType> RentTypes { get; set; }
-        public DbSet<ServiceType> ServiceTypes { get; set; }
-        public DbSet<Site> Sites { get; set; }
-        public DbSet<Business> Businesses { get; set; }
-        public DbSet<BusinessCategory> BusinessCategories { get; set; }
-        public DbSet<BusinessImage> BusinessImages { get; set; }
-        public DbSet<BusinessRating> BusinessRatings { get; set; }
-        public DbSet<BusinessService> BusinessServices { get; set; }
-        public DbSet<Image> Images { get; set; }
-        public DbSet<Job> Jobs { get; set; }
-        public DbSet<JobCompany> JobCompanies { get; set; }
-        public DbSet<ListingDetail> ListingDetails { get; set; }
-        public DbSet<Member> Members { get; set; }
-        public DbSet<Rating> Ratings { get; set; }
-        public DbSet<Rental> Rentals { get; set; }
-        public DbSet<RentalImage> RentalImages { get; set; }
+        public DbSet<BusinessCategoryType> BusinessCategoryType { get; set; }
+        public DbSet<JobCategories> JobCategories { get; set; }
+        public DbSet<JobCategoryType> JobCategoryType { get; set; }
+        public DbSet<JobType> JobType { get; set; }
+        public DbSet<LeaseTermType> LeaseTermType { get; set; }
+        public DbSet<PropertyType> PropertyType { get; set; }
+        public DbSet<RentType> RentType { get; set; }
+        public DbSet<ServiceType> ServiceType { get; set; }
+        public DbSet<Site> Site { get; set; }
+        public DbSet<Business> Business { get; set; }
+        public DbSet<BusinessCategories> BusinessCategories { get; set; }
+        public DbSet<BusinessImages> BusinessImages { get; set; }
+        public DbSet<BusinessRatings> BusinessRatings { get; set; }
+        public DbSet<BusinessServices> BusinessServices { get; set; }
+        public DbSet<Image> Image { get; set; }
+        public DbSet<Job> Job { get; set; }
+        public DbSet<JobCompany> JobCompany { get; set; }
+        public DbSet<ListingDetail> ListingDetail { get; set; }
+        public DbSet<Member> Member { get; set; }
+        public DbSet<Rating> Rating { get; set; }
+        public DbSet<Rental> Rental { get; set; }
+        public DbSet<RentalImages> RentalImages { get; set; }
     }
 }
