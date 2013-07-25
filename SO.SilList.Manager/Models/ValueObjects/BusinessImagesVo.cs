@@ -13,28 +13,26 @@ using System.Data.Entity;
 namespace SO.SilList.Manager.Models.ValueObjects
 {
      
-    [Table("BusinessRating", Schema = "data" )]
+    [Table("BusinessImages", Schema = "data" )]
     [Serializable]
-    public partial class BusinessRatingVo
+    public partial class BusinessImagesVo
     {
     		
-    	[DisplayName("rating Id")]
+    	[DisplayName("image Id")]
     	[Key]
-        public System.Guid ratingId { get; set; }
+        public System.Guid imageId { get; set; }
     		
     	[DisplayName("business Id")]
         public Nullable<System.Guid> businessId { get; set; }
     		
     	[DisplayName("created")]
-    	[Required]
-        public System.DateTime created { get; set; }
+        public Nullable<System.DateTime> created { get; set; }
     		
     	[DisplayName("modified")]
-    	[Required]
-        public System.DateTime modified { get; set; }
+        public Nullable<System.DateTime> modified { get; set; }
     		
-    	[DisplayName("created By")]
-        public Nullable<int> createdBy { get; set; }
+    	[DisplayName("craeted By")]
+        public Nullable<int> craetedBy { get; set; }
     		
     	[DisplayName("modified By")]
         public Nullable<int> modifiedBy { get; set; }
@@ -42,15 +40,17 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
 
+        //[ForeignKey("imageId")]
+        // public virtual ImageVo image { get; set; }
 
-       // [ForeignKey("foreignKeyname")]
-       // public virtual SiteVo site { get; set; }
-      
-    	public BusinessRatingVo(){
+        //[ForeignKey("businessId")]
+        // public virtual BusinessVo business { get; set; }
+
+    	public BusinessImagesVo(){
     			
-    	this.ratingId = Guid.NewGuid();
+    		this.imageId = Guid.NewGuid();
     	
-    	this.isActive = true;
+    	 this.isActive = true;
     	}
     }
 }
