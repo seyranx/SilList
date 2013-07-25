@@ -19,7 +19,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     {
     		
     	[DisplayName("property Type Id")]
-    	[Required]
+    	[Key]
         public int propertyTypeId { get; set; }
     		
     	[DisplayName("name")]
