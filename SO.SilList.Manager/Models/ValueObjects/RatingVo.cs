@@ -48,7 +48,11 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     		
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
-      
+
+
+        // [ForeignKey("foreignKeyname")]
+        // public virtual SiteVo site { get; set; }
+
     	public RatingVo(){
     			
     	 this.ratingId = Guid.NewGuid();
