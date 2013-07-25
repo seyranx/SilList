@@ -13,9 +13,9 @@ using System.Data.Entity;
 namespace SO.SilList.CodeGeneration.DbContexts.SilList
 {
      
-    [Table("RentalImage", Schema = "dbo" )]
+    [Table("RentalImages", Schema = "dbo" )]
     [Serializable]
-    public partial class RentalImageVo
+    public partial class RentalImagesVo
     {
     		
     	[DisplayName("image Id")]
@@ -43,7 +43,7 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
       
-    	public RentalImageVo(){
+    	public RentalImagesVo(){
     			
     		this.imageId = Guid.NewGuid();
     	

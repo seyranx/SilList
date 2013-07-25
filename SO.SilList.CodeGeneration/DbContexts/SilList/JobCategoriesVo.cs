@@ -13,23 +13,17 @@ using System.Data.Entity;
 namespace SO.SilList.CodeGeneration.DbContexts.SilList
 {
      
-    [Table("RentType", Schema = "dbo" )]
+    [Table("JobCategories", Schema = "dbo" )]
     [Serializable]
-    public partial class RentTypeVo
+    public partial class JobCategoriesVo
     {
     		
-    	[DisplayName("rent Type Id")]
+    	[DisplayName("job Category Type Id")]
     	[Required]
-        public int rentTypeId { get; set; }
+        public int jobCategoryTypeId { get; set; }
     		
-    	[DisplayName("name")]
-    	[Required]
-    	[StringLength(50)]
-        public string name { get; set; }
-    		
-    	[DisplayName("description")]
-    	[Required]
-        public string description { get; set; }
+    	[DisplayName("job Id")]
+        public Nullable<System.Guid> jobId { get; set; }
     		
     	[DisplayName("created")]
     	[Required]
@@ -48,7 +42,7 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
       
-    	public RentTypeVo(){
+    	public JobCategoriesVo(){
     			
     	
     	 //this.isActive = true;

@@ -16,7 +16,7 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     {
         public LeaseTermType()
         {
-            this.Rentals = new HashSet<Rental>();
+            this.Rental = new HashSet<Rental>();
         }
     
         public int leaseTermTypeId { get; set; }
@@ -28,6 +28,6 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
         public System.DateTime created { get; set; }
         public bool isActive { get; set; }
     
-        public virtual ICollection<Rental> Rentals { get; set; }
+        public virtual ICollection<Rental> Rental { get; set; }
     }
 }

@@ -12,17 +12,16 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     using System;
     using System.Collections.Generic;
     
-    public partial class BusinessService
+    public partial class BusinessRatings
     {
-        public int serviceTypeId { get; set; }
+        public System.Guid ratingId { get; set; }
         public Nullable<System.Guid> businessId { get; set; }
-        public Nullable<System.DateTime> created { get; set; }
-        public Nullable<System.DateTime> modified { get; set; }
+        public System.DateTime created { get; set; }
+        public System.DateTime modified { get; set; }
         public Nullable<int> createdBy { get; set; }
         public Nullable<int> modifiedBy { get; set; }
         public Nullable<bool> isActive { get; set; }
     
-        public virtual ServiceType ServiceType { get; set; }
-        public virtual Business Business { get; set; }
+        public virtual Rating Rating { get; set; }
     }
 }

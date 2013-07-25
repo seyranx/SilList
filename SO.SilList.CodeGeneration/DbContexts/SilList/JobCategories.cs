@@ -12,16 +12,14 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     using System;
     using System.Collections.Generic;
     
-    public partial class BusinessCategory
+    public partial class JobCategories
     {
-        public System.Guid businessId { get; set; }
-        public int businessCategoryTypeId { get; set; }
+        public int jobCategoryTypeId { get; set; }
+        public Nullable<System.Guid> jobId { get; set; }
         public System.DateTime created { get; set; }
         public System.DateTime modified { get; set; }
         public Nullable<int> createdBy { get; set; }
         public Nullable<int> modifiedBy { get; set; }
         public Nullable<bool> isActive { get; set; }
-    
-        public virtual BusinessCategoryType BusinessCategoryType { get; set; }
     }
 }
