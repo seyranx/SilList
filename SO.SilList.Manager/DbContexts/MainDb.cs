@@ -35,6 +35,10 @@ namespace SO.SilList.Manager.DbContexts
         public DbSet<BusinessCategoryTypeVo> businessCategoryType { get; set; }
         public DbSet<LeaseTermTypeVo> leaseTermType { get; set; }
 
+        public DbSet<RatingVo> rating { get; set; }
+        public DbSet<BusinessRatingsVo> businessRatings { get; set; }
+        public DbSet<BusinessCategoriesVo> businessCategories { get; set; }
+
     }
 
 }
