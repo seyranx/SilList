@@ -30,10 +30,13 @@ namespace SO.SilList.Manager.DbContexts
 
         public DbSet<BusinessVo> businesses { get; set; }
         public DbSet<SiteVo> sites { get; set; }
+<<<<<<< HEAD
         public DbSet<JobCompanyVo> jobCompanys { get; set; }      
+=======
         public DbSet<RentalVo> rental { get; set; }
         public DbSet<BusinessCategoryTypeVo> businessCategoryType { get; set; }
         public DbSet<LeaseTermTypeVo> leaseTermType { get; set; }
+>>>>>>> de03ce6b13521d6b28452cade2f3ad6510de5eff
 
     }
 

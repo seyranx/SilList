@@ -49,8 +49,24 @@
   <ItemGroup>
     <Compile Include="Classes\Connection.cs" />
     <Compile Include="DbContexts\MainDb.cs" />
+<<<<<<< HEAD
+    <Compile Include="Interfaces\IJobCompanyManager.cs" />
+=======
+    <Compile Include="Interfaces\ILeasingTermTypeManager.cs" />
+>>>>>>> de03ce6b13521d6b28452cade2f3ad6510de5eff
+    <Compile Include="Interfaces\ISiteManager.cs" />
+    <Compile Include="Interfaces\IBusinessCategoryTypeManager.cs" />
+    <Compile Include="Interfaces\IRentalManager.cs" />
     <Compile Include="Interfaces\IBusinessManager.cs" />
+    <Compile Include="Managers\BusinessCategoryTypeManager.cs" />
     <Compile Include="Managers\BusinessManager.cs" />
+<<<<<<< HEAD
+    <Compile Include="Managers\JobCompanyManager.cs" />
+=======
+    <Compile Include="Managers\LeaseTermTypeManager.cs" />
+>>>>>>> de03ce6b13521d6b28452cade2f3ad6510de5eff
+    <Compile Include="Managers\SiteManager.cs" />
+    <Compile Include="Managers\RentalManager.cs" />
     <Compile Include="Models\ValueObjects\BusinessCategoryTypeVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessCategoryVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessImagesVo.cs" />
@@ -59,18 +75,17 @@
     <Compile Include="Models\ValueObjects\BusinessVo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\ValueObjects\JobCompanyVo.cs" />
     <Compile Include="Models\ValueObjects\ImageVo.cs" />
     <Compile Include="Models\ValueObjects\LeaseTermTypeVo.cs" />
     <Compile Include="Models\ValueObjects\ListingDetailVo.cs" />
     <Compile Include="Models\ValueObjects\MemberVo.cs" />
     <Compile Include="Models\ValueObjects\RatingVo.cs" />
+    <Compile Include="Models\ValueObjects\RentalImageVo.cs" />
     <Compile Include="Models\ValueObjects\RentalVo.cs" />
     <Compile Include="Models\ValueObjects\PropertyTypeVo.cs" />
-<<<<<<< HEAD
     <Compile Include="Models\ValueObjects\RentTypeVo.cs" />
-=======
     <Compile Include="Models\ValueObjects\ServiceTypeVo.cs" />
->>>>>>> 0340bc08c373cf05d7f1495f164a2fcf44635529
     <Compile Include="Models\ValueObjects\SiteVo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
