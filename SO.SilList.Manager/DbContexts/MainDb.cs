@@ -30,7 +30,7 @@ namespace SO.SilList.Manager.DbContexts
 
         public DbSet<BusinessVo> businesses { get; set; }
         public DbSet<SiteVo> sites { get; set; }
-      
+        public DbSet<JobCompanyVo> jobCompanys { get; set; }      
 
     }
 
