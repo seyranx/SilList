@@ -75,7 +75,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         [ForeignKey("leaseTermTypeId")]
         public virtual LeaseTermTypeVo leaseTermType { get; set; }
-/*
+
         [ForeignKey("rentTypeId")]
         public virtual RentTypeVo rentType { get; set; }
 
@@ -84,7 +84,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         [ForeignKey("listingDetailId")]
         public virtual ListingDetailVo listingDetail { get; set; }
-*/
+
         [ForeignKey("siteId")]
         public virtual SiteVo site { get; set; }
 

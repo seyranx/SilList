@@ -13,17 +13,18 @@ using System.Data.Entity;
 namespace SO.SilList.Manager.Models.ValueObjects
 {
      
-    [Table("BusinessRating", Schema = "data" )]
+    [Table("BusinessCategories", Schema = "data" )]
     [Serializable]
-    public partial class BusinessRatingVo
+    public partial class BusinessCategoriesVo
     {
     		
-    	[DisplayName("rating Id")]
-    	[Key]
-        public System.Guid ratingId { get; set; }
-    		
     	[DisplayName("business Id")]
-        public Nullable<System.Guid> businessId { get; set; }
+    	[Key]
+        public System.Guid businessId { get; set; }
+    		
+    	[DisplayName("business Category Type Id")]
+    	[Required]
+        public int businessCategoryTypeId { get; set; }
     		
     	[DisplayName("created")]
     	[Required]
@@ -42,15 +43,17 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
 
+        [ForeignKey("businessId")]
+        public virtual BusinessVo business { get; set; }
 
-       // [ForeignKey("foreignKeyname")]
-       // public virtual SiteVo site { get; set; }
-      
-    	public BusinessRatingVo(){
+        [ForeignKey("businessCategoryTypeId")]
+        public virtual BusinessCategoryTypeVo businessCategoryType { get; set; }
+
+    	public BusinessCategoriesVo(){
     			
-    	this.ratingId = Guid.NewGuid();
+    	 this.businessId = Guid.NewGuid();
     	
-    	this.isActive = true;
+    	 this.isActive = true;
     	}
     }
 }

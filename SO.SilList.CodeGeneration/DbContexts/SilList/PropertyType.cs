@@ -12,9 +12,14 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
     using System;
     using System.Collections.Generic;
     
-    public partial class JobCategoryType
+    public partial class PropertyType
     {
-        public int jobCategoryTypeId { get; set; }
+        public PropertyType()
+        {
+            this.Rentals = new HashSet<Rental>();
+        }
+    
+        public int propertyTypeId { get; set; }
         public string name { get; set; }
         public string description { get; set; }
         public System.DateTime created { get; set; }
@@ -23,6 +28,6 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
         public Nullable<int> modifiedBy { get; set; }
         public Nullable<bool> isActive { get; set; }
     
-        public virtual JobCategory JobCategory { get; set; }
+        public virtual ICollection<Rental> Rentals { get; set; }
     }
 }

@@ -67,6 +67,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [ForeignKey("siteId")]
         public virtual SiteVo site { get; set; }
 
+        public Guid? listingDetailId { get; set; }
+
         [ForeignKey("listingDetailId")]
         public virtual ListingDetailVo listingdetail { get; set; }
 
