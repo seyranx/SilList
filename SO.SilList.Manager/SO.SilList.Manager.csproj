@@ -62,9 +62,9 @@
     <Compile Include="Managers\SiteManager.cs" />
     <Compile Include="Managers\RentalManager.cs" />
     <Compile Include="Models\ValueObjects\BusinessCategoryTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\BusinessCategoryVo.cs" />
+    <Compile Include="Models\ValueObjects\BusinessCategoriesVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessImagesVo.cs" />
-    <Compile Include="Models\ValueObjects\BusinessRatingVo.cs" />
+    <Compile Include="Models\ValueObjects\BusinessRatingsVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessServicesVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessVo.cs">
       <SubType>Code</SubType>
