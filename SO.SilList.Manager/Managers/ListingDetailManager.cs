@@ -21,7 +21,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.listingDetails
-                            .Include(x => x.site)
+                            //.Include(x => x.xxxx)
                             .FirstOrDefault(p => p.listingDetailId == listingDetailId);
 
                 return res;

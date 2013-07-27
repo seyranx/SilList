@@ -22,7 +22,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.images
-                            .Include(s => s.site)
+                           // .Include(s => s.xxxx)
                             .FirstOrDefault(p => p.imageId == imageId);
 
                 return res;
