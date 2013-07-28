@@ -20,7 +20,11 @@ namespace SO.SilList.Tests.Managers
 
             var res = businessManager.getAll(null);
 
-            Assert.IsTrue(true);
+            if (res != null)
+            {
+                Assert.IsTrue(true);
+            }
+            else Assert.IsTrue(false);
         }
 
         [TestMethod]
