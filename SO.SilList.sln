@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SO.SilList.CodeGeneration",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SO.SilList.Utility", "SO.SilList.Utility\SO.SilList.Utility.csproj", "{6FE90691-F7DA-42A0-B3A9-3B822CF0E713}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SO.SilList.Admin.Web", "SO.SilList.Admin.Web\SO.SilList.Admin.Web.csproj", "{11AA7DBA-A360-482C-9F01-A47D26F0BDD0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{6FE90691-F7DA-42A0-B3A9-3B822CF0E713}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FE90691-F7DA-42A0-B3A9-3B822CF0E713}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FE90691-F7DA-42A0-B3A9-3B822CF0E713}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11AA7DBA-A360-482C-9F01-A47D26F0BDD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11AA7DBA-A360-482C-9F01-A47D26F0BDD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11AA7DBA-A360-482C-9F01-A47D26F0BDD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11AA7DBA-A360-482C-9F01-A47D26F0BDD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
