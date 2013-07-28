@@ -72,7 +72,8 @@ namespace SO.SilList.Tests.Managers
     
              var result= businessManager.getFirst();
 
-             var site = result.site;
+             //FK-s are disabled temporarily
+             //var site = result.site;
 
              if (result.site!=null)
              {
