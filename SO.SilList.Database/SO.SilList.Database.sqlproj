@@ -162,9 +162,14 @@
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
     <Build Include="app\Tables\JobType.sql" />
+<<<<<<< HEAD
     <Build Include="data\Tables\JobCompany.sql">
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
+=======
+    <Build Include="data\Tables\JobType.sql" />
+    <Build Include="data\Tables\JobCompany.sql" />
+>>>>>>> a8658c736edcf69b5349c586805fd3dc4aa63b15
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />

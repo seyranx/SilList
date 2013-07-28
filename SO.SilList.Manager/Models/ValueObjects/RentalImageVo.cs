@@ -18,9 +18,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class RentalImageVo
     {
     		
-    	[DisplayName("image Id")]
+    	[DisplayName("renatal Image Id")]
     	[Key]
-        public System.Guid imageId { get; set; }
+        public System.Guid rentalImageId { get; set; }
     		
     	[DisplayName("rental Id")]
     	[Required]
@@ -50,7 +50,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
       
     	public RentalImageVo(){
     			
-    		this.imageId = Guid.NewGuid();
+    		this.rentalImageId = Guid.NewGuid();
     	
     	 this.isActive = true;
     	}
