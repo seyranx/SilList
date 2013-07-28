@@ -40,7 +40,7 @@ namespace SO.SilList.Manager.Managers
             {
                 var res = db.businesses
                             .Include(s => s.site)
-                            .FirstOrDefault(p=>p.businessId==businessId);
+                            .FirstOrDefault(p => p.businessId == businessId);
                  
                 return res;
             }
