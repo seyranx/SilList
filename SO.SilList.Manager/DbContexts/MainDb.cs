@@ -44,7 +44,9 @@ namespace SO.SilList.Manager.DbContexts
         public DbSet<ImageVo> images { get; set; }
         public DbSet<ListingDetailVo> listingDetails { get; set; }
 
-
+        public DbSet<ServiceTypeVo> serviceTypes { get; set; }
+        public DbSet<BusinessServicesVo> businessServices { get; set; }
+        public DbSet<BusinessImagesVo> businessImages { get; set; }
     }
 
 }
