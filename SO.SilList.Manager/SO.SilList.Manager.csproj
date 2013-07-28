@@ -71,10 +71,10 @@
     <Compile Include="Interfaces\JobCategoriesVo.cs" />
     <Compile Include="Interfaces\JobCategoryTypeVo.cs" />
     <Compile Include="Interfaces\JobVo.cs" />
-    <Compile Include="Managers\BusinessCategories.cs" />
+    <Compile Include="Managers\BusinessCategoriesManager.cs" />
     <Compile Include="Managers\BusinessCategoryTypeManager.cs" />
     <Compile Include="Managers\BusinessManager.cs" />
-    <Compile Include="Managers\BusinessRatings.cs" />
+    <Compile Include="Managers\BusinessRatingsManager.cs" />
     <Compile Include="Managers\ImageManager.cs" />
     <Compile Include="Managers\JobCompanyManager.cs" />
     <Compile Include="Managers\JobTypeManager.cs" />

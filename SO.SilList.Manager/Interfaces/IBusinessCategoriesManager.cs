@@ -10,10 +10,10 @@ namespace SO.SilList.Manager.Interfaces
 {
     interface IBusinessCategoriesManager
     {
-         BusinessCategoriesVo get(Guid businessCategoryTypeId);
+         BusinessCategoriesVo get(int businessCategoryTypeId);
          List<BusinessCategoriesVo> getAll(bool? isActive = true);
-         bool delete(Guid businessCategoryTypeId);
-         BusinessCategoriesVo update(BusinessCategoriesVo input, Guid? businessCategoryTypeId = null);
+         bool delete(int businessCategoryTypeId);
+         BusinessCategoriesVo update(BusinessCategoriesVo input, int? businessCategoryTypeId = null);
          BusinessCategoriesVo insert(BusinessCategoriesVo input);
     }
 }

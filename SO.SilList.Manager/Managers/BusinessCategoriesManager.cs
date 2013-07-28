@@ -9,36 +9,35 @@ using SO.SilList.Manager.DbContexts;
 using SO.SilList.Manager.Interfaces;
 using SO.SilList.Manager.Models.ValueObjects;
 
-
 namespace SO.SilList.Manager.Managers
 {
-    public class RatingManager : IRatingManager
+    public class BusinessCategoriesManager : IBusinessCategoriesManager
     {
-    
+
         /// <summary>
-        /// Find 'rating' matching the 'ratingId' (primary key)
+        /// Find 'BusinessCategories'
         /// </summary>
-        public RatingVo get(Guid ratingId)
+        public BusinessCategoriesVo get(int businessCategoryTypeId)
         {
             using (var db = new MainDb())
             {
-                var res = db.rating
-                            // .Include(s => s.foreignKey)
-                            .FirstOrDefault(p=>p.ratingId == ratingId);
-                 
-                return res;   
+                var res = db.businessCategories
+                            //.Include(s => s.site)
+                            .FirstOrDefault(p => p.businessCategoryTypeId == businessCategoryTypeId);
+
+                return res;
             }
         }
 
         /// <summary>
         /// Get All items
         /// </summary>
-        public List<RatingVo> getAll(bool? isActive = true)
+        public List<BusinessCategoriesVo> getAll(bool? isActive = true)
         {
             using (var db = new MainDb())
             {
-                var list = db.rating
-                            // .Include(s => s.foreignKey)
+                var list = db.businessCategories
+                             //.Include(s => s.site)
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
 
@@ -49,14 +48,14 @@ namespace SO.SilList.Manager.Managers
         /// <summary>
         /// Get First Item
         /// </summary>
-        public RatingVo getFirst()
+        public BusinessCategoriesVo getFirst()
         {
             using (var db = new MainDb())
             {
-                var res = db.rating
-                            //.Include(s=>s.foreignKey)
+                var res = db.businessCategories
+                            //.Include(s => s.site)
                             .FirstOrDefault();
-               
+
                 return res;
             }
         }
@@ -64,13 +63,12 @@ namespace SO.SilList.Manager.Managers
         /// <summary>
         /// Delete item given the ratingID
         /// </summary>
-        public bool delete(Guid ratingId)
+        public bool delete(int businessCategoryTypeId)
         {
             using (var db = new MainDb())
             {
-                var res = db.rating
-                     //.Include(s=>s.foreignKey)
-                     .Where(e => e.ratingId == ratingId)
+                var res = db.businessCategories
+                     .Where(e => e.businessCategoryTypeId == businessCategoryTypeId)
                      .Delete();
                 return true;
             }
@@ -79,14 +77,15 @@ namespace SO.SilList.Manager.Managers
         /// <summary>
         /// update the table
         /// </summary>
-        public RatingVo update(RatingVo input, Guid? ratingId= null)
+        public BusinessCategoriesVo update(BusinessCategoriesVo input, int? businessCategoryTypeId = null)
         {
             using (var db = new MainDb())
             {
-                if (ratingId == null)
-                    ratingId = input.ratingId; 
 
-                var res = db.rating.FirstOrDefault(e => e.ratingId == ratingId);
+                if (businessCategoryTypeId == null)
+                    businessCategoryTypeId = input.businessCategoryTypeId;
+
+                var res = db.businessCategories.FirstOrDefault(e => e.businessCategoryTypeId == businessCategoryTypeId);
 
                 if (res == null) return null;
 
@@ -94,17 +93,19 @@ namespace SO.SilList.Manager.Managers
                 input.createdBy = res.createdBy;
                 db.Entry(res).CurrentValues.SetValues(input);
 
-                 
+
                 db.SaveChanges();
                 return res;
+
             }
         }
 
-        public RatingVo insert(RatingVo input)
+        public BusinessCategoriesVo insert(BusinessCategoriesVo input)
         {
             using (var db = new MainDb())
             {
-                db.rating.Add(input);
+
+                db.businessCategories.Add(input);
                 db.SaveChanges();
 
                 return input;
