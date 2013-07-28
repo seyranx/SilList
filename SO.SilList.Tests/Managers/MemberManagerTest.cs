@@ -65,19 +65,6 @@ namespace SO.SilList.Tests.Managers
                 Assert.IsTrue(false);
         }
 
-        [TestMethod]
-        public void includesTest()
-        {
-            var result = memberManager.getFirst();
-
-            var site = result.site;
-
-            if (result.site != null)
-            {
-                Assert.IsTrue(true);
-            }
-            else
-                Assert.IsTrue(false);
-        }
+       
     }
 }
