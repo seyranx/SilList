@@ -9,7 +9,7 @@
   </SourceModelProvider>
   <TargetModelProvider>
     <ConnectionBasedModelProvider>
-      <ConnectionString>Data Source=localhost\SQLEXPRESS;Initial Catalog=SilList;Integrated Security=True;Pooling=False</ConnectionString>
+      <ConnectionString>Data Source=localhost\SQLEXPRESS;Initial Catalog=SilList;Integrated Security=True;Pooling=False;MultipleActiveResultSets=False;Application Name="Microsoft SQL Server Data Tools, Schema Compare"</ConnectionString>
     </ConnectionBasedModelProvider>
   </TargetModelProvider>
   <SchemaCompareSettingsService>
@@ -210,7 +210,7 @@
       </PropertyElementName>
       <PropertyElementName>
         <Name>IgnoreUserSettingsObjects</Name>
-        <Value>False</Value>
+        <Value>True</Value>
       </PropertyElementName>
       <PropertyElementName>
         <Name>IgnoreFilegroupPlacement</Name>
@@ -303,10 +303,6 @@
       <PropertyElementName>
         <Name>VerifyDeployment</Name>
         <Value>True</Value>
-      </PropertyElementName>
-      <PropertyElementName>
-        <Name>RunDeploymentPlanExecutors</Name>
-        <Value>False</Value>
       </PropertyElementName>
       <PropertyElementName>
         <Name>AllowDropBlockingAssemblies</Name>
@@ -403,6 +399,4 @@
     <ZoomLevel>100</ZoomLevel>
     <Filter>Equals_Objects,Not_Supported_Deploy</Filter>
   </SchemaCompareViewSettings>
-  <ExcludedSourceElements />
-  <ExcludedTargetElements>
 </SchemaComparison>

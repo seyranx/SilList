@@ -23,22 +23,5 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView(results);
         }
 
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-         
-
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-
     }
 }

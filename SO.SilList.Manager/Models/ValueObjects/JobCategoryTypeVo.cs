@@ -10,20 +10,24 @@ using System.Data;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 
-namespace SO.SilList.Manager.Models.ValueObjects
+namespace SO.SilList.Manager.Models.ValueObjects 
 {
      
-    [Table("BusinessRatings", Schema = "data" )]
+    [Table("JobCategoryType", Schema = "app" )]
     [Serializable]
-    public partial class BusinessRatingsVo
+    public partial class JobCategoryTypeVo
     {
     		
-    	[DisplayName("rating Id")]
+    	[DisplayName("job Category Type Id")]
     	[Key]
-        public System.Guid ratingId { get; set; }
+        public int jobCategoryTypeId { get; set; }
     		
-    	[DisplayName("business Id")]
-        public Nullable<System.Guid> businessId { get; set; }
+    	[DisplayName("name")]
+    	[StringLength(50)]
+        public string name { get; set; }
+    		
+    	[DisplayName("description")]
+        public string description { get; set; }
     		
     	[DisplayName("created")]
     	[Required]
@@ -41,19 +45,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
     		
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
-
-
-        [ForeignKey("ratingId")]
-        public virtual RatingVo rating { get; set; }
-
-        [ForeignKey("businessId")]
-        public virtual BusinessVo business { get; set; }
       
-    	public BusinessRatingsVo(){
+    	public JobCategoryTypeVo(){
     			
-    	this.ratingId = Guid.NewGuid();
     	
-    	this.isActive = true;
+    	 this.isActive = true;
     	}
     }
 }

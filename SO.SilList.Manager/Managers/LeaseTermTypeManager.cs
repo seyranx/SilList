@@ -12,9 +12,6 @@ namespace SO.SilList.Manager.Managers
 {
     public class LeaseTermTypeManager : ILeasingTermTypeManager
     {
-        public LeaseTermTypeManager()
-        {
-        }
 
         public LeaseTermTypeVo get(int leaseTermTypeId)
         {

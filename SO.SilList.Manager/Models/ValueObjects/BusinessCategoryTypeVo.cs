@@ -51,8 +51,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("site Id")]
         public int? siteId { get; set; }
 
-       // [ForeignKey("siteId")]
-       // public virtual SiteVo site { get; set; }
+        [ForeignKey("siteId")]
+        public virtual SiteVo site { get; set; }
 
     	public BusinessCategoryTypeVo(){
     	    this.isActive = true;

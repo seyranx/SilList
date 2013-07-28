@@ -20,8 +20,11 @@
             @Html.DisplayNameFor(model => model.state)
         </th>
      
-        
-         
+       
+       
+        <th>
+            @Html.DisplayNameFor(model => model.created)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.isActive)
         </th>
@@ -44,7 +47,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.state)
         </td>
-        
+       
+
+        <td>
+            @Html.DisplayFor(modelItem => item.created)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.isActive)
         </td>

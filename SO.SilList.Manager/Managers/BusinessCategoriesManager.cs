@@ -13,10 +13,7 @@ namespace SO.SilList.Manager.Managers
 {
     public class BusinessCategoriesManager : IBusinessCategoriesManager
     {
-        public BusinessCategoriesManager()
-        {
 
-        }
         /// <summary>
         /// Find 'BusinessCategories'
         /// </summary>

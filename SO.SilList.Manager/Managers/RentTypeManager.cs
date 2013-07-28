@@ -13,12 +13,6 @@ namespace SO.SilList.Manager.Managers
 {
     public class RentTypeManager : IRentTypeManager
     {
-
-        public RentTypeManager()
-        {
-
-        }
-
         public RentTypeVo get(int rentTypeId)
         {
             using (var db = new MainDb())

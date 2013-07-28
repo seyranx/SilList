@@ -73,20 +73,20 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[Required]
         public bool isActive { get; set; }
 
-       // [ForeignKey("leaseTermTypeId")]
-      //  public virtual LeaseTermTypeVo leaseTermType { get; set; }
+        [ForeignKey("leaseTermTypeId")]
+        public virtual LeaseTermTypeVo leaseTermType { get; set; }
 
-       // [ForeignKey("rentTypeId")]
-       // public virtual RentTypeVo rentType { get; set; }
+        [ForeignKey("rentTypeId")]
+        public virtual RentTypeVo rentType { get; set; }
 
-       // [ForeignKey("propertyTypeId")]
-       // public virtual PropertyTypeVo propertyType { get; set; }
+        [ForeignKey("propertyTypeId")]
+        public virtual PropertyTypeVo propertyType { get; set; }
 
-       // [ForeignKey("listingDetailId")]
-       // public virtual ListingDetailVo listingDetail { get; set; }
+        [ForeignKey("listingDetailId")]
+        public virtual ListingDetailVo listingDetail { get; set; }
 
-       // [ForeignKey("siteId")]
-       // public virtual SiteVo site { get; set; }
+        [ForeignKey("siteId")]
+        public virtual SiteVo site { get; set; }
 
     	public RentalVo(){
     			
