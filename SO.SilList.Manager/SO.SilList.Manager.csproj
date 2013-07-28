@@ -51,6 +51,7 @@
     <Compile Include="DbContexts\MainDb.cs" />
     <Compile Include="Interfaces\IBusinessCategoriesManager.cs" />
     <Compile Include="Interfaces\IBusinessRatingsManager.cs" />
+    <Compile Include="Interfaces\IJobTypeManager.cs" />
     <Compile Include="Interfaces\IPropertyTypeManager.cs" />
     <Compile Include="Interfaces\IRatingManager.cs" />
     <Compile Include="Interfaces\IJobCompanyManager.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="Managers\BusinessManager.cs" />
     <Compile Include="Managers\BusinessRatings.cs" />
     <Compile Include="Managers\JobCompanyManager.cs" />
+    <Compile Include="Managers\JobTypeManager.cs" />
     <Compile Include="Managers\PropertyTypeManager.cs" />
     <Compile Include="Managers\RatingManager.cs" />
     <Compile Include="Managers\RentalImagesManager.cs" />
@@ -83,6 +85,7 @@
     </Compile>
     <Compile Include="Models\ValueObjects\JobCompanyVo.cs" />
     <Compile Include="Models\ValueObjects\ImageVo.cs" />
+    <Compile Include="Models\ValueObjects\JobTypeVo.cs" />
     <Compile Include="Models\ValueObjects\LeaseTermTypeVo.cs" />
     <Compile Include="Models\ValueObjects\ListingDetailVo.cs" />
     <Compile Include="Models\ValueObjects\MemberVo.cs" />
