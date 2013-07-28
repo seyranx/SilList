@@ -23,12 +23,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public int rentTypeId { get; set; }
 
         [DisplayName("name")]
-        [Required]
         [StringLength(50)]
-        public string name { get; set; }
+        public Nullable<string> name { get; set; }
 
         [DisplayName("description")]
-        [Required]
         public string description { get; set; }
 
         [DisplayName("created")]

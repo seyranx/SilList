@@ -23,8 +23,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public System.Guid rentalImageId { get; set; }
     		
     	[DisplayName("rental Id")]
-    	[Required]
-        public System.Guid rentalId { get; set; }
+        public Nullable<System.Guid> rentalId { get; set; }// It is the same public System.Guid? rentalId { get; set; }
     		
     	[DisplayName("created")]
     	[Required]
