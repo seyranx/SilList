@@ -23,7 +23,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.rating
-                            .Include(r => r.rating)
+                            // .Include(s => s.foreignKey)
                             .FirstOrDefault(p=>p.ratingId == ratingId);
                  
                 return res;   
@@ -38,7 +38,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var list = db.rating
-                   // .Include(s => s.site)
+                            // .Include(s => s.foreignKey)
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
 
@@ -54,7 +54,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.rating
-                            //.Include(s=>s.site)
+                            //.Include(s=>s.foreignKey)
                             .FirstOrDefault();
                
                 return res;
@@ -69,6 +69,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.rating
+                     //.Include(s=>s.foreignKey)
                      .Where(e => e.ratingId == ratingId)
                      .Delete();
                 return true;

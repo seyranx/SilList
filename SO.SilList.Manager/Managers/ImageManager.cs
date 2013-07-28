@@ -29,24 +29,84 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
+        /// <summary>
+        /// Get First Item
+        /// </summary>
+        public ImageVo getFirst()
+        {
+            using (var db = new MainDb())
+            {
+                var res = db.images
+                            /// .Include(s => s.site)
+                            .FirstOrDefault();
+
+                return res;
+            }
+        }
+
+
         public List<ImageVo> getAll(bool? isActive = true)
         {
-            throw new NotImplementedException();
+            using (var db = new MainDb())
+            {
+                var list = db.images
+                             ///.Include(s => s.site)
+                             .Where(e => isActive == null || e.isActive == isActive)
+                             .ToList();
+
+                return list;
+            }
         }
 
         public bool delete(Guid imageId)
         {
-            throw new NotImplementedException();
+            using (var db = new MainDb())
+            {
+                var res = db.images
+                     .Where(e => e.imageId == imageId)
+                     .Delete();
+                return true;
+            }
         }
 
         public ImageVo update(ImageVo input, Guid? imageId = null)
         {
-            throw new NotImplementedException();
+            using (var db = new MainDb())
+            {
+                if (imageId == null)
+                    imageId = input.imageId;
+
+                var res = db.images.FirstOrDefault(e => e.imageId == imageId);
+
+                if (res == null) return null;
+
+                input.created = res.created;
+                input.createdBy = res.createdBy;
+                db.Entry(res).CurrentValues.SetValues(input);
+
+                db.SaveChanges();
+                return res;
+
+            }
         }
 
         public ImageVo insert(ImageVo input)
         {
-            throw new NotImplementedException();
+            using (var db = new MainDb())
+            {
+                db.images.Add(input);
+                db.SaveChanges();
+
+                return input;
+            }
+        }
+
+        public int count()
+        {
+            using (var db = new MainDb())
+            {
+                return db.images.Count();
+            }
         }
     }
 }

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<SO.SilList.Manager.Classes.Connection>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Show New Connections</h2>
+
+<div style="padding:10px;">
+
+<form id="form1" method="post" enctype="multipart/form-data" >
+<table>
+    <tr>
+       <td>
+           Old Export File:
+        </td>
+        <td>
+             <input type="file" name="oldExport" />
+        
+        </td>
+    </tr>
+
+        <tr>
+       <td>
+             New Export File:
+        </td>
+        <td>
+            <input type="file" name="newExport" />
+        </td>
+    </tr>
+     
+</table>
+ <input type="submit" name="Submit" value="Submit" />
+</form>
+
+
+
+@if(Model!=null){
+        
+<h3>New Connections</h3>
+    
+foreach (var item in Model) {
+   
+          <div>  @item.name</div>
+        
+}
+
+   
+}
+
+ @if (Model!=null && Model.Count() == 0)
+    {
+        <div>No Results!</div>
+    }
+    </div>
