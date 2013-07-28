@@ -9,10 +9,10 @@ namespace SO.SilList.Manager.Interfaces
 {
     interface IBusinessServicesManager
     {
-        BusinessServicesVo get(int serviceTypeId);
+        BusinessServicesVo get(Guid businessServiceId);
         List<BusinessServicesVo> getAll(bool? isActive = true);
-        bool delete(int serviceTypeId);
-        BusinessServicesVo update(BusinessServicesVo input, int? serviceTypeId = null);
+        bool delete(Guid businessServiceId);
+        BusinessServicesVo update(BusinessServicesVo input, Guid? businessServiceId = null);
         BusinessServicesVo insert(BusinessServicesVo input);
     }
 }
