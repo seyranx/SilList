@@ -4,6 +4,7 @@ using SO.SilList.Manager.Models.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using EntityFramework.Extensions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,35 +14,81 @@ namespace SO.SilList.Manager.Managers
     {
         public BusinessServicesManager() { }
 
-        public BusinessServicesVo get(int serviceTypeId)
+        public BusinessServicesVo get(Guid businessServiceId)
         {
             using (var db = new MainDb())
             {
                 var res = db.businessServices
-                            
-                            .FirstOrDefault(p => p.serviceTypeId == serviceTypeId);
+
+                            .FirstOrDefault(p => p.businessServiceId == businessServiceId);
                 return res;
             }
         }
 
         public List<BusinessServicesVo> getAll(bool? isActive = true)
         {
-            throw new NotImplementedException();
+            using (var db = new MainDb())
+            {
+                var list = db.businessServices 
+                             //.Include(s => s.site)
+                             .Where(e => isActive == null || e.isActive == isActive)
+                             .ToList();
+
+                return list;
+            }
         }
 
-        public bool delete(int serviceTypeId)
+        public bool delete(Guid businessServiceId)
         {
-            throw new NotImplementedException();
+            using (var db = new MainDb())
+            {
+                var res = db.businessServices
+                     .Where(e => e.businessServiceId == businessServiceId)
+                     .Delete();
+                return true;
+            }
         }
 
-        public BusinessServicesVo update(BusinessServicesVo input, int? serviceTypeId = null)
+        public BusinessServicesVo update(BusinessServicesVo input, Guid? businessServiceId = null)
         {
-            throw new NotImplementedException();
+            using (var db = new MainDb())
+            {
+
+                if (businessServiceId == null)
+                    businessServiceId = input.businessServiceId;
+
+                var res = db.businessServices.FirstOrDefault(e => e.businessServiceId == businessServiceId);
+
+                if (res == null) return null;
+
+                input.created = res.created;
+                input.createdBy = res.createdBy;
+                db.Entry(res).CurrentValues.SetValues(input);
+
+
+                db.SaveChanges();
+                return res;
+
+            }
         }
 
         public BusinessServicesVo insert(BusinessServicesVo input)
         {
-            throw new NotImplementedException();
+            using (var db = new MainDb())
+            {
+
+                db.businessServices.Add(input);
+                db.SaveChanges();
+
+                return input;
+            }
+        }
+        public int count()
+        {
+            using (var db = new MainDb())
+            {
+                return db.businessServices .Count();
+            }
         }
     }
 }

@@ -17,10 +17,12 @@ namespace SO.SilList.Manager.Models.ValueObjects
     [Serializable]
     public partial class BusinessImagesVo
     {
-    		
+        [DisplayName("business Image Id")]
+        [Key]
+        public System.Guid businessImageId { get; set; }
+
     	[DisplayName("image Id")]
-    	[Key]
-        public System.Guid imageId { get; set; }
+        public Nullable<System.Guid> imageId { get; set; }
     		
     	[DisplayName("business Id")]
         public Nullable<System.Guid> businessId { get; set; }
@@ -31,8 +33,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("modified")]
         public Nullable<System.DateTime> modified { get; set; }
     		
-    	[DisplayName("craeted By")]
-        public Nullable<int> craetedBy { get; set; }
+    	[DisplayName("created By")]
+        public Nullable<int> createdBy { get; set; }
     		
     	[DisplayName("modified By")]
         public Nullable<int> modifiedBy { get; set; }
@@ -40,17 +42,17 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
 
-        [ForeignKey("imageId")]
-        public virtual ImageVo image { get; set; }
+        //[ForeignKey("imageId")]
+        //public virtual ImageVo image { get; set; }
 
         //[ForeignKey("businessId")]
-        // public virtual BusinessVo business { get; set; }
+        //public virtual BusinessVo business { get; set; }
 
     	public BusinessImagesVo(){
     			
-    		this.imageId = Guid.NewGuid();
+    	this.imageId = Guid.NewGuid();
     	
-    	 this.isActive = true;
+    	this.isActive = true;
     	}
     }
 }
