@@ -58,7 +58,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         // [Association("JobCompany_Business", "JobCompanyId", "JobCompanyId", IsForeignKey = true)]
         /// public List<JobCompanyVo> businesses { get; set; }
 
-        [Association("JobCompany_Member", "JobCompanyId", "JobCompanyId", IsForeignKey = true)]
-        public List<MemberVo> member { get; set; }
+      //  [Association("JobCompany_Member", "JobCompanyId", "JobCompanyId", IsForeignKey = true)]
+        //public List<MemberVo> member { get; set; }
     }
 }
