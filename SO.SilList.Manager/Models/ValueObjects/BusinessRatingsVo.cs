@@ -17,10 +17,12 @@ namespace SO.SilList.Manager.Models.ValueObjects
     [Serializable]
     public partial class BusinessRatingsVo
     {
-    		
+        [DisplayName("businessRating Id")]
+        [Key]
+        public System.Guid businessRatingId { get; set; }	
+
     	[DisplayName("rating Id")]
-    	[Key]
-        public System.Guid ratingId { get; set; }
+        public Nullable<System.Guid> ratingId { get; set; }
     		
     	[DisplayName("business Id")]
         public Nullable<System.Guid> businessId { get; set; }
