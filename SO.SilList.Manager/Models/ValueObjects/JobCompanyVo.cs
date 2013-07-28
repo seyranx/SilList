@@ -18,7 +18,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         [DisplayName("jobCompany Id")]
         [Key]
-        public int jobCompanyId { get; set; }
+        public Guid jobCompanyId { get; set; }
 
         [DisplayName("name")]
         [StringLength(250)]
