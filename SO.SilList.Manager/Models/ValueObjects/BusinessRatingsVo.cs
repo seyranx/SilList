@@ -17,12 +17,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
     [Serializable]
     public partial class BusinessRatingsVo
     {
-        [DisplayName("businessRating Id")]
-        [Key]
-        public System.Guid businessRatingId { get; set; }	
-
+    		
     	[DisplayName("rating Id")]
-        public Nullable<System.Guid> ratingId { get; set; }
+    	[Key]
+        public System.Guid ratingId { get; set; }
     		
     	[DisplayName("business Id")]
         public Nullable<System.Guid> businessId { get; set; }
@@ -45,11 +43,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public Nullable<bool> isActive { get; set; }
 
 
-       // [ForeignKey("ratingId")]
-       // public virtual RatingVo rating { get; set; }
+        [ForeignKey("ratingId")]
+        public virtual RatingVo rating { get; set; }
 
-       // [ForeignKey("businessId")]
-       // public virtual BusinessVo business { get; set; }
+        [ForeignKey("businessId")]
+        public virtual BusinessVo business { get; set; }
       
     	public BusinessRatingsVo(){
     			

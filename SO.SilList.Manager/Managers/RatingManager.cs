@@ -15,10 +15,6 @@ namespace SO.SilList.Manager.Managers
     public class RatingManager : IRatingManager
     {
     
-        public RatingManager()
-        {
-
-        }
         /// <summary>
         /// Find 'rating' matching the 'ratingId' (primary key)
         /// </summary>

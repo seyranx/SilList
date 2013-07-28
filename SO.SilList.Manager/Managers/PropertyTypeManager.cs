@@ -12,12 +12,6 @@ namespace SO.SilList.Manager.Managers
 {
     class PropertyTypeManager : IPropertyTypeManager
     {
-
-        public PropertyTypeManager()
-        {
-
-        }
-
         public PropertyTypeVo get(int propertyTypeId)
         {
             using (var db = new MainDb())

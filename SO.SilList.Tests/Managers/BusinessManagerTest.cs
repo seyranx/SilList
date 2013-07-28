@@ -33,7 +33,8 @@ namespace SO.SilList.Tests.Managers
             for (int i = 1; i <= 10; i++)
             {
                 var vo = new BusinessVo();
-                vo.name = "Test Business Name "+i.ToString();
+                vo.name = i.ToString()+" Test Business Name ";
+                vo.siteId = 1;
                 var result = businessManager.insert(vo);
                 if (result == null)
                 {
