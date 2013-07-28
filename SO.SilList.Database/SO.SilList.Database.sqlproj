@@ -167,7 +167,4 @@
     <None Include="Compare_Update_Code.scmp" />
     <None Include="Compare_Update_Server.scmp" />
   </ItemGroup>
-  <ItemGroup>
-    <RefactorLog Include="SO.SilList.Database.refactorlog" />
-  </ItemGroup>
 </Project>
