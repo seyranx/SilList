@@ -22,7 +22,25 @@ namespace SO.SilList.Tests.Managers
 
             Assert.IsTrue(true);
         }
-         [TestMethod]
+
+        [TestMethod]
+        public void insertRecordsTest()
+        {
+            for (int i = 1; i <= 10; i++)
+            {
+                var vo = new BusinessVo();
+                vo.name = "Test Business Name "+i.ToString();
+                var result = businessManager.insert(vo);
+                if (result == null)
+                {
+                    Assert.IsTrue(false);
+                    break;
+                }
+            }
+            Assert.IsTrue(true);
+        }
+
+        [TestMethod]
         public void insertDeleteTest()
         {
             var vo = new BusinessVo();
