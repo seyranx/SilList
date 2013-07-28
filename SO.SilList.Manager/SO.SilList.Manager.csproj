@@ -49,6 +49,9 @@
   <ItemGroup>
     <Compile Include="Classes\Connection.cs" />
     <Compile Include="DbContexts\MainDb.cs" />
+    <Compile Include="Interfaces\IJobCategoriesManager.cs" />
+    <Compile Include="Interfaces\IJobCategoryTypeManager.cs" />
+    <Compile Include="Interfaces\IJobManager.cs" />
     <Compile Include="Interfaces\IListingDetailManager.cs" />
     <Compile Include="Interfaces\IImageManager.cs" />
     <Compile Include="Interfaces\IMemberManager.cs" />
@@ -65,6 +68,9 @@
     <Compile Include="Interfaces\IRentalManager.cs" />
     <Compile Include="Interfaces\IBusinessManager.cs" />
     <Compile Include="Interfaces\IRentTypeManager.cs" />
+    <Compile Include="Interfaces\JobCategoriesVo.cs" />
+    <Compile Include="Interfaces\JobCategoryTypeVo.cs" />
+    <Compile Include="Interfaces\JobVo.cs" />
     <Compile Include="Managers\BusinessCategories.cs" />
     <Compile Include="Managers\BusinessCategoryTypeManager.cs" />
     <Compile Include="Managers\BusinessManager.cs" />
