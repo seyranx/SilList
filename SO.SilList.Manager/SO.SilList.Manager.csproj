@@ -49,6 +49,8 @@
   <ItemGroup>
     <Compile Include="Classes\Connection.cs" />
     <Compile Include="DbContexts\MainDb.cs" />
+    <Compile Include="Interfaces\IBusinessImagesManager.cs" />
+    <Compile Include="Interfaces\IBusinessServicesManager.cs" />
     <Compile Include="Interfaces\IJobCategoriesManager.cs" />
     <Compile Include="Interfaces\IJobCategoryTypeManager.cs" />
     <Compile Include="Interfaces\IJobManager.cs" />
@@ -63,6 +65,7 @@
     <Compile Include="Interfaces\IJobCompanyManager.cs" />
     <Compile Include="Interfaces\ILeasingTermTypeManager.cs" />
     <Compile Include="Interfaces\IRentalImagesManager.cs" />
+    <Compile Include="Interfaces\IServiceTypeManager.cs" />
     <Compile Include="Interfaces\ISiteManager.cs" />
     <Compile Include="Interfaces\IBusinessCategoryTypeManager.cs" />
     <Compile Include="Interfaces\IRentalManager.cs" />
@@ -73,8 +76,10 @@
     <Compile Include="Interfaces\JobVo.cs" />
     <Compile Include="Managers\BusinessCategoriesManager.cs" />
     <Compile Include="Managers\BusinessCategoryTypeManager.cs" />
+    <Compile Include="Managers\BusinessImageManager.cs" />
     <Compile Include="Managers\BusinessManager.cs" />
     <Compile Include="Managers\BusinessRatingsManager.cs" />
+    <Compile Include="Managers\BusinessServicesManager.cs" />
     <Compile Include="Managers\ImageManager.cs" />
     <Compile Include="Managers\JobCompanyManager.cs" />
     <Compile Include="Managers\JobTypeManager.cs" />
@@ -85,6 +90,7 @@
     <Compile Include="Managers\RentalImagesManager.cs" />
     <Compile Include="Managers\RentTypeManager.cs" />
     <Compile Include="Managers\LeaseTermTypeManager.cs" />
+    <Compile Include="Managers\ServiceTypeManager.cs" />
     <Compile Include="Managers\SiteManager.cs" />
     <Compile Include="Managers\RentalManager.cs" />
     <Compile Include="Models\ValueObjects\BusinessCategoryTypeVo.cs" />
