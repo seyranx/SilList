@@ -42,11 +42,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
 
-        [ForeignKey("JobId")]
-        public virtual JobVo site { get; set; }
-        [ForeignKey("JobCategoryTypeId")]
-        public virtual JobCategoryTypeVo site { get; set; }
-
+        //[ForeignKey("JobId")]
+        //public virtual JobVo site { get; set; }
+         
         public JobCategoriesVo(){
     			
     	
