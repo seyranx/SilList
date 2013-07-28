@@ -17,14 +17,16 @@ namespace SO.SilList.Manager.Models.ValueObjects
     [Serializable]
     public partial class BusinessCategoriesVo
     {
-    		
+
+        [DisplayName("business Category Id")]
+        [Key]
+        public System.Guid businessCategoryId { get; set; }
+
     	[DisplayName("business Id")]
-    	[Key]
-        public System.Guid businessId { get; set; }
+        public Nullable<System.Guid> businessId { get; set; }
     		
     	[DisplayName("business Category Type Id")]
-    	[Required]
-        public int businessCategoryTypeId { get; set; }
+        public Nullable<int> businessCategoryTypeId { get; set; }
     		
     	[DisplayName("created")]
     	[Required]
@@ -43,11 +45,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
 
-        [ForeignKey("businessId")]
-        public virtual BusinessVo business { get; set; }
+        //[ForeignKey("businessId")]
+        //public virtual BusinessVo business { get; set; }
 
-        [ForeignKey("businessCategoryTypeId")]
-        public virtual BusinessCategoryTypeVo businessCategoryType { get; set; }
+       // [ForeignKey("businessCategoryTypeId")]
+       // public virtual BusinessCategoryTypeVo businessCategoryType { get; set; }
 
     	public BusinessCategoriesVo(){
     			
