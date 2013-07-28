@@ -18,7 +18,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class BusinessServicesVo
     {
 
-        [DisplayName("businessService Id")]
+        [DisplayName("business Service Id")]
         [Key]
         public Guid businessServiceId { get; set; }
     		
@@ -43,11 +43,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
 
-        [ForeignKey("businessId")]
-        public virtual BusinessVo business { get; set; }
+        //[ForeignKey("businessId")]
+        //public virtual BusinessVo business { get; set; }
 
-        [ForeignKey("serviceTypeId")]
-        public virtual ServiceTypeVo serviceType { get; set; }
+        //[ForeignKey("serviceTypeId")]
+        //public virtual ServiceTypeVo serviceType { get; set; }
 
     	public BusinessServicesVo(){
     			

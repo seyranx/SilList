@@ -17,7 +17,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     [Serializable]
     public partial class BusinessImagesVo
     {
-        [DisplayName("businessImage Id")]
+        [DisplayName("business Image Id")]
         [Key]
         public System.Guid businessImageId { get; set; }
 
@@ -42,11 +42,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
 
-        [ForeignKey("imageId")]
-        public virtual ImageVo image { get; set; }
+        //[ForeignKey("imageId")]
+        //public virtual ImageVo image { get; set; }
 
-        [ForeignKey("businessId")]
-        public virtual BusinessVo business { get; set; }
+        //[ForeignKey("businessId")]
+        //public virtual BusinessVo business { get; set; }
 
     	public BusinessImagesVo(){
     			

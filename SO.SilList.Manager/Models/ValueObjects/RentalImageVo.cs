@@ -35,18 +35,19 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public System.DateTime modified { get; set; }
     		
     	[DisplayName("created By")]
-        public Nullable<int> createdBy { get; set; }
+        public int? createdBy { get; set; }
     		
     	[DisplayName("modified By")]
-        public Nullable<int> modifiedBy { get; set; }
+        public int? modifiedBy { get; set; }
     		
     	[DisplayName("is Active")]
-        public Nullable<bool> isActive { get; set; }
+        public bool? isActive { get; set; }
 
-        [ForeignKey("imageId")]
-        public virtual ImageVo image { get; set; }
-        [ForeignKey("rentalId")]
-        public virtual RentalVo rental { get; set; }
+        //[ForeignKey("imageId")]
+        //public virtual ImageVo image { get; set; }
+
+        //[ForeignKey("rentalId")]
+        //public virtual RentalVo rental { get; set; }
       
     	public RentalImageVo(){
     			
