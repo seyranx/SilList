@@ -43,11 +43,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public Nullable<bool> isActive { get; set; }
 
 
-        [ForeignKey("ratingId")]
-        public virtual RatingVo rating { get; set; }
+       // [ForeignKey("ratingId")]
+       // public virtual RatingVo rating { get; set; }
 
-        [ForeignKey("businessId")]
-        public virtual BusinessVo business { get; set; }
+       // [ForeignKey("businessId")]
+       // public virtual BusinessVo business { get; set; }
       
     	public BusinessRatingsVo(){
     			
