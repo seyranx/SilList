@@ -9,9 +9,9 @@ namespace SO.SilList.Manager.Interfaces
 {
     interface IJobManager
     {
-        JobVo get(int jobId);
+        JobVo get(Guid jobId);
         List<JobVo> getAll(bool? isActive = true);
-        bool delete(int jobId);
+        bool delete(Guid jobId);
         JobVo update(JobVo input, Guid? jobId = null);
         JobVo insert(JobVo input);
     }

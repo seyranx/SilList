@@ -23,7 +23,6 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.serviceTypes.FirstOrDefault(e => e.name == name);
-
                 return res;
             }
         }
@@ -46,7 +45,6 @@ namespace SO.SilList.Manager.Managers
                     
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
-
                 return list;
             }
         }
@@ -64,12 +62,44 @@ namespace SO.SilList.Manager.Managers
 
         public ServiceTypeVo update(ServiceTypeVo input, int? serviceTypeId = null)
         {
-            throw new NotImplementedException();
+            using (var db = new MainDb())
+            {
+
+                if (serviceTypeId  == null)
+                    serviceTypeId = input.serviceTypeId;
+
+                var res = db.serviceTypes.FirstOrDefault(e => e.serviceTypeId == serviceTypeId);
+
+                if (res == null) return null;
+
+                input.created = res.created;
+                input.createdBy = res.createdBy;
+                db.Entry(res).CurrentValues.SetValues(input);
+
+
+                db.SaveChanges();
+                return res;
+
+            }
         }
 
         public ServiceTypeVo insert(ServiceTypeVo input)
         {
-            throw new NotImplementedException();
+            using (var db = new MainDb())
+            {
+
+                db.serviceTypes.Add(input);
+                db.SaveChanges();
+
+                return input;
+            }
+        }
+        public int count()
+        {
+            using (var db = new MainDb())
+            {
+                return db.serviceTypes.Count();
+            }
         }
     }
 }
