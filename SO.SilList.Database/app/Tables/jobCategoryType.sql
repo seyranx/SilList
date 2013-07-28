@@ -8,7 +8,7 @@
     [modifiedBy]        INT            NULL,
     [isActive]          BIT            NULL,
     PRIMARY KEY CLUSTERED ([jobCategoryTypeId] ASC),
-    CONSTRAINT [FK_JobCategoryType_JobCategories1] FOREIGN KEY ([jobCategoryTypeId]) REFERENCES [app].[JobCategories] ([jobCategoryTypeId]) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT [FK_JobCategoryType_JobCategories1] FOREIGN KEY ([jobCategoryTypeId]) REFERENCES [app].[JobCategories] ([jobCategoriesId]) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 

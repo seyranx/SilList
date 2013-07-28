@@ -13,7 +13,7 @@ using System.Data.Entity;
 namespace SO.SilList.Manager.Models.ValueObjects 
 {
      
-    [Table("JobCategories", Schema = "app" )]
+    [Table("JobCategories", Schema = "data" )]
     [Serializable]
     public partial class JobCategoriesVo
     {
@@ -41,8 +41,13 @@ namespace SO.SilList.Manager.Models.ValueObjects
     		
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
-      
-    	public JobCategoriesVo(){
+
+        [ForeignKey("JobId")]
+        public virtual JobVo site { get; set; }
+        [ForeignKey("JobCategoryTypeId")]
+        public virtual JobCategoryTypeVo site { get; set; }
+
+        public JobCategoriesVo(){
     			
     	
     	 this.isActive = true;
