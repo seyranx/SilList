@@ -67,7 +67,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var list = db.businesses
-                             .Include(s => s.site)
+                             //.Include(s => s.site)
                              .Where(e => isActive==null || e.isActive == isActive )
                              .ToList();
 
