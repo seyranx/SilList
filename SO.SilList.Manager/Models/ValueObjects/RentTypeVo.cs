@@ -13,7 +13,7 @@ using System.Data.Entity;
 namespace SO.SilList.Manager.Models.ValueObjects
 {
 
-    [Table("RentType", Schema = "dbo")]
+    [Table("RentType", Schema = "app")]
     [Serializable]
     public partial class RentTypeVo
     {

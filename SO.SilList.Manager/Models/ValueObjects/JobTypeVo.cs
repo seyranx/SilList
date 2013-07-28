@@ -11,32 +11,22 @@ using System.Data.Entity;
 
 namespace SO.SilList.Manager.Models.ValueObjects
 {
-    [Table("JobCompany", Schema = "data")]
+    [Table("JobType", Schema = "app")]
     [Serializable]
-    public partial class JobCompanyVo
+    public partial class JobTypeVo
     {
-
-        [DisplayName("jobCompany Id")]
+        [DisplayName("jobType Id")]
         [Key]
-        public int jobCompanyId { get; set; }
+        public int jobTypeId { get; set; }
 
         [DisplayName("name")]
-        [StringLength(250)]
+        [Required]
+        [StringLength(50)]
         public string name { get; set; }
 
-        [DisplayName("domain")]
-        [StringLength(250)]
-        public string domain { get; set; }
-
         [DisplayName("description")]
+        [Required]
         public string description { get; set; }
-
-        [DisplayName("logo")]
-        [StringLength(250)]
-        public string logo { get; set; }
-
-        [DisplayName("logo Url")]
-        public string logoUrl { get; set; }
 
         [DisplayName("created")]
         [Required]
@@ -55,10 +45,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
 
-        // [Association("JobCompany_Business", "JobCompanyId", "JobCompanyId", IsForeignKey = true)]
-        /// public List<JobCompanyVo> businesses { get; set; }
-
-        [Association("JobCompany_Member", "JobCompanyId", "JobCompanyId", IsForeignKey = true)]
-        public List<MemberVo> member { get; set; }
+        public JobTypeVo()
+        {
+            this.isActive = true;
+        }
     }
 }

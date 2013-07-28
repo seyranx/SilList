@@ -13,9 +13,9 @@ using System.Data.Entity;
 namespace SO.SilList.Manager.Models.ValueObjects
 {
      
-    [Table("BusinessRating", Schema = "data" )]
+    [Table("BusinessRatings", Schema = "data" )]
     [Serializable]
-    public partial class BusinessRatingVo
+    public partial class BusinessRatingsVo
     {
     		
     	[DisplayName("rating Id")]
@@ -43,10 +43,13 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public Nullable<bool> isActive { get; set; }
 
 
-       //[ForeignKey("foreignKeyname")]
-       // public virtual SiteVo site { get; set; }
+        [ForeignKey("ratingId")]
+        public virtual RatingVo rating { get; set; }
+
+        [ForeignKey("businessId")]
+        public virtual BusinessVo business { get; set; }
       
-    	public BusinessRatingVo(){
+    	public BusinessRatingsVo(){
     			
     	this.ratingId = Guid.NewGuid();
     	
