@@ -11,6 +11,8 @@ using System.Data.Entity;
 
 namespace SO.SilList.Manager.Models.ValueObjects
 {
+    [Table("JobCompany", Schema = "data")]
+    [Serializable]
     public partial class JobCompanyVo
     {
 
