@@ -10,7 +10,7 @@ using SO.SilList.Manager.Models.ValueObjects;
 namespace SO.SilList.Tests.Managers
 {
     [TestClass]
-    class BusinessCategoryTypeManagerTest
+    public class BusinessCategoryTypeManagerTest
     {
         private BusinessCategoryTypeManager businessCategoryType = new BusinessCategoryTypeManager();
 
@@ -57,7 +57,7 @@ namespace SO.SilList.Tests.Managers
 
             var result3 = businessCategoryType.get(result.businessCategoryTypeId);
 
-            if (result != null && result2 != null && result3 == null && result2.businessCategoryTypeId != null)
+            if (result != null && result2 != null && result3 == null && result2.businessCategoryTypeId != null )
             {
                 Assert.IsTrue(true);
             }
@@ -65,24 +65,24 @@ namespace SO.SilList.Tests.Managers
                 Assert.IsTrue(false);
         }
 
-        //FK-s are disabled temporarily
-        //[TestMethod]
-        //public void includesTest()
-        //{
+        [TestMethod]
+        public void includesTest()
+        {
 
-        //    var result = businessCategoryType.getFirst();
+            var result = businessCategoryType.getFirst();
 
-        //    //var site = result.site;
+            //FK-s are disabled temporarily
+            //var site = result.site;
 
-        //    if (result.site != null)
-        //    {
-        //        Assert.IsTrue(true);
-        //    }
-        //    else
-        //        Assert.IsTrue(false);
+          /*  if (result.site != null)
+            {
+                Assert.IsTrue(true);
+            }
+            else
+                Assert.IsTrue(false);
+            */
 
-
-        //}
+        }
 
     }
 }
