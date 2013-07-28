@@ -11,7 +11,7 @@ namespace SO.SilList.Manager.Interfaces
     {
         JobCategoryTypeVo get(int jobcategoryTypeId);
         List<JobCategoryTypeVo> getAll(bool? isActive = true);
-        bool delete(int jobcategoryTypeId);
+        bool delete(int jobCategoryTypeId);
         JobCategoryTypeVo update(JobCategoryTypeVo input, int? jobcategoryTypeId = null);
         JobCategoryTypeVo insert(JobCategoryTypeVo input);
     }
