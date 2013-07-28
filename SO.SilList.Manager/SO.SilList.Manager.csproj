@@ -68,9 +68,6 @@
     <Compile Include="Interfaces\IRentalManager.cs" />
     <Compile Include="Interfaces\IBusinessManager.cs" />
     <Compile Include="Interfaces\IRentTypeManager.cs" />
-    <Compile Include="Interfaces\JobCategoriesVo.cs" />
-    <Compile Include="Interfaces\JobCategoryTypeVo.cs" />
-    <Compile Include="Interfaces\JobVo.cs" />
     <Compile Include="Managers\BusinessCategories.cs" />
     <Compile Include="Managers\BusinessCategoryTypeManager.cs" />
     <Compile Include="Managers\BusinessManager.cs" />
@@ -95,9 +92,12 @@
     <Compile Include="Models\ValueObjects\BusinessVo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\ValueObjects\JobCategoriesVo.cs" />
+    <Compile Include="Models\ValueObjects\JobCategoryTypeVo.cs" />
     <Compile Include="Models\ValueObjects\JobCompanyVo.cs" />
     <Compile Include="Models\ValueObjects\ImageVo.cs" />
     <Compile Include="Models\ValueObjects\JobTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\JobVo.cs" />
     <Compile Include="Models\ValueObjects\LeaseTermTypeVo.cs" />
     <Compile Include="Models\ValueObjects\ListingDetailVo.cs" />
     <Compile Include="Models\ValueObjects\MemberVo.cs" />

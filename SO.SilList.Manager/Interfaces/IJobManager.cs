@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SO.SilList.Manager.Models.ValueObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace SO.SilList.Manager.Interfaces
         JobVo get(int jobId);
         List<JobVo> getAll(bool? isActive = true);
         bool delete(int jobId);
-        JobVo update(JobVo input, int? jobId = null);
+        JobVo update(JobVo input, Guid? jobId = null);
         JobVo insert(JobVo input);
     }
 }
