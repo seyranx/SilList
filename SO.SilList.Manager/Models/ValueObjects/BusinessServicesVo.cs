@@ -18,7 +18,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class BusinessServicesVo
     {
 
-        [DisplayName("businessService Id")]
+        [DisplayName("business Service Id")]
         [Key]
         public Guid businessServiceId { get; set; }
     		

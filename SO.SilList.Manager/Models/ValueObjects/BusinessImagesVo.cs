@@ -17,7 +17,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     [Serializable]
     public partial class BusinessImagesVo
     {
-        [DisplayName("businessImage Id")]
+        [DisplayName("business Image Id")]
         [Key]
         public System.Guid businessImageId { get; set; }
 
