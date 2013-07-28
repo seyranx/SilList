@@ -1,6 +1,7 @@
 ﻿CREATE TABLE [data].[Job] (
-    [jobId]            UNIQUEIDENTIFIER NOT NULL,
-    [listingDetailId]  UNIQUEIDENTIFIER NOT NULL,
+    [Id]               INT              NOT NULL,
+    [jobId]            UNIQUEIDENTIFIER NULL,
+    [listingDetailId]  UNIQUEIDENTIFIER NULL,
     [siteId]           INT              NULL,
     [title]            NVARCHAR (50)    NULL,
     [description]      NVARCHAR (50)    NULL,
@@ -15,9 +16,12 @@
     [createdBy]        INT              NULL,
     [modifiedBy]       INT              NULL,
     [isActive]         BIT              NULL,
-    PRIMARY KEY CLUSTERED ([jobId] ASC),
-    CONSTRAINT [FK_Job_JobType1] FOREIGN KEY ([jobTypeId]) REFERENCES [app].[JobType] ([jobTypeId]) ON DELETE CASCADE ON UPDATE CASCADE
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Job_JobCompany] FOREIGN KEY ([jobCompanyId]) REFERENCES [data].[JobCompany] ([jobCompanyId]),
+    CONSTRAINT [FK_Job_JobType] FOREIGN KEY ([jobTypeId]) REFERENCES [app].[JobType] ([jobTypeId])
 );
+
+
 
 
 
