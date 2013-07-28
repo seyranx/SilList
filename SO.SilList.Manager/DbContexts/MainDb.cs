@@ -40,6 +40,11 @@ namespace SO.SilList.Manager.DbContexts
         public DbSet<BusinessRatingsVo> businessRatings { get; set; }
         public DbSet<BusinessCategoriesVo> businessCategories { get; set; }
 
+        public DbSet<MemberVo> members { get; set; }
+        public DbSet<ImageVo> images { get; set; }
+        public DbSet<ListingDetailVo> listingDetails { get; set; }
+
+
     }
 
 }
