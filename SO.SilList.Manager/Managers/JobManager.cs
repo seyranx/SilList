@@ -16,7 +16,7 @@ namespace SO.SilList.Manager.Managers
         {
             using (var db = new MainDb())
             {
-                var result = db.job
+                var result = db.jobs
                             .FirstOrDefault(s => s.jobId == jobId);
                 return result;
             }
