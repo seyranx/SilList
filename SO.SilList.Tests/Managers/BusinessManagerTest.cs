@@ -67,24 +67,25 @@ namespace SO.SilList.Tests.Managers
                 Assert.IsTrue(false);
         }
 
-         [TestMethod]
-         public void includesTest()
-         {
-    
-             var result= businessManager.getFirst();
+		// FK-s are disabled temporarily
+         //[TestMethod]
+         //public void includesTest()
+         //{
 
-             //FK-s are disabled temporarily
-             //var site = result.site;
+         //    var result = businessManager.getFirst();
 
-             if (result.site!=null)
-             {
-                 Assert.IsTrue(true);
-             }
-             else
-                 Assert.IsTrue(false);
+         //    //FK-s are disabled temporarily
+         //    //var site = result.site;
+
+         //    if (result.site != null)
+         //    {
+         //        Assert.IsTrue(true);
+         //    }
+         //    else
+         //        Assert.IsTrue(false);
 
 
-         }
+         //}
 
 
         

@@ -27,9 +27,9 @@ namespace SO.SilList.Manager.DbContexts
             base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<JobVo> job { get; set; }
-        public DbSet<JobCategoriesVo> jobCat { get; set; }
-        public DbSet<JobCategoryTypeVo> jobCatType { get; set; }
+        public DbSet<JobVo> jobs { get; set; }
+        public DbSet<JobCategoriesVo> jobCategories { get; set; }
+        public DbSet<JobCategoryTypeVo> jobCategoryTypes { get; set; }
         public DbSet<BusinessVo> businesses { get; set; }
         public DbSet<SiteVo> sites { get; set; }
         public DbSet<JobCompanyVo> jobCompanys { get; set; }
