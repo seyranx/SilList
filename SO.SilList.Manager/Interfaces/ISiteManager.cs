@@ -16,5 +16,6 @@ namespace SO.SilList.Manager.Interfaces
          bool delete(int siteId);
          SiteVo update(SiteVo input, int? siteId = null);
          SiteVo insert(SiteVo input);
+
     }
 }
