@@ -3,6 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SO.SilList.Manager.Managers;
+using SO.SilList.Manager.Models.ValueObjects;
 
 namespace SO.SilList.Tests.Managers
 {
@@ -23,61 +24,60 @@ namespace SO.SilList.Tests.Managers
             Assert.IsTrue(true);
         }
 
-        /*
-        public MemberManagerTest()
+        [TestMethod]
+        public void insertRecordsTest()
         {
-            //
-            // TODO: Add constructor logic here
-            //
-        }
-
-        private TestContext testContextInstance;
-
-        /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext
-        {
-            get
+            for (int i = 1; i <= 10; i++)
             {
-                return testContextInstance;
+                var vo = new MemberVo();
+                vo.firstName = "Test First Name Name " + i.ToString();
+                vo.lastName = "Test Last Name Name " + i.ToString();
+                vo.siteId = 1;
+                var result = memberManager.insert(vo);
+                if (result == null)
+                {
+                    Assert.IsTrue(false);
+                    break;
+                }
             }
-            set
-            {
-                testContextInstance = value;
-            }
+            Assert.IsTrue(true);
         }
-
-        #region Additional test attributes
-        //
-        // You can use the following additional attributes as you write your tests:
-        //
-        // Use ClassInitialize to run code before running the first test in the class
-        // [ClassInitialize()]
-        // public static void MyClassInitialize(TestContext testContext) { }
-        //
-        // Use ClassCleanup to run code after all tests in a class have run
-        // [ClassCleanup()]
-        // public static void MyClassCleanup() { }
-        //
-        // Use TestInitialize to run code before running each test 
-        // [TestInitialize()]
-        // public void MyTestInitialize() { }
-        //
-        // Use TestCleanup to run code after each test has run
-        // [TestCleanup()]
-        // public void MyTestCleanup() { }
-        //
-        #endregion
 
         [TestMethod]
-        public void TestMethod1()
+        public void insertDeleteTest()
         {
-            //
-            // TODO: Add test logic here
-            //
+            var vo = new MemberVo();
+            vo.firstName = "testFirstName";
+            vo.address = "1245 address";
+
+            var result = memberManager.insert(vo);
+            var result2 = memberManager.get(result.memberId);
+
+            memberManager.delete(result.memberId);
+
+            var result3 = memberManager.get(result.memberId);
+
+            if (result != null && result2 != null && result3 == null && result2.memberId != 0)
+            {
+                Assert.IsTrue(true);
+            }
+            else
+                Assert.IsTrue(false);
         }
-        */
+
+        [TestMethod]
+        public void includesTest()
+        {
+            var result = memberManager.getFirst();
+
+            var site = result.site;
+
+            if (result.site != null)
+            {
+                Assert.IsTrue(true);
+            }
+            else
+                Assert.IsTrue(false);
+        }
     }
 }
