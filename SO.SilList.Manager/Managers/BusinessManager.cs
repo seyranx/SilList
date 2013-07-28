@@ -27,7 +27,6 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.businesses.FirstOrDefault(e => e.name == name);
-
                 return res;
             }
         }
