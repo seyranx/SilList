@@ -10,10 +10,10 @@ namespace SO.SilList.Manager.Interfaces
 {
     interface IBusinessRatingsManager
     {
-         BusinessRatingsVo get(Guid ratingId);
+         BusinessRatingsVo get(Guid businessRatingId);
          List<BusinessRatingsVo> getAll(bool? isActive = true);
-         bool delete(Guid ratingId);
-         BusinessRatingsVo update(BusinessRatingsVo input, Guid? ratingId = null);
+         bool delete(Guid businessRatingId);
+         BusinessRatingsVo update(BusinessRatingsVo input, Guid? businessRatingId = null);
          BusinessRatingsVo insert(BusinessRatingsVo input);
     }
 }

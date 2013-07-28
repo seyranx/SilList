@@ -12,6 +12,10 @@ namespace SO.SilList.Manager.Managers
 {
     public class RentalManager: IRentalManager
     {
+        public RentalManager()
+        {
+        }
+
         public RentalVo get(Guid rentalId)
         {
             using (var db = new MainDb())

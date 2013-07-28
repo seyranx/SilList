@@ -403,4 +403,6 @@
     <ZoomLevel>100</ZoomLevel>
     <Filter>Equals_Objects,Not_Supported_Deploy</Filter>
   </SchemaCompareViewSettings>
+  <ExcludedSourceElements />
+  <ExcludedTargetElements>
 </SchemaComparison>

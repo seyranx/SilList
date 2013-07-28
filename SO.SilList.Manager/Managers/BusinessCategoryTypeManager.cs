@@ -12,6 +12,11 @@ namespace SO.SilList.Manager.Managers
 {
     public class BusinessCategoryTypeManager : IBusinessCategoryTypeManager
     {
+        public BusinessCategoryTypeManager()
+        {
+
+        }
+
         public BusinessCategoryTypeVo get(int businessCategoryTypeId)
         {
             using (var db = new MainDb())

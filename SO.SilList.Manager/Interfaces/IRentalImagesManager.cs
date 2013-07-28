@@ -9,10 +9,10 @@ namespace SO.SilList.Manager.Interfaces
 {
     interface IRentalImagesManager
     {
-        RentalImageVo get(int rentalImageId);
+        RentalImageVo get(Guid rentalImageId);
         List<RentalImageVo> getAll(bool? isActive = true);
-        bool delete(int rentalImageId);
-        RentalImageVo update(RentalImageVo input, int? rentalImageId = null);
+        bool delete(Guid rentalImageId);
+        RentalImageVo update(RentalImageVo input, Guid? rentalImageId = null);
         RentalImageVo insert(RentalImageVo input);
     }
 }

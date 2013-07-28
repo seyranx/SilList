@@ -42,8 +42,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
 
-        [ForeignKey("imageId")]
-        public virtual ImageVo image { get; set; }
+        //[ForeignKey("imageId")]
+        //public virtual ImageVo image { get; set; }
 
         [ForeignKey("businessId")]
         public virtual BusinessVo business { get; set; }

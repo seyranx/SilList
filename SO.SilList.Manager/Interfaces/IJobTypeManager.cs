@@ -10,9 +10,11 @@ namespace SO.SilList.Manager.Interfaces
     interface IJobTypeManager
     {
         JobTypeVo get(int jobTypeId);
+        JobTypeVo getFirst();
         List<JobTypeVo> getAll(bool? isActive = true);
         bool delete(int jobTypeId);
         JobTypeVo update(JobTypeVo input, int? jobTypeId = null);
         JobTypeVo insert(JobTypeVo input);
+        int count();
     }
 }

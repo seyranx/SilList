@@ -18,9 +18,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class RentalImageVo
     {
     		
-    	[DisplayName("image Id")]
+    	[DisplayName("renatal Image Id")]
     	[Key]
-        public System.Guid imageId { get; set; }
+        public System.Guid rentalImageId { get; set; }
     		
     	[DisplayName("rental Id")]
     	[Required]
@@ -43,14 +43,14 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
 
-        [ForeignKey("imageId")]
-        public virtual ImageVo image { get; set; }
-        [ForeignKey("rentalId")]
-        public virtual RentalVo rental { get; set; }
+       // [ForeignKey("imageId")]
+      //  public virtual ImageVo image { get; set; }
+       // [ForeignKey("rentalId")]
+       // public virtual RentalVo rental { get; set; }
       
     	public RentalImageVo(){
     			
-    		this.imageId = Guid.NewGuid();
+    		this.rentalImageId = Guid.NewGuid();
     	
     	 this.isActive = true;
     	}
