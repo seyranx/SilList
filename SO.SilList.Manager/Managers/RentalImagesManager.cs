@@ -12,6 +12,12 @@ namespace SO.SilList.Manager.Managers
 {
     class RentalImagesManager : IRentalImagesManager
     {
+
+        public RentalImagesManager()
+        {
+
+        }
+
         public RentalImageVo get(Guid rentalImageId)
         {
             using (var db = new MainDb())

@@ -18,7 +18,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         [DisplayName("jobCompany Id")]
         [Key]
-        public int jobCompanyId { get; set; }
+        public Guid jobCompanyId { get; set; }
 
         [DisplayName("name")]
         [StringLength(250)]
@@ -58,7 +58,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         // [Association("JobCompany_Business", "JobCompanyId", "JobCompanyId", IsForeignKey = true)]
         /// public List<JobCompanyVo> businesses { get; set; }
 
-        //[Association("JobCompany_Member", "JobCompanyId", "JobCompanyId", IsForeignKey = true)]
+      //  [Association("JobCompany_Member", "JobCompanyId", "JobCompanyId", IsForeignKey = true)]
         //public List<MemberVo> member { get; set; }
     }
 }
