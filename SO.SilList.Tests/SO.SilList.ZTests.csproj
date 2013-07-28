@@ -99,6 +99,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Managers\BusinessManagerTest.cs" />
+    <Compile Include="Managers\ListingDetailManagerManagerTest.cs" />
+    <Compile Include="Managers\ImageManagerTest.cs" />
+    <Compile Include="Managers\MemberManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
