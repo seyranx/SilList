@@ -71,8 +71,12 @@
     <Compile Include="Interfaces\IRentalManager.cs" />
     <Compile Include="Interfaces\IBusinessManager.cs" />
     <Compile Include="Interfaces\IRentTypeManager.cs" />
+    <Compile Include="Managers\BusinessCategoriesManager.cs" />
     <Compile Include="Managers\BusinessCategoryTypeManager.cs" />
+    <Compile Include="Managers\BusinessImageManager.cs" />
     <Compile Include="Managers\BusinessManager.cs" />
+    <Compile Include="Managers\BusinessRatingsManager.cs" />
+    <Compile Include="Managers\BusinessServicesManager.cs" />
     <Compile Include="Managers\ImageManager.cs" />
     <Compile Include="Managers\JobCompanyManager.cs" />
     <Compile Include="Managers\JobManager.cs" />
@@ -84,6 +88,7 @@
     <Compile Include="Managers\RentalImagesManager.cs" />
     <Compile Include="Managers\RentTypeManager.cs" />
     <Compile Include="Managers\LeaseTermTypeManager.cs" />
+    <Compile Include="Managers\ServiceTypeManager.cs" />
     <Compile Include="Managers\SiteManager.cs" />
     <Compile Include="Managers\RentalManager.cs" />
     <Compile Include="Models\ValueObjects\BusinessCategoryTypeVo.cs" />
