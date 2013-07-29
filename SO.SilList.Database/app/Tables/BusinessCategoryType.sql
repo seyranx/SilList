@@ -9,7 +9,9 @@
     [isActive]               BIT            CONSTRAINT [DF_Business_isActive] DEFAULT ((1)) NOT NULL,
     [siteId]                 INT            NULL,
     PRIMARY KEY CLUSTERED ([businessCategoryTypeId] ASC),
-    CONSTRAINT [FK_BusinessCategoryType_Site] FOREIGN KEY ([siteId]) REFERENCES [app].[Site] ([siteId]) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT [FK_BusinessCategoryType_Site] FOREIGN KEY ([siteId]) REFERENCES [app].[Site] ([siteId])
 );
+
+
 
 
