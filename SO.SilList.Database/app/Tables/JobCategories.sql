@@ -1,13 +1,15 @@
 ﻿CREATE TABLE [app].[JobCategories] (
-    [jobCategoriesId] UNIQUEIDENTIFIER              NOT NULL,
+    [jobCategoryTypeId] INT              NOT NULL,
     [jobId]             UNIQUEIDENTIFIER NULL,
     [created]           DATETIME         DEFAULT (getdate()) NOT NULL,
     [modified]          DATETIME         DEFAULT (getdate()) NOT NULL,
     [createdBy]         INT              NULL,
     [modifiedBy]        INT              NULL,
     [isActive]          BIT              NULL,
-    [jobCategoryTypeId] UNIQUEIDENTIFIER NULL, 
-    PRIMARY KEY CLUSTERED ([jobCategoriesId] ASC)
+    PRIMARY KEY CLUSTERED ([jobCategoryTypeId] ASC),
+    CONSTRAINT [FK_JobCategories_Job] FOREIGN KEY ([jobId]) REFERENCES [data].[Job] ([jobId]) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+
 
 
