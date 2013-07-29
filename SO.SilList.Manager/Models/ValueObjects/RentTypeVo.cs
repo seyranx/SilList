@@ -13,7 +13,7 @@ using System.Data.Entity;
 namespace SO.SilList.Manager.Models.ValueObjects
 {
 
-    [Table("RentType", Schema = "dbo")]
+    [Table("RentType", Schema = "app")]
     [Serializable]
     public partial class RentTypeVo
     {
@@ -23,12 +23,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public int rentTypeId { get; set; }
 
         [DisplayName("name")]
-        [Required]
         [StringLength(50)]
         public string name { get; set; }
 
         [DisplayName("description")]
-        [Required]
         public string description { get; set; }
 
         [DisplayName("created")]

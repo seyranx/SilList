@@ -20,9 +20,32 @@ namespace SO.SilList.Tests.Managers
 
             var res = businessManager.getAll(null);
 
+            if (res != null)
+            {
+                Assert.IsTrue(true);
+            }
+            else Assert.IsTrue(false);
+        }
+
+        [TestMethod]
+        public void insertRecordsTest()
+        {
+            for (int i = 1; i <= 10; i++)
+            {
+                var vo = new BusinessVo();
+                vo.name = i.ToString()+" Test Business Name ";
+                vo.siteId = 1;
+                var result = businessManager.insert(vo);
+                if (result == null)
+                {
+                    Assert.IsTrue(false);
+                    break;
+                }
+            }
             Assert.IsTrue(true);
         }
-         [TestMethod]
+
+        [TestMethod]
         public void insertDeleteTest()
         {
             var vo = new BusinessVo();
@@ -44,23 +67,25 @@ namespace SO.SilList.Tests.Managers
                 Assert.IsTrue(false);
         }
 
-         [TestMethod]
-         public void includesTest()
-         {
-    
-             var result= businessManager.getFirst();
+		// FK-s are disabled temporarily
+         //[TestMethod]
+         //public void includesTest()
+         //{
 
-             var site = result.site;
+         //    var result = businessManager.getFirst();
 
-             if (result.site!=null)
-             {
-                 Assert.IsTrue(true);
-             }
-             else
-                 Assert.IsTrue(false);
+         //    //FK-s are disabled temporarily
+         //    //var site = result.site;
+
+         //    if (result.site != null)
+         //    {
+         //        Assert.IsTrue(true);
+         //    }
+         //    else
+         //        Assert.IsTrue(false);
 
 
-         }
+         //}
 
 
         

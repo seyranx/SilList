@@ -27,7 +27,6 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.businesses.FirstOrDefault(e => e.name == name);
-
                 return res;
             }
         }
@@ -40,8 +39,8 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.businesses
-                            .Include(s => s.site)
-                            .FirstOrDefault(p=>p.businessId==businessId);
+                            //.Include(s => s.site)
+                            .FirstOrDefault(p => p.businessId == businessId);
                  
                 return res;
             }
@@ -55,7 +54,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.businesses
-                            .Include(s=>s.site)
+                            //.Include(s=>s.site)
                             .FirstOrDefault();
                
                 return res;
@@ -68,7 +67,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var list = db.businesses
-                             .Include(s => s.site)
+                             //.Include(s => s.site)
                              .Where(e => isActive==null || e.isActive == isActive )
                              .ToList();
 

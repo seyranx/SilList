@@ -22,5 +22,7 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
         public Nullable<int> createdBy { get; set; }
         public Nullable<int> modifiedBy { get; set; }
         public Nullable<bool> isActive { get; set; }
+    
+        public virtual JobCategory JobCategory { get; set; }
     }
 }

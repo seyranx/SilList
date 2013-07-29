@@ -1,0 +1,101 @@
+﻿@model SO.SilList.Manager.Models.ValueObjects.BusinessVo
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>BusinessVo</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.listingDetailId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.listingDetailId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.siteId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.siteId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.address)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.address)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.city)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.city)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.state)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.state)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.zip)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.zip)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.createdBy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.createdBy)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.modifiedBy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.modifiedBy)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.modified)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.modified)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.created)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.created)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.isActive)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.isActive)
+    </div>
+</fieldset>
+<p>
+      <a href="@Url.Action("Index", new { id=Model.businessId })" class="btn">Edit</a>
+
+      <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
+</p>
