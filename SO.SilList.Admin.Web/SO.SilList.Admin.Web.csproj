@@ -273,6 +273,11 @@
     <Content Include="Views\Jobs\Index.cshtml" />
     <Content Include="Views\Linked\ShowNew.cshtml" />
     <Content Include="Views\Business\List.cshtml" />
+    <Content Include="Views\Business\Edit.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Business\Create.cshtml" />
+    <Content Include="Views\Business\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

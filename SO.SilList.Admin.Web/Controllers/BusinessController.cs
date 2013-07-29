@@ -23,5 +23,22 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView(results);
         }
 
+        public ActionResult Edit(Guid id)
+        {
+            var result = businessManager.get(id);
+            return View(result);
+        }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        public ActionResult Details(Guid id)
+        {
+            var result = businessManager.get(id);
+            return View(result);
+        }
+
     }
 }
