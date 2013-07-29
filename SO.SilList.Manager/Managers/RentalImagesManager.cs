@@ -10,7 +10,7 @@ using EntityFramework.Extensions;
 
 namespace SO.SilList.Manager.Managers
 {
-    class RentalImagesManager : IRentalImagesManager
+    public class RentalImagesManager : IRentalImagesManager
     {
         public RentalImageVo get(Guid rentalImageId)
         {

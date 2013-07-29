@@ -24,7 +24,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         [DisplayName("name")]
         [StringLength(50)]
-        public Nullable<string> name { get; set; }
+        public string name { get; set; }
 
         [DisplayName("description")]
         public string description { get; set; }
