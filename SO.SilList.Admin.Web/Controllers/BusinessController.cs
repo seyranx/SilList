@@ -40,5 +40,9 @@ namespace SO.SilList.Admin.Web.Controllers
             return View(result);
         }
 
+        public ActionResult Menu()
+        {
+            return PartialView("_Menu");
+        }
     }
 }
