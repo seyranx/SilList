@@ -1667,10 +1667,11 @@
         <Name>EnvironmentType</Name>
         <Access>Public</Access>
         <Location left="835" top="337" />
-        <Size width="162" height="128" />
+        <Size width="162" height="145" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int environmentTypeId</Member>
         <Member type="Field">string name</Member>
+        <Member type="Field">string url</Member>
         <Member type="Field">string description</Member>
         <Modifier>None</Modifier>
       </Entity>
@@ -1704,6 +1705,22 @@
         </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="1">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>461</X>
+          <Y>175</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>810</X>
+          <Y>104</Y>
+        </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
