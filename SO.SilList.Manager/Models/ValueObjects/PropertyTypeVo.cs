@@ -23,12 +23,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public int propertyTypeId { get; set; }
     		
     	[DisplayName("name")]
-    	[Required]
     	[StringLength(50)]
         public string name { get; set; }
     		
     	[DisplayName("description")]
-    	[Required]
     	[StringLength(50)]
         public string description { get; set; }
     		

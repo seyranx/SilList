@@ -1,11 +1,13 @@
-﻿using SO.SilList.Manager.DbContexts;
-using SO.SilList.Manager.Interfaces;
-using SO.SilList.Manager.Models.ValueObjects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
+using EntityFramework.Extensions;
+using SO.SilList.Manager.Interfaces;
+using SO.SilList.Manager.DbContexts;
+using SO.SilList.Manager.Models.ValueObjects;
 
 
 namespace SO.SilList.Manager.Managers
@@ -21,25 +23,79 @@ namespace SO.SilList.Manager.Managers
                 return result;
             }
         }
-
-        public List<Models.ValueObjects.JobVo> getAll(bool? isActive = true)
+        public JobVo getFirst()
         {
-            throw new NotImplementedException();
+            using (var db = new MainDb())
+            {
+                var result = db.jobs
+                    /// .Include(s => s.site)
+                            .FirstOrDefault();
+
+                return result;
+            }
+        }
+
+        public List<JobVo> getAll(bool? isActive = true)
+        {
+            using (var db = new MainDb())
+            {
+                var list = db.jobs
+                    ///.Include(s => s.site)
+                             .Where(e => isActive == null || e.isActive == isActive)
+                             .ToList();
+
+                return list;
+            }
         }
 
         public bool delete(Guid jobId)
         {
-            throw new NotImplementedException();
+            using (var db = new MainDb())
+            {
+                var res = db.jobs
+                     .Where(e => e.jobId == jobId)
+                     .Delete();
+                return true;
+            }
         }
 
-        public Models.ValueObjects.JobVo update(Models.ValueObjects.JobVo input, Guid? jobId = null)
+        public JobVo update(JobVo input, Guid? jobId = null)
         {
-            throw new NotImplementedException();
+            using (var db = new MainDb())
+            {
+                if (jobId == null)
+                    jobId = input.jobId;
+
+                var result = db.jobs.FirstOrDefault(e => e.jobId == jobId);
+
+                if (result == null) return null;
+
+                input.created = result.created;
+                input.createdBy = result.createdBy;
+                db.Entry(result).CurrentValues.SetValues(input);
+
+                db.SaveChanges();
+                return result;
+
+            }
         }
 
-        public Models.ValueObjects.JobVo insert(Models.ValueObjects.JobVo input)
+        public JobVo insert(JobVo input)
         {
-            throw new NotImplementedException();
+            using (var db = new MainDb())
+            {
+                db.jobs.Add(input);
+                db.SaveChanges();
+
+                return input;
+            }
+        }
+        public int count()
+        {
+            using (var db = new MainDb())
+            {
+                return db.jobs.Count();
+            }
         }
     }
 }

@@ -10,7 +10,7 @@ using SO.SilList.Manager.Models.ValueObjects;
 namespace SO.SilList.Tests.Managers
 {
      [TestClass]
-    class RentalManagerTest
+    public class RentalManagerTest
     {
         private RentalManager Rental = new RentalManager();
 
@@ -59,7 +59,7 @@ namespace SO.SilList.Tests.Managers
 
             var result3 = Rental.get(result.rentalId);
 
-            if (result != null && result2 != null && result3 == null && result2.rentalId != null)
+            if (result != null && result2 != null && result3 == null && result2.rentalId != Guid.Empty)
             {
                 Assert.IsTrue(true);
             }

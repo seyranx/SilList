@@ -10,7 +10,7 @@ using SO.SilList.Manager.Models.ValueObjects;
 namespace SO.SilList.Tests.Managers
 {
      [TestClass]
-    class LeaseTermTypeManagerTest
+    public class LeaseTermTypeManagerTest
     {
         private LeaseTermTypeManager leaseTermType = new LeaseTermTypeManager();
 

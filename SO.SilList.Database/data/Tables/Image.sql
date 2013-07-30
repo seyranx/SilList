@@ -1,20 +1,20 @@
-﻿CREATE TABLE [data].[Image](
-	[imageId] UNIQUEIDENTIFIER NOT NULL DEFAULT newid() , 
-	[name] [nvarchar](50) NULL,
-	[url] [nvarchar](50) NULL,
-	[path] [nvarchar](50) NULL,
-	[fileType] [nvarchar](50) NULL,
-	[siteId] [int] NULL,
-	[height] [int] NULL,
-	[width] [int] NULL,
-	[size] [int] NULL,
-	[created] [datetime] NOT NULL DEFAULT getdate(),
-	[modified] [datetime] NOT NULL DEFAULT getdate(),
-	[createdBy] [int] NULL,
-	[modifiedBy] [int] NULL,
-	[isActive] [bit] NULL DEFAULT 1,
--- generated from SSMS
--- CONSTRAINT [PK_Image] PRIMARY KEY CLUSTERED 
+﻿CREATE TABLE [data].[Image] (
+    [imageId]    UNIQUEIDENTIFIER DEFAULT (newid()) NOT NULL,
+    [name]       NVARCHAR (50)    NULL,
+    [url]        NVARCHAR (50)    NULL,
+    [path]       NVARCHAR (50)    NULL,
+    [fileType]   NVARCHAR (50)    NULL,
+    [siteId]     INT              NULL,
+    [height]     INT              NULL,
+    [width]      INT              NULL,
+    [size]       INT              NULL,
+    [created]    DATETIME         DEFAULT (getdate()) NOT NULL,
+    [modified]   DATETIME         DEFAULT (getdate()) NOT NULL,
+    [createdBy]  INT              NULL,
+    [modifiedBy] INT              NULL,
+    [isActive]   BIT              DEFAULT ((1)) NULL,
+    CONSTRAINT [PK_Image] PRIMARY KEY CLUSTERED ([imageId] ASC)
+);
 
-    CONSTRAINT [PK_Image] PRIMARY KEY ([imageId])
-)
+
+
