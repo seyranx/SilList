@@ -14,7 +14,6 @@ namespace SO.SilList.Manager.Managers
 {
     public class RatingManager : IRatingManager
     {
-    
         /// <summary>
         /// Find 'rating' matching the 'ratingId' (primary key)
         /// </summary>
@@ -110,7 +109,6 @@ namespace SO.SilList.Manager.Managers
                 return input;
             }
         }
-
 
     }
 }
