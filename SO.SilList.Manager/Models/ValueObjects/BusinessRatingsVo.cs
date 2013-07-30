@@ -18,9 +18,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class BusinessRatingsVo
     {
 
-        [DisplayName("rating Rating Id")]
+        [DisplayName("business Rating Id")]
         [Key]
-        public Guid? businessRatingId { get; set; }		
+        public Guid businessRatingId { get; set; }		
 
     	[DisplayName("rating Id")]
         public Guid? ratingId { get; set; }
