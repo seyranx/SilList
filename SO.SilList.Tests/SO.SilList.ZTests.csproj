@@ -104,7 +104,13 @@
     <Compile Include="Managers\ListingDetailManagerManagerTest.cs" />
     <Compile Include="Managers\ImageManagerTest.cs" />
     <Compile Include="Managers\MemberManagerTest.cs" />
+    <Compile Include="Managers\PropertyTypeManagerTest.cs" />
+    <Compile Include="Managers\RentalImagesManagerTest.cs" />
     <Compile Include="Managers\RentalManagerTest.cs" />
+    <Compile Include="Managers\RentTypeManagerTest.cs" />
+    <Compile Include="Managers\RatingManagerTest.cs" />
+    <Compile Include="Managers\BusinessRatingsManagerTest.cs" />
+    <Compile Include="Managers\BusinessCategriesManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
