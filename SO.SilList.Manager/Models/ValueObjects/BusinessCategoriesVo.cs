@@ -50,8 +50,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         //public virtual BusinessCategoryTypeVo businessCategoryType { get; set; }
 
     	public BusinessCategoriesVo(){
-    			
-    	 this.businessId = Guid.NewGuid();
+
+         this.businessCategoryId = Guid.NewGuid();
     	
     	 this.isActive = true;
     	}
