@@ -13,17 +13,20 @@ namespace SO.SilList.Manager.Managers
 {
     public class BusinessCategoriesManager : IBusinessCategoriesManager
     {
+        public BusinessCategoriesManager()
+        {
 
+        }
         /// <summary>
         /// Find 'BusinessCategories'
         /// </summary>
-        public BusinessCategoriesVo get(int businessCategoryTypeId)
+        public BusinessCategoriesVo get(Guid businessCategoryId)
         {
             using (var db = new MainDb())
             {
                 var res = db.businessCategories
                             //.Include(s => s.site)
-                            .FirstOrDefault(p => p.businessCategoryTypeId == businessCategoryTypeId);
+                            .FirstOrDefault(p => p.businessCategoryId == businessCategoryId);
 
                 return res;
             }
@@ -63,12 +66,12 @@ namespace SO.SilList.Manager.Managers
         /// <summary>
         /// Delete item given the ratingID
         /// </summary>
-        public bool delete(int businessCategoryTypeId)
+        public bool delete(Guid businessCategoryId)
         {
             using (var db = new MainDb())
             {
                 var res = db.businessCategories
-                     .Where(e => e.businessCategoryTypeId == businessCategoryTypeId)
+                     .Where(e => e.businessCategoryId == businessCategoryId)
                      .Delete();
                 return true;
             }
@@ -77,15 +80,15 @@ namespace SO.SilList.Manager.Managers
         /// <summary>
         /// update the table
         /// </summary>
-        public BusinessCategoriesVo update(BusinessCategoriesVo input, int? businessCategoryTypeId = null)
+        public BusinessCategoriesVo update(BusinessCategoriesVo input, Guid? businessCategoryId = null)
         {
             using (var db = new MainDb())
             {
 
-                if (businessCategoryTypeId == null)
-                    businessCategoryTypeId = input.businessCategoryTypeId;
+                if (businessCategoryId == null)
+                    businessCategoryId = input.businessCategoryId;
 
-                var res = db.businessCategories.FirstOrDefault(e => e.businessCategoryTypeId == businessCategoryTypeId);
+                var res = db.businessCategories.FirstOrDefault(e => e.businessCategoryId == businessCategoryId);
 
                 if (res == null) return null;
 
@@ -111,7 +114,6 @@ namespace SO.SilList.Manager.Managers
                 return input;
             }
         }
-
 
     }
 }

@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,41 +16,42 @@ namespace SO.SilList.Manager.Models.ValueObjects
     [Serializable]
     public partial class BusinessCategoriesVo
     {
-    		
+        [DisplayName("business Category Id")]
+        [Key]
+        public Guid businessCategoryId { get; set; }
+  		
     	[DisplayName("business Id")]
-    	[Key]
-        public System.Guid businessId { get; set; }
+        public Guid? businessId { get; set; }
     		
     	[DisplayName("business Category Type Id")]
-    	[Required]
-        public int businessCategoryTypeId { get; set; }
+        public int? businessCategoryTypeId { get; set; }
     		
     	[DisplayName("created")]
     	[Required]
-        public System.DateTime created { get; set; }
+        public DateTime created { get; set; }
     		
     	[DisplayName("modified")]
     	[Required]
-        public System.DateTime modified { get; set; }
+        public DateTime modified { get; set; }
     		
     	[DisplayName("created By")]
-        public Nullable<int> createdBy { get; set; }
+        public int? createdBy { get; set; }
     		
     	[DisplayName("modified By")]
-        public Nullable<int> modifiedBy { get; set; }
+        public int? modifiedBy { get; set; }
     		
     	[DisplayName("is Active")]
-        public Nullable<bool> isActive { get; set; }
+        public bool? isActive { get; set; }
 
-        [ForeignKey("businessId")]
-        public virtual BusinessVo business { get; set; }
+        //[ForeignKey("businessId")]
+        //public virtual BusinessVo business { get; set; }
 
-        [ForeignKey("businessCategoryTypeId")]
-        public virtual BusinessCategoryTypeVo businessCategoryType { get; set; }
+        //[ForeignKey("businessCategoryTypeId")]
+        //public virtual BusinessCategoryTypeVo businessCategoryType { get; set; }
 
     	public BusinessCategoriesVo(){
-    			
-    	 this.businessId = Guid.NewGuid();
+
+         this.businessCategoryId = Guid.NewGuid();
     	
     	 this.isActive = true;
     	}

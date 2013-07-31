@@ -14,16 +14,20 @@ namespace SO.SilList.Manager.Managers
     public class BusinessRatingsManager : IBusinessRatingsManager
     {
 
+        public BusinessRatingsManager()
+        {
+
+        }
         /// <summary>
         /// Find 'BusinessRating'
         /// </summary>
-        public BusinessRatingsVo get(Guid businessId)
+        public BusinessRatingsVo get(Guid businessRatingId)
         {
             using (var db = new MainDb())
             {
                 var res = db.businessRatings
                             //.Include(s => s.site)
-                            .FirstOrDefault(p => p.businessId == businessId);
+                            .FirstOrDefault(p => p.businessRatingId == businessRatingId);
 
                 return res;
             }
@@ -63,12 +67,12 @@ namespace SO.SilList.Manager.Managers
         /// <summary>
         /// Delete item given the ratingID
         /// </summary>
-        public bool delete(Guid businessId)
+        public bool delete(Guid businessRatingId)
         {
             using (var db = new MainDb())
             {
                 var res = db.businessRatings
-                     .Where(e => e.businessId == businessId)
+                     .Where(e => e.businessRatingId == businessRatingId)
                      .Delete();
                 return true;
             }
@@ -77,15 +81,15 @@ namespace SO.SilList.Manager.Managers
         /// <summary>
         /// update the table
         /// </summary>
-        public BusinessRatingsVo update(BusinessRatingsVo input, Guid? businessId = null)
+        public BusinessRatingsVo update(BusinessRatingsVo input, Guid? businessRatingId = null)
         {
             using (var db = new MainDb())
             {
 
-                if (businessId == null)
-                    businessId = input.businessId;
+                if (businessRatingId == null)
+                    businessRatingId = input.businessRatingId;
 
-                var res = db.businessRatings.FirstOrDefault(e => e.businessId == businessId);
+                var res = db.businessRatings.FirstOrDefault(e => e.businessRatingId == businessRatingId);
 
                 if (res == null) return null;
 

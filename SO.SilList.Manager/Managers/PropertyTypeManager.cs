@@ -10,7 +10,7 @@ using EntityFramework.Extensions;
 
 namespace SO.SilList.Manager.Managers
 {
-    class PropertyTypeManager : IPropertyTypeManager
+    public class PropertyTypeManager : IPropertyTypeManager
     {
         public PropertyTypeVo get(int propertyTypeId)
         {
