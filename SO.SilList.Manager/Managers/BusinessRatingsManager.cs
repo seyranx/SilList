@@ -14,6 +14,10 @@ namespace SO.SilList.Manager.Managers
     public class BusinessRatingsManager : IBusinessRatingsManager
     {
 
+        public BusinessRatingsManager()
+        {
+
+        }
         /// <summary>
         /// Find 'BusinessRating'
         /// </summary>

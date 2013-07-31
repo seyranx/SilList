@@ -29,8 +29,8 @@ namespace SO.SilList.Tests.Managers
             var vo = new BusinessRatingsVo();
             vo.createdBy = 3;
             vo.modifiedBy = 4;
-            vo.ratingId = b524440fb1f542ce99295dfc8058b22e;
-            vo.businessId = b524440fb1f542ce99295dfc8058b22e;
+            vo.ratingId = new Guid();
+            vo.businessId = new Guid();
 
             var result = businessRatingsManager.insert(vo);
             var result2 = businessRatingsManager.get(result.businessRatingId);
@@ -39,9 +39,7 @@ namespace SO.SilList.Tests.Managers
 
             var result3 = businessRatingsManager.get(result.businessRatingId);
 
-            // NEEDS FIXING !!!
-
-            if (result != null && result2 != null && result3 == null)//  && result2.businessRatingId != Guid.Empty)
+            if (result != null && result2 != null && result3 == null && result2.businessRatingId != Guid.Empty)
             {
                 Assert.IsTrue(true);
             }
@@ -49,7 +47,5 @@ namespace SO.SilList.Tests.Managers
                 Assert.IsTrue(false);
         }
 
-
-        public Guid? b524440fb1f542ce99295dfc8058b22e { get; set; }
     }
 }
