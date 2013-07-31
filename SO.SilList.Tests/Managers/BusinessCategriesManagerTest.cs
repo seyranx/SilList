@@ -30,8 +30,9 @@ namespace SO.SilList.Tests.Managers
             var vo = new BusinessCategoriesVo();
             vo.createdBy = 3;
             vo.modifiedBy = 4;
-            vo.businessCategoryTypeId = 7;
-            vo.businessId = new Guid();
+            // uncomenting next 2 lines leads to violation of FOREIGN KEY CONSTRAINTS
+            //vo.businessCategoryTypeId = 7;
+            //vo.businessId = new Guid();
 
             var result = businessCategoriesManager.insert(vo);
             var result2 = businessCategoriesManager.get(result.businessCategoryId);

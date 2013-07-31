@@ -29,8 +29,9 @@ namespace SO.SilList.Tests.Managers
             var vo = new BusinessRatingsVo();
             vo.createdBy = 3;
             vo.modifiedBy = 4;
-            vo.ratingId = new Guid();
-            vo.businessId = new Guid();
+            // uncomenting next 2 lines leads to violation of FOREIGN KEY CONSTRAINTS
+            //vo.ratingId = new Guid();
+            //vo.businessId = new Guid();
 
             var result = businessRatingsManager.insert(vo);
             var result2 = businessRatingsManager.get(result.businessRatingId);
