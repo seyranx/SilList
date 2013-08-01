@@ -8,26 +8,21 @@ using EntityFramework.Extensions;
 using SO.SilList.Manager.DbContexts;
 using SO.SilList.Manager.Interfaces;
 using SO.SilList.Manager.Models.ValueObjects;
-
 namespace SO.SilList.Manager.Managers
 {
-    public class BusinessRatingsManager : IBusinessRatingsManager
+    public class JobCategoriesManager : IJobCategoriesManager
     {
 
-        public BusinessRatingsManager()
-        {
-
-        }
         /// <summary>
-        /// Find 'BusinessRating'
+        /// Find 'BusinessCategories'
         /// </summary>
-        public BusinessRatingsVo get(Guid businessRatingId)
+        public JobCategoriesVo get(int jobCategoryTypeId)
         {
             using (var db = new MainDb())
             {
-                var res = db.businessRatings
-                            //.Include(s => s.site)
-                            .FirstOrDefault(p => p.businessRatingId == businessRatingId);
+                var res = db.jobCategories
+                    //.Include(s => s.site)
+                            .FirstOrDefault(p => p.jobCategoryTypeId == jobCategoryTypeId);
 
                 return res;
             }
@@ -36,12 +31,12 @@ namespace SO.SilList.Manager.Managers
         /// <summary>
         /// Get All items
         /// </summary>
-        public List<BusinessRatingsVo> getAll(bool? isActive = true)
+        public List<JobCategoriesVo> getAll(bool? isActive = true)
         {
             using (var db = new MainDb())
             {
-                var list = db.businessRatings
-                             //.Include(s => s.site)
+                var list = db.jobCategories
+                    //.Include(s => s.site)
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
 
@@ -52,12 +47,12 @@ namespace SO.SilList.Manager.Managers
         /// <summary>
         /// Get First Item
         /// </summary>
-        public BusinessRatingsVo getFirst()
+        public JobCategoriesVo getFirst()
         {
             using (var db = new MainDb())
             {
-                var res = db.businessRatings
-                            //.Include(s => s.site)
+                var res = db.jobCategories
+                    //.Include(s => s.site)
                             .FirstOrDefault();
 
                 return res;
@@ -67,12 +62,12 @@ namespace SO.SilList.Manager.Managers
         /// <summary>
         /// Delete item given the ratingID
         /// </summary>
-        public bool delete(Guid businessRatingId)
+        public bool delete(int jobCategoryTypeId)
         {
             using (var db = new MainDb())
             {
-                var res = db.businessRatings
-                     .Where(e => e.businessRatingId == businessRatingId)
+                var res = db.jobCategories
+                     .Where(e => e.jobCategoryTypeId == jobCategoryTypeId)
                      .Delete();
                 return true;
             }
@@ -81,15 +76,15 @@ namespace SO.SilList.Manager.Managers
         /// <summary>
         /// update the table
         /// </summary>
-        public BusinessRatingsVo update(BusinessRatingsVo input, Guid? businessRatingId = null)
+        public JobCategoriesVo update(JobCategoriesVo input, int? jobCategoryTypeId = null)
         {
             using (var db = new MainDb())
             {
 
-                if (businessRatingId == null)
-                    businessRatingId = input.businessRatingId;
+                if (jobCategoryTypeId == null)
+                    jobCategoryTypeId = input.jobCategoryTypeId;
 
-                var res = db.businessRatings.FirstOrDefault(e => e.businessRatingId == businessRatingId);
+                var res = db.jobCategories.FirstOrDefault(e => e.jobCategoryTypeId == jobCategoryTypeId);
 
                 if (res == null) return null;
 
@@ -104,12 +99,12 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public BusinessRatingsVo insert(BusinessRatingsVo input)
+        public JobCategoriesVo insert(JobCategoriesVo input)
         {
             using (var db = new MainDb())
             {
 
-                db.businessRatings.Add(input);
+                db.jobCategories.Add(input);
                 db.SaveChanges();
 
                 return input;

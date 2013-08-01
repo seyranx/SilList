@@ -6,15 +6,16 @@ using SO.SilList.Manager.Models.ValueObjects;
 namespace SO.SilList.Tests.Managers
 {
     [TestClass]
-    public class BusinessRatingsManagerTest
+    public class JobCategriesManagerTest
     {
-        private BusinessRatingsManager businessRatingsManager = new BusinessRatingsManager();
+        private JobCategoriesManager jobCategoriesManager = new JobCategoriesManager();
+        private Guid? NULL;
 
         [TestMethod]
         public void getAllTest()
         {
 
-            var res = businessRatingsManager.getAll(null);
+            var res = jobCategoriesManager.getAll(null);
 
             if (res != null)
             {
@@ -26,27 +27,26 @@ namespace SO.SilList.Tests.Managers
         [TestMethod]
         public void insertDeleteTest()
         {
-            var vo = new BusinessRatingsVo();
+            var vo = new JobCategoriesVo();
             vo.createdBy = 3;
             vo.modifiedBy = 4;
             // uncomenting next 2 lines leads to violation of FOREIGN KEY CONSTRAINTS
-            //vo.ratingId = new Guid();
-            //vo.businessId = new Guid();
+            //vo.jobCategoryTypeId = 7;
+            //vo.jobId = new Guid();
 
-            var result = businessRatingsManager.insert(vo);
-            var result2 = businessRatingsManager.get(result.businessRatingId);
+            var result = jobCategoriesManager.insert(vo);
+            var result2 = jobCategoriesManager.get(result.jobCategoryTypeId);
 
-            businessRatingsManager.delete(result.businessRatingId);
+            jobCategoriesManager.delete(result.jobCategoryTypeId);
 
-            var result3 = businessRatingsManager.get(result.businessRatingId);
+            var result3 = jobCategoriesManager.get(result.jobCategoryTypeId);
 
-            if (result != null && result2 != null && result3 == null && result2.businessRatingId != Guid.Empty)
+            if (result != null && result2 != null && result3 == null )
             {
                 Assert.IsTrue(true);
             }
             else
                 Assert.IsTrue(false);
         }
-
     }
 }

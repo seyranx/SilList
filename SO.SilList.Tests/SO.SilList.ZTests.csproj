@@ -100,6 +100,9 @@
   <ItemGroup>
     <Compile Include="Managers\BusinessCategoryTypeManagerTest.cs" />
     <Compile Include="Managers\BusinessManagerTest.cs" />
+    <Compile Include="Managers\JobCategoriesManagerTest.cs" />
+    <Compile Include="Managers\JobCategoryTypeManagerTest.cs" />
+    <Compile Include="Managers\JobManagerTest.cs" />
     <Compile Include="Managers\LeaseTermTypeManagerTest.cs" />
     <Compile Include="Managers\ListingDetailManagerManagerTest.cs" />
     <Compile Include="Managers\ImageManagerTest.cs" />
