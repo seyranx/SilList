@@ -32,6 +32,7 @@ namespace SO.SilList.Tests.Managers
                 vo.name = i.ToString() + " Test RentType Name ";
                 vo.rentTypeId = i;
                 var result = rentTypeManager.insert(vo);
+                //TEST CHANGES
                 if (result == null)
                 {
                     Assert.IsTrue(false);
