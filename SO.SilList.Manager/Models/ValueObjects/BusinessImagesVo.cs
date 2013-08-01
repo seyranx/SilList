@@ -50,7 +50,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
     	public BusinessImagesVo(){
     			
-    	this.imageId = Guid.NewGuid();
+    	this.businessImageId = Guid.NewGuid();
     	
     	this.isActive = true;
     	}

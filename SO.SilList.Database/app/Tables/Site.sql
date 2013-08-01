@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [app].[Site] (
-    [siteId]      INT            NOT NULL,
+    [siteId]      INT            IDENTITY (1, 1) NOT NULL,
     [name]        NVARCHAR (250) NULL,
     [domain]      NVARCHAR (250) NULL,
     [description] NVARCHAR (MAX) NULL,
@@ -12,6 +12,8 @@
     [isActive]    BIT            NULL,
     CONSTRAINT [PK_Site] PRIMARY KEY CLUSTERED ([siteId] ASC)
 );
+
+
 
 
 

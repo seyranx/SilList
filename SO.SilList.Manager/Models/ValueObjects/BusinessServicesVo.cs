@@ -49,10 +49,12 @@ namespace SO.SilList.Manager.Models.ValueObjects
         //[ForeignKey("serviceTypeId")]
         //public virtual ServiceTypeVo serviceType { get; set; }
 
-    	public BusinessServicesVo(){
-    			
-    	
-    	 this.isActive = true;
-    	}
+        public BusinessServicesVo()
+        {
+
+            this.businessServiceId = new Guid();
+
+            this.isActive = true;
+        }
     }
 }

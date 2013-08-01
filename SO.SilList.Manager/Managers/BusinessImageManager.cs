@@ -10,7 +10,7 @@ using EntityFramework.Extensions;
 
 namespace SO.SilList.Manager.Managers
 {
-    class BusinessImageManager : IBusinessImagesManager
+    public class BusinessImageManager : IBusinessImagesManager
     {
         public BusinessImageManager() { }
 
