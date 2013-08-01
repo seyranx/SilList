@@ -58,7 +58,7 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public JobCompanyVo update(JobCompanyVo input, int? jobCompanyId = null)
+        public JobCompanyVo update(JobCompanyVo input, Guid? jobCompanyId = null)
         {
             throw new NotImplementedException();
         }
