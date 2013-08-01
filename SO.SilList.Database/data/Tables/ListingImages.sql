@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[ListingImages]
+(
+	[listingImagesId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
+    [imageId] UNIQUEIDENTIFIER NULL, 
+    [listingId] UNIQUEIDENTIFIER NULL
+)
