@@ -53,8 +53,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         //public virtual BusinessVo business { get; set; }
       
     	public BusinessRatingsVo(){
-    			
-    	this.ratingId = Guid.NewGuid();
+
+        this.businessRatingId = Guid.NewGuid();
     	
     	this.isActive = true;
     	}

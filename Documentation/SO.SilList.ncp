@@ -1413,7 +1413,7 @@
       <Entity type="Class">
         <Name>ListingCategoryType</Name>
         <Access>Public</Access>
-        <Location left="778" top="456" />
+        <Location left="765" top="566" />
         <Size width="195" height="128" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int listingCategoryTypeId</Member>
@@ -1424,7 +1424,7 @@
       <Entity type="Class">
         <Name>ListingCategories</Name>
         <Access>Public</Access>
-        <Location left="765" top="613" />
+        <Location left="765" top="741" />
         <Size width="162" height="128" />
         <Collapsed>False</Collapsed>
         <Member type="Field">Guid listingCategoryId</Member>
@@ -1450,7 +1450,7 @@
         <Name>Listing</Name>
         <Access>Public</Access>
         <Location left="523" top="170" />
-        <Size width="162" height="179" />
+        <Size width="162" height="196" />
         <Collapsed>False</Collapsed>
         <Member type="Field">GUID listingId</Member>
         <Member type="Field">GUID listingDetailId</Member>
@@ -1458,6 +1458,7 @@
         <Member type="Field">string description</Member>
         <Member type="Field">int siteId</Member>
         <Member type="Field">GUID listingDetailId</Member>
+        <Member type="Field">int listingTypeId</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -1491,7 +1492,7 @@
       <Entity type="Class">
         <Name>ListingDetail</Name>
         <Access>Public</Access>
-        <Location left="765" top="281" />
+        <Location left="788" top="247" />
         <Size width="162" height="145" />
         <Collapsed>False</Collapsed>
         <Member type="Field">GUID listingDetailId</Member>
@@ -1499,6 +1500,22 @@
         <Member type="Field">Date endDate</Member>
         <Member type="Field">bool isApproved</Member>
         <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>ListingType</Name>
+        <Access>Public</Access>
+        <Location left="788" top="409" />
+        <Size width="162" height="128" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">int listingTypeId</Member>
+        <Member type="Field">string name</Member>
+        <Member type="Field">string description</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Comment">
+        <Text>Buy or Sell</Text>
+        <Location left="999" top="463" />
+        <Size width="160" height="75" />
       </Entity>
     </Entities>
     <Relationships>
@@ -1561,11 +1578,11 @@
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>740</X>
-          <Y>718</Y>
+          <Y>846</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>668</X>
-          <Y>572</Y>
+          <Y>589</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
@@ -1583,6 +1600,127 @@
         </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Comment" first="9" second="8">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="4" second="8">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>710</X>
+          <Y>334</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Configuration</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Member</Name>
+        <Access>Public</Access>
+        <Location left="249" top="125" />
+        <Size width="186" height="349" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">int memberId</Member>
+        <Member type="Field">int siteId</Member>
+        <Member type="Field">string firstName</Member>
+        <Member type="Field">string lastName</Member>
+        <Member type="Field">string address</Member>
+        <Member type="Field">string city</Member>
+        <Member type="Field">string state</Member>
+        <Member type="Field">string zip</Member>
+        <Member type="Field">string email</Member>
+        <Member type="Field">string username</Member>
+        <Member type="Field">string password</Member>
+        <Member type="Field">string phone</Member>
+        <Member type="Field">bool isEmailConfirmed</Member>
+        <Member type="Field">string ipAddress</Member>
+        <Member type="Field">DateTime lastLogin</Member>
+        <Member type="Field">bool isEmailSubscribed</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Site</Name>
+        <Access>Public</Access>
+        <Location left="835" top="59" />
+        <Size width="162" height="179" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">int siteId</Member>
+        <Member type="Field">string name</Member>
+        <Member type="Field">string domain</Member>
+        <Member type="Field">string description</Member>
+        <Member type="Field">string logo</Member>
+        <Member type="Field">string logoUrl</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>EnvironmentType</Name>
+        <Access>Public</Access>
+        <Location left="835" top="337" />
+        <Size width="162" height="145" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">int environmentTypeId</Member>
+        <Member type="Field">string name</Member>
+        <Member type="Field">string url</Member>
+        <Member type="Field">string description</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>SettingType</Name>
+        <Access>Public</Access>
+        <Location left="573" top="215" />
+        <Size width="162" height="196" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">int settingTypeId</Member>
+        <Member type="Field">int siteId</Member>
+        <Member type="Field">string name</Member>
+        <Member type="Field">string groupName</Member>
+        <Member type="Field">string value</Member>
+        <Member type="Field">string description</Member>
+        <Member type="Field">int environmentTypeId</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="3" second="1">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="3" second="2">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="1">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>461</X>
+          <Y>175</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>810</X>
+          <Y>104</Y>
+        </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
