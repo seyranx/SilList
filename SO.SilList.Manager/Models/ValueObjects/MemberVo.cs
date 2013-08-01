@@ -102,7 +102,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
     	public MemberVo(){
 
-           this.isActive = true;
+            this.isActive = true;
     	}
     }
 }

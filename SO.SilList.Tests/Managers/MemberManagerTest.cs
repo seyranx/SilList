@@ -34,6 +34,11 @@ namespace SO.SilList.Tests.Managers
                 vo.lastName = "Test Last Name Name " + i.ToString();
                 vo.siteId = 1;
 
+                var TimeNow = DateTime.Now;
+                vo.created = TimeNow;
+                vo.modified = TimeNow;
+                vo.lastLogin = TimeNow;
+
                 var result = memberManager.insert(vo);
                 if (result == null)
                 {
@@ -43,7 +48,7 @@ namespace SO.SilList.Tests.Managers
             }
             Assert.IsTrue(true);
         }
-
+        
         [TestMethod]
         public void insertDeleteTest()
         {
