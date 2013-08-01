@@ -17,30 +17,33 @@ namespace SO.SilList.Manager.Models.ValueObjects
     [Serializable]
     public partial class BusinessRatingsVo
     {
-    		
+
+        [DisplayName("business Rating Id")]
+        [Key]
+        public Guid businessRatingId { get; set; }		
+
     	[DisplayName("rating Id")]
-    	[Key]
-        public System.Guid ratingId { get; set; }
+        public Guid? ratingId { get; set; }
     		
     	[DisplayName("business Id")]
-        public Nullable<System.Guid> businessId { get; set; }
+        public Guid? businessId { get; set; }
     		
     	[DisplayName("created")]
     	[Required]
-        public System.DateTime created { get; set; }
+        public DateTime created { get; set; }
     		
     	[DisplayName("modified")]
     	[Required]
-        public System.DateTime modified { get; set; }
+        public DateTime modified { get; set; }
     		
     	[DisplayName("created By")]
-        public Nullable<int> createdBy { get; set; }
+        public int? createdBy { get; set; }
     		
     	[DisplayName("modified By")]
-        public Nullable<int> modifiedBy { get; set; }
+        public int? modifiedBy { get; set; }
     		
     	[DisplayName("is Active")]
-        public Nullable<bool> isActive { get; set; }
+        public bool? isActive { get; set; }
 
 
         //[ForeignKey("ratingId")]
@@ -50,8 +53,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         //public virtual BusinessVo business { get; set; }
       
     	public BusinessRatingsVo(){
-    			
-    	this.ratingId = Guid.NewGuid();
+
+        this.businessRatingId = Guid.NewGuid();
     	
     	this.isActive = true;
     	}

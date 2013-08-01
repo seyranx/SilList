@@ -9,10 +9,10 @@ namespace SO.SilList.Manager.Interfaces
 {
     interface IJobCategoryTypeManager
     {
-        JobCategoryTypeVo get(int jobcategoryTypeId);
+        JobCategoryTypeVo get(int jobCategoryTypeId);
         List<JobCategoryTypeVo> getAll(bool? isActive = true);
         bool delete(int jobCategoryTypeId);
-        JobCategoryTypeVo update(JobCategoryTypeVo input, int? jobcategoryTypeId = null);
+        JobCategoryTypeVo update(JobCategoryTypeVo input, int? jobCategoryTypeId = null);
         JobCategoryTypeVo insert(JobCategoryTypeVo input);
     }
 }

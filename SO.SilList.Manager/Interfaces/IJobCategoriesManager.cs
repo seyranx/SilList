@@ -9,10 +9,10 @@ namespace SO.SilList.Manager.Interfaces
 {
     interface IJobCategoriesManager
     {
-        JobCategoriesVo get(Guid jobcategoriesId);
+        JobCategoriesVo get(Guid jobCategoriesId);
         List<JobCategoriesVo> getAll(bool? isActive = true);
-        bool delete(int jobcategoriesId);
-        JobCategoriesVo update(JobCategoriesVo input, Guid? jobcategoriesId = null);
+        bool delete(int jobCategoriesId);
+        JobCategoriesVo update(JobCategoriesVo input, Guid? jobCategoriesId = null);
         JobCategoriesVo insert(JobCategoriesVo input);
     }
 }
