@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [data].[Member] (
-    [memberId]          INT           NOT NULL,
+    [memberId]          INT           NOT NULL IDENTITY,
     [siteId]            INT           NULL,
     [firstName]         NVARCHAR (50) NULL,
     [lastName]          NVARCHAR (50) NULL,
