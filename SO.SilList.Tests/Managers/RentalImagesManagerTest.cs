@@ -32,7 +32,7 @@ namespace SO.SilList.Tests.Managers
             {
                 var vo = new RentalImageVo();
                 vo.createdBy = i;
-                vo.rentalImageId = new Guid();
+                vo.rentalImageId = Guid.NewGuid();
                 var result = rentalImagesManager.insert(vo);
                 if (result == null)
                 {
@@ -47,7 +47,7 @@ namespace SO.SilList.Tests.Managers
         public void insertDeleteTest()
         {
             var vo = new RentalImageVo();
-            vo.rentalId = new Guid();
+            vo.rentalImageId = Guid.NewGuid();
             vo.createdBy = 123;
 
             var result = rentalImagesManager.insert(vo);
