@@ -51,9 +51,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
 
     	public ServiceTypeVo(){
-    			
-    	
-    	 this.isActive = true;
+
+            this.serviceTypeId = 000;
+
+            this.isActive = true;
     	}
     }
 }

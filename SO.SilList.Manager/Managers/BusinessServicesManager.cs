@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SO.SilList.Manager.Managers
 {
-    class BusinessServicesManager : IBusinessServicesManager
+    public class BusinessServicesManager : IBusinessServicesManager
     {
         public BusinessServicesManager() { }
 

@@ -4,7 +4,7 @@
     [businessId]      UNIQUEIDENTIFIER NULL,
     [created]         DATETIME         CONSTRAINT [DF__BusinessI__creat__5812160E] DEFAULT (getdate()) NOT NULL,
     [modified]        DATETIME         CONSTRAINT [DF__BusinessI__modif__59063A47] DEFAULT (getdate()) NOT NULL,
-    [craetedBy]       INT              NULL,
+    [createdBy]       INT              NULL,
     [modifiedBy]      INT              NULL,
     [isActive]        BIT              CONSTRAINT [DF_BusinessImages_isActive] DEFAULT ((1)) NOT NULL,
     CONSTRAINT [PK_BusinessImages_1] PRIMARY KEY CLUSTERED ([businessImageId] ASC),
