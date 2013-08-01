@@ -30,7 +30,7 @@ namespace SO.SilList.Tests.Managers
             {
                 var vo = new RentTypeVo();
                 vo.name = i.ToString() + " Test RentType Name ";
-                vo.rentTypeId = 1;
+                vo.rentTypeId = i;
                 var result = rentTypeManager.insert(vo);
                 if (result == null)
                 {

@@ -30,8 +30,8 @@ namespace SO.SilList.Tests.Managers
             for (int i = 1; i <= 10; i++)
             {
                 var vo = new PropertyTypeVo();
+                //vo.propertyTypeId = i;
                 vo.name = i.ToString() + " Test PropertyType Name ";
-                vo.propertyTypeId = 1;
                 var result = propertyTypeManager.insert(vo);
                 if (result == null)
                 {
