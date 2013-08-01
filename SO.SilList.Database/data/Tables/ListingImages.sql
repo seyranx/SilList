@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[ListingImages]
+﻿CREATE TABLE [data].[ListingImages]
 (
 	[listingImagesId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
     [imageId] UNIQUEIDENTIFIER NULL, 
