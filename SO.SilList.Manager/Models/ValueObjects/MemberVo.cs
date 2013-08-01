@@ -19,7 +19,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     {
 
     	[DisplayName("member Id")]
-    	[Required]
+    	//[Required]
         [Key]
         public int memberId { get; set; }
     		

@@ -33,6 +33,11 @@ namespace SO.SilList.Tests.Managers
                 vo.firstName = "Test First Name Name " + i.ToString();
                 vo.lastName = "Test Last Name Name " + i.ToString();
                 vo.siteId = 1;
+               // vo.memberId = 1;
+                //var theDate = DateTime.Now;
+                //vo.created = theDate;
+                //vo.modified = theDate;
+
                 var result = memberManager.insert(vo);
                 if (result == null)
                 {
