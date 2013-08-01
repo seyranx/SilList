@@ -5,7 +5,12 @@
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 }
 
+
+
+
+
 <h2>Create</h2>
+
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
@@ -13,22 +18,9 @@
     <fieldset>
         <legend>BusinessVo</legend>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.listingDetailId)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.listingDetailId)
-            @Html.ValidationMessageFor(model => model.listingDetailId)
-        </div>
+         
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.siteId)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.siteId)
-            @Html.ValidationMessageFor(model => model.siteId)
-        </div>
-
+   
         <div class="editor-label">
             @Html.LabelFor(model => model.name)
         </div>
@@ -68,38 +60,8 @@
             @Html.EditorFor(model => model.zip)
             @Html.ValidationMessageFor(model => model.zip)
         </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.createdBy)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.createdBy)
-            @Html.ValidationMessageFor(model => model.createdBy)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.modifiedBy)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.modifiedBy)
-            @Html.ValidationMessageFor(model => model.modifiedBy)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.modified)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.modified)
-            @Html.ValidationMessageFor(model => model.modified)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.created)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.created)
-            @Html.ValidationMessageFor(model => model.created)
-        </div>
+   
+ 
 
         <div class="editor-label">
             @Html.LabelFor(model => model.isActive)
@@ -108,6 +70,15 @@
             @Html.EditorFor(model => model.isActive)
             @Html.ValidationMessageFor(model => model.isActive)
         </div>
+
+             <div class="editor-label">
+            @Html.LabelFor(model => model.siteId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.siteId)
+            @Html.ValidationMessageFor(model => model.siteId)
+        </div>
+
 
         <p>
             <input type="submit" value="Create" />
@@ -119,3 +90,4 @@
       <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
 
 </div>
+
