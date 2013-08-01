@@ -1,38 +1,11 @@
 ﻿@model SO.SilList.Manager.Models.ValueObjects.BusinessVo
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Create2";
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 }
 
-
-
-
-
-<h2>Create</h2>
-
-    <fieldset>
-        <legend>BusinessVo</legend>
-<form class="form-horizontal">
-  <div class="control-group">
-    <label class="control-label" for="inputEmail">Email</label>
-    <div class="controls">
-      <input type="text" id="inputEmail" placeholder="Email">
-    </div>
-  </div>
-  <div class="control-group">
-    <label class="control-label" for="inputPassword">Password</label>
-    <div class="controls">
-      <input type="password" id="inputPassword" placeholder="Password">
-    </div>
-  </div>
-  <div class="control-group">
-    <div class="controls" >
-      <button type="submit" class="btn">Sign in</button>
-    </div>
-  </div>
-</form>
-        </fieldset>
+<h2>Create2</h2>
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
@@ -40,101 +13,74 @@
     <fieldset>
         <legend>BusinessVo</legend>
 
-
-
-
         <div class="editor-label">
             @Html.LabelFor(model => model.listingDetailId)
-        </div>
-        <div class="editor-field">
             @Html.EditorFor(model => model.listingDetailId)
             @Html.ValidationMessageFor(model => model.listingDetailId)
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.siteId)
-        </div>
-        <div class="editor-field">
             @Html.EditorFor(model => model.siteId)
             @Html.ValidationMessageFor(model => model.siteId)
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.name)
-        </div>
-        <div class="editor-field">
             @Html.EditorFor(model => model.name)
             @Html.ValidationMessageFor(model => model.name)
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.address)
-        </div>
-        <div class="editor-field">
             @Html.EditorFor(model => model.address)
             @Html.ValidationMessageFor(model => model.address)
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.city)
-        </div>
-        <div class="editor-field">
             @Html.EditorFor(model => model.city)
             @Html.ValidationMessageFor(model => model.city)
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.state)
-        </div>
-        <div class="editor-field">
             @Html.EditorFor(model => model.state)
             @Html.ValidationMessageFor(model => model.state)
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.zip)
-        </div>
-        <div class="editor-field">
             @Html.EditorFor(model => model.zip)
             @Html.ValidationMessageFor(model => model.zip)
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.createdBy)
-        </div>
-        <div class="editor-field">
             @Html.EditorFor(model => model.createdBy)
             @Html.ValidationMessageFor(model => model.createdBy)
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.modifiedBy)
-        </div>
-        <div class="editor-field">
             @Html.EditorFor(model => model.modifiedBy)
             @Html.ValidationMessageFor(model => model.modifiedBy)
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.modified)
-        </div>
-        <div class="editor-field">
             @Html.EditorFor(model => model.modified)
             @Html.ValidationMessageFor(model => model.modified)
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.created)
-        </div>
-        <div class="editor-field">
             @Html.EditorFor(model => model.created)
             @Html.ValidationMessageFor(model => model.created)
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.isActive)
-        </div>
-        <div class="editor-field">
             @Html.EditorFor(model => model.isActive)
             @Html.ValidationMessageFor(model => model.isActive)
         </div>
@@ -146,7 +92,5 @@
 }
 
 <div>
-      <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
-
+    @Html.ActionLink("Back to List", "Index")
 </div>
-
