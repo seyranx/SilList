@@ -101,7 +101,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         //public virtual SiteVo site { get; set; }
 
     	public MemberVo(){
-
+           this.memberId = 1; // todo: need to generate next unique non-existent value
            this.isActive = true;
     	}
     }
