@@ -471,7 +471,7 @@
       <Entity type="Class">
         <Name>BusinessCategories</Name>
         <Access>Public</Access>
-        <Location left="764" top="546" />
+        <Location left="735" top="569" />
         <Size width="178" height="111" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int businessCategoryTypeId</Member>
@@ -581,8 +581,12 @@
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>929</X>
-          <Y>497</Y>
+          <X>900</X>
+          <Y>520</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>680</X>
+          <Y>505</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
@@ -670,6 +674,10 @@
         </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>598</X>
+          <Y>505</Y>
+        </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
@@ -698,6 +706,10 @@
         </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>640</X>
+          <Y>505</Y>
+        </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>

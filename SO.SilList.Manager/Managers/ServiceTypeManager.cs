@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SO.SilList.Manager.Managers
 {
-    class ServiceTypeManager : IServiceTypeManager
+    public class ServiceTypeManager : IServiceTypeManager
     {
 
         public ServiceTypeManager() { }
