@@ -60,12 +60,40 @@ namespace SO.SilList.Manager.Managers
 
         public JobCompanyVo update(JobCompanyVo input, Guid? jobCompanyId = null)
         {
-            throw new NotImplementedException();
+            using (var db = new MainDb())
+            {
+                if (jobCompanyId == null)
+                    jobCompanyId = input.jobCompanyId;
+
+                var res = db.jobCompanys.FirstOrDefault(e => e.jobCompanyId == jobCompanyId);
+
+                if (res == null) return null;
+
+                input.created = res.created;
+                input.createdBy = res.createdBy;
+                db.Entry(res).CurrentValues.SetValues(input);
+
+                db.SaveChanges();
+                return res;
+            }
         }
 
         public JobCompanyVo insert(JobCompanyVo input)
         {
-            throw new NotImplementedException();
+            using (var db = new MainDb())
+            {
+                db.jobCompanys.Add(input);
+                db.SaveChanges();
+
+                return input;
+            }
+        }
+        public int count()   
+        {   
+            using (var db = new MainDb())
+            {
+                return db.jobTypes.Count();
+            }
         }
     }
 }

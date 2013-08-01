@@ -79,6 +79,7 @@
     <Compile Include="Managers\BusinessRatingsManager.cs" />
     <Compile Include="Managers\BusinessServicesManager.cs" />
     <Compile Include="Managers\ImageManager.cs" />
+    <Compile Include="Managers\JobCompanyManager.cs" />
     <Compile Include="Managers\JobManager.cs" />
     <Compile Include="Managers\JobTypeManager.cs" />
     <Compile Include="Managers\ListingDetailManager.cs" />

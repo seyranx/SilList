@@ -11,8 +11,9 @@ namespace SO.SilList.Manager.Interfaces
     {
         JobCompanyVo get(Guid jobCompanyId);
         List<JobCompanyVo> getAll(bool? isActive = true);
-        bool delete(int JobCompanyId);
+        bool delete(Guid JobCompanyId);
         JobCompanyVo update(JobCompanyVo input, Guid? JobCompanyId = null);
         JobCompanyVo insert(JobCompanyVo input);
+        int count();
     }
 }
