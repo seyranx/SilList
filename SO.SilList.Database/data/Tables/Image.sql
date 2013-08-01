@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [data].[Image] (
     [imageId]    UNIQUEIDENTIFIER DEFAULT (newid()) NOT NULL,
     [name]       NVARCHAR (50)    NULL,
-    [url]        NVARCHAR (50)    NULL,
+    [url]        NVARCHAR (250)    NULL,
     [path]       NVARCHAR (50)    NULL,
     [fileType]   NVARCHAR (50)    NULL,
     [siteId]     INT              NULL,
