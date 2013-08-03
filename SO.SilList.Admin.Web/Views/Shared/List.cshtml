@@ -1,0 +1,105 @@
+﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.MemberVo>
+
+<p>
+   <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
+
+</p>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.firstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastName)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.city)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.state)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.zip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+          <th>
+            @Html.DisplayNameFor(model => model.isEmailConfirmed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ipAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastLogin)
+        </th>
+  
+       
+        <th>
+            @Html.DisplayNameFor(model => model.created)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isActive)
+        </th>
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayNameFor(modelItem => item.firstName)
+        </td>
+        <td>
+            @Html.DisplayNameFor(modelItem => item.lastName)
+        </td>
+        
+        <td>
+            @Html.DisplayNameFor(modelItem => item.address)
+        </td>
+        <td>
+            @Html.DisplayNameFor(modelItem => item.city)
+        </td>
+        <td>
+            @Html.DisplayNameFor(modelItem => item.state)
+        </td>
+        <td>
+            @Html.DisplayNameFor(modelItem => item.zip)
+        </td>
+        <td>
+            @Html.DisplayNameFor(modelItem => item.email)
+        </td>
+          <td>
+            @Html.DisplayNameFor(modelItem => item.isEmailConfirmed)
+        </td>
+           <td>
+            @Html.DisplayNameFor(modelItem => item.ipAddress)
+        </td>
+        <td>
+            @Html.DisplayNameFor(modelItem => item.lastLogin)
+        </td>
+  
+
+        <td>
+            @Html.DisplayFor(modelItem => item.created)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isActive)
+        </td>
+      
+        <td>
+
+            <a href="@Url.Action("Edit",new { id=item.memberId })" class="btn">Edit</a>
+            <a href="@Url.Action("Details",new { id=item.memberId })" class="btn">Details</a>
+            <a href="@Url.Action("Delete",new { id=item.memberId })" class="btn">Delete</a>
+
+          
+        </td>
+    </tr>
+}
+
+</table>
