@@ -33,6 +33,7 @@ namespace SO.SilList.Tests.Managers
                 vo.firstName = "Test First Name Name " + i.ToString();
                 vo.lastName = "Test Last Name Name " + i.ToString();
                 vo.siteId = 1;
+
                 var result = memberManager.insert(vo);
                 if (result == null)
                 {
@@ -49,6 +50,12 @@ namespace SO.SilList.Tests.Managers
             var vo = new MemberVo();
             vo.firstName = "testFirstName";
             vo.address = "1245 address";
+            vo.memberId = 55;
+            // just in case
+            vo.lastLogin = DateTime.Now;
+            vo.created = DateTime.Now;
+            vo.modified = DateTime.Now;
+
 
             var result = memberManager.insert(vo);
             var result2 = memberManager.get(result.memberId);
@@ -65,6 +72,21 @@ namespace SO.SilList.Tests.Managers
                 Assert.IsTrue(false);
         }
 
-       
+        // FK-s are disabled temporarily
+        //[TestMethod]
+        //public void includesTest()
+        //{
+        //    var result = memberManager.getFirst();
+
+        //    var site = result.site;
+
+        //    if (result.site != null)
+        //    {
+        //        Assert.IsTrue(true);
+        //    }
+        //    else
+        //        Assert.IsTrue(false);
+        //}
+
     }
 }
