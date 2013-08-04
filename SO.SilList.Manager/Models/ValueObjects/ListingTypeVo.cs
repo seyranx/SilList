@@ -13,51 +13,43 @@ using System.Data.Entity;
 namespace SO.SilList.Manager.Models.ValueObjects
 {
      
-    [Table("BusinessCategoryType", Schema = "app" )]
+    [Table("ListingType", Schema = "app" )]
     [Serializable]
-    public partial class BusinessCategoryTypeVo
+    public partial class ListingTypeVo
     {
     		
-    	[DisplayName("business Category Type Id")]
+    	[DisplayName("listing Type Id")]
     	[Key]
-        public int businessCategoryTypeId { get; set; }
+        public int listingTypeId { get; set; }
     		
     	[DisplayName("name")]
-    	[Required]
-    	[StringLength(200)]
+    	[StringLength(50)]
         public string name { get; set; }
     		
     	[DisplayName("description")]
+    	[StringLength(50)]
         public string description { get; set; }
     		
     	[DisplayName("created By")]
-        public Nullable<int> createdBy { get; set; }
+        public int? createdBy { get; set; }
     		
     	[DisplayName("modified By")]
-        public Nullable<int> modifiedBy { get; set; }
-    		
-    	[DisplayName("modified")]
-    	[Required]
-        public System.DateTime modified { get; set; }
+        public int? modifiedBy { get; set; }
     		
     	[DisplayName("created")]
     	[Required]
         public System.DateTime created { get; set; }
     		
+    	[DisplayName("modified")]
+    	[Required]
+        public System.DateTime modified { get; set; }
+    		
     	[DisplayName("is Active")]
     	[Required]
         public bool isActive { get; set; }
-    		
-    	[DisplayName("site Id")]
-        public int? siteId { get; set; }
-
-        //[ForeignKey("siteId")]
-        //public virtual SiteVo site { get; set; }
-
-        [Association("BusinessCategoryType_BusinessCategories", "BusinessCateoryTypeId", "BusinessCateoryTypeId", IsForeignKey = true)]
-        public List<BusinessCategoriesVo> businessCategories { get; set; }
-
-    	public BusinessCategoryTypeVo(){
+      
+    	public ListingTypeVo()
+        {
     	    this.isActive = true;
     	}
     }
