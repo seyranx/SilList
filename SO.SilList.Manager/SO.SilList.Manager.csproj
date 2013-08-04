@@ -103,6 +103,7 @@
     <Compile Include="Managers\ListingImagesManager.cs" />
     <Compile Include="Managers\ListingManager.cs" />
     <Compile Include="Managers\ListingTypeManager.cs" />
+    <Compile Include="Managers\MakeTypeManager.cs" />
     <Compile Include="Managers\MemberManager.cs" />
     <Compile Include="Managers\ModelTypeManager.cs" />
     <Compile Include="Managers\PropertyTypeManager.cs" />
@@ -140,6 +141,7 @@
     <Compile Include="Models\ValueObjects\ListingImagesVo.cs" />
     <Compile Include="Models\ValueObjects\ListingTypeVo.cs" />
     <Compile Include="Models\ValueObjects\ListingVo.cs" />
+    <Compile Include="Models\ValueObjects\MakeTypeVo.cs" />
     <Compile Include="Models\ValueObjects\MemberVo.cs" />
     <Compile Include="Models\ValueObjects\ModelTypeVo.cs" />
     <Compile Include="Models\ValueObjects\RatingVo.cs" />
