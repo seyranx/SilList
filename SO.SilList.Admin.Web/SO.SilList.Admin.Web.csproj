@@ -330,9 +330,10 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Shared\_InnerLayout.cshtml" />
     <Content Include="Views\Rentals\Index.cshtml" />
     <Content Include="Views\Business\Index.cshtml" />
@@ -346,10 +347,9 @@
     <Content Include="Views\Business\Create.cshtml" />
     <Content Include="Views\Business\Details.cshtml" />
     <Content Include="Views\Business\_Menu.cshtml" />
-    <Content Include="Views\Shared\MemberIndex.cshtml" />
-    <Content Include="Views\Shared\MemberList.cshtml" />
-    <Content Include="Views\Shared\_MemberMenu.cshtml" />
-    <Content Include="Views\Shared\Index.cshtml" />
+    <Content Include="Views\Members\Index.cshtml" />
+    <Content Include="Views\Members\_List.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
