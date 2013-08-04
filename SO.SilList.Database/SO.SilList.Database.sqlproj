@@ -191,6 +191,7 @@
     <Build Include="app\Tables\TransmissionType.sql" />
     <Build Include="app\Tables\MakeType.sql" />
     <Build Include="data\Tables\JobCategories.sql">
+    <Build Include="app\Tables\Admin.sql" />
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
