@@ -45,7 +45,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
     		
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
-      
+
+        [Association("TransmissionType_Car", "transmissionTypeId", "transmissionTypeId", IsForeignKey = true)]
+        public List<CarVo> car { get; set; }
+
     	public TransmissionTypeVo(){
     			
     	
