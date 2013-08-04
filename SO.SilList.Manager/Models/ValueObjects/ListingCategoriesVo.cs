@@ -28,7 +28,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("listing Id")]
         public System.Guid? listingId { get; set; }
     		
-    	[DisplayName("created By_")]
+    	[DisplayName("created By")]
         public int? createdBy { get; set; }
     		
     	[DisplayName("modified By")]

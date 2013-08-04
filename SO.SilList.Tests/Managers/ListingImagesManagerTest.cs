@@ -6,15 +6,15 @@ using SO.SilList.Manager.Models.ValueObjects;
 namespace SO.SilList.Tests.Managers
 {
     [TestClass]
-    public class ListingManagerTest
+    public class ListingImagesManagerTest
     {
-        private ListingManager listingManager = new ListingManager();
+        private ListingImagesManager listingImagesManager = new ListingImagesManager();
 
         [TestMethod]
         public void getAllTest()
         {
 
-            var res = listingManager.getAll(null);
+            var res = listingImagesManager.getAll(null);
 
             if (res != null)
             {
@@ -27,16 +27,16 @@ namespace SO.SilList.Tests.Managers
         [TestMethod]
         public void insertDeleteTest()
         {
-            var vo = new ListingVo();
-            //vo.title = 'listing title';
+            var vo = new ListingImagesVo();
             vo.createdBy = 3;
+            vo.modifiedBy = 4;
 
-            var result = listingManager.insert(vo);
-            var result2 = listingManager.get(result.listingId);
+            var result = listingImagesManager.insert(vo);
+            var result2 = listingImagesManager.get(result.listingImageId);
 
-            listingManager.delete(result.listingId);
+            listingImagesManager.delete(result.listingImageId);
 
-            var result3 = listingManager.get(result.listingId);
+            var result3 = listingImagesManager.get(result.listingImageId);
 
             if (result != null && result2 != null && result3 == null && result2.listingId != Guid.Empty)
             {

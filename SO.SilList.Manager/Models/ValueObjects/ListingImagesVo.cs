@@ -13,7 +13,7 @@ using System.Data.Entity;
 namespace SO.SilList.Manager.Models.ValueObjects
 {
      
-    [Table("ListingImage", Schema = "data" )]
+    [Table("ListingImages", Schema = "data" )]
     [Serializable]
     public partial class ListingImagesVo
     {

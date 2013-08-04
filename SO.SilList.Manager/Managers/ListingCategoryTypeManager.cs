@@ -11,7 +11,7 @@ using SO.SilList.Manager.DbContexts;
 
 namespace SO.SilList.Manager.Managers
 {
-    class ListingCategoryTypeManager : IListingCategoryTypeManager
+    public class ListingCategoryTypeManager : IListingCategoryTypeManager
     {
         public ListingCategoryTypeManager()
         {
