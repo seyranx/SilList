@@ -20,7 +20,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     		
     	[DisplayName("job Category Type Id")]
     	[Key]
-        public int jobCategoryTypeId { get; set; }
+        public Guid jobCategoriesId { get; set; }
     		
     	[DisplayName("job Id")]
         public Nullable<System.Guid> jobId { get; set; }

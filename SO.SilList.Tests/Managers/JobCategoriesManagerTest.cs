@@ -35,11 +35,11 @@ namespace SO.SilList.Tests.Managers
             //vo.jobId = new Guid();
 
             var result = jobCategoriesManager.insert(vo);
-            var result2 = jobCategoriesManager.get(result.jobCategoryTypeId);
+            var result2 = jobCategoriesManager.get(result.jobCategoriesId);
 
-            jobCategoriesManager.delete(result.jobCategoryTypeId);
+            jobCategoriesManager.delete(result.jobCategoriesId);
 
-            var result3 = jobCategoriesManager.get(result.jobCategoryTypeId);
+            var result3 = jobCategoriesManager.get(result.jobCategoriesId);
 
             if (result != null && result2 != null && result3 == null )
             {

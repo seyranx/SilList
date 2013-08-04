@@ -99,9 +99,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Managers\BusinessCategoryTypeManagerTest.cs" />
+    <Compile Include="Managers\BusinessCategriesManagerTest.cs" />
     <Compile Include="Managers\BusinessImageeManagerTest.cs" />
     <Compile Include="Managers\BusinessManagerTest.cs" />
+    <Compile Include="Managers\BusinessRatingsManagerTest.cs" />
     <Compile Include="Managers\BusinessServicesManagerTest.cs" />
+    <Compile Include="Managers\CarBodyTypeManagerTest.cs" />
+    <Compile Include="Managers\CarImageManagerTest.cs" />
+    <Compile Include="Managers\CarManagerTest.cs" />
+    <Compile Include="Managers\JobCategoriesManagerTest.cs" />
     <Compile Include="Managers\JobManagerTest.cs" />
     <Compile Include="Managers\JobTypeManagerTest.cs" />
     <Compile Include="Managers\LeaseTermTypeManagerTest.cs" />
