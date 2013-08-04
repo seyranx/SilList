@@ -97,12 +97,12 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
 
-        //[ForeignKey("siteId")]
-        //public virtual SiteVo site { get; set; }
+        [ForeignKey("siteId")]
+        public virtual SiteVo site { get; set; }
 
     	public MemberVo(){
 
-           this.isActive = true;
+            this.isActive = true;
     	}
     }
 }
