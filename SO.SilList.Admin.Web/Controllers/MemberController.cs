@@ -14,6 +14,11 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Index()
         {
+            return View("MemberIndex");
+        }
+
+        public ActionResult MemberIndex()
+        {
             return View();
         }
 
@@ -72,13 +77,14 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Menu()
         {
-            return PartialView("_Menu");
+            var x = PartialView("~/Views/Shared/_MemberMenu.cshtml");
+            return PartialView("_MemberMenu");
         }
 
         public ActionResult Delete(int id)
         {
             memberManager.delete(id);
-            return RedirectToAction("Index");
+            return RedirectToAction("MemberIndex");
         }
     }
 }

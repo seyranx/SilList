@@ -346,8 +346,10 @@
     <Content Include="Views\Business\Create.cshtml" />
     <Content Include="Views\Business\Details.cshtml" />
     <Content Include="Views\Business\_Menu.cshtml" />
+    <Content Include="Views\Shared\MemberIndex.cshtml" />
+    <Content Include="Views\Shared\MemberList.cshtml" />
+    <Content Include="Views\Shared\_MemberMenu.cshtml" />
     <Content Include="Views\Shared\Index.cshtml" />
-    <Content Include="Views\Shared\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
