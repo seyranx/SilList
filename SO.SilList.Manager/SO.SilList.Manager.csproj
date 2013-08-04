@@ -53,8 +53,13 @@
     <Compile Include="Interfaces\IBusinessServicesManager.cs" />
     <Compile Include="Interfaces\IJobCategoriesManager.cs" />
     <Compile Include="Interfaces\IJobManager.cs" />
+    <Compile Include="Interfaces\IListingCategoriesManager.cs" />
+    <Compile Include="Interfaces\IListingCategoryTypeManager.cs" />
     <Compile Include="Interfaces\IListingDetailManager.cs" />
     <Compile Include="Interfaces\IImageManager.cs" />
+    <Compile Include="Interfaces\IListingImagesManager.cs" />
+    <Compile Include="Interfaces\IListingManager.cs" />
+    <Compile Include="Interfaces\IListingTypeManager.cs" />
     <Compile Include="Interfaces\IMemberManager.cs" />
     <Compile Include="Interfaces\IBusinessCategoriesManager.cs" />
     <Compile Include="Interfaces\IBusinessRatingsManager.cs" />
