@@ -20,7 +20,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     		
     	[DisplayName("listing Images Id")]
     	[Key]
-        public System.Guid listingImagesId { get; set; }
+        public System.Guid listingImageId { get; set; }
     		
     	[DisplayName("image Id")]
         public System.Guid? imageId { get; set; }
@@ -48,7 +48,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
       
     	public ListingImagesVo()
         {	
-    		this.listingImagesId = Guid.NewGuid();   	
+    		this.listingImageId = Guid.NewGuid();   	
     	    this.isActive = true;
     	}
     }

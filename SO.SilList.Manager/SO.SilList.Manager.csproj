@@ -87,7 +87,12 @@
     <Compile Include="Managers\JobCompanyManager.cs" />
     <Compile Include="Managers\JobManager.cs" />
     <Compile Include="Managers\JobTypeManager.cs" />
+    <Compile Include="Managers\ListingCategoriesManager.cs" />
+    <Compile Include="Managers\ListingCategoryTypeManager.cs" />
     <Compile Include="Managers\ListingDetailManager.cs" />
+    <Compile Include="Managers\ListingImagesManager.cs" />
+    <Compile Include="Managers\ListingManager.cs" />
+    <Compile Include="Managers\ListingTypeManager.cs" />
     <Compile Include="Managers\MemberManager.cs" />
     <Compile Include="Managers\PropertyTypeManager.cs" />
     <Compile Include="Managers\RatingManager.cs" />
