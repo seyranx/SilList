@@ -56,13 +56,13 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
 
-        [Association("Site_Business", "siteId", "siteId", IsForeignKey = true)]
-        public List<BusinessVo> businesses { get; set; }
+        //[Association("Site_Business", "siteId", "siteId", IsForeignKey = true)]
+        //public List<BusinessVo> businesses { get; set; }
         
-        [Association("Site_Car", "siteId", "siteId", IsForeignKey = true)]
-        public List<CarVo> car { get; set; }
+        //[Association("Site_Car", "siteId", "siteId", IsForeignKey = true)]
+        //public List<CarVo> car { get; set; }
 
-       [Association("Site_Member", "siteId", "siteId", IsForeignKey = true)]
-       public List<MemberVo> member { get; set; }
+        //[Association("Site_Member", "siteId", "siteId", IsForeignKey = true)]
+        //public List<MemberVo> member { get; set; }
     }
 }

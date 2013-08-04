@@ -53,7 +53,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         // public List<BusinessRatingsVo> businessRatings { get; set; }
 
         [Association("BusinessRatings_Rating", "ratingId", "ratingId", IsForeignKey = true)]
-        public List<BusinessRatingsVo> businessRating { get; set; }
+        public List<BusinessRatingsVo> businessRatings { get; set; }
 
     	public RatingVo(){
     			
