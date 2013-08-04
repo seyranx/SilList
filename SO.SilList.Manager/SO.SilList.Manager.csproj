@@ -89,6 +89,7 @@
     <Compile Include="Managers\CarImageManager.cs" />
     <Compile Include="Managers\CarManager.cs" />
     <Compile Include="Managers\ImageManager.cs" />
+    <Compile Include="Managers\JobCategoriesManager.cs" />
     <Compile Include="Managers\JobCompanyManager.cs" />
     <Compile Include="Managers\JobManager.cs" />
     <Compile Include="Managers\JobTypeManager.cs" />
