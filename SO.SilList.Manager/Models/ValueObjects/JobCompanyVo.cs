@@ -69,6 +69,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
 
+        [ForeignKey("siteId")]
+        public virtual SiteVo site { get; set; }
         // [Association("JobCompany_Business", "JobCompanyId", "JobCompanyId", IsForeignKey = true)]
         /// public List<JobCompanyVo> businesses { get; set; }
 
