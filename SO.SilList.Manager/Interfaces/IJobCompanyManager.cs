@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace SO.SilList.Manager.Interfaces
 {
     interface IJobCompanyManager
@@ -14,6 +15,5 @@ namespace SO.SilList.Manager.Interfaces
         bool delete(Guid JobCompanyId);
         JobCompanyVo update(JobCompanyVo input, Guid? JobCompanyId = null);
         JobCompanyVo insert(JobCompanyVo input);
-        int count();
     }
 }

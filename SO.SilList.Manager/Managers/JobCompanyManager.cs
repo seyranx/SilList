@@ -11,7 +11,7 @@ using SO.SilList.Manager.DbContexts;
 
 namespace SO.SilList.Manager.Managers
 {
-    public class JobCompanyManager :IJobCompanyManager
+    public class JobCompanyManager : IJobCompanyManager
     {
         public JobCompanyVo get(Guid jobCompanyId)
         {
@@ -22,6 +22,7 @@ namespace SO.SilList.Manager.Managers
                 return result;
             }
         }
+
         /// <summary>
         /// Get First Item
         /// </summary>
@@ -88,11 +89,11 @@ namespace SO.SilList.Manager.Managers
                 return input;
             }
         }
-        public int count()   
-        {   
+        public int count()
+        {
             using (var db = new MainDb())
             {
-                return db.jobTypes.Count();
+                return db.jobCompanys.Count();
             }
         }
     }

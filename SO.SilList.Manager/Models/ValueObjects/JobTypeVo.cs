@@ -11,6 +11,7 @@ using System.Data.Entity;
 
 namespace SO.SilList.Manager.Models.ValueObjects
 {
+
     [Table("JobType", Schema = "app")]
     [Serializable]
     public partial class JobTypeVo
@@ -47,6 +48,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         public JobTypeVo()
         {
+            //this.created= getDate();
+            //this.modified = getDate();
+            this.jobTypeId = 1;
             this.isActive = true;
         }
     }
