@@ -69,11 +69,10 @@ namespace SO.SilList.Admin.Web.Controllers
         //    return View(result);
         //}
 
-        //public ActionResult Menu()
-        //{
-        //    //var x = PartialView("~/Views/_Menu.cshtml");
-        //    return PartialView("_Menu");
-        //}
+        public ActionResult Menu()
+        {
+            return PartialView("_Menu");
+        }
 
         //public ActionResult Delete(int id)
         //{
