@@ -1,0 +1,85 @@
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Data;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
+
+namespace SO.SilList.Manager.Models.ValueObjects
+{
+     
+    [Table("Car", Schema = "data" )]
+    [Serializable]
+    public partial class CarVo
+    {
+    		
+    	[DisplayName("car Id")]
+    	[Key]
+        public System.Guid carId { get; set; }
+    		
+    	[DisplayName("model Type Id")]
+        public Nullable<int> modelTypeId { get; set; }
+    		
+    	[DisplayName("year")]
+        public Nullable<int> year { get; set; }
+    		
+    	[DisplayName("millage")]
+        public Nullable<int> millage { get; set; }
+    		
+    	[DisplayName("car Body Type Id")]
+        public Nullable<int> carBodyTypeId { get; set; }
+    		
+    	[DisplayName("site Id")]
+        public Nullable<int> siteId { get; set; }
+    		
+    	[DisplayName("listing Detail Id")]
+        public Nullable<System.Guid> listingDetailId { get; set; }
+    		
+    	[DisplayName("transmission Type Id")]
+        public Nullable<int> transmissionTypeId { get; set; }
+    		
+    	[DisplayName("created")]
+    	[Required]
+        public System.DateTime created { get; set; }
+    		
+    	[DisplayName("modified")]
+    	[Required]
+        public System.DateTime modified { get; set; }
+    		
+    	[DisplayName("created By")]
+        public Nullable<int> createdBy { get; set; }
+    		
+    	[DisplayName("modified By")]
+        public Nullable<int> modifiedBy { get; set; }
+    		
+    	[DisplayName("is Active")]
+        public Nullable<bool> isActive { get; set; }
+
+        //[ForeignKey("modelTypeId")]
+        //public virtual ModelTypeVo modelType { get; set; }
+
+        //[ForeignKey("transmissionTypeId")]
+        //public virtual TransmissionTypeVo transmissionTypeId { get; set; }
+
+        //[ForeignKey("listingDetailId")]
+        //public virtual ListingDetailVo listingDetailId { get; set; }
+
+        //[ForeignKey("siteId")]
+        //public virtual SiteVo site { get; set; }
+
+        //[ForeignKey("carBodyTypeId")]
+        //public virtual CarBodyTypeVo carBodyTypeId { get; set; }
+
+    	public CarVo(){
+    			
+    		this.carId = Guid.NewGuid();
+    	
+    	 this.isActive = true;
+    	}
+    }
+}
