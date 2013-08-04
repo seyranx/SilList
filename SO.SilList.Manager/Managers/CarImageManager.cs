@@ -1,24 +1,25 @@
-﻿using System;
+﻿using SO.SilList.Manager.DbContexts;
+using SO.SilList.Manager.Interfaces;
+using SO.SilList.Manager.Models.ValueObjects;
+using EntityFramework.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.Entity;
-using EntityFramework.Extensions;
-using SO.SilList.Manager.Models.ValueObjects;
-using SO.SilList.Manager.Interfaces;
-using SO.SilList.Manager.DbContexts;
 
 namespace SO.SilList.Manager.Managers
 {
-    public class JobCompanyManager : IJobCompanyManager
+    public class CarImageManager: ICarImageManager
     {
-        public JobCompanyVo get(Guid jobCompanyId)
+
+        public CarImagesVo get(Guid carImagesId)
         {
             using (var db = new MainDb())
             {
-                var result = db.jobCompanys
-                            .FirstOrDefault(s => s.jobCompanyId == jobCompanyId);
+                var result = db.carImages
+                            .FirstOrDefault(r => r.carImagesId == carImagesId);
+
                 return result;
             }
         }
@@ -26,47 +27,49 @@ namespace SO.SilList.Manager.Managers
         /// <summary>
         /// Get First Item
         /// </summary>
-        public JobCompanyVo getFirst()
+        public CarImagesVo getFirst()
         {
             using (var db = new MainDb())
             {
-                var res = db.jobCompanys
+                var res = db.carImages
                             .FirstOrDefault();
+
                 return res;
             }
         }
 
-
-        public List<JobCompanyVo> getAll(bool? isActive = true)
+        public List<CarImagesVo> getAll(bool? isActive = true)
         {
             using (var db = new MainDb())
             {
-                var list = db.jobCompanys
+                var list = db.carImages
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
+
                 return list;
             }
         }
 
-        public bool delete(Guid jobCompanyId)
+        public bool delete(Guid carImagesId)
         {
             using (var db = new MainDb())
             {
-                var res = db.jobCompanys
-                     .Where(e => e.jobCompanyId == jobCompanyId)
+                var res = db.carImages
+                     .Where(e => e.carImagesId == carImagesId)
                      .Delete();
                 return true;
             }
         }
 
-        public JobCompanyVo update(JobCompanyVo input, Guid? jobCompanyId = null)
+        public CarImagesVo update(CarImagesVo input, Guid? carImagesId = null)
         {
             using (var db = new MainDb())
             {
-                if (jobCompanyId == null)
-                    jobCompanyId = input.jobCompanyId;
 
-                var res = db.jobCompanys.FirstOrDefault(e => e.jobCompanyId == jobCompanyId);
+                if (carImagesId == null)
+                    carImagesId = input.carImagesId;
+
+                var res = db.carImages.FirstOrDefault(e => e.carId == carImagesId);
 
                 if (res == null) return null;
 
@@ -74,26 +77,30 @@ namespace SO.SilList.Manager.Managers
                 input.createdBy = res.createdBy;
                 db.Entry(res).CurrentValues.SetValues(input);
 
+
                 db.SaveChanges();
                 return res;
+
             }
         }
 
-        public JobCompanyVo insert(JobCompanyVo input)
+        public CarImagesVo insert(CarImagesVo input)
         {
             using (var db = new MainDb())
             {
-                db.jobCompanys.Add(input);
+
+                db.carImages.Add(input);
                 db.SaveChanges();
 
                 return input;
             }
         }
+
         public int count()
         {
             using (var db = new MainDb())
             {
-                return db.jobCompanys.Count();
+                return db.carImages.Count();
             }
         }
     }

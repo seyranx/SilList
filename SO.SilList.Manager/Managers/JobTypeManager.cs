@@ -1,16 +1,17 @@
-﻿using SO.SilList.Manager.DbContexts;
-using SO.SilList.Manager.Interfaces;
-using SO.SilList.Manager.Models.ValueObjects;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using EntityFramework.Extensions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
+using EntityFramework.Extensions;
+using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Manager.Interfaces;
+using SO.SilList.Manager.DbContexts;
 
 namespace SO.SilList.Manager.Managers
 {
-    class JobTypeManager : IJobTypeManager
+    public class JobTypeManager : IJobTypeManager
     {
         public JobTypeVo get(int jobTypeId)
         {
@@ -34,6 +35,7 @@ namespace SO.SilList.Manager.Managers
                 return res;
             }
         }
+
 
         public List<JobTypeVo> getAll(bool? isActive = true)
         {

@@ -11,6 +11,7 @@ using System.Data.Entity;
 
 namespace SO.SilList.Manager.Models.ValueObjects
 {
+
     [Table("JobCompany", Schema = "data")]
     [Serializable]
     public partial class JobCompanyVo
@@ -24,19 +25,32 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [StringLength(250)]
         public string name { get; set; }
 
-        [DisplayName("domain")]
-        [StringLength(250)]
-        public string domain { get; set; }
+        [DisplayName("address")]
+        [StringLength(50)]
+        public string address { get; set; }
 
-        [DisplayName("description")]
-        public string description { get; set; }
+        [DisplayName("city")]
+        [StringLength(50)]
+        public string city { get; set; }
 
-        [DisplayName("logo")]
-        [StringLength(250)]
-        public string logo { get; set; }
+        [DisplayName("state")]
+        [StringLength(50)]
+        public string state { get; set; }
 
-        [DisplayName("logo Url")]
-        public string logoUrl { get; set; }
+        [DisplayName("zip")]
+        public int zip { get; set; }
+
+        [DisplayName("website")]
+        [StringLength(50)]
+        public string website { get; set; }
+
+        [DisplayName("phone")]
+        [StringLength(50)]
+        public string phone { get; set; }
+
+        [DisplayName("siteId")]
+        [StringLength(10)]
+        public string siteId { get; set; }
 
         [DisplayName("created")]
         [Required]
@@ -55,10 +69,18 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
 
+        [ForeignKey("siteId")]
+        public virtual SiteVo site { get; set; }
         // [Association("JobCompany_Business", "JobCompanyId", "JobCompanyId", IsForeignKey = true)]
         /// public List<JobCompanyVo> businesses { get; set; }
 
         //[Association("JobCompany_Member", "JobCompanyId", "JobCompanyId", IsForeignKey = true)]
         //public List<MemberVo> member { get; set; }
+
+        public JobCompanyVo()
+        {
+            this.jobCompanyId = Guid.NewGuid();
+            this.isActive = true;
+        }
     }
 }

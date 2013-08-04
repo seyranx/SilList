@@ -1,24 +1,25 @@
-﻿using System;
+﻿using SO.SilList.Manager.DbContexts;
+using SO.SilList.Manager.Interfaces;
+using SO.SilList.Manager.Models.ValueObjects;
+using EntityFramework.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.Entity;
-using EntityFramework.Extensions;
-using SO.SilList.Manager.Models.ValueObjects;
-using SO.SilList.Manager.Interfaces;
-using SO.SilList.Manager.DbContexts;
 
 namespace SO.SilList.Manager.Managers
 {
-    public class JobCompanyManager : IJobCompanyManager
+    public class CarManager : ICarManager
     {
-        public JobCompanyVo get(Guid jobCompanyId)
+
+        public CarVo get(Guid carId)
         {
             using (var db = new MainDb())
             {
-                var result = db.jobCompanys
-                            .FirstOrDefault(s => s.jobCompanyId == jobCompanyId);
+                var result = db.car
+                            .FirstOrDefault(r => r.carId == carId);
+
                 return result;
             }
         }
@@ -26,47 +27,49 @@ namespace SO.SilList.Manager.Managers
         /// <summary>
         /// Get First Item
         /// </summary>
-        public JobCompanyVo getFirst()
+        public CarVo getFirst()
         {
             using (var db = new MainDb())
             {
-                var res = db.jobCompanys
+                var res = db.car
                             .FirstOrDefault();
+
                 return res;
             }
         }
 
-
-        public List<JobCompanyVo> getAll(bool? isActive = true)
+        public List<CarVo> getAll(bool? isActive = true)
         {
             using (var db = new MainDb())
             {
-                var list = db.jobCompanys
+                var list = db.car
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
+
                 return list;
             }
         }
 
-        public bool delete(Guid jobCompanyId)
+        public bool delete(Guid carId)
         {
             using (var db = new MainDb())
             {
-                var res = db.jobCompanys
-                     .Where(e => e.jobCompanyId == jobCompanyId)
+                var res = db.car
+                     .Where(e => e.carId == carId)
                      .Delete();
                 return true;
             }
         }
 
-        public JobCompanyVo update(JobCompanyVo input, Guid? jobCompanyId = null)
+        public CarVo update(CarVo input, Guid? carId = null)
         {
             using (var db = new MainDb())
             {
-                if (jobCompanyId == null)
-                    jobCompanyId = input.jobCompanyId;
 
-                var res = db.jobCompanys.FirstOrDefault(e => e.jobCompanyId == jobCompanyId);
+                if (carId == null)
+                    carId = input.carId;
+
+                var res = db.car.FirstOrDefault(e => e.carId == carId);
 
                 if (res == null) return null;
 
@@ -74,26 +77,30 @@ namespace SO.SilList.Manager.Managers
                 input.createdBy = res.createdBy;
                 db.Entry(res).CurrentValues.SetValues(input);
 
+
                 db.SaveChanges();
                 return res;
+
             }
         }
 
-        public JobCompanyVo insert(JobCompanyVo input)
+        public CarVo insert(CarVo input)
         {
             using (var db = new MainDb())
             {
-                db.jobCompanys.Add(input);
+
+                db.car.Add(input);
                 db.SaveChanges();
 
                 return input;
             }
         }
+
         public int count()
         {
             using (var db = new MainDb())
             {
-                return db.jobCompanys.Count();
+                return db.car.Count();
             }
         }
     }

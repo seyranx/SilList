@@ -102,8 +102,6 @@
     <Compile Include="Managers\BusinessImageeManagerTest.cs" />
     <Compile Include="Managers\BusinessManagerTest.cs" />
     <Compile Include="Managers\BusinessServicesManagerTest.cs" />
-    <Compile Include="Managers\JobManagerTest.cs" />
-    <Compile Include="Managers\JobTypeManagerTest.cs" />
     <Compile Include="Managers\LeaseTermTypeManagerTest.cs" />
     <Compile Include="Managers\ListingDetailManagerManagerTest.cs" />
     <Compile Include="Managers\ImageManagerTest.cs" />
@@ -112,7 +110,9 @@
     <Compile Include="Managers\RentalImagesManagerTest.cs" />
     <Compile Include="Managers\RentalManagerTest.cs" />
     <Compile Include="Managers\RentTypeManagerTest.cs" />
+<<<<<<< HEAD
     <Compile Include="Managers\ServiceTypeManagerTest.cs" />
+=======
     <Compile Include="Managers\RatingManagerTest.cs" />
     <Compile Include="Managers\BusinessRatingsManagerTest.cs" />
     <Compile Include="Managers\BusinessCategriesManagerTest.cs" />
@@ -122,6 +122,7 @@
     <Compile Include="Managers\TransmissionTypeManagerTest.cs" />
     <Compile Include="Managers\CarBodyTypeManagerTest.cs" />
     <Compile Include="Managers\CarImageManagerTest.cs" />
+>>>>>>> SiList_26
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>

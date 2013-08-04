@@ -10,20 +10,24 @@ using System.Data;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 
-namespace SO.SilList.Manager.Models.ValueObjects 
+namespace SO.SilList.Manager.Models.ValueObjects
 {
      
-    [Table("JobCategories", Schema = "data" )]
+    [Table("CarBodyType", Schema = "app" )]
     [Serializable]
-    public partial class JobCategoriesVo
+    public partial class CarBodyTypeVo
     {
     		
-    	[DisplayName("job Category Type Id")]
+    	[DisplayName("car Body Type Id")]
     	[Key]
-        public int jobCategoryTypeId { get; set; }
+        public int carBodyTypeId { get; set; }
     		
-    	[DisplayName("job Id")]
-        public Nullable<System.Guid> jobId { get; set; }
+    	[DisplayName("name")]
+    	[StringLength(50)]
+        public string name { get; set; }
+    		
+    	[DisplayName("description")]
+        public string description { get; set; }
     		
     	[DisplayName("created")]
     	[Required]
@@ -42,13 +46,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
 
-        [ForeignKey("JobId")]
-        public virtual JobVo jobs { get; set; }
+        [Association("CarBodyType_Car", "carBodyTypeId", "carBodyTypeId", IsForeignKey = true)]
+        public List<CarVo> car { get; set; }
 
-        [ForeignKey("JobId")]
-        public virtual JobCategoriesVo jobcategories { get; set; }
-
-        public JobCategoriesVo(){
+    	public CarBodyTypeVo(){
     			
     	
     	 this.isActive = true;

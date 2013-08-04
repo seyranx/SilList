@@ -180,12 +180,19 @@
     <Build Include="data\Tables\ListingType.sql" />
     <Build Include="data\Tables\ListingCategories.sql" />
     <Build Include="data\Tables\ListingCategoryType.sql" />
+    <Build Include="data\Tables\Car.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
+    <Build Include="data\Tables\CarImages.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
+    <Build Include="app\Tables\CarBodyType.sql" />
+    <Build Include="app\Tables\ModelType.sql" />
+    <Build Include="app\Tables\TransmissionType.sql" />
+    <Build Include="app\Tables\MakeType.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />
     <None Include="Compare_Update_Server.scmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <RefactorLog Include="SO.SilList.Database.refactorlog" />
   </ItemGroup>
 </Project>

@@ -1,24 +1,24 @@
-﻿using System;
+﻿using SO.SilList.Manager.DbContexts;
+using SO.SilList.Manager.Interfaces;
+using SO.SilList.Manager.Models.ValueObjects;
+using EntityFramework.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.Entity;
-using EntityFramework.Extensions;
-using SO.SilList.Manager.Models.ValueObjects;
-using SO.SilList.Manager.Interfaces;
-using SO.SilList.Manager.DbContexts;
 
 namespace SO.SilList.Manager.Managers
 {
-    public class JobCompanyManager : IJobCompanyManager
+    public class TransmissionTypeManager : ITransmissionTypeManager
     {
-        public JobCompanyVo get(Guid jobCompanyId)
+        public TransmissionTypeVo get(int transmissionTypeId)
         {
             using (var db = new MainDb())
             {
-                var result = db.jobCompanys
-                            .FirstOrDefault(s => s.jobCompanyId == jobCompanyId);
+                var result = db.transmissionType
+                            .FirstOrDefault(r => r.transmissionTypeId == transmissionTypeId);
+
                 return result;
             }
         }
@@ -26,47 +26,49 @@ namespace SO.SilList.Manager.Managers
         /// <summary>
         /// Get First Item
         /// </summary>
-        public JobCompanyVo getFirst()
+        public TransmissionTypeVo getFirst()
         {
             using (var db = new MainDb())
             {
-                var res = db.jobCompanys
+                var res = db.transmissionType
                             .FirstOrDefault();
+
                 return res;
             }
         }
 
-
-        public List<JobCompanyVo> getAll(bool? isActive = true)
+        public List<TransmissionTypeVo> getAll(bool? isActive = true)
         {
             using (var db = new MainDb())
             {
-                var list = db.jobCompanys
+                var list = db.transmissionType
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
+
                 return list;
             }
         }
 
-        public bool delete(Guid jobCompanyId)
+        public bool delete(int transmissionTypeId)
         {
             using (var db = new MainDb())
             {
-                var res = db.jobCompanys
-                     .Where(e => e.jobCompanyId == jobCompanyId)
+                var res = db.transmissionType
+                     .Where(e => e.transmissionTypeId == transmissionTypeId)
                      .Delete();
                 return true;
             }
         }
 
-        public JobCompanyVo update(JobCompanyVo input, Guid? jobCompanyId = null)
+        public TransmissionTypeVo update(TransmissionTypeVo input, int? transmissionTypeId = null)
         {
             using (var db = new MainDb())
             {
-                if (jobCompanyId == null)
-                    jobCompanyId = input.jobCompanyId;
 
-                var res = db.jobCompanys.FirstOrDefault(e => e.jobCompanyId == jobCompanyId);
+                if (transmissionTypeId == null)
+                    transmissionTypeId = input.transmissionTypeId;
+
+                var res = db.transmissionType.FirstOrDefault(e => e.transmissionTypeId == transmissionTypeId);
 
                 if (res == null) return null;
 
@@ -74,26 +76,30 @@ namespace SO.SilList.Manager.Managers
                 input.createdBy = res.createdBy;
                 db.Entry(res).CurrentValues.SetValues(input);
 
+
                 db.SaveChanges();
                 return res;
+
             }
         }
 
-        public JobCompanyVo insert(JobCompanyVo input)
+        public TransmissionTypeVo insert(TransmissionTypeVo input)
         {
             using (var db = new MainDb())
             {
-                db.jobCompanys.Add(input);
+
+                db.transmissionType.Add(input);
                 db.SaveChanges();
 
                 return input;
             }
         }
+
         public int count()
         {
             using (var db = new MainDb())
             {
-                return db.jobCompanys.Count();
+                return db.transmissionType.Count();
             }
         }
     }
