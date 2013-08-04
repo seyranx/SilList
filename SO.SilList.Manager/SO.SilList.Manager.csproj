@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Classes\Connection.cs" />
     <Compile Include="DbContexts\MainDb.cs" />
+    <Compile Include="Interfaces\IAdminManager.cs" />
     <Compile Include="Interfaces\ITransmissionTypeManager.cs" />
     <Compile Include="Interfaces\IMakeTypeManager.cs" />
     <Compile Include="Interfaces\IModelTypeManager.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Interfaces\IRentalManager.cs" />
     <Compile Include="Interfaces\IBusinessManager.cs" />
     <Compile Include="Interfaces\IRentTypeManager.cs" />
+    <Compile Include="Managers\AdminManager.cs" />
     <Compile Include="Managers\BusinessCategoriesManager.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -104,6 +106,7 @@
     <Compile Include="Managers\SiteManager.cs" />
     <Compile Include="Managers\RentalManager.cs" />
     <Compile Include="Managers\TransmissionTypeManager.cs" />
+    <Compile Include="Models\ValueObjects\AdminVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessCategoryTypeVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessCategoriesVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessImagesVo.cs" />

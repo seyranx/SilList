@@ -121,6 +121,7 @@
     <Compile Include="Managers\TransmissionTypeManagerTest.cs" />
     <Compile Include="Managers\CarBodyTypeManagerTest.cs" />
     <Compile Include="Managers\CarImageManagerTest.cs" />
+    <Compile Include="Managers\AdminManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
