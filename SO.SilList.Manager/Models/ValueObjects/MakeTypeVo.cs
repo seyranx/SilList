@@ -46,7 +46,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
 
-
+        [Association("MakeType_ModelType", "makeTypeId", "makeTypeId", IsForeignKey = true)]
+        public List<ModelTypeVo> carImages { get; set; }
       
     	public MakeTypeVo(){
     			
