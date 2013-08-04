@@ -49,6 +49,12 @@
   <ItemGroup>
     <Compile Include="Classes\Connection.cs" />
     <Compile Include="DbContexts\MainDb.cs" />
+    <Compile Include="Interfaces\ITransmissionTypeManager.cs" />
+    <Compile Include="Interfaces\IMakeTypeManager.cs" />
+    <Compile Include="Interfaces\IModelTypeManager.cs" />
+    <Compile Include="Interfaces\ICarImageManager.cs" />
+    <Compile Include="Interfaces\ICarBodyTypeManager.cs" />
+    <Compile Include="Interfaces\ICarManager.cs" />
     <Compile Include="Interfaces\IBusinessImagesManager.cs" />
     <Compile Include="Interfaces\IBusinessServicesManager.cs" />
     <Compile Include="Interfaces\IJobCategoriesManager.cs" />
@@ -78,12 +84,17 @@
     <Compile Include="Managers\BusinessManager.cs" />
     <Compile Include="Managers\BusinessRatingsManager.cs" />
     <Compile Include="Managers\BusinessServicesManager.cs" />
+    <Compile Include="Managers\CarBodyTypeManager.cs" />
+    <Compile Include="Managers\CarImageManager.cs" />
+    <Compile Include="Managers\CarManager.cs" />
     <Compile Include="Managers\ImageManager.cs" />
     <Compile Include="Managers\JobCompanyManager.cs" />
     <Compile Include="Managers\JobManager.cs" />
     <Compile Include="Managers\JobTypeManager.cs" />
     <Compile Include="Managers\ListingDetailManager.cs" />
+    <Compile Include="Managers\MakeTypeManager.cs" />
     <Compile Include="Managers\MemberManager.cs" />
+    <Compile Include="Managers\ModelTypeManager.cs" />
     <Compile Include="Managers\PropertyTypeManager.cs" />
     <Compile Include="Managers\RatingManager.cs" />
     <Compile Include="Managers\RentalImagesManager.cs" />
@@ -92,12 +103,18 @@
     <Compile Include="Managers\ServiceTypeManager.cs" />
     <Compile Include="Managers\SiteManager.cs" />
     <Compile Include="Managers\RentalManager.cs" />
+    <Compile Include="Managers\TransmissionTypeManager.cs" />
     <Compile Include="Models\ValueObjects\BusinessCategoryTypeVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessCategoriesVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessImagesVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessRatingsVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessServicesVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessVo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\ValueObjects\CarBodyTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\CarImageVo.cs" />
+    <Compile Include="Models\ValueObjects\CarVo.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\ValueObjects\JobCategoriesVo.cs" />
@@ -108,7 +125,9 @@
     <Compile Include="Models\ValueObjects\JobVo.cs" />
     <Compile Include="Models\ValueObjects\LeaseTermTypeVo.cs" />
     <Compile Include="Models\ValueObjects\ListingDetailVo.cs" />
+    <Compile Include="Models\ValueObjects\MakeTypeVo.cs" />
     <Compile Include="Models\ValueObjects\MemberVo.cs" />
+    <Compile Include="Models\ValueObjects\ModelTypeVo.cs" />
     <Compile Include="Models\ValueObjects\RatingVo.cs" />
     <Compile Include="Models\ValueObjects\RentalImageVo.cs" />
     <Compile Include="Models\ValueObjects\RentalVo.cs" />
@@ -116,6 +135,7 @@
     <Compile Include="Models\ValueObjects\RentTypeVo.cs" />
     <Compile Include="Models\ValueObjects\ServiceTypeVo.cs" />
     <Compile Include="Models\ValueObjects\SiteVo.cs" />
+    <Compile Include="Models\ValueObjects\TransmissionTypeVo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

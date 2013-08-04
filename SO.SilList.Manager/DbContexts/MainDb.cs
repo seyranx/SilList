@@ -53,6 +53,12 @@ namespace SO.SilList.Manager.DbContexts
         public DbSet<ServiceTypeVo> serviceTypes { get; set; }
         public DbSet<BusinessServicesVo> businessServices { get; set; }
         public DbSet<BusinessImagesVo> businessImages { get; set; }
+        public DbSet<CarVo> car { get; set; }
+        public DbSet<CarBodyTypeVo> carBodyType { get; set; }
+        public DbSet<ModelTypeVo> modelType { get; set; }
+        public DbSet<MakeTypeVo> makeType { get; set; }
+        public DbSet<CarImageVo> carImage { get; set; }
+        public DbSet<TransmissionTypeVo> transmissionType { get; set; }
     }
 
 }
