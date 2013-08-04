@@ -108,6 +108,7 @@
     <Compile Include="Managers\CarImageManagerTest.cs" />
     <Compile Include="Managers\CarManagerTest.cs" />
     <Compile Include="Managers\JobCategoriesManagerTest.cs" />
+    <Compile Include="Managers\JobCompanyManagerTest.cs" />
     <Compile Include="Managers\JobManagerTest.cs" />
     <Compile Include="Managers\JobTypeManagerTest.cs" />
     <Compile Include="Managers\LeaseTermTypeManagerTest.cs" />
@@ -120,14 +121,9 @@
     <Compile Include="Managers\RentTypeManagerTest.cs" />
     <Compile Include="Managers\ServiceTypeManagerTest.cs" />
     <Compile Include="Managers\RatingManagerTest.cs" />
-    <Compile Include="Managers\BusinessRatingsManagerTest.cs" />
-    <Compile Include="Managers\BusinessCategriesManagerTest.cs" />
-    <Compile Include="Managers\CarManagerTest.cs" />
     <Compile Include="Managers\ModelTypeManagerTest.cs" />
     <Compile Include="Managers\MakeTypeManagerTest.cs" />
     <Compile Include="Managers\TransmissionTypeManagerTest.cs" />
-    <Compile Include="Managers\CarBodyTypeManagerTest.cs" />
-    <Compile Include="Managers\CarImageManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
