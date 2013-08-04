@@ -13,14 +13,14 @@ using System.Data.Entity;
 namespace SO.SilList.Manager.Models.ValueObjects
 {
      
-    [Table("CarImage", Schema = "data" )]
+    [Table("CarImages", Schema = "data" )]
     [Serializable]
-    public partial class CarImageVo
+    public partial class CarImagesVo
     {
     		
     	[DisplayName("car Images Id")]
     	[Key]
-        public System.Guid carImageId { get; set; }
+        public System.Guid carImagesId { get; set; }
     		
     	[DisplayName("image Id")]
         public Nullable<System.Guid> imageId { get; set; }
@@ -52,9 +52,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
         //[ForeignKey("imageId")]
         //public virtual ImageVo image { get; set; }
 
-    	public CarImageVo(){
+    	public CarImagesVo(){
     			
-    		this.carImageId = Guid.NewGuid();
+    		this.carImagesId = Guid.NewGuid();
     	
     	 this.isActive = true;
     	}

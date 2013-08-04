@@ -57,7 +57,7 @@ namespace SO.SilList.Manager.DbContexts
         public DbSet<CarBodyTypeVo> carBodyType { get; set; }
         public DbSet<ModelTypeVo> modelType { get; set; }
         public DbSet<MakeTypeVo> makeType { get; set; }
-        public DbSet<CarImageVo> carImage { get; set; }
+        public DbSet<CarImagesVo> carImages { get; set; }
         public DbSet<TransmissionTypeVo> transmissionType { get; set; }
     }
 

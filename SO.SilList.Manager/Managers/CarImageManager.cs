@@ -13,12 +13,12 @@ namespace SO.SilList.Manager.Managers
     public class CarImageManager: ICarImageManager
     {
 
-        public CarImageVo get(Guid carImageId)
+        public CarImagesVo get(Guid carImagesId)
         {
             using (var db = new MainDb())
             {
-                var result = db.carImage
-                            .FirstOrDefault(r => r.carImageId == carImageId);
+                var result = db.carImages
+                            .FirstOrDefault(r => r.carImagesId == carImagesId);
 
                 return result;
             }
@@ -27,22 +27,22 @@ namespace SO.SilList.Manager.Managers
         /// <summary>
         /// Get First Item
         /// </summary>
-        public CarImageVo getFirst()
+        public CarImagesVo getFirst()
         {
             using (var db = new MainDb())
             {
-                var res = db.carImage
+                var res = db.carImages
                             .FirstOrDefault();
 
                 return res;
             }
         }
 
-        public List<CarImageVo> getAll(bool? isActive = true)
+        public List<CarImagesVo> getAll(bool? isActive = true)
         {
             using (var db = new MainDb())
             {
-                var list = db.carImage
+                var list = db.carImages
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
 
@@ -50,26 +50,26 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public bool delete(Guid carImageId)
+        public bool delete(Guid carImagesId)
         {
             using (var db = new MainDb())
             {
-                var res = db.carImage
-                     .Where(e => e.carImageId == carImageId)
+                var res = db.carImages
+                     .Where(e => e.carImagesId == carImagesId)
                      .Delete();
                 return true;
             }
         }
 
-        public CarImageVo update(CarImageVo input, Guid? carImageId = null)
+        public CarImagesVo update(CarImagesVo input, Guid? carImagesId = null)
         {
             using (var db = new MainDb())
             {
 
-                if (carImageId == null)
-                    carImageId = input.carImageId;
+                if (carImagesId == null)
+                    carImagesId = input.carImagesId;
 
-                var res = db.carImage.FirstOrDefault(e => e.carId == carImageId);
+                var res = db.carImages.FirstOrDefault(e => e.carId == carImagesId);
 
                 if (res == null) return null;
 
@@ -84,12 +84,12 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public CarImageVo insert(CarImageVo input)
+        public CarImagesVo insert(CarImagesVo input)
         {
             using (var db = new MainDb())
             {
 
-                db.carImage.Add(input);
+                db.carImages.Add(input);
                 db.SaveChanges();
 
                 return input;
@@ -100,7 +100,7 @@ namespace SO.SilList.Manager.Managers
         {
             using (var db = new MainDb())
             {
-                return db.carImage.Count();
+                return db.carImages.Count();
             }
         }
     }

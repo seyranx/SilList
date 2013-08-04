@@ -28,7 +28,7 @@ namespace SO.SilList.Tests.Managers
         {
             for (int i = 1; i <= 10; i++)
             {
-                var vo = new CarImageVo();
+                var vo = new CarImagesVo();
                // vo.imageId = i;
                 //vo.name = i.ToString() + " Test BusinessCategoryType Name ";
                 var result = carImageManager.insert(vo);
@@ -44,18 +44,19 @@ namespace SO.SilList.Tests.Managers
         [TestMethod]
         public void insertDeleteTest()
         {
-            var vo = new CarImageVo();
+            var vo = new CarImagesVo();
             //vo.name = "test";
-
+             vo.carImagesId = Guid.NewGuid();
+             vo.createdBy = 123;
 
             var result = carImageManager.insert(vo);
-            var result2 = carImageManager.get(result.carImageId);
+            var result2 = carImageManager.get(result.carImagesId);
 
-            carImageManager.delete(result.carImageId);
+            carImageManager.delete(result.carImagesId);
 
-            var result3 = carImageManager.get(result.carImageId);
+            var result3 = carImageManager.get(result.carImagesId);
 
-            if (result != null && result2 != null && result3 == null && result2.carImageId != null)
+            if (result != null && result2 != null && result3 == null && result2.carImagesId != null)
             {
                 Assert.IsTrue(true);
             }
