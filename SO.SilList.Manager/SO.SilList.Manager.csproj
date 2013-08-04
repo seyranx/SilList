@@ -107,7 +107,12 @@
     <Compile Include="Models\ValueObjects\JobTypeVo.cs" />
     <Compile Include="Models\ValueObjects\JobVo.cs" />
     <Compile Include="Models\ValueObjects\LeaseTermTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\ListingCategoriesVo.cs" />
+    <Compile Include="Models\ValueObjects\ListingCategoryTypeVo.cs" />
     <Compile Include="Models\ValueObjects\ListingDetailVo.cs" />
+    <Compile Include="Models\ValueObjects\ListingImagesVo.cs" />
+    <Compile Include="Models\ValueObjects\ListingTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\ListingVo.cs" />
     <Compile Include="Models\ValueObjects\MemberVo.cs" />
     <Compile Include="Models\ValueObjects\RatingVo.cs" />
     <Compile Include="Models\ValueObjects\RentalImageVo.cs" />
