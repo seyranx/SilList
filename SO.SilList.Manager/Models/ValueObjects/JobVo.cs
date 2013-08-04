@@ -72,6 +72,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
 
+        /*
         [ForeignKey("siteId")]
         public virtual SiteVo site { get; set; }
 
@@ -83,7 +84,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         [ForeignKey("jobCompanyId")]
         public virtual JobCompanyVo jobCompanys { get; set; }
-      
+      */
     	public JobVo(){
     			
     		this.jobId = Guid.NewGuid();
