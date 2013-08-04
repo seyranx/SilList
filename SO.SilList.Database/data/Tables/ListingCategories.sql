@@ -1,11 +1,15 @@
-﻿CREATE TABLE [data].[ListingCategories]
-(
-	[listingCategoryId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT (newid()), 
-    [listingCategoryTypeId] INT NULL, 
-    [listingId] UNIQUEIDENTIFIER NULL,
-    [createdBy ] INT NULL, 
-    [modifiedBy] INT NULL, 
-    [created] DATETIME NOT NULL DEFAULT (getdate()), 
-    [modified] DATETIME NOT NULL DEFAULT (getdate()), 
-    [isActive] BIT NOT NULL DEFAULT ((1))
-)
+﻿CREATE TABLE [data].[ListingCategories] (
+    [listingCategoryId]     UNIQUEIDENTIFIER DEFAULT (newid()) NOT NULL,
+    [listingCategoryTypeId] INT              NULL,
+    [listingId]             UNIQUEIDENTIFIER NULL,
+    [createdBy ]            INT              NULL,
+    [modifiedBy]            INT              NULL,
+    [created]               DATETIME         DEFAULT (getdate()) NOT NULL,
+    [modified]              DATETIME         DEFAULT (getdate()) NOT NULL,
+    [isActive]              BIT              DEFAULT ((1)) NOT NULL,
+    PRIMARY KEY CLUSTERED ([listingCategoryId] ASC),
+    CONSTRAINT [FK_ListingCategories_Listing] FOREIGN KEY ([listingId]) REFERENCES [data].[Listing] ([listingId]),
+    CONSTRAINT [FK_ListingCategories_ListingCategoryType] FOREIGN KEY ([listingCategoryTypeId]) REFERENCES [app].[ListingCategoryType] ([listingCategoryTypeId])
+);
+
+

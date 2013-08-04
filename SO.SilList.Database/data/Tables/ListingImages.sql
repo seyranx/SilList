@@ -1,11 +1,15 @@
-﻿CREATE TABLE [data].[ListingImages]
-(
-	[listingImagesId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT (newid()), 
-    [imageId] UNIQUEIDENTIFIER NULL, 
-    [listingId] UNIQUEIDENTIFIER NULL,
-	[createdBy ] INT NULL, 
-    [modifiedBy] INT NULL, 
-    [created] DATETIME NOT NULL DEFAULT (getdate()), 
-    [modified] DATETIME NOT NULL DEFAULT (getdate()), 
-    [isActive] BIT NOT NULL DEFAULT ((1))
-)
+﻿CREATE TABLE [data].[ListingImages] (
+    [listingImagesId] UNIQUEIDENTIFIER DEFAULT (newid()) NOT NULL,
+    [imageId]         UNIQUEIDENTIFIER NULL,
+    [listingId]       UNIQUEIDENTIFIER NULL,
+    [createdBy ]      INT              NULL,
+    [modifiedBy]      INT              NULL,
+    [created]         DATETIME         DEFAULT (getdate()) NOT NULL,
+    [modified]        DATETIME         DEFAULT (getdate()) NOT NULL,
+    [isActive]        BIT              DEFAULT ((1)) NOT NULL,
+    PRIMARY KEY CLUSTERED ([listingImagesId] ASC),
+    CONSTRAINT [FK_ListingImages_Image] FOREIGN KEY ([imageId]) REFERENCES [data].[Image] ([imageId]),
+    CONSTRAINT [FK_ListingImages_Listing] FOREIGN KEY ([listingId]) REFERENCES [data].[Listing] ([listingId])
+);
+
+

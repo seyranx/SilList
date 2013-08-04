@@ -50,6 +50,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         //[ForeignKey("foreignKeyname")]
         // public virtual SiteVo site { get; set; }
+        // public List<BusinessRatingsVo> businessRatings { get; set; }
+
+        [Association("BusinessRatings_Rating", "ratingId", "ratingId", IsForeignKey = true)]
+        public List<BusinessRatingsVo> businessRating { get; set; }
 
     	public RatingVo(){
     			
