@@ -4,7 +4,6 @@
     [title]           NVARCHAR (50)    NULL,
     [description]     NVARCHAR (50)    NULL,
     [siteId]          INT              NULL,
-    [memberId]        INT              NULL,
     [listingTypeId]   INT              NULL,
     [createdBy ]      INT              NULL,
     [modifiedBy]      INT              NULL,
@@ -14,8 +13,9 @@
     CONSTRAINT [PK__Listing__5A0F3D990749C430] PRIMARY KEY CLUSTERED ([listingId] ASC),
     CONSTRAINT [FK_Listing_ListingDetail] FOREIGN KEY ([listingDetailId]) REFERENCES [data].[ListingDetail] ([listingDetailId]),
     CONSTRAINT [FK_Listing_ListingType] FOREIGN KEY ([listingTypeId]) REFERENCES [app].[ListingType] ([listingTypeId]),
-    CONSTRAINT [FK_Listing_Member] FOREIGN KEY ([memberId]) REFERENCES [data].[Member] ([memberId]),
     CONSTRAINT [FK_Listing_Site] FOREIGN KEY ([siteId]) REFERENCES [app].[Site] ([siteId])
 );
+
+
 
 

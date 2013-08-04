@@ -36,9 +36,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("site Id")]
         public int? siteId { get; set; }
     		
-    	[DisplayName("member Id")]
-        public int? memberId { get; set; }
-    		
     	[DisplayName("listing Type Id")]
         public int? listingTypeId { get; set; }
     		
