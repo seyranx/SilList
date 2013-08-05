@@ -28,52 +28,56 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [StringLength(50)]
         public string lastName { get; set; }
 
-        [DisplayName("email")]
+        [DisplayName("Email")]
         [StringLength(50)]
         public string email { get; set; }
 
-        [DisplayName("username")]
+        [DisplayName("Username")]
         [StringLength(50)]
         public string username { get; set; }
 
-        [DisplayName("password")]
+        [DisplayName("Password")]
         [StringLength(50)]
         public string password { get; set; }
 
-        [DisplayName("phone")]
+        [DisplayName("Phone")]
         [StringLength(50)]
         public string phone { get; set; }
 
-        [DisplayName("is Email Confirmed")]
+        [DisplayName("Is Email Confirmed")]
         public Nullable<bool> isEmailConfirmed { get; set; }
 
-        [DisplayName("ip Address")]
+        [DisplayName("Is Super Admin")]
+        public bool isSuperAdmin { get; set; }
+
+        [DisplayName("IP Address")]
         [StringLength(50)]
         public string ipAddress { get; set; }
 
-        [DisplayName("last Login")]
+        [DisplayName("Last Login")]
         public System.DateTime? lastLogin { get; set; }
 
-        [DisplayName("created")]
+        [DisplayName("Created")]
         [Required]
         public System.DateTime created { get; set; }
 
-        [DisplayName("modified")]
+        [DisplayName("Modified")]
         [Required]
         public System.DateTime modified { get; set; }
 
-        [DisplayName("created By")]
+        [DisplayName("Created By")]
         public Nullable<int> createdBy { get; set; }
 
-        [DisplayName("modified By")]
+        [DisplayName("Modified By")]
         public Nullable<int> modifiedBy { get; set; }
 
-        [DisplayName("is Active")]
+        [DisplayName("Is Active")]
         public Nullable<bool> isActive { get; set; }
 
         public AdminVo()
         {
     		this.adminId  = 0;
+            this.isSuperAdmin = false;
             this.lastLogin = null;
     	    this.isActive = true;
     	 }

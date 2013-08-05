@@ -8,6 +8,7 @@
     [password]          NVARCHAR (50) NULL,
     [phone]             NVARCHAR (50) NULL,
     [isEmailConfirmed]  BIT           DEFAULT ((0)) NULL,
+	[isSuperAdmin]		BIT DEFAULT ((0)) NOT NULL,		
     [ipAddress]         NVARCHAR (50) NULL,
     [lastLogin]         DATETIME       NULL,
     [created]           DATETIME      DEFAULT (getdate()) NOT NULL,
