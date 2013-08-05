@@ -352,6 +352,8 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Member\_Menu.cshtml" />
     <Content Include="Views\Member\Create.cshtml" />
+    <Content Include="Views\Member\Details.cshtml" />
+    <Content Include="Views\Member\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

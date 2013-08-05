@@ -23,61 +23,61 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView(results);
         }
 
-        //[HttpPost]
-        //public ActionResult Edit(int id, MemberVo input)
-        //{
+        [HttpPost]
+        public ActionResult Edit(int id, MemberVo input)
+        {
 
-        //    if (this.ModelState.IsValid)
-        //    {
-        //        var res = memberManager.update(input, id);
-        //        return RedirectToAction("Index");
-        //    }
+            if (this.ModelState.IsValid)
+            {
+                var res = memberManager.update(input, id);
+                return RedirectToAction("Index");
+            }
 
-        //    return View();
+            return View();
 
-        //}
-        //public ActionResult Edit(int id)
-        //{
-        //    var result = memberManager.get(id);
-        //    return View(result);
-        //}
+        }
+        public ActionResult Edit(int id)
+        {
+            var result = memberManager.get(id);
+            return View(result);
+        }
 
-        //[HttpPost]
-        //public ActionResult Create(MemberVo input)
-        //{
+        [HttpPost]
+        public ActionResult Create(MemberVo input)
+        {
 
-        //    if (this.ModelState.IsValid)
-        //    {
+            if (this.ModelState.IsValid)
+            {
 
-        //        var item = memberManager.insert(input);
-        //        return RedirectToAction("Index");
-        //    }
+                var item = memberManager.insert(input);
+                return RedirectToAction("Index");
+            }
 
 
-        //    return View();
+            return View();
 
-        //}
+        }
 
-        //public ActionResult Create()
-        //{
-        //    return View();
-        //}
+        public ActionResult Create()
+        {
+            return View();
+        }
 
-        //public ActionResult Details(int id)
-        //{
-        //    var result = memberManager.get(id);
-        //    return View(result);
-        //}
+        public ActionResult Details(int id)
+        {
+            var result = memberManager.get(id);
+            return View(result);
+        }
 
         public ActionResult Menu()
         {
             return PartialView("_Menu");
         }
 
-        //public ActionResult Delete(int id)
-        //{
-        //    memberManager.delete(id);
-        //    return RedirectToAction("Index");
-        //}
+        public ActionResult Delete(int id)
+        {
+            memberManager.delete(id);
+            return RedirectToAction("Index");
+        }
     }
 }

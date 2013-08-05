@@ -1,17 +1,11 @@
 ﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.MemberVo>
 
 <p>
-    <p> was generated like this</p>
-    @Html.ActionLink("Create New", "Create")
-    <p>using this</p>
     <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
 </p>
 <table class="table table-bordered table-hover">
 
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.siteId)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.firstName)
         </th>
@@ -42,41 +36,23 @@
         <th>
             @Html.DisplayNameFor(model => model.phone)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.isEmailConfirmed)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.ipAddress)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.lastLogin)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.isEmailSubscribed)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.created)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.modified)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.createdBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.modifiedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.isActive)
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.siteId)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.firstName)
         </td>
@@ -107,47 +83,22 @@
         <td>
             @Html.DisplayFor(modelItem => item.phone)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.isEmailConfirmed)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.ipAddress)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.lastLogin)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.isEmailSubscribed)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.created)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.modified)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.createdBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.modifiedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.isActive)
-        </td>
-        <td>
-
-            <p> was generated like this</p>
-    
-  
-            @Html.ActionLink("Edit", "Edit", new { id=item.memberId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.memberId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.memberId })
-    <p>using this</p>
+         <td>
             <a href="@Url.Action("Edit",new { id=item.memberId })" class="btn">Edit</a>
             <a href="@Url.Action("Details",new { id=item.memberId })" class="btn">Details</a>
             <a href="@Url.Action("Delete",new { id=item.memberId })" class="btn">Delete</a>
-
-
         </td>
     </tr>
 }
