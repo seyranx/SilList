@@ -66,8 +66,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [Association("ListingCategories_Listing", "listingId", "listingId", IsForeignKey = true)]
         public List<ListingCategoriesVo> listingCategories { get; set; }
 
-        //[Association("ListingImages_Listing", "listingId", "listingId", IsForeignKey = true)]
-        //public List<ListingVo> listings { get; set; }
+        [Association("ListingImages_Listing", "listingId", "listingId", IsForeignKey = true)]
+        public List<ListingImagesVo> listings { get; set; }
       
     	public ListingVo()
         { 			
