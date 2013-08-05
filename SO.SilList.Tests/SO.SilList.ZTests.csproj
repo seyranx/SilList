@@ -107,7 +107,7 @@
     <Compile Include="Managers\LeaseTermTypeManagerTest.cs" />
     <Compile Include="Managers\ListingCategoriesManagerTest.cs" />
     <Compile Include="Managers\ListingCategoryTypeManagerTest.cs" />
-    <Compile Include="Managers\ListingDetailManagerManagerTest.cs" />
+    <Compile Include="Managers\ListingDetailManagerTest.cs" />
     <Compile Include="Managers\ImageManagerTest.cs" />
     <Compile Include="Managers\ListingImagesManagerTest.cs" />
     <Compile Include="Managers\ListingManagerTest.cs" />

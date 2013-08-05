@@ -73,8 +73,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         //[ForeignKey("listingDetailId")]
         //public virtual ListingDetailVo listingdetail { get; set; }
         
-        [Association("Business_BusinessRatings", "businessId", "businessId", IsForeignKey = true)]
-        public List<BusinessRatingsVo> businessRatings { get; set; }
+        //[Association("Business_BusinessRatings", "businessId", "businessId", IsForeignKey = true)]
+        //public List<BusinessRatingsVo> businessRatings { get; set; }
 
         ///[Association("Business_BusinessCategories", "businessId", "businessId", IsForeignKey = true)]
         ///public List<BusinessCategoriesVo> businessCategories { get; set; }
