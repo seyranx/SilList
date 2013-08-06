@@ -36,9 +36,9 @@
         <th>
             @Html.DisplayNameFor(model => model.phone)
         </th>
-        @*<th>
+        <th>
             @Html.DisplayNameFor(model => model.isEmailConfirmed)
-        </th>*@
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.ipAddress)
         </th>
@@ -48,6 +48,10 @@
         <th>
             @Html.DisplayNameFor(model => model.isEmailSubscribed)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isActive)
+        </th>
+
         <th></th>
     </tr>
 
@@ -83,9 +87,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.phone)
         </td>
-        @*<td>
+        <td>
             @Html.DisplayFor(modelItem => item.isEmailConfirmed)
-        </td>*@
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.ipAddress)
         </td>
@@ -94,6 +98,9 @@
         </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.isEmailSubscribed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isActive)
         </td>
          <td>
             <a href="@Url.Action("Edit",new { id=item.memberId })" class="btn">Edit</a>
