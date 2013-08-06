@@ -130,20 +130,6 @@
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.createdBy)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.createdBy)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.modifiedBy)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.modifiedBy)
-    </div>
-
-    <div class="display-label">
          @Html.DisplayNameFor(model => model.isActive)
     </div>
     <div class="display-field">
@@ -151,13 +137,6 @@
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.memberId }) |
-    @Html.ActionLink("Back to List", "Index")
-
-    @*
-     <a href="@Url.Action("Index", new { id=Model.businessId })" class="btn">Edit</a>
-
-      <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
-    *@
-
+     <a href="@Url.Action("Index", new { id=Model.memberId })" class="btn">Edit</a>
+     <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
 </p>
