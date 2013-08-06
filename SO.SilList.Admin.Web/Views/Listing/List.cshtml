@@ -1,0 +1,54 @@
+﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.ListingVo>
+
+<p>
+   <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
+
+</p>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.siteId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.created)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isActive)
+        </th>
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.siteId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+       
+
+        <td>
+            @Html.DisplayFor(modelItem => item.created)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isActive)
+        </td>
+      
+        <td>
+
+            <a href="@Url.Action("Edit",new { id=item.listingId })" class="btn">Edit</a>
+            <a href="@Url.Action("Details",new { id=item.listingId })" class="btn">Details</a>
+            <a href="@Url.Action("Delete",new { id=item.listingId })" class="btn">Delete</a>
+
+          
+        </td>
+    </tr>
+}
+
+</table>
