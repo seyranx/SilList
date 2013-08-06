@@ -122,6 +122,13 @@
             @Html.ValidationMessageFor(model => model.isEmailSubscribed)
         </div>
 
+        <div class="editor-label">
+            @Html.LabelFor(model => model.siteId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.siteId)
+            @Html.ValidationMessageFor(model => model.siteId)
+        </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.isActive)
