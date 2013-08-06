@@ -42,8 +42,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
 
-       // [ForeignKey("JobId")]
-       // public virtual JobVo jobs { get; set; }
+        //[ForeignKey("JobId")]
+        //public virtual JobVo jobs { get; set; }
 
         //[ForeignKey("JobId")]
         //public virtual JobCategoriesVo jobcategories { get; set; }

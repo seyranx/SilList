@@ -49,6 +49,12 @@ namespace SO.SilList.Manager.Models.ValueObjects
         //[ForeignKey("businessCategoryTypeId")]
         //public virtual BusinessCategoryTypeVo businessCategoryType { get; set; }
 
+        ///[ForeignKey("businessId")]
+        ///public virtual BusinessVo business { get; set; }
+
+        ///[ForeignKey("BusinessCateoryTypeId")]
+        ///public virtual BusinessCategoryTypeVo site { get; set; }
+
     	public BusinessCategoriesVo(){
 
          this.businessCategoryId = Guid.NewGuid();
