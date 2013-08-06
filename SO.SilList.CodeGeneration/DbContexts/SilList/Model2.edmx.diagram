@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="70b7cde0ed184525a7c4c6567c0d5376" Name="Diagram1">
+        <EntityTypeShape EntityType="SilListModel1.ListingCategoryType" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="SilListModel1.ListingType" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="SilListModel1.Listing" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SilListModel1.ListingCategory" Width="1.5" PointX="5.25" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SilListModel1.ListingImage" Width="1.5" PointX="5.25" PointY="6.625" IsExpanded="true" />
+        <AssociationConnector Association="SilListModel1.FK_ListingCategories_ListingCategoryType" ManuallyRouted="false" />
+        <AssociationConnector Association="SilListModel1.FK_Listing_ListingType" ManuallyRouted="false" />
+        <AssociationConnector Association="SilListModel1.FK_ListingCategories_Listing" ManuallyRouted="false" />
+        <AssociationConnector Association="SilListModel1.FK_ListingImages_Listing" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

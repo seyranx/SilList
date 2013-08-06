@@ -1,0 +1,56 @@
+﻿@model SO.SilList.Manager.Models.ValueObjects.ListingVo
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>ListingsVo</legend>
+
+         
+
+   
+        <div class="editor-label">
+            @Html.LabelFor(model => model.title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.title)
+            @Html.ValidationMessageFor(model => model.title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.isActive)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.isActive)
+            @Html.ValidationMessageFor(model => model.isActive)
+        </div>
+        <br />
+             <div class="editor-label">
+            @Html.LabelFor(model => model.siteId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.siteId)
+            @Html.ValidationMessageFor(model => model.siteId)
+        </div>
+
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+      <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
+
+</div>
+

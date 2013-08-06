@@ -67,11 +67,17 @@ namespace SO.SilList.Manager.Models.ValueObjects
         //  [Association("Business_BusinessCategories", "businessId", "businessId", IsForeignKey = true)]
        // public List<BusinessCategories> businessCategories { get; set; }
 
-        [ForeignKey("siteId")]
-        public virtual SiteVo site { get; set; }
+        //[ForeignKey("siteId")]
+        //public virtual SiteVo site { get; set; }
 
         //[ForeignKey("listingDetailId")]
         //public virtual ListingDetailVo listingdetail { get; set; }
+        
+        //[Association("Business_BusinessRatings", "businessId", "businessId", IsForeignKey = true)]
+        //public List<BusinessRatingsVo> businessRatings { get; set; }
+
+        ///[Association("Business_BusinessCategories", "businessId", "businessId", IsForeignKey = true)]
+        ///public List<BusinessCategoriesVo> businessCategories { get; set; }
 
         public BusinessVo()
         {

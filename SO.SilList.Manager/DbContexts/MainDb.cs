@@ -50,6 +50,12 @@ namespace SO.SilList.Manager.DbContexts
         public DbSet<ImageVo> images { get; set; }
         public DbSet<ListingDetailVo> listingDetails { get; set; }
 
+        public DbSet<ListingVo> listing { get; set; }
+        public DbSet<ListingImagesVo> listingImages { get; set; }
+        public DbSet<ListingTypeVo> listingType { get; set; }
+        public DbSet<ListingCategoriesVo> listingCategories { get; set; }
+        public DbSet<ListingCategoryTypeVo> listingCategoryType { get; set; }
+
         public DbSet<ServiceTypeVo> serviceTypes { get; set; }
         public DbSet<BusinessServicesVo> businessServices { get; set; }
         public DbSet<BusinessImagesVo> businessImages { get; set; }

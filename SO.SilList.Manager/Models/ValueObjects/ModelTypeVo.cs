@@ -49,11 +49,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
 
-        [Association("ModelType_Car", "modelTypeId", "modelTypeId", IsForeignKey = true)]
-        public List<CarVo> car { get; set; }
+        //[Association("ModelType_Car", "modelTypeId", "modelTypeId", IsForeignKey = true)]
+        //public List<CarVo> car { get; set; }
 
-        [ForeignKey("makeTypeId")]
-        public virtual MakeTypeVo makeType { get; set; }
+        //[ForeignKey("makeTypeId")]
+        //public virtual MakeTypeVo makeType { get; set; }
 
     	public ModelTypeVo(){
     			
