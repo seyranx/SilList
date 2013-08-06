@@ -16,7 +16,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class AdminVo
     {
         [DisplayName("Admin Id")]
-        [Required]
         [Key]
         public int adminId { get; set; }
 
