@@ -27,25 +27,12 @@ namespace SO.SilList.Tests.Managers
         [TestMethod]
         public void insertRecordsTest()
         {
-            int siteId=-1;
-            SiteManager siteManager = new SiteManager();
-            try
+            int? siteId = memberManager.GetFirstAvailableSiteId();
+            if (siteId == null)
             {
-                var siteList = siteManager.getAll();
-                if (siteList.Count == 0)
-                {
-                    Assert.IsTrue(true);
-                    return; // can not insert without real siteId
-                }
-                var site = siteList[0];
-                siteId = site.siteId;
+                Assert.IsTrue(true);
+                return;
             }
-            catch(NotImplementedException)
-            {
-                 Assert.IsTrue(true);
-                 return;
-            }
-
             for (int i = 1; i <= 10; i++)
             {
                 var vo = new MemberVo();

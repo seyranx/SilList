@@ -48,17 +48,17 @@ namespace SO.SilList.Admin.Web.Controllers
         [HttpPost]
         public ActionResult Create(MemberVo input)
         {
-
             if (this.ModelState.IsValid)
             {
                 if(input.siteId == null)
-                    input.siteId = 1; // use this for now
+                    input.siteId = memberManager.GetFirstAvailableSiteId();
+
                 //if ((DateTime)input.modified <= DateTime.MinValue)
                 //    input.modified = input.created;
                 if ((DateTime)input.lastLogin <= DateTime.MinValue)
                     input.lastLogin = DateTime.Now;
-
                 var item = memberManager.insert(input);
+
                 return RedirectToAction("Index");
             }
 

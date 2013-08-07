@@ -107,5 +107,27 @@ namespace SO.SilList.Manager.Managers
                 return db.members.Count();
             }
         }
+
+        // Additional methods
+        public int? GetFirstAvailableSiteId()
+        {
+            int? siteId = null;
+            SiteManager siteManager = new SiteManager();
+            try
+            {
+                var siteList = siteManager.getAll();
+                if (siteList.Count == 0)
+                {
+                    return null; // can not insert without real siteId
+                }
+                var site = siteList[0];
+                siteId = site.siteId;
+            }
+            catch (NotImplementedException)
+            {
+            }
+            return siteId;
+        }
+
     }
 }
