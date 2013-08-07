@@ -19,7 +19,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
     {
 
     	[DisplayName("image Id")]
-    	[Required]
         [Key]
         public System.Guid imageId { get; set; }
     		
