@@ -8,6 +8,6 @@
     [modified] DATETIME NOT NULL DEFAULT getdate(), 
     [createdBy] INT NULL, 
     [modifiedBy] INT NULL, 
-    [isActive] BIT NULL DEFAULT ((1)), 
+    [isActive] BIT NOT NULL DEFAULT ((1)), 
     CONSTRAINT [PK_ListingDetail] PRIMARY KEY ([listingDetailId])
 )
