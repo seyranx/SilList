@@ -68,11 +68,21 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
 
-        //[Association("Image_BusinessImages", "imageId", "imageId", IsForeignKey = true)]
-        //public List<BusinessImagesVo> businessImages { get; set; }
+        [ForeignKey("siteId")]
+        public virtual SiteVo site { get; set; }
 
-        //[Association("Image_CarImages", "imageId", "imageId", IsForeignKey = true)]
-        //public List<CarImagesVo> carImages { get; set; }
+        [Association("Image_BusinessImages", "imageId", "imageId", IsForeignKey = true)]
+        public List<BusinessImagesVo> businessImages { get; set; }
+
+        [Association("Image_CarImages", "imageId", "imageId", IsForeignKey = true)]
+        public List<CarImagesVo> carImages { get; set; }
+
+        [Association("Image_RentalImages", "imageId", "imageId", IsForeignKey = true)]
+        public List<RentalImageVo> rentalImages { get; set; }
+
+        [Association("Image_ListingImages", "imageId", "imageId", IsForeignKey = true)]
+        public List<ListingImagesVo> listingImages { get; set; }
+
 
     	public ImageVo(){
     			
