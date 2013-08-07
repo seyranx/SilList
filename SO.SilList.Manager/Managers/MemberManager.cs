@@ -109,7 +109,7 @@ namespace SO.SilList.Manager.Managers
         }
 
         // Additional methods
-        public static int? GetFirstAvailableSiteId()
+        public Nullable<int> GetFirstAvailableSiteId()
         {
             int? siteId = null;
             SiteManager siteManager = new SiteManager();
