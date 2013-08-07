@@ -95,7 +95,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [Required]
         public bool isActive { get; set; }
 
-        [ForeignKey("siteId")]
+      [ForeignKey("siteId")]
         public virtual SiteVo site { get; set; }
 
     	public MemberVo(){
