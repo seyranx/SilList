@@ -8,6 +8,10 @@
     [modified] DATETIME NOT NULL DEFAULT getdate(), 
     [createdBy] INT NULL, 
     [modifiedBy] INT NULL, 
+<<<<<<< HEAD
+    [isActive] BIT NULL DEFAULT ((1)), 
+=======
     [isActive] BIT NOT NULL DEFAULT ((1)), 
+>>>>>>> SilList_30_Push3
     CONSTRAINT [PK_ListingDetail] PRIMARY KEY ([listingDetailId])
 )
