@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.ImageVo>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+   <a href="@Url.Action("~/Views/Images/Create")" class="btn btn-info">Create New</a> 
 </p>
 <table>
     <tr>
@@ -71,9 +71,9 @@
             @Html.DisplayFor(modelItem => item.isActive)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.imageId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.imageId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.imageId })
+            <a href="@Url.Action("Edit",    new { id=item.imageId })" class="btn">Edit</a>
+            <a href="@Url.Action("Details", new { id=item.imageId })" class="btn">Edit</a>
+            <a href="@Url.Action("Delete",  new { id=item.imageId })" class="btn">Edit</a>
         </td>
     </tr>
 }
