@@ -140,6 +140,11 @@
     <Compile Include="Controllers\BusinessCategoryTypeController.cs" />
     <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\BuySellController.cs" />
+    <Compile Include="Controllers\CarController.cs" />
+    <Compile Include="Controllers\CarBodyTypeController.cs" />
+    <Compile Include="Controllers\TransmissionTypeController.cs" />
+    <Compile Include="Controllers\MakeTypeController.cs" />
+    <Compile Include="Controllers\ModelTypeController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LinkedController.cs" />
@@ -348,6 +353,32 @@
     <Content Include="Views\Business\_Menu.cshtml" />
     <Content Include="Views\BusinessCategoryType\Index.cshtml" />
     <Content Include="Views\BusinessCategoryType\List.cshtml" />
+    <Content Include="Views\Car\Index.cshtml" />
+    <Content Include="Views\Car\_Menu.cshtml" />
+    <Content Include="Views\Car\List.cshtml" />
+    <Content Include="Views\Car\Create.cshtml" />
+    <Content Include="Views\Car\Edit.cshtml" />
+    <Content Include="Views\Car\Details.cshtml" />
+    <Content Include="Views\ModelType\List.cshtml" />
+    <Content Include="Views\ModelType\Index.cshtml" />
+    <Content Include="Views\ModelType\Edit.cshtml" />
+    <Content Include="Views\ModelType\Details.cshtml" />
+    <Content Include="Views\ModelType\Create.cshtml" />
+    <Content Include="Views\MakeType\Index.cshtml" />
+    <Content Include="Views\MakeType\Edit.cshtml" />
+    <Content Include="Views\MakeType\Details.cshtml" />
+    <Content Include="Views\MakeType\Create.cshtml" />
+    <Content Include="Views\MakeType\List.cshtml" />
+    <Content Include="Views\CarBodyType\Index.cshtml" />
+    <Content Include="Views\CarBodyType\Create.cshtml" />
+    <Content Include="Views\CarBodyType\Details.cshtml" />
+    <Content Include="Views\CarBodyType\List.cshtml" />
+    <Content Include="Views\CarBodyType\Edit.cshtml" />
+    <Content Include="Views\TransmissionType\Index.cshtml" />
+    <Content Include="Views\TransmissionType\List.cshtml" />
+    <Content Include="Views\TransmissionType\Details.cshtml" />
+    <Content Include="Views\TransmissionType\Edit.cshtml" />
+    <Content Include="Views\TransmissionType\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

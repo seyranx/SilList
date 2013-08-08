@@ -57,17 +57,13 @@
     <Compile Include="Interfaces\ICarManager.cs" />
     <Compile Include="Interfaces\IBusinessImagesManager.cs" />
     <Compile Include="Interfaces\IBusinessServicesManager.cs" />
-    <Compile Include="Interfaces\IJobCategoriesManager.cs" />
-    <Compile Include="Interfaces\IJobManager.cs" />
     <Compile Include="Interfaces\IListingDetailManager.cs" />
     <Compile Include="Interfaces\IImageManager.cs" />
     <Compile Include="Interfaces\IMemberManager.cs" />
     <Compile Include="Interfaces\IBusinessCategoriesManager.cs" />
     <Compile Include="Interfaces\IBusinessRatingsManager.cs" />
-    <Compile Include="Interfaces\IJobTypeManager.cs" />
     <Compile Include="Interfaces\IPropertyTypeManager.cs" />
     <Compile Include="Interfaces\IRatingManager.cs" />
-    <Compile Include="Interfaces\IJobCompanyManager.cs" />
     <Compile Include="Interfaces\ILeasingTermTypeManager.cs" />
     <Compile Include="Interfaces\IRentalImagesManager.cs" />
     <Compile Include="Interfaces\IServiceTypeManager.cs" />
@@ -76,7 +72,6 @@
     <Compile Include="Interfaces\IRentalManager.cs" />
     <Compile Include="Interfaces\IBusinessManager.cs" />
     <Compile Include="Interfaces\IRentTypeManager.cs" />
-    <Compile Include="Interfaces\IJobCategoryTypeManager.cs" />
     <Compile Include="Managers\BusinessCategoriesManager.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -89,10 +84,6 @@
     <Compile Include="Managers\CarImageManager.cs" />
     <Compile Include="Managers\CarManager.cs" />
     <Compile Include="Managers\ImageManager.cs" />
-    <Compile Include="Managers\JobCategoriesManager.cs" />
-    <Compile Include="Managers\JobCompanyManager.cs" />
-    <Compile Include="Managers\JobManager.cs" />
-    <Compile Include="Managers\JobTypeManager.cs" />
     <Compile Include="Managers\ListingDetailManager.cs" />
     <Compile Include="Managers\MakeTypeManager.cs" />
     <Compile Include="Managers\MemberManager.cs" />
@@ -119,12 +110,7 @@
     <Compile Include="Models\ValueObjects\CarVo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\ValueObjects\JobCategoriesVo.cs" />
-    <Compile Include="Models\ValueObjects\JobCategoryTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\JobCompanyVo.cs" />
     <Compile Include="Models\ValueObjects\ImageVo.cs" />
-    <Compile Include="Models\ValueObjects\JobTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\JobVo.cs" />
     <Compile Include="Models\ValueObjects\LeaseTermTypeVo.cs" />
     <Compile Include="Models\ValueObjects\ListingDetailVo.cs" />
     <Compile Include="Models\ValueObjects\MakeTypeVo.cs" />
