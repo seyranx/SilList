@@ -21,7 +21,7 @@
     [modifiedBy]        INT           NULL,
     [isActive]          BIT           DEFAULT ((1)) NOT NULL,
     CONSTRAINT [PK_Member] PRIMARY KEY CLUSTERED ([memberId] ASC),
-    CONSTRAINT [FK_Member_Site] FOREIGN KEY ([siteId]) REFERENCES [app].[Site] ([siteId])
+    CONSTRAINT [FK_Member_Site1] FOREIGN KEY ([siteId]) REFERENCES [app].[Site] ([siteId])
 );
 
 
