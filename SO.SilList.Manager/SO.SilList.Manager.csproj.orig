@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B224CD00-0EC0-43FC-B90B-F1F05F760ABF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SO.SilList.Manager</RootNamespace>
+    <AssemblyName>SO.SilList.Manager</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.Extended">
+      <HintPath>..\packages\EntityFramework.Extended.5.0.0.73\lib\net45\EntityFramework.Extended.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Connection.cs" />
+    <Compile Include="DbContexts\MainDb.cs" />
+    <Compile Include="Interfaces\ITransmissionTypeManager.cs" />
+    <Compile Include="Interfaces\IMakeTypeManager.cs" />
+    <Compile Include="Interfaces\IModelTypeManager.cs" />
+    <Compile Include="Interfaces\ICarImageManager.cs" />
+    <Compile Include="Interfaces\ICarBodyTypeManager.cs" />
+    <Compile Include="Interfaces\ICarManager.cs" />
+    <Compile Include="Interfaces\IBusinessImagesManager.cs" />
+    <Compile Include="Interfaces\IBusinessServicesManager.cs" />
+<<<<<<< HEAD
+    <Compile Include="Interfaces\IJobCategoriesManager.cs" />
+    <Compile Include="Interfaces\IJobManager.cs" />
+    <Compile Include="Interfaces\IListingCategoriesManager.cs" />
+    <Compile Include="Interfaces\IListingCategoryTypeManager.cs" />
+=======
+>>>>>>> SiList_39
+    <Compile Include="Interfaces\IListingDetailManager.cs" />
+    <Compile Include="Interfaces\IImageManager.cs" />
+    <Compile Include="Interfaces\IListingImagesManager.cs" />
+    <Compile Include="Interfaces\IListingManager.cs" />
+    <Compile Include="Interfaces\IListingTypeManager.cs" />
+    <Compile Include="Interfaces\IMemberManager.cs" />
+    <Compile Include="Interfaces\IBusinessCategoriesManager.cs" />
+    <Compile Include="Interfaces\IBusinessRatingsManager.cs" />
+    <Compile Include="Interfaces\IPropertyTypeManager.cs" />
+    <Compile Include="Interfaces\IRatingManager.cs" />
+    <Compile Include="Interfaces\ILeasingTermTypeManager.cs" />
+    <Compile Include="Interfaces\IRentalImagesManager.cs" />
+    <Compile Include="Interfaces\IServiceTypeManager.cs" />
+    <Compile Include="Interfaces\ISiteManager.cs" />
+    <Compile Include="Interfaces\IBusinessCategoryTypeManager.cs" />
+    <Compile Include="Interfaces\IRentalManager.cs" />
+    <Compile Include="Interfaces\IBusinessManager.cs" />
+    <Compile Include="Interfaces\IRentTypeManager.cs" />
+    <Compile Include="Managers\BusinessCategoriesManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\BusinessCategoryTypeManager.cs" />
+    <Compile Include="Managers\BusinessImageManager.cs" />
+    <Compile Include="Managers\BusinessManager.cs" />
+    <Compile Include="Managers\BusinessRatingsManager.cs" />
+    <Compile Include="Managers\BusinessServicesManager.cs" />
+    <Compile Include="Managers\CarBodyTypeManager.cs" />
+    <Compile Include="Managers\CarImageManager.cs" />
+    <Compile Include="Managers\CarManager.cs" />
+    <Compile Include="Managers\ImageManager.cs" />
+<<<<<<< HEAD
+    <Compile Include="Managers\JobCategoriesManager.cs" />
+    <Compile Include="Managers\JobCompanyManager.cs" />
+    <Compile Include="Managers\JobManager.cs" />
+    <Compile Include="Managers\JobTypeManager.cs" />
+    <Compile Include="Managers\ListingCategoriesManager.cs" />
+    <Compile Include="Managers\ListingCategoryTypeManager.cs" />
+=======
+>>>>>>> SiList_39
+    <Compile Include="Managers\ListingDetailManager.cs" />
+    <Compile Include="Managers\ListingImagesManager.cs" />
+    <Compile Include="Managers\ListingManager.cs" />
+    <Compile Include="Managers\ListingTypeManager.cs" />
+    <Compile Include="Managers\MakeTypeManager.cs" />
+    <Compile Include="Managers\MemberManager.cs" />
+    <Compile Include="Managers\ModelTypeManager.cs" />
+    <Compile Include="Managers\PropertyTypeManager.cs" />
+    <Compile Include="Managers\RatingManager.cs" />
+    <Compile Include="Managers\RentalImagesManager.cs" />
+    <Compile Include="Managers\RentTypeManager.cs" />
+    <Compile Include="Managers\LeaseTermTypeManager.cs" />
+    <Compile Include="Managers\ServiceTypeManager.cs" />
+    <Compile Include="Managers\SiteManager.cs" />
+    <Compile Include="Managers\RentalManager.cs" />
+    <Compile Include="Managers\TransmissionTypeManager.cs" />
+    <Compile Include="Models\ValueObjects\BusinessCategoryTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\BusinessCategoriesVo.cs" />
+    <Compile Include="Models\ValueObjects\BusinessImagesVo.cs" />
+    <Compile Include="Models\ValueObjects\BusinessRatingsVo.cs" />
+    <Compile Include="Models\ValueObjects\BusinessServicesVo.cs" />
+    <Compile Include="Models\ValueObjects\BusinessVo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\ValueObjects\CarBodyTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\CarImagesVo.cs" />
+    <Compile Include="Models\ValueObjects\CarVo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\ValueObjects\ImageVo.cs" />
+    <Compile Include="Models\ValueObjects\LeaseTermTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\ListingCategoriesVo.cs" />
+    <Compile Include="Models\ValueObjects\ListingCategoryTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\ListingDetailVo.cs" />
+    <Compile Include="Models\ValueObjects\ListingImagesVo.cs" />
+    <Compile Include="Models\ValueObjects\ListingTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\ListingVo.cs" />
+    <Compile Include="Models\ValueObjects\MakeTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\MemberVo.cs" />
+    <Compile Include="Models\ValueObjects\ModelTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\RatingVo.cs" />
+    <Compile Include="Models\ValueObjects\RentalImageVo.cs" />
+    <Compile Include="Models\ValueObjects\RentalVo.cs" />
+    <Compile Include="Models\ValueObjects\PropertyTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\RentTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\ServiceTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\SiteVo.cs" />
+    <Compile Include="Models\ValueObjects\TransmissionTypeVo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SO.SilList.Utility\SO.SilList.Utility.csproj">
+      <Project>{6fe90691-f7da-42a0-b3a9-3b822cf0e713}</Project>
+      <Name>SO.SilList.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
