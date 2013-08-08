@@ -21,7 +21,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.members
-                            //.Include(s => s.site)
+                            .Include(s => s.site)
                             .FirstOrDefault(p => p.memberId == memberId);
 
                 return res;
@@ -36,7 +36,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.members
-                            //.Include(s => s.site)
+                            .Include(s => s.site)
                             .FirstOrDefault();
 
                 return res;
@@ -48,7 +48,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var list = db.members
-                             //.Include(s => s.site)
+                             .Include(s => s.site)
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
 
@@ -107,5 +107,27 @@ namespace SO.SilList.Manager.Managers
                 return db.members.Count();
             }
         }
+
+        // Additional methods
+        public int? GetFirstAvailableSiteId()
+        {
+            int? siteId = null;
+            SiteManager siteManager = new SiteManager();
+            try
+            {
+                var siteList = siteManager.getAll();
+                if (siteList.Count == 0)
+                {
+                    return null; // can not insert without real siteId
+                }
+                var site = siteList[0];
+                siteId = site.siteId;
+            }
+            catch (NotImplementedException)
+            {
+            }
+            return siteId;
+        }
+
     }
 }

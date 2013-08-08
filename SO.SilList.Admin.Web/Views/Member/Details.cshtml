@@ -1,0 +1,142 @@
+﻿@model SO.SilList.Manager.Models.ValueObjects.MemberVo
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>MemberVo</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.siteId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.siteId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.firstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.firstName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.lastName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.lastName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.address)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.address)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.city)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.city)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.state)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.state)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.zip)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.zip)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.username)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.username)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.password)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.password)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.phone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.phone)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.isEmailConfirmed)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.isEmailConfirmed)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ipAddress)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ipAddress)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.lastLogin)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.lastLogin)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.isEmailSubscribed)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.isEmailSubscribed)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.created)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.created)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.modified)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.modified)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.isActive)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.isActive)
+    </div>
+</fieldset>
+<p>
+     <a href="@Url.Action("Edit", new { id=Model.memberId })" class="btn">Edit</a>
+     <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
+</p>

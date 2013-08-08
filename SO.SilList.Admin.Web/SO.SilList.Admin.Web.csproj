@@ -145,6 +145,7 @@
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LinkedController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\RentalsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -348,6 +349,8 @@
     <Content Include="Views\Business\Create.cshtml" />
     <Content Include="Views\Business\Details.cshtml" />
     <Content Include="Views\Business\_Menu.cshtml" />
+    <Content Include="Views\Member\Index.cshtml" />
+    <Content Include="Views\Member\_List.cshtml" />
     <Content Include="Views\BusinessCategoryType\Index.cshtml" />
     <Content Include="Views\BusinessCategoryType\List.cshtml" />
     <Content Include="Views\Listing\Index.cshtml" />
@@ -355,6 +358,11 @@
     <Content Include="Views\Listing\Create.cshtml" />
     <Content Include="Views\Listing\List.cshtml" />
     <Content Include="Views\Listing\Edit.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Member\_Menu.cshtml" />
+    <Content Include="Views\Member\Create.cshtml" />
+    <Content Include="Views\Member\Details.cshtml" />
+    <Content Include="Views\Member\Edit.cshtml" />
     <Content Include="Views\Listing\Details.cshtml" />
     <Content Include="Views\ListingCategoryType\Index.cshtml" />
     <Content Include="Views\ListingCategoryType\List.cshtml" />
