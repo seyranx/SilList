@@ -59,21 +59,60 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public List<ImageVo> getBusinessImagesLINQ1(bool? isActive = true)
+        public List<ImageVo> getBusinessImages(bool? isActive = true)
         {
             using (var db = new MainDb())
             {
-                var list = db.images
-                    .Include(s => s.site)
-                    .Join(db.businessImages, e => e.imageId, b => b.imageId, a => a.name)
-                             .Where(e => isActive == null || e.isActive == isActive)
-                             .ToList();
+                var list = (from i in db.images
+                            join b in db.businessImages on i.imageId equals b.imageId
+                            select i
+                            ).ToList();
 
                 return list;
             }
         }
 
-        //public List<ImageVo> getBusinessImagesLINQ2(bool? isActive = true)
+        //Seyran Note: RentalImages misses the imageId field
+        //public List<ImageVo> getRentalImages(bool? isActive = true)
+        //{
+        //    using (var db = new MainDb())
+        //    {
+        //        var list = (from i in db.images
+        //                    join r in db.rentalImages on i.imageId equals r.image
+        //                    select i
+        //                    ).ToList();
+
+        //        return list;
+        //    }
+        //}
+
+        public List<ImageVo> geCarImages(bool? isActive = true)
+        {
+            using (var db = new MainDb())
+            {
+                var list = (from i in db.images
+                            join c in db.carImages on i.imageId equals c.imageId
+                            select i
+                            ).ToList();
+
+                return list;
+            }
+        }
+
+        public List<ImageVo> getListingImages(bool? isActive = true)
+        {
+            using (var db = new MainDb())
+            {
+                var list = (from i in db.images
+                            join m in db.listingImages on i.imageId equals m.imageId
+                            select i
+                            ).ToList();
+
+                return list;
+            }
+        }
+
+        //public List<ImageVo> getBusinessImages(bool? isActive = true)
         //{
         //    using (var db = new MainDb())
         //    {
@@ -88,23 +127,25 @@ namespace SO.SilList.Manager.Managers
         //    }
         //}
 
-        /*
-        1.CannotUnloadAppDomainException Don't know how to get Connection, second param of Sqlcommand
-        2.CannotUnloadAppDomainException What is the User name supposed to be ? Admin ??
-        3.CannotUnloadAppDomainException reader has only ToString, no ToList
-        public List<ImageVo> getBusinessImagesSQL()
+        public List<ImageVo> getBusinessImagesUsingSQL()
         {
-            string user = "Admin";
-            string strSQL = string.Format("SELECT * FROM [SilList].[data].[Image] as c INNER JOIN [SilList].[data].[BusinessImages] as b ON  c.imageId = b.imageId", user);
-            using (SqlCommand myCommand = new SqlCommand(strSQL, db))
+            using (var db = new MainDb())
             {
-                
-                var reader = myCommand.ExecuteReader();
-                var list = reader.ToList();
-                return reader;
+                //string user = "Admin";
+                string strSQL = string.Format("SELECT * FROM db.images as c INNER JOIN db.businessImages as b ON  c.imageId = b.imageId");
+                SqlConnection cnn = new SqlConnection();
+                using (SqlCommand myCommand = new SqlCommand(strSQL, cnn))
+                {
+                    var list = new List<ImageVo>();
+                    var reader = myCommand.ExecuteReader();
+                    foreach(ImageVo ivo in  reader)
+                    {
+                        list.Add(ivo);
+                    }
+                    return list;
+                }
             }
         }
-        */
 
         public bool delete(Guid imageId)
         {
