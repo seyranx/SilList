@@ -73,6 +73,7 @@ namespace SO.SilList.Manager.Managers
         }
 
         //Seyran Note: RentalImages misses the imageId field
+        //
         //public List<ImageVo> getRentalImages(bool? isActive = true)
         //{
         //    using (var db = new MainDb())
@@ -86,7 +87,7 @@ namespace SO.SilList.Manager.Managers
         //    }
         //}
 
-        public List<ImageVo> geCarImages(bool? isActive = true)
+        public List<ImageVo> getCarImages(bool? isActive = true)
         {
             using (var db = new MainDb())
             {
@@ -127,25 +128,25 @@ namespace SO.SilList.Manager.Managers
         //    }
         //}
 
-        public List<ImageVo> getBusinessImagesUsingSQL()
-        {
-            using (var db = new MainDb())
-            {
-                //string user = "Admin";
-                string strSQL = string.Format("SELECT * FROM db.images as c INNER JOIN db.businessImages as b ON  c.imageId = b.imageId");
-                SqlConnection cnn = new SqlConnection();
-                using (SqlCommand myCommand = new SqlCommand(strSQL, cnn))
-                {
-                    var list = new List<ImageVo>();
-                    var reader = myCommand.ExecuteReader();
-                    foreach(ImageVo ivo in  reader)
-                    {
-                        list.Add(ivo);
-                    }
-                    return list;
-                }
-            }
-        }
+        //public List<ImageVo> getBusinessImagesUsingSQL()
+        //{
+        //    using (var db = new MainDb())
+        //    {
+        //        //string user = "Admin";
+        //        string strSQL = string.Format("SELECT * FROM db.images as c INNER JOIN db.businessImages as b ON  c.imageId = b.imageId");
+        //        SqlConnection cnn = new SqlConnection();
+        //        using (SqlCommand myCommand = new SqlCommand(strSQL, cnn))
+        //        {
+        //            var list = new List<ImageVo>();
+        //            var reader = myCommand. myCommand.ExecuteReader();
+        //            foreach(ImageVo ivo in  reader)
+        //            {
+        //                list.Add(ivo);
+        //            }
+        //            return list;
+        //        }
+        //    }
+        //}
 
         public bool delete(Guid imageId)
         {

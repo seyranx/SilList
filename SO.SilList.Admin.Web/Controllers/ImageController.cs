@@ -17,17 +17,41 @@ namespace SO.SilList.Admin.Web.Controllers
             return View();
         }
 
-
-        public ActionResult List()
+        public ActionResult _List()
         {
             var results = imageManager.getAll(null);
             return PartialView(results);
         }
+        
+        public ActionResult BusinessImages()
+        {
+            var results = imageManager.getBusinessImages();
+            return PartialView("Index", results);
+        }
+
+        public ActionResult CarImages()
+        {
+            var results = imageManager.getCarImages();
+            return PartialView("_List", results);
+        }
+
+        public ActionResult ListingImages()
+        {
+            var results = imageManager.getListingImages();
+            return PartialView(results);
+        }
+
+        // RentalImages misses imageId field
+        //public ActionResult RentalImages()
+        //{
+        //    //var results = imageManager.getAll(null);
+        //    var results = imageManager.getRentalImages();
+        //    return PartialView(results);
+        //}
 
         [HttpPost]
         public ActionResult Edit(Guid id, ImageVo input)
         {
-
             if (this.ModelState.IsValid)
             {
                 var res = imageManager.update(input, id);
@@ -46,17 +70,13 @@ namespace SO.SilList.Admin.Web.Controllers
         [HttpPost]
         public ActionResult Create(ImageVo input)
         {
-
             if (this.ModelState.IsValid)
             {
-
                 var item = imageManager.insert(input);
                 return RedirectToAction("Index");
             }
 
-
             return View();
-
         }
 
         public ActionResult Create()

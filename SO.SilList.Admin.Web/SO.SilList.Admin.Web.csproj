@@ -367,11 +367,16 @@
     <Content Include="Views\Listing\Details.cshtml" />
     <Content Include="Views\ListingCategoryType\Index.cshtml" />
     <Content Include="Views\ListingCategoryType\List.cshtml" />
-    <Content Include="Views\Images\_List.cshtml" />
-    <Content Include="Views\Images\Index.cshtml" />
-    <Content Include="Views\Images\Create.cshtml" />
-    <Content Include="Views\Images\Details.cshtml" />
-    <Content Include="Views\Images\Edit.cshtml" />
+    <Content Include="Views\Image\_List.cshtml" />
+    <Content Include="Views\Image\Index.cshtml" />
+    <Content Include="Views\Image\Create.cshtml" />
+    <Content Include="Views\Image\Details.cshtml" />
+    <Content Include="Views\Image\Edit.cshtml" />
+    <Content Include="Views\Image\BusinessImages.cshtml" />
+    <Content Include="Views\Image\_Menu.cshtml" />
+    <None Include="Views\Image\CarImages.cshtml" />
+    <Content Include="Views\Image\ListingImages.cshtml" />
+    <Content Include="Views\Image\RentalImages.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
