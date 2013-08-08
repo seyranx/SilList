@@ -108,6 +108,7 @@
     <Compile Include="Managers\CarImageManagerTest.cs" />
     <Compile Include="Managers\CarManagerTest.cs" />
     <Compile Include="Managers\JobCategoriesManagerTest.cs" />
+    <Compile Include="Managers\JobCategoryTypeManagerTest.cs" />
     <Compile Include="Managers\JobCompanyManagerTest.cs" />
     <Compile Include="Managers\JobManagerTest.cs" />
     <Compile Include="Managers\JobTypeManagerTest.cs" />

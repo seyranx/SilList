@@ -41,7 +41,7 @@ namespace SO.SilList.Tests.Managers
 
             var result3 = jobCategoriesManager.get(result.jobCategoriesId);
 
-            if (result != null && result2 != null && result3 == null )
+            if (result != null && result2 != null && result3 == null && result2.jobCategoriesId != Guid.Empty)
             {
                 Assert.IsTrue(true);
             }
