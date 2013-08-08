@@ -8,6 +8,7 @@ using EntityFramework.Extensions;
 using SO.SilList.Manager.Interfaces;
 using SO.SilList.Manager.DbContexts;
 using SO.SilList.Manager.Models.ValueObjects;
+using System.Data.SqlClient;
 
 
 namespace SO.SilList.Manager.Managers
@@ -58,18 +59,52 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public List<ImageVo> getBusinessImages(bool? isActive = true)
+        public List<ImageVo> getBusinessImagesLINQ1(bool? isActive = true)
         {
             using (var db = new MainDb())
             {
                 var list = db.images
-                    //.Include(s => s.site)
+                    .Include(s => s.site)
+                    .Join(db.businessImages, e => e.imageId, b => b.imageId, a => a.name)
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
 
                 return list;
             }
         }
+
+        //public List<ImageVo> getBusinessImagesLINQ2(bool? isActive = true)
+        //{
+        //    using (var db = new MainDb())
+        //    {
+        //        var list = from db.images
+        //                     select all from  data.image
+        //                         //[data].[image] as c inner join [sillist].[data].[businessimages] as b on  c.imageid = b.imageid
+
+        //                     .Where(e => isActive == null || e.isActive == isActive)
+        //                     .ToList();
+
+        //        return list;
+        //    }
+        //}
+
+        /*
+        1.CannotUnloadAppDomainException Don't know how to get Connection, second param of Sqlcommand
+        2.CannotUnloadAppDomainException What is the User name supposed to be ? Admin ??
+        3.CannotUnloadAppDomainException reader has only ToString, no ToList
+        public List<ImageVo> getBusinessImagesSQL()
+        {
+            string user = "Admin";
+            string strSQL = string.Format("SELECT * FROM [SilList].[data].[Image] as c INNER JOIN [SilList].[data].[BusinessImages] as b ON  c.imageId = b.imageId", user);
+            using (SqlCommand myCommand = new SqlCommand(strSQL, db))
+            {
+                
+                var reader = myCommand.ExecuteReader();
+                var list = reader.ToList();
+                return reader;
+            }
+        }
+        */
 
         public bool delete(Guid imageId)
         {
