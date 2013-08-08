@@ -111,6 +111,8 @@
     <Compile Include="Managers\RentalManagerTest.cs" />
     <Compile Include="Managers\RentTypeManagerTest.cs" />
     <Compile Include="Managers\ServiceTypeManagerTest.cs" />
+    <Compile Include="Managers\EnvironmentTypeManagerTest.cs" />
+    <Compile Include="Managers\SettingTypeManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>

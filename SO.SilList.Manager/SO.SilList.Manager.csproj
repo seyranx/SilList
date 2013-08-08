@@ -51,6 +51,7 @@
     <Compile Include="DbContexts\MainDb.cs" />
     <Compile Include="Interfaces\IBusinessImagesManager.cs" />
     <Compile Include="Interfaces\IBusinessServicesManager.cs" />
+    <Compile Include="Interfaces\IEnvironmentTypeManager.cs" />
     <Compile Include="Interfaces\IJobCategoriesManager.cs" />
     <Compile Include="Interfaces\IJobManager.cs" />
     <Compile Include="Interfaces\IListingDetailManager.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Interfaces\ILeasingTermTypeManager.cs" />
     <Compile Include="Interfaces\IRentalImagesManager.cs" />
     <Compile Include="Interfaces\IServiceTypeManager.cs" />
+    <Compile Include="Interfaces\ISettingTypeManager.cs" />
     <Compile Include="Interfaces\ISiteManager.cs" />
     <Compile Include="Interfaces\IBusinessCategoryTypeManager.cs" />
     <Compile Include="Interfaces\IRentalManager.cs" />
@@ -78,6 +80,7 @@
     <Compile Include="Managers\BusinessManager.cs" />
     <Compile Include="Managers\BusinessRatingsManager.cs" />
     <Compile Include="Managers\BusinessServicesManager.cs" />
+    <Compile Include="Managers\EnvironmentTypeManager.cs" />
     <Compile Include="Managers\ImageManager.cs" />
     <Compile Include="Managers\JobCompanyManager.cs" />
     <Compile Include="Managers\JobManager.cs" />
@@ -90,6 +93,7 @@
     <Compile Include="Managers\RentTypeManager.cs" />
     <Compile Include="Managers\LeaseTermTypeManager.cs" />
     <Compile Include="Managers\ServiceTypeManager.cs" />
+    <Compile Include="Managers\SettingTypeManager.cs" />
     <Compile Include="Managers\SiteManager.cs" />
     <Compile Include="Managers\RentalManager.cs" />
     <Compile Include="Models\ValueObjects\BusinessCategoryTypeVo.cs" />
@@ -100,6 +104,7 @@
     <Compile Include="Models\ValueObjects\BusinessVo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\ValueObjects\EnvironmentTypeVo.cs" />
     <Compile Include="Models\ValueObjects\JobCategoriesVo.cs" />
     <Compile Include="Models\ValueObjects\JobCategoryTypeVo.cs" />
     <Compile Include="Models\ValueObjects\JobCompanyVo.cs" />
@@ -115,6 +120,7 @@
     <Compile Include="Models\ValueObjects\PropertyTypeVo.cs" />
     <Compile Include="Models\ValueObjects\RentTypeVo.cs" />
     <Compile Include="Models\ValueObjects\ServiceTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\SettingTypeVo.cs" />
     <Compile Include="Models\ValueObjects\SiteVo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

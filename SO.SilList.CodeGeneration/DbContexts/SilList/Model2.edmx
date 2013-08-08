@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SilListModel1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="SilListModel1StoreContainer">
+          <EntitySet Name="EnvironmentType" EntityType="SilListModel1.Store.EnvironmentType" store:Type="Tables" Schema="app" />
+          <EntitySet Name="SettingType" EntityType="SilListModel1.Store.SettingType" store:Type="Tables" Schema="app" />
+          <AssociationSet Name="FK_SettingType_EnvironmentType" Association="SilListModel1.Store.FK_SettingType_EnvironmentType">
+            <End Role="EnvironmentType" EntitySet="EnvironmentType" />
+            <End Role="SettingType" EntitySet="SettingType" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="EnvironmentType">
+          <Key>
+            <PropertyRef Name="EnvironmentTypeId" />
+          </Key>
+          <Property Name="EnvironmentTypeId" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="url" Type="varbinary" MaxLength="50" />
+          <Property Name="description" Type="varchar" MaxLength="50" />
+          <Property Name="createdBy" Type="int" />
+          <Property Name="modifiedBy" Type="int" />
+          <Property Name="modified" Type="datetime" Nullable="false" />
+          <Property Name="created" Type="datetime" Nullable="false" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SettingType">
+          <Key>
+            <PropertyRef Name="settingTypeId" />
+          </Key>
+          <Property Name="settingTypeId" Type="int" Nullable="false" />
+          <Property Name="siteId" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="value" Type="varchar" MaxLength="50" />
+          <Property Name="description" Type="varchar(max)" />
+          <Property Name="environmentTypeId" Type="int" />
+          <Property Name="createdBy" Type="int" />
+          <Property Name="modifiedBy" Type="int" />
+          <Property Name="modified" Type="datetime" Nullable="false" />
+          <Property Name="created" Type="datetime" Nullable="false" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_SettingType_EnvironmentType">
+          <End Role="EnvironmentType" Type="SilListModel1.Store.EnvironmentType" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SettingType" Type="SilListModel1.Store.SettingType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EnvironmentType">
+              <PropertyRef Name="EnvironmentTypeId" />
+            </Principal>
+            <Dependent Role="SettingType">
+              <PropertyRef Name="environmentTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SilListModel1" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SilListEntities9" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="EnvironmentTypes" EntityType="SilListModel1.EnvironmentType" />
+          <EntitySet Name="SettingTypes" EntityType="SilListModel1.SettingType" />
+          <AssociationSet Name="FK_SettingType_EnvironmentType" Association="SilListModel1.FK_SettingType_EnvironmentType">
+            <End Role="EnvironmentType" EntitySet="EnvironmentTypes" />
+            <End Role="SettingType" EntitySet="SettingTypes" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="EnvironmentType">
+          <Key>
+            <PropertyRef Name="EnvironmentTypeId" />
+          </Key>
+          <Property Name="EnvironmentTypeId" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="url" Type="Binary" MaxLength="50" FixedLength="false" />
+          <Property Name="description" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="createdBy" Type="Int32" />
+          <Property Name="modifiedBy" Type="Int32" />
+          <Property Name="modified" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="SettingTypes" Relationship="SilListModel1.FK_SettingType_EnvironmentType" FromRole="EnvironmentType" ToRole="SettingType" />
+        </EntityType>
+        <EntityType Name="SettingType">
+          <Key>
+            <PropertyRef Name="settingTypeId" />
+          </Key>
+          <Property Name="settingTypeId" Type="Int32" Nullable="false" />
+          <Property Name="siteId" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="value" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="description" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="environmentTypeId" Type="Int32" />
+          <Property Name="createdBy" Type="Int32" />
+          <Property Name="modifiedBy" Type="Int32" />
+          <Property Name="modified" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="EnvironmentType" Relationship="SilListModel1.FK_SettingType_EnvironmentType" FromRole="SettingType" ToRole="EnvironmentType" />
+        </EntityType>
+        <Association Name="FK_SettingType_EnvironmentType">
+          <End Role="EnvironmentType" Type="SilListModel1.EnvironmentType" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SettingType" Type="SilListModel1.SettingType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EnvironmentType">
+              <PropertyRef Name="EnvironmentTypeId" />
+            </Principal>
+            <Dependent Role="SettingType">
+              <PropertyRef Name="environmentTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SilListModel1StoreContainer" CdmEntityContainer="SilListEntities9">
+          <EntitySetMapping Name="EnvironmentTypes">
+            <EntityTypeMapping TypeName="SilListModel1.EnvironmentType">
+              <MappingFragment StoreEntitySet="EnvironmentType">
+                <ScalarProperty Name="EnvironmentTypeId" ColumnName="EnvironmentTypeId" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="modified" ColumnName="modified" />
+                <ScalarProperty Name="created" ColumnName="created" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SettingTypes">
+            <EntityTypeMapping TypeName="SilListModel1.SettingType">
+              <MappingFragment StoreEntitySet="SettingType">
+                <ScalarProperty Name="settingTypeId" ColumnName="settingTypeId" />
+                <ScalarProperty Name="siteId" ColumnName="siteId" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="environmentTypeId" ColumnName="environmentTypeId" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="modifiedBy" ColumnName="modifiedBy" />
+                <ScalarProperty Name="modified" ColumnName="modified" />
+                <ScalarProperty Name="created" ColumnName="created" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

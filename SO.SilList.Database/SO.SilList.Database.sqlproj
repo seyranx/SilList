@@ -180,6 +180,10 @@
     <Build Include="data\Tables\ListingType.sql" />
     <Build Include="data\Tables\ListingCategories.sql" />
     <Build Include="data\Tables\ListingCategoryType.sql" />
+    <Build Include="app\Tables\SettingType.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="app\Tables\EnvironmentType.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />
