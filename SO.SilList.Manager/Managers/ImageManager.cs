@@ -58,7 +58,7 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public List<ImageVo> getAll(bool? isActive = true)
+        public List<ImageVo> getBusinessImages(bool? isActive = true)
         {
             using (var db = new MainDb())
             {
