@@ -1,0 +1,100 @@
+﻿@model SO.SilList.Manager.Models.ValueObjects.CarVo
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>CarVo</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.modelTypeId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.modelTypeId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.year)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.year)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.millage)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.millage)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.carBodyTypeId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.carBodyTypeId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.siteId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.siteId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.listingDetailId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.listingDetailId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.transmissionTypeId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.transmissionTypeId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.created)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.created)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.modified)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.modified)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.createdBy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.createdBy)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.modifiedBy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.modifiedBy)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.isActive)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.isActive)
+    </div>
+</fieldset>
+<p>
+       <a href="@Url.Action("Edit", new { id=Model.carId })" class="btn">Edit</a>
+      <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
+</p>
