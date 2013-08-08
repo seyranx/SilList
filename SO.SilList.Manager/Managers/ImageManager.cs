@@ -58,6 +58,19 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
+        public List<ImageVo> getAll(bool? isActive = true)
+        {
+            using (var db = new MainDb())
+            {
+                var list = db.images
+                    //.Include(s => s.site)
+                             .Where(e => isActive == null || e.isActive == isActive)
+                             .ToList();
+
+                return list;
+            }
+        }
+
         public bool delete(Guid imageId)
         {
             using (var db = new MainDb())
