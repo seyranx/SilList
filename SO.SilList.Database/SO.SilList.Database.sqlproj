@@ -168,7 +168,7 @@
     <Build Include="app\Tables\JobCategories.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
-    <Build Include="app\Tables\jobCategoryType.sql" />
+    <Build Include="app\Tables\JobCategoryType.sql" />
     <Build Include="data\Tables\JobCompany.sql" />
     <Build Include="Security\NT AUTHORITY_NETWORK SERVICE_2.sql" />
     <Build Include="data\Tables\JobCompany.sql">
