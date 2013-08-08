@@ -140,13 +140,16 @@
     <Compile Include="Controllers\BusinessCategoryTypeController.cs" />
     <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\BuySellController.cs" />
+<<<<<<< HEAD
     <Compile Include="Controllers\ListingCategoryTypeController.cs" />
     <Compile Include="Controllers\ListingController.cs" />
+=======
     <Compile Include="Controllers\CarController.cs" />
     <Compile Include="Controllers\CarBodyTypeController.cs" />
     <Compile Include="Controllers\TransmissionTypeController.cs" />
     <Compile Include="Controllers\MakeTypeController.cs" />
     <Compile Include="Controllers\ModelTypeController.cs" />
+>>>>>>> SiList_39
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LinkedController.cs" />
@@ -358,6 +361,7 @@
     <Content Include="Views\Member\_List.cshtml" />
     <Content Include="Views\BusinessCategoryType\Index.cshtml" />
     <Content Include="Views\BusinessCategoryType\List.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Listing\Index.cshtml" />
     <Content Include="Views\Listing\_Menu.cshtml" />
     <Content Include="Views\Listing\Create.cshtml" />
@@ -371,6 +375,7 @@
     <Content Include="Views\Listing\Details.cshtml" />
     <Content Include="Views\ListingCategoryType\Index.cshtml" />
     <Content Include="Views\ListingCategoryType\List.cshtml" />
+=======
     <Content Include="Views\Car\Index.cshtml" />
     <Content Include="Views\Car\_Menu.cshtml" />
     <Content Include="Views\Car\List.cshtml" />
@@ -397,6 +402,7 @@
     <Content Include="Views\TransmissionType\Details.cshtml" />
     <Content Include="Views\TransmissionType\Edit.cshtml" />
     <Content Include="Views\TransmissionType\Create.cshtml" />
+>>>>>>> SiList_39
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
