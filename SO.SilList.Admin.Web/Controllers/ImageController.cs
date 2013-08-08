@@ -25,6 +25,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult BusinessImages()
         {
+            ViewBag.Title = "Business Images";
             return View();
         }
 
@@ -35,10 +36,22 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView(results);
         }
 
+        public ActionResult CarImages()
+        {
+            ViewBag.Title = "Car Images";
+            return View();
+        }
+
         public ActionResult _ListCarImages()
         {
             var results = imageManager.getCarImages();
             return PartialView(results);
+        }
+
+        public ActionResult ListingImages()
+        {
+            ViewBag.Title = "Listing Images";
+            return View();
         }
 
         public ActionResult _ListListingImages()
@@ -48,6 +61,12 @@ namespace SO.SilList.Admin.Web.Controllers
         }
 
         //// RentalImages misses imageId field
+        //public ActionResult RentalImages()
+        //{
+        //    ViewBag.Title = "Rental Images";
+        //    return View();
+        //}
+        //
         //public ActionResult _ListRentalImages()
         //{
         //    var results = imageManager.getRentalImages();
@@ -64,8 +83,8 @@ namespace SO.SilList.Admin.Web.Controllers
             }
 
             return View();
-
         }
+
         public ActionResult Edit(Guid id)
         {
             var result = imageManager.get(id);
@@ -95,7 +114,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return View(result);
         }
 
-        public ActionResult Menu()
+        public ActionResult _Menu()
         {
             return PartialView("_Menu");
         }
