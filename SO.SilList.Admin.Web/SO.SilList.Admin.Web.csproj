@@ -367,7 +367,7 @@
     <Content Include="Views\Listing\Details.cshtml" />
     <Content Include="Views\ListingCategoryType\Index.cshtml" />
     <Content Include="Views\ListingCategoryType\List.cshtml" />
-    <Content Include="Views\Image\_List.cshtml" />
+    <Content Include="Views\Image\_ListRentalImages.cshtml" />
     <Content Include="Views\Image\Index.cshtml" />
     <Content Include="Views\Image\Create.cshtml" />
     <Content Include="Views\Image\Details.cshtml" />
@@ -377,6 +377,10 @@
     <None Include="Views\Image\CarImages.cshtml" />
     <Content Include="Views\Image\ListingImages.cshtml" />
     <Content Include="Views\Image\RentalImages.cshtml" />
+    <Content Include="Views\Image\_ListBusinessImages.cshtml" />
+    <Content Include="Views\Image\_ListCarImages.cshtml" />
+    <Content Include="Views\Image\_List.cshtml" />
+    <Content Include="Views\Image\_ListListingImages.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

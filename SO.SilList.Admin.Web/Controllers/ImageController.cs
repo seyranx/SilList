@@ -22,29 +22,34 @@ namespace SO.SilList.Admin.Web.Controllers
             var results = imageManager.getAll(null);
             return PartialView(results);
         }
-        
+
         public ActionResult BusinessImages()
         {
-            var results = imageManager.getBusinessImages();
-            return PartialView("Index", results);
+            return View();
         }
 
-        public ActionResult CarImages()
+        public ActionResult _ListBusinessImages()
+        {
+            var results = imageManager.getBusinessImages();
+            //return PartialView("_ListBusinessImages", results);
+            return PartialView(results);
+        }
+
+        public ActionResult _ListCarImages()
         {
             var results = imageManager.getCarImages();
-            return PartialView("_List", results);
+            return PartialView(results);
         }
 
-        public ActionResult ListingImages()
+        public ActionResult _ListListingImages()
         {
             var results = imageManager.getListingImages();
             return PartialView(results);
         }
 
-        // RentalImages misses imageId field
-        //public ActionResult RentalImages()
+        //// RentalImages misses imageId field
+        //public ActionResult _ListRentalImages()
         //{
-        //    //var results = imageManager.getAll(null);
         //    var results = imageManager.getRentalImages();
         //    return PartialView(results);
         //}
