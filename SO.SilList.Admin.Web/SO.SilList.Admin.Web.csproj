@@ -358,6 +358,7 @@
     <Content Include="Views\Listing\Details.cshtml" />
     <Content Include="Views\ListingCategoryType\Index.cshtml" />
     <Content Include="Views\ListingCategoryType\List.cshtml" />
+    <Content Include="Views\Business\_Filter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

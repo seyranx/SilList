@@ -1,0 +1,16 @@
+﻿@model SO.SilList.Manager.Models.ViewModels.Admin.BusinessSearchVm
+ 
+
+     @Html.ValidationSummary(true)
+     @Html.ValidationMessageFor(model => model.keyword)
+
+     @Html.TextBoxFor(model => model.keyword,new { Class = "input-large", placeholder =  "Search" })
+
+     <label class="checkbox" style="margin-left:10px;">
+       @Html.LabelFor(model => model.isActive) @Html.CheckBoxFor(model => model.isActive)
+     </label>
+
+
+    <button type="submit" class="btn">Search</button>
+     
+

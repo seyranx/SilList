@@ -1,9 +1,22 @@
-﻿@{
+﻿@model SO.SilList.Manager.Models.ViewModels.Admin.BusinessSearchVm
+@{
+    
     ViewBag.Title = "Businesses";
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 }
 
 <h2>@ViewBag.Title</h2>
 
+<form class="form-inline" method="get" action="@Url.Action("Search","Business")">
 
-@Html.Action("List")
+<p>
+   <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
+</p>
+
+@Html.Action("Filter",@Model)
+
+@Html.Action("List", @Model)
+
+
+
+ </form>
