@@ -1,0 +1,146 @@
+﻿@model SO.SilList.Manager.Models.ValueObjects.AdminVo
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Administrator</legend>
+
+        @Html.HiddenFor(model => model.adminId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.firstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.firstName)
+            @Html.ValidationMessageFor(model => model.firstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.lastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.lastName)
+            @Html.ValidationMessageFor(model => model.lastName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.email)
+            @Html.ValidationMessageFor(model => model.email)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.username)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.username)
+            @Html.ValidationMessageFor(model => model.username)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.password)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.password)
+            @Html.ValidationMessageFor(model => model.password)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.phone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.phone)
+            @Html.ValidationMessageFor(model => model.phone)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.isEmailConfirmed)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.isEmailConfirmed)
+            @Html.ValidationMessageFor(model => model.isEmailConfirmed)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.isSuperAdmin)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.isSuperAdmin)
+            @Html.ValidationMessageFor(model => model.isSuperAdmin)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ipAddress)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ipAddress)
+            @Html.ValidationMessageFor(model => model.ipAddress)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.lastLogin)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.lastLogin)
+            @Html.ValidationMessageFor(model => model.lastLogin)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.created)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.created)
+            @Html.ValidationMessageFor(model => model.created)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.modified)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.modified)
+            @Html.ValidationMessageFor(model => model.modified)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.createdBy)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.createdBy)
+            @Html.ValidationMessageFor(model => model.createdBy)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.modifiedBy)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.modifiedBy)
+            @Html.ValidationMessageFor(model => model.modifiedBy)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.isActive)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.isActive)
+            @Html.ValidationMessageFor(model => model.isActive)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

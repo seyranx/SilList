@@ -44,10 +44,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [StringLength(50)]
         public string phone { get; set; }
 
-        [DisplayName("Is Email Confirmed")]
+        [DisplayName("Email Confirmed")]
         public Nullable<bool> isEmailConfirmed { get; set; }
 
-        [DisplayName("Is Super Admin")]
+        [DisplayName("Super Admin")]
         public bool isSuperAdmin { get; set; }
 
         [DisplayName("IP Address")]
@@ -71,8 +71,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [DisplayName("Modified By")]
         public Nullable<int> modifiedBy { get; set; }
 
-        [DisplayName("Is Active")]
-        public Nullable<bool> isActive { get; set; }
+        [DisplayName("Active")]
+        public bool isActive { get; set; }
 
         public AdminVo()
         {

@@ -350,6 +350,9 @@
     <Content Include="Views\Administration\_Menu.cshtml" />
     <Content Include="Views\Administration\List.cshtml" />
     <Content Include="Views\Administration\Create.cshtml" />
+    <Content Include="Views\Administration\Edit.cshtml" />
+    <Content Include="Views\Administration\Details.cshtml" />
+    <Content Include="Views\Administration\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

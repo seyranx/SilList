@@ -47,5 +47,47 @@ namespace SO.SilList.Admin.Web.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Edit(AdminVo input)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var item = adminManager.update(input);
+                return RedirectToAction("Index");
+            }
+
+            return View();
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var adminModel = adminManager.get(id);
+            return View(adminModel);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var adminModel = adminManager.get(id);
+            return View(adminModel);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(AdminVo input, int id)
+        {
+            if (this.ModelState.IsValid)
+            {
+                adminManager.delete(id);
+                return RedirectToAction("Index");
+            }
+
+            return View();
+        }
+
+        public ActionResult Delete(int id)
+        {
+            var adminModel = adminManager.get(id);
+            return View(adminModel);
+        }
     }
 }
