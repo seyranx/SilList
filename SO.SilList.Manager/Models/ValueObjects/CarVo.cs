@@ -37,11 +37,22 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("site Id")]
         public Nullable<int> siteId { get; set; }
     		
-    	[DisplayName("listing Detail Id")]
-        public Nullable<System.Guid> listingDetailId { get; set; }
+    	//[DisplayName("listing Detail Id")]
+        //public Nullable<System.Guid> listingDetailId { get; set; }
     		
     	[DisplayName("transmission Type Id")]
         public Nullable<int> transmissionTypeId { get; set; }
+
+        [DisplayName("start Date")]
+        [Required]
+        public System.DateTime startDate { get; set; }
+
+        [DisplayName("end Date")]
+        [Required]
+        public System.DateTime endDate { get; set; }
+
+        [DisplayName("is Approved")]
+        public bool isApproved { get; set; }
     		
     	[DisplayName("created")]
     	[Required]
@@ -81,8 +92,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	public CarVo(){
     			
     		this.carId = Guid.NewGuid();
-    	
-    	 this.isActive = true;
+            this.isApproved = false;    	
+    	    this.isActive = true;
     	}
     }
 }

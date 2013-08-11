@@ -25,8 +25,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("property Type Id")]
         public Nullable<int> propertyTypeId { get; set; }
     		
-    	[DisplayName("listing Detail Id")]
-        public Nullable<System.Guid> listingDetailId { get; set; }
+    	//[DisplayName("listing Detail Id")]
+        //public Nullable<System.Guid> listingDetailId { get; set; }
     		
     	[DisplayName("site Id")]
         public Nullable<int> siteId { get; set; }
@@ -54,6 +54,17 @@ namespace SO.SilList.Manager.Models.ValueObjects
     		
     	[DisplayName("rent Type Id")]
         public Nullable<int> rentTypeId { get; set; }
+
+        [DisplayName("start Date")]
+        [Required]
+        public System.DateTime startDate { get; set; }
+
+        [DisplayName("end Date")]
+        [Required]
+        public System.DateTime endDate { get; set; }
+
+        [DisplayName("is Approved")]
+        public bool isApproved { get; set; }
     		
     	[DisplayName("modified By")]
         public Nullable<int> modifiedBy { get; set; }
@@ -92,6 +103,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     			
     		this.rentalId = Guid.NewGuid();
     	    this.isActive = true;
+            this.isApproved = false;
     	}
     }
 }
