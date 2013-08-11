@@ -130,6 +130,7 @@
     <Compile Include="Managers\ModelTypeManagerTest.cs" />
     <Compile Include="Managers\MakeTypeManagerTest.cs" />
     <Compile Include="Managers\TransmissionTypeManagerTest.cs" />
+    <Compile Include="Managers\AdminManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
