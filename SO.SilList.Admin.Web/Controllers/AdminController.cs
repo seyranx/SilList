@@ -8,7 +8,7 @@ using SO.SilList.Manager.Models.ValueObjects;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
-    public class AdministrationController : Controller
+    public class AdminController : Controller
     {
         private AdminManager adminManager = new AdminManager();
 
