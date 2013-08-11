@@ -18,42 +18,42 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class ModelTypeVo
     {
     		
-    	[DisplayName("model Type Id")]
+    	[DisplayName("MODEL")]
     	[Key]
         public int modelTypeId { get; set; }
     		
-    	[DisplayName("make Type Id")]
+    	[DisplayName("MAKE")]
         public Nullable<int> makeTypeId { get; set; }
     		
-    	[DisplayName("name")]
+    	[DisplayName("NAME")]
     	[StringLength(50)]
         public string name { get; set; }
     		
-    	[DisplayName("description")]
+    	[DisplayName("DESCRIPTION")]
         public string description { get; set; }
     		
-    	[DisplayName("created")]
+    	[DisplayName("CREATED")]
     	[Required]
         public System.DateTime created { get; set; }
     		
-    	[DisplayName("modified")]
+    	[DisplayName("MODIFIED")]
     	[Required]
         public System.DateTime modified { get; set; }
     		
-    	[DisplayName("created By")]
+    	[DisplayName("CREATED BY")]
         public Nullable<int> createdBy { get; set; }
     		
-    	[DisplayName("modified By")]
+    	[DisplayName("MODIFIED BY")]
         public Nullable<int> modifiedBy { get; set; }
     		
-    	[DisplayName("is Active")]
-        public Nullable<bool> isActive { get; set; }
+    	[DisplayName("ACTIVE")]
+        public bool isActive { get; set; }
 
-        //[Association("ModelType_Car", "modelTypeId", "modelTypeId", IsForeignKey = true)]
-        //public List<CarVo> car { get; set; }
+        [Association("ModelType_Car", "modelTypeId", "modelTypeId", IsForeignKey = true)]
+        public List<CarVo> car { get; set; }
 
-        //[ForeignKey("makeTypeId")]
-        //public virtual MakeTypeVo makeType { get; set; }
+        [ForeignKey("makeTypeId")]
+        public virtual MakeTypeVo makeType { get; set; }
 
     	public ModelTypeVo(){
     			

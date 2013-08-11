@@ -18,39 +18,39 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class CarImagesVo
     {
     		
-    	[DisplayName("car Images Id")]
+    	[DisplayName("CAR IMAGE")]
     	[Key]
         public System.Guid carImagesId { get; set; }
     		
-    	[DisplayName("image Id")]
+    	[DisplayName("IMAGE")]
         public Nullable<System.Guid> imageId { get; set; }
     		
-    	[DisplayName("car Id")]
+    	[DisplayName("CAR")]
         public Nullable<System.Guid> carId { get; set; }
     		
-    	[DisplayName("created")]
+    	[DisplayName("CREATED")]
     	[Required]
         public System.DateTime created { get; set; }
     		
-    	[DisplayName("modified")]
+    	[DisplayName("MODIFIED")]
     	[Required]
         public System.DateTime modified { get; set; }
     		
-    	[DisplayName("created By")]
+    	[DisplayName("CREATED BY")]
         public Nullable<int> createdBy { get; set; }
     		
-    	[DisplayName("modified By")]
+    	[DisplayName("MODIFIED BY")]
         public Nullable<int> modifiedBy { get; set; }
     		
-    	[DisplayName("is Active")]
-        public Nullable<bool> isActive { get; set; }
+    	[DisplayName("ACTIVE")]
+        public bool isActive { get; set; }
 
 
-        //[ForeignKey("carId")]
-        //public virtual CarVo car { get; set; }
+        [ForeignKey("carId")]
+        public virtual CarVo car { get; set; }
 
-        //[ForeignKey("imageId")]
-        //public virtual ImageVo image { get; set; }
+        [ForeignKey("imageId")]
+        public virtual ImageVo image { get; set; }
 
     	public CarImagesVo(){
     			
