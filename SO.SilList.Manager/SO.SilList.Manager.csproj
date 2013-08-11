@@ -62,7 +62,6 @@
     <Compile Include="Interfaces\IJobManager.cs" />
     <Compile Include="Interfaces\IListingCategoriesManager.cs" />
     <Compile Include="Interfaces\IListingCategoryTypeManager.cs" />
-    <Compile Include="Interfaces\IListingDetailManager.cs" />
     <Compile Include="Interfaces\IImageManager.cs" />
     <Compile Include="Interfaces\IListingImagesManager.cs" />
     <Compile Include="Interfaces\IListingManager.cs" />
@@ -103,7 +102,6 @@
     <Compile Include="Managers\JobTypeManager.cs" />
     <Compile Include="Managers\ListingCategoriesManager.cs" />
     <Compile Include="Managers\ListingCategoryTypeManager.cs" />
-    <Compile Include="Managers\ListingDetailManager.cs" />
     <Compile Include="Managers\ListingImagesManager.cs" />
     <Compile Include="Managers\ListingManager.cs" />
     <Compile Include="Managers\ListingTypeManager.cs" />
@@ -142,7 +140,6 @@
     <Compile Include="Models\ValueObjects\LeaseTermTypeVo.cs" />
     <Compile Include="Models\ValueObjects\ListingCategoriesVo.cs" />
     <Compile Include="Models\ValueObjects\ListingCategoryTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\ListingDetailVo.cs" />
     <Compile Include="Models\ValueObjects\ListingImagesVo.cs" />
     <Compile Include="Models\ValueObjects\ListingTypeVo.cs" />
     <Compile Include="Models\ValueObjects\ListingVo.cs" />

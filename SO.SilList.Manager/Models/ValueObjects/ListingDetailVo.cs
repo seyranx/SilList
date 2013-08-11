@@ -57,8 +57,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         //[Association("ListingDetail_Car", "listingDetailId", "listingDetailId", IsForeignKey = true)]
         //public List<CarVo> car { get; set; }
 
-        [Association("ListingDetail_Listing", "listingDetailId", "listingDetailId", IsForeignKey = true)]
-        public List<ListingVo> listingDetails { get; set; }
+        //[Association("ListingDetail_Listing", "listingDetailId", "listingDetailId", IsForeignKey = true)]
+        //public List<ListingVo> listingDetails { get; set; }
 
 
     	public ListingDetailVo(){
