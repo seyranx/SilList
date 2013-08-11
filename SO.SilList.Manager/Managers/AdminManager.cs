@@ -13,7 +13,7 @@ namespace SO.SilList.Manager.Managers
 {
     public class AdminManager : IAdminManager
     {
-        public Models.ValueObjects.AdminVo get(int adminId)
+        public AdminVo get(int adminId)
         {
             using (var db = new MainDb())
             {
@@ -23,7 +23,7 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public List<Models.ValueObjects.AdminVo> getAll(bool? isActive = true)
+        public List<AdminVo> getAll(bool? isActive = true)
         {
             using (var db = new MainDb())
             {
@@ -46,7 +46,7 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public Models.ValueObjects.AdminVo update(Models.ValueObjects.AdminVo input, int? adminId = null)
+        public AdminVo update(AdminVo input, int? adminId = null)
         {
             using (var db = new MainDb())
             {
@@ -70,7 +70,7 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public Models.ValueObjects.AdminVo insert(Models.ValueObjects.AdminVo input)
+        public AdminVo insert(AdminVo input)
         {
             using (var db = new MainDb())
             {
