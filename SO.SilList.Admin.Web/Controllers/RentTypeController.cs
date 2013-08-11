@@ -1,62 +1,57 @@
 ﻿using SO.SilList.Manager.Managers;
+using SO.SilList.Manager.Models.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using SO.SilList.Manager.Models.ValueObjects;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
-    public class ListingController : Controller
+    public class RentTypeController : Controller
     {
-        private ListingManager listingManager = new ListingManager();
+        //
+        // GET: /RentType/
+
+        private RentTypeManager rentalTypeManager = new RentTypeManager();
 
         public ActionResult Index()
         {
             return View();
         }
 
-
         public ActionResult List()
         {
-            var results = listingManager.getAll(null);
+            var results = rentalTypeManager.getAll(null);
             return PartialView(results);
         }
 
         [HttpPost]
-        public ActionResult Edit(Guid id, ListingVo input)
+        public ActionResult Edit(int id, RentTypeVo input)
         {
-
             if (this.ModelState.IsValid)
             {
-                var res = listingManager.update(input, id);
+                var result = rentalTypeManager.update(input, id);
                 return RedirectToAction("Index");
             }
-
             return View();
-
         }
-        public ActionResult Edit(Guid id)
+
+        public ActionResult Edit(int id)
         {
-            var result = listingManager.get(id);
+            var result = rentalTypeManager.get(id);
             return View(result);
         }
 
         [HttpPost]
-        public ActionResult Create(ListingVo input)
+        public ActionResult Creste(RentTypeVo input)
         {
-
             if (this.ModelState.IsValid)
             {
-
-                var item = listingManager.insert(input);
+                var rentalItem = rentalTypeManager.insert(input);
                 return RedirectToAction("Index");
             }
-
-
             return View();
-
         }
 
         public ActionResult Create()
@@ -64,21 +59,21 @@ namespace SO.SilList.Admin.Web.Controllers
             return View();
         }
 
-        public ActionResult Details(Guid id)
+        public ActionResult Details(int id)
         {
-            var result = listingManager.get(id);
+            var result = rentalTypeManager.get(id);
             return View(result);
         }
 
         public ActionResult Menu()
         {
-            return PartialView("../Listing/_Menu");
+            return PartialView("../RentType/_Menu");
         }
 
-        public ActionResult Delete(Guid id)
+        public ActionResult Delete(int id)
         {
-            listingManager.delete(id);
-            return RedirectToAction("Index");
+            rentalTypeManager.delete(id);
+            return RedirectToAction("index");
         }
     }
 }

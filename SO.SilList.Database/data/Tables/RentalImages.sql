@@ -9,7 +9,7 @@
     [isActive]      BIT              CONSTRAINT [DF_RentalImages_isActive] DEFAULT ((1)) NOT NULL,
     CONSTRAINT [PK__RentalIm__336E9B55254858FA] PRIMARY KEY CLUSTERED ([rentalImageId] ASC),
     CONSTRAINT [FK_RentalImages_Image] FOREIGN KEY ([imageId]) REFERENCES [data].[Image] ([imageId]) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT [FK_RentalImages_Rental] FOREIGN KEY ([rentalId]) REFERENCES [data].[Rental] ([rentalId]) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT [FK_RentalImages_Rental] FOREIGN KEY ([rentalId]) REFERENCES [data].[Rentals] ([rentalId]) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 

@@ -12,7 +12,7 @@ namespace SO.SilList.Tests.Managers
      [TestClass]
     public class RentalManagerTest
     {
-        private RentalManager Rental = new RentalManager();
+        private RentalsManager Rental = new RentalsManager();
 
         [TestMethod]
         public void getAllTest()
@@ -32,7 +32,7 @@ namespace SO.SilList.Tests.Managers
         {
             for (int i = 1; i <= 10; i++)
             {
-                var vo = new RentalVo();
+                var vo = new RentalsVo();
                 vo.rent = i*1234;
                 //vo.name = i.ToString() + " Test BusinessCategoryType Name ";
                 var result = Rental.insert(vo);
@@ -48,7 +48,7 @@ namespace SO.SilList.Tests.Managers
         [TestMethod]
         public void insertDeleteTest()
         {
-            var vo = new RentalVo();
+            var vo = new RentalsVo();
             vo.rent = 1500.99;
 
 

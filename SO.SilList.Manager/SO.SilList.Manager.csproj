@@ -78,7 +78,7 @@
     <Compile Include="Interfaces\IServiceTypeManager.cs" />
     <Compile Include="Interfaces\ISiteManager.cs" />
     <Compile Include="Interfaces\IBusinessCategoryTypeManager.cs" />
-    <Compile Include="Interfaces\IRentalManager.cs" />
+    <Compile Include="Interfaces\IRentalsManager.cs" />
     <Compile Include="Interfaces\IBusinessManager.cs" />
     <Compile Include="Interfaces\IRentTypeManager.cs" />
     <Compile Include="Interfaces\IJobCategoryTypeManager.cs" />
@@ -114,7 +114,7 @@
     <Compile Include="Managers\LeaseTermTypeManager.cs" />
     <Compile Include="Managers\ServiceTypeManager.cs" />
     <Compile Include="Managers\SiteManager.cs" />
-    <Compile Include="Managers\RentalManager.cs" />
+    <Compile Include="Managers\RentalsManager.cs" />
     <Compile Include="Managers\TransmissionTypeManager.cs" />
     <Compile Include="Models\ValueObjects\BusinessCategoryTypeVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessCategoriesVo.cs" />
@@ -147,7 +147,7 @@
     <Compile Include="Models\ValueObjects\ModelTypeVo.cs" />
     <Compile Include="Models\ValueObjects\RatingVo.cs" />
     <Compile Include="Models\ValueObjects\RentalImageVo.cs" />
-    <Compile Include="Models\ValueObjects\RentalVo.cs" />
+    <Compile Include="Models\ValueObjects\RentalsVo.cs" />
     <Compile Include="Models\ValueObjects\PropertyTypeVo.cs" />
     <Compile Include="Models\ValueObjects\RentTypeVo.cs" />
     <Compile Include="Models\ValueObjects\ServiceTypeVo.cs" />

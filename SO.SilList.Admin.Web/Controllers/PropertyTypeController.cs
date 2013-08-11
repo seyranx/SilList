@@ -8,12 +8,13 @@ using System.Web.Mvc;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
-    public class RentalsController : Controller
+    public class PropertyTypeController : Controller
     {
         //
-        // GET: /Rentals/
+        // GET: /PropertyType/
 
-        private RentalsManager rentalManager = new RentalsManager();
+
+        private PropertyTypeManager propertyTypeManager = new PropertyTypeManager();
 
         public ActionResult Index()
         {
@@ -22,33 +23,33 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult List()
         {
-            var results = rentalManager.getAll(null);
+            var results = propertyTypeManager.getAll(null);
             return PartialView(results);
         }
 
         [HttpPost]
-        public ActionResult Edit(Guid id, RentalsVo input)
+        public ActionResult Edit(int id, PropertyTypeVo input)
         {
             if (this.ModelState.IsValid)
             {
-                var result = rentalManager.update(input, id);
+                var result = propertyTypeManager.update(input, id);
                     return RedirectToAction("Index");
             }
             return View();
         }
 
-        public ActionResult Edit(Guid id)
+        public ActionResult Edit(int id)
         {
-            var result = rentalManager.get(id);
+            var result = propertyTypeManager.get(id);
                 return View(result);
         }
 
         [HttpPost]
-        public ActionResult Create(RentalsVo input)
+        public ActionResult Creste(PropertyTypeVo input)
         {
             if(this.ModelState.IsValid)
             {
-                var rentalItem = rentalManager.insert(input);
+                var rentalItem = propertyTypeManager.insert(input);
                 return RedirectToAction("Index");
             }
             return View();
@@ -59,20 +60,20 @@ namespace SO.SilList.Admin.Web.Controllers
             return View();
         }
 
-        public ActionResult Details(Guid id)
+        public ActionResult Details(int id)
         {
-            var result = rentalManager.get(id);
+            var result = propertyTypeManager.get(id);
             return View(result);
         }
 
         public ActionResult Menu()
         {
-            return PartialView("../Rentals/_Menu");
+            return PartialView("../PropertyType/_Menu");
         }
 
-        public ActionResult Delete(Guid id)
+        public ActionResult Delete(int id)
         {
-            rentalManager.delete(id);
+            propertyTypeManager.delete(id);
             return RedirectToAction("index");
         }
     }

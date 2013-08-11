@@ -1,0 +1,87 @@
+﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.RentalsVo>
+
+<p>
+    <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
+</p>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.propertyTypeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.listingDetailId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.siteId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bedrooms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bathrooms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.leaseTermTypeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.size)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lotSize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.acceptsSection8)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rentTypeId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.propertyTypeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.listingDetailId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.siteId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bedrooms)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bathrooms)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.leaseTermTypeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.size)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lotSize)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.acceptsSection8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rentTypeId)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit",new { id=item.rentalId  })" class="btn">Edit</a>
+            <a href="@Url.Action("Details",new { id=item.rentalId })" class="btn">Details</a>
+            <a href="@Url.Action("Delete",new { id=item.rentalId })" class="btn">Delete</a>
+        </td>
+    </tr>
+}
+
+</table>
