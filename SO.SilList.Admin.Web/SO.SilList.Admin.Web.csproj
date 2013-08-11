@@ -140,27 +140,30 @@
     <Compile Include="Controllers\BusinessCategoryTypeController.cs" />
     <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\BuySellController.cs" />
+    <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="Controllers\LeaseTermTypeController.cs" />
     <Compile Include="Controllers\ListingCategoryTypeController.cs" />
     <Compile Include="Controllers\ListingController.cs" />
+    <Compile Include="Controllers\CarController.cs" />
+    <Compile Include="Controllers\CarBodyTypeController.cs" />
+    <Compile Include="Controllers\TransmissionTypeController.cs" />
+    <Compile Include="Controllers\MakeTypeController.cs" />
+    <Compile Include="Controllers\ModelTypeController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LinkedController.cs" />
-    <Compile Include="Controllers\PropertyTypeController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\RentalsController.cs" />
     <Compile Include="Controllers\RentTypeController.cs" />
+    <Compile Include="Controllers\ServiceTypeController.cs" />
+    <Compile Include="Controllers\SiteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\SO.SilList.Admin.Web.dll" />
-    <Content Include="bin\SO.SilList.Admin.Web.pdb" />
     <Content Include="Content\bootstrap\css\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap\css\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrap\css\bootstrap.css" />
@@ -356,6 +359,8 @@
     <Content Include="Views\Business\Create.cshtml" />
     <Content Include="Views\Business\Details.cshtml" />
     <Content Include="Views\Business\_Menu.cshtml" />
+    <Content Include="Views\Member\Index.cshtml" />
+    <Content Include="Views\Member\_List.cshtml" />
     <Content Include="Views\BusinessCategoryType\Index.cshtml" />
     <Content Include="Views\BusinessCategoryType\List.cshtml" />
     <Content Include="Views\Listing\Index.cshtml" />
@@ -363,6 +368,11 @@
     <Content Include="Views\Listing\Create.cshtml" />
     <Content Include="Views\Listing\List.cshtml" />
     <Content Include="Views\Listing\Edit.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Member\_Menu.cshtml" />
+    <Content Include="Views\Member\Create.cshtml" />
+    <Content Include="Views\Member\Details.cshtml" />
+    <Content Include="Views\Member\Edit.cshtml" />
     <Content Include="Views\Listing\Details.cshtml" />
     <Content Include="Views\ListingCategoryType\Index.cshtml" />
     <Content Include="Views\ListingCategoryType\List.cshtml" />
@@ -378,6 +388,32 @@
     <Content Include="Views\RentType\Details.cshtml" />
     <Content Include="Views\RentType\Create.cshtml" />
     <Content Include="Views\RentType\Delete.cshtml" />
+    <Content Include="Views\Car\Index.cshtml" />
+    <Content Include="Views\Car\_Menu.cshtml" />
+    <Content Include="Views\Car\List.cshtml" />
+    <Content Include="Views\Car\Create.cshtml" />
+    <Content Include="Views\Car\Edit.cshtml" />
+    <Content Include="Views\Car\Details.cshtml" />
+    <Content Include="Views\ModelType\List.cshtml" />
+    <Content Include="Views\ModelType\Index.cshtml" />
+    <Content Include="Views\ModelType\Edit.cshtml" />
+    <Content Include="Views\ModelType\Details.cshtml" />
+    <Content Include="Views\ModelType\Create.cshtml" />
+    <Content Include="Views\MakeType\Index.cshtml" />
+    <Content Include="Views\MakeType\Edit.cshtml" />
+    <Content Include="Views\MakeType\Details.cshtml" />
+    <Content Include="Views\MakeType\Create.cshtml" />
+    <Content Include="Views\MakeType\List.cshtml" />
+    <Content Include="Views\CarBodyType\Index.cshtml" />
+    <Content Include="Views\CarBodyType\Create.cshtml" />
+    <Content Include="Views\CarBodyType\Details.cshtml" />
+    <Content Include="Views\CarBodyType\List.cshtml" />
+    <Content Include="Views\CarBodyType\Edit.cshtml" />
+    <Content Include="Views\TransmissionType\Index.cshtml" />
+    <Content Include="Views\TransmissionType\List.cshtml" />
+    <Content Include="Views\TransmissionType\Details.cshtml" />
+    <Content Include="Views\TransmissionType\Edit.cshtml" />
+    <Content Include="Views\TransmissionType\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

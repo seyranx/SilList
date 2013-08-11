@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,14 +11,12 @@ using System.Data.Entity;
 
 namespace SO.SilList.Manager.Models.ValueObjects
 {
-     
     [Table("Member", Schema = "data" )]
     [Serializable]
     public partial class MemberVo
     {
 
     	[DisplayName("member Id")]
-    	[Required]
         [Key]
         public int memberId { get; set; }
     		
@@ -95,13 +92,14 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public Nullable<int> modifiedBy { get; set; }
     		
     	[DisplayName("is Active")]
-        public Nullable<bool> isActive { get; set; }
+        [Required]
+        public bool isActive { get; set; }
 
-        //[ForeignKey("siteId")]
-        //public virtual SiteVo site { get; set; }
+        [ForeignKey("siteId")]
+        public virtual SiteVo site { get; set; }
 
     	public MemberVo(){
-
+            this.lastLogin = DateTime.MinValue;
             this.isActive = true;
     	}
     }

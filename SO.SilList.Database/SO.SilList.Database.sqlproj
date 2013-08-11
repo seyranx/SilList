@@ -167,7 +167,7 @@
     <Build Include="app\Tables\JobCategories.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
-    <Build Include="app\Tables\jobCategoryType.sql" />
+    <Build Include="app\Tables\JobCategoryType.sql" />
     <Build Include="data\Tables\JobCompany.sql" />
     <Build Include="Security\NT AUTHORITY_NETWORK SERVICE_2.sql" />
     <Build Include="data\Tables\JobCompany.sql">
@@ -191,14 +191,12 @@
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
-    <Build Include="app\Tables\ListingType.sql" />
     <Build Include="app\Tables\ListingCategoryType.sql" />
+    <Build Include="app\Tables\ListingType.sql" />
+    <Build Include="app\Tables\Admin.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />
     <None Include="Compare_Update_Server.scmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <RefactorLog Include="SO.SilList.Database.refactorlog" />
   </ItemGroup>
 </Project>

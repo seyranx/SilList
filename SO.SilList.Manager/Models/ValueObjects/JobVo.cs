@@ -72,17 +72,17 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("is Active")]
         public Nullable<bool> isActive { get; set; }
 
-        //[ForeignKey("siteId")]
-        //public virtual SiteVo site { get; set; }
+        [ForeignKey("siteId")]
+        public virtual SiteVo site { get; set; }
 
-        //[ForeignKey("listingDetailId")]
-        //public virtual ListingDetailVo listingDetails { get; set; }
+        [ForeignKey("listingDetailId")]
+        public virtual ListingDetailVo listingDetails { get; set; }
 
-        //[ForeignKey("jobTypeId")]
-        //public virtual JobTypeVo jobTypes { get; set; }
+        [ForeignKey("jobTypeId")]
+        public virtual JobTypeVo jobTypes { get; set; }
 
-        //[ForeignKey("jobCompanyId")]
-        //public virtual JobCompanyVo jobCompanys { get; set; }
+        [ForeignKey("jobCompanyId")]
+        public virtual JobCompanyVo jobCompanys { get; set; }
       
     	public JobVo(){
     			
@@ -91,8 +91,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	 this.isActive = true;
     	}
 
-        public string name { get; set; }
+       // public string name { get; set; }
 
-        public string address { get; set; }
+       // public string address { get; set; }
     }
 }

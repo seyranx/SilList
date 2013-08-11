@@ -27,12 +27,18 @@ namespace SO.SilList.Tests.Managers
         [TestMethod]
         public void insertRecordsTest()
         {
+            int? siteId = memberManager.GetFirstAvailableSiteId();
+            if (siteId == null)
+            {
+                Assert.IsTrue(true);
+                return;
+            }
             for (int i = 1; i <= 10; i++)
             {
                 var vo = new MemberVo();
                 vo.firstName = "Test First Name Name " + i.ToString();
                 vo.lastName = "Test Last Name Name " + i.ToString();
-                vo.siteId = 1;
+                vo.siteId = siteId;
 
                 var TimeNow = DateTime.Now;
                 vo.created = TimeNow;
@@ -77,21 +83,26 @@ namespace SO.SilList.Tests.Managers
                 Assert.IsTrue(false);
         }
 
-        // FK-s are disabled temporarily
-        //[TestMethod]
-        //public void includesTest()
-        //{
-        //    var result = memberManager.getFirst();
+         //FK-s are disabled temporarily
+        [TestMethod]
+        public void includesTest()
+        {
+            var result = memberManager.getFirst();
 
-        //    var site = result.site;
+            if (result != null)
+            {
+                var site = result.site;
 
-        //    if (result.site != null)
-        //    {
-        //        Assert.IsTrue(true);
-        //    }
-        //    else
-        //        Assert.IsTrue(false);
-        //}
+                if (result.site != null)
+                {
+                    Assert.IsTrue(true);
+                }
+                else
+                    Assert.IsTrue(false);
+            }
+            else
+                Assert.IsTrue(true); // there are no records in Member table.
+        }
 
     }
 }

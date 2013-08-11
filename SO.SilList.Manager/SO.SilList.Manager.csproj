@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Classes\Connection.cs" />
     <Compile Include="DbContexts\MainDb.cs" />
+    <Compile Include="Interfaces\IAdminManager.cs" />
     <Compile Include="Interfaces\ITransmissionTypeManager.cs" />
     <Compile Include="Interfaces\IMakeTypeManager.cs" />
     <Compile Include="Interfaces\IModelTypeManager.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Interfaces\IBusinessManager.cs" />
     <Compile Include="Interfaces\IRentTypeManager.cs" />
     <Compile Include="Interfaces\IJobCategoryTypeManager.cs" />
+    <Compile Include="Managers\AdminManager.cs" />
     <Compile Include="Managers\BusinessCategoriesManager.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -95,6 +97,7 @@
     <Compile Include="Managers\CarManager.cs" />
     <Compile Include="Managers\ImageManager.cs" />
     <Compile Include="Managers\JobCategoriesManager.cs" />
+    <Compile Include="Managers\JobCategoryTypeManager.cs" />
     <Compile Include="Managers\JobCompanyManager.cs" />
     <Compile Include="Managers\JobManager.cs" />
     <Compile Include="Managers\JobTypeManager.cs" />
@@ -116,6 +119,7 @@
     <Compile Include="Managers\SiteManager.cs" />
     <Compile Include="Managers\RentalsManager.cs" />
     <Compile Include="Managers\TransmissionTypeManager.cs" />
+    <Compile Include="Models\ValueObjects\AdminVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessCategoryTypeVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessCategoriesVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessImagesVo.cs" />

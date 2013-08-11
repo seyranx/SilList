@@ -66,6 +66,7 @@ namespace SO.SilList.Manager.DbContexts
         public DbSet<MakeTypeVo> makeType { get; set; }
         public DbSet<CarImagesVo> carImages { get; set; }
         public DbSet<TransmissionTypeVo> transmissionType { get; set; }
+        public DbSet<AdminVo> admins { get; set; }
     }
 
 }

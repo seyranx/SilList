@@ -5,11 +5,11 @@
     [description] NVARCHAR (MAX) NULL,
     [logo]        NVARCHAR (MAX) NULL,
     [logoUrl]     NVARCHAR (MAX) NULL,
-    [created]     DATETIME       NOT NULL,
-    [modified]    DATETIME       NOT NULL,
+    [created]     DATETIME       NOT NULL DEFAULT getdate(),
+    [modified]    DATETIME       NOT NULL DEFAULT getdate(),
     [createdBy]   INT            NULL,
     [modifiedBy]  INT            NULL,
-    [isActive]    BIT            NULL,
+    [isActive]    BIT            NOT NULL DEFAULT 1,
     CONSTRAINT [PK_Site] PRIMARY KEY CLUSTERED ([siteId] ASC)
 );
 
