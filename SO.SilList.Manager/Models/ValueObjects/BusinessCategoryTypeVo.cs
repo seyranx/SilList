@@ -22,12 +22,12 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[Key]
         public int businessCategoryTypeId { get; set; }
     		
-    	[DisplayName("name")]
+    	[DisplayName("Name")]
     	[Required]
     	[StringLength(200)]
         public string name { get; set; }
     		
-    	[DisplayName("description")]
+    	[DisplayName("Description")]
         public string description { get; set; }
     		
     	[DisplayName("created By")]
@@ -40,15 +40,15 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[Required]
         public System.DateTime modified { get; set; }
     		
-    	[DisplayName("created")]
+    	[DisplayName("Created")]
     	[Required]
         public System.DateTime created { get; set; }
     		
-    	[DisplayName("is Active")]
+    	[DisplayName("Is Active")]
     	[Required]
         public bool isActive { get; set; }
     		
-    	[DisplayName("site Id")]
+    	[DisplayName("Site Id")]
         public int? siteId { get; set; }
 
         //[ForeignKey("siteId")]
