@@ -400,9 +400,18 @@
     <Content Include="Views\TransmissionType\Details.cshtml" />
     <Content Include="Views\TransmissionType\Edit.cshtml" />
     <Content Include="Views\TransmissionType\Create.cshtml" />
+    <Content Include="Views\BusinessCategoryType\Create.cshtml" />
+    <Content Include="Views\BusinessCategoryType\Details.cshtml" />
+    <Content Include="Views\BusinessCategoryType\Edit.cshtml" />
+    <Content Include="Views\ServiceType\Index.cshtml" />
+    <Content Include="Views\ServiceType\Create.cshtml" />
+    <Content Include="Views\ServiceType\List.cshtml" />
+    <Content Include="Views\ServiceType\Edit.cshtml" />
+    <Content Include="Views\ServiceType\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Service\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
