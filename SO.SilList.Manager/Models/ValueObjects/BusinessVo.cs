@@ -20,8 +20,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [Key]
         public System.Guid businessId { get; set; }
 
-        [DisplayName("ListingDetail Id")]
-        public System.Guid? listingDetailId { get; set; }
+        //[DisplayName("listingDetail Id")]
+        //public System.Guid? listingDetailId { get; set; }
 
         [DisplayName("Site Id")]
         public Nullable<int> siteId { get; set; }
@@ -44,6 +44,17 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         [DisplayName("Zip")]
         public Nullable<int> zip { get; set; }
+
+        [DisplayName("start Date")]
+        [Required]
+        public System.DateTime startDate { get; set; }
+
+        [DisplayName("end Date")]
+        [Required]
+        public System.DateTime endDate { get; set; }
+
+        [DisplayName("is Approved")]
+        public bool isApproved { get; set; }
 
         [DisplayName("created By")]
         public Nullable<int> createdBy { get; set; }
@@ -83,6 +94,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         {
     		this.businessId = Guid.NewGuid();
     	    this.isActive = true;
+            this.isApproved = false;
     	 }
 
     }
