@@ -1,8 +1,9 @@
-﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.ListingCategoryTypeVo>
+﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.ListingTypeVo>
 
 <p>
-     <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
+    @Html.ActionLink("Create New", "Create")
 </p>
+
 <table class="table table-bordered table-hover">
     <tr>
         <th>
@@ -10,14 +11,14 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.description)
-        </th>
+        </th>      
         <th>
             @Html.DisplayNameFor(model => model.created)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.isActive)
         </th>
-
+       
         <th></th>
     </tr>
 
@@ -28,17 +29,21 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.description)
-        </td>s
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.created)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.isActive)
         </td>
+      
         <td>
-            <a href="@Url.Action("Edit",new { id=item.listingCategoryTypeId })" class="btn">Edit</a>
-            <a href="@Url.Action("Details",new { id=item.listingCategoryTypeId })" class="btn">Details</a>
-            <a href="@Url.Action("Delete",new { id=item.listingCategoryTypeId })" class="btn">Delete</a> 
+
+            <a href="@Url.Action("Edit",new { id=item.listingTypeId })" class="btn">Edit</a>
+            <a href="@Url.Action("Details",new { id=item.listingTypeId })" class="btn">Details</a>
+            <a href="@Url.Action("Delete",new { id=item.listingTypeId })" class="btn">Delete</a>
+
+          
         </td>
     </tr>
 }
