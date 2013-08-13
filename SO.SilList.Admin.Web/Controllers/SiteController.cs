@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SO.SilList.Manager.Managers;
+using SO.SilList.Manager.Models.ValueObjects;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
@@ -26,5 +27,16 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView(results);
         }
 
+
+        public ActionResult DropDownList(int? id = null)
+        {
+            ViewBag.sites = siteManager.getAll(null);
+            var site = new SiteVo();
+            if (id != null)
+            {
+                site = siteManager.get(id.Value);
+            }
+            return PartialView("_DropDownList", site);
+        }
     }
 }

@@ -131,11 +131,15 @@
     <Build Include="data\Tables\BusinessServices.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
-    <Build Include="data\Tables\Image.sql" />
+    <Build Include="data\Tables\Image.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
     <Build Include="data\Tables\Job.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
-    <Build Include="data\Tables\ListingDetail.sql" />
+    <Build Include="data\Tables\ListingDetail.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
     <Build Include="data\Tables\Member.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
@@ -168,16 +172,24 @@
     <Build Include="app\Tables\JobCategories.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
-    <Build Include="app\Tables\JobCategoryType.sql" />
+    <Build Include="app\Tables\JobCategoryType.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
     <Build Include="data\Tables\JobCompany.sql" />
     <Build Include="Security\NT AUTHORITY_NETWORK SERVICE_2.sql" />
     <Build Include="data\Tables\JobCompany.sql">
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
     <Build Include="Security\RoleMemberships_2.sql" />
-    <Build Include="data\Tables\Listing.sql" />
-    <Build Include="data\Tables\ListingImages.sql" />
-    <Build Include="data\Tables\ListingCategories.sql" />
+    <Build Include="data\Tables\Listing.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
+    <Build Include="data\Tables\ListingImages.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
+    <Build Include="data\Tables\ListingCategories.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
     <Build Include="data\Tables\Car.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
@@ -192,8 +204,12 @@
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
-    <Build Include="app\Tables\ListingCategoryType.sql" />
-    <Build Include="app\Tables\ListingType.sql" />
+    <Build Include="app\Tables\ListingCategoryType.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
+    <Build Include="app\Tables\ListingType.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
     <Build Include="app\Tables\Admin.sql" />
   </ItemGroup>
   <ItemGroup>

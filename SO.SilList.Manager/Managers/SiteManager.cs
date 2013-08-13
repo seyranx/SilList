@@ -23,7 +23,14 @@ namespace SO.SilList.Manager.Managers
 
         public List<SiteVo> getAll(bool? isActive = true)
         {
-            throw new NotImplementedException();
+            using (var db = new MainDb())
+            {
+                var list = db.sites
+                             .Where(e => isActive == null || e.isActive == isActive)
+                             .ToList();
+
+                return list;
+            }
         }
 
         public bool delete(int siteId)

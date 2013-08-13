@@ -7,7 +7,7 @@
 <table class="table table-bordered table-hover">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.siteId)
+           Site
         </th>
         <th>
             @Html.DisplayNameFor(model => model.name)
@@ -35,7 +35,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.siteId)
+            @Html.DisplayFor(modelItem => item.site.domain)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.name)

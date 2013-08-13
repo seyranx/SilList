@@ -61,7 +61,8 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            var vo = new BusinessVo();
+            return View(vo);
         }
 
         public ActionResult Details(Guid id)
