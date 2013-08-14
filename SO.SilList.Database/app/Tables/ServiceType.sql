@@ -7,7 +7,7 @@
     [modified]      DATETIME       CONSTRAINT [DF__ServiceTy__modif__3F466844] DEFAULT (getdate()) NOT NULL,
     [createdBy]     INT            NULL,
     [modifiedBy]    INT            NULL,
-    [isActive]      BIT            NULL,
+    [isActive]      BIT            NOT NULL DEFAULT ((1)),
     CONSTRAINT [PK__ServiceT__FB4CEA3930848AD8] PRIMARY KEY CLUSTERED ([serviceTypeId] ASC)
 );
 

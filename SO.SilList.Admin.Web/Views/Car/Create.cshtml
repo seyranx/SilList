@@ -10,9 +10,7 @@
 
 <h2>Create</h2>
 
-<script src="~/Scripts/jquery-1.7.1.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
@@ -67,8 +65,8 @@
             @Html.EditorFor(model => model.transmissionTypeId)
             @Html.ValidationMessageFor(model => model.transmissionTypeId)
         </div>
-        
-        <div class="editor-label">
+
+        <div class="editor-label" >
             @Html.LabelFor(model => model.startDate)
         </div>
         <div class="editor-field">

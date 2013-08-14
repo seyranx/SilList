@@ -15,13 +15,7 @@
             @Html.DisplayNameFor(model => model.millage)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.carBodyTypeId)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.siteId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.transmissionTypeId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.created)
@@ -53,16 +47,10 @@
             @Html.DisplayFor(modelItem => item.millage)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.carBodyTypeId)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.siteId)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.transmissionTypeId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.created)
+        <td>   
+            <span>@String.Format("{0:MM/dd/yyy}", item.created)</span>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.startDate)

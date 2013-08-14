@@ -18,35 +18,35 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class ModelTypeVo
     {
     		
-    	[DisplayName("MODEL")]
+    	[DisplayName("model")]
     	[Key]
         public int modelTypeId { get; set; }
     		
-    	[DisplayName("MAKE")]
+    	[DisplayName("make")]
         public Nullable<int> makeTypeId { get; set; }
     		
-    	[DisplayName("NAME")]
+    	[DisplayName("name")]
     	[StringLength(50)]
         public string name { get; set; }
     		
-    	[DisplayName("DESCRIPTION")]
+    	[DisplayName("description")]
         public string description { get; set; }
     		
-    	[DisplayName("CREATED")]
+    	[DisplayName("created")]
     	[Required]
         public System.DateTime created { get; set; }
     		
-    	[DisplayName("MODIFIED")]
+    	[DisplayName("modified")]
     	[Required]
         public System.DateTime modified { get; set; }
     		
-    	[DisplayName("CREATED BY")]
+    	[DisplayName("created by")]
         public Nullable<int> createdBy { get; set; }
     		
-    	[DisplayName("MODIFIED BY")]
+    	[DisplayName("modified by")]
         public Nullable<int> modifiedBy { get; set; }
     		
-    	[DisplayName("ACTIVE")]
+    	[DisplayName("active")]
         public bool isActive { get; set; }
 
         [Association("ModelType_Car", "modelTypeId", "modelTypeId", IsForeignKey = true)]
