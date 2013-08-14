@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,24 +13,26 @@ using System.Data.Entity;
 namespace SO.SilList.Manager.Models.ValueObjects
 {
      
-    [Table("PropertyType", Schema = "app" )]
+    [Table("ServiceType", Schema = "app" )]
     [Serializable]
-    public partial class PropertyTypeVo
+    public partial class ServiceTypeVo
     {
     		
-    	[DisplayName("property Type Id")]
+    	[DisplayName("service Type Id")]
     	[Key]
-        public int propertyTypeId { get; set; }
+        public int serviceTypeId { get; set; }
     		
-    	[DisplayName("name")]
+    	[DisplayName("Description")]
+        public string description { get; set; }
+    		
+    	[DisplayName("Name")]
     	[StringLength(50)]
         public string name { get; set; }
     		
-    	[DisplayName("description")]
-    	[StringLength(50)]
-        public string description { get; set; }
+    	[DisplayName("Site Id")]
+        public Nullable<int> siteId { get; set; }
     		
-    	[DisplayName("created")]
+    	[DisplayName("Created")]
     	[Required]
         public System.DateTime created { get; set; }
     		
@@ -43,15 +45,22 @@ namespace SO.SilList.Manager.Models.ValueObjects
     		
     	[DisplayName("modified By")]
         public Nullable<int> modifiedBy { get; set; }
+<<<<<<< HEAD
+
+        [DisplayName("Is Active")]
+        [Required]
+=======
     		
     	[DisplayName("is Active")]
+>>>>>>> SiList_50_push
         public bool isActive { get; set; }
-      
-    	public PropertyTypeVo(){
-    			
-    	
-    	 this.isActive = true;
+
+
+    	public ServiceTypeVo(){
+
+            this.serviceTypeId = 000;
+
+            this.isActive = true;
     	}
     }
 }
-

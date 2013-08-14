@@ -294,6 +294,7 @@
     <None Include="Properties\PublishProfiles\HyeList_obj.pubxml" />
     <None Include="Properties\PublishProfiles\Web.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -374,7 +375,6 @@
     <Content Include="Views\Admin\Delete.cshtml" />
     <Content Include="Views\Listing\List.cshtml" />
     <Content Include="Views\Listing\Edit.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Member\_Menu.cshtml" />
     <Content Include="Views\Member\Create.cshtml" />
     <Content Include="Views\Member\Details.cshtml" />

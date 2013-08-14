@@ -1,12 +1,11 @@
-﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.ListingCategoryTypeVo>
-
-
-<h2>List</h2>
+﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.BusinessCategoryTypeVo>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+   <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
+
 </p>
-<table>
+
+<table class="table table-bordered table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.name)
@@ -15,21 +14,14 @@
             @Html.DisplayNameFor(model => model.description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.createdBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.modifiedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.modified)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.created)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.isActive)
         </th>
-
+        <th>
+            @Html.DisplayNameFor(model => model.siteId)
+        </th>
         <th></th>
     </tr>
 
@@ -42,6 +34,9 @@
             @Html.DisplayFor(modelItem => item.description)
         </td>
         <td>
+<<<<<<< HEAD
+            @Html.DisplayFor(modelItem => item.created)
+=======
             @Html.DisplayFor(modelItem => item.createdBy)
         </td>
         <td>
@@ -51,15 +46,20 @@
             @Html.DisplayFor(modelItem => item.modified)
         </td>
         <td>
-            <span>@String.Format("{0:MM/dd/yyy}", item.created)</span>
+           <span>@String.Format("{0:MM/dd/yyy}", item.created)</span>
+>>>>>>> SiList_50_push
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.isActive)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.listingCategoryTypeId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.listingCategoryTypeId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.listingCategoryTypeId })
+            @Html.DisplayFor(modelItem => item.siteId)
+        </td>
+        
+        <td>
+            <a href="@Url.Action("Edit",new { id=item.businessCategoryTypeId })" class="btn">Edit</a>
+            <a href="@Url.Action("Details",new { id=item.businessCategoryTypeId })" class="btn">Details</a>
+            <a href="@Url.Action("Delete",new { id=item.businessCategoryTypeId })" class="btn">Delete</a>          
         </td>
     </tr>
 }
