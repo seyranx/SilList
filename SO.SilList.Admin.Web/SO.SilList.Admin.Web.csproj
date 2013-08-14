@@ -146,6 +146,8 @@
     <Compile Include="Controllers\ListingController.cs" />
     <Compile Include="Controllers\CarController.cs" />
     <Compile Include="Controllers\CarBodyTypeController.cs" />
+    <Compile Include="Controllers\ListingImageController.cs" />
+    <Compile Include="Controllers\ListingTypeController.cs" />
     <Compile Include="Controllers\TransmissionTypeController.cs" />
     <Compile Include="Controllers\MakeTypeController.cs" />
     <Compile Include="Controllers\ModelTypeController.cs" />
@@ -416,6 +418,13 @@
     <Content Include="Views\ServiceType\List.cshtml" />
     <Content Include="Views\ServiceType\Edit.cshtml" />
     <Content Include="Views\ServiceType\Details.cshtml" />
+    <Content Include="Views\ListingCategoryType\Edit.cshtml" />
+    <Content Include="Views\ListingImages\Index.cshtml" />
+    <Content Include="Views\ListingImages\List.cshtml" />
+    <Content Include="Views\ListingType\Index.cshtml" />
+    <Content Include="Views\ListingType\List.cshtml" />
+    <Content Include="Views\ListingCategoryType\Create.cshtml" />
+    <Content Include="Views\ListingCategoryType\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

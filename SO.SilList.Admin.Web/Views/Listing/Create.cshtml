@@ -5,9 +5,11 @@
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 }
 
-
 <h2>Create</h2>
 
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
@@ -32,6 +34,22 @@
         </div>
 
         <div class="editor-label">
+            @Html.LabelFor(model => model.startDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.startDate)
+            @Html.ValidationMessageFor(model => model.startDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.endDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.endDate)
+            @Html.ValidationMessageFor(model => model.endDate)
+        </div>
+
+        <div class="editor-label">
             @Html.LabelFor(model => model.isActive)
         </div>
         <div class="editor-field">
@@ -39,13 +57,14 @@
             @Html.ValidationMessageFor(model => model.isActive)
         </div>
         <br/>
+
         <div class="editor-label">
             @Html.LabelFor(model => model.siteId)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.siteId)
             @Html.ValidationMessageFor(model => model.siteId)
-        </div> 
+        </div>
 
         <p>
             <input type="submit" value="Create" />
