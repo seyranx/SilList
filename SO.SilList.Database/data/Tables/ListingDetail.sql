@@ -11,4 +11,3 @@
     CONSTRAINT [PK_ListingDetail] PRIMARY KEY CLUSTERED ([listingDetailId] ASC)
 );
 
-

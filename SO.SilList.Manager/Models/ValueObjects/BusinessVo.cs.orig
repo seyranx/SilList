@@ -20,8 +20,13 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [Key]
         public System.Guid businessId { get; set; }
 
+<<<<<<< HEAD
+        [DisplayName("ListingDetail Id")]
+        public System.Guid? listingDetailId { get; set; }
+=======
         //[DisplayName("listingDetail Id")]
         //public System.Guid? listingDetailId { get; set; }
+>>>>>>> master_51_merged
 
         [DisplayName("Site Id")]
         public Nullable<int> siteId { get; set; }

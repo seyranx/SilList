@@ -115,12 +115,10 @@
     <Compile Include="Managers\LeaseTermTypeManagerTest.cs" />
     <Compile Include="Managers\ListingCategoriesManagerTest.cs" />
     <Compile Include="Managers\ListingCategoryTypeManagerTest.cs" />
-    <Compile Include="Managers\ListingDetailManagerTest.cs" />
     <Compile Include="Managers\ImageManagerTest.cs" />
     <Compile Include="Managers\ListingImagesManagerTest.cs" />
     <Compile Include="Managers\ListingManagerTest.cs" />
     <Compile Include="Managers\ListingTypeManagerTest.cs" />
-    <Compile Include="Managers\MemberManagerTest.cs" />
     <Compile Include="Managers\PropertyTypeManagerTest.cs" />
     <Compile Include="Managers\RatingManagerTest.cs" />
     <Compile Include="Managers\RentalImagesManagerTest.cs" />

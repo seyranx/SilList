@@ -22,8 +22,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[Key]
         public System.Guid listingId { get; set; }
     		
-    	[DisplayName("listing Detail Id")]
-        public System.Guid? listingDetailId { get; set; }
+    	//[DisplayName("listing Detail Id")]
+        //public System.Guid? listingDetailId { get; set; }
     		
     	[DisplayName("title")]
     	[StringLength(50)]
@@ -38,6 +38,17 @@ namespace SO.SilList.Manager.Models.ValueObjects
     		
     	[DisplayName("listing Type Id")]
         public int? listingTypeId { get; set; }
+
+        [DisplayName("start Date")]
+        [Required]
+        public System.DateTime startDate { get; set; }
+
+        [DisplayName("end Date")]
+        [Required]
+        public System.DateTime endDate { get; set; }
+
+        [DisplayName("is Approved")]
+        public bool isApproved { get; set; }
     		
     	[DisplayName("created By")]
         public int? createdBy { get; set; }
@@ -57,22 +68,23 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[Required]
         public bool isActive { get; set; }
 
-        [ForeignKey("listingDetailId")]
-        public virtual ListingDetailVo listingDetail { get; set; }
+        //[ForeignKey("listingDetailId")]
+        //public virtual ListingDetailVo listingDetail { get; set; }
 
-        [ForeignKey("listingTypeId")]
-        public virtual ListingTypeVo listingType { get; set; }
+        //[ForeignKey("listingTypeId")]
+        //public virtual ListingTypeVo listingType { get; set; }
 
-        [Association("ListingCategories_Listing", "listingId", "listingId", IsForeignKey = true)]
-        public List<ListingCategoriesVo> listingCategories { get; set; }
+        //[Association("ListingCategories_Listing", "listingId", "listingId", IsForeignKey = true)]
+        //public List<ListingCategoriesVo> listingCategories { get; set; }
 
-        [Association("ListingImages_Listing", "listingId", "listingId", IsForeignKey = true)]
-        public List<ListingImagesVo> listings { get; set; }
+        //[Association("ListingImages_Listing", "listingId", "listingId", IsForeignKey = true)]
+        //public List<ListingImagesVo> listings { get; set; }
       
     	public ListingVo()
         { 			
     		this.listingId = Guid.NewGuid();
     	    this.isActive = true;
+            this.isApproved = false;
     	}
     }
 }

@@ -17,7 +17,6 @@ namespace SO.SilList.Admin.Web.Controllers
             return View();
         }
 
-
         public ActionResult List()
         {
             var results = listingManager.getAll(null);
