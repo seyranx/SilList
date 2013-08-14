@@ -38,6 +38,16 @@
           });
 
 
+        $(document).ready(function () {
+
+            $('#startDate').datepicker({
+                format: 'mm-dd-yyyy'
+            });
+            $('#endDate').datepicker({
+                format: 'mm-dd-yyyy'
+            });
+        });
+
 </script>
   </head>
 
@@ -132,7 +142,7 @@
     @Scripts.Render("~/Content/bootstrap/js/bootstrap.min.js")
 
       @Scripts.Render("~/Scripts/holder.js")
-  
+    @Scripts.Render("~/Scripts/bootstrap-datepicker.js")
 
   </body>
 </html>

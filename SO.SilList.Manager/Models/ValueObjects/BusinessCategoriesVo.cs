@@ -41,7 +41,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public int? modifiedBy { get; set; }
     		
     	[DisplayName("is Active")]
-        public bool? isActive { get; set; }
+        public bool isActive { get; set; }
 
         //[ForeignKey("businessId")]
         //public virtual BusinessVo business { get; set; }

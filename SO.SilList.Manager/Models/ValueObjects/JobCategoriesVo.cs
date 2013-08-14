@@ -40,7 +40,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public Nullable<int> modifiedBy { get; set; }
     		
     	[DisplayName("is Active")]
-        public Nullable<bool> isActive { get; set; }
+        public bool isActive { get; set; }
 
         //[ForeignKey("JobId")]
         //public virtual JobVo jobs { get; set; }

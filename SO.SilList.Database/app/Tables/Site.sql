@@ -9,7 +9,7 @@
     [modified]    DATETIME       NOT NULL DEFAULT getdate(),
     [createdBy]   INT            NULL,
     [modifiedBy]  INT            NULL,
-    [isActive]    BIT            NOT NULL DEFAULT 1,
+    [isActive]    BIT            NOT NULL DEFAULT ((1)),
     CONSTRAINT [PK_Site] PRIMARY KEY CLUSTERED ([siteId] ASC)
 );
 
