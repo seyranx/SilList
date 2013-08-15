@@ -13,7 +13,7 @@
 CodeGenerationTools code = new CodeGenerationTools(this);
 MetadataLoader loader = new MetadataLoader(this); 
  
-string inputFile = @"model1.edmx";  
+string inputFile = @"model2.edmx";  
 string suffix = "Vo";  
   
 EdmItemCollection ItemCollection = loader.CreateEdmItemCollection(inputFile); 

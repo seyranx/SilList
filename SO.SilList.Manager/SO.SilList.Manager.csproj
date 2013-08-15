@@ -49,7 +49,8 @@
   <ItemGroup>
     <Compile Include="Classes\Connection.cs" />
     <Compile Include="DbContexts\MainDb.cs" />
-    <Compile Include="Interfaces\IAdminManager.cs" />
+    <Compile Include="Interfaces\IEnvironmentTypeManager.cs" />
+    <Compile Include="Interfaces\ISettingTypeManager.cs" />
     <Compile Include="Interfaces\ITransmissionTypeManager.cs" />
     <Compile Include="Interfaces\IMakeTypeManager.cs" />
     <Compile Include="Interfaces\IModelTypeManager.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Interfaces\IJobManager.cs" />
     <Compile Include="Interfaces\IListingCategoriesManager.cs" />
     <Compile Include="Interfaces\IListingCategoryTypeManager.cs" />
+    <Compile Include="Interfaces\IListingDetailManager.cs" />
     <Compile Include="Interfaces\IImageManager.cs" />
     <Compile Include="Interfaces\IListingImagesManager.cs" />
     <Compile Include="Interfaces\IListingManager.cs" />
@@ -94,6 +96,7 @@
     <Compile Include="Managers\CarBodyTypeManager.cs" />
     <Compile Include="Managers\CarImageManager.cs" />
     <Compile Include="Managers\CarManager.cs" />
+    <Compile Include="Managers\EnvironmentTypeManager.cs" />
     <Compile Include="Managers\ImageManager.cs" />
     <Compile Include="Managers\JobCategoriesManager.cs" />
     <Compile Include="Managers\JobCategoryTypeManager.cs" />
@@ -102,6 +105,7 @@
     <Compile Include="Managers\JobTypeManager.cs" />
     <Compile Include="Managers\ListingCategoriesManager.cs" />
     <Compile Include="Managers\ListingCategoryTypeManager.cs" />
+    <Compile Include="Managers\ListingDetailManager.cs" />
     <Compile Include="Managers\ListingImagesManager.cs" />
     <Compile Include="Managers\ListingManager.cs" />
     <Compile Include="Managers\ListingTypeManager.cs" />
@@ -114,6 +118,7 @@
     <Compile Include="Managers\RentTypeManager.cs" />
     <Compile Include="Managers\LeaseTermTypeManager.cs" />
     <Compile Include="Managers\ServiceTypeManager.cs" />
+    <Compile Include="Managers\SettingTypeManager.cs" />
     <Compile Include="Managers\SiteManager.cs" />
     <Compile Include="Managers\RentalManager.cs" />
     <Compile Include="Managers\TransmissionTypeManager.cs" />
@@ -131,6 +136,7 @@
     <Compile Include="Models\ValueObjects\CarVo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\ValueObjects\EnvironmentTypeVo.cs" />
     <Compile Include="Models\ValueObjects\JobCategoriesVo.cs" />
     <Compile Include="Models\ValueObjects\JobCategoryTypeVo.cs" />
     <Compile Include="Models\ValueObjects\JobCompanyVo.cs" />
@@ -140,6 +146,7 @@
     <Compile Include="Models\ValueObjects\LeaseTermTypeVo.cs" />
     <Compile Include="Models\ValueObjects\ListingCategoriesVo.cs" />
     <Compile Include="Models\ValueObjects\ListingCategoryTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\ListingDetailVo.cs" />
     <Compile Include="Models\ValueObjects\ListingImagesVo.cs" />
     <Compile Include="Models\ValueObjects\ListingTypeVo.cs" />
     <Compile Include="Models\ValueObjects\ListingVo.cs" />
@@ -152,6 +159,7 @@
     <Compile Include="Models\ValueObjects\PropertyTypeVo.cs" />
     <Compile Include="Models\ValueObjects\RentTypeVo.cs" />
     <Compile Include="Models\ValueObjects\ServiceTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\SettingTypeVo.cs" />
     <Compile Include="Models\ValueObjects\SiteVo.cs" />
     <Compile Include="Models\ValueObjects\TransmissionTypeVo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -164,6 +172,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Models\ValueObjects\JobCategoriesVo.cs.orig" />
+    <None Include="Models\ValueObjects\JobCompanyVo.cs.orig" />
+    <None Include="Models\ValueObjects\JobVo.cs.orig" />
+    <None Include="Models\ValueObjects\SiteVo.cs.orig" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
