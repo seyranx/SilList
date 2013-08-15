@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Classes\Connection.cs" />
     <Compile Include="DbContexts\MainDb.cs" />
+    <Compile Include="Interfaces\IAdminManager.cs" />
     <Compile Include="Interfaces\IEnvironmentTypeManager.cs" />
     <Compile Include="Interfaces\ISettingTypeManager.cs" />
     <Compile Include="Interfaces\ITransmissionTypeManager.cs" />
@@ -105,7 +106,6 @@
     <Compile Include="Managers\JobTypeManager.cs" />
     <Compile Include="Managers\ListingCategoriesManager.cs" />
     <Compile Include="Managers\ListingCategoryTypeManager.cs" />
-    <Compile Include="Managers\ListingDetailManager.cs" />
     <Compile Include="Managers\ListingImagesManager.cs" />
     <Compile Include="Managers\ListingManager.cs" />
     <Compile Include="Managers\ListingTypeManager.cs" />
