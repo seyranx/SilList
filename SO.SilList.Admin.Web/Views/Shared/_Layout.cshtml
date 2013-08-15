@@ -41,10 +41,16 @@
         $(document).ready(function () {
 
             $('#startDate').datepicker({
-                format: 'mm-dd-yyyy'
+                format: 'mm/dd/yyyy',
+                todayBtn: "linked",
+                autoclose: true,
+                todayHighlight: true
             });
             $('#endDate').datepicker({
-                format: 'mm-dd-yyyy'
+                format: 'mm/dd/yyyy',
+                todayBtn: "linked",
+                autoclose: true,
+                todayHighlight: true
             });
         });
 
