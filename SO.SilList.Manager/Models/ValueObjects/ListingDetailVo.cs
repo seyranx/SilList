@@ -19,7 +19,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
     {
 
     	[DisplayName("listing Detail Id")]
-    	[Required]
         [Key]
         public System.Guid listingDetailId { get; set; }
     		

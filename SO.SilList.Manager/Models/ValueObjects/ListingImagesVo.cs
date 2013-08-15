@@ -49,6 +49,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         //[ForeignKey("listingId")]
         //public virtual ListingVo listing { get; set; }
 
+        [ForeignKey("imageId")]
+        public virtual ImageVo image { get; set; }
       
     	public ListingImagesVo()
         {	
