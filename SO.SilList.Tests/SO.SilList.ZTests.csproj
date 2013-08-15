@@ -103,7 +103,6 @@
     <Compile Include="Managers\BusinessManagerTest.cs" />
     <Compile Include="Managers\BusinessServicesManagerTest.cs" />
     <Compile Include="Managers\LeaseTermTypeManagerTest.cs" />
-    <Compile Include="Managers\ListingDetailManagerManagerTest.cs" />
     <Compile Include="Managers\ImageManagerTest.cs" />
     <Compile Include="Managers\MemberManagerTest.cs" />
     <Compile Include="Managers\PropertyTypeManagerTest.cs" />

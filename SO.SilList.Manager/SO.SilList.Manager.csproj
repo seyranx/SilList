@@ -49,6 +49,8 @@
   <ItemGroup>
     <Compile Include="Classes\Connection.cs" />
     <Compile Include="DbContexts\MainDb.cs" />
+    <Compile Include="Interfaces\IEnvironmentTypeManager.cs" />
+    <Compile Include="Interfaces\ISettingTypeManager.cs" />
     <Compile Include="Interfaces\ITransmissionTypeManager.cs" />
     <Compile Include="Interfaces\IMakeTypeManager.cs" />
     <Compile Include="Interfaces\IModelTypeManager.cs" />
@@ -93,6 +95,7 @@
     <Compile Include="Managers\CarBodyTypeManager.cs" />
     <Compile Include="Managers\CarImageManager.cs" />
     <Compile Include="Managers\CarManager.cs" />
+    <Compile Include="Managers\EnvironmentTypeManager.cs" />
     <Compile Include="Managers\ImageManager.cs" />
     <Compile Include="Managers\JobCategoriesManager.cs" />
     <Compile Include="Managers\JobCompanyManager.cs" />
@@ -113,6 +116,7 @@
     <Compile Include="Managers\RentTypeManager.cs" />
     <Compile Include="Managers\LeaseTermTypeManager.cs" />
     <Compile Include="Managers\ServiceTypeManager.cs" />
+    <Compile Include="Managers\SettingTypeManager.cs" />
     <Compile Include="Managers\SiteManager.cs" />
     <Compile Include="Managers\RentalManager.cs" />
     <Compile Include="Managers\TransmissionTypeManager.cs" />
@@ -129,6 +133,7 @@
     <Compile Include="Models\ValueObjects\CarVo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\ValueObjects\EnvironmentTypeVo.cs" />
     <Compile Include="Models\ValueObjects\JobCategoriesVo.cs" />
     <Compile Include="Models\ValueObjects\JobCategoryTypeVo.cs" />
     <Compile Include="Models\ValueObjects\JobCompanyVo.cs" />
@@ -151,6 +156,7 @@
     <Compile Include="Models\ValueObjects\PropertyTypeVo.cs" />
     <Compile Include="Models\ValueObjects\RentTypeVo.cs" />
     <Compile Include="Models\ValueObjects\ServiceTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\SettingTypeVo.cs" />
     <Compile Include="Models\ValueObjects\SiteVo.cs" />
     <Compile Include="Models\ValueObjects\TransmissionTypeVo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -163,6 +169,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Models\ValueObjects\JobCategoriesVo.cs.orig" />
+    <None Include="Models\ValueObjects\JobCompanyVo.cs.orig" />
+    <None Include="Models\ValueObjects\JobVo.cs.orig" />
+    <None Include="Models\ValueObjects\SiteVo.cs.orig" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
