@@ -18,59 +18,56 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class CarVo
     {
     		
-    	[DisplayName("car")]
+    	[DisplayName("Car")]
     	[Key]
         public System.Guid carId { get; set; }
     		
-    	[DisplayName("model")]
+    	[DisplayName("Model")]
         public Nullable<int> modelTypeId { get; set; }
     		
-    	[DisplayName("year")]
+    	[DisplayName("Year")]
         public Nullable<int> year { get; set; }
     		
-    	[DisplayName("millage")]
+    	[DisplayName("Millage")]
         public Nullable<int> millage { get; set; }
     		
-    	[DisplayName("body")]
+    	[DisplayName("Body")]
         public Nullable<int> carBodyTypeId { get; set; }
     		
-    	[DisplayName("site")]
+    	[DisplayName("Site")]
         public Nullable<int> siteId { get; set; }
     		
-    	//[DisplayName("listing Detail Id")]
-        //public Nullable<System.Guid> listingDetailId { get; set; }
-    		
-    	[DisplayName("transmission Type Id")]
+    	[DisplayName("Transmission Type Id")]
         public Nullable<int> transmissionTypeId { get; set; }
 
-        [DisplayName("start date")]
+        [DisplayName("Start date")]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         [Required]
         public System.DateTime startDate { get; set; }
 
-        [DisplayName("end date")]
+        [DisplayName("End date")]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         [Required]
         public System.DateTime endDate { get; set; }
 
-        [DisplayName("approved")]
+        [DisplayName("Approved")]
         public bool isApproved { get; set; }
 
-    	[DisplayName("created")]
+    	[DisplayName("Created")]
     	[Required]
         public System.DateTime created { get; set; }
     		
-    	[DisplayName("modified")]
+    	[DisplayName("Modified")]
     	[Required]
         public System.DateTime modified { get; set; }
     		
-    	[DisplayName("created by")]
+    	[DisplayName("Created By")]
         public Nullable<int> createdBy { get; set; }
     		
-    	[DisplayName("modified by")]
+    	[DisplayName("Modified By")]
         public Nullable<int> modifiedBy { get; set; }
     		
-    	[DisplayName("active")]
+    	[DisplayName("Active")]
         public bool isActive { get; set; }
 
         //[Association("Car_CarImages", "carId", "carId", IsForeignKey = true)]
