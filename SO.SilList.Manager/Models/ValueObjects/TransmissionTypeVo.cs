@@ -18,7 +18,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class TransmissionTypeVo
     {
     		
-    	[DisplayName("transmission Type Id")]
+    	[DisplayName("transmission")]
     	[Key]
         public int transmissionTypeId { get; set; }
     		
@@ -37,17 +37,17 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[Required]
         public System.DateTime modified { get; set; }
     		
-    	[DisplayName("created By")]
+    	[DisplayName("created by")]
         public Nullable<int> createdBy { get; set; }
     		
-    	[DisplayName("modified By")]
+    	[DisplayName("modified by")]
         public Nullable<int> modifiedBy { get; set; }
     		
-    	[DisplayName("is Active")]
-        public Nullable<bool> isActive { get; set; }
+    	[DisplayName("active")]
+        public bool isActive { get; set; }
 
-        //[Association("TransmissionType_Car", "transmissionTypeId", "transmissionTypeId", IsForeignKey = true)]
-        //public List<CarVo> car { get; set; }
+        [Association("TransmissionType_Car", "transmissionTypeId", "transmissionTypeId", IsForeignKey = true)]
+        public List<CarVo> car { get; set; }
 
     	public TransmissionTypeVo(){
     			

@@ -10,11 +10,11 @@
     [isTravelRequired] BIT              NULL,
     [isTelecomute]     BIT              NULL,
     [jobCompanyId]     UNIQUEIDENTIFIER NULL,
-    [created]          DATE             NULL,
-    [modified]         DATETIME         NULL,
+    [created]          DATE             NOT NULL DEFAULT (getdate()),
+    [modified]         DATETIME         NOT NULL DEFAULT (getdate()),
     [createdBy]        INT              NULL,
     [modifiedBy]       INT              NULL,
-    [isActive]         BIT              NULL,
+    [isActive]         BIT              NOT NULL DEFAULT ((1)),
     PRIMARY KEY CLUSTERED ([jobId] ASC),
     CONSTRAINT [FK_Job_JobType1] FOREIGN KEY ([jobTypeId]) REFERENCES [app].[JobType] ([jobTypeId]) ON DELETE CASCADE ON UPDATE CASCADE
 );

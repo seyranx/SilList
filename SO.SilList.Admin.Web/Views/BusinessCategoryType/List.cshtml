@@ -1,27 +1,17 @@
 ﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.BusinessCategoryTypeVo>
 
-
-<h2>List</h2>
-
 <p>
-    @Html.ActionLink("Create New", "Create")
+   <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
+
 </p>
-<table>
+
+<table class="table table-bordered table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.name)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.createdBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.modifiedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.modified)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.created)
@@ -44,16 +34,7 @@
             @Html.DisplayFor(modelItem => item.description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.createdBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.modifiedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.modified)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.created)
+           <span>@String.Format("{0:MM/dd/yyy}", item.created)</span>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.isActive)
@@ -61,10 +42,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.siteId)
         </td>
+        
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.businessCategoryTypeId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.businessCategoryTypeId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.businessCategoryTypeId })
+            <a href="@Url.Action("Edit",new { id=item.businessCategoryTypeId })" class="btn">Edit</a>
+            <a href="@Url.Action("Details",new { id=item.businessCategoryTypeId })" class="btn">Details</a>
+            <a href="@Url.Action("Delete",new { id=item.businessCategoryTypeId })" class="btn">Delete</a>          
         </td>
     </tr>
 }

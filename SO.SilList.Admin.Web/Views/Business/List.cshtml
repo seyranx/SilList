@@ -18,9 +18,7 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.state)
-        </th>
-     
-       
+        </th>       
        
         <th>
             @Html.DisplayNameFor(model => model.created)
@@ -50,19 +48,16 @@
        
 
         <td>
-            @Html.DisplayFor(modelItem => item.created)
+            <span>@String.Format("{0:MM/dd/yyy}", item.created)</span>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.isActive)
         </td>
       
         <td>
-
             <a href="@Url.Action("Edit",new { id=item.businessId })" class="btn">Edit</a>
             <a href="@Url.Action("Details",new { id=item.businessId })" class="btn">Details</a>
-            <a href="@Url.Action("Delete",new { id=item.businessId })" class="btn">Delete</a>
-
-          
+            <a href="@Url.Action("Delete",new { id=item.businessId })" class="btn">Delete</a>          
         </td>
     </tr>
 }

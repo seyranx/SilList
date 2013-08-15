@@ -18,11 +18,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class CarVo
     {
     		
-    	[DisplayName("car Id")]
+    	[DisplayName("car")]
     	[Key]
         public System.Guid carId { get; set; }
     		
-    	[DisplayName("model Type Id")]
+    	[DisplayName("model")]
         public Nullable<int> modelTypeId { get; set; }
     		
     	[DisplayName("year")]
@@ -31,18 +31,28 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("millage")]
         public Nullable<int> millage { get; set; }
     		
-    	[DisplayName("car Body Type Id")]
+    	[DisplayName("body")]
         public Nullable<int> carBodyTypeId { get; set; }
     		
-    	[DisplayName("site Id")]
+    	[DisplayName("site")]
         public Nullable<int> siteId { get; set; }
     		
-    	[DisplayName("listing Detail Id")]
-        public Nullable<System.Guid> listingDetailId { get; set; }
-    		
-    	[DisplayName("transmission Type Id")]
+    	[DisplayName("transmission")]
         public Nullable<int> transmissionTypeId { get; set; }
-    		
+
+        [DisplayName("start date")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        [Required]
+        public System.DateTime startDate { get; set; }
+
+        [DisplayName("end date")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        [Required]
+        public System.DateTime endDate { get; set; }
+
+        [DisplayName("approved")]
+        public bool isApproved { get; set; }
+
     	[DisplayName("created")]
     	[Required]
         public System.DateTime created { get; set; }
@@ -51,32 +61,29 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[Required]
         public System.DateTime modified { get; set; }
     		
-    	[DisplayName("created By")]
+    	[DisplayName("created by")]
         public Nullable<int> createdBy { get; set; }
     		
-    	[DisplayName("modified By")]
+    	[DisplayName("modified by")]
         public Nullable<int> modifiedBy { get; set; }
     		
-    	[DisplayName("is Active")]
-        public Nullable<bool> isActive { get; set; }
+    	[DisplayName("active")]
+        public bool isActive { get; set; }
 
-        //[Association("Car_CarImages", "carId", "carId", IsForeignKey = true)]
-        //public List<CarImagesVo> carImages { get; set; }
+        [Association("Car_CarImages", "carId", "carId", IsForeignKey = true)]
+        public List<CarImagesVo> carImages { get; set; }
 
-        //[ForeignKey("modelTypeId")]
-        //public virtual ModelTypeVo modelType { get; set; }
+        [ForeignKey("modelTypeId")]
+        public virtual ModelTypeVo modelType { get; set; }
 
-        //[ForeignKey("transmissionTypeId")]
-        //public virtual TransmissionTypeVo transmissionType { get; set; }
+        [ForeignKey("transmissionTypeId")]
+        public virtual TransmissionTypeVo transmissionType { get; set; }
 
-        //[ForeignKey("listingDetailId")]
-        //public virtual ListingDetailVo listingDetail { get; set; }
+        [ForeignKey("siteId")]
+        public virtual SiteVo site { get; set; }
 
-        //[ForeignKey("siteId")]
-        //public virtual SiteVo site { get; set; }
-
-        //[ForeignKey("carBodyTypeId")]
-        //public virtual CarBodyTypeVo carBodyType { get; set; }
+        [ForeignKey("carBodyTypeId")]
+        public virtual CarBodyTypeVo carBodyType { get; set; }
 
     	public CarVo(){
     			
