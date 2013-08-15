@@ -107,6 +107,8 @@
     <Compile Include="Managers\CarBodyTypeManagerTest.cs" />
     <Compile Include="Managers\CarImageManagerTest.cs" />
     <Compile Include="Managers\CarManagerTest.cs" />
+    <Compile Include="Managers\EnvironmentTypeManagerTest.cs" />
+    <Compile Include="Managers\SettingTypeManagerTest.cs" />
     <Compile Include="Managers\SiteManagerTest.cs" />
     <Compile Include="Managers\JobCategoriesManagerTest.cs" />
     <Compile Include="Managers\JobCategoryTypeManagerTest.cs" />

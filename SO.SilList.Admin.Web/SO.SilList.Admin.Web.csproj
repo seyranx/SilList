@@ -142,6 +142,7 @@
     <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\BuySellController.cs" />
     <Compile Include="Controllers\ImagesController.cs" />
+    <Compile Include="Controllers\EnvironmentTypeController.cs" />
     <Compile Include="Controllers\ListingCategoryTypeController.cs" />
     <Compile Include="Controllers\ListingController.cs" />
     <Compile Include="Controllers\CarController.cs" />
@@ -156,7 +157,7 @@
     <Compile Include="Controllers\LinkedController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\RentalsController.cs" />
-    <Compile Include="Controllers\ServiceTypeController.cs" />
+    <Compile Include="Controllers\SettingTypeController.cs" />
     <Compile Include="Controllers\SiteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -377,6 +378,7 @@
     <Content Include="Views\Admin\Delete.cshtml" />
     <Content Include="Views\Listing\List.cshtml" />
     <Content Include="Views\Listing\Edit.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Member\_Menu.cshtml" />
     <Content Include="Views\Member\Create.cshtml" />
     <Content Include="Views\Member\Details.cshtml" />
@@ -384,6 +386,18 @@
     <Content Include="Views\Listing\Details.cshtml" />
     <Content Include="Views\ListingCategoryType\Index.cshtml" />
     <Content Include="Views\ListingCategoryType\List.cshtml" />
+    <Content Include="Views\EnvironmentType\Create.cshtml" />
+    <Content Include="Views\EnvironmentType\Edit.cshtml" />
+    <Content Include="Views\EnvironmentType\List.cshtml" />
+    <Content Include="Views\EnvironmentType\Details.cshtml" />
+    <Content Include="Views\EnvironmentType\Index.cshtml" />
+    <Content Include="Views\EnvironmentType\_Menu.cshtml" />
+    <Content Include="Views\SettingType\Create.cshtml" />
+    <Content Include="Views\SettingType\_Menu.cshtml" />
+    <Content Include="Views\SettingType\Details.cshtml" />
+    <Content Include="Views\SettingType\Edit.cshtml" />
+    <Content Include="Views\SettingType\Index.cshtml" />
+    <Content Include="Views\SettingType\List.cshtml" />
     <Content Include="Views\Car\Index.cshtml" />
     <Content Include="Views\Car\_Menu.cshtml" />
     <Content Include="Views\Car\List.cshtml" />
