@@ -52,8 +52,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         // public virtual SiteVo site { get; set; }
         // public List<BusinessRatingsVo> businessRatings { get; set; }
 
-        [Association("BusinessRatings_Rating", "ratingId", "ratingId", IsForeignKey = true)]
-        public List<BusinessRatingsVo> businessRatings { get; set; }
+        //[Association("BusinessRatings_Rating", "ratingId", "ratingId", IsForeignKey = true)]
+        //public List<BusinessRatingsVo> businessRatings { get; set; }
 
     	public RatingVo(){
     			

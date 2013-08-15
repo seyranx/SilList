@@ -46,11 +46,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("active")]
         public bool isActive { get; set; }
 
-        [Association("TransmissionType_Car", "transmissionTypeId", "transmissionTypeId", IsForeignKey = true)]
-        public List<CarVo> car { get; set; }
+        //[Association("TransmissionType_Car", "transmissionTypeId", "transmissionTypeId", IsForeignKey = true)]
+        //public List<CarVo> car { get; set; }
 
-    	public TransmissionTypeVo(){
-    			
+    	public TransmissionTypeVo(){	
     	
     	 this.isActive = true;
     	}
