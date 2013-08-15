@@ -18,31 +18,31 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class CarImagesVo
     {
     		
-    	[DisplayName("car image")]
+    	[DisplayName("Car Image")]
     	[Key]
         public System.Guid carImagesId { get; set; }
     		
-    	[DisplayName("image")]
+    	[DisplayName("Image")]
         public Nullable<System.Guid> imageId { get; set; }
     		
-    	[DisplayName("car")]
+    	[DisplayName("Car")]
         public Nullable<System.Guid> carId { get; set; }
     		
-    	[DisplayName("created")]
+    	[DisplayName("Created")]
     	[Required]
         public System.DateTime created { get; set; }
     		
-    	[DisplayName("modified")]
+    	[DisplayName("Modified")]
     	[Required]
         public System.DateTime modified { get; set; }
     		
-    	[DisplayName("created by")]
+    	[DisplayName("Created by")]
         public Nullable<int> createdBy { get; set; }
     		
-    	[DisplayName("modified by")]
+    	[DisplayName("Modified by")]
         public Nullable<int> modifiedBy { get; set; }
     		
-    	[DisplayName("active")]
+    	[DisplayName("Active")]
         public bool isActive { get; set; }
 
 
