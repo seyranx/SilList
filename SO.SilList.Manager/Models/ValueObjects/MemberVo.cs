@@ -95,8 +95,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [Required]
         public bool isActive { get; set; }
 
-        [ForeignKey("siteId")]
-        public virtual SiteVo site { get; set; }
+        //[ForeignKey("siteId")]
+        //public virtual SiteVo site { get; set; }
 
     	public MemberVo(){
             this.lastLogin = DateTime.MinValue;

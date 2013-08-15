@@ -146,6 +146,8 @@
     <Compile Include="Controllers\ListingController.cs" />
     <Compile Include="Controllers\CarController.cs" />
     <Compile Include="Controllers\CarBodyTypeController.cs" />
+    <Compile Include="Controllers\ListingImageController.cs" />
+    <Compile Include="Controllers\ListingTypeController.cs" />
     <Compile Include="Controllers\TransmissionTypeController.cs" />
     <Compile Include="Controllers\MakeTypeController.cs" />
     <Compile Include="Controllers\ModelTypeController.cs" />
@@ -295,6 +297,7 @@
     <None Include="Properties\PublishProfiles\HyeList_obj.pubxml" />
     <None Include="Properties\PublishProfiles\Web.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -375,7 +378,6 @@
     <Content Include="Views\Admin\Delete.cshtml" />
     <Content Include="Views\Listing\List.cshtml" />
     <Content Include="Views\Listing\Edit.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Member\_Menu.cshtml" />
     <Content Include="Views\Member\Create.cshtml" />
     <Content Include="Views\Member\Details.cshtml" />
@@ -409,9 +411,25 @@
     <Content Include="Views\TransmissionType\Details.cshtml" />
     <Content Include="Views\TransmissionType\Edit.cshtml" />
     <Content Include="Views\TransmissionType\Create.cshtml" />
+    <Content Include="Views\BusinessCategoryType\Create.cshtml" />
+    <Content Include="Views\BusinessCategoryType\Details.cshtml" />
+    <Content Include="Views\BusinessCategoryType\Edit.cshtml" />
+    <Content Include="Views\ServiceType\Index.cshtml" />
+    <Content Include="Views\ServiceType\Create.cshtml" />
+    <Content Include="Views\ServiceType\List.cshtml" />
+    <Content Include="Views\ServiceType\Edit.cshtml" />
+    <Content Include="Views\ServiceType\Details.cshtml" />
+    <Content Include="Views\ListingCategoryType\Edit.cshtml" />
+    <Content Include="Views\ListingImages\Index.cshtml" />
+    <Content Include="Views\ListingImages\List.cshtml" />
+    <Content Include="Views\ListingType\Index.cshtml" />
+    <Content Include="Views\ListingType\List.cshtml" />
+    <Content Include="Views\ListingCategoryType\Create.cshtml" />
+    <Content Include="Views\ListingCategoryType\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Service\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

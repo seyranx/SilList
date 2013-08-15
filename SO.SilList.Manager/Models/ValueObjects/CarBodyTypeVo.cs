@@ -18,7 +18,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class CarBodyTypeVo
     {
     		
-    	[DisplayName("car Body Type Id")]
+    	[DisplayName("body")]
     	[Key]
         public int carBodyTypeId { get; set; }
     		
@@ -37,14 +37,14 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[Required]
         public System.DateTime modified { get; set; }
     		
-    	[DisplayName("created By")]
+    	[DisplayName("created by")]
         public Nullable<int> createdBy { get; set; }
     		
-    	[DisplayName("modified By")]
+    	[DisplayName("modified by")]
         public Nullable<int> modifiedBy { get; set; }
     		
-    	[DisplayName("is Active")]
-        public Nullable<bool> isActive { get; set; }
+    	[DisplayName("active")]
+        public bool isActive { get; set; }
 
         //[Association("CarBodyType_Car", "carBodyTypeId", "carBodyTypeId", IsForeignKey = true)]
         //public List<CarVo> car { get; set; }

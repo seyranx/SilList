@@ -12,7 +12,15 @@
         <th>
             @Html.DisplayNameFor(model => model.title)
         </th>
-       
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th> 
+        <th>
+            @Html.DisplayNameFor(model => model.startDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.endDate)
+        </th>     
         <th>
             @Html.DisplayNameFor(model => model.created)
         </th>
@@ -31,10 +39,17 @@
         <td>
             @Html.DisplayFor(modelItem => item.title)
         </td>
-       
-
         <td>
-            @Html.DisplayFor(modelItem => item.created)
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.startDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.endDate)
+        </td>
+        <td>
+           <span>@String.Format("{0:MM/dd/yyy}", item.created)</span>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.isActive)

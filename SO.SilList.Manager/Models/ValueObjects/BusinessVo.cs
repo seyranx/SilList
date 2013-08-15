@@ -16,34 +16,45 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class BusinessVo
     {
 
-        [DisplayName("business Id")]
+        [DisplayName("Business Id")]
         [Key]
         public System.Guid businessId { get; set; }
 
-        [DisplayName("listingDetail Id")]
-        public System.Guid? listingDetailId { get; set; }
+        //[DisplayName("listingDetail Id")]
+        //public System.Guid? listingDetailId { get; set; }
 
-        [DisplayName("site Id")]
+        [DisplayName("Site Id")]
         public Nullable<int> siteId { get; set; }
 
-        [DisplayName("name")]
+        [DisplayName("Name")]
         [StringLength(250)]
         public string name { get; set; }
 
-        [DisplayName("address")]
+        [DisplayName("Address")]
         [StringLength(250)]
         public string address { get; set; }
 
-        [DisplayName("city")]
+        [DisplayName("City")]
         [StringLength(250)]
         public string city { get; set; }
 
-        [DisplayName("state")]
+        [DisplayName("State")]
         [StringLength(50)]
         public string state { get; set; }
 
-        [DisplayName("zip")]
+        [DisplayName("Zip")]
         public Nullable<int> zip { get; set; }
+
+        [DisplayName("start Date")]
+        [Required]
+        public System.DateTime startDate { get; set; }
+
+        [DisplayName("end Date")]
+        [Required]
+        public System.DateTime endDate { get; set; }
+
+        [DisplayName("is Approved")]
+        public bool isApproved { get; set; }
 
         [DisplayName("created By")]
         public Nullable<int> createdBy { get; set; }
@@ -55,11 +66,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [Required]
         public System.DateTime modified { get; set; }
 
-        [DisplayName("created")]
+        [DisplayName("Created")]
         [Required]
         public System.DateTime created { get; set; }
 
-        [DisplayName("is Active")]
+        [DisplayName("Is Active")]
         [Required]
         public bool isActive { get; set; }
 
@@ -76,13 +87,14 @@ namespace SO.SilList.Manager.Models.ValueObjects
         //[Association("Business_BusinessRatings", "businessId", "businessId", IsForeignKey = true)]
         //public List<BusinessRatingsVo> businessRatings { get; set; }
 
-        ///[Association("Business_BusinessCategories", "businessId", "businessId", IsForeignKey = true)]
-        ///public List<BusinessCategoriesVo> businessCategories { get; set; }
+        //[Association("Business_BusinessCategories", "businessId", "businessId", IsForeignKey = true)]
+        //public List<BusinessCategoriesVo> businessCategories { get; set; }
 
         public BusinessVo()
         {
     		this.businessId = Guid.NewGuid();
     	    this.isActive = true;
+            this.isApproved = false;
     	 }
 
     }

@@ -22,9 +22,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[Key]
         public System.Guid jobId { get; set; }
     		
-    	[DisplayName("listing Detail Id")]
-    	[Required]
-        public System.Guid listingDetailId { get; set; }
+    	//[DisplayName("listing Detail Id")]
+        //public System.Guid listingDetailId { get; set; }
     		
     	[DisplayName("site Id")]
         public Nullable<int> siteId { get; set; }
@@ -56,6 +55,17 @@ namespace SO.SilList.Manager.Models.ValueObjects
     		
     	[DisplayName("job Company Id")]
         public Nullable<System.Guid> jobCompanyId { get; set; }
+
+        [DisplayName("start Date")]
+        [Required]
+        public System.DateTime startDate { get; set; }
+
+        [DisplayName("end Date")]
+        [Required]
+        public System.DateTime endDate { get; set; }
+
+        [DisplayName("is Approved")]
+        public bool isApproved { get; set; }
     		
     	[DisplayName("created")]
         public Nullable<System.DateTime> created { get; set; }
@@ -70,25 +80,25 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public Nullable<int> modifiedBy { get; set; }
     		
     	[DisplayName("is Active")]
-        public Nullable<bool> isActive { get; set; }
+        public bool isActive { get; set; }
 
-        [ForeignKey("siteId")]
-        public virtual SiteVo site { get; set; }
+        //[ForeignKey("siteId")]
+        //public virtual SiteVo site { get; set; }
 
-        [ForeignKey("listingDetailId")]
-        public virtual ListingDetailVo listingDetails { get; set; }
+        //[ForeignKey("listingDetailId")]
+        //public virtual ListingDetailVo listingDetails { get; set; }
 
-        [ForeignKey("jobTypeId")]
-        public virtual JobTypeVo jobTypes { get; set; }
+        //[ForeignKey("jobTypeId")]
+        //public virtual JobTypeVo jobTypes { get; set; }
 
-        [ForeignKey("jobCompanyId")]
-        public virtual JobCompanyVo jobCompanys { get; set; }
+        //[ForeignKey("jobCompanyId")]
+        //public virtual JobCompanyVo jobCompanys { get; set; }
       
     	public JobVo(){
     			
     		this.jobId = Guid.NewGuid();
-    	
-    	 this.isActive = true;
+            this.isApproved = false;
+    	    this.isActive = true;
     	}
 
        // public string name { get; set; }

@@ -22,17 +22,17 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[Key]
         public int serviceTypeId { get; set; }
     		
-    	[DisplayName("description")]
+    	[DisplayName("Description")]
         public string description { get; set; }
     		
-    	[DisplayName("name")]
+    	[DisplayName("Name")]
     	[StringLength(50)]
         public string name { get; set; }
     		
-    	[DisplayName("site Id")]
+    	[DisplayName("Site Id")]
         public Nullable<int> siteId { get; set; }
     		
-    	[DisplayName("created")]
+    	[DisplayName("Created")]
     	[Required]
         public System.DateTime created { get; set; }
     		
@@ -45,9 +45,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
     		
     	[DisplayName("modified By")]
         public Nullable<int> modifiedBy { get; set; }
-    		
-    	[DisplayName("is Active")]
-        public Nullable<bool> isActive { get; set; }
+
+        [DisplayName("Is Active")]
+        [Required]
+        public bool isActive { get; set; }
 
 
     	public ServiceTypeVo(){

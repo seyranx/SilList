@@ -64,21 +64,27 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.listingDetailId)
+            @Html.LabelFor(model => model.startDate)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.listingDetailId)
-            @Html.ValidationMessageFor(model => model.listingDetailId)
+            @Html.EditorFor(model => model.startDate)
+            @Html.ValidationMessageFor(model => model.startDate)
+        </div>
+               <div class="editor-label">
+            @Html.LabelFor(model => model.endDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.endDate)
+            @Html.ValidationMessageFor(model => model.endDate)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.transmissionTypeId)
+            @Html.LabelFor(model => model.isApproved)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.transmissionTypeId)
-            @Html.ValidationMessageFor(model => model.transmissionTypeId)
+            @Html.EditorFor(model => model.isApproved)
+            @Html.ValidationMessageFor(model => model.isApproved)
         </div>
-
 
         <div class="editor-label">
             @Html.LabelFor(model => model.isActive)

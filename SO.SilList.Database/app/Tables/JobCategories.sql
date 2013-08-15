@@ -5,7 +5,7 @@
     [modified]          DATETIME         DEFAULT (getdate()) NOT NULL,
     [createdBy]         INT              NULL,
     [modifiedBy]        INT              NULL,
-    [isActive]          BIT              NULL,
+    [isActive]          BIT              NOT NULL DEFAULT ((1)),
     [jobCategoryTypeId] UNIQUEIDENTIFIER NULL,
     PRIMARY KEY CLUSTERED ([jobCategoriesId] ASC)
 );

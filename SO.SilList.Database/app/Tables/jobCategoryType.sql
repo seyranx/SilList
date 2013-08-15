@@ -6,7 +6,7 @@
     [modified]          DATETIME       CONSTRAINT [DF__JobCatego__modif__46E78A0C] DEFAULT (getdate()) NOT NULL,
     [createdBy]         INT            NULL,
     [modifiedBy]        INT            NULL,
-    [isActive]          BIT            NULL,
+    [isActive]          BIT            NOT NULL DEFAULT ((1)),
     CONSTRAINT [PK__JobCateg__6772F083DA3A2360] PRIMARY KEY CLUSTERED ([jobCategoryTypeId] ASC)
 );
 

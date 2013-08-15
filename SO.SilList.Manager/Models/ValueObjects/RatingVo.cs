@@ -46,14 +46,14 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public int? modifiedBy { get; set; }
     		
     	[DisplayName("is Active")]
-        public bool? isActive { get; set; }
+        public bool isActive { get; set; }
 
         //[ForeignKey("foreignKeyname")]
         // public virtual SiteVo site { get; set; }
         // public List<BusinessRatingsVo> businessRatings { get; set; }
 
-        [Association("BusinessRatings_Rating", "ratingId", "ratingId", IsForeignKey = true)]
-        public List<BusinessRatingsVo> businessRatings { get; set; }
+        //[Association("BusinessRatings_Rating", "ratingId", "ratingId", IsForeignKey = true)]
+        //public List<BusinessRatingsVo> businessRatings { get; set; }
 
     	public RatingVo(){
     			

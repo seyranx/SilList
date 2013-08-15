@@ -7,8 +7,7 @@
     [modified]        DATETIME         DEFAULT (getdate()) NOT NULL,
     [createdBy]       INT              NULL,
     [modifiedBy]      INT              NULL,
-    [isActive]        BIT              NULL,
+    [isActive]        BIT              NOT NULL DEFAULT ((1)),
     CONSTRAINT [PK_ListingDetail] PRIMARY KEY CLUSTERED ([listingDetailId] ASC)
 );
-
 

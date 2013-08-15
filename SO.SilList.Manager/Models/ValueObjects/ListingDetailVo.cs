@@ -49,7 +49,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public Nullable<int> modifiedBy { get; set; }
     		
     	[DisplayName("is Active")]
-        public Nullable<bool> isActive { get; set; }
+        public bool isActive { get; set; }
 
         //[Association("ListingDetail_Business", "listingDetailId", "listingDetailId", IsForeignKey = true)]
         //public List<BusinessVo> business { get; set; }
@@ -57,8 +57,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         //[Association("ListingDetail_Car", "listingDetailId", "listingDetailId", IsForeignKey = true)]
         //public List<CarVo> car { get; set; }
 
-        [Association("ListingDetail_Listing", "listingDetailId", "listingDetailId", IsForeignKey = true)]
-        public List<ListingVo> listingDetails { get; set; }
+        //[Association("ListingDetail_Listing", "listingDetailId", "listingDetailId", IsForeignKey = true)]
+        //public List<ListingVo> listingDetails { get; set; }
 
 
     	public ListingDetailVo(){

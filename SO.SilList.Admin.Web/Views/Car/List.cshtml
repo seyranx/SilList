@@ -15,28 +15,19 @@
             @Html.DisplayNameFor(model => model.millage)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.carBodyTypeId)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.siteId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.listingDetailId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.transmissionTypeId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.created)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.modified)
+            @Html.DisplayNameFor(model => model.startDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.createdBy)
+            @Html.DisplayNameFor(model=> model.endDate)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.modifiedBy)
+         <th>
+            @Html.DisplayNameFor(model => model.isApproved)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.isActive)
@@ -56,13 +47,10 @@
             @Html.DisplayFor(modelItem => item.millage)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.carBodyTypeId)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.siteId)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.listingDetailId)
+        <td>   
+            <span>@String.Format("{0:MM/dd/yyy}", item.created)</span>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.transmissionTypeId)
@@ -71,13 +59,13 @@
             @Html.DisplayFor(modelItem => item.created)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.modified)
+            @Html.DisplayFor(modelItem => item.startDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.createdBy)
+            @Html.DisplayFor(modelItem =>  item.endDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.modifiedBy)
+            @Html.DisplayFor(modelItem => item.isApproved)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.isActive)

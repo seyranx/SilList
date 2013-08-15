@@ -54,7 +54,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public Nullable<int> modifiedBy { get; set; }
 
         [DisplayName("is Active")]
-        public Nullable<bool> isActive { get; set; }
+        public bool isActive { get; set; }
 
         //[Association("Site_Business", "siteId", "siteId", IsForeignKey = true)]
         //public List<BusinessVo> businesses { get; set; }
