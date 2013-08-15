@@ -20,7 +20,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return View();
         }
 
-        public ActionResult List()
+        public ActionResult _List()
         {
             var results = rentalManager.getAll(null);
             return PartialView(results);

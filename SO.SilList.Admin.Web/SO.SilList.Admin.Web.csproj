@@ -378,7 +378,7 @@
     <Content Include="Views\ListingCategoryType\Index.cshtml" />
     <Content Include="Views\ListingCategoryType\List.cshtml" />
     <Content Include="Views\Rentals\_Menu.cshtml" />
-    <Content Include="Views\Rentals\List.cshtml" />
+    <Content Include="Views\Rentals\_List.cshtml" />
     <Content Include="Views\Rentals\Create.cshtml" />
     <Content Include="Views\Rentals\Delete.cshtml" />
     <Content Include="Views\Rentals\Edit.cshtml" />
