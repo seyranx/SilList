@@ -73,7 +73,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Menu()
         {
-            return PartialView("_Menu");
+            return PartialView("../Business/_Menu");
         }
 
         public ActionResult Delete(Guid id)

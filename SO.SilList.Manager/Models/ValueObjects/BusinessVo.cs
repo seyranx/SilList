@@ -75,8 +75,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public bool isActive { get; set; }
 
 
-        //  [Association("Business_BusinessCategories", "businessId", "businessId", IsForeignKey = true)]
-       // public List<BusinessCategories> businessCategories { get; set; }
+        //[Association("Business_BusinessCategories", "businessId", "businessId", IsForeignKey = true)]
+        //public List<BusinessCategories> businessCategories { get; set; }
 
        
         [DisplayName("Site")]

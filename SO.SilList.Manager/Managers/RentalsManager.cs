@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace SO.SilList.Manager.Managers
 {
-    public class RentalManager: IRentalManager
+    public class RentalsManager: IRentalsManager
     {
-        public RentalVo get(Guid rentalId)
+        public RentalsVo get(Guid rentalId)
         {
             using (var db = new MainDb())
             {
-                var result = db.rental
+                var result = db.rentals 
                             .FirstOrDefault(r => r.rentalId == rentalId);
 
                 return result;
@@ -26,22 +26,22 @@ namespace SO.SilList.Manager.Managers
         /// <summary>
         /// Get First Item
         /// </summary>
-        public RentalVo getFirst()
+        public RentalsVo getFirst()
         {
             using (var db = new MainDb())
             {
-                var res = db.rental
+                var res = db.rentals
                             .FirstOrDefault();
 
                 return res;
             }
         }
 
-        public List<RentalVo> getAll(bool? isActive = true)
+        public List<RentalsVo> getAll(bool? isActive = true)
         {
             using (var db = new MainDb())
             {
-                var list = db.rental
+                var list = db.rentals
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
 
@@ -53,14 +53,14 @@ namespace SO.SilList.Manager.Managers
         {
             using (var db = new MainDb())
             {
-                var res = db.rental
+                var res = db.rentals
                      .Where(e => e.rentalId == rentalId)
                      .Delete();
                 return true;
             }
         }
 
-        public RentalVo update(RentalVo input, Guid? rentalId = null)
+        public RentalsVo update(RentalsVo input, Guid? rentalId = null)
         {
             using (var db = new MainDb())
             {
@@ -68,7 +68,7 @@ namespace SO.SilList.Manager.Managers
                 if (rentalId == null)
                     rentalId = input.rentalId;
 
-                var res = db.rental.FirstOrDefault(e => e.rentalId == rentalId);
+                var res = db.rentals.FirstOrDefault(e => e.rentalId == rentalId);
 
                 if (res == null) return null;
 
@@ -83,12 +83,12 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public RentalVo insert(RentalVo input)
+        public RentalsVo insert(RentalsVo input)
         {
             using (var db = new MainDb())
             {
 
-                db.rental.Add(input);
+                db.rentals.Add(input);
                 db.SaveChanges();
 
                 return input;
@@ -99,7 +99,7 @@ namespace SO.SilList.Manager.Managers
         {
             using (var db = new MainDb())
             {
-                return db.rental.Count();
+                return db.rentals.Count();
             }
         }
     }

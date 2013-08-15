@@ -1,55 +1,57 @@
 ﻿using SO.SilList.Manager.Managers;
+using SO.SilList.Manager.Models.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using SO.SilList.Manager.Models.ValueObjects;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
-    public class ListingController : Controller
+    public class LeaseTermTypeController : Controller
     {
-        private ListingManager listingManager = new ListingManager();
+        //
+        // GET: /LeaseTermType/
+
+        private LeaseTermTypeManager leaseTermType = new LeaseTermTypeManager();
 
         public ActionResult Index()
         {
             return View();
         }
-
         public ActionResult List()
         {
-            var results = listingManager.getAll(null);
+            var results = leaseTermType.getAll(null);
             return PartialView(results);
         }
 
         [HttpPost]
-        public ActionResult Edit(Guid id, ListingVo input)
+        public ActionResult Edit(int id, LeaseTermTypeVo input)
         {
 
             if (this.ModelState.IsValid)
             {
-                var res = listingManager.update(input, id);
+                var res = leaseTermType.update(input, id);
                 return RedirectToAction("Index");
             }
 
             return View();
 
         }
-        public ActionResult Edit(Guid id)
+        public ActionResult Edit(int id)
         {
-            var result = listingManager.get(id);
+            var result = leaseTermType.get(id);
             return View(result);
         }
 
         [HttpPost]
-        public ActionResult Create(ListingVo input)
+        public ActionResult Create(LeaseTermTypeVo input)
         {
 
             if (this.ModelState.IsValid)
             {
 
-                var item = listingManager.insert(input);
+                var item = leaseTermType.insert(input);
                 return RedirectToAction("Index");
             }
 
@@ -63,20 +65,20 @@ namespace SO.SilList.Admin.Web.Controllers
             return View();
         }
 
-        public ActionResult Details(Guid id)
+        public ActionResult Details(int id)
         {
-            var result = listingManager.get(id);
+            var result = leaseTermType.get(id);
             return View(result);
         }
 
         public ActionResult Menu()
         {
-            return PartialView("../Listing/_Menu");
+            return PartialView("../LeaseTermType/_Menu");
         }
 
-        public ActionResult Delete(Guid id)
+        public ActionResult Delete(int id)
         {
-            listingManager.delete(id);
+            leaseTermType.delete(id);
             return RedirectToAction("Index");
         }
     }
