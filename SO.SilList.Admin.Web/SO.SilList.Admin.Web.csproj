@@ -141,7 +141,7 @@
     <Compile Include="Controllers\BusinessCategoryTypeController.cs" />
     <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\BuySellController.cs" />
-    <Compile Include="Controllers\ImagesController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\ListingCategoryTypeController.cs" />
     <Compile Include="Controllers\ListingController.cs" />
     <Compile Include="Controllers\CarController.cs" />
@@ -351,7 +351,7 @@
     <Content Include="Views\BuySell\Index.cshtml" />
     <Content Include="Views\Jobs\Index.cshtml" />
     <Content Include="Views\Linked\ShowNew.cshtml" />
-    <Content Include="Views\Business\List.cshtml" />
+    <Content Include="Views\Business\_List.cshtml" />
     <Content Include="Views\Business\Edit.cshtml">
       <SubType>Code</SubType>
     </Content>
@@ -396,6 +396,20 @@
     <Content Include="Views\MakeType\Index.cshtml" />
     <Content Include="Views\MakeType\Edit.cshtml" />
     <Content Include="Views\MakeType\Details.cshtml" />
+    <Content Include="Views\Image\_ListRentalImages.cshtml" />
+    <Content Include="Views\Image\Index.cshtml" />
+    <Content Include="Views\Image\Create.cshtml" />
+    <Content Include="Views\Image\Details.cshtml" />
+    <Content Include="Views\Image\Edit.cshtml" />
+    <Content Include="Views\Image\BusinessImages.cshtml" />
+    <Content Include="Views\Image\_Menu.cshtml" />
+    <None Include="Views\Image\CarImages.cshtml" />
+    <Content Include="Views\Image\ListingImages.cshtml" />
+    <Content Include="Views\Image\RentalImages.cshtml" />
+    <Content Include="Views\Image\_ListBusinessImages.cshtml" />
+    <Content Include="Views\Image\_ListCarImages.cshtml" />
+    <Content Include="Views\Image\_List.cshtml" />
+    <Content Include="Views\Image\_ListListingImages.cshtml" />
     <Content Include="Views\MakeType\Create.cshtml" />
     <Content Include="Views\MakeType\List.cshtml" />
     <Content Include="Views\CarBodyType\Index.cshtml" />

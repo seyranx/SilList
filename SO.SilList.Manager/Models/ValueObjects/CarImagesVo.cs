@@ -49,8 +49,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         //[ForeignKey("carId")]
         //public virtual CarVo car { get; set; }
 
-        //[ForeignKey("imageId")]
-        //public virtual ImageVo image { get; set; }
+        [ForeignKey("imageId")]
+        public virtual ImageVo image { get; set; }
 
     	public CarImagesVo(){
     			
