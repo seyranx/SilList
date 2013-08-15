@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SO.SilList.Manager.Models.ValueObjects;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
@@ -11,14 +12,10 @@ namespace SO.SilList.Admin.Web.Controllers
     {
         private ListingCategoryTypeManager listingCategoryTypeManager = new ListingCategoryTypeManager();
 
-        //
-        // GET: /ListingCategoryType/
-
         public ActionResult Index()
         {
             return View();
         }
-
 
         public ActionResult List()
         {
@@ -30,6 +27,57 @@ namespace SO.SilList.Admin.Web.Controllers
         public ActionResult Menu()
         {
            return PartialView("../Listing/_Menu");
+        }
+
+        [HttpPost]
+        public ActionResult Create(ListingCategoryTypeVo input)
+        {
+
+            if (this.ModelState.IsValid)
+            {
+
+                var item = listingCategoryTypeManager.insert(input);
+                return RedirectToAction("Index");
+            }
+
+            return View();
+
+        }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Edit(int id, ListingCategoryTypeVo input)
+        {
+
+            if (this.ModelState.IsValid)
+            {
+                var res = listingCategoryTypeManager.update(input, id);
+                return RedirectToAction("Index");
+            }
+
+            return View();
+
+        }
+        public ActionResult Edit(int id)
+        {
+            var result = listingCategoryTypeManager.get(id);
+            return View(result);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var result = listingCategoryTypeManager.get(id);
+            return View(result);
+        }
+
+        public ActionResult Delete(int id)
+        {
+            listingCategoryTypeManager.delete(id);
+            return RedirectToAction("Index");
         }
     }
 }

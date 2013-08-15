@@ -48,8 +48,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[Required]
         public bool isActive { get; set; }
 
-        [Association("ListingCategories_ListingCategoryType", "listingCategoryTypeId", "listingCategoryTypeId", IsForeignKey = true)]
-        public List<ListingCategoriesVo> listingCategories { get; set; }
+        //[Association("ListingCategories_ListingCategoryType", "listingCategoryTypeId", "listingCategoryTypeId", IsForeignKey = true)]
+        //public List<ListingCategoriesVo> listingCategories { get; set; }
       
     	public ListingCategoryTypeVo()
         {

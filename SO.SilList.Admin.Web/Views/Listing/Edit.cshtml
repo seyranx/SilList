@@ -17,21 +17,12 @@
         @Html.HiddenFor(model => model.listingId)
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.listingDetailId)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.listingDetailId)
-            @Html.ValidationMessageFor(model => model.listingDetailId)
-        </div>
-
-        <div class="editor-label">
             @Html.LabelFor(model => model.siteId)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.siteId)
             @Html.ValidationMessageFor(model => model.siteId)
         </div>
-
         <div class="editor-label">
             @Html.LabelFor(model => model.title)
         </div>
@@ -39,7 +30,27 @@
             @Html.EditorFor(model => model.title)
             @Html.ValidationMessageFor(model => model.title)
         </div>       
-
+        <div class="editor-label">
+            @Html.LabelFor(model => model.description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.description)
+            @Html.ValidationMessageFor(model => model.description)
+        </div> 
+        <div class="editor-label">
+            @Html.LabelFor(model => model.startDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.startDate)
+            @Html.ValidationMessageFor(model => model.startDate)
+        </div>
+            <div class="editor-label">
+            @Html.LabelFor(model => model.endDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.endDate)
+            @Html.ValidationMessageFor(model => model.endDate)
+        </div>
         <div class="editor-label">
             @Html.LabelFor(model => model.isActive)
         </div>

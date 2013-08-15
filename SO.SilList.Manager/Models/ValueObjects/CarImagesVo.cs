@@ -46,11 +46,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public bool isActive { get; set; }
 
 
-        [ForeignKey("carId")]
-        public virtual CarVo car { get; set; }
+        //[ForeignKey("carId")]
+        //public virtual CarVo car { get; set; }
 
-        [ForeignKey("imageId")]
-        public virtual ImageVo image { get; set; }
+        //[ForeignKey("imageId")]
+        //public virtual ImageVo image { get; set; }
 
     	public CarImagesVo(){
     			

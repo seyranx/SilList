@@ -37,7 +37,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("site")]
         public Nullable<int> siteId { get; set; }
     		
-    	[DisplayName("transmission")]
+    	//[DisplayName("listing Detail Id")]
+        //public Nullable<System.Guid> listingDetailId { get; set; }
+    		
+    	[DisplayName("transmission Type Id")]
         public Nullable<int> transmissionTypeId { get; set; }
 
         [DisplayName("start date")]
@@ -70,26 +73,29 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("active")]
         public bool isActive { get; set; }
 
-        [Association("Car_CarImages", "carId", "carId", IsForeignKey = true)]
-        public List<CarImagesVo> carImages { get; set; }
+        //[Association("Car_CarImages", "carId", "carId", IsForeignKey = true)]
+        //public List<CarImagesVo> carImages { get; set; }
 
-        [ForeignKey("modelTypeId")]
-        public virtual ModelTypeVo modelType { get; set; }
+        //[ForeignKey("modelTypeId")]
+        //public virtual ModelTypeVo modelType { get; set; }
 
-        [ForeignKey("transmissionTypeId")]
-        public virtual TransmissionTypeVo transmissionType { get; set; }
+        //[ForeignKey("transmissionTypeId")]
+        //public virtual TransmissionTypeVo transmissionType { get; set; }
 
-        [ForeignKey("siteId")]
-        public virtual SiteVo site { get; set; }
+        //[ForeignKey("listingDetailId")]
+        //public virtual ListingDetailVo listingDetail { get; set; }
 
-        [ForeignKey("carBodyTypeId")]
-        public virtual CarBodyTypeVo carBodyType { get; set; }
+        //[ForeignKey("siteId")]
+        //public virtual SiteVo site { get; set; }
+
+        //[ForeignKey("carBodyTypeId")]
+        //public virtual CarBodyTypeVo carBodyType { get; set; }
 
     	public CarVo(){
     			
     		this.carId = Guid.NewGuid();
-    	
-    	 this.isActive = true;
+            this.isApproved = false;    	
+    	    this.isActive = true;
     	}
     }
 }
