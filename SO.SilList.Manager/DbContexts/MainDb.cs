@@ -42,6 +42,9 @@ namespace SO.SilList.Manager.DbContexts
         public DbSet<RentalImageVo> rentalImages { get; set; }
         public DbSet<RentTypeVo> rentTypes { get; set; }
 
+        public DbSet<SettingTypeVo> settingTypes { get; set; }
+        public DbSet<EnvironmentTypeVo> environmentTypes { get; set; }
+        
         public DbSet<RatingVo> rating { get; set; }
         public DbSet<BusinessRatingsVo> businessRatings { get; set; }
         public DbSet<BusinessCategoriesVo> businessCategories { get; set; }
