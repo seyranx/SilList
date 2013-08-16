@@ -19,8 +19,7 @@
             @Html.LabelFor(model => model.makeTypeId)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.makeTypeId)
-            @Html.ValidationMessageFor(model => model.makeTypeId)
+             @Html.Action("DropDownList","MakeType",new {id=Model.makeTypeId})
         </div>
 
         <div class="editor-label">

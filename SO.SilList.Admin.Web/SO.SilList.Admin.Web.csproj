@@ -453,6 +453,12 @@
     <Content Include="Views\ListingType\List.cshtml" />
     <Content Include="Views\ListingCategoryType\Create.cshtml" />
     <Content Include="Views\ListingCategoryType\Details.cshtml" />
+    <Content Include="Views\Site\_DropDownList.cshtml" />
+    <Content Include="Views\ModelType\_DropDownList.cshtml" />
+    <Content Include="Views\MakeType\_DropDownList.cshtml" />
+    <Content Include="Views\CarBodyType\_DropDownList.cshtml" />
+    <Content Include="Views\TransmissionType\_DropDownList.cshtml" />
+    <Content Include="Views\Car\_DropDownList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

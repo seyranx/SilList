@@ -48,7 +48,8 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            var vo = new MakeTypeVo();
+            return View(vo);
         }
 
         [HttpPost]
@@ -80,6 +81,17 @@ namespace SO.SilList.Admin.Web.Controllers
         {
             makeTypeManager.delete(id);
             return RedirectToAction("Index");
+        }
+
+        public ActionResult DropDownList(int? id = null)
+        {
+            ViewBag.makes = makeTypeManager.getAll(null);
+            var make = new MakeTypeVo();
+            if (id != null)
+            {
+                make = makeTypeManager.get(id.Value);
+            }
+            return PartialView("_DropDownList", make);
         }
     }
 }

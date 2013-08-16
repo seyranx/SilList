@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace SO.SilList.Manager.Managers
 {
@@ -18,6 +19,8 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var result = db.carImages
+                            .Include(c => c.car)
+                            .Include(i => i.image)
                             .FirstOrDefault(r => r.carImagesId == carImagesId);
 
                 return result;
@@ -32,6 +35,8 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.carImages
+                            .Include(c => c.car)
+                            .Include(i => i.image)
                             .FirstOrDefault();
 
                 return res;
@@ -43,6 +48,8 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var list = db.carImages
+                            .Include(c => c.car)
+                            .Include(i => i.image)
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
 

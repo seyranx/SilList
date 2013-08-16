@@ -38,7 +38,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.modelTypeId)
+            @Html.DisplayFor(modelItem => item.modelType.name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.year)
@@ -47,7 +47,7 @@
             @Html.DisplayFor(modelItem => item.millage)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.siteId)
+            @Html.DisplayFor(modelItem => item.site.domain)
         </td>
         <td>   
             <span>@String.Format("{0:MM/dd/yyy}", item.created)</span>
