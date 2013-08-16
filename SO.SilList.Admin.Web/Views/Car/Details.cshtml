@@ -14,7 +14,7 @@
          @Html.DisplayNameFor(model => model.modelTypeId)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.modelTypeId)
+        @Html.DisplayFor(model => model.modelType.name)
     </div>
 
     <div class="display-label">
@@ -35,21 +35,21 @@
          @Html.DisplayNameFor(model => model.carBodyTypeId)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.carBodyTypeId)
+        @Html.DisplayFor(model => model.carBodyType.name)
     </div>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.siteId)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.siteId)
+        @Html.DisplayFor(model => model.site.domain)
     </div>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.transmissionTypeId)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.transmissionTypeId)
+        @Html.DisplayFor(model => model.transmissionType.name)
     </div>
 
     <div class="display-label">

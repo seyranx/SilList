@@ -71,8 +71,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         //[Association("Image_BusinessImages", "imageId", "imageId", IsForeignKey = true)]
         //public List<BusinessImagesVo> businessImages { get; set; }
 
-        //[Association("Image_CarImages", "imageId", "imageId", IsForeignKey = true)]
-        //public List<CarImagesVo> carImages { get; set; }
+        [Association("Image_CarImages", "imageId", "imageId", IsForeignKey = true)]
+        public List<CarImagesVo> carImages { get; set; }
 
     	public ImageVo(){
     			

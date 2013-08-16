@@ -48,7 +48,8 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            var vo = new CarBodyTypeVo();
+            return View(vo);
         }
 
         [HttpPost]
@@ -80,6 +81,17 @@ namespace SO.SilList.Admin.Web.Controllers
         {
             carBodyTypeManager.delete(id);
             return RedirectToAction("Index");
+        }
+
+        public ActionResult DropDownList(int? id = null)
+        {
+            ViewBag.bodies = carBodyTypeManager.getAll(null);
+            var body = new CarBodyTypeVo();
+            if (id != null)
+            {
+                body = carBodyTypeManager.get(id.Value);
+            }
+            return PartialView("_DropDownList", body);
         }
     }
 }

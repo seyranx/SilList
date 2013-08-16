@@ -10,21 +10,19 @@
 
 <h2>Create</h2>
 
-<script src="~/Scripts/jquery-1.7.1.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
     <fieldset>
+        <legend></legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.modelTypeId)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.modelTypeId)
-            @Html.ValidationMessageFor(model => model.modelTypeId)
+            @Html.Action("DropDownList","ModelType",new {id=Model.modelTypeId})
         </div>
 
         <div class="editor-label">
@@ -47,24 +45,21 @@
             @Html.LabelFor(model => model.carBodyTypeId)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.carBodyTypeId)
-            @Html.ValidationMessageFor(model => model.carBodyTypeId)
+            @Html.Action("DropDownList","CarBodyType",new {id=Model.carBodyTypeId})
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.siteId)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.siteId)
-            @Html.ValidationMessageFor(model => model.siteId)
+            @Html.Action("DropDownList","Site",new {id=Model.siteId})
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.transmissionTypeId)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.transmissionTypeId)
-            @Html.ValidationMessageFor(model => model.transmissionTypeId)
+            @Html.Action("DropDownList","TransmissionType",new {id=Model.transmissionTypeId})
         </div>
 
         <div class="editor-label">

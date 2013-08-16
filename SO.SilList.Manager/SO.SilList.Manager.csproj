@@ -172,10 +172,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Models\ValueObjects\JobCategoriesVo.cs.orig" />
-    <None Include="Models\ValueObjects\JobCompanyVo.cs.orig" />
-    <None Include="Models\ValueObjects\JobVo.cs.orig" />
-    <None Include="Models\ValueObjects\SiteVo.cs.orig" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
