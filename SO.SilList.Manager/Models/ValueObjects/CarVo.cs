@@ -70,23 +70,20 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Active")]
         public bool isActive { get; set; }
 
-        //[Association("Car_CarImages", "carId", "carId", IsForeignKey = true)]
-        //public List<CarImagesVo> carImages { get; set; }
+        [Association("Car_CarImages", "carId", "carId", IsForeignKey = true)]
+        public List<CarImagesVo> carImages { get; set; }
 
-        //[ForeignKey("modelTypeId")]
-        //public virtual ModelTypeVo modelType { get; set; }
+        [ForeignKey("modelTypeId")]
+        public virtual ModelTypeVo modelType { get; set; }
 
-        //[ForeignKey("transmissionTypeId")]
-        //public virtual TransmissionTypeVo transmissionType { get; set; }
+        [ForeignKey("transmissionTypeId")]
+        public virtual TransmissionTypeVo transmissionType { get; set; }
 
-        //[ForeignKey("listingDetailId")]
-        //public virtual ListingDetailVo listingDetail { get; set; }
+        [ForeignKey("siteId")]
+        public virtual SiteVo site { get; set; }
 
-        //[ForeignKey("siteId")]
-        //public virtual SiteVo site { get; set; }
-
-        //[ForeignKey("carBodyTypeId")]
-        //public virtual CarBodyTypeVo carBodyType { get; set; }
+        [ForeignKey("carBodyTypeId")]
+        public virtual CarBodyTypeVo carBodyType { get; set; }
 
     	public CarVo(){
     			
