@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace SO.SilList.Manager.Managers
 {
@@ -18,6 +19,10 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var result = db.car
+                            .Include(s => s.site)
+                            .Include(m => m.modelType)
+                            .Include(b => b.carBodyType)
+                            .Include(t => t.transmissionType)
                             .FirstOrDefault(r => r.carId == carId);
 
                 return result;
@@ -32,6 +37,10 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.car
+                          //.Include(s => s.site)
+                          //  .Include(m => m.modelType)
+                          //  .Include(b => b.carBodyType)
+                          //  .Include(t => t.transmissionType)
                             .FirstOrDefault();
 
                 return res;
@@ -43,6 +52,10 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var list = db.car
+                          .Include(s => s.site)
+                            .Include(m => m.modelType)
+                            .Include(b => b.carBodyType)
+                            .Include(t => t.transmissionType)
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
 
