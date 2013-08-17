@@ -29,5 +29,56 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView("../Listing/_Menu");
         }
 
+
+        [HttpPost]
+        public ActionResult Create(ListingTypeVo input)
+        {
+
+            if (this.ModelState.IsValid)
+            {
+
+                var item = listingTypeManager.insert(input);
+                return RedirectToAction("Index");
+            }
+
+            return View();
+
+        }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Edit(int id, ListingTypeVo input)
+        {
+
+            if (this.ModelState.IsValid)
+            {
+                var res = listingTypeManager.update(input, id);
+                return RedirectToAction("Index");
+            }
+
+            return View();
+
+        }
+        public ActionResult Edit(int id)
+        {
+            var result = listingTypeManager.get(id);
+            return View(result);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var result = listingTypeManager.get(id);
+            return View(result);
+        }
+
+        public ActionResult Delete(int id)
+        {
+            listingTypeManager.delete(id);
+            return RedirectToAction("Index");
+        }
     }
 }

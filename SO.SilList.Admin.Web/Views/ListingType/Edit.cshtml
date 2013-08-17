@@ -1,4 +1,4 @@
-﻿@model SO.SilList.Manager.Models.ValueObjects.ListingCategoryTypeVo
+﻿@model SO.SilList.Manager.Models.ValueObjects.ListingTypeVo
 
 @{
     ViewBag.Title = "Edit";
@@ -11,9 +11,9 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>ListingCategoryTypeVo</legend>
+        <legend>ListingTypeVo</legend>
 
-        @Html.HiddenFor(model => model.listingCategoryTypeId)
+        @Html.HiddenFor(model => model.listingTypeId)
 
         <div class="editor-label">
             @Html.LabelFor(model => model.name)
