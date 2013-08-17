@@ -18,53 +18,53 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class ListingVo
     {
     		
-    	[DisplayName("listing Id")]
+    	[DisplayName("Listing Id")]
     	[Key]
         public System.Guid listingId { get; set; }
     		
     	//[DisplayName("listing Detail Id")]
         //public System.Guid? listingDetailId { get; set; }
     		
-    	[DisplayName("title")]
+    	[DisplayName("Title")]
     	[StringLength(50)]
         public string title { get; set; }
     		
-    	[DisplayName("description")]
+    	[DisplayName("Description")]
     	[StringLength(50)]
         public string description { get; set; }
     		
-    	[DisplayName("site Id")]
+    	[DisplayName("Site")]
         public int? siteId { get; set; }
     		
-    	[DisplayName("listing Type Id")]
+    	[DisplayName("Listing Type Id")]
         public int? listingTypeId { get; set; }
 
-        [DisplayName("start Date")]
+        [DisplayName("Start Date")]
         [Required]
         public System.DateTime startDate { get; set; }
 
-        [DisplayName("end Date")]
+        [DisplayName("End Date")]
         [Required]
         public System.DateTime endDate { get; set; }
 
-        [DisplayName("is Approved")]
+        [DisplayName("Approved")]
         public bool isApproved { get; set; }
     		
-    	[DisplayName("created By")]
+    	[DisplayName("Created By")]
         public int? createdBy { get; set; }
     		
-    	[DisplayName("modified By")]
+    	[DisplayName("Modified By")]
         public int? modifiedBy { get; set; }
     		
-    	[DisplayName("created")]
+    	[DisplayName("Created")]
     	[Required]
         public System.DateTime created { get; set; }
     		
-    	[DisplayName("modified")]
+    	[DisplayName("Modified")]
     	[Required]
         public System.DateTime modified { get; set; }
     		
-    	[DisplayName("is Active")]
+    	[DisplayName("Active")]
     	[Required]
         public bool isActive { get; set; }
 

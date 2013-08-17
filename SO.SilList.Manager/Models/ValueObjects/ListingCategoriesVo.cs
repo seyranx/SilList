@@ -18,31 +18,31 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class ListingCategoriesVo
     {
     		
-    	[DisplayName("listing Category Id")]
+    	[DisplayName("Listing Category Id")]
     	[Key]
         public System.Guid listingCategoryId { get; set; }
     		
-    	[DisplayName("listing Category Type Id")]
+    	[DisplayName("Listing Category Type Id")]
         public int? listingCategoryTypeId { get; set; }
     		
-    	[DisplayName("listing Id")]
+    	[DisplayName("Listing Id")]
         public System.Guid? listingId { get; set; }
     		
-    	[DisplayName("created By")]
+    	[DisplayName("Created By")]
         public int? createdBy { get; set; }
     		
-    	[DisplayName("modified By")]
+    	[DisplayName("Modified By")]
         public int? modifiedBy { get; set; }
     		
-    	[DisplayName("created")]
+    	[DisplayName("Created")]
     	[Required]
         public System.DateTime created { get; set; }
     		
-    	[DisplayName("modified")]
+    	[DisplayName("Modified")]
     	[Required]
         public System.DateTime modified { get; set; }
     		
-    	[DisplayName("is Active")]
+    	[DisplayName("Active")]
     	[Required]
         public bool isActive { get; set; }
 
