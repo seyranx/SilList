@@ -448,6 +448,7 @@
     <Content Include="Views\ListingType\Create.cshtml" />
     <Content Include="Views\ListingType\Edit.cshtml" />
     <Content Include="Views\ListingType\Details.cshtml" />
+    <Content Include="Views\ListingType\_DropDownList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

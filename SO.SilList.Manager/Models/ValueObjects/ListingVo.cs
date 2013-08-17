@@ -18,7 +18,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class ListingVo
     {
     		
-    	[DisplayName("Listing Id")]
+    	[DisplayName("Listing")]
     	[Key]
         public System.Guid listingId { get; set; }
     		
@@ -36,7 +36,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Site")]
         public int? siteId { get; set; }
     		
-    	[DisplayName("Listing Type Id")]
+    	[DisplayName("Listing Type")]
         public int? listingTypeId { get; set; }
 
         [DisplayName("Start Date")]
@@ -71,8 +71,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
         //[ForeignKey("listingDetailId")]
         //public virtual ListingDetailVo listingDetail { get; set; }
 
-        //[ForeignKey("listingTypeId")]
-        //public virtual ListingTypeVo listingType { get; set; }
+        [DisplayName("Type")]
+        [ForeignKey("listingTypeId")]
+        public virtual ListingTypeVo listingType { get; set; }
 
         //[Association("ListingCategories_Listing", "listingId", "listingId", IsForeignKey = true)]
         //public List<ListingCategoriesVo> listingCategories { get; set; }

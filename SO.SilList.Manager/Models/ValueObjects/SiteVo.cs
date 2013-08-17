@@ -64,5 +64,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         //[Association("Site_Member", "siteId", "siteId", IsForeignKey = true)]
         //public List<MemberVo> member { get; set; }
+
+        public SiteVo()
+        {
+    	    this.isActive = true;
+    	}
     }
 }
