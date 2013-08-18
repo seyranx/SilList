@@ -18,22 +18,22 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class JobCategoriesVo
     {
     		
-    	[DisplayName("job Category Type Id")]
+    	[DisplayName("Job Category Type Id")]
     	[Key]
         public Guid jobCategoriesId { get; set; }
     		
-    	[DisplayName("job Id")]
+    	[DisplayName("Job Id")]
         public Nullable<System.Guid> jobId { get; set; }
     		
-    	[DisplayName("created")]
+    	[DisplayName("Created")]
     	[Required]
         public System.DateTime created { get; set; }
     		
-    	[DisplayName("modified")]
+    	[DisplayName("Modified")]
     	[Required]
         public System.DateTime modified { get; set; }
     		
-    	[DisplayName("created By")]
+    	[DisplayName("Created By")]
         public Nullable<int> createdBy { get; set; }
     		
     	[DisplayName("modified By")]

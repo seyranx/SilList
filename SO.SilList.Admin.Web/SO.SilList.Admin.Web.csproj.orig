@@ -137,24 +137,32 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BusinessCategoryTypeController.cs" />
     <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\BuySellController.cs" />
+    <Compile Include="Controllers\ImagesController.cs" />
 <<<<<<< HEAD
+    <Compile Include="Controllers\EnvironmentTypeController.cs" />
+=======
+    <Compile Include="Controllers\JobCategoryTypeController.cs" />
+    <Compile Include="Controllers\JobController.cs" />
+>>>>>>> SilList_47
     <Compile Include="Controllers\ListingCategoryTypeController.cs" />
     <Compile Include="Controllers\ListingController.cs" />
-=======
     <Compile Include="Controllers\CarController.cs" />
     <Compile Include="Controllers\CarBodyTypeController.cs" />
+    <Compile Include="Controllers\ListingImageController.cs" />
+    <Compile Include="Controllers\ListingTypeController.cs" />
     <Compile Include="Controllers\TransmissionTypeController.cs" />
     <Compile Include="Controllers\MakeTypeController.cs" />
     <Compile Include="Controllers\ModelTypeController.cs" />
->>>>>>> SiList_39
-    <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LinkedController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\RentalsController.cs" />
+    <Compile Include="Controllers\SettingTypeController.cs" />
+    <Compile Include="Controllers\SiteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -293,6 +301,7 @@
     <None Include="Properties\PublishProfiles\HyeList_obj.pubxml" />
     <None Include="Properties\PublishProfiles\Web.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -348,7 +357,6 @@
     <Content Include="Views\Rentals\Index.cshtml" />
     <Content Include="Views\Business\Index.cshtml" />
     <Content Include="Views\BuySell\Index.cshtml" />
-    <Content Include="Views\Jobs\Index.cshtml" />
     <Content Include="Views\Linked\ShowNew.cshtml" />
     <Content Include="Views\Business\List.cshtml" />
     <Content Include="Views\Business\Edit.cshtml">
@@ -361,10 +369,16 @@
     <Content Include="Views\Member\_List.cshtml" />
     <Content Include="Views\BusinessCategoryType\Index.cshtml" />
     <Content Include="Views\BusinessCategoryType\List.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Listing\Index.cshtml" />
     <Content Include="Views\Listing\_Menu.cshtml" />
     <Content Include="Views\Listing\Create.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\_Menu.cshtml" />
+    <Content Include="Views\Admin\List.cshtml" />
+    <Content Include="Views\Admin\Create.cshtml" />
+    <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Views\Admin\Details.cshtml" />
+    <Content Include="Views\Admin\Delete.cshtml" />
     <Content Include="Views\Listing\List.cshtml" />
     <Content Include="Views\Listing\Edit.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
@@ -375,7 +389,18 @@
     <Content Include="Views\Listing\Details.cshtml" />
     <Content Include="Views\ListingCategoryType\Index.cshtml" />
     <Content Include="Views\ListingCategoryType\List.cshtml" />
-=======
+    <Content Include="Views\EnvironmentType\Create.cshtml" />
+    <Content Include="Views\EnvironmentType\Edit.cshtml" />
+    <Content Include="Views\EnvironmentType\List.cshtml" />
+    <Content Include="Views\EnvironmentType\Details.cshtml" />
+    <Content Include="Views\EnvironmentType\Index.cshtml" />
+    <Content Include="Views\EnvironmentType\_Menu.cshtml" />
+    <Content Include="Views\SettingType\Create.cshtml" />
+    <Content Include="Views\SettingType\_Menu.cshtml" />
+    <Content Include="Views\SettingType\Details.cshtml" />
+    <Content Include="Views\SettingType\Edit.cshtml" />
+    <Content Include="Views\SettingType\Index.cshtml" />
+    <Content Include="Views\SettingType\List.cshtml" />
     <Content Include="Views\Car\Index.cshtml" />
     <Content Include="Views\Car\_Menu.cshtml" />
     <Content Include="Views\Car\List.cshtml" />
@@ -402,10 +427,47 @@
     <Content Include="Views\TransmissionType\Details.cshtml" />
     <Content Include="Views\TransmissionType\Edit.cshtml" />
     <Content Include="Views\TransmissionType\Create.cshtml" />
->>>>>>> SiList_39
+<<<<<<< HEAD
+    <Content Include="Views\BusinessCategoryType\Create.cshtml" />
+    <Content Include="Views\BusinessCategoryType\Details.cshtml" />
+    <Content Include="Views\BusinessCategoryType\Edit.cshtml" />
+    <Content Include="Views\ServiceType\Index.cshtml" />
+    <Content Include="Views\ServiceType\Create.cshtml" />
+    <Content Include="Views\ServiceType\List.cshtml" />
+    <Content Include="Views\ServiceType\Edit.cshtml" />
+    <Content Include="Views\ServiceType\Details.cshtml" />
+    <Content Include="Views\ListingCategoryType\Edit.cshtml" />
+    <Content Include="Views\ListingImages\Index.cshtml" />
+    <Content Include="Views\ListingImages\List.cshtml" />
+    <Content Include="Views\ListingType\Index.cshtml" />
+    <Content Include="Views\ListingType\List.cshtml" />
+    <Content Include="Views\ListingCategoryType\Create.cshtml" />
+    <Content Include="Views\ListingCategoryType\Details.cshtml" />
+    <Content Include="Views\Site\_DropDownList.cshtml" />
+    <Content Include="Views\ModelType\_DropDownList.cshtml" />
+    <Content Include="Views\MakeType\_DropDownList.cshtml" />
+    <Content Include="Views\CarBodyType\_DropDownList.cshtml" />
+    <Content Include="Views\TransmissionType\_DropDownList.cshtml" />
+    <Content Include="Views\Car\_DropDownList.cshtml" />
+=======
+    <Content Include="Views\Job\Create.cshtml" />
+    <Content Include="Views\Job\Details.cshtml" />
+    <Content Include="Views\Job\Index.cshtml" />
+    <Content Include="Views\Job\List.cshtml" />
+    <Content Include="Views\Job\Edit.cshtml" />
+    <Content Include="Views\Job\Menu.cshtml" />
+    <Content Include="Views\JobCategoryType\Index.cshtml" />
+    <Content Include="Views\JobCategoryType\List.cshtml" />
+    <Content Include="Views\JobCategoryType\Create.cshtml" />
+    <Content Include="Views\JobCategoryType\Edit.cshtml" />
+    <Content Include="Views\JobCategoryType\Details.cshtml" />
+    <Content Include="Views\JobCompany\Index.cshtml" />
+    <Content Include="Views\JobCompany\List.cshtml" />
+>>>>>>> SilList_47
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Service\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
@@ -444,7 +506,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50638</DevelopmentServerPort>
+          <DevelopmentServerPort>62094</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:64907/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

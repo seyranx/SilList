@@ -1,0 +1,116 @@
+﻿@model SO.SilList.Manager.Models.ValueObjects.JobVo
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>JobVo</legend>
+
+    
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.siteId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.siteId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.jobTypeId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.jobTypeId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.city)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.city)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.state)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.state)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.isTravelRequired)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.isTravelRequired)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.isTelecomute)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.isTelecomute)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.jobCompanyId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.jobCompanyId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.created)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.created)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.modified)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.modified)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.createdBy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.createdBy)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.modifiedBy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.modifiedBy)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.isActive)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.isActive)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.jobId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
