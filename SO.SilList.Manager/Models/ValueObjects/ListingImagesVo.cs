@@ -46,8 +46,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[Required]
         public bool isActive { get; set; }
 
-        //[ForeignKey("listingId")]
-        //public virtual ListingVo listing { get; set; }
+        [ForeignKey("listingId")]
+        public virtual ListingVo listing { get; set; }
+
+        [ForeignKey("imageId")]
+        public virtual ImageVo images { get; set; }
 
       
     	public ListingImagesVo()

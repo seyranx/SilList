@@ -1,12 +1,13 @@
-﻿using SO.SilList.Manager.DbContexts;
-using SO.SilList.Manager.Interfaces;
-using SO.SilList.Manager.Models.ValueObjects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 using EntityFramework.Extensions;
+using SO.SilList.Manager.Interfaces;
+using SO.SilList.Manager.DbContexts;
+using SO.SilList.Manager.Models.ValueObjects;
 
 namespace SO.SilList.Manager.Managers
 {
@@ -19,6 +20,8 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.businessImages
+                            .Include(s => s.image)
+                            .Include(t => t.business)
                             .FirstOrDefault(p => p.businessImageId == businessImageId);
 
                 return res;
@@ -29,8 +32,9 @@ namespace SO.SilList.Manager.Managers
         {
             using (var db = new MainDb())
             {
-                var list = db.businessImages 
-                             //.Include(s => s.site)
+                var list = db.businessImages
+                             .Include(s => s.image)
+                             .Include(t => t.business)
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
 

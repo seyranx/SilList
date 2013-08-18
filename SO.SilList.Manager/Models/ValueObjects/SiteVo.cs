@@ -62,8 +62,23 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [Association("Site_Car", "siteId", "siteId", IsForeignKey = true)]
         public List<CarVo> car { get; set; }
 
-        //[Association("Site_Member", "siteId", "siteId", IsForeignKey = true)]
-        //public List<MemberVo> member { get; set; }
+        [Association("Site_Image", "siteId", "siteId", IsForeignKey = true)]
+        public List<ImageVo> image { get; set; }
+
+        [Association("Site_Listing", "siteId", "siteId", IsForeignKey = true)]
+        public List<ListingVo> listing { get; set; }
+
+        [Association("Site_Job", "siteId", "siteId", IsForeignKey = true)]
+        public List<JobVo> job { get; set; }
+
+        [Association("Site_Rental", "siteId", "siteId", IsForeignKey = true)]
+        public List<RentalVo> rental { get; set; }
+
+        [Association("Site_Member", "siteId", "siteId", IsForeignKey = true)]
+        public List<MemberVo> member { get; set; }
+
+        [Association("Site_BusinessCategoryType", "siteId", "siteId", IsForeignKey = true)]
+        public List<BusinessCategoryTypeVo> businessCategoryType { get; set; }
 
         public SiteVo()
         {

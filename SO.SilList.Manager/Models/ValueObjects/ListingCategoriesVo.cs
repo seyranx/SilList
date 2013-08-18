@@ -46,11 +46,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[Required]
         public bool isActive { get; set; }
 
-        //[ForeignKey("listingId")]
-        //public virtual ListingVo listing { get; set; }
+        [ForeignKey("listingId")]
+        public virtual ListingVo listing { get; set; }
 
-        //[ForeignKey("listingCategoryTypeId")]
-        //public virtual ListingCategoryTypeVo listingCategoryType { get; set; }
+        [ForeignKey("listingCategoryTypeId")]
+        public virtual ListingCategoryTypeVo listingCategoryType { get; set; }
       
     	public ListingCategoriesVo()
         {    			

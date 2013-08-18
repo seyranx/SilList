@@ -1,12 +1,13 @@
-﻿using SO.SilList.Manager.DbContexts;
-using SO.SilList.Manager.Interfaces;
-using SO.SilList.Manager.Models.ValueObjects;
-using EntityFramework.Extensions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
+using EntityFramework.Extensions;
+using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Manager.Interfaces;
+using SO.SilList.Manager.DbContexts;
 
 namespace SO.SilList.Manager.Managers
 {
@@ -17,6 +18,10 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var result = db.rental
+                            .Include(r => r.propertyType)
+                            .Include(t => t.leaseTermType)
+                            .Include(c => c.rentType)
+                            .Include(s => s.site)
                             .FirstOrDefault(r => r.rentalId == rentalId);
 
                 return result;
@@ -42,8 +47,12 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var list = db.rental
-                             .Where(e => isActive == null || e.isActive == isActive)
-                             .ToList();
+                            .Include(r => r.propertyType)
+                            .Include(t => t.leaseTermType)
+                            .Include(c => c.rentType)
+                            .Include(s => s.site)
+                            .Where(e => isActive == null || e.isActive == isActive)
+                            .ToList();
 
                 return list;
             }

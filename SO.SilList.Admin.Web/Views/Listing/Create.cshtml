@@ -37,11 +37,12 @@
             @Html.LabelFor(model => model.listingTypeId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList","ListingType",new {id=Model.listingTypeId})
             @*
+            @Html.Action("DropDownList","ListingType",new {id=Model.listingTypeId})
+            *@
             @Html.EditorFor(model => model.listingTypeId)
             @Html.ValidationMessageFor(model => model.listingTypeId)
-            *@
+         
         </div>
 
         <div class="editor-label">

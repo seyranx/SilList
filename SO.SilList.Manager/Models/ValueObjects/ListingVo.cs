@@ -75,11 +75,14 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [ForeignKey("listingTypeId")]
         public virtual ListingTypeVo listingType { get; set; }
 
-        //[Association("ListingCategories_Listing", "listingId", "listingId", IsForeignKey = true)]
-        //public List<ListingCategoriesVo> listingCategories { get; set; }
+        [ForeignKey("siteId")]
+        public virtual SiteVo site { get; set; }
 
-        //[Association("ListingImages_Listing", "listingId", "listingId", IsForeignKey = true)]
-        //public List<ListingImagesVo> listings { get; set; }
+        [Association("ListingCategories_Listing", "listingId", "listingId", IsForeignKey = true)]
+        public List<ListingCategoriesVo> listingCategories { get; set; }
+
+        [Association("ListingImages_Listing", "listingId", "listingId", IsForeignKey = true)]
+        public List<ListingImagesVo> listingImages { get; set; }
       
     	public ListingVo()
         { 			

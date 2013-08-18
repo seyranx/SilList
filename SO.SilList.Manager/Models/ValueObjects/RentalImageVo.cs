@@ -21,6 +21,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("renatal Image Id")]
     	[Key]
         public System.Guid rentalImageId { get; set; }
+
+        [DisplayName("image Id")]       // this was missing
+        public Nullable<System.Guid> imageId { get; set; }
     		
     	[DisplayName("rental Id")]
         public Nullable<System.Guid> rentalId { get; set; }// It is the same public System.Guid? rentalId { get; set; }
@@ -42,11 +45,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("is Active")]
         public bool isActive { get; set; }
 
-        //[ForeignKey("imageId")]
-        //public virtual ImageVo image { get; set; }
+        [ForeignKey("imageId")]
+        public virtual ImageVo image { get; set; }
 
-        //[ForeignKey("rentalId")]
-        //public virtual RentalVo rental { get; set; }
+        [ForeignKey("rentalId")]
+        public virtual RentalVo rental { get; set; }
       
     	public RentalImageVo(){
     			
