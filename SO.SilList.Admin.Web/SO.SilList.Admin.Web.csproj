@@ -149,6 +149,7 @@
     <Compile Include="Controllers\CarBodyTypeController.cs" />
     <Compile Include="Controllers\ListingImageController.cs" />
     <Compile Include="Controllers\ListingTypeController.cs" />
+    <Compile Include="Controllers\ServiceTypeController.cs" />
     <Compile Include="Controllers\TransmissionTypeController.cs" />
     <Compile Include="Controllers\MakeTypeController.cs" />
     <Compile Include="Controllers\ModelTypeController.cs" />

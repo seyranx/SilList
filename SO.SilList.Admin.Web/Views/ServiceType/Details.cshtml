@@ -53,6 +53,6 @@
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.serviceTypeId }) |
-    @Html.ActionLink("Back to List", "Index")
+      <a href="@Url.Action("Edit", new { id=Model.serviceTypeId })" class="btn">Edit</a>
+      <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
 </p>
