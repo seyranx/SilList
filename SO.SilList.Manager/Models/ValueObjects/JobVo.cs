@@ -94,8 +94,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [ForeignKey("jobCompanyId")]
         public virtual JobCompanyVo jobCompany { get; set; }
 
-        [Association("JobCategory_Job", "JobId", "JobId", IsForeignKey = true)]
-        public List<JobCategoriesVo> jobCategory { get; set; }
+        [Association("JobCategories_Job", "jobId", "jobId", IsForeignKey = true)]
+        public List<JobCategoriesVo> jobCategories { get; set; }
       
     	public JobVo(){
     			
