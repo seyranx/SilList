@@ -201,4 +201,7 @@
     <None Include="Compare_Update_Code.scmp" />
     <None Include="Compare_Update_Server.scmp" />
   </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="app\Script.SuperAdmin.sql" />
+  </ItemGroup>
 </Project>

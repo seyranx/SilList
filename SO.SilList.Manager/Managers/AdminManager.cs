@@ -54,9 +54,18 @@ namespace SO.SilList.Manager.Managers
         {
             using (var db = new MainDb())
             {
-                var res = db.admins
-                     .Where(e => e.adminId == adminId)
-                     .Delete();
+                try
+                {
+                    var res = db.admins
+                         .Where(e => e.adminId == adminId)
+                         .Delete();
+                }
+                catch(System.Data.SqlClient.SqlException)
+                {
+                    // failed to delete from database
+                    return false;
+                }
+
                 return true;
             }
         }
