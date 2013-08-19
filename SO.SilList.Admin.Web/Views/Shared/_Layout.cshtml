@@ -66,29 +66,40 @@
           
      <ul class="nav nav-pills pull-left nav-list-menu">
 
-             <li class="dropdown">
-                   <a href="@Url.Action("Index","Home")" class="dropdown-toggle" >Home</a>
-                        
-             </li>
-
             <li class="dropdown">
-                        <a href="@Url.Action("Index","Account")"  class="dropdown-toggle" >Account<b class="caret white-caret"></b></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="#">Settings</a></li>
-                            <li class="divider"></li>
-                          <li><a href="#">Logout</a></li>
+                <a href="@Url.Action("Index","Home")" class="dropdown-toggle" >Home</a>
                         
-                        </ul>
-             </li>
+            </li>
+            <li class="dropdown">
+                <a href="@Url.Action("Index","Account")"  class="dropdown-toggle" >Account<b class="caret white-caret"></b></a>
+                
+                <ul class="dropdown-menu">
 
-       
-
+@if (Request.IsAuthenticated) {
+                    
+                        <li><a href="@Url.Action("Manage","Account", new { username=User.Identity.Name})">Manage</a></li>
+                        <li class="divider"></li>
+                        <li><a href="@Url.Action("Logout","Account")">Logout</a></li>
+} else {
+    
+                        <li><a href="@Url.Action("Login","Account")">Login</a></li>
+                        <li class="divider"></li>
+                        <li><a href="@Url.Action("Register","Account")">Register</a></li>
+    
+}
+                </ul>
+            </li>
     </ul>
 
             
          
 
         </div>
+@if (Request.IsAuthenticated) {
+        <div class="container">
+            You are logged in as @User.Identity.Name
+        </div>
+}
       </div>
     </div>
 

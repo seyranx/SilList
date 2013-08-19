@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Web.Security;
 using EntityFramework.Extensions;
 using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.DbContexts;
 using SO.SilList.Manager.Interfaces;
+using SO.SilList.Admin.Web.Models;
 
 namespace SO.SilList.Manager.Managers
 {
@@ -20,6 +22,19 @@ namespace SO.SilList.Manager.Managers
                 var res = db.admins
                     .FirstOrDefault(p => p.adminId == adminId);
                 return res;
+            }
+        }
+
+        public AccountManageVm get(string usernameOrEmail)
+        {
+            using (var db = new MainDb())
+            {
+                var adm = db.admins.First(p => p.username == usernameOrEmail || p.email == usernameOrEmail);
+
+                if(null == adm)
+                    return null;
+
+                return adm.toAccountManageVm();
             }
         }
 
@@ -66,9 +81,34 @@ namespace SO.SilList.Manager.Managers
 
                 db.SaveChanges();
                 return res;
-
             }
         }
+
+        public bool update(AccountManageVm input)
+        {
+            using (var db = new MainDb())
+            {
+                var adm = db.admins.First(e => e.adminId == input.adminId);
+
+                if (adm == null)
+                    return false;
+
+                adm.modified = DateTime.Now;
+                adm.modifiedBy = input.adminId;
+
+                adm.firstName = input.firstName;
+                adm.lastName = input.lastName;
+                adm.email = input.email;
+                adm.username = input.username;
+                adm.password = input.password;
+                adm.phone = input.phone;
+
+                // db.Entry(adm).CurrentValues.SetValues(input);
+
+                return (1 == db.SaveChanges());
+            }
+        }
+
 
         public AdminVo insert(AdminVo input)
         {
