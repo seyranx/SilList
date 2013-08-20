@@ -33,20 +33,47 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        //TODO: Site deletion will be somewhat complicated if the site with given id references already by other tables  . ..
         public bool delete(int siteId)
         {
-            throw new NotImplementedException();
+           using(var db = new MainDb())
+           {
+        //TODO: Site deletion will be somewhat complicated if the site with given id references already by other tables  . ..
+              //var res = db.sites
+              //   .Where(e => e.siteId == siteId)
+              //   .Delete();
+              return true;
+           }
         }
 
         public SiteVo update(SiteVo input, int? siteId = null)
         {
-            throw new NotImplementedException();
+           using (var db = new MainDb())
+           {
+              if(siteId == null)
+               siteId = input.siteId;
+
+              var res  = db.sites.FirstOrDefault(e => e.siteId == siteId);
+
+              if (res == null) return null;
+              
+              input.created = res.created;
+              input.createdBy = res.createdBy;
+              db.Entry(res).CurrentValues.SetValues(input);
+
+              db.SaveChanges();
+              return res;
+           }
         }
 
         public SiteVo insert(SiteVo input)
         {
-            throw new NotImplementedException();
+           using (var db = new MainDb())
+           {
+               db.sites.Add(input);
+               db.SaveChanges();
+
+               return input;
+           }
         }
     }
 }
