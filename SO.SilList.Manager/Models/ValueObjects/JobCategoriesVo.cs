@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +10,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 
 namespace SO.SilList.Manager.Models.ValueObjects 
-{
-     
+{ 
     [Table("JobCategories", Schema = "data" )]
     [Serializable]
     public partial class JobCategoriesVo
@@ -45,6 +43,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("is Active")]
         public bool isActive { get; set; }
 
+
         [ForeignKey("jobId")]
         public virtual JobVo job { get; set; }
 
@@ -52,8 +51,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public virtual JobCategoryTypeVo jobCategoryType { get; set; }
 
         public JobCategoriesVo(){
-    			
-    	
+
+            this.jobCategoriesId = Guid.NewGuid();
     	 this.isActive = true;
     	}
     }
