@@ -71,7 +71,8 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            MemberVo mv = new MemberVo();
+            return View(mv);
         }
 
         public ActionResult Details(int id)
