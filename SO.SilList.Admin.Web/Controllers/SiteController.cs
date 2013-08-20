@@ -21,12 +21,11 @@ namespace SO.SilList.Admin.Web.Controllers
         }
 
 
-        public ActionResult List()
+        public ActionResult _List()
         {
             var results = siteManager.getAll(null);
             return PartialView(results);
         }
-
 
         public ActionResult DropDownList(int? id = null)
         {
@@ -37,6 +36,11 @@ namespace SO.SilList.Admin.Web.Controllers
                 site = siteManager.get(id.Value);
             }
             return PartialView("_DropDownList", site);
+        }
+
+        public ActionResult Menu()
+        {
+            return PartialView("_Menu");
         }
     }
 }

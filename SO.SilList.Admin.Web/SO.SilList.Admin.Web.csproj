@@ -459,6 +459,10 @@
     <Content Include="Views\CarBodyType\_DropDownList.cshtml" />
     <Content Include="Views\TransmissionType\_DropDownList.cshtml" />
     <Content Include="Views\Car\_DropDownList.cshtml" />
+    <Content Include="Views\Site\Create.cshtml" />
+    <Content Include="Views\Site\Index.cshtml" />
+    <Content Include="Views\Site\_Menu.cshtml" />
+    <Content Include="Views\Site\_List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
