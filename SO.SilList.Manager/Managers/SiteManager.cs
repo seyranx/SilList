@@ -33,6 +33,7 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
+        //TODO: Site deletion will be somewhat complicated if the site with given id references already by other tables  . ..
         public bool delete(int siteId)
         {
             throw new NotImplementedException();
