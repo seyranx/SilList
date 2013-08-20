@@ -1,22 +1,20 @@
-﻿@model SO.SilList.Manager.Models.ValueObjects.ListingCategoryTypeVo
+﻿@model SO.SilList.Manager.Models.ValueObjects.ListingTypeVo
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 }
 
-<h2>Create</h2>
-
-<script src="~/Scripts/jquery-1.7.1.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<h2>Edit</h2>
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>ListingCategoryTypeVo</legend>
-    
+        <legend>ListingTypeVo</legend>
+
+        @Html.HiddenFor(model => model.listingTypeId)
+
         <div class="editor-label">
             @Html.LabelFor(model => model.name)
         </div>
@@ -34,22 +32,28 @@
         </div>
 
         <div class="editor-label">
+            @Html.LabelFor(model => model.created)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.created)
+            @Html.ValidationMessageFor(model => model.created)
+        </div>
+
+        <div class="editor-label">
             @Html.LabelFor(model => model.isActive)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.isActive)
             @Html.ValidationMessageFor(model => model.isActive)
         </div>
-        <br/> 
 
+        <br/>
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Save" />
         </p>
     </fieldset>
 }
 
 <div>
-      <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
-
+    @Html.ActionLink("Back to List", "Index")
 </div>
-

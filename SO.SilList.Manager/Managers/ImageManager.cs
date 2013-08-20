@@ -22,7 +22,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.images
-                            //.Include(s => s...)
+                            .Include(s => s.site)
                             .FirstOrDefault(p => p.imageId == imageId);
 
                 return res;
@@ -50,7 +50,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var list = db.images
-                             //.Include(s => s.site)
+                             .Include(s => s.site)
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
 

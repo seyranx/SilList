@@ -16,6 +16,13 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class JobCategoriesVo
     {
     		
+<<<<<<< HEAD
+    	[DisplayName("Job Category Type Id")]
+    	[Key]
+        public Guid jobCategoriesId { get; set; }
+    		
+    	[DisplayName("Job Id")]
+=======
     	[DisplayName("job Category Id")]
     	[Key]
         public Guid jobCategoriesId { get; set; }
@@ -24,6 +31,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public int? jobCategoryTypeId { get; set; }
 
     	[DisplayName("job Id")]
+>>>>>>> SilList_56
         public Nullable<System.Guid> jobId { get; set; }
     		
     	[DisplayName("Created")]

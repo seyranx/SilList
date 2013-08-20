@@ -25,7 +25,8 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.jobCategories
-                            //.Include(s => s.site)
+                            .Include(j => j.job)
+                            .Include(s => s.jobCategoryType)
                             .FirstOrDefault(p => p.jobCategoriesId == jobCategoriesId);
 
                 return res;
@@ -40,7 +41,8 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var list = db.jobCategories
-                             //.Include(s => s.site)
+                             .Include(j => j.job)
+                             .Include(s => s.jobCategoryType)
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
 

@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [app].[ListingCategoryType] (
     [listingCategoryTypeId] INT           IDENTITY (1, 1) NOT NULL,
     [name]                  NVARCHAR (50) NULL,
-    [description]           NVARCHAR (50) NULL,
+    [description]           NVARCHAR (MAX) NULL,
     [createdBy ]            INT           NULL,
     [modifiedBy]            INT           NULL,
     [created]               DATETIME      CONSTRAINT [DF__ListingCa__creat__52E34C9D] DEFAULT (getdate()) NOT NULL,

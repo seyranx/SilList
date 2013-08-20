@@ -16,8 +16,13 @@ namespace SO.SilList.Tests.Managers
 
             var res = imageManager.getAll(null);
 
-            Assert.IsTrue(true);
+            if (res != null)
+            {
+                Assert.IsTrue(true);
+            }
+            else Assert.IsTrue(false);
         }
+
 
         [TestMethod]
         public void insertRecordsTest()
@@ -26,7 +31,7 @@ namespace SO.SilList.Tests.Managers
             {
                 var vo = new ImageVo();
                 vo.name = "Test Business Name " + i.ToString();
-                vo.siteId = 1;
+                //vo.siteId = 1;
                 vo.url = "http://xxxx.yyyy.com";
                 var result = imageManager.insert(vo);
                 if (result == null)
