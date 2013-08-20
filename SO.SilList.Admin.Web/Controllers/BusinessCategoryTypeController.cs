@@ -51,7 +51,8 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            var vo = new BusinessCategoryTypeVo();
+            return View(vo);
         }
 
         [HttpPost]
