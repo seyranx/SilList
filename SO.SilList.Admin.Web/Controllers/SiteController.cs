@@ -69,13 +69,6 @@ namespace SO.SilList.Admin.Web.Controllers
             var result = siteManager.get(id);
             return View(result);
         }
-//TODO: from here below. need to create views ...
-        public ActionResult Delete(int id)
-        {
-            siteManager.delete(id);
-            return RedirectToAction("Index");
-        }
-
         [HttpPost]
         public ActionResult Edit(int id, SiteVo input)
         {
@@ -95,6 +88,10 @@ namespace SO.SilList.Admin.Web.Controllers
             return View(result);
         }
 
- 
+        public ActionResult Delete(int id)
+        {
+            siteManager.delete(id);
+            return RedirectToAction("Index");
+        }
     }
 }
