@@ -83,4 +83,7 @@
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.imageId }) |
     @Html.ActionLink("Back to List", "Index")
+
+    <a href="@Url.Action("Edit", new { id=Model.imageId })" class="btn">Edit</a>
+    <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
 </p>
