@@ -48,6 +48,19 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView(results);
         }
 
+        public ActionResult RentalImages()
+        {
+            ViewBag.Title = "Business Images";
+            return View();
+        }
+
+        public ActionResult _ListRentalImages()
+        {
+            var results = imageManager.getRentalImages();
+            //return PartialView("_ListBusinessImages", results);
+            return PartialView(results);
+        }
+
         public ActionResult ListingImages()
         {
             ViewBag.Title = "Listing Images";
