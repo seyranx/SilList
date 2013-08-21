@@ -59,19 +59,6 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public List<ImageVo> getBusinessImages(bool? isActive = true)
-        {
-            using (var db = new MainDb())
-            {
-                var list = (from i in db.images
-                            join b in db.businessImages on i.imageId equals b.imageId
-                            select i
-                            ).ToList();
-
-                return list;
-            }
-        }
-
         //Seyran Note: RentalImages misses the imageId field
         //
         //public List<ImageVo> getRentalImages(bool? isActive = true)
@@ -106,6 +93,33 @@ namespace SO.SilList.Manager.Managers
             {
                 var list = (from i in db.images
                             join m in db.listingImages on i.imageId equals m.imageId
+                            select i
+                            ).ToList();
+
+                return list;
+            }
+        }
+
+        public List<ImageVo> getRentalImages(bool? isActive = true)
+        {
+            using (var db = new MainDb())
+            {
+                var list = (from i in db.images
+                            join m in db.rentalImages on i.imageId equals m.imageId
+                            select i
+                            ).ToList();
+
+                return list;
+            }
+        }
+        
+
+        public List<ImageVo> getBusinessImages(bool? isActive = true)
+        {
+            using (var db = new MainDb())
+            {
+                var list = (from i in db.images
+                            join b in db.businessImages on i.imageId equals b.imageId
                             select i
                             ).ToList();
 
