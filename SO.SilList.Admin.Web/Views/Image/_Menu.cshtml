@@ -1,1 +1,2 @@
-﻿@Html.Action("Menu", "Member")
+﻿string sCtrlr = ViewContext.RouteData.Values["controller"].ToString();
+@Html.Action("Menu", sCtrlr)
