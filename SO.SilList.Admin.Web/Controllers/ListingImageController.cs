@@ -11,16 +11,18 @@ namespace SO.SilList.Admin.Web.Controllers
     public class ListingImagesController : Controller
     {
         private ListingImagesManager listingImagesManager = new ListingImagesManager();
-
+        private ImageManager imagesManager = new ImageManager();
+       
         public ActionResult Index()
         {
-            return View();
+           ViewBag.Title = "Listing Images";
+           return View();
         }
 
         public ActionResult List()
         {
-            var results = listingImagesManager.getAll(null);
-            return PartialView(results);
+           var results = imagesManager.getListingImages();
+           return PartialView(results);
         }
 
 

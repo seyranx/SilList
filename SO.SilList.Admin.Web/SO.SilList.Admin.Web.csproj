@@ -462,7 +462,6 @@
     <Content Include="Views\ServiceType\Details.cshtml" />
     <Content Include="Views\ListingCategoryType\Edit.cshtml" />
     <Content Include="Views\ListingImages\Index.cshtml" />
-    <Content Include="Views\ListingImages\List.cshtml" />
     <Content Include="Views\ListingType\Index.cshtml" />
     <Content Include="Views\ListingType\List.cshtml" />
     <Content Include="Views\ListingCategoryType\Create.cshtml" />
@@ -483,6 +482,9 @@
     <Content Include="Views\ListingType\_DropDownList.cshtml" />
     <Content Include="Views\Site\Details.cshtml" />
     <Content Include="Views\Site\Edit.cshtml" />
+    <Content Include="Views\ListingImages\Create.cshtml" />
+    <Content Include="Views\ListingImages\Edit.cshtml" />
+    <Content Include="Views\ListingImages\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -50,9 +50,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public virtual ListingVo listing { get; set; }
 
         [ForeignKey("imageId")]
-        public virtual ImageVo images { get; set; }
-
-        [ForeignKey("imageId")]
         public virtual ImageVo image { get; set; }
       
     	public ListingImagesVo()
