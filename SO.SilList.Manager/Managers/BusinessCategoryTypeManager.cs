@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace SO.SilList.Manager.Managers
 {
@@ -17,6 +18,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var result = db.businessCategoryType
+                            .Include(s => s.site)
                             .FirstOrDefault(b => b.businessCategoryTypeId == businessCategoryTypeId);
 
                 return result;
@@ -42,6 +44,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var list = db.businessCategoryType
+                             .Include(s => s.site)
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
 

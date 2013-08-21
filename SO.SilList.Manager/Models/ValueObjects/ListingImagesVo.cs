@@ -18,36 +18,39 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class ListingImagesVo
     {
     		
-    	[DisplayName("listing Images Id")]
+    	[DisplayName("Listing Images Id")]
     	[Key]
         public System.Guid listingImageId { get; set; }
     		
-    	[DisplayName("image Id")]
+    	[DisplayName("Image Id")]
         public System.Guid? imageId { get; set; }
     		
-    	[DisplayName("listing Id")]
+    	[DisplayName("Listing Id")]
         public System.Guid? listingId { get; set; }
     		
-    	[DisplayName("created By")]
+    	[DisplayName("Created By")]
         public int? createdBy { get; set; }
     		
-    	[DisplayName("modified By")]
+    	[DisplayName("Modified By")]
         public int? modifiedBy { get; set; }
     		
-    	[DisplayName("created")]
+    	[DisplayName("Created")]
     	[Required]
         public System.DateTime created { get; set; }
     		
-    	[DisplayName("modified")]
+    	[DisplayName("Modified")]
     	[Required]
         public System.DateTime modified { get; set; }
     		
-    	[DisplayName("is Active")]
+    	[DisplayName("Active")]
     	[Required]
         public bool isActive { get; set; }
 
-        //[ForeignKey("listingId")]
-        //public virtual ListingVo listing { get; set; }
+        [ForeignKey("listingId")]
+        public virtual ListingVo listing { get; set; }
+
+        [ForeignKey("imageId")]
+        public virtual ImageVo images { get; set; }
 
         [ForeignKey("imageId")]
         public virtual ImageVo image { get; set; }

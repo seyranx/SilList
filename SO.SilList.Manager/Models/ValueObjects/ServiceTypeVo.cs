@@ -50,6 +50,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [Required]
         public bool isActive { get; set; }
 
+        [Association("ServiceType_BusinessService", "serviceTypeId", "serviceTypeId", IsForeignKey = true)]
+        public List<BusinessServicesVo> businessServices { get; set; }
 
     	public ServiceTypeVo(){
 

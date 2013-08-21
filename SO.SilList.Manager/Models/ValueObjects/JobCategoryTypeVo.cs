@@ -45,10 +45,12 @@ namespace SO.SilList.Manager.Models.ValueObjects
     		
     	[DisplayName("is Active")]
         public bool isActive { get; set; }
+
+        [Association("JobCategoryType_JobCategories", "jobCategoryTypeId", "jobCategoryTypeId", IsForeignKey = true)]
+        public List<JobCategoriesVo> jobCategories { get; set; }
       
     	public JobCategoryTypeVo(){
-    			
-    	
+
     	 this.isActive = true;
     	}
     }

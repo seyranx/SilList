@@ -137,9 +137,6 @@
     <Build Include="data\Tables\Job.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
-    <Build Include="data\Tables\ListingDetail.sql">
-      <AnsiNulls>Off</AnsiNulls>
-    </Build>
     <Build Include="data\Tables\Member.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
@@ -212,6 +209,7 @@
     </Build>
     <Build Include="app\Tables\EnvironmentType.sql" />
     <Build Include="app\Tables\SettingType.sql" />
+    <Build Include="app\Tables\Admin.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />

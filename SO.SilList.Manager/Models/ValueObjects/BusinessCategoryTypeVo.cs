@@ -51,11 +51,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Site Id")]
         public int? siteId { get; set; }
 
-        //[ForeignKey("siteId")]
-        //public virtual SiteVo site { get; set; }
+        [ForeignKey("siteId")]
+        public virtual SiteVo site { get; set; }
 
-        //[Association("BusinessCategoryType_BusinessCategories", "BusinessCateoryTypeId", "BusinessCateoryTypeId", IsForeignKey = true)]
-        //public List<BusinessCategoriesVo> businessCategories { get; set; }
+        [Association("BusinessCategoryType_BusinessCategories", "BusinessCateoryTypeId", "BusinessCateoryTypeId", IsForeignKey = true)]
+        public List<BusinessCategoriesVo> businessCategories { get; set; }
 
     	public BusinessCategoryTypeVo(){
     	    this.isActive = true;

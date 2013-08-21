@@ -45,8 +45,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [ForeignKey("imageId")]
         public virtual ImageVo image { get; set; }
 
-        //[ForeignKey("businessId")]
-        //public virtual BusinessVo business { get; set; }
+        [ForeignKey("businessId")]
+        public virtual BusinessVo business { get; set; }
 
     	public BusinessImagesVo(){
     			
