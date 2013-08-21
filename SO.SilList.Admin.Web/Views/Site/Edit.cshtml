@@ -19,7 +19,8 @@
             @Html.LabelFor(model => model.name)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList","Site",new {id=Model.siteId})
+            @Html.EditorFor(model => model.name)
+            @Html.ValidationMessageFor(model => model.name)
         </div>
 
         <div class="editor-label">
