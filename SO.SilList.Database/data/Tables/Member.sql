@@ -21,7 +21,7 @@
     [modifiedBy]        INT           NULL,
     [isActive]          BIT           CONSTRAINT [DF__Member__isActive__66603565] DEFAULT ((1)) NULL,
     CONSTRAINT [PK_Member] PRIMARY KEY CLUSTERED ([memberId] ASC),
-    CONSTRAINT [FK_Member_Site1] FOREIGN KEY ([siteId]) REFERENCES [app].[Site] ([siteId]) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT [FK_Member_Site1] FOREIGN KEY ([siteId]) REFERENCES [app].[Site] ([siteId])
 );
 
 

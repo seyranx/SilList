@@ -33,113 +33,132 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        /* this is useful but not working anyway
-         *  db.DeleteObject(cr);
-         *  db.SaveChanges(); 
-         *  instead of
-         *  db.car.DeleteOnCommit();
-         *  db.SubmitChanges();
-         *   http://stackoverflow.com/questions/4650684/deleteonsubmit-doesnt-exist
-         *   
-         *  Remove in Entity Framework 5 instead of DeleteOnSubmit()
-         *  This works with my version of EF !!!
-         *  http://stackoverflow.com/questions/17203869/entity-framework-beta-3-dtabase-first-does-not-give-deleteonsubmit
-         * 
-         */
-        public bool delete(int siteId)
+          public bool delete(int siteId)
         {
            using(var db = new MainDb())
            {
-        //TODO: Site deletion will be somewhat complicated if the site with given id references already by other tables  . ..
-              //var res = db.sites
-              //   .Where(e => e.siteId == siteId)
-              //   .Delete();
-
-              /////////////////////////////////////////////////////////
+              //
                var deleteSiteReferences_inCar =
                      from cr in db.car
                      where cr.siteId == siteId
                      select cr;
                foreach (var cr in deleteSiteReferences_inCar)
                {
-                  db.car.Remove(cr);  // 2. Deleteobject(cr); // 1. DeleteOnSubmit(cr);
+                  db.car.Remove(cr);
                }
 
-              /////////////////////////////////////////////////////////
+              //
                var deleteSiteReferences_InMember =
                     from x in db.members
                     where x.siteId == siteId
                     select x;
                foreach (var x in deleteSiteReferences_InMember)
                {
-                  db.members.Remove(x);  // 2. Deleteobject(cr); // 1. DeleteOnSubmit(cr);
+                  db.members.Remove(x);
                }
 
 
-               /////////////////////////////////////////////////////////
+               //
                var deleteSiteReferences_InBusinessCategoryType =
                     from x in db.members
                     where x.siteId == siteId
                     select x;
                foreach (var x in deleteSiteReferences_InBusinessCategoryType)
                {
-                  db.members.Remove(x);  // 2. Deleteobject(cr); // 1. DeleteOnSubmit(cr);
+                  db.members.Remove(x);
                }
 
-               /////////////////////////////////////////////////////////
+               //
                var deleteSiteReferences_InBusiness  =
                     from x in db.businesses
                     where x.siteId == siteId
                     select x;
                foreach (var x in deleteSiteReferences_InBusiness )
                {
-                  db.businesses.Remove(x);  // 2. Deleteobject(cr); // 1. DeleteOnSubmit(cr);
+                  db.businesses.Remove(x);
                }
 
-               /////////////////////////////////////////////////////////
+               //
                var deleteSiteReferences_InImage =
                     from x in db.images
                     where x.siteId == siteId
                     select x;
                foreach (var x in deleteSiteReferences_InImage)
                {
-                  db.images.Remove(x);  // 2. Deleteobject(cr); // 1. DeleteOnSubmit(cr);
+                  db.images.Remove(x);
                }
 
-               /////////////////////////////////////////////////////////
+               //
                var deleteSiteReferences_InListing =
                     from x in db.listing
                     where x.siteId == siteId
                     select x;
                foreach (var x in deleteSiteReferences_InListing)
                {
-                  db.listing.Remove(x);  // 2. Deleteobject(cr); // 1. DeleteOnSubmit(cr);
+                  db.listing.Remove(x);
                }
 
-               /////////////////////////////////////////////////////////
+               //
                var deleteSiteReferences_InRental =
                     from x in db.rental
                     where x.siteId == siteId
                     select x;
                foreach (var x in deleteSiteReferences_InRental)
                {
-                  db.rental.Remove(x);  // 2. Deleteobject(cr); // 1. DeleteOnSubmit(cr);
+                  db.rental.Remove(x);
                }
 
-              // // // 
-              
+               //
+               var deleteSite =
+                    from x in db.sites
+                    where x.siteId == siteId
+                    select x;
+               foreach (var x in deleteSite)
+               {
+                  db.sites.Remove(x);
+               }             
               try
                {
-                  db.SaveChanges(); //  db.SubmitChanges();
+                  db.SaveChanges();
                }
                catch (Exception e)
                {
                   Console.WriteLine(e);
-                  // Provide for exceptions.
                }
               return true;
            }
         }
+
+        //*
+        // * this version works if Member, Listing, and BusinessCategoryType have no reference to the site being deleted (no data)
+        // * or of we enable cascading properties for corresponding FK-s. Enabling Cascading properties causes circular dependencies in Database which 
+        // * prevents Database project from updating tables in SqlSerer.
+        // */
+        //public bool delete_short_version(int siteId)
+        //{
+        //   using (var db = new MainDb())
+        //   {
+        //      var deleteSite =
+        //           from x in db.sites
+        //           where x.siteId == siteId
+        //           select x;
+        //      foreach (var x in deleteSite)
+        //      {
+        //         db.sites.Remove(x);
+        //      }
+        //      try
+        //      {
+        //         db.SaveChanges(); //  db.SubmitChanges();
+        //      }
+        //      catch (Exception e)
+        //      {
+        //         Console.WriteLine(e);
+        //         // Provide for exceptions.
+        //      }
+        //      return true;
+        //   }
+        //}
+        
 
         public SiteVo update(SiteVo input, int? siteId = null)
         {
@@ -160,8 +179,8 @@ namespace SO.SilList.Manager.Managers
               return res;
            }
         }
-
-        public SiteVo insert(SiteVo input)
+       
+       public SiteVo insert(SiteVo input)
         {
            using (var db = new MainDb())
            {
