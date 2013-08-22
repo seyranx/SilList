@@ -8,6 +8,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
+using System.Web.Security;
+using SO.SilList.Admin.Web.Models;
 
 namespace SO.SilList.Manager.Models.ValueObjects
 {
@@ -79,6 +81,42 @@ namespace SO.SilList.Manager.Models.ValueObjects
             this.isSuperAdmin = false;
             this.lastLogin = null;
     	    this.isActive = true;
-    	 }
+    	}
+
+        public MembershipUser toMembershipUser()
+        {
+            var u = new MembershipUser(
+                "SilListAdminMembershipProvider",   // string providerName, 
+                this.username,                      // string name, 
+                null,                               //object providerUserKey, 
+                this.email,                         //string email, 
+                "",                                 //string passwordQuestion, 
+                "Comment",                          //string comment, 
+                this.isActive,                      //bool isApproved, 
+                !this.isActive,                     //bool isLockedOut, 
+                this.created,                       //DateTime creationDate, 
+                this.lastLogin.Value,               //DateTime lastLoginDate, 
+                this.lastLogin.Value,               //DateTime lastActivityDate, 
+                this.created,                       //DateTime lastPasswordChangedDate, 
+                this.created                        //DateTime lastLockoutDate
+            );
+
+            return u;
+        }
+
+        public AccountManageVm toAccountManageVm()
+        {
+            var u = new AccountManageVm();
+
+            u.adminId = this.adminId;
+            u.firstName = this.firstName;
+            u.lastName = this.lastName;
+            u.email = this.email;
+            u.username = this.username;
+            u.password = this.password;
+            u.phone = this.phone;
+
+            return u;
+        }
     }
 }

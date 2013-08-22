@@ -47,10 +47,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Is Active")]
     	[Required]
         public bool isActive { get; set; }
-    		
-    	[DisplayName("Site Id")]
-        public int? siteId { get; set; }
 
+        [DisplayName("Site Id")]
+        public Nullable<int> siteId { get; set; }
+
+        [DisplayName("Site")]
         [ForeignKey("siteId")]
         public virtual SiteVo site { get; set; }
 

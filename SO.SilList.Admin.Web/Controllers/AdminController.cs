@@ -77,8 +77,14 @@ namespace SO.SilList.Admin.Web.Controllers
         {
             if (this.ModelState.IsValid)
             {
-                adminManager.delete(id);
-                return RedirectToAction("Index");
+                if (!adminManager.delete(id))
+                {
+                    ViewBag.Message = "Failed to delete Administrator ID " + id;
+                }
+                else
+                {
+                    return RedirectToAction("Index");
+                }
             }
 
             return View();

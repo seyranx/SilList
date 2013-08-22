@@ -18,3 +18,16 @@
     [isActive]          BIT           DEFAULT ((1)) NOT NULL, 
     CONSTRAINT [PK_Admin] PRIMARY KEY ([adminId]),
 );
+GO
+
+CREATE TRIGGER [app].[Trigger_Admin_Delete]
+    ON [app].[Admin]
+    FOR DELETE
+    AS
+    BEGIN
+        IF (0 = (SELECT count(*) FROM [app].[Admin] WHERE isSuperAdmin = 1))
+		BEGIN
+			ROLLBACK TRANSACTION
+		END
+    END;
+GO
