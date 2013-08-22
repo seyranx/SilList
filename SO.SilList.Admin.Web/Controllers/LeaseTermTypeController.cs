@@ -1,56 +1,57 @@
 ﻿using SO.SilList.Manager.Managers;
+using SO.SilList.Manager.Models.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using SO.SilList.Manager.Models.ValueObjects;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
-    public class BusinessController : Controller
+    public class LeaseTermTypeController : Controller
     {
-        private BusinessManager businessManager = new BusinessManager();
+        //
+        // GET: /LeaseTermType/
+
+        private LeaseTermTypeManager leaseTermType = new LeaseTermTypeManager();
 
         public ActionResult Index()
         {
             return View();
         }
-
-
         public ActionResult List()
         {
-            var results = businessManager.getAll(null);
-            return PartialView("_List",results);
+            var results = leaseTermType.getAll(null);
+            return PartialView(results);
         }
 
         [HttpPost]
-        public ActionResult Edit(Guid id, BusinessVo input)
+        public ActionResult Edit(int id, LeaseTermTypeVo input)
         {
 
             if (this.ModelState.IsValid)
             {
-                var res = businessManager.update(input, id);
+                var res = leaseTermType.update(input, id);
                 return RedirectToAction("Index");
             }
 
             return View();
 
         }
-        public ActionResult Edit(Guid id)
+        public ActionResult Edit(int id)
         {
-            var result = businessManager.get(id);
+            var result = leaseTermType.get(id);
             return View(result);
         }
 
         [HttpPost]
-        public ActionResult Create(BusinessVo input)
+        public ActionResult Create(LeaseTermTypeVo input)
         {
 
             if (this.ModelState.IsValid)
             {
 
-                var item = businessManager.insert(input);
+                var item = leaseTermType.insert(input);
                 return RedirectToAction("Index");
             }
 
@@ -61,24 +62,23 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Create()
         {
-            var vo = new BusinessVo();
-            return View(vo);
+            return View();
         }
 
-        public ActionResult Details(Guid id)
+        public ActionResult Details(int id)
         {
-            var result = businessManager.get(id);
+            var result = leaseTermType.get(id);
             return View(result);
         }
 
         public ActionResult Menu()
         {
-            return PartialView("../Business/_Menu");
+            return PartialView("../Rental/_Menu");
         }
 
-        public ActionResult Delete(Guid id)
+        public ActionResult Delete(int id)
         {
-            businessManager.delete(id);
+            leaseTermType.delete(id);
             return RedirectToAction("Index");
         }
     }

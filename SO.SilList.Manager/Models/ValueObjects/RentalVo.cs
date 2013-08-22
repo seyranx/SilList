@@ -18,48 +18,48 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class RentalVo
     {
     		
-    	[DisplayName("rental Id")]
+    	[DisplayName("Rental")]
     	[Key]
         public System.Guid rentalId { get; set; }
     		
-    	[DisplayName("property Type Id")]
+    	[DisplayName("Property Type")]
         public Nullable<int> propertyTypeId { get; set; }
     		
     	//[DisplayName("listing Detail Id")]
         //public Nullable<System.Guid> listingDetailId { get; set; }
     		
-    	[DisplayName("site Id")]
+    	[DisplayName("Site Id")]
         public Nullable<int> siteId { get; set; }
     		
-    	[DisplayName("bedrooms")]
+    	[DisplayName("Bedrooms")]
         public Nullable<int> bedrooms { get; set; }
     		
-    	[DisplayName("bathrooms")]
+    	[DisplayName("Bathrooms")]
         public Nullable<int> bathrooms { get; set; }
     		
-    	[DisplayName("rent")]
+    	[DisplayName("Rent")]
         public Nullable<double> rent { get; set; }
     		
-    	[DisplayName("lease Term Type Id")]
+    	[DisplayName("Lease Term")]
         public Nullable<int> leaseTermTypeId { get; set; }
     		
-    	[DisplayName("size")]
+    	[DisplayName("Size")]
         public Nullable<int> size { get; set; }
     		
     	[DisplayName("lot Size")]
         public Nullable<int> lotSize { get; set; }
     		
-    	[DisplayName("accepts Section8")]
+    	[DisplayName("Accepts Section8")]
         public Nullable<bool> acceptsSection8 { get; set; }
     		
-    	[DisplayName("rent Type Id")]
+    	[DisplayName("Rent Type")]
         public Nullable<int> rentTypeId { get; set; }
 
-        [DisplayName("start Date")]
+        [DisplayName("Start Date")]
         [Required]
         public System.DateTime startDate { get; set; }
 
-        [DisplayName("end Date")]
+        [DisplayName("End Date")]
         [Required]
         public System.DateTime endDate { get; set; }
 
@@ -80,7 +80,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[Required]
         public System.DateTime created { get; set; }
     		
-    	[DisplayName("is Active")]
+    	[DisplayName("Is Active")]
     	[Required]
         public bool isActive { get; set; }
 

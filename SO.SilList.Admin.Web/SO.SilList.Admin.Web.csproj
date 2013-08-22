@@ -143,6 +143,7 @@
     <Compile Include="Controllers\BuySellController.cs" />
     <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="Controllers\JobCategoryTypeController.cs" />
+    <Compile Include="Controllers\LeaseTermTypeController.cs" />
     <Compile Include="Controllers\JobController.cs" />
     <Compile Include="Controllers\ListingCategoryTypeController.cs" />
     <Compile Include="Controllers\ListingController.cs" />
@@ -152,13 +153,16 @@
     <Compile Include="Controllers\ListingTypeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ServiceTypeController.cs" />
+    <Compile Include="Controllers\PropertyTypeController.cs" />
+    <Compile Include="Controllers\RentTypeController.cs" />
     <Compile Include="Controllers\TransmissionTypeController.cs" />
     <Compile Include="Controllers\MakeTypeController.cs" />
     <Compile Include="Controllers\ModelTypeController.cs" />
+    <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LinkedController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
-    <Compile Include="Controllers\RentalsController.cs" />
+    <Compile Include="Controllers\RentalController.cs" />
     <Compile Include="Controllers\SettingTypeController.cs" />
     <Compile Include="Controllers\SiteController.cs" />
     <Compile Include="Global.asax.cs">
@@ -342,6 +346,7 @@
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\_RemoveExternalLoginsPartial.cshtml" />
     <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -352,9 +357,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\_InnerLayout.cshtml" />
-    <Content Include="Views\Rentals\Index.cshtml" />
+    <Content Include="Views\Rental\Index.cshtml" />
     <Content Include="Views\Business\Index.cshtml" />
     <Content Include="Views\BuySell\Index.cshtml" />
+    <Content Include="Views\Jobs\Index.cshtml" />
     <Content Include="Views\Linked\ShowNew.cshtml" />
     <Content Include="Views\Business\List.cshtml" />
     <Content Include="Views\Business\Edit.cshtml">
@@ -465,6 +471,26 @@
     <Content Include="Views\ListingType\Edit.cshtml" />
     <Content Include="Views\ListingType\Details.cshtml" />
     <Content Include="Views\ListingType\_DropDownList.cshtml" />
+    <Content Include="Views\Rental\_List.cshtml" />
+    <Content Include="Views\Rental\Create.cshtml" />
+    <Content Include="Views\Rental\Details.cshtml" />
+    <Content Include="Views\Rental\Edit.cshtml" />
+    <Content Include="Views\Rental\_Menu.cshtml" />
+    <Content Include="Views\RentType\Create.cshtml" />
+    <Content Include="Views\RentType\Details.cshtml" />
+    <Content Include="Views\RentType\Edit.cshtml" />
+    <Content Include="Views\RentType\Index.cshtml" />
+    <Content Include="Views\RentType\List.cshtml" />
+    <Content Include="Views\PropertyType\Index.cshtml" />
+    <Content Include="Views\PropertyType\Create.cshtml" />
+    <Content Include="Views\PropertyType\Details.cshtml" />
+    <Content Include="Views\PropertyType\Edit.cshtml" />
+    <Content Include="Views\PropertyType\List.cshtml" />
+    <Content Include="Views\LeaseTermType\Index.cshtml" />
+    <Content Include="Views\LeaseTermType\Create.cshtml" />
+    <Content Include="Views\LeaseTermType\Details.cshtml" />
+    <Content Include="Views\LeaseTermType\List.cshtml" />
+    <Content Include="Views\LeaseTermType\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -507,7 +533,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>62094</DevelopmentServerPort>
+          <DevelopmentServerPort>50638</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:64907/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

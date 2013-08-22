@@ -1,0 +1,51 @@
+﻿@model SO.SilList.Manager.Models.ValueObjects.RentTypeVo
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>RentTypeVo</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.startDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.startDate)
+    </div>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.endDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.endDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.isActive)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.isActive)
+    </div>
+</fieldset>
+<p>
+    <a href="@Url.Action("Index", new { id=Model.rentTypeId })" class="btn">Edit</a>
+
+    <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
+</p>
