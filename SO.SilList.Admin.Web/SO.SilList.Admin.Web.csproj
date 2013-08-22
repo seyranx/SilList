@@ -433,6 +433,7 @@
     <Content Include="Views\BusinessImages\Edit.cshtml" />
     <Content Include="Views\BusinessImages\Create.cshtml" />
     <Content Include="Views\BusinessImages\Details.cshtml" />
+    <Content Include="Views\Business\_DropDownList.cshtml" />
     <None Include="Views\Image\CarImages.cshtml" />
     <Content Include="Views\Image\ListingImages.cshtml" />
     <Content Include="Views\Image\RentalImages.cshtml" />

@@ -64,8 +64,8 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Create()
         {
-            ListingImagesVo li = new ListingImagesVo();
-            return View(li);
+            ListingImagesVo vo = new ListingImagesVo();
+            return View(vo);
         }
 
         public ActionResult Details(Guid id)

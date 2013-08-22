@@ -6,10 +6,10 @@
 <table class="table table-bordered table-hover">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.imageId)
+            Image 
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.businessId)
+            Business
         </th>
         <th>
             @Html.DisplayNameFor(model => model.created)
@@ -32,10 +32,10 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.imageId)
+            @Html.DisplayFor(modelItem => item.image.name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.businessId)
+            @Html.DisplayFor(modelItem => item.business.name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.created)
