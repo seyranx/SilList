@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Data.Entity;
 using SO.SilList.Manager.Models.ValueObjects;
-using SO.SilList.Manager.Models.ViewModels.Admin;
+using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Tests.Managers
 {
@@ -19,7 +19,7 @@ namespace SO.SilList.Tests.Managers
         [TestMethod]
         public void searchTest()
         {
-            var vo = new BusinessSearchVm();
+            var vo = new BusinessVm();
             //vo.pageNumber = 2;
             vo.keyword = "car";
 

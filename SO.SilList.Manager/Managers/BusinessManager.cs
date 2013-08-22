@@ -8,7 +8,7 @@ using EntityFramework.Extensions;
 using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Interfaces;
 using SO.SilList.Manager.DbContexts;
-using SO.SilList.Manager.Models.ViewModels.Admin;
+using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Manager.Managers
 {
@@ -65,17 +65,17 @@ namespace SO.SilList.Manager.Managers
         }
 
 
-        public List<BusinessVo> search(BusinessSearchVm input)
+        public List<BusinessVo> search(BusinessVm input)
         {
            
             using (var db = new MainDb())
             {
                 var list = db.businesses
-                    //.Include(s => s.site)
+                             .Include(s => s.site)
                              .OrderBy(b=>b.name)
                              .Skip(input.skip)
                              .Take(input.rowCount)
-                             .Where(e => (input.isActive == false || e.isActive == input.isActive)
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                                     )
                              .ToList();

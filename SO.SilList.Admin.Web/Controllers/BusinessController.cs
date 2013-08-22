@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SO.SilList.Manager.Models.ValueObjects;
-using SO.SilList.Manager.Models.ViewModels.Admin;
+using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
@@ -15,15 +15,31 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var vo = new BusinessVm();
+            return View(vo);
         }
 
-
-        public ActionResult List(BusinessSearchVm input = null)
+        public ActionResult Search(BusinessVm input)
         {
-            if (input == null)
+
+            if (this.ModelState.IsValid)
             {
-                input = new BusinessSearchVm();
+                input.result = businessManager.search(input);
+                return View("Index", input);
+            }
+
+            return View("Index");
+
+        }
+        public ActionResult Filter(BusinessVm input)
+        {
+            return PartialView("_Filter", input);
+        }
+
+        public ActionResult List(BusinessVm input)
+        {
+            if (input.result==null || input.result.Count==0)
+            {
                 input.result = businessManager.getAll(null);
             }
             return PartialView(input.result);
@@ -81,10 +97,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView("_Menu");
         }
 
-        public ActionResult Filter(BusinessSearchVm input=null)
-        {
-            return PartialView("_Filter", input);
-        }
+        
 
         public ActionResult Delete(Guid id)
         {
@@ -92,17 +105,6 @@ namespace SO.SilList.Admin.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Search(BusinessSearchVm input)
-        {
-
-            if (this.ModelState.IsValid)
-            {
-                input.result = businessManager.search(input);
-                return View("Index", input);
-            }
-
-            return View("Index");
-
-        }
+      
     }
 }

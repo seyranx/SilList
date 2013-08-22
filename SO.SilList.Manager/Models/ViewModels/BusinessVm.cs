@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SO.SilList.Manager.Models.ViewModels.Admin
+namespace SO.SilList.Manager.Models.ViewModels
 {
-    public class BusinessSearchVm
+    public class BusinessVm
     {
         public List<BusinessVo> result { get; set; }
         public string keyword { get; set; }
@@ -32,8 +32,8 @@ namespace SO.SilList.Manager.Models.ViewModels.Admin
                    return 30;
                }
         }
-         
-        public BusinessSearchVm()
+
+        public BusinessVm()
         {
            
         }

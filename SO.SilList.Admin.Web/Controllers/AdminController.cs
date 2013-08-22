@@ -17,6 +17,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Index()
         {
+        
             return View();
         }
 
