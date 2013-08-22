@@ -1,15 +1,10 @@
 ﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.CarImagesVo>
 
-<p>
-   <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
-</p>
 <table class="table table-bordered table-hover">
     <tr>
-        <th>
-            Image
+        <th>Image
         </th>
-        <th>
-            Car
+        <th>Car
         </th>
         <th>
             @Html.DisplayNameFor(model => model.created)
@@ -29,37 +24,37 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model)
-{
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.image.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.car.modelType.makeType.name) 
-            @Html.DisplayFor(modelItem => item.car.modelType.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.created)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.modified)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.createdBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.modifiedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.isActive)
-        </td>
-        <td>
-            <a href="@Url.Action("Edit",new { id=item.carImagesId })" class="btn">Edit</a>
-            <a href="@Url.Action("Details",new { id=item.carImagesId })" class="btn">Details</a>
-            <a href="@Url.Action("Delete",new { id=item.carImagesId })" class="btn">Delete</a>          
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.image.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.car.modelType.makeType.name)
+                @Html.DisplayFor(modelItem => item.car.modelType.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.created)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.modified)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.createdBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.modifiedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isActive)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", new { id = item.carImagesId })" class="btn">Edit</a>
+                <a href="@Url.Action("Details", new { id = item.carImagesId })" class="btn">Details</a>
+                <a href="@Url.Action("Delete", new { id = item.carImagesId })" class="btn">Delete</a>
+            </td>
+        </tr>
+    }
 
 </table>

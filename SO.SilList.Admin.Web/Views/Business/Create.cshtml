@@ -9,15 +9,16 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.ValidationSummary(true)
 
     <fieldset>
         <legend>BusinessVo</legend>
 
-         
 
-   
+
+
         <div class="editor-label">
             @Html.LabelFor(model => model.name)
         </div>
@@ -57,7 +58,7 @@
             @Html.EditorFor(model => model.zip)
             @Html.ValidationMessageFor(model => model.zip)
         </div>
-   
+
         <div class="editor-label">
             @Html.LabelFor(model => model.isActive)
         </div>
@@ -66,11 +67,11 @@
             @Html.ValidationMessageFor(model => model.isActive)
         </div>
 
-             <div class="editor-label">
+        <div class="editor-label">
             @Html.LabelFor(model => model.site)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList","Site",new {id=Model.siteId})
+            @Html.Action("DropDownList", "Site", new { id = Model.siteId })
         </div>
 
 
@@ -81,7 +82,7 @@
 }
 
 <div>
-      <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
+    <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
 
 </div>
 
