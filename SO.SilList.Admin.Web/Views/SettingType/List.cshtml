@@ -61,9 +61,10 @@
             @Html.DisplayFor(modelItem => item.isActive)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.settingTypeId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.settingTypeId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.settingTypeId })
+            <a href="@Url.Action("Edit",new { id=item.settingTypeId })" class="btn">Edit</a>
+            <a href="@Url.Action("Details",new { id=item.settingTypeId })" class="btn">Details</a>
+            <a href="@Url.Action("Delete",new { id=item.settingTypeId })" class="btn">Delete</a>
+            @*@Html.ActionLink("Delete", "Delete", new { id=item.settingTypeId })*@
         </td>
     </tr>
 }

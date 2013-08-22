@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace SO.SilList.Manager.Managers
 {
@@ -32,6 +33,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.serviceTypes
+                            .Include(s=>s.site)
                             .FirstOrDefault(p => p.serviceTypeId == serviceTypeId);
                 return res;
             }
@@ -41,8 +43,8 @@ namespace SO.SilList.Manager.Managers
         {
             using (var db = new MainDb())
             {
-                var list = db.serviceTypes 
-                    
+                var list = db.serviceTypes
+                             .Include(s => s.site)                    
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
                 return list;

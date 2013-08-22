@@ -104,12 +104,14 @@
         </div>
 
         <p>
+            <br />
             <input type="submit" value="Save" />
+            <br />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    <a href="@Url.Action("Index")" class="btn">Back to List</a>
 </div>
 

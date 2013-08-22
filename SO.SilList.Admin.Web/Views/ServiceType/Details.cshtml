@@ -9,7 +9,19 @@
 
 <fieldset>
     <legend>ServiceTypeVo</legend>
-
+    
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.siteId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.site.domain)
+    </div>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.name)
+    </div>
     <div class="display-label">
          @Html.DisplayNameFor(model => model.description)
     </div>
@@ -18,31 +30,10 @@
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.name)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.name)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.siteId)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.siteId)
-    </div>
-
-    <div class="display-label">
          @Html.DisplayNameFor(model => model.created)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.created)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.modified)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.modified)
     </div>
 
     <div class="display-label">
