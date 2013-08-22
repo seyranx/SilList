@@ -140,6 +140,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BusinessCategoryTypeController.cs" />
     <Compile Include="Controllers\BusinessController.cs" />
+    <Compile Include="Controllers\BusinessImagesController.cs" />
     <Compile Include="Controllers\BuySellController.cs" />
     <Compile Include="Controllers\CarImageController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
@@ -427,6 +428,11 @@
     <Content Include="Views\CarImage\Create.cshtml" />
     <Content Include="Views\CarImage\Details.cshtml" />
     <Content Include="Views\CarImage\Edit.cshtml" />
+    <Content Include="Views\BusinessImages\Index.cshtml" />
+    <Content Include="Views\BusinessImages\_List.cshtml" />
+    <Content Include="Views\BusinessImages\Edit.cshtml" />
+    <Content Include="Views\BusinessImages\Create.cshtml" />
+    <Content Include="Views\BusinessImages\Details.cshtml" />
     <None Include="Views\Image\CarImages.cshtml" />
     <Content Include="Views\Image\ListingImages.cshtml" />
     <Content Include="Views\Image\RentalImages.cshtml" />

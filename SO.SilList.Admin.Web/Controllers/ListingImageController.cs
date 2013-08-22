@@ -11,17 +11,17 @@ namespace SO.SilList.Admin.Web.Controllers
     public class ListingImagesController : Controller
     {
         private ListingImagesManager listingImagesManager = new ListingImagesManager();
-       
+
         public ActionResult Index()
         {
-           ViewBag.Title = "Listing Images";
-           return View();
+            ViewBag.Title = "Listing Images";
+            return View();
         }
 
         public ActionResult _List()
         {
-           var results = listingImagesManager.getAll();
-           return PartialView(results);
+            var results = listingImagesManager.getAll();
+            return PartialView(results);
         }
 
 
@@ -32,50 +32,51 @@ namespace SO.SilList.Admin.Web.Controllers
         [HttpPost]
         public ActionResult Edit(Guid id, ListingImagesVo input)
         {
-           if (this.ModelState.IsValid)
-           {
-              var res = listingImagesManager.update(input, id);
-              return RedirectToAction("Index");
-           }
+            if (this.ModelState.IsValid)
+            {
+                var res = listingImagesManager.update(input, id);
+                return RedirectToAction("Index");
+            }
 
-           return View();
+            return View();
         }
 
         public ActionResult Edit(Guid id)
         {
-           var result = listingImagesManager.get(id);
-           return View(result);
+            var result = listingImagesManager.get(id);
+            return View(result);
         }
 
         [HttpPost]
         public ActionResult Create(ListingImagesVo input)
         {
-           if (this.ModelState.IsValid)
-           {
-              var item = listingImagesManager.insert(input);
-              ListingImagesVo li = new ListingImagesVo();
-              li.imageId = item.imageId;
-              listingImagesManager.insert(li);
-              return RedirectToAction("Index");
-           }
+            if (this.ModelState.IsValid)
+            {
+                var item = listingImagesManager.insert(input);
+                ListingImagesVo li = new ListingImagesVo();
+                li.imageId = item.imageId;
+                listingImagesManager.insert(li);
+                return RedirectToAction("Index");
+            }
 
-           return View();
+            return View();
         }
 
         public ActionResult Create()
         {
-           return View();
+            ListingImagesVo li = new ListingImagesVo();
+            return View(li);
         }
 
         public ActionResult Details(Guid id)
         {
-           var result = listingImagesManager.get(id);
-           return View(result);
+            var result = listingImagesManager.get(id);
+            return View(result);
         }
         public ActionResult Delete(Guid id)
         {
-           listingImagesManager.delete(id);
-           return RedirectToAction("Index");
+            listingImagesManager.delete(id);
+            return RedirectToAction("Index");
         }
     }
 }

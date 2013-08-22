@@ -45,19 +45,19 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        // Get All Items
-        public List<ImageVo> getAllListingImages(bool? isActive = true)
-        {
-           using (var db = new MainDb())
-           {
-              var list = (from i in db.images
-                          join m in db.listingImages on i.imageId equals m.imageId
-                          select i
-                          ).ToList();
+        //// Get All Items
+        //public List<ImageVo> getAllListingImages(bool? isActive = true)
+        //{
+        //   using (var db = new MainDb())
+        //   {
+        //      var list = (from i in db.images
+        //                  join m in db.listingImages on i.imageId equals m.imageId
+        //                  select i
+        //                  ).ToList();
 
-              return list;
-           }
-        }
+        //      return list;
+        //   }
+        //}
            
         public List<ListingImagesVo> getAll(bool? isActive = true)
         {

@@ -52,9 +52,9 @@ namespace SO.SilList.Admin.Web.Controllers
           if (this.ModelState.IsValid)
           {
              var item = rentalImagesManager.insert(input);
-             RentalImageVo li = new RentalImageVo();
-             li.imageId = item.imageId;
-             rentalImagesManager.insert(li);
+             RentalImageVo ri = new RentalImageVo();
+             ri.imageId = item.imageId;
+             rentalImagesManager.insert(ri);
              return RedirectToAction("Index");
           }
 
@@ -63,7 +63,8 @@ namespace SO.SilList.Admin.Web.Controllers
 
        public ActionResult Create()
        {
-          return View();
+             RentalImageVo ri = new RentalImageVo();
+          return View(ri);
        }
 
        public ActionResult Details(Guid id)

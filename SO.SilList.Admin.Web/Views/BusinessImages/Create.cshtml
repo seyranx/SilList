@@ -1,32 +1,31 @@
-﻿@model SO.SilList.Manager.Models.ValueObjects.CarImagesVo
+﻿@model SO.SilList.Manager.Models.ValueObjects.BusinessImagesVo
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 }
 
-<h2>Edit</h2>
+<h2>Create</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>CarImagesVo</legend>
-
-        @Html.HiddenFor(model => model.carImagesId)
+        <legend>BusinessImagesVo</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.imageId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList","Image",new {id=Model.imageId})
+            @Html.Action("DropDownList", "Image", new { id = Model.imageId })
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.carId)
+            @Html.LabelFor(model => model.businessId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList","Car",new {id=Model.carId})
+            @Html.Action("DropDownList", "Business", new { id = Model.businessId })
         </div>
 
         <div class="editor-label">
@@ -70,11 +69,11 @@
         </div>
 
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" value="Create" />
         </p>
     </fieldset>
 }
 
 <div>
-      <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
+    <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
 </div>

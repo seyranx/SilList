@@ -8,32 +8,32 @@ using SO.SilList.Manager.Models.ValueObjects;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
-    public class CarImageController : Controller
+    public class BusinessImagesController : Controller
     {
-        private CarImageManager carImageManager = new CarImageManager();
+        private BusinessImageManager businessImageManager = new BusinessImageManager();
 
         public ActionResult Index()
         {
-            ViewBag.Title = "Car Images";
+            ViewBag.Title = "Business Images";
             return View();
         }
 
         public ActionResult _List()
         {
-            var results = carImageManager.getAll();
+            var results = businessImageManager.getAll();
             return PartialView(results);
         }
 
         public ActionResult Menu()
         {
-            return PartialView("../Car/_Menu");
+            return PartialView("../Business/_Menu");
         }
         [HttpPost]
-        public ActionResult Edit(Guid id, CarImagesVo input)
+        public ActionResult Edit(Guid id, BusinessImagesVo input)
         {
             if (this.ModelState.IsValid)
             {
-                var res = carImageManager.update(input, id);
+                var res = businessImageManager.update(input, id);
                 return RedirectToAction("Index");
             }
 
@@ -42,19 +42,19 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Edit(Guid id)
         {
-            var result = carImageManager.get(id);
+            var result = businessImageManager.get(id);
             return View(result);
         }
 
         [HttpPost]
-        public ActionResult Create(CarImagesVo input)
+        public ActionResult Create(BusinessImagesVo input)
         {
             if (this.ModelState.IsValid)
             {
-                var item = carImageManager.insert(input);
-                CarImagesVo ci = new CarImagesVo();
+                var item = businessImageManager.insert(input);
+                BusinessImagesVo ci = new BusinessImagesVo();
                 ci.imageId = item.imageId;
-                carImageManager.insert(ci);
+                businessImageManager.insert(ci);
                 return RedirectToAction("Index");
             }
 
@@ -63,18 +63,18 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Create()
         {
-            var c = new CarImagesVo();
+            var c = new BusinessImagesVo();
             return View(c);
         }
 
         public ActionResult Details(Guid id)
         {
-            var result = carImageManager.get(id);
+            var result = businessImageManager.get(id);
             return View(result);
         }
         public ActionResult Delete(Guid id)
         {
-            carImageManager.delete(id);
+            businessImageManager.delete(id);
             return RedirectToAction("Index");
         }
     }
