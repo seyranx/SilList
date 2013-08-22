@@ -14,15 +14,13 @@
         <legend>ServiceTypeVo</legend>
 
         @Html.HiddenFor(model => model.serviceTypeId)
-
+        
         <div class="editor-label">
-            @Html.LabelFor(model => model.description)
+            @Html.LabelFor(model => model.siteId)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.description)
-            @Html.ValidationMessageFor(model => model.description)
+            @Html.Action("DropDownList","Site",new {id=Model.siteId})
         </div>
-
         <div class="editor-label">
             @Html.LabelFor(model => model.name)
         </div>
@@ -30,28 +28,12 @@
             @Html.EditorFor(model => model.name)
             @Html.ValidationMessageFor(model => model.name)
         </div>
-
         <div class="editor-label">
-            @Html.LabelFor(model => model.siteId)
+            @Html.LabelFor(model => model.description)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList","Site",new {id=Model.siteId})
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.created)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.created)
-            @Html.ValidationMessageFor(model => model.created)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.modified)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.modified)
-            @Html.ValidationMessageFor(model => model.modified)
+            @Html.EditorFor(model => model.description)
+            @Html.ValidationMessageFor(model => model.description)
         </div>
 
         <div class="editor-label">
