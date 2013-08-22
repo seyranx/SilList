@@ -1,4 +1,4 @@
-﻿@model SO.SilList.Manager.Models.ValueObjects.RentTypeVo
+﻿@model SO.SilList.Manager.Models.ValueObjects.PropertyTypeVo
 
 @{
     ViewBag.Title = "Create";
@@ -11,7 +11,7 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>RentTypeVo</legend>
+        <legend>PropertyTypeVo</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.name)
@@ -29,21 +29,7 @@
             @Html.ValidationMessageFor(model => model.description)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.startDate)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.startDate)
-            @Html.ValidationMessageFor(model => model.startDate)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.endDate)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.endDate)
-            @Html.ValidationMessageFor(model => model.endDate)
-        </div>
+        
 
         <div class="editor-label">
             @Html.LabelFor(model => model.isActive)
@@ -60,6 +46,6 @@
 }
 
 <div>
-      <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
-
+     <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
 </div>
+

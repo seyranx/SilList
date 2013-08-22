@@ -1,14 +1,12 @@
-﻿@model SO.SilList.Manager.Models.ValueObjects.RentTypeVo
+﻿@model SO.SilList.Manager.Models.ValueObjects.LeaseTermTypeVo
 
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 }
 
-<h2>Details</h2>
-
 <fieldset>
-    <legend>RentTypeVo</legend>
+    <legend>LeaseTermTypeVo</legend>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.name)
@@ -25,19 +23,6 @@
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.startDate)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.startDate)
-    </div>
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.endDate)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.endDate)
-    </div>
-
-    <div class="display-label">
          @Html.DisplayNameFor(model => model.isActive)
     </div>
     <div class="display-field">
@@ -45,7 +30,6 @@
     </div>
 </fieldset>
 <p>
-    <a href="@Url.Action("Index", new { id=Model.rentTypeId })" class="btn">Edit</a>
-
+    <a href="@Url.Action("Index", new { id=Model.leaseTermTypeId })" class="btn">Edit</a>
     <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
 </p>

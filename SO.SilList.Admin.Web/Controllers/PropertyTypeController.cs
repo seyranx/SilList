@@ -45,7 +45,7 @@ namespace SO.SilList.Admin.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Creste(PropertyTypeVo input)
+        public ActionResult Create(PropertyTypeVo input)
         {
             if(this.ModelState.IsValid)
             {
@@ -68,7 +68,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Menu()
         {
-            return PartialView("../PropertyType/_Menu");
+            return PartialView("../Rental/_Menu");
         }
 
         public ActionResult Delete(int id)

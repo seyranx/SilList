@@ -8,26 +8,26 @@ using System.Web.Mvc;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
-    public class RentalsController : Controller
+    public class RentalController : Controller
     {
         //
         // GET: /Rentals/
 
-        private RentalsManager rentalManager = new RentalsManager();
+        private RentalManager rentalManager = new RentalManager();
 
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult _List()
+        public ActionResult List()
         {
             var results = rentalManager.getAll(null);
-            return PartialView(results);
+            return PartialView("_List",results);
         }
 
         [HttpPost]
-        public ActionResult Edit(Guid id, RentalsVo input)
+        public ActionResult Edit(Guid id, RentalVo input)
         {
             if (this.ModelState.IsValid)
             {
@@ -44,7 +44,7 @@ namespace SO.SilList.Admin.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(RentalsVo input)
+        public ActionResult Create(RentalVo input)
         {
             if(this.ModelState.IsValid)
             {
@@ -67,7 +67,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Menu()
         {
-            return PartialView("../Rentals/_Menu");
+            return PartialView("../Rental/_Menu");
         }
 
         public ActionResult Delete(Guid id)

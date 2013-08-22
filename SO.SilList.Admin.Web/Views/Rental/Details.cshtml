@@ -1,4 +1,4 @@
-﻿@model SO.SilList.Manager.Models.ValueObjects.RentalsVo
+﻿@model SO.SilList.Manager.Models.ValueObjects.RentalVo
 
 @{
     ViewBag.Title = "Details";
@@ -8,20 +8,13 @@
 <h2>Details</h2>
 
 <fieldset>
-    <legend>RentalsVo</legend>
+    <legend>RentalVo</legend>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.propertyTypeId)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.propertyTypeId)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.listingDetailId)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.listingDetailId)
     </div>
 
     <div class="display-label">
@@ -124,6 +117,5 @@
 </fieldset>
 <p>
       <a href="@Url.Action("Index", new { id=Model.rentalId })" class="btn">Edit</a>
-
       <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
 </p>

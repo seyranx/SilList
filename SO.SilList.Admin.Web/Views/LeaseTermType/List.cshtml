@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.RentTypeVo>
+﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.LeaseTermTypeVo>
 
 <p>
     <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
@@ -29,9 +29,9 @@
             @Html.DisplayFor(modelItem => item.isActive)
         </td>
         <td>
-            <a href="@Url.Action("Edit",new { id=item.rentTypeId  })" class="btn">Edit</a>
-            <a href="@Url.Action("Details",new { id=item.rentTypeId })" class="btn">Details</a>
-            <a href="@Url.Action("Delete",new { id=item.rentTypeId })" class="btn">Delete</a>
+            <a href="@Url.Action("Edit",new { id=item.leaseTermTypeId })" class="btn">Edit</a>
+            <a href="@Url.Action("Details",new { id=item.leaseTermTypeId })" class="btn">Details</a>
+            <a href="@Url.Action("Delete",new { id=item.leaseTermTypeId })" class="btn">Delete</a>
         </td>
     </tr>
 }

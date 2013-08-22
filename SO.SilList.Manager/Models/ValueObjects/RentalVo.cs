@@ -13,9 +13,9 @@ using System.Data.Entity;
 namespace SO.SilList.Manager.Models.ValueObjects
 {
      
-    [Table("Rentals", Schema = "data" )]
+    [Table("Rental", Schema = "data" )]
     [Serializable]
-    public partial class RentalsVo
+    public partial class RentalVo
     {
     		
     	[DisplayName("Rental")]
@@ -55,11 +55,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Rent Type")]
         public Nullable<int> rentTypeId { get; set; }
 
-        [DisplayName("start Date")]
+        [DisplayName("Start Date")]
         [Required]
         public System.DateTime startDate { get; set; }
 
-        [DisplayName("end Date")]
+        [DisplayName("End Date")]
         [Required]
         public System.DateTime endDate { get; set; }
 
@@ -84,8 +84,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[Required]
         public bool isActive { get; set; }
 
-        //[ForeignKey("leaseTermTypeId")]
-        //public virtual LeaseTermTypeVo leaseTermType { get; set; }
+        [ForeignKey("leaseTermTypeId")]
+        public virtual LeaseTermTypeVo leaseTermType { get; set; }
 
         //[ForeignKey("rentTypeId")]
         //public virtual RentTypeVo rentType { get; set; }
@@ -99,7 +99,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         //[ForeignKey("siteId")]
         //public virtual SiteVo site { get; set; }
 
-    	public RentalsVo(){
+    	public RentalVo(){
     			
     		this.rentalId = Guid.NewGuid();
     	    this.isActive = true;

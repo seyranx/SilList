@@ -23,7 +23,7 @@ namespace SO.SilList.Admin.Web.Controllers
         public ActionResult List()
         {
             var results = rentalTypeManager.getAll(null);
-            return PartialView(results);
+            return PartialView(results);  //"_List"
         }
 
         [HttpPost]
@@ -44,7 +44,7 @@ namespace SO.SilList.Admin.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Creste(RentTypeVo input)
+        public ActionResult Create(RentTypeVo input)
         {
             if (this.ModelState.IsValid)
             {
@@ -67,7 +67,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Menu()
         {
-            return PartialView("../RentType/_Menu");
+            return PartialView("../Rental/_Menu");
         }
 
         public ActionResult Delete(int id)

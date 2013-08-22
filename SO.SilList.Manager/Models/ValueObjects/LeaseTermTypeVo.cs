@@ -46,6 +46,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("is Active")]
     	[Required]
         public bool isActive { get; set; }
+
+        [Association("LeaseTermType_Rental", "leaseTermTypeId", "leaseTermTypeId", IsForeignKey = true)]
+        public List<RentalVo> rental { get; set; }
       
     	public LeaseTermTypeVo(){
     			this.isActive = true;

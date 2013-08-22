@@ -1,4 +1,4 @@
-﻿@model SO.SilList.Manager.Models.ValueObjects.RentalsVo
+﻿@model SO.SilList.Manager.Models.ValueObjects.RentalVo
 
 @{
     ViewBag.Title = "Edit";
@@ -11,7 +11,7 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>RentalsVo</legend>
+        <legend>RentalVo</legend>
 
         @Html.HiddenFor(model => model.rentalId)
 
@@ -21,14 +21,6 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.propertyTypeId)
             @Html.ValidationMessageFor(model => model.propertyTypeId)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.listingDetailId)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.listingDetailId)
-            @Html.ValidationMessageFor(model => model.listingDetailId)
         </div>
 
         <div class="editor-label">
@@ -94,9 +86,19 @@
             @Html.EditorFor(model => model.acceptsSection8)
             @Html.ValidationMessageFor(model => model.acceptsSection8)
         </div>
-
-
-
+         <div class="editor-label">
+            @Html.LabelFor(model => model.startDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.startDate)
+            @Html.ValidationMessageFor(model => model.startDate)
+        </div>
+            <div class="editor-label">
+            @Html.LabelFor(model => model.endDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.endDate)
+            @Html.ValidationMessageFor(model => model.endDate)
         <div class="editor-label">
             @Html.LabelFor(model => model.isActive)
         </div>

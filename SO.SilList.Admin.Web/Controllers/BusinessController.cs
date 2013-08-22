@@ -21,7 +21,7 @@ namespace SO.SilList.Admin.Web.Controllers
         public ActionResult List()
         {
             var results = businessManager.getAll(null);
-            return PartialView(results);
+            return PartialView("_List",results);
         }
 
         [HttpPost]
