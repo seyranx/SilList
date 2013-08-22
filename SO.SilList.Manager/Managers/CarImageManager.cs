@@ -49,6 +49,8 @@ namespace SO.SilList.Manager.Managers
             {
                 var list = db.carImages
                             .Include(c => c.car)
+                            .Include(b => b.car.modelType)
+                            .Include(d => d.car.modelType.makeType)
                             .Include(i => i.image)
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();

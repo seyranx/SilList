@@ -1,41 +1,39 @@
-﻿using SO.SilList.Manager.Managers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SO.SilList.Manager.Managers;
 using SO.SilList.Manager.Models.ValueObjects;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
-    public class ListingImagesController : Controller
+    public class CarImageController : Controller
     {
-        private ListingImagesManager listingImagesManager = new ListingImagesManager();
-        private ImageManager imageManager = new ImageManager();
-       
+       private CarImageManager carImageManager = new CarImageManager();
+ 
         public ActionResult Index()
         {
-           ViewBag.Title = "Listing Images";
+           ViewBag.Title = "Car Images";
            return View();
         }
 
         public ActionResult _List()
         {
-           var results = imageManager.getListingImages();
+           var results = carImageManager.getAll();
            return PartialView(results);
         }
 
-
         public ActionResult Menu()
         {
-            return PartialView("../Listing/_Menu");
+            return PartialView("../Car/_Menu");
         }
         [HttpPost]
-        public ActionResult Edit(Guid id, ImageVo input)
+        public ActionResult Edit(Guid id, CarImagesVo input)
         {
            if (this.ModelState.IsValid)
            {
-              var res = imageManager.update(input, id);
+              var res = carImageManager.update(input, id);
               return RedirectToAction("Index");
            }
 
@@ -44,19 +42,19 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Edit(Guid id)
         {
-           var result = imageManager.get(id);
+           var result = carImageManager.get(id);
            return View(result);
         }
 
         [HttpPost]
-        public ActionResult Create(ImageVo input)
+        public ActionResult Create(CarImagesVo input)
         {
            if (this.ModelState.IsValid)
            {
-              var item = imageManager.insert(input);
-              ListingImagesVo li = new ListingImagesVo();
+              var item = carImageManager.insert(input);
+              CarImagesVo li = new CarImagesVo();
               li.imageId = item.imageId;
-              listingImagesManager.insert(li);
+              carImageManager.insert(li);
               return RedirectToAction("Index");
            }
 
@@ -70,12 +68,12 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Details(Guid id)
         {
-           var result = imageManager.get(id);
+           var result = carImageManager.get(id);
            return View(result);
         }
         public ActionResult Delete(Guid id)
         {
-           imageManager.delete(id);
+           carImageManager.delete(id);
            return RedirectToAction("Index");
         }
     }
