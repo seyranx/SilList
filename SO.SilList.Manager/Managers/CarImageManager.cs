@@ -20,6 +20,8 @@ namespace SO.SilList.Manager.Managers
             {
                 var result = db.carImages
                             .Include(c => c.car)
+                            .Include(b => b.car.modelType)
+                            .Include(d => d.car.modelType.makeType)
                             .Include(i => i.image)
                             .FirstOrDefault(r => r.carImagesId == carImagesId);
 
