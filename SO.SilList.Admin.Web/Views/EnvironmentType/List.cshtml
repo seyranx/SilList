@@ -43,11 +43,12 @@
             @Html.DisplayFor(modelItem => item.isActive)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.environmentTypeId }) |
+            <a href="@Url.Action("Edit",new { id=item.environmentTypeId })" class="btn">Edit</a>
             <br>
-            @Html.ActionLink("Details", "Details", new { id=item.environmentTypeId }) |
+            <a href="@Url.Action("Details",new { id=item.environmentTypeId })" class="btn">Details</a>
             <br>
-            @Html.ActionLink("Delete", "Delete", new { id=item.environmentTypeId })
+            <a href="@Url.Action("Delete",new { id=item.environmentTypeId })" class="btn">Delete</a>
+            @*@Html.ActionLink("Delete", "Delete", new { id=item.environmentTypeId })*@
         </td>
     </tr>
 }

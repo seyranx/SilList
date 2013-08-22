@@ -88,6 +88,8 @@
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.settingTypeId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @*<a href="@Url.Action("Edit",new { id=Model.environmentTypeId })" class="btn">Edit</a>*@
+    @*@Html.ActionLink("Edit", "Edit", new { id=Model.settingTypeId })*@
+    <a href="@Url.Action("Index")" class="btn">Back to list</a>
+    @*@Html.ActionLink("Back to List", "Index")*@
 </p>
