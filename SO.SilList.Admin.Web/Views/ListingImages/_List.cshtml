@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.ImageVo>
+﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.ListingImagesVo>
 
 <p>
    <a href="@Url.Action("Create")" class="btn btn-info">Create New</a> 
@@ -6,31 +6,22 @@
 <table class="table table-bordered table-hover>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.name)
+            @Html.DisplayNameFor(model => model.imageId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.url)
+            @Html.DisplayNameFor(model => model.listingId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.path)
+            @Html.DisplayNameFor(model => model.createdBy)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.fileType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.siteId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.height)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.width)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.size)
+            @Html.DisplayNameFor(model => model.modifiedBy)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.created)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.modified)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.isActive)
@@ -41,39 +32,30 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.name)
+            @Html.DisplayFor(modelItem => item.imageId)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.url)
+            @Html.DisplayFor(modelItem => item.listingId)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.path)
+            @Html.DisplayFor(modelItem => item.createdBy)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.fileType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.siteId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.height)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.width)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.size)
+            @Html.DisplayFor(modelItem => item.modifiedBy)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.created)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.modified)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.isActive)
         </td>
         <td>
-            <a href="@Url.Action("Edit",    new { id=item.imageId })" class="btn">Edit</a>
-            <a href="@Url.Action("Details", new { id=item.imageId })" class="btn">Details</a>
-            <a href="@Url.Action("Delete",  new { id=item.imageId })" class="btn">Delete</a>
+            <a href="@Url.Action("Edit",    new { id=item.listingImageId })" class="btn">Edit</a>
+            <a href="@Url.Action("Details", new { id=item.listingImageId })" class="btn">Details</a>
+            <a href="@Url.Action("Delete",  new { id=item.listingImageId })" class="btn">Delete</a>
         </td>
     </tr>
 }

@@ -11,7 +11,6 @@ namespace SO.SilList.Admin.Web.Controllers
     public class ListingImagesController : Controller
     {
         private ListingImagesManager listingImagesManager = new ListingImagesManager();
-        private ImageManager imageManager = new ImageManager();
        
         public ActionResult Index()
         {
@@ -21,7 +20,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult _List()
         {
-           var results = imageManager.getListingImages();
+           var results = listingImagesManager.getAll();
            return PartialView(results);
         }
 
@@ -31,11 +30,11 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView("../Listing/_Menu");
         }
         [HttpPost]
-        public ActionResult Edit(Guid id, ImageVo input)
+        public ActionResult Edit(Guid id, ListingImagesVo input)
         {
            if (this.ModelState.IsValid)
            {
-              var res = imageManager.update(input, id);
+              var res = listingImagesManager.update(input, id);
               return RedirectToAction("Index");
            }
 
@@ -44,16 +43,16 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Edit(Guid id)
         {
-           var result = imageManager.get(id);
+           var result = listingImagesManager.get(id);
            return View(result);
         }
 
         [HttpPost]
-        public ActionResult Create(ImageVo input)
+        public ActionResult Create(ListingImagesVo input)
         {
            if (this.ModelState.IsValid)
            {
-              var item = imageManager.insert(input);
+              var item = listingImagesManager.insert(input);
               ListingImagesVo li = new ListingImagesVo();
               li.imageId = item.imageId;
               listingImagesManager.insert(li);
@@ -70,12 +69,12 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Details(Guid id)
         {
-           var result = imageManager.get(id);
+           var result = listingImagesManager.get(id);
            return View(result);
         }
         public ActionResult Delete(Guid id)
         {
-           imageManager.delete(id);
+           listingImagesManager.delete(id);
            return RedirectToAction("Index");
         }
     }
