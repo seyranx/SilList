@@ -40,6 +40,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public string logoUrl { get; set; }
 
         [DisplayName("created")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         [Required]
         public System.DateTime created { get; set; }
 
