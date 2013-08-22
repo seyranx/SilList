@@ -47,15 +47,16 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Is Active")]
     	[Required]
         public bool isActive { get; set; }
-    		
-    	[DisplayName("Site Id")]
-        public int? siteId { get; set; }
 
-        //[ForeignKey("siteId")]
-        //public virtual SiteVo site { get; set; }
+        [DisplayName("Site Id")]
+        public Nullable<int> siteId { get; set; }
 
-        //[Association("BusinessCategoryType_BusinessCategories", "BusinessCateoryTypeId", "BusinessCateoryTypeId", IsForeignKey = true)]
-        //public List<BusinessCategoriesVo> businessCategories { get; set; }
+        [DisplayName("Site")]
+        [ForeignKey("siteId")]
+        public virtual SiteVo site { get; set; }
+
+        [Association("BusinessCategoryType_BusinessCategories", "BusinessCateoryTypeId", "BusinessCateoryTypeId", IsForeignKey = true)]
+        public List<BusinessCategoriesVo> businessCategories { get; set; }
 
     	public BusinessCategoryTypeVo(){
     	    this.isActive = true;

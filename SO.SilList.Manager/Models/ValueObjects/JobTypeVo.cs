@@ -46,6 +46,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [DisplayName("is Active")]
         public bool isActive { get; set; }
 
+        [Association("JobType_Job", "jobTypeId", "jobTypeId", IsForeignKey = true)]
+        public List<JobVo> job { get; set; }
+
         public JobTypeVo()
         {
             //this.created= getDate();

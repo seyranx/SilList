@@ -50,8 +50,10 @@ namespace SO.SilList.Admin.Web.Controllers
         {
             if (this.ModelState.IsValid)
             {
-                if(input.siteId == null)
+                if (input.siteId == null)
+                {
                     input.siteId = memberManager.GetFirstAvailableSiteId();
+                }
 
                 //if ((DateTime)input.modified <= DateTime.MinValue)
                 //    input.modified = input.created;
@@ -69,7 +71,8 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            MemberVo mv = new MemberVo();
+            return View(mv);
         }
 
         public ActionResult Details(int id)

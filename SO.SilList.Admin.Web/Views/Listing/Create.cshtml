@@ -15,7 +15,7 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>ListingsVo</legend>
+        <legend>ListingVo</legend>
     
         <div class="editor-label">
             @Html.LabelFor(model => model.title)
@@ -31,6 +31,18 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.description)
             @Html.ValidationMessageFor(model => model.description)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.listingTypeId)
+        </div>
+        <div class="editor-field">
+            @*
+            @Html.Action("DropDownList","ListingType",new {id=Model.listingTypeId})
+            *@
+            @Html.EditorFor(model => model.listingTypeId)
+            @Html.ValidationMessageFor(model => model.listingTypeId)
+         
         </div>
 
         <div class="editor-label">

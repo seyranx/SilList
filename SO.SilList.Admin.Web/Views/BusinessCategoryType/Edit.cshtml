@@ -75,8 +75,7 @@
             @Html.LabelFor(model => model.siteId)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.siteId)
-            @Html.ValidationMessageFor(model => model.siteId)
+            @Html.Action("DropDownList","Site",new {id=Model.siteId})
         </div>
 
         <p>
@@ -86,5 +85,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+      <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
 </div>

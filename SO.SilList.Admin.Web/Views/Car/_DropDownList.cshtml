@@ -1,0 +1,4 @@
+﻿@model SO.SilList.Manager.Models.ValueObjects.CarVo
+
+@Html.DropDownListFor(c => c.carId, new SelectList(ViewBag.cars, "carId", "modelType.name", Model.modelType), "Select One")
+

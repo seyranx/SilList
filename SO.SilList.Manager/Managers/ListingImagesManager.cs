@@ -24,7 +24,8 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.listingImages
-                            //.Include(s => s.site)
+                            .Include(s => s.listing)
+                            .Include(t => t.image)
                             .FirstOrDefault(p => p.listingImageId == listingImageId);
                  
                 return res;
@@ -44,13 +45,27 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        // Get All Items
+        //// Get All Items
+        //public List<ImageVo> getAllListingImages(bool? isActive = true)
+        //{
+        //   using (var db = new MainDb())
+        //   {
+        //      var list = (from i in db.images
+        //                  join m in db.listingImages on i.imageId equals m.imageId
+        //                  select i
+        //                  ).ToList();
+
+        //      return list;
+        //   }
+        //}
+           
         public List<ListingImagesVo> getAll(bool? isActive = true)
         {
-            using (var db = new MainDb())
+           using (var db = new MainDb())
             {
                 var list = db.listingImages
-                             //.Include(s => s.site)
+                            .Include(s => s.listing)
+                            .Include(t => t.image)
                              .Where(e => isActive==null || e.isActive == isActive )
                              .ToList();
 

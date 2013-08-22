@@ -34,7 +34,7 @@ namespace SO.SilList.Tests.Managers
             {
                 var vo = new BusinessVo();
                 vo.name = i.ToString()+" Test Business Name ";
-                vo.siteId = 1;
+                //vo.siteId = 1;
                 var result = businessManager.insert(vo);
                 if (result == null)
                 {

@@ -40,6 +40,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -64,7 +65,6 @@
     <Compile Include="Interfaces\IJobManager.cs" />
     <Compile Include="Interfaces\IListingCategoriesManager.cs" />
     <Compile Include="Interfaces\IListingCategoryTypeManager.cs" />
-    <Compile Include="Interfaces\IListingDetailManager.cs" />
     <Compile Include="Interfaces\IImageManager.cs" />
     <Compile Include="Interfaces\IListingImagesManager.cs" />
     <Compile Include="Interfaces\IListingManager.cs" />
@@ -146,7 +146,6 @@
     <Compile Include="Models\ValueObjects\LeaseTermTypeVo.cs" />
     <Compile Include="Models\ValueObjects\ListingCategoriesVo.cs" />
     <Compile Include="Models\ValueObjects\ListingCategoryTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\ListingDetailVo.cs" />
     <Compile Include="Models\ValueObjects\ListingImagesVo.cs" />
     <Compile Include="Models\ValueObjects\ListingTypeVo.cs" />
     <Compile Include="Models\ValueObjects\ListingVo.cs" />
@@ -162,6 +161,8 @@
     <Compile Include="Models\ValueObjects\SettingTypeVo.cs" />
     <Compile Include="Models\ValueObjects\SiteVo.cs" />
     <Compile Include="Models\ValueObjects\TransmissionTypeVo.cs" />
+    <Compile Include="Models\ViewModels\AccountManageVm.cs" />
+    <Compile Include="Models\ViewModels\AccountLoginVm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -172,10 +173,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Models\ValueObjects\JobCategoriesVo.cs.orig" />
-    <None Include="Models\ValueObjects\JobCompanyVo.cs.orig" />
-    <None Include="Models\ValueObjects\JobVo.cs.orig" />
-    <None Include="Models\ValueObjects\SiteVo.cs.orig" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
