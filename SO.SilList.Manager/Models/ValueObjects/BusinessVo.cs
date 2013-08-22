@@ -73,24 +73,25 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [DisplayName("Is Active")]
         [Required]
         public bool isActive { get; set; }
-
-
-        //  [Association("Business_BusinessCategories", "businessId", "businessId", IsForeignKey = true)]
-       // public List<BusinessCategories> businessCategories { get; set; }
-
        
         [DisplayName("Site")]
         [ForeignKey("siteId")]
         public virtual SiteVo site { get; set; }
 
+        [Association("Business_BusinessCategories", "businessId", "businessId", IsForeignKey = true)]
+        public List<BusinessCategoriesVo> businessCategories { get; set; }
+
         //[ForeignKey("listingDetailId")]
         //public virtual ListingDetailVo listingdetail { get; set; }
         
-        //[Association("Business_BusinessRatings", "businessId", "businessId", IsForeignKey = true)]
-        //public List<BusinessRatingsVo> businessRatings { get; set; }
+        [Association("Business_BusinessRatings", "businessId", "businessId", IsForeignKey = true)]
+        public List<BusinessRatingsVo> businessRatings { get; set; }
 
-        //[Association("Business_BusinessCategories", "businessId", "businessId", IsForeignKey = true)]
-        //public List<BusinessCategoriesVo> businessCategories { get; set; }
+        [Association("Business_BusinessServices", "businessId", "businessId", IsForeignKey = true)]
+        public List<BusinessServicesVo> businessServices { get; set; }
+
+        [Association("Business_BusinessImages", "businessId", "businessId", IsForeignKey = true)]
+        public List<BusinessImagesVo> businessImages { get; set; }
 
         public BusinessVo()
         {

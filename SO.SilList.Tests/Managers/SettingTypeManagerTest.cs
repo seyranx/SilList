@@ -48,6 +48,7 @@ namespace SO.SilList.Tests.Managers
         {
             var vo = new SettingTypeVo();
             vo.name = "testName";
+            vo.groupName = "Test GroupName";
 
             var result = settingType.insert(vo);
             var result2 = settingType.get(result.settingTypeId);

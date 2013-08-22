@@ -24,7 +24,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.listingCategories
-                            //.Include(s => s.site)
+                            .Include(s => s.listingCategoryType) //
                             .FirstOrDefault(p => p.listingCategoryId == listingCategoryId);
                  
                 return res;
@@ -50,7 +50,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var list = db.listingCategories
-                             //.Include(s => s.site)
+                             .Include(s => s.listingCategoryType) // 
                              .Where(e => isActive==null || e.isActive == isActive )
                              .ToList();
 

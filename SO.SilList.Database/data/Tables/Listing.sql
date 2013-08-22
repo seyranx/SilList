@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [data].[Listing] (
     [listingId]     UNIQUEIDENTIFIER CONSTRAINT [DF__Listing__listing__61316BF4] DEFAULT (newid()) NOT NULL,
     [title]         NVARCHAR (50)    NULL,
-    [description]   NVARCHAR (50)    NULL,
+    [description]   NVARCHAR (MAX)    NULL,
     [siteId]        INT              NULL,
     [listingTypeId] INT              NULL,
     [startDate]     DATE             NOT NULL,
