@@ -52,9 +52,9 @@ namespace SO.SilList.Admin.Web.Controllers
            if (this.ModelState.IsValid)
            {
               var item = carImageManager.insert(input);
-              CarImagesVo li = new CarImagesVo();
-              li.imageId = item.imageId;
-              carImageManager.insert(li);
+              CarImagesVo ci = new CarImagesVo();
+              ci.imageId = item.imageId;
+              carImageManager.insert(ci);
               return RedirectToAction("Index");
            }
 
