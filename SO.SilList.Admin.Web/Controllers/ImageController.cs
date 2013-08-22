@@ -23,6 +23,18 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView(results);
         }
 
+        public ActionResult DropDownList(Guid? id = null)
+        {
+           ViewBag.images = imageManager.getAll(null);
+           var image = new ImageVo();
+           if (id != null)
+           {
+              image = imageManager.get(id.Value);
+           }
+           return PartialView("_DropDownList", image);
+        }
+
+
         public ActionResult BusinessImages()
         {
             ViewBag.Title = "Business Images";

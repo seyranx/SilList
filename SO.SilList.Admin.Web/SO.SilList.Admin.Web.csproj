@@ -492,6 +492,7 @@
     <Content Include="Views\ListingImages\Edit.cshtml" />
     <Content Include="Views\ListingImages\Details.cshtml" />
     <Content Include="Views\ListingImages\_List.cshtml" />
+    <Content Include="Views\Image\_DropDownList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
