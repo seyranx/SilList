@@ -142,7 +142,8 @@
     <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\BuySellController.cs" />
     <Compile Include="Controllers\ImagesController.cs" />
-    <Compile Include="Controllers\EnvironmentTypeController.cs" />
+    <Compile Include="Controllers\JobCategoryTypeController.cs" />
+    <Compile Include="Controllers\JobController.cs" />
     <Compile Include="Controllers\ListingCategoryTypeController.cs" />
     <Compile Include="Controllers\ListingController.cs" />
     <Compile Include="Controllers\CarController.cs" />
@@ -153,7 +154,6 @@
     <Compile Include="Controllers\TransmissionTypeController.cs" />
     <Compile Include="Controllers\MakeTypeController.cs" />
     <Compile Include="Controllers\ModelTypeController.cs" />
-    <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LinkedController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
@@ -354,7 +354,6 @@
     <Content Include="Views\Rentals\Index.cshtml" />
     <Content Include="Views\Business\Index.cshtml" />
     <Content Include="Views\BuySell\Index.cshtml" />
-    <Content Include="Views\Jobs\Index.cshtml" />
     <Content Include="Views\Linked\ShowNew.cshtml" />
     <Content Include="Views\Business\List.cshtml" />
     <Content Include="Views\Business\Edit.cshtml">
@@ -425,6 +424,19 @@
     <Content Include="Views\TransmissionType\Details.cshtml" />
     <Content Include="Views\TransmissionType\Edit.cshtml" />
     <Content Include="Views\TransmissionType\Create.cshtml" />
+    <Content Include="Views\Job\Create.cshtml" />
+    <Content Include="Views\Job\Details.cshtml" />
+    <Content Include="Views\Job\Index.cshtml" />
+    <Content Include="Views\Job\List.cshtml" />
+    <Content Include="Views\Job\Edit.cshtml" />
+    <Content Include="Views\Job\Menu.cshtml" />
+    <Content Include="Views\JobCategoryType\Index.cshtml" />
+    <Content Include="Views\JobCategoryType\List.cshtml" />
+    <Content Include="Views\JobCategoryType\Create.cshtml" />
+    <Content Include="Views\JobCategoryType\Edit.cshtml" />
+    <Content Include="Views\JobCategoryType\Details.cshtml" />
+    <Content Include="Views\JobCompany\Index.cshtml" />
+    <Content Include="Views\JobCompany\List.cshtml" />
     <Content Include="Views\BusinessCategoryType\Create.cshtml" />
     <Content Include="Views\BusinessCategoryType\Details.cshtml" />
     <Content Include="Views\BusinessCategoryType\Edit.cshtml" />
@@ -446,6 +458,10 @@
     <Content Include="Views\CarBodyType\_DropDownList.cshtml" />
     <Content Include="Views\TransmissionType\_DropDownList.cshtml" />
     <Content Include="Views\Car\_DropDownList.cshtml" />
+    <Content Include="Views\ListingType\Create.cshtml" />
+    <Content Include="Views\ListingType\Edit.cshtml" />
+    <Content Include="Views\ListingType\Details.cshtml" />
+    <Content Include="Views\ListingType\_DropDownList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -488,7 +504,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50638</DevelopmentServerPort>
+          <DevelopmentServerPort>62094</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:64907/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

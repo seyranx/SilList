@@ -33,7 +33,7 @@ namespace SO.SilList.Tests.Managers
             for (int i = 1; i <= 10; i++)
             {
                 var vo = new JobVo();
-                vo.city = i.ToString()+" Test Job City ";
+                vo.city = i.ToString()+"Test";
                 vo.siteId = 1;
                 var result = jobManager.insert(vo);
                 if (result == null)

@@ -18,38 +18,38 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class ListingTypeVo
     {
     		
-    	[DisplayName("listing Type Id")]
+    	[DisplayName("Type")]
     	[Key]
         public int listingTypeId { get; set; }
     		
-    	[DisplayName("name")]
+    	[DisplayName("Name")]
     	[StringLength(50)]
         public string name { get; set; }
     		
-    	[DisplayName("description")]
+    	[DisplayName("Description")]
     	[StringLength(50)]
         public string description { get; set; }
     		
-    	[DisplayName("created By")]
+    	[DisplayName("Created By")]
         public int? createdBy { get; set; }
     		
-    	[DisplayName("modified By")]
+    	[DisplayName("Modified By")]
         public int? modifiedBy { get; set; }
     		
-    	[DisplayName("created")]
+    	[DisplayName("Created")]
     	[Required]
         public System.DateTime created { get; set; }
     		
-    	[DisplayName("modified")]
+    	[DisplayName("Modified")]
     	[Required]
         public System.DateTime modified { get; set; }
     		
-    	[DisplayName("is Active")]
+    	[DisplayName("Active")]
     	[Required]
         public bool isActive { get; set; }
 
-        //[Association("ListingType_Listing", "listingTypeId", "listingTypeId", IsForeignKey = true)]
-        //public List<ListingVo> listings { get; set; }
+        [Association("ListingType_Listing", "listingTypeId", "listingTypeId", IsForeignKey = true)]
+        public List<ListingVo> listings { get; set; }
       
     	public ListingTypeVo()
         {

@@ -14,7 +14,8 @@
     [modifiedBy] INT              NULL,
     [isActive]   BIT              DEFAULT ((1)) NOT NULL,
     CONSTRAINT [PK_Image] PRIMARY KEY CLUSTERED ([imageId] ASC),
-    CONSTRAINT [FK_Image_Site] FOREIGN KEY ([siteId]) REFERENCES [app].[Site] ([siteId])
+	CONSTRAINT [FK_Image_Site] FOREIGN KEY ([siteId]) REFERENCES [app].[Site] ([siteId])
+
 );
 
 

@@ -24,7 +24,8 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.listingImages
-                            //.Include(s => s.site)
+                            .Include(s => s.listing)
+                            .Include(t => t.images)
                             .FirstOrDefault(p => p.listingImageId == listingImageId);
                  
                 return res;
@@ -50,7 +51,8 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var list = db.listingImages
-                             //.Include(s => s.site)
+                            .Include(s => s.listing)
+                            .Include(t => t.images)
                              .Where(e => isActive==null || e.isActive == isActive )
                              .ToList();
 

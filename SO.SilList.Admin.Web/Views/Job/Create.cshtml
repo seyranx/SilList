@@ -1,0 +1,138 @@
+﻿@model SO.SilList.Manager.Models.ValueObjects.JobVo
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>JobDetails</legend>
+
+     
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.siteId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.siteId)
+            @Html.ValidationMessageFor(model => model.siteId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.title)
+            @Html.ValidationMessageFor(model => model.title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.description)
+            @Html.ValidationMessageFor(model => model.description)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.jobTypeId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.jobTypeId)
+            @Html.ValidationMessageFor(model => model.jobTypeId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.city)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.city)
+            @Html.ValidationMessageFor(model => model.city)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.state)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.state)
+            @Html.ValidationMessageFor(model => model.state)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.isTravelRequired)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.isTravelRequired)
+            @Html.ValidationMessageFor(model => model.isTravelRequired)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.isTelecomute)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.isTelecomute)
+            @Html.ValidationMessageFor(model => model.isTelecomute)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.jobCompanyId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.jobCompanyId)
+            @Html.ValidationMessageFor(model => model.jobCompanyId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.created)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.created)
+            @Html.ValidationMessageFor(model => model.created)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.modified)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.modified)
+            @Html.ValidationMessageFor(model => model.modified)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.createdBy)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.createdBy)
+            @Html.ValidationMessageFor(model => model.createdBy)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.modifiedBy)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.modifiedBy)
+            @Html.ValidationMessageFor(model => model.modifiedBy)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.isActive)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.isActive)
+            @Html.ValidationMessageFor(model => model.isActive)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

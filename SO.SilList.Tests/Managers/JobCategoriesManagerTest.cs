@@ -9,7 +9,6 @@ namespace SO.SilList.Tests.Managers
     public class JobCategriesManagerTest
     {
         private JobCategoriesManager jobCategoriesManager = new JobCategoriesManager();
-        private Guid? NULL;
 
         [TestMethod]
         public void getAllTest()
@@ -30,9 +29,6 @@ namespace SO.SilList.Tests.Managers
             var vo = new JobCategoriesVo();
             vo.createdBy = 3;
             vo.modifiedBy = 4;
-            // uncomenting next 2 lines leads to violation of FOREIGN KEY CONSTRAINTS
-            //vo.jobCategoryTypeId = 7;
-            //vo.jobId = new Guid();
 
             var result = jobCategoriesManager.insert(vo);
             var result2 = jobCategoriesManager.get(result.jobCategoriesId);
@@ -48,5 +44,6 @@ namespace SO.SilList.Tests.Managers
             else
                 Assert.IsTrue(false);
         }
+
     }
 }
