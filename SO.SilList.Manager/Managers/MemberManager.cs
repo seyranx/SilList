@@ -47,12 +47,19 @@ namespace SO.SilList.Manager.Managers
         {
             using (var db = new MainDb())
             {
-                var list = db.members
-                             .Include(s => s.site)
-                             .Where(e => isActive == null || e.isActive == isActive)
-                             .ToList();
-
-                return list;
+               try
+               {
+                  var list = db.members
+                               .Include(s => s.site)
+                               .Where(e => isActive == null || e.isActive == isActive)
+                               .ToList();
+                  return list;
+               }
+               catch (Exception e)
+               {
+                  System.Console.WriteLine(e.ToString());
+               }
+                return new List<MemberVo>();
             }
         }
 
@@ -109,7 +116,7 @@ namespace SO.SilList.Manager.Managers
         }
 
         // Additional methods
-        public int? GetFirstAvailableSiteId()
+        public Nullable<int> GetFirstAvailableSiteId()
         {
             int? siteId = null;
             SiteManager siteManager = new SiteManager();
@@ -127,6 +134,7 @@ namespace SO.SilList.Manager.Managers
             {
             }
             return siteId;
+
         }
 
     }

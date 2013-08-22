@@ -33,19 +33,162 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public bool delete(int siteId)
+          public bool delete(int siteId)
         {
-            throw new NotImplementedException();
+           using(var db = new MainDb())
+           {
+              //
+               var deleteSiteReferences_inCar =
+                     from cr in db.car
+                     where cr.siteId == siteId
+                     select cr;
+               foreach (var cr in deleteSiteReferences_inCar)
+               {
+                  db.car.Remove(cr);
+               }
+
+              //
+               var deleteSiteReferences_InMember =
+                    from x in db.members
+                    where x.siteId == siteId
+                    select x;
+               foreach (var x in deleteSiteReferences_InMember)
+               {
+                  db.members.Remove(x);
+               }
+
+
+               //
+               var deleteSiteReferences_InBusinessCategoryType =
+                    from x in db.members
+                    where x.siteId == siteId
+                    select x;
+               foreach (var x in deleteSiteReferences_InBusinessCategoryType)
+               {
+                  db.members.Remove(x);
+               }
+
+               //
+               var deleteSiteReferences_InBusiness  =
+                    from x in db.businesses
+                    where x.siteId == siteId
+                    select x;
+               foreach (var x in deleteSiteReferences_InBusiness )
+               {
+                  db.businesses.Remove(x);
+               }
+
+               //
+               var deleteSiteReferences_InImage =
+                    from x in db.images
+                    where x.siteId == siteId
+                    select x;
+               foreach (var x in deleteSiteReferences_InImage)
+               {
+                  db.images.Remove(x);
+               }
+
+               //
+               var deleteSiteReferences_InListing =
+                    from x in db.listing
+                    where x.siteId == siteId
+                    select x;
+               foreach (var x in deleteSiteReferences_InListing)
+               {
+                  db.listing.Remove(x);
+               }
+
+               //
+               var deleteSiteReferences_InRental =
+                    from x in db.rental
+                    where x.siteId == siteId
+                    select x;
+               foreach (var x in deleteSiteReferences_InRental)
+               {
+                  db.rental.Remove(x);
+               }
+
+               //
+               var deleteSite =
+                    from x in db.sites
+                    where x.siteId == siteId
+                    select x;
+               foreach (var x in deleteSite)
+               {
+                  db.sites.Remove(x);
+               }             
+              try
+               {
+                  db.SaveChanges();
+               }
+               catch (Exception e)
+               {
+                  Console.WriteLine(e);
+               }
+              return true;
+           }
         }
+
+        //*
+        // * this version works if Member, Listing, and BusinessCategoryType have no reference to the site being deleted (no data)
+        // * or of we enable cascading properties for corresponding FK-s. Enabling Cascading properties causes circular dependencies in Database which 
+        // * prevents Database project from updating tables in SqlSerer.
+        // */
+        //public bool delete_short_version(int siteId)
+        //{
+        //   using (var db = new MainDb())
+        //   {
+        //      var deleteSite =
+        //           from x in db.sites
+        //           where x.siteId == siteId
+        //           select x;
+        //      foreach (var x in deleteSite)
+        //      {
+        //         db.sites.Remove(x);
+        //      }
+        //      try
+        //      {
+        //         db.SaveChanges(); //  db.SubmitChanges();
+        //      }
+        //      catch (Exception e)
+        //      {
+        //         Console.WriteLine(e);
+        //         // Provide for exceptions.
+        //      }
+        //      return true;
+        //   }
+        //}
+        
 
         public SiteVo update(SiteVo input, int? siteId = null)
         {
-            throw new NotImplementedException();
-        }
+           using (var db = new MainDb())
+           {
+              if(siteId == null)
+               siteId = input.siteId;
 
-        public SiteVo insert(SiteVo input)
+              var res  = db.sites.FirstOrDefault(e => e.siteId == siteId);
+
+              if (res == null) return null;
+              
+              input.created = res.created;
+              input.createdBy = res.createdBy;
+              db.Entry(res).CurrentValues.SetValues(input);
+
+              db.SaveChanges();
+              return res;
+           }
+        }
+       
+       public SiteVo insert(SiteVo input)
         {
-            throw new NotImplementedException();
+           using (var db = new MainDb())
+           {
+               db.sites.Add(input);
+               db.SaveChanges();
+
+               return input;
+           }
         }
     }
 }

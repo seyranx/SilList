@@ -1,0 +1,65 @@
+﻿@model SO.SilList.Manager.Models.ValueObjects.ListingImagesVo
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ListingImagesVo</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.imageId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.imageId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.listingId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.listingId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.createdBy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.createdBy)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.modifiedBy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.modifiedBy)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.created)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.created)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.modified)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.modified)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.isActive)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.isActive)
+    </div>
+</fieldset>
+<p>
+    <a href="@Url.Action("Edit", new { id=Model.listingImageId })" class="btn">Edit</a>
+    <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
+</p>

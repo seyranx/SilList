@@ -8,6 +8,7 @@ using EntityFramework.Extensions;
 using SO.SilList.Manager.Interfaces;
 using SO.SilList.Manager.DbContexts;
 using SO.SilList.Manager.Models.ValueObjects;
+using System.Data.SqlClient;
 
 
 namespace SO.SilList.Manager.Managers
@@ -57,6 +58,109 @@ namespace SO.SilList.Manager.Managers
                 return list;
             }
         }
+
+        //Seyran Note: RentalImages misses the imageId field
+        //
+        //public List<ImageVo> getRentalImages(bool? isActive = true)
+        //{
+        //    using (var db = new MainDb())
+        //    {
+        //        var list = (from i in db.images
+        //                    join r in db.rentalImages on i.imageId equals r.image
+        //                    select i
+        //                    ).ToList();
+
+        //        return list;
+        //    }
+        //}
+
+        public List<ImageVo> getCarImages(bool? isActive = true)
+        {
+            using (var db = new MainDb())
+            {
+                var list = (from i in db.images
+                            join c in db.carImages on i.imageId equals c.imageId
+                            select i
+                            ).ToList();
+
+                return list;
+            }
+        }
+
+        public List<ImageVo> getListingImages(bool? isActive = true)
+        {
+            using (var db = new MainDb())
+            {
+                var list = (from i in db.images
+                            join m in db.listingImages on i.imageId equals m.imageId
+                            select i
+                            ).ToList();
+
+                return list;
+            }
+        }
+
+        public List<ImageVo> getRentalImages(bool? isActive = true)
+        {
+            using (var db = new MainDb())
+            {
+                var list = (from i in db.images
+                            join m in db.rentalImages on i.imageId equals m.imageId
+                            select i
+                            ).ToList();
+
+                return list;
+            }
+        }
+        
+
+        public List<ImageVo> getBusinessImages(bool? isActive = true)
+        {
+            using (var db = new MainDb())
+            {
+                var list = (from i in db.images
+                            join b in db.businessImages on i.imageId equals b.imageId
+                            select i
+                            ).ToList();
+
+                return list;
+            }
+        }
+
+        //public List<ImageVo> getBusinessImages(bool? isActive = true)
+        //{
+        //    using (var db = new MainDb())
+        //    {
+        //        var list = from db.images
+        //                     select all from  data.image
+        //                         //[data].[image] as c inner join [sillist].[data].[businessimages] as b on  c.imageid = b.imageid
+
+        //                     .Where(e => isActive == null || e.isActive == isActive)
+        //                     .ToList();
+
+        //        return list;
+        //    }
+        //}
+
+        //public List<ImageVo> getBusinessImagesUsingSQL()
+        //{
+        //    using (var db = new MainDb())
+        //    {
+        //        //string user = "Admin";
+        //        string strSQL = string.Format("SELECT * FROM db.images as c INNER JOIN db.businessImages as b ON  c.imageId = b.imageId");
+        //        SqlConnection cnn = new SqlConnection();
+        //        using (SqlCommand myCommand = new SqlCommand(strSQL, cnn))
+        //        {
+        //            var list = new List<ImageVo>();
+        //            var reader = myCommand. myCommand.ExecuteReader();
+        //            foreach(ImageVo ivo in  reader)
+        //            {
+        //                list.Add(ivo);
+        //            }
+        //            return list;
+        //        }
+        //    }
+        //}
 
         public bool delete(Guid imageId)
         {

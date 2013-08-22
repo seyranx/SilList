@@ -1,40 +1,39 @@
-﻿using SO.SilList.Manager.Managers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SO.SilList.Manager.Managers;
 using SO.SilList.Manager.Models.ValueObjects;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
-    public class ListingImagesController : Controller
+    public class RentalImageController : Controller
     {
-        private ListingImagesManager listingImagesManager = new ListingImagesManager();
+        private RentalImagesManager rentalImagesManager = new RentalImagesManager();
 
         public ActionResult Index()
         {
-            ViewBag.Title = "Listing Images";
+            ViewBag.Title = "Rental Images";
             return View();
         }
 
         public ActionResult _List()
         {
-            var results = listingImagesManager.getAll();
+            var results = rentalImagesManager.getAll();
             return PartialView(results);
         }
 
-
         public ActionResult Menu()
         {
-            return PartialView("../Listing/_Menu");
+            return PartialView("../Rental/_Menu");
         }
         [HttpPost]
-        public ActionResult Edit(Guid id, ListingImagesVo input)
+        public ActionResult Edit(Guid id, RentalImageVo input)
         {
             if (this.ModelState.IsValid)
             {
-                var res = listingImagesManager.update(input, id);
+                var res = rentalImagesManager.update(input, id);
                 return RedirectToAction("Index");
             }
 
@@ -43,19 +42,19 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Edit(Guid id)
         {
-            var result = listingImagesManager.get(id);
+            var result = rentalImagesManager.get(id);
             return View(result);
         }
 
         [HttpPost]
-        public ActionResult Create(ListingImagesVo input)
+        public ActionResult Create(RentalImageVo input)
         {
             if (this.ModelState.IsValid)
             {
-                var item = listingImagesManager.insert(input);
-                ListingImagesVo li = new ListingImagesVo();
-                li.imageId = item.imageId;
-                listingImagesManager.insert(li);
+                var item = rentalImagesManager.insert(input);
+                RentalImageVo ri = new RentalImageVo();
+                ri.imageId = item.imageId;
+                rentalImagesManager.insert(ri);
                 return RedirectToAction("Index");
             }
 
@@ -64,18 +63,18 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Create()
         {
-            ListingImagesVo vo = new ListingImagesVo();
+            RentalImageVo vo = new RentalImageVo();
             return View(vo);
         }
 
         public ActionResult Details(Guid id)
         {
-            var result = listingImagesManager.get(id);
+            var result = rentalImagesManager.get(id);
             return View(result);
         }
         public ActionResult Delete(Guid id)
         {
-            listingImagesManager.delete(id);
+            rentalImagesManager.delete(id);
             return RedirectToAction("Index");
         }
     }
