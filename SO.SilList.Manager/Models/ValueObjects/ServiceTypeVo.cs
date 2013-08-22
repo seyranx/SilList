@@ -31,6 +31,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
     		
     	[DisplayName("Site Id")]
         public Nullable<int> siteId { get; set; }
+
+        [DisplayName("Site")]
+        [ForeignKey("siteId")]
+        public virtual SiteVo site { get; set; }
     		
     	[DisplayName("Created")]
     	[Required]
@@ -55,8 +59,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
     	public ServiceTypeVo(){
 
-            this.serviceTypeId = 000;
-
+         
             this.isActive = true;
     	}
     }
