@@ -489,11 +489,14 @@
     <Content Include="Views\ListingType\_DropDownList.cshtml" />
     <Content Include="Views\Site\Details.cshtml" />
     <Content Include="Views\Site\Edit.cshtml" />
-    <Content Include="Views\ListingImages\Create.cshtml" />
-    <Content Include="Views\ListingImages\Edit.cshtml" />
-    <Content Include="Views\ListingImages\Details.cshtml" />
     <Content Include="Views\ListingImages\_List.cshtml" />
     <Content Include="Views\Image\_DropDownList.cshtml" />
+    <Content Include="Views\Listing\_DropDownList.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\ListingImages\Create.cshtml" />
+    <Content Include="Views\ListingImages\Details.cshtml" />
+    <Content Include="Views\ListingImages\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,4 +1,4 @@
-﻿@model SO.SilList.Manager.Models.ValueObjects.ImageVo
+﻿@model SO.SilList.Manager.Models.ValueObjects.ListingImagesVo
 
 @{
     ViewBag.Title = "Create";
@@ -11,71 +11,36 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>ImageVo</legend>
+        <legend>ListingImagesVo</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.name)
+            @Html.LabelFor(model => model.imageId)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.name)
-            @Html.ValidationMessageFor(model => model.name)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.url)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.url)
-            @Html.ValidationMessageFor(model => model.url)
+             @Html.Action("DropDownList","Image",new {id=Model.imageId})
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.path)
+            @Html.LabelFor(model => model.listingId)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.path)
-            @Html.ValidationMessageFor(model => model.path)
+            @Html.Action("DropDownList","Listing",new {id=Model.listingId})
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.fileType)
+            @Html.LabelFor(model => model.createdBy)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.fileType)
-            @Html.ValidationMessageFor(model => model.fileType)
+            @Html.EditorFor(model => model.createdBy)
+            @Html.ValidationMessageFor(model => model.createdBy)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.siteId)
+            @Html.LabelFor(model => model.modifiedBy)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.siteId)
-            @Html.ValidationMessageFor(model => model.siteId)
-         @*   @Html.Action("DropDownList","Site",new {id=Model.siteId})  *@
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.height)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.height)
-            @Html.ValidationMessageFor(model => model.height)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.width)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.width)
-            @Html.ValidationMessageFor(model => model.width)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.size)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.size)
-            @Html.ValidationMessageFor(model => model.size)
+            @Html.EditorFor(model => model.modifiedBy)
+            @Html.ValidationMessageFor(model => model.modifiedBy)
         </div>
 
         <div class="editor-label">
@@ -84,6 +49,14 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.created)
             @Html.ValidationMessageFor(model => model.created)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.modified)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.modified)
+            @Html.ValidationMessageFor(model => model.modified)
         </div>
 
         <div class="editor-label">
