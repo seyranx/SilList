@@ -20,9 +20,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [Key]
         public System.Guid businessId { get; set; }
 
-        //[DisplayName("listingDetail Id")]
-        //public System.Guid? listingDetailId { get; set; }
-
         [DisplayName("Site Id")]
         public Nullable<int> siteId { get; set; }
 
@@ -80,9 +77,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         [Association("Business_BusinessCategories", "businessId", "businessId", IsForeignKey = true)]
         public List<BusinessCategoriesVo> businessCategories { get; set; }
-
-        //[ForeignKey("listingDetailId")]
-        //public virtual ListingDetailVo listingdetail { get; set; }
         
         [Association("Business_BusinessRatings", "businessId", "businessId", IsForeignKey = true)]
         public List<BusinessRatingsVo> businessRatings { get; set; }

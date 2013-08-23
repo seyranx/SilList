@@ -25,9 +25,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Property Type")]
         public Nullable<int> propertyTypeId { get; set; }
     		
-    	//[DisplayName("listing Detail Id")]
-        //public Nullable<System.Guid> listingDetailId { get; set; }
-    		
     	[DisplayName("Site Id")]
         public Nullable<int> siteId { get; set; }
     		
@@ -41,6 +38,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public Nullable<double> rent { get; set; }
     		
     	[DisplayName("Lease Term")]
+        //[ForeignKey("leaseTermTyprId")]
         public Nullable<int> leaseTermTypeId { get; set; }
     		
     	[DisplayName("Size")]
@@ -92,9 +90,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         [ForeignKey("propertyTypeId")]
         public virtual PropertyTypeVo propertyType { get; set; }
-
-        //[ForeignKey("listingDetailId")]
-        //public virtual ListingDetailVo listingDetail { get; set; }
 
         [ForeignKey("siteId")]
         public virtual SiteVo site { get; set; }

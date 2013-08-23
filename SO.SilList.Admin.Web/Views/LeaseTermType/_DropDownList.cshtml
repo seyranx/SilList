@@ -1,0 +1,4 @@
+﻿@model SO.SilList.Manager.Models.ValueObjects.LeaseTermTypeVo
+
+@Html.DropDownListFor(s=>s.leaseTermTypeId, new SelectList(ViewBag.leaseTermType,"leaseTermTypeId",
+                                                            "leaseTermTypeId",Model),"Select One")

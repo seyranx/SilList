@@ -158,7 +158,6 @@
     <Compile Include="Controllers\TransmissionTypeController.cs" />
     <Compile Include="Controllers\MakeTypeController.cs" />
     <Compile Include="Controllers\ModelTypeController.cs" />
-    <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LinkedController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
@@ -491,6 +490,7 @@
     <Content Include="Views\LeaseTermType\Details.cshtml" />
     <Content Include="Views\LeaseTermType\List.cshtml" />
     <Content Include="Views\LeaseTermType\Edit.cshtml" />
+    <Content Include="Views\LeaseTermType\_DropDownList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -13,7 +13,7 @@ namespace SO.SilList.Admin.Web.Controllers
         //
         // GET: /LeaseTermType/
 
-        private LeaseTermTypeManager leaseTermType = new LeaseTermTypeManager();
+        private LeaseTermTypeManager leaseTermTypeManager = new LeaseTermTypeManager();
 
         public ActionResult Index()
         {
@@ -21,7 +21,7 @@ namespace SO.SilList.Admin.Web.Controllers
         }
         public ActionResult List()
         {
-            var results = leaseTermType.getAll(null);
+            var results = leaseTermTypeManager.getAll(null);
             return PartialView(results);
         }
 
@@ -31,7 +31,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
             if (this.ModelState.IsValid)
             {
-                var res = leaseTermType.update(input, id);
+                var res = leaseTermTypeManager.update(input, id);
                 return RedirectToAction("Index");
             }
 
@@ -40,7 +40,7 @@ namespace SO.SilList.Admin.Web.Controllers
         }
         public ActionResult Edit(int id)
         {
-            var result = leaseTermType.get(id);
+            var result = leaseTermTypeManager.get(id);
             return View(result);
         }
 
@@ -51,7 +51,7 @@ namespace SO.SilList.Admin.Web.Controllers
             if (this.ModelState.IsValid)
             {
 
-                var item = leaseTermType.insert(input);
+                var item = leaseTermTypeManager.insert(input);
                 return RedirectToAction("Index");
             }
 
@@ -67,7 +67,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Details(int id)
         {
-            var result = leaseTermType.get(id);
+            var result = leaseTermTypeManager.get(id);
             return View(result);
         }
 
@@ -78,8 +78,18 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Delete(int id)
         {
-            leaseTermType.delete(id);
+            leaseTermTypeManager.delete(id);
             return RedirectToAction("Index");
+        }
+        public ActionResult DropDownList(int? id = null)
+        {
+            ViewBag.leaseTermType = leaseTermTypeManager.getAll(null);
+            var leaseType = new LeaseTermTypeVo();
+            if (id != null)
+            {
+                leaseType = leaseTermTypeManager.get(id.Value);
+            }
+            return PartialView("_DropDownList", leaseType);
         }
     }
 }
