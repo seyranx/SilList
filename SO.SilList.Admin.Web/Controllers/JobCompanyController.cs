@@ -10,6 +10,7 @@ namespace SO.SilList.Admin.Web.Controllers
 {
     public class JobCompanyController : Controller
     {
+        public JobCompanyManager jobCompanyManager = new JobCompanyManager();
         //
         // GET: /JobCompany/
 
@@ -19,7 +20,7 @@ namespace SO.SilList.Admin.Web.Controllers
         }
         public ActionResult Menu()
         {
-            return PartialView("../Jobs/Menu");
+            return PartialView("../Job/Menu");
         }
         public ActionResult List()
         {
