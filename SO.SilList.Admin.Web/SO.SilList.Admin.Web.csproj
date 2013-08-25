@@ -499,9 +499,6 @@
     <Content Include="Views\Site\Edit.cshtml" />
     <Content Include="Views\ListingImages\_List.cshtml" />
     <Content Include="Views\Image\_DropDownList.cshtml" />
-    <Content Include="Views\Listing\_DropDownList.cshtml">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="Views\ListingImages\Details.cshtml" />
     <Content Include="Views\ListingImages\Edit.cshtml" />
   </ItemGroup>
