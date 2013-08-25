@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
@@ -14,14 +15,34 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var vo = new BusinessVm();
+            return View(vo);
         }
 
-
-        public ActionResult _List()
+        public ActionResult Search(BusinessVm input)
         {
-            var results = businessManager.getAll(null);
-            return PartialView(results);
+
+            if (this.ModelState.IsValid)
+            {
+                input.result = businessManager.search(input);
+                return View("Index", input);
+            }
+
+            return View("Index");
+
+        }
+        public ActionResult Filter(BusinessVm input)
+        {
+            return PartialView("_Filter", input);
+        }
+
+        public ActionResult List(BusinessVm input)
+        {
+            if (input.result==null || input.result.Count==0)
+            {
+                input.result = businessManager.getAll(null);
+            }
+            return PartialView(input.result);
         }
 
         [HttpPost]
@@ -76,10 +97,18 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView("_Menu");
         }
 
+        public ActionResult Pagination()
+        {
+            return PartialView("_Pagination");
+        }
+        
+
         public ActionResult Delete(Guid id)
         {
             businessManager.delete(id);
             return RedirectToAction("Index");
         }
+
+      
     }
 }
