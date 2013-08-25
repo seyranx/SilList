@@ -53,10 +53,7 @@ namespace SO.SilList.Admin.Web.Controllers
                 var item = businessManager.insert(input);
                 return RedirectToAction("Index");
             }
-
-
             return View();
-
         }
 
         public ActionResult Create()

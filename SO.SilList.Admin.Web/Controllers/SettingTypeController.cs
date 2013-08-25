@@ -54,15 +54,13 @@ namespace SO.SilList.Admin.Web.Controllers
                 var item = settingTypeManager.insert(input);
                 return RedirectToAction("Index");
             }
-
-
             return View();
-
         }
 
         public ActionResult Create()
         {
-            return View();
+            var vo = new SettingTypeVo();
+            return View(vo);
         }
 
         public ActionResult Details(int id)

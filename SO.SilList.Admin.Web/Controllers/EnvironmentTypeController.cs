@@ -83,5 +83,16 @@ namespace SO.SilList.Admin.Web.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult DropDownList(int? id = null)
+        {
+            ViewBag.environmentTypes = environmentTypeManager.getAll(null);
+            var environmentType = new EnvironmentTypeVo();
+            if (id != null)
+            {
+                environmentType = environmentTypeManager.get(id.Value);
+            }
+            return PartialView("_DropDownList", environmentType);
+        }
+
     }
 }
