@@ -13,22 +13,22 @@ namespace SO.SilList.Admin.Web.Controllers
     {
         private BusinessManager businessManager = new BusinessManager();
 
-        public ActionResult Index()
-        {
-            var vo = new BusinessVm();
-            return View(vo);
-        }
-
-        public ActionResult Search(BusinessVm input)
+          
+        public ActionResult Index(BusinessVm input=null)
         {
 
-            if (this.ModelState.IsValid)
+            if (input == null)
+            {
+                var vo = new BusinessVm();
+                return View(vo);
+            }
+            else if (this.ModelState.IsValid)
             {
                 input.result = businessManager.search(input);
-                return View("Index", input);
+                return View(input);
             }
 
-            return View("Index");
+            return View();
 
         }
         public ActionResult Filter(BusinessVm input)
@@ -42,7 +42,7 @@ namespace SO.SilList.Admin.Web.Controllers
             {
                 input.result = businessManager.getAll(null);
             }
-            return PartialView(input.result);
+            return PartialView("_List",input.result);
         }
 
         [HttpPost]

@@ -7,12 +7,9 @@
 
 <h2>@ViewBag.Title</h2>
 
-<form class="form-inline" method="get" action="@Url.Action("Search","Business")">
+<form class="form-inline" method="get" action="@Url.Action("Index","Business")">
 
-<p>
-   <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
-</p>
-
+ 
 @Html.Action("Filter",@Model)
 
 <div class="pull-right">

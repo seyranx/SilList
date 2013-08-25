@@ -37,7 +37,7 @@ namespace SO.SilList.Manager.Models.ViewModels
 
         public BusinessVm()
         {
-           
+            this.result = new List<BusinessVo>();
         }
 
 

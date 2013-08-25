@@ -137,12 +137,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BusinessCategoryTypeController.cs" />
     <Compile Include="Controllers\BusinessController.cs" />
+    <Compile Include="Controllers\BusinessImagesController.cs" />
     <Compile Include="Controllers\BuySellController.cs" />
+    <Compile Include="Controllers\CarImageController.cs" />
     <Compile Include="Controllers\EnvironmentTypeController.cs" />
-    <Compile Include="Controllers\ImagesController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\JobCategoryTypeController.cs" />
     <Compile Include="Controllers\JobController.cs" />
     <Compile Include="Controllers\ListingCategoryTypeController.cs" />
@@ -151,6 +154,7 @@
     <Compile Include="Controllers\CarBodyTypeController.cs" />
     <Compile Include="Controllers\ListingImageController.cs" />
     <Compile Include="Controllers\ListingTypeController.cs" />
+    <Compile Include="Controllers\RentalImageController.cs" />
     <Compile Include="Controllers\ServiceTypeController.cs" />
     <Compile Include="Controllers\TransmissionTypeController.cs" />
     <Compile Include="Controllers\MakeTypeController.cs" />
@@ -166,6 +170,7 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\SilListAdminMembershipProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap\css\bootstrap-responsive.css" />
@@ -356,7 +361,6 @@
     <Content Include="Views\Business\Index.cshtml" />
     <Content Include="Views\BuySell\Index.cshtml" />
     <Content Include="Views\Linked\ShowNew.cshtml" />
-    <Content Include="Views\Business\List.cshtml" />
     <Content Include="Views\Business\Edit.cshtml">
       <SubType>Code</SubType>
     </Content>
@@ -465,6 +469,35 @@
     <Content Include="Views\ListingType\_DropDownList.cshtml" />
     <Content Include="Views\Business\_Filter.cshtml" />
     <Content Include="Views\Business\_Pagination.cshtml" />
+    <Content Include="Views\Image\BusinessImages.cshtml" />
+    <Content Include="Views\Image\CarImages.cshtml" />
+    <Content Include="Views\Image\Create.cshtml" />
+    <Content Include="Views\Image\Details.cshtml" />
+    <Content Include="Views\Image\Edit.cshtml" />
+    <Content Include="Views\Image\Index.cshtml" />
+    <Content Include="Views\Image\ListingImages.cshtml" />
+    <Content Include="Views\Image\RentalImages.cshtml" />
+    <Content Include="Views\Image\_DropDownList.cshtml" />
+    <Content Include="Views\Image\_List.cshtml" />
+    <Content Include="Views\Image\_ListBusinessImages.cshtml" />
+    <Content Include="Views\Image\_ListCarImages.cshtml" />
+    <Content Include="Views\Image\_ListListingImages.cshtml" />
+    <Content Include="Views\Image\_ListRentalImages.cshtml" />
+    <Content Include="Views\Image\_Menu.cshtml" />
+    <Content Include="Views\CarImage\Details.cshtml" />
+    <Content Include="Views\CarImage\Edit.cshtml" />
+    <Content Include="Views\CarImage\Index.cshtml" />
+    <Content Include="Views\CarImage\_List.cshtml" />
+    <Content Include="Views\Business\_DropDownList.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Business\_List.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\BusinessImages\Details.cshtml" />
+    <Content Include="Views\BusinessImages\Edit.cshtml" />
+    <Content Include="Views\BusinessImages\Index.cshtml" />
+    <Content Include="Views\BusinessImages\_List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
