@@ -72,7 +72,7 @@ namespace SO.SilList.Manager.Managers
             {
                 var list = db.businesses
                              .Include(s => s.site)
-                             .OrderBy(b=>b.name)
+                             .OrderBy(b => b.name)
                              .Skip(input.skip)
                              .Take(input.rowCount)
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)

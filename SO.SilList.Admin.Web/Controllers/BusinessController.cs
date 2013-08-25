@@ -97,6 +97,10 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView("_Menu");
         }
 
+        public ActionResult Pagination()
+        {
+            return PartialView("_Pagination");
+        }
         
 
         public ActionResult Delete(Guid id)

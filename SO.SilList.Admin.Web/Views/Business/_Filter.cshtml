@@ -1,5 +1,13 @@
 ﻿@model SO.SilList.Manager.Models.ViewModels.BusinessVm
  
+<style>
+
+    #isActive {
+
+        width:90px;
+    }
+
+</style>
 
      @Html.ValidationSummary(true)
      @Html.ValidationMessageFor(model => model.keyword)
@@ -7,7 +15,8 @@
      @Html.TextBoxFor(model => model.keyword,new { Class = "input-large", placeholder =  "Search" })
 
      <label class="checkbox" style="margin-left:10px;">
-       @Html.LabelFor(model => model.isActive) @Html.CheckBoxFor(model => model.isActive)
+       @Html.LabelFor(model => model.isActive) 
+         @Html.EditorFor(model => model.isActive)
      </label>
 
 

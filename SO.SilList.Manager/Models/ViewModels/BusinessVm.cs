@@ -16,7 +16,9 @@ namespace SO.SilList.Manager.Models.ViewModels
         public int? pageNumber { get; set; }
 
          [DisplayName("isActive: ")]
-        public bool isActive { get; set; }
+         public bool? isActive { get; set; }
+
+        
 
         public int skip {
             get

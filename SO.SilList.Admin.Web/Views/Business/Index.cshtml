@@ -15,8 +15,14 @@
 
 @Html.Action("Filter",@Model)
 
+<div class="pull-right">
+   @Model.rowCount of @Model.result.Count()
+
+</div>
 @Html.Action("List", @Model)
 
+
+@Html.Action("Pagination", @Model)
 
 
  </form>

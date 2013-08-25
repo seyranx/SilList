@@ -20,8 +20,9 @@ namespace SO.SilList.Tests.Managers
         public void searchTest()
         {
             var vo = new BusinessVm();
-            //vo.pageNumber = 2;
-            vo.keyword = "car";
+            vo.pageNumber = 2;
+            vo.keyword = "aa";
+            vo.isActive = true;
 
             var res = businessManager.search(vo);
 
