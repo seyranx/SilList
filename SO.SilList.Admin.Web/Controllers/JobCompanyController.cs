@@ -10,7 +10,7 @@ namespace SO.SilList.Admin.Web.Controllers
 {
     public class JobCompanyController : Controller
     {
-        public JobCompanyManager jobCompanyManager = new JobCompanyManager();
+        private JobCompanyManager jobCompanyManager = new JobCompanyManager();
         //
         // GET: /JobCompany/
 
