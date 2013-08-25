@@ -16,7 +16,7 @@
    @Model.rowCount of @Model.result.Count()
 
 </div>
-@Html.Action("List", @Model)
+@Html.Partial("_List", @Model.result)
 
 
 @Html.Action("Pagination", @Model)

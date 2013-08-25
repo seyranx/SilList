@@ -17,12 +17,9 @@ namespace SO.SilList.Admin.Web.Controllers
         public ActionResult Index(BusinessVm input=null)
         {
 
-            if (input == null)
-            {
-                var vo = new BusinessVm();
-                return View(vo);
-            }
-            else if (this.ModelState.IsValid)
+            if (input == null)input = new BusinessVm();
+            
+            if (this.ModelState.IsValid)
             {
                 input.result = businessManager.search(input);
                 return View(input);
@@ -36,15 +33,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView("_Filter", input);
         }
 
-        public ActionResult List(BusinessVm input)
-        {
-            if (input.result==null || input.result.Count==0)
-            {
-                input.result = businessManager.getAll(null);
-            }
-            return PartialView("_List",input.result);
-        }
-
+         
         [HttpPost]
         public ActionResult Edit(Guid id, BusinessVo input)
         {
