@@ -38,7 +38,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.images
-                            //.Include(s => s.site)
+                    //.Include(s => s.site)
                             .FirstOrDefault();
 
                 return res;
@@ -74,12 +74,27 @@ namespace SO.SilList.Manager.Managers
         //    }
         //}
 
-        public List<ImageVo> getCarImages(bool? isActive = true)
+        // todo: this version will probably go away soon
+        public List<ImageVo> getAllCarImages(bool? isActive = true)
         {
             using (var db = new MainDb())
             {
                 var list = (from i in db.images
                             join c in db.carImages on i.imageId equals c.imageId
+                            select i
+                            ).ToList();
+
+                return list;
+            }
+        }
+
+        public List<ImageVo> getCarImages(Guid carId)
+        {
+            using (var db = new MainDb())
+            {
+                var list = (from i in db.images
+                            join c in db.carImages on i.imageId equals c.imageId
+                            where c.carId == carId
                             select i
                             ).ToList();
 
@@ -112,7 +127,7 @@ namespace SO.SilList.Manager.Managers
                 return list;
             }
         }
-        
+
 
         public List<ImageVo> getBusinessImages(bool? isActive = true)
         {

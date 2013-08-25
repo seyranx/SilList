@@ -12,7 +12,8 @@
 
 
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.ValidationSummary(true)
 
     <fieldset>
@@ -22,7 +23,7 @@
             @Html.LabelFor(model => model.modelTypeId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList","ModelType",new {id=Model.modelTypeId})
+            @Html.Action("DropDownList", "ModelType", new { id = Model.modelTypeId })
         </div>
 
         <div class="editor-label">
@@ -45,21 +46,21 @@
             @Html.LabelFor(model => model.carBodyTypeId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList","CarBodyType",new {id=Model.carBodyTypeId})
+            @Html.Action("DropDownList", "CarBodyType", new { id = Model.carBodyTypeId })
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.siteId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList","Site",new {id=Model.siteId})
+            @Html.Action("DropDownList", "Site", new { id = Model.siteId })
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.transmissionTypeId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList","TransmissionType",new {id=Model.transmissionTypeId})
+            @Html.Action("DropDownList", "TransmissionType", new { id = Model.transmissionTypeId })
         </div>
 
         <div class="editor-label">
@@ -100,3 +101,9 @@
         </p>
     </fieldset>
 }
+<hr />
+<p>
+    @Html.Action("ImageListWithUpload", "Image" , new { id = Model.carId })
+</p>
+
+

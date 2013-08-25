@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SO.SilList.Manager.Models.ValueObjects;
+using System.IO;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
@@ -56,7 +57,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult _ListCarImages()
         {
-            var results = imageManager.getCarImages();
+            var results = imageManager.getAllCarImages();
             return PartialView(results);
         }
 
@@ -148,6 +149,45 @@ namespace SO.SilList.Admin.Web.Controllers
         {
             imageManager.delete(id);
             return RedirectToAction("Index");
+        }
+
+        public ActionResult ImageListWithUpload(Guid? id = null)
+        {
+            string csRelativeBasePath = GetBasePathFromConfig();
+            string sBaseDir = "~/" + csRelativeBasePath;
+            string sDir = Server.MapPath(sBaseDir);
+            if (!Directory.Exists(sDir))
+            {
+                Directory.CreateDirectory(sDir); // todo: permissions for this folder ?
+            }
+            if (Request.Files.Count > 0)
+            {
+                // todo: need to make sure they are uploading image files 
+                var UploadImage1 = Request.Files["UploadImage1"];
+                var UploadImage2 = Request.Files["UploadImage2"];
+
+                string UploadImageAbsFilePath1 = Path.Combine(sDir, Guid.NewGuid().ToString() + "." + Path.GetExtension(UploadImage1.FileName));
+                string UploadImageAbsFilePath2 = Path.Combine(sDir, Guid.NewGuid().ToString() + "." + Path.GetExtension(UploadImage2.FileName));
+
+                UploadImage1.SaveAs(UploadImageAbsFilePath1);
+                UploadImage2.SaveAs(UploadImageAbsFilePath2);
+            } 
+            if (id != null)
+            {
+                ViewBag.carId = id;
+                List<ImageVo> carImageList = imageManager.getCarImages(id.Value); 
+                return PartialView("_ImageListWithUpload", carImageList);
+            }
+            return PartialView();
+        }
+
+        string GetBasePathFromConfig()
+        {
+            string sVal = System.Configuration.ConfigurationManager.AppSettings.Get("UserImagesFolder");
+            if (String.IsNullOrEmpty(sVal))
+                return "";
+            else
+                return sVal;
         }
     }
 }
