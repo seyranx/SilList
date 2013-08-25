@@ -71,6 +71,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public string ipAddress { get; set; }
     		
     	[DisplayName("last Login")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
     	[Required]
         public System.DateTime lastLogin { get; set; }
     		
