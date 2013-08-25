@@ -17,10 +17,36 @@ namespace SO.SilList.Admin.Web.Controllers
             return View();
         }
 
+        public ActionResult Menu()
+        {
+            return PartialView("_Menu");
+        }
+
         public ActionResult List()
         {
             var results = listingManager.getAll(null);
             return PartialView(results);
+        }
+
+        [HttpPost]
+        public ActionResult Create(ListingVo input)
+        {
+
+            if (this.ModelState.IsValid)
+            {
+
+                var item = listingManager.insert(input);
+                return RedirectToAction("Index");
+            }
+
+            return View();
+
+        }
+
+        public ActionResult Create()
+        {
+            var vo = new ListingVo();
+            return View(vo);
         }
 
         [HttpPost]
@@ -42,36 +68,10 @@ namespace SO.SilList.Admin.Web.Controllers
             return View(result);
         }
 
-        [HttpPost]
-        public ActionResult Create(ListingVo input)
-        {
-
-            if (this.ModelState.IsValid)
-            {
-
-                var item = listingManager.insert(input);
-                return RedirectToAction("Index");
-            }
-
-
-            return View();
-
-        }
-
-        public ActionResult Create()
-        {
-            return View();
-        }
-
         public ActionResult Details(Guid id)
         {
             var result = listingManager.get(id);
             return View(result);
-        }
-
-        public ActionResult Menu()
-        {
-            return PartialView("_Menu");
         }
 
         public ActionResult Delete(Guid id)

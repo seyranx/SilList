@@ -5,17 +5,13 @@
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 }
 
-<h2>Create</h2>
-
-<script src="~/Scripts/jquery-1.7.1.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<h2>Create New Type</h2>
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>ListingTypeVo</legend>
+        <legend></legend>
     
         <div class="editor-label">
             @Html.LabelFor(model => model.name)
@@ -24,6 +20,7 @@
             @Html.EditorFor(model => model.name)
             @Html.ValidationMessageFor(model => model.name)
         </div>
+        
 
         <div class="editor-label">
             @Html.LabelFor(model => model.description)
@@ -44,12 +41,7 @@
 
         <p>
             <input type="submit" value="Create" />
+             <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
         </p>
     </fieldset>
 }
-
-<div>
-      <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
-
-</div>
-

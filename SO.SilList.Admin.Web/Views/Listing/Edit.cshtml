@@ -31,19 +31,19 @@
             @Html.ValidationMessageFor(model => model.title)
         </div>       
         <div class="editor-label">
-            @Html.LabelFor(model => model.description)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.description)
-            @Html.ValidationMessageFor(model => model.description)
-        </div> 
-        <div class="editor-label">
             @Html.LabelFor(model => model.listingTypeId)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.listingTypeId)
             @Html.ValidationMessageFor(model => model.listingTypeId)
         </div> 
+        <div class="editor-label">
+            @Html.LabelFor(model => model.description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.description)
+            @Html.ValidationMessageFor(model => model.description)
+        </div>
         <div class="editor-label">
             @Html.LabelFor(model => model.startDate)
         </div>
@@ -65,8 +65,8 @@
             @Html.EditorFor(model => model.isActive)
             @Html.ValidationMessageFor(model => model.isActive)
         </div>
-
         <br/>
+
         <p>
             <input type="submit" value="Save" />
         </p>
