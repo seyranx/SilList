@@ -29,7 +29,7 @@ namespace SO.SilList.Manager.Models.ViewModels
 
         public  int rowCount { 
                get{
-                   return 30;
+                   return 4; // fix
                }
         }
 
