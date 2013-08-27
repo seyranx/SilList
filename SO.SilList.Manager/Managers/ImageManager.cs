@@ -220,6 +220,7 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
+        // for Edit pages (upload and insert image right away?)
         public void InsertImageAndCarImage(Guid carId, string imageName, string uploadImageAbsFilePath, string imageUrl)
         {
             /* 
