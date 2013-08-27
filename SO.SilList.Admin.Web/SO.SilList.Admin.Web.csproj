@@ -500,6 +500,10 @@
     <Content Include="Views\BusinessImages\_List.cshtml" />
     <Content Include="Views\Listing\_Filter.cshtml" />
     <Content Include="Views\Listing\_Pagination.cshtml" />
+    <Content Include="Views\ListingCategoryType\_Filter.cshtml" />
+    <Content Include="Views\ListingCategoryType\_Pagination.cshtml" />
+    <Content Include="Views\ListingType\_Filter.cshtml" />
+    <Content Include="Views\ListingType\_Pagination.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

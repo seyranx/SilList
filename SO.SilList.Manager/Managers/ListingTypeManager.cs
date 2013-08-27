@@ -8,6 +8,7 @@ using EntityFramework.Extensions;
 using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Interfaces;
 using SO.SilList.Manager.DbContexts;
+using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Manager.Managers
 {
@@ -41,6 +42,26 @@ namespace SO.SilList.Manager.Managers
                             .FirstOrDefault();
                
                 return res;
+            }
+        }
+
+        // added this method for Search
+        public List<ListingTypeVo> search(ListingTypeVm input)
+        {
+
+            using (var db = new MainDb())
+            {
+                var list = db.listingType
+                             //.Include(s => s.site)
+                             .OrderBy(b => b.name)
+                             .Skip(input.skip)
+                             .Take(input.rowCount)
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                    )
+                             .ToList();
+
+                return list;
             }
         }
 

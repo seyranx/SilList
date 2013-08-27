@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
@@ -12,9 +13,22 @@ namespace SO.SilList.Admin.Web.Controllers
     {
         private ListingTypeManager listingTypeManager = new ListingTypeManager();
 
-        public ActionResult Index()
+        public ActionResult Index(ListingTypeVm input = null)
         {
+            if (input == null) input = new ListingTypeVm();
+
+            if (this.ModelState.IsValid)
+            {
+                input.result = listingTypeManager.search(input);
+                return View(input);
+            }
+
             return View();
+        }
+
+        public ActionResult Filter(ListingTypeVm input)
+        {
+            return PartialView("_Filter", input);
         }
 
         public ActionResult List()
@@ -73,6 +87,11 @@ namespace SO.SilList.Admin.Web.Controllers
         {
             var result = listingTypeManager.get(id);
             return View(result);
+        }
+
+        public ActionResult Pagination()
+        {
+            return PartialView("_Pagination");
         }
 
         public ActionResult Delete(int id)
