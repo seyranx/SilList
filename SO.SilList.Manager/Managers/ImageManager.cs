@@ -220,6 +220,44 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
+        public void InsertImageAndCarImage(Guid carId, string imageName, string uploadImageAbsFilePath, string imageUrl)
+        {
+            /* 
+           /// first method
+             // insert image
+            ImageVo v = new ImageVo();
+            v.name = imageName;
+            v.path = uploadImageAbsFilePath;
+            v.url = imageUrl;
+            ImageVo result = this.insert(v);
+
+             // insert corresponding carImage
+            CarImagesVo carImageVo = new CarImagesVo();
+            carImageVo.carId = carId;
+            carImageVo.imageId = result.imageId;
+            CarImageManager carImageManager = new CarImageManager();
+            carImageManager.insert(carImageVo);
+            */
+
+            /// second method: shorter
+            ImageVo imgVo = new ImageVo();
+            imgVo.name = imageName;
+            imgVo.path = uploadImageAbsFilePath;
+            imgVo.url = imageUrl;
+            using (var db = new MainDb())
+            {
+                db.images.Add(imgVo);
+
+                CarImagesVo carImageVo = new CarImagesVo();
+                carImageVo.carId = carId;
+                carImageVo.imageId = imgVo.imageId;
+                db.carImages.Add(carImageVo);
+
+                db.SaveChanges();
+            }
+
+        }
+
         public int count()
         {
             using (var db = new MainDb())

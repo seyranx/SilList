@@ -167,24 +167,23 @@ namespace SO.SilList.Admin.Web.Controllers
                 var UploadImage1 = Request.Files["UploadImage1"];
                 var UploadImage2 = Request.Files["UploadImage2"];
 
-                string fileName1 = Path.GetExtension(UploadImage1.FileName);
-                if (!string.IsNullOrEmpty(fileName1))
+                string fileName1 = Path.GetFileName(UploadImage1.FileName);
+                string fileExtension1 = Path.GetExtension(UploadImage1.FileName);
+                if (!string.IsNullOrEmpty(fileName1) && IsImageFile(fileExtension1))
                 {
-                    string UploadImageAbsFilePath1 = Path.Combine(sDir, Guid.NewGuid().ToString() + "." + fileName1);
-                    UploadImage1.SaveAs(UploadImageAbsFilePath1);
-                    ImageVo v = new ImageVo();
-                    v.name = "";
-                    v.path = UploadImageAbsFilePath1;
-                    v.url =  Path.Combine(sBaseDir, fileName1);
-                    imageManager.insert(v);
+                    string uploadImageAbsFilePath1 = Path.Combine(sDir, Guid.NewGuid().ToString() + "." + fileExtension1);
+                    UploadImage1.SaveAs(uploadImageAbsFilePath1);
+                    imageManager.InsertImageAndCarImage(id.Value, Path.GetFileNameWithoutExtension(fileName1), uploadImageAbsFilePath1, Path.Combine(sBaseDir, fileName1));
                 }
-                string fileName2 = Path.GetExtension(UploadImage2.FileName);
-                if (!string.IsNullOrEmpty(fileName2))
+                string fileName2 = Path.GetFileName(UploadImage2.FileName);
+                string fileExtension2 = Path.GetExtension(UploadImage2.FileName);
+                if (!string.IsNullOrEmpty(fileName2) && IsImageFile(fileExtension2))
                 {
-                    string UploadImageAbsFilePath2 = Path.Combine(sDir, Guid.NewGuid().ToString() + "." + fileName2);
-                    UploadImage2.SaveAs(UploadImageAbsFilePath2);
+                    string uploadImageAbsFilePath2 = Path.Combine(sDir, Guid.NewGuid().ToString() + "." + fileExtension2);
+                    UploadImage2.SaveAs(uploadImageAbsFilePath2);
+                    imageManager.InsertImageAndCarImage(id.Value, Path.GetFileNameWithoutExtension(fileName2), uploadImageAbsFilePath2, Path.Combine(sBaseDir, fileName2));
                 }
-                
+
             }
             if (id != null)
             {
@@ -193,6 +192,16 @@ namespace SO.SilList.Admin.Web.Controllers
                 return PartialView("_ImageListWithUpload", carImageList);
             }
             return PartialView();
+        }
+
+        private bool IsImageFile(string fileExtension)
+        {
+            // todo: add more or improve this function in general
+            return fileExtension == "jpg"
+                || fileExtension == "bmp"
+                || fileExtension == "png"
+                || fileExtension == "gif";
+
         }
 
         string GetBasePathFromConfig()
