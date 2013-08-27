@@ -26,13 +26,13 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult DropDownList(Guid? id = null)
         {
-           ViewBag.images = imageManager.getAll(null);
-           var image = new ImageVo();
-           if (id != null)
-           {
-              image = imageManager.get(id.Value);
-           }
-           return PartialView("_DropDownList", image);
+            ViewBag.images = imageManager.getAll(null);
+            var image = new ImageVo();
+            if (id != null)
+            {
+                image = imageManager.get(id.Value);
+            }
+            return PartialView("_DropDownList", image);
         }
 
 
@@ -156,9 +156,10 @@ namespace SO.SilList.Admin.Web.Controllers
             string csRelativeBasePath = GetBasePathFromConfig();
             string sBaseDir = "~/" + csRelativeBasePath;
             string sDir = Server.MapPath(sBaseDir);
+            // todo: need to make sure we have write access to this folder.
             if (!Directory.Exists(sDir))
             {
-                Directory.CreateDirectory(sDir); // todo: permissions for this folder ?
+                Directory.CreateDirectory(sDir);
             }
             if (Request.Files.Count > 0)
             {
@@ -166,16 +167,29 @@ namespace SO.SilList.Admin.Web.Controllers
                 var UploadImage1 = Request.Files["UploadImage1"];
                 var UploadImage2 = Request.Files["UploadImage2"];
 
-                string UploadImageAbsFilePath1 = Path.Combine(sDir, Guid.NewGuid().ToString() + "." + Path.GetExtension(UploadImage1.FileName));
-                string UploadImageAbsFilePath2 = Path.Combine(sDir, Guid.NewGuid().ToString() + "." + Path.GetExtension(UploadImage2.FileName));
-
-                UploadImage1.SaveAs(UploadImageAbsFilePath1);
-                UploadImage2.SaveAs(UploadImageAbsFilePath2);
-            } 
+                string fileName1 = Path.GetExtension(UploadImage1.FileName);
+                if (!string.IsNullOrEmpty(fileName1))
+                {
+                    string UploadImageAbsFilePath1 = Path.Combine(sDir, Guid.NewGuid().ToString() + "." + fileName1);
+                    UploadImage1.SaveAs(UploadImageAbsFilePath1);
+                    ImageVo v = new ImageVo();
+                    v.name = "";
+                    v.path = UploadImageAbsFilePath1;
+                    v.url =  Path.Combine(sBaseDir, fileName1);
+                    imageManager.insert(v);
+                }
+                string fileName2 = Path.GetExtension(UploadImage2.FileName);
+                if (!string.IsNullOrEmpty(fileName2))
+                {
+                    string UploadImageAbsFilePath2 = Path.Combine(sDir, Guid.NewGuid().ToString() + "." + fileName2);
+                    UploadImage2.SaveAs(UploadImageAbsFilePath2);
+                }
+                
+            }
             if (id != null)
             {
                 ViewBag.carId = id;
-                List<ImageVo> carImageList = imageManager.getCarImages(id.Value); 
+                List<ImageVo> carImageList = imageManager.getCarImages(id.Value);
                 return PartialView("_ImageListWithUpload", carImageList);
             }
             return PartialView();
