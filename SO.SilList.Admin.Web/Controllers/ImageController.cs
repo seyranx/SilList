@@ -150,7 +150,7 @@ namespace SO.SilList.Admin.Web.Controllers
             imageManager.delete(id);
             return RedirectToAction("Index");
         }
-
+        [HttpPost]
         public ActionResult ImageListWithUpload(Guid? id = null)
         {
             string csRelativeBasePath = GetBasePathFromConfig();
@@ -161,6 +161,7 @@ namespace SO.SilList.Admin.Web.Controllers
             {
                 Directory.CreateDirectory(sDir);
             }
+
             if (Request.Files.Count > 0)
             {
                 // todo: need to make sure they are uploading image files 
@@ -185,6 +186,11 @@ namespace SO.SilList.Admin.Web.Controllers
                 }
 
             }
+            return PartialView();
+        }
+
+        public ActionResult ImageListWithUpload(Guid? id = null)
+        {
             if (id != null)
             {
                 ViewBag.carId = id;
@@ -206,11 +212,12 @@ namespace SO.SilList.Admin.Web.Controllers
 
         string GetBasePathFromConfig()
         {
+            // Add a key/value pair in <appSettings> in web.config to override this default value.
+            string sRet = "UserUploadedImages";
             string sVal = System.Configuration.ConfigurationManager.AppSettings.Get("UserImagesFolder");
-            if (String.IsNullOrEmpty(sVal))
-                return "";
-            else
-                return sVal;
+            if (!String.IsNullOrEmpty(sVal))
+                sRet = sVal;
+            return sRet;
         }
     }
 }

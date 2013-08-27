@@ -99,5 +99,9 @@
             <input type="submit" value="Save" />
             <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
         </p>
+        <hr />
+        <p>
+            @Html.Action("ImageListWithUploadForEdit", "Image" , new { id = Model.carId })
+        </p>
     </fieldset>
 }
