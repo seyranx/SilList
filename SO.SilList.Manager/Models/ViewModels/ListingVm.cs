@@ -38,5 +38,14 @@ namespace SO.SilList.Manager.Models.ViewModels
             this.result = new List<ListingVo>();
         }
 
+        // added this, but doesn't help
+        public ListingVm(int pageNumber, string keyword, bool isActive)
+        {
+            this.keyword = keyword;
+            this.pageNumber = pageNumber;
+            this.isActive = isActive;
+            this.result = new List<ListingVo>();
+        }
+
     }
 }
