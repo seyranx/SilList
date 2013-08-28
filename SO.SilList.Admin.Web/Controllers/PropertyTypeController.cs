@@ -76,5 +76,16 @@ namespace SO.SilList.Admin.Web.Controllers
             propertyTypeManager.delete(id);
             return RedirectToAction("index");
         }
+
+        public ActionResult DropDownList(int? id = null)
+        {
+            ViewBag.propertyType = propertyTypeManager.getAll(null);
+            var propertyType = new PropertyTypeVo();
+            if (id != null)
+            {
+                propertyType = propertyTypeManager.get(id.Value);
+            }
+            return PartialView("_DropDownList", propertyType);
+        }
     }
 }

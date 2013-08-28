@@ -75,5 +75,16 @@ namespace SO.SilList.Admin.Web.Controllers
             rentalTypeManager.delete(id);
             return RedirectToAction("index");
         }
+
+        public ActionResult DropDownList(int? id = null)
+        {
+            ViewBag.rentType = rentalTypeManager.getAll(null);
+            var rentType = new RentTypeVo();
+            if (id != null)
+            {
+                rentType = rentalTypeManager.get(id.Value);
+            }
+            return PartialView("_DropDownList", rentType);
+        }
     }
 }

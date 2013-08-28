@@ -491,6 +491,8 @@
     <Content Include="Views\LeaseTermType\List.cshtml" />
     <Content Include="Views\LeaseTermType\Edit.cshtml" />
     <Content Include="Views\LeaseTermType\_DropDownList.cshtml" />
+    <Content Include="Views\PropertyType\_DropDownList.cshtml" />
+    <Content Include="Views\RentType\_DropDownList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

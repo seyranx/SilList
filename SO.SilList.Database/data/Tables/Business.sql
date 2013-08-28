@@ -14,9 +14,6 @@
     [modified]        DATETIME         CONSTRAINT [DF_Business_modified] DEFAULT (getdate()) NOT NULL,
     [created]         DATETIME         CONSTRAINT [DF_Business_created] DEFAULT (getdate()) NOT NULL,
     [isActive]        BIT              CONSTRAINT [DF_Business_isActive] DEFAULT ((1)) NOT NULL,
-    [stareDate] DATE NULL, 
-    [endDate] DATE NULL, 
-    [isApproved] BIT NULL DEFAULT ((1)), 
     CONSTRAINT [PK_Business] PRIMARY KEY CLUSTERED ([businessId] ASC),
     CONSTRAINT [FK_Business_Site] FOREIGN KEY ([siteId]) REFERENCES [app].[Site] ([siteId]) ON DELETE CASCADE ON UPDATE CASCADE
 );
