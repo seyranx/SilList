@@ -210,6 +210,9 @@
     <Build Include="app\Tables\EnvironmentType.sql" />
     <Build Include="app\Tables\SettingType.sql" />
     <Build Include="app\Tables\Admin.sql" />
+    <Build Include="dbo\Tables\Visit.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />

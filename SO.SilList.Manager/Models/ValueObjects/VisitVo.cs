@@ -17,7 +17,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     {
         [DisplayName("Visit Id")]
         [Key]
-        public int visitId { get; set; }
+        public Guid visitId { get; set; }
 
         [DisplayName("Site Id")]
         public int siteId { get; set; }
@@ -46,6 +46,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         public VisitVo()
         {
+            this.visitId = Guid.NewGuid();
         }
     }
 }
