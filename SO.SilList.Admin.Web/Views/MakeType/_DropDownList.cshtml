@@ -1,3 +1,20 @@
 ﻿@model SO.SilList.Manager.Models.ValueObjects.MakeTypeVo
+<script>
+    function updateModelList( obj) {
+        if (document.getElementById("modelList")) {
 
-@Html.DropDownListFor(m=>m.makeTypeId, new SelectList(ViewBag.makes,"makeTypeId","name",Model),"Select One")
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("modelList").innerHTML = xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open('POST', "/ModelType/DropDownList?_makeTypeId=" + obj.options[obj.selectedIndex].value);
+            xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+            xmlhttp.send();
+        }
+    }
+</script>
+
+@Html.DropDownListFor(m=>m.makeTypeId, new SelectList(ViewBag.makes,"makeTypeId","name",Model),"Select One", new { onChange = "updateModelList(this)" })

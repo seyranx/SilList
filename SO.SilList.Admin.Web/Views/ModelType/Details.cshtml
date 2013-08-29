@@ -8,65 +8,77 @@
 <h2>@ViewBag.Title</h2>
 
 <fieldset>
+    <legend></legend>
 
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.makeTypeId)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.makeType.name)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.name)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.name)
+        <div class="control-group">
+        <div class="control-label">
+            @Html.LabelFor(model => model.modelTypeId)
+        </div>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.modelTypeId)" readonly="true">
+        </div>
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.description)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.description)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.created)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.created)
+    <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.name)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.name)" readonly="true">
+        </div>
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.modified)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.modified)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.createdBy)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.createdBy)
+        <div class="control-group">
+        <label class="control-label"> @Html.DisplayNameFor(model => model.makeTypeId)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.makeType.name)" readonly="true">
+        </div>
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.modifiedBy)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.modifiedBy)
+        <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.description)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.description)" readonly="true">
+        </div>
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.isActive)
+
+        <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.created)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.created)" readonly="true">
+        </div>
     </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.isActive)
+
+        <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.modified)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.modified)" readonly="true">
+        </div>
     </div>
-</fieldset>
-<p>
+
+        <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.createdBy)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.createdBy)" readonly="true">
+        </div>
+    </div>
+
+        <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.modifiedBy)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.modifiedBy)" readonly="true">
+        </div>
+    </div>
+
+        <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.isActive)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.isActive)" readonly="true">
+        </div>
+    </div>
+
+    <p class="controls">
     <a href="@Url.Action("Edit", new { id=Model.modelTypeId })" class="btn">Edit</a>
       <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
-</p>
+    </p>
+</fieldset>
+

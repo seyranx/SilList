@@ -39,14 +39,16 @@ namespace SO.SilList.Manager.Managers
                 return res;
             }
         }
-
-        public List<ModelTypeVo> getAll(bool? isActive = true)
+        
+        public List<ModelTypeVo> getAll(bool? isActive = true, int? makeTypeId =null)
         {
             using (var db = new MainDb())
             {
                 var list = db.modelType
                              .Include(m => m.makeType)
-                             .Where(e => isActive == null || e.isActive == isActive)
+                            .Where(e => isActive == null || e.isActive == isActive)
+                             .Where(e => makeTypeId==null || e.makeTypeId == makeTypeId)
+                             
                              .ToList();
 
                 return list;

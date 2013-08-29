@@ -37,7 +37,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Site")]
         public Nullable<int> siteId { get; set; }
     		
-    	[DisplayName("Transmission Type Id")]
+    	[DisplayName("Transmission")]
         public Nullable<int> transmissionTypeId { get; set; }
 
         [DisplayName("Start date")]
@@ -85,9 +85,16 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [ForeignKey("carBodyTypeId")]
         public virtual CarBodyTypeVo carBodyType { get; set; }
 
+
+        [NotMapped]
+        [DisplayName("Make")]
+        public int? makeTypeId { get; set; }
+
+
     	public CarVo(){
     			
     		this.carId = Guid.NewGuid();
+
             this.isApproved = false;    	
     	    this.isActive = true;
     	}

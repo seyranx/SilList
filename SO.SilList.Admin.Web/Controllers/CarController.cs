@@ -68,6 +68,8 @@ namespace SO.SilList.Admin.Web.Controllers
         public ActionResult Edit(Guid id)
         {
             var result = carManager.get(id);
+            if (result.modelTypeId != null)
+                result.makeTypeId = (int)result.modelType.makeTypeId;
             return View(result);
         }
 

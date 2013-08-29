@@ -85,9 +85,10 @@ namespace SO.SilList.Manager.Managers
                 var res = db.car.FirstOrDefault(e => e.carId == carId);
 
                 if (res == null) return null;
-
+                
                 input.created = res.created;
                 input.createdBy = res.createdBy;
+               
                 db.Entry(res).CurrentValues.SetValues(input);
 
 

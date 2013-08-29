@@ -83,9 +83,9 @@ namespace SO.SilList.Admin.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult DropDownList(int? id = null)
+        public ActionResult DropDownList(int? id = null,int? _makeTypeId = 0)
         {
-            ViewBag.models = modelTypeManager.getAll(null);
+            ViewBag.models = modelTypeManager.getAll(null,_makeTypeId);
             var model = new ModelTypeVo();
             if (id != null)
             {
