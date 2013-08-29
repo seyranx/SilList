@@ -8,36 +8,33 @@ using SO.SilList.Manager.Models.ValueObjects;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
-    public class JobCategoryType : Controller
+    public class JobTypeController : Controller
     {
-        private JobCategoryTypeManager jobCategoryTypeManager = new JobCategoryTypeManager();
+        private JobTypeManager jobTypeManager = new JobTypeManager();
         //
-        // GET: /jobCategoryType/
+        // GET: /JobType/
 
         public ActionResult Index()
         {
             return View();
         }
-
         public ActionResult Menu()
         {
             return PartialView("../Job/Menu");
         }
-
         public ActionResult List()
         {
-            var results = jobCategoryTypeManager.getAll(null);
+            var results = jobTypeManager.getAll(null);
             return PartialView(results);
         }
-
         [HttpPost]
-        public ActionResult Create(JobCategoryTypeVo input)
+        public ActionResult Create(JobTypeVo input)
         {
 
             if (this.ModelState.IsValid)
             {
 
-                var item = jobCategoryTypeManager.insert(input);
+                var item = jobTypeManager.insert(input);
                 return RedirectToAction("Index");
             }
 
@@ -48,16 +45,16 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            var vo = new JobTypeVo();
+            return View(vo);
         }
-
         [HttpPost]
-        public ActionResult Edit(int id, JobCategoryTypeVo input)
+        public ActionResult Edit(int id, JobTypeVo input)
         {
 
             if (this.ModelState.IsValid)
             {
-                var res = jobCategoryTypeManager.update(input, id);
+                var res = jobTypeManager.update(input, id);
                 return RedirectToAction("Index");
             }
 
@@ -66,20 +63,29 @@ namespace SO.SilList.Admin.Web.Controllers
         }
         public ActionResult Edit(int id)
         {
-            var result = jobCategoryTypeManager.get(id);
+            var result = jobTypeManager.get(id);
             return View(result);
         }
-
         public ActionResult Details(int id)
         {
-            var result = jobCategoryTypeManager.get(id);
+            var result = jobTypeManager.get(id);
             return View(result);
         }
 
         public ActionResult Delete(int id)
         {
-            jobCategoryTypeManager.delete(id);
+            jobTypeManager.delete(id);
             return RedirectToAction("Index");
         }
+       /* public ActionResult DropDownList(int? id = null)
+        {
+            ViewBag.models = jobTypeManager.getAll(null);
+            var model = new ModelTypeVo();
+            if (id != null)
+            {
+                model = jobTypeManager.get(id.Value);
+            }
+            return PartialView("_DropDownList", model);
+       // }*/
     }
 }
