@@ -108,6 +108,7 @@
     <Compile Include="Managers\CarImageManagerTest.cs" />
     <Compile Include="Managers\CarManagerTest.cs" />
     <Compile Include="Managers\EnvironmentTypeManagerTest.cs" />
+    <Compile Include="Managers\ListingCategoryVm.cs" />
     <Compile Include="Managers\MemberManagerTest.cs" />
     <Compile Include="Managers\SettingTypeManagerTest.cs" />
     <Compile Include="Managers\SiteManagerTest.cs" />

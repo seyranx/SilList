@@ -53,10 +53,10 @@ namespace SO.SilList.Manager.Managers
             {
                 var list = db.listing
                              .Include(s => s.site)
-                             .OrderBy(b => b.title)
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                                     )
+                             .OrderBy(b => b.title)
                              .Skip(input.skip)
                              .Take(input.rowCount)
                              .ToList();

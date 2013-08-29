@@ -88,7 +88,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return View(result);
         }
 
-        public ActionResult Pagination()
+        public ActionResult Pagination(ListingVm input = null)
         {
             return PartialView("_Pagination");
         }
