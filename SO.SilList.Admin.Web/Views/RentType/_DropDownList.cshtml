@@ -1,0 +1,4 @@
+﻿@model SO.SilList.Manager.Models.ValueObjects.RentTypeVo 
+
+@Html.DropDownListFor(s=>s.rentTypeId, new SelectList(ViewBag.rentType,"rentTypeId",
+                                                            "name",Model),"Select One")
