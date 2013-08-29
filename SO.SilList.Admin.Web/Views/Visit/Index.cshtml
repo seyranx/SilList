@@ -1,8 +1,27 @@
-﻿@{
+﻿@model SO.SilList.Manager.Models.ViewModels.VisitVm
+@{
     ViewBag.Title = "Site Statistics";
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 }
 
 <h2>@ViewBag.Title</h2>
 
-Html.Action("List")
+<form class="form-inline" method="get" action="@Url.Action("Index","Visit")">
+
+ 
+@Html.Action("Filter", @Model)
+
+<p style="margin-top:10px; margin-bottom:10px;">
+</p>
+
+<div class="pull-right">
+   @((Model.pageNumber - 1) * Model.rowsPerPage + 1) - @(Model.pageNumber * Model.rowsPerPage) of @Model.totalRows
+
+</div>
+@Html.Partial("_List", @Model.result)
+
+
+@Html.Action("Pagination", @Model)
+
+
+ </form>

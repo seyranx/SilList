@@ -17,14 +17,15 @@ namespace SO.SilList.Manager.Models.ViewModels
         public string keyword { get; set; }
 
         [DisplayName("Page: ")]
-        public int? pageNumber { get; set; }
+        public int pageNumber { get; set; }
 
         public int skip {
             get
             {
-                if (pageNumber == null || pageNumber < 2 || rowsPerPage < 1) return 0;
+                if (pageNumber == null || pageNumber < 2 || rowsPerPage < 1) 
+                    return 0;
 
-                return ( ((int)pageNumber-1) * rowsPerPage);
+                return ( (pageNumber-1) * rowsPerPage );
             }
         }
 
@@ -32,10 +33,14 @@ namespace SO.SilList.Manager.Models.ViewModels
         [Range(5, 10)]
         public int rowsPerPage { get; set; }
 
+        [DisplayName("Total rows: ")]
+        public int totalRows { get; set; }
+
 
         public VisitVm()
         {
             this.result = new List<VisitVo>();
+            this.pageNumber = 1;
             this.rowsPerPage = 5;
 
         }

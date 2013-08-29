@@ -9,9 +9,12 @@ using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Manager.Interfaces
 {
-    interface IVisitManager
+    public interface IVisitManager
     {
+        int count(VisitVm input);
+
         List<VisitVo> search(VisitVm input);
+
         VisitVo insert(VisitVo input);
 
         // delete everything older than given date

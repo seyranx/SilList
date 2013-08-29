@@ -1,0 +1,19 @@
+﻿@model SO.SilList.Manager.Models.ViewModels.VisitVm
+ 
+<style>
+
+    #isActive {
+
+        width:90px;
+    }
+
+</style>
+
+     @Html.ValidationSummary(true)
+     @Html.ValidationMessageFor(model => model.keyword)
+
+     @Html.TextBoxFor(model => model.keyword, new { Class = "input-large", placeholder = "Search" })
+
+    <button type="submit" class="btn">Search</button>
+     
+

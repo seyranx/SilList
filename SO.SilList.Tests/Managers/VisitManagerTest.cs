@@ -23,7 +23,7 @@ namespace SO.SilList.Tests.Managers
 
             var result = visitManager.search(vo);
             
-            Assert.IsTrue(0 != result);            
+            Assert.IsTrue(0 != result.Count);            
         }
         
         

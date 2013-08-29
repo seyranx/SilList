@@ -3,20 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 using EntityFramework.Extensions;
 using SO.SilList.Manager.DbContexts;
 using SO.SilList.Manager.Interfaces;
+using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Manager.Models.ViewModels;
+
 
 namespace SO.SilList.Manager.Managers
 {
     public class VisitManager : IVisitManager
 
     {
-        public List<Models.ValueObjects.VisitVo> search(Models.ViewModels.VisitVm input)
+        public int count(VisitVm input)
         {
             using (var db = new MainDb())
             {
-                var list = db.visits                             
+                return db.visits
+                             .Where(e => (
+                                 string.IsNullOrEmpty(input.keyword) ||
+                                 e.action.Contains(input.keyword) ||
+                                 e.controller.Contains(input.keyword) ||
+                                 e.referrerUrl.Contains(input.keyword) ||
+                                 e.ipAddress.Contains(input.keyword)
+                                         )
+                                    )
+                             .Count();
+            }
+        }
+
+        public List<VisitVo> search(VisitVm input)
+        {
+            using (var db = new MainDb())
+            {
+                var list = db.visits
+                             .Include(s => s.site)
                              .Where(e => (
                                  string.IsNullOrEmpty(input.keyword) ||
                                  e.action.Contains(input.keyword) ||
