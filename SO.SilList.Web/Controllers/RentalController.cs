@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace SO.SilList.Web.Controllers
 {
-    public class RentalsController : Controller
+    public class RentalController : Controller
     {
         //
         // GET: /Rentals/

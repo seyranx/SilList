@@ -1,7 +1,6 @@
 ﻿CREATE TABLE [data].[Business] (
     [businessId]      UNIQUEIDENTIFIER CONSTRAINT [DF_Business_businessId] DEFAULT (newid()) NOT NULL,
     [siteId]          INT              NULL,
-    [listingDetailId] UNIQUEIDENTIFIER NULL,
     [name]            NVARCHAR (250)   NULL,
     [address]         NVARCHAR (250)   NULL,
     [city]            NVARCHAR (250)   NULL,

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.RentalVo>
+
+<p>
+    <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
+</p>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.propertyTypeId)
+        </th>
+      
+        <th>
+            @Html.DisplayNameFor(model => model.siteId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bedrooms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bathrooms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rentTypeId)
+        </th>
+       <th>
+            @Html.DisplayNameFor(model => model.startDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.endDate)
+        </th>     
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.propertyTypeId)
+        </td>
+     
+        <td>
+            @Html.DisplayFor(modelItem => item.siteId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bedrooms)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bathrooms)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.startDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.endDate)
+        </td>
+
+        <td>
+            <a href="@Url.Action("Edit",new { id=item.rentalId  })" class="btn">Edit</a>
+            <a href="@Url.Action("Details",new { id=item.rentalId })" class="btn">Details</a>
+            <a href="@Url.Action("Delete",new { id=item.rentalId })" class="btn">Delete</a>
+        </td>
+    </tr>
+}
+
+</table>
