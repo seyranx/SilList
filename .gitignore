@@ -33,3 +33,5 @@ _ReSharper*/
 *.refactorlog
 #Ignore temporary files create by kdiff
 *.cshtml.orig
+#Ignore user uploaded files. Change it if target path changes in web.config.
+SO.SilList.Admin.Web/Uploads/Images/*
