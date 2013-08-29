@@ -22,11 +22,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [Key]
         public int rentTypeId { get; set; }
 
-        [DisplayName("name")]
+        [DisplayName("Name")]
         [StringLength(50)]
         public string name { get; set; }
 
-        [DisplayName("description")]
+        [DisplayName("Description")]
         public string description { get; set; }
 
         [DisplayName("created")]
@@ -43,7 +43,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [DisplayName("modified By")]
         public Nullable<int> modifiedBy { get; set; }
 
-        [DisplayName("is Active")]
+        [DisplayName("Is Active")]
         public bool isActive { get; set; }
 
         [Association("RentType_Rental", "rentTypeId", "rentTypeId", IsForeignKey = true)]
