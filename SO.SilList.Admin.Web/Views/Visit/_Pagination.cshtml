@@ -1,11 +1,30 @@
-﻿<div class="pagination pull-right">
+﻿@model SO.SilList.Manager.Models.ViewModels.VisitVm
+
+<div class="pagination pull-right">
   <ul>
+    <li><span>Page</span></li>
+
+@if(1 != @Model.pageNumber)
+{
     <li><a href="#">Prev</a></li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
+}
+
+@for (int p = Math.Max(1, Model.pageNumber - Model.pageLinkCount); p <= Math.Min(Model.totalPages, Model.pageNumber + Model.pageLinkCount); p++)
+{
+    if(Model.pageNumber == p)
+    {
+        <li><span>@p</span></li>
+    }
+    else
+    {
+        <li><a href="#">@p</a></li>
+    }
+
+}
+
+@if(Model.totalPages != Model.pageNumber)
+{
     <li><a href="#">Next</a></li>
+}
   </ul>
 </div>

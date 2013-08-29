@@ -19,30 +19,55 @@ namespace SO.SilList.Manager.Models.ViewModels
         [DisplayName("Page: ")]
         public int pageNumber { get; set; }
 
-        public int skip {
+        [DisplayName("Rows per page: ")]
+        [Range(5, 50)]
+        public int rowsPerPage { get; set; }
+
+        public int totalRows { get; set; }
+
+        [DisplayName("Show Page Links: ")]
+        [Range(2, 5)]
+        public int pageLinkCount { get; set; }
+
+        public int skip 
+        {
             get
             {
-                if (pageNumber == null || pageNumber < 2 || rowsPerPage < 1) 
-                    return 0;
-
-                return ( (pageNumber-1) * rowsPerPage );
+                return (pageNumber - 1) * rowsPerPage;
             }
         }
 
-        [DisplayName("Rows per page: ")]
-        [Range(5, 10)]
-        public int rowsPerPage { get; set; }
+        public int firstVisibleRow 
+        {
+            get
+            {
+                return (pageNumber - 1) * rowsPerPage + 1;
+            }
+        }
 
-        [DisplayName("Total rows: ")]
-        public int totalRows { get; set; }
+        public int lastVisibleRow 
+        {
+            get
+            {
+                return Math.Min(pageNumber * rowsPerPage, totalRows);
+            }
+        }
+
+        public int totalPages
+        {
+            get
+            {
+                return (int)Math.Ceiling((double)totalRows / rowsPerPage);
+            }
+        }
 
 
         public VisitVm()
         {
             this.result = new List<VisitVo>();
+            this.rowsPerPage = 10;
+            this.pageLinkCount = 2;
             this.pageNumber = 1;
-            this.rowsPerPage = 5;
-
         }
     }
 }

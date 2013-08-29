@@ -15,7 +15,7 @@
 </p>
 
 <div class="pull-right">
-   @((Model.pageNumber - 1) * Model.rowsPerPage + 1) - @(Model.pageNumber * Model.rowsPerPage) of @Model.totalRows
+   Showing @Model.firstVisibleRow - @Model.lastVisibleRow of @Model.totalRows
 
 </div>
 @Html.Partial("_List", @Model.result)

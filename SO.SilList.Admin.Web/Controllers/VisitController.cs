@@ -35,7 +35,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Pagination(VisitVm input)
         {
-            return PartialView("_Pagination");
+            return PartialView("_Pagination", input);
         }
 
         public ActionResult Menu()
