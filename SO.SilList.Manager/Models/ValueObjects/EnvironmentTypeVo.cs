@@ -31,6 +31,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [StringLength(50)]
         public string url { get; set; }
 
+<<<<<<< master
+=======
+
+>>>>>>> local
         [DisplayName("Description")]
         [StringLength(50)]
         public string description { get; set; }
