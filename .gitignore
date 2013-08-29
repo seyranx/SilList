@@ -31,3 +31,5 @@ _ReSharper*/
 *.mdf
 *.dbmdl
 *.refactorlog
+#Ignore temporary files create by kdiff
+*.cshtml.orig
