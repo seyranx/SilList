@@ -10,15 +10,6 @@
             @Html.DisplayNameFor(model => model.created)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.modified)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.createdBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.modifiedBy)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.isActive)
         </th>
         <th></th>
@@ -34,16 +25,7 @@
                 @Html.DisplayFor(modelItem => item.business.name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.created)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.modified)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.createdBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.modifiedBy)
+               <span>@String.Format("{0:MM/dd/yyy}", item.created)</span>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.isActive)

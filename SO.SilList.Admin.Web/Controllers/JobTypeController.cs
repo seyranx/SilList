@@ -8,38 +8,36 @@ using SO.SilList.Manager.Models.ValueObjects;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
-    public class ListingTypeController : Controller
+    public class JobTypeController : Controller
     {
-        private ListingTypeManager listingTypeManager = new ListingTypeManager();
+        private JobTypeManager jobTypeManager = new JobTypeManager();
+        //
+        // GET: /JobType/
 
         public ActionResult Index()
         {
             return View();
         }
-
-        public ActionResult List()
-        {
-            var results = listingTypeManager.getAll(null);
-            return PartialView(results);
-        }
-
-
         public ActionResult Menu()
         {
-            return PartialView("../Listing/_Menu");
+            return PartialView("../Job/Menu");
         }
-
-
+        public ActionResult List()
+        {
+            var results = jobTypeManager.getAll(null);
+            return PartialView(results);
+        }
         [HttpPost]
-        public ActionResult Create(ListingTypeVo input)
+        public ActionResult Create(JobTypeVo input)
         {
 
             if (this.ModelState.IsValid)
             {
 
-                var item = listingTypeManager.insert(input);
+                var item = jobTypeManager.insert(input);
                 return RedirectToAction("Index");
             }
+
 
             return View();
 
@@ -47,16 +45,16 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            var vo = new JobTypeVo();
+            return View(vo);
         }
-
         [HttpPost]
-        public ActionResult Edit(int id, ListingTypeVo input)
+        public ActionResult Edit(int id, JobTypeVo input)
         {
 
             if (this.ModelState.IsValid)
             {
-                var res = listingTypeManager.update(input, id);
+                var res = jobTypeManager.update(input, id);
                 return RedirectToAction("Index");
             }
 
@@ -65,32 +63,29 @@ namespace SO.SilList.Admin.Web.Controllers
         }
         public ActionResult Edit(int id)
         {
-            var result = listingTypeManager.get(id);
+            var result = jobTypeManager.get(id);
             return View(result);
         }
-
         public ActionResult Details(int id)
         {
-            var result = listingTypeManager.get(id);
+            var result = jobTypeManager.get(id);
             return View(result);
         }
 
         public ActionResult Delete(int id)
         {
-            listingTypeManager.delete(id);
+            jobTypeManager.delete(id);
             return RedirectToAction("Index");
         }
-
-        public ActionResult DropDownList(int? id = null)
+       /* public ActionResult DropDownList(int? id = null)
         {
-            ViewBag.listingTypes = listingTypeManager.getAll(null);
-            var listingType = new ListingTypeVo();
+            ViewBag.models = jobTypeManager.getAll(null);
+            var model = new ModelTypeVo();
             if (id != null)
             {
-                listingType = listingTypeManager.get(id.Value);
+                model = jobTypeManager.get(id.Value);
             }
-            return PartialView("_DropDownList", listingType);
-        }
-
+            return PartialView("_DropDownList", model);
+       // }*/
     }
 }

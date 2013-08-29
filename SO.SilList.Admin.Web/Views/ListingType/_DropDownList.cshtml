@@ -1,3 +1,3 @@
 ﻿@model SO.SilList.Manager.Models.ValueObjects.ListingTypeVo
 
-@Html.DropDownListFor(t=>t.listingTypeId, new SelectList(ViewBag.listingType,"listingTypeId","name",Model),"Select One")
+@Html.DropDownListFor(t=>t.listingTypeId, new SelectList(ViewBag.listingTypes,"listingTypeId","name",Model),"Select One")
