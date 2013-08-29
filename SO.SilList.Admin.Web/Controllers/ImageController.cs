@@ -189,15 +189,15 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView("_ImageListWithUpload");
         }
 
-        public ActionResult _ImageListWithUpload(bool dummy, Guid? id = null)
+        public ActionResult _ImagePickerControls()
         {
-            if (id != null)
-            {
-                ViewBag.carId = id;
-                List<ImageVo> carImageList = imageManager.getCarImages(id.Value);
-                return PartialView("_ImageListWithUpload", carImageList);
-            }
-            return PartialView();
+            //if (id != null)
+            //{
+            //    ViewBag.carId = id;
+            //    List<ImageVo> carImageList = imageManager.getCarImages(id.Value);
+            //    return PartialView("_ImageListWithUpload", carImageList);
+            //}
+            //return PartialView();
         }
 
         [HttpPost]

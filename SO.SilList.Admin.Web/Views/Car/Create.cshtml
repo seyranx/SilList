@@ -1,4 +1,4 @@
-﻿@model SO.SilList.Manager.Models.ViewModels.CarImageVm
+﻿@model SO.SilList.Manager.Models.ValueObjects.CarVo
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
@@ -8,7 +8,6 @@
 
 <h2>Create</h2>
 
-
 @using (Html.BeginForm("Create", "Car", FormMethod.Post, new { @encType = "multipart/form-data" }))
 {
     @Html.ValidationSummary(true)
@@ -17,79 +16,79 @@
         <legend></legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.car.modelTypeId)
+            @Html.LabelFor(model => model.modelTypeId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList", "ModelType", new { id = Model.car.modelTypeId })
+            @Html.Action("DropDownList", "ModelType", new { id = Model.modelTypeId })
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.car.year)
+            @Html.LabelFor(model => model.year)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.car.year)
-            @Html.ValidationMessageFor(model => model.car.year)
+            @Html.EditorFor(model => model.year)
+            @Html.ValidationMessageFor(model => model.year)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.car.millage)
+            @Html.LabelFor(model => model.millage)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.car.millage)
-            @Html.ValidationMessageFor(model => model.car.millage)
+            @Html.EditorFor(model => model.millage)
+            @Html.ValidationMessageFor(model => model.millage)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.car.carBodyTypeId)
+            @Html.LabelFor(model => model.carBodyTypeId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList", "CarBodyType", new { id = Model.car.carBodyTypeId })
+            @Html.Action("DropDownList", "CarBodyType", new { id = Model.carBodyTypeId })
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.car.siteId)
+            @Html.LabelFor(model => model.siteId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList", "Site", new { id = Model.car.siteId })
+            @Html.Action("DropDownList", "Site", new { id = Model.siteId })
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.car.transmissionTypeId)
+            @Html.LabelFor(model => model.transmissionTypeId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList", "TransmissionType", new { id = Model.car.transmissionTypeId })
+            @Html.Action("DropDownList", "TransmissionType", new { id = Model.transmissionTypeId })
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.car.startDate)
+            @Html.LabelFor(model => model.startDate)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.car.startDate)
-            @Html.ValidationMessageFor(model => model.car.startDate)
+            @Html.EditorFor(model => model.startDate)
+            @Html.ValidationMessageFor(model => model.startDate)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.car.endDate)
+            @Html.LabelFor(model => model.endDate)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.car.endDate)
-            @Html.ValidationMessageFor(model => model.car.endDate)
+            @Html.EditorFor(model => model.endDate)
+            @Html.ValidationMessageFor(model => model.endDate)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.car.isApproved)
+            @Html.LabelFor(model => model.isApproved)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.car.isApproved)
-            @Html.ValidationMessageFor(model => model.car.isApproved)
+            @Html.EditorFor(model => model.isApproved)
+            @Html.ValidationMessageFor(model => model.isApproved)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.car.isActive)
+            @Html.LabelFor(model => model.isActive)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.car.isActive)
-            @Html.ValidationMessageFor(model => model.car.isActive)
+            @Html.EditorFor(model => model.isActive)
+            @Html.ValidationMessageFor(model => model.isActive)
         </div>
 
         <p>
@@ -102,21 +101,14 @@
 
         @*Select a file: <input type="file" name="UploadFile1" />*@
 
-        <div class="editor-label">
-            Add car images:
-        </div>
-        <div class="editor-field">
-            <input type="file" name="UploadImage1" />
-            <br />
-            <input type="file" name="UploadImage2" />
-        </div>
+        <hr />
+        // no controller exist and no need  // @Html.Action("_ImagePickerControls", "Image")
+        @Html.Action("_ImagePickerControls", "Image")
+
 
     </fieldset>
 }
-@*<p>
-    <hr /><hr />
-    @Html.Action("_ImageListWithUpload", "Image", new { dummy = true , id = Model.car.carId } )
-</p>*@
+
 
 
 

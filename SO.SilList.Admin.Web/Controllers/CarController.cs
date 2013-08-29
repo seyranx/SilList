@@ -34,11 +34,11 @@ namespace SO.SilList.Admin.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(CarImageVm input)
+        public ActionResult Create(CarVo input)
         {
             if (this.ModelState.IsValid)
             {
-                var item = carManager.insert(input.car);
+                var item = carManager.insert(input);
 
 
                 /////////////////////////////////////////////////////////////////
@@ -98,9 +98,7 @@ namespace SO.SilList.Admin.Web.Controllers
         public ActionResult Create()
         {
             var vo = new CarVo();
-            var carImageVm = new CarImageVm();
-            carImageVm.car = vo;
-            return View(carImageVm);
+            return View(vo);
         }
 
         [HttpPost]
