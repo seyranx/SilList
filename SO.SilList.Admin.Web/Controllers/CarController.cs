@@ -33,10 +33,8 @@ namespace SO.SilList.Admin.Web.Controllers
         [HttpPost]
         public ActionResult Create(CarVo input)
         {
-
             if (this.ModelState.IsValid)
             {
-
                 var item = carManager.insert(input);
                 return RedirectToAction("Index");
             }

@@ -505,6 +505,7 @@
     <Content Include="Views\ListingImages\Details.cshtml" />
     <Content Include="Views\ListingImages\Edit.cshtml" />
     <Content Include="Views\Image\_ImageListWithUpload.cshtml" />
+    <Content Include="Views\Image\_ImageListWithUpload_Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

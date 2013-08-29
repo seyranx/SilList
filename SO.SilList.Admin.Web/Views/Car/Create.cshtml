@@ -12,7 +12,6 @@
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
-
     <fieldset>
         <legend></legend>
 
@@ -97,11 +96,12 @@
             <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
         </p>
         <hr />
-        <p>
-            @Html.Action("ImageListWithUpload", "Image", new { dummy = true , id = Model.carId } )
-        </p>
+
     </fieldset>
 }
+<p>
+    @Html.Action("_ImageListWithUpload", "Image", new { dummy = true , id = Model.carId } )
+</p>
 
 
 
