@@ -86,7 +86,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView("_Menu");
         }
 
-        public ActionResult Pagination()
+        public ActionResult Pagination(BusinessVm input = null)
         {
             return PartialView("_Pagination");
         }

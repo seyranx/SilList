@@ -23,13 +23,13 @@ namespace SO.SilList.Manager.Models.ViewModels
         public int skip {
             get
             {
-                if (pageNumber == null || pageNumber < 2 || rowCount < 1) return 0;
+                if (pageNumber == null || pageNumber < 2 || maxRowCount < 1) return 0;
 
-                return ( (int)(pageNumber-1) * (int)rowCount);
+                return ((int)(pageNumber - 1) * maxRowCount);
             }
         }
 
-        public  int rowCount { 
+        public  int maxRowCount { 
                get{
                    return 30;
                }
