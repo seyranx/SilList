@@ -9,7 +9,7 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "Car", FormMethod.Post, new { @encType = "multipart/form-data" }))
 {
     @Html.ValidationSummary(true)
 
@@ -20,7 +20,7 @@
             @Html.LabelFor(model => model.car.modelTypeId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList","ModelType",new {id=Model.car.modelTypeId})
+            @Html.Action("DropDownList", "ModelType", new { id = Model.car.modelTypeId })
         </div>
 
         <div class="editor-label">
@@ -43,21 +43,21 @@
             @Html.LabelFor(model => model.car.carBodyTypeId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList","CarBodyType",new {id=Model.car.carBodyTypeId})
+            @Html.Action("DropDownList", "CarBodyType", new { id = Model.car.carBodyTypeId })
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.car.siteId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList","Site",new {id=Model.car.siteId})
+            @Html.Action("DropDownList", "Site", new { id = Model.car.siteId })
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.car.transmissionTypeId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList","TransmissionType",new {id=Model.car.transmissionTypeId})
+            @Html.Action("DropDownList", "TransmissionType", new { id = Model.car.transmissionTypeId })
         </div>
 
         <div class="editor-label">
@@ -96,13 +96,27 @@
             <input type="submit" value="Create" />
             <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
         </p>
+
+        @* the part below is to go to ImageController -> partial view  [[_ImageListWithUpload *@
         <hr />
+
+        @*Select a file: <input type="file" name="UploadFile1" />*@
+
+        <div class="editor-label">
+            Add car images:
+        </div>
+        <div class="editor-field">
+            <input type="file" name="UploadImage1" />
+            <br />
+            <input type="file" name="UploadImage2" />
+        </div>
 
     </fieldset>
 }
-<p>
-    @Html.Action("_ImageListWithUpload", "Image", new { dummy = true , id = Model.carId } )
-</p>
+@*<p>
+    <hr /><hr />
+    @Html.Action("_ImageListWithUpload", "Image", new { dummy = true , id = Model.car.carId } )
+</p>*@
 
 
 

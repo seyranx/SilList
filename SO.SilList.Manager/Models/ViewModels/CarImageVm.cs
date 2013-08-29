@@ -12,7 +12,7 @@ namespace SO.SilList.Manager.Models.ViewModels
     public class CarImageVm
     {
         public CarVo car { get; set; }
-        public Guid ImageId1 { get; set; }
-        public Guid ImageId2 { get; set; }
+        public string imageLocalPath1 { get; set; }
+        public string imageLocalPath2 { get; set; }
     }
 }

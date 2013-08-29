@@ -9,7 +9,7 @@ using SO.SilList.Manager.Interfaces;
 using SO.SilList.Manager.DbContexts;
 using SO.SilList.Manager.Models.ValueObjects;
 using System.Data.SqlClient;
-
+using System.IO;
 
 namespace SO.SilList.Manager.Managers
 {
@@ -221,24 +221,10 @@ namespace SO.SilList.Manager.Managers
         }
 
         // for Edit pages (upload and insert image right away?)
-        public void InsertImageAndCarImage(Guid carId, string imageName, string uploadImageAbsFilePath, string imageUrl)
+        public void InsertImageAndCarImage(Guid carId, string uploadImageAbsFilePath)
         {
-            /* 
-           /// first method
-             // insert image
-            ImageVo v = new ImageVo();
-            v.name = imageName;
-            v.path = uploadImageAbsFilePath;
-            v.url = imageUrl;
-            ImageVo result = this.insert(v);
-
-             // insert corresponding carImage
-            CarImagesVo carImageVo = new CarImagesVo();
-            carImageVo.carId = carId;
-            carImageVo.imageId = result.imageId;
-            CarImageManager carImageManager = new CarImageManager();
-            carImageManager.insert(carImageVo);
-            */
+            string imageName = Path.GetFileNameWithoutExtension(uploadImageAbsFilePath);
+            string imageUrl = Path.Combine("~/", GetBasePathFromConfig(), uploadImageAbsFilePath);
 
             /// second method: shorter
             ImageVo imgVo = new ImageVo();
@@ -256,7 +242,6 @@ namespace SO.SilList.Manager.Managers
 
                 db.SaveChanges();
             }
-
         }
 
         public int count()
@@ -266,5 +251,27 @@ namespace SO.SilList.Manager.Managers
                 return db.images.Count();
             }
         }
+
+        public string GetBasePathFromConfig()
+        {
+            // Add a key/value pair in <appSettings> in web.config to override this default value.
+            string sRet = "UserUploadedImages";
+            string sVal = System.Configuration.ConfigurationManager.AppSettings.Get("UserImagesFolder");
+            if (!String.IsNullOrEmpty(sVal))
+                sRet = sVal;
+            return sRet;
+        }
+
+        public bool IsImageFile(string fileExtension)
+        {
+            // todo: add more or improve this function in general
+            return fileExtension == ".jpg"
+                || fileExtension == ".bmp"
+                || fileExtension == ".png"
+                || fileExtension == ".gif";
+
+        }
+
+
     }
 }
