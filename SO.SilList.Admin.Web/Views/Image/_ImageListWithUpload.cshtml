@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.ImageVo>
-<p>
+
     <br />
     <br />
     <h2>Images</h2>
@@ -7,8 +7,7 @@
     <div style="padding: 10px;">
 
         <form id="form1" method="post" enctype="multipart/form-data">
-            <table>
-                <tr>
+       <table>
                     <td>Upload Image 1
                     </td>
                     <td>
@@ -23,14 +22,14 @@
                         <input type="file" name="UploadImage2" />
                     </td>
                 </tr>
-
-            </table>
             <input type="submit" name="Submit" value="Submit" />
+   
+
         </form>
 
     </div>
 
-</p>
+
 <table>
     @if (Model.Count() > 0)
     {

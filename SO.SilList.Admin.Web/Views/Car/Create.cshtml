@@ -98,7 +98,7 @@
         </p>
         <hr />
         <p>
-            @Html.Action("ImageListWithUpload", "Image")
+            @Html.Action("ImageListWithUpload", "Image", new { dummy = true , id = Model.carId } )
         </p>
     </fieldset>
 }

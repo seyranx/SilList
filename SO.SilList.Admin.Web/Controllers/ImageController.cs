@@ -184,12 +184,11 @@ namespace SO.SilList.Admin.Web.Controllers
                     UploadImage2.SaveAs(uploadImageAbsFilePath2);
                     imageManager.InsertImageAndCarImage(id.Value, Path.GetFileNameWithoutExtension(fileName2), uploadImageAbsFilePath2, Path.Combine(sBaseDir, fileName2));
                 }
-
             }
-            return PartialView();
+            return PartialView("_ImageListWithUpload");
         }
 
-        public ActionResult ImageListWithUpload(Guid? id = null)
+        public ActionResult ImageListWithUpload(bool dummy, Guid? id = null)
         {
             if (id != null)
             {
