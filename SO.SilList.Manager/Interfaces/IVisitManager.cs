@@ -4,15 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Manager.Models.ViewModels;
+
 
 namespace SO.SilList.Manager.Interfaces
 {
     interface IVisitManager
     {
-        VisitVo get(Guid businessId);
-        List<BusinessVo> getAll(bool? isActive = true);
-        bool delete(Guid businessId);
-        BusinessVo update(BusinessVo input, Guid? businessId = null);
-        BusinessVo insert(BusinessVo input);
+        List<VisitVo> search(VisitVm input);
+        VisitVo insert(VisitVo input);
+
+        // delete everything older than given date
+        int delete(DateTime input);
     }
 }

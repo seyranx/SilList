@@ -1,19 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 using SO.SilList.Manager.DbContexts;
+using SO.SilList.Manager.Managers;
+using SO.SilList.Manager.Models.ViewModels;
 using SO.SilList.Manager.Models.ValueObjects;
 
-namespace SO.SilList.Tests.Setup
+namespace SO.SilList.Tests.Managers
 {
     [TestClass]
-    public class SiteStatTest
+    public class VisitManagerTest
     {
-        private Random r;
+        private VisitManager visitManager = new VisitManager();
+        private Random r = new Random();
 
         [TestMethod]
-        public void SetupDB()
+        public void searchTest()
+        {
+            var vo = new VisitVm();
+            vo.pageNumber = 2;
+            vo.keyword = "Home";
+
+            var result = visitManager.search(vo);
+            
+            Assert.IsTrue(0 != result);            
+        }
+        
+        
+        [TestMethod]
+        public void fillDb()
         {
 
             using (var db = new MainDb())
@@ -128,11 +143,6 @@ namespace SO.SilList.Tests.Setup
                             };
 
             return list[this.r.Next(0, list.Length - 1)];
-        }
-
-        public SiteStatTest()
-        {
-            this.r = new Random();
         }
     }
 }

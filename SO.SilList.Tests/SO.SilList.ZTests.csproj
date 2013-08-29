@@ -133,9 +133,9 @@
     <Compile Include="Managers\MakeTypeManagerTest.cs" />
     <Compile Include="Managers\TransmissionTypeManagerTest.cs" />
     <Compile Include="Managers\AdminManagerTest.cs" />
+    <Compile Include="Managers\VisitManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
-    <Compile Include="Setup\SiteStat.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
