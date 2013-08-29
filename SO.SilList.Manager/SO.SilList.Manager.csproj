@@ -52,6 +52,7 @@
     <Compile Include="DbContexts\MainDb.cs" />
     <Compile Include="Interfaces\IAdminManager.cs" />
     <Compile Include="Interfaces\IEnvironmentTypeManager.cs" />
+    <Compile Include="Interfaces\IRentalManager.cs" />
     <Compile Include="Interfaces\ISettingTypeManager.cs" />
     <Compile Include="Interfaces\ITransmissionTypeManager.cs" />
     <Compile Include="Interfaces\IMakeTypeManager.cs" />
@@ -81,7 +82,6 @@
     <Compile Include="Interfaces\IServiceTypeManager.cs" />
     <Compile Include="Interfaces\ISiteManager.cs" />
     <Compile Include="Interfaces\IBusinessCategoryTypeManager.cs" />
-    <Compile Include="Interfaces\IRentalManager.cs" />
     <Compile Include="Interfaces\IBusinessManager.cs" />
     <Compile Include="Interfaces\IRentTypeManager.cs" />
     <Compile Include="Interfaces\IJobCategoryTypeManager.cs" />
