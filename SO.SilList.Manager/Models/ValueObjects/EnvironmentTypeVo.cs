@@ -55,29 +55,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [Required]
         public bool isActive { get; set; }
 
-        public EnvironmentTypeVo()
-        {
-        [DisplayName("Description")]
-        [StringLength(50)]
-        public string description { get; set; }
-
-        [DisplayName("Created By")]
-        public Nullable<int> createdBy { get; set; }
-
-        [DisplayName("Modified By")]
-        public Nullable<int> modifiedBy { get; set; }
-
-        [DisplayName("Modified")]
-        [Required]
-        public System.DateTime modified { get; set; }
-
-        [DisplayName("Created")]
-        [Required]
-        public System.DateTime created { get; set; }
-
-        [DisplayName("Is Active")]
-        [Required]
-        public bool isActive { get; set; }
+       
 
         public EnvironmentTypeVo()
         {
