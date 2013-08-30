@@ -41,7 +41,7 @@ namespace SO.SilList.Manager.Models.ViewModels
         {
             get
             {
-                return (pageNumber - 1) * rowsPerPage + 1;
+                return (totalRows > 0 ? (pageNumber - 1) * rowsPerPage + 1 : 0);
             }
         }
 

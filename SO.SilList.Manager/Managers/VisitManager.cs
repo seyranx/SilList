@@ -75,7 +75,7 @@ namespace SO.SilList.Manager.Managers
                      .Where(e => e.visitTime < input)
                      .Delete();
 
-                                return 0;
+                return 0;
             }
         }
     }

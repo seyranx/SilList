@@ -48,24 +48,21 @@ namespace SO.SilList.Admin.Web.Controllers
             return View();
         }
 
-        public ActionResult Delete(int id)
+        public ActionResult Delete()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(FormCollection collection)
         {
-            try
+            if (this.ModelState.IsValid)
             {
-                // TODO: Add delete logic here
-
+                visitManager.delete(DateTime.Parse(collection["oldestDate"]));
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View();
         }
     }
 }

@@ -12,6 +12,7 @@ namespace SO.SilList.Tests.Managers
     public class VisitManagerTest
     {
         private VisitManager visitManager = new VisitManager();
+        private SiteManager siteManager = new SiteManager();
         private Random r = new Random();
 
         [TestMethod]
@@ -33,16 +34,11 @@ namespace SO.SilList.Tests.Managers
 
             using (var db = new MainDb())
             {
-
-                // get a valid site id
-                var site = db.sites.FirstOrDefault();
-                Assert.IsTrue(null != site);
-                
                 // add some visits
-                for (int i = 1; i < 100; i++)
+                for (int i = 0; i < 100; i++)
                 {
                     var visit = new VisitVo();
-                    visit.siteId = site.siteId;
+                    visit.siteId = getRandomSite();
                     visit.ipAddress = getRandomIp();
                     visit.referrerUrl = getRandomReferrer();
                     visit.visitTime = getRandomDate();
@@ -63,6 +59,13 @@ namespace SO.SilList.Tests.Managers
             }
         }
 
+        public int getRandomSite()
+        {
+            var sites = siteManager.getAll();
+
+            return sites[r.Next(0, sites.Count)].siteId;
+        }
+
         public string getRandomReferrer()
         {
             string[] list = {
@@ -73,12 +76,12 @@ namespace SO.SilList.Tests.Managers
                 , "facebook.com"
                             };
 
-            return list[this.r.Next(0, list.Length - 1)];
+            return list[this.r.Next(0, list.Length)];
         }
 
         public DateTime getRandomDate()
         {
-            return new DateTime(r.Next(2012, 2013), r.Next(1, 12), r.Next(1, 30), r.Next(0, 23), r.Next(0, 59), r.Next(0, 59));
+            return new DateTime(r.Next(2012, 2014), r.Next(1, 13), r.Next(1, 31), r.Next(0, 24), r.Next(0, 60), r.Next(0, 60));
         }
 
         public string getRandomIp()
@@ -86,7 +89,7 @@ namespace SO.SilList.Tests.Managers
             string ip = "";
             for (int i = 1; i <= 4; i++)
             {
-                ip += this.r.Next(0, 255).ToString();
+                ip += this.r.Next(0, 256).ToString();
                 if (i != 4)
                     ip += ".";
             }
@@ -110,7 +113,7 @@ namespace SO.SilList.Tests.Managers
                 , "Firefox 23"
                             };
 
-            return list[this.r.Next(0, list.Length - 1)];
+            return list[this.r.Next(0, list.Length)];
         }
 
         public string getRandomController()
@@ -129,7 +132,7 @@ namespace SO.SilList.Tests.Managers
                 , "Rentals"
                             };
 
-            return list[this.r.Next(0, list.Length - 1)];
+            return list[this.r.Next(0, list.Length)];
         }
 
         public string getRandomAction()
@@ -142,7 +145,7 @@ namespace SO.SilList.Tests.Managers
                 , "List"
                             };
 
-            return list[this.r.Next(0, list.Length - 1)];
+            return list[this.r.Next(0, list.Length)];
         }
     }
 }

@@ -32,7 +32,7 @@
 
 }
 
-@if(Model.totalPages != Model.pageNumber)
+@if(Model.totalPages > Model.pageNumber)
 {
     <li><a href="#" onclick="document.getElementById('pageNumber').value=@(Model.pageNumber+1);document.filterForm.submit();return false;">Next</a></li>
     <li><a href="#" onclick="document.getElementById('pageNumber').value=@Model.totalPages;document.filterForm.submit();return false;">Last</a></li>
