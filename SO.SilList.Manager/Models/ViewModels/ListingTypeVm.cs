@@ -29,7 +29,7 @@ namespace SO.SilList.Manager.Models.ViewModels
 
         public  int rowCount { 
                get{
-                   return 30; // change this to the number per page
+                   return 4; // change this to the number per page
                }
         }
 
