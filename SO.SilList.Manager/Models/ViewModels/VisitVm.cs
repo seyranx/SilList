@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,25 @@ namespace SO.SilList.Manager.Models.ViewModels
 
         [DisplayName("Keyword: ")]
         public string keyword { get; set; }
+
+        [DisplayName("Site: ")]
+        public Nullable<int> siteId { get; set; }
+
+        [ForeignKey("siteId")]
+        public SiteVo site { get; set; }
+
+        [DisplayName("Griyp By: ")]
+        public GroupBy groupBy { get; set; }
+
+        public enum GroupBy
+        {
+            DontGroup,
+            GroupByDay,
+            GroupByWeek,
+            GroupByMonth,
+            GroupByYear
+        }
+
 
         [DisplayName("Page: ")]
         public int pageNumber { get; set; }

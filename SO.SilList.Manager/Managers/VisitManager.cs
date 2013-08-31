@@ -22,13 +22,17 @@ namespace SO.SilList.Manager.Managers
             {
                 return db.visits
                              .Where(e => (
-                                 string.IsNullOrEmpty(input.keyword) ||
-                                 e.action.Contains(input.keyword) ||
-                                 e.controller.Contains(input.keyword) ||
-                                 e.referrerUrl.Contains(input.keyword) ||
-                                 e.ipAddress.Contains(input.keyword)
-                                         )
-                                    )
+                                 (
+                                    null == input.siteId || e.siteId == input.siteId
+                                 ) &&
+                                 (
+                                    string.IsNullOrEmpty(input.keyword) ||
+                                    e.action.Contains(input.keyword) ||
+                                    e.controller.Contains(input.keyword) ||
+                                    e.referrerUrl.Contains(input.keyword) ||
+                                    e.ipAddress.Contains(input.keyword)
+                                 )
+                                    ))
                              .Count();
             }
         }
@@ -40,13 +44,17 @@ namespace SO.SilList.Manager.Managers
                 var list = db.visits
                              .Include(s => s.site)
                              .Where(e => (
-                                 string.IsNullOrEmpty(input.keyword) ||
-                                 e.action.Contains(input.keyword) ||
-                                 e.controller.Contains(input.keyword) ||
-                                 e.referrerUrl.Contains(input.keyword) ||
-                                 e.ipAddress.Contains(input.keyword)
-                                         )
-                                    )
+                                 (
+                                    null == input.siteId || e.siteId == input.siteId
+                                 ) &&
+                                 (
+                                    string.IsNullOrEmpty(input.keyword) ||
+                                    e.action.Contains(input.keyword) ||
+                                    e.controller.Contains(input.keyword) ||
+                                    e.referrerUrl.Contains(input.keyword) ||
+                                    e.ipAddress.Contains(input.keyword)
+                                 )
+                                    ))
                              .OrderBy(b => b.visitTime)
                              .Skip(input.skip)
                              .Take(input.rowsPerPage)

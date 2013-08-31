@@ -9,11 +9,24 @@
 
 </style>
 
-     @Html.ValidationSummary(true)
-     @Html.ValidationMessageFor(model => model.keyword)
+@Html.ValidationSummary(true)
 
-     @Html.TextBoxFor(model => model.keyword, new { Class = "input-large", placeholder = "Search" })
+@Html.LabelFor(model => model.siteId)
+@Html.Action("DropDownList", "Site", new {id=Model.siteId})
 
-    <button type="submit" class="btn" onclick="document.getElementById('pageNumber').value=1">Search</button>
+@Html.LabelFor(model => model.keyword)
+@Html.TextBoxFor(model => model.keyword, new { Class = "input-large", placeholder = "Search" })
+@Html.ValidationMessageFor(model => model.keyword)
+
+Group By: 
+<select name="groupBy">
+    <option value="1">Don't Group</option>
+    <option value="2">Day</option>
+    <option value="3">Week</option>
+    <option value="4">Month</option>
+    <option value="5">year</option>
+</select>
+
+<button type="submit" class="btn" onclick="document.getElementById('pageNumber').value=1">Search</button>
      
 
