@@ -1,0 +1,32 @@
+﻿@model SO.SilList.Manager.Models.ViewModels.VisitVm
+ 
+<style>
+
+    #isActive {
+
+        width:90px;
+    }
+
+</style>
+
+@Html.ValidationSummary(true)
+
+@Html.LabelFor(model => model.siteId)
+@Html.Action("DropDownList", "Site", new {id=Model.siteId})
+
+@Html.LabelFor(model => model.keyword)
+@Html.TextBoxFor(model => model.keyword, new { Class = "input-large", placeholder = "Search" })
+@Html.ValidationMessageFor(model => model.keyword)
+
+Group By: 
+<select name="groupBy">
+    <option value="1">Don't Group</option>
+    <option value="2">Day</option>
+    <option value="3">Week</option>
+    <option value="4">Month</option>
+    <option value="5">year</option>
+</select>
+
+<button type="submit" class="btn" onclick="document.getElementById('pageNumber').value=1">Search</button>
+     
+

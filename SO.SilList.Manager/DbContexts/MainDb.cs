@@ -70,6 +70,8 @@ namespace SO.SilList.Manager.DbContexts
         public DbSet<CarImagesVo> carImages { get; set; }
         public DbSet<TransmissionTypeVo> transmissionType { get; set; }
         public DbSet<AdminVo> admins { get; set; }
+        public DbSet<VisitVo> visits { get; set; }
+
     }
 
 }

@@ -81,6 +81,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [Association("Site_BusinessCategoryType", "siteId", "siteId", IsForeignKey = true)]
         public List<BusinessCategoryTypeVo> businessCategoryType { get; set; }
 
+        [Association("Site_Visit", "siteId", "siteId", IsForeignKey = true)]
+        public List<VisitVo> visit { get; set; }
+
         public SiteVo()
         {
     	    this.isActive = true;
