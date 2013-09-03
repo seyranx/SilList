@@ -1,9 +1,28 @@
-﻿@{
+﻿@model SO.SilList.Manager.Models.ViewModels.ListingVm
+@{
     ViewBag.Title = "Listings";
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 }
 
-<h2>Listings</h2>
+<h2>@ViewBag.Title</h2>
 
-
+@*
 @Html.Action("List")
+    *@
+
+<form class="form-inline" method="get" action="@Url.Action("Index","Listing")">
+
+ 
+@Html.Action("Filter",@Model)
+
+<div class="pull-right">
+   @Model.rowCount of @Model.result.Count()
+
+</div>
+@Html.Partial("List", @Model.result)
+
+
+@Html.Action("Pagination", @Model)
+
+
+ </form>
