@@ -221,10 +221,11 @@ namespace SO.SilList.Manager.Managers
         }
 
         // for Edit pages (upload and insert image right away?)
-        public void InsertImageAndCarImage(Guid carId, string uploadImageAbsFilePath)
+        public void InsertImageAndCarImage(Guid carId, string imageName, string imageUrl, string uploadImageAbsFilePath)
         {
-            string imageName = Path.GetFileNameWithoutExtension(uploadImageAbsFilePath);
-            string imageUrl = Path.Combine("~/", GetBasePathFromConfig(), uploadImageAbsFilePath);
+            // those two moved to caller function
+            // string imageName = Path.GetFileNameWithoutExtension(uploadImageAbsFilePath);
+            // string imageUrl = Path.Combine("~/", GetBasePathFromConfig(), imageNameOnServer);
 
             /// second method: shorter
             ImageVo imgVo = new ImageVo();

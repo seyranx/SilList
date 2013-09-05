@@ -197,7 +197,7 @@ namespace SO.SilList.Admin.Web.Controllers
             //    List<ImageVo> carImageList = imageManager.getCarImages(id.Value);
             //    return PartialView("_ImageListWithUpload", carImageList);
             //}
-            //return PartialView();
+            return PartialView();
         }
 
         [HttpPost]

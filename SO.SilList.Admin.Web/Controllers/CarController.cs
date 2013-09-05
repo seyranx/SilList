@@ -42,11 +42,11 @@ namespace SO.SilList.Admin.Web.Controllers
 
 
                 /////////////////////////////////////////////////////////////////
-                // carImage stuff
+                // carImage stuff. todo: need to move to Image controller or whatever ... to reuse from other locations
                 var id = item.carId;
                 ImageManager imageManager = new ImageManager();
                 string csRelativeBasePath = imageManager.GetBasePathFromConfig();
-                string sBaseDir = "~/" + csRelativeBasePath;
+                string sBaseDir = Path.Combine("~/" + csRelativeBasePath);
                 string sDir = Server.MapPath(sBaseDir);
 
                 // todo: need to make sure we have write access to this folder.
@@ -67,10 +67,11 @@ namespace SO.SilList.Admin.Web.Controllers
                         string fileExtension1 = Path.GetExtension(UploadImage1.FileName);
                         if (!string.IsNullOrEmpty(fileName1) && imageManager.IsImageFile(fileExtension1))
                         {
-                            string uploadImageAbsFilePath1 = Path.Combine(sDir, Guid.NewGuid().ToString() + fileExtension1);
+                            string imageNameOnServer = Guid.NewGuid().ToString() + fileExtension1;
+                            string uploadImageAbsFilePath1 = Path.Combine(sDir, imageNameOnServer);
                             UploadImage1.SaveAs(uploadImageAbsFilePath1);
-                            Debug.Assert(Path.GetFileName(uploadImageAbsFilePath1) == fileName1);
-                            imageManager.InsertImageAndCarImage(id, uploadImageAbsFilePath1);
+                            string imageUrl = Path.Combine("~/", imageManager.GetBasePathFromConfig(), imageNameOnServer);
+                            imageManager.InsertImageAndCarImage(id, fileName1, imageUrl, uploadImageAbsFilePath1);
                         }
                     }
                     if (UploadImage2 != null && UploadImage2.FileName != null)
@@ -79,9 +80,11 @@ namespace SO.SilList.Admin.Web.Controllers
                         string fileExtension2 = Path.GetExtension(UploadImage2.FileName);
                         if (!string.IsNullOrEmpty(fileName2) && imageManager.IsImageFile(fileExtension2))
                         {
-                            string uploadImageAbsFilePath2 = Path.Combine(sDir, Guid.NewGuid().ToString() + "." + fileExtension2);
+                            string imageNameOnServer = Guid.NewGuid().ToString() + fileExtension2;
+                            string uploadImageAbsFilePath2 = Path.Combine(sDir, imageNameOnServer);
+                            string imageUrl = Path.Combine("~/", imageManager.GetBasePathFromConfig(), imageNameOnServer);
+                            imageManager.InsertImageAndCarImage(id, fileName2, imageUrl, uploadImageAbsFilePath2);
                             UploadImage2.SaveAs(uploadImageAbsFilePath2);
-                            imageManager.InsertImageAndCarImage(id, uploadImageAbsFilePath2);
                         }
                     }
                 }

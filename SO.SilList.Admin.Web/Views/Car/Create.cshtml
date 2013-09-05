@@ -102,9 +102,9 @@
         @*Select a file: <input type="file" name="UploadFile1" />*@
 
         <hr />
-        // no controller exist and no need  // @Html.Action("_ImagePickerControls", "Image")
-        @Html.Action("_ImagePickerControls", "Image")
-
+        @* this doesn't work   @Html.Partial("~/Views/Image/_ImagePickerControls", "Image")  *@
+        @* @Html.Action("_ImagePickerControls", "Image")  with controller *@
+        @Html.Partial("../Image/_ImagePickerControls")  @* direct call *@
 
     </fieldset>
 }
