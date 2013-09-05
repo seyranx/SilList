@@ -85,6 +85,7 @@
     <Compile Include="Interfaces\IBusinessManager.cs" />
     <Compile Include="Interfaces\IRentTypeManager.cs" />
     <Compile Include="Interfaces\IJobCategoryTypeManager.cs" />
+    <Compile Include="Interfaces\IVisitManager.cs" />
     <Compile Include="Managers\AdminManager.cs" />
     <Compile Include="Managers\BusinessCategoriesManager.cs">
       <SubType>Code</SubType>
@@ -122,6 +123,7 @@
     <Compile Include="Managers\SiteManager.cs" />
     <Compile Include="Managers\RentalManager.cs" />
     <Compile Include="Managers\TransmissionTypeManager.cs" />
+    <Compile Include="Managers\VisitManager.cs" />
     <Compile Include="Models\ValueObjects\AdminVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessCategoryTypeVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessCategoriesVo.cs" />
@@ -161,10 +163,12 @@
     <Compile Include="Models\ValueObjects\SettingTypeVo.cs" />
     <Compile Include="Models\ValueObjects\SiteVo.cs" />
     <Compile Include="Models\ValueObjects\TransmissionTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\VisitVo.cs" />
     <Compile Include="Models\ViewModels\Admin\AccountLoginVm.cs" />
     <Compile Include="Models\ViewModels\Admin\AccountManageVm.cs" />
     <Compile Include="Models\ViewModels\BusinessVm.cs" />
     <Compile Include="Models\ViewModels\ListingTypeVm.cs" />
+    <Compile Include="Models\ViewModels\VisitVm.cs" />
     <Compile Include="Models\ViewModels\ListingCategoryTypeVm.cs" />
     <Compile Include="Models\ViewModels\ListingVm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

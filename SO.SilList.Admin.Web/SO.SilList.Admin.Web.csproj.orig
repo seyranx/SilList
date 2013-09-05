@@ -526,17 +526,20 @@
     <Content Include="Views\BusinessImages\Edit.cshtml" />
     <Content Include="Views\BusinessImages\Index.cshtml" />
     <Content Include="Views\BusinessImages\_List.cshtml" />
-    <Content Include="Views\Visit\Index.cshtml" />
-    <Content Include="Views\Visit\_Filter.cshtml" />
-    <Content Include="Views\Visit\_List.cshtml" />
-    <Content Include="Views\Visit\_Pagination.cshtml" />
-    <Content Include="Views\Visit\Delete.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Listing\_Filter.cshtml" />
     <Content Include="Views\Listing\_Pagination.cshtml" />
     <Content Include="Views\ListingCategoryType\_Filter.cshtml" />
     <Content Include="Views\ListingCategoryType\_Pagination.cshtml" />
     <Content Include="Views\ListingType\_Filter.cshtml" />
     <Content Include="Views\ListingType\_Pagination.cshtml" />
+=======
+    <Content Include="Views\Visit\Index.cshtml" />
+    <Content Include="Views\Visit\_Filter.cshtml" />
+    <Content Include="Views\Visit\_List.cshtml" />
+    <Content Include="Views\Visit\_Pagination.cshtml" />
+    <Content Include="Views\Visit\Delete.cshtml" />
+>>>>>>> master
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
