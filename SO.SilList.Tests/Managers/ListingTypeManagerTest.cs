@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SO.SilList.Manager.Managers;
 using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Tests.Managers
 {
@@ -9,6 +10,23 @@ namespace SO.SilList.Tests.Managers
     public class ListingTypeManagerTest
     {
         private ListingTypeManager listingTypeManager = new ListingTypeManager();
+
+        [TestMethod]
+        public void searchTest()
+        {
+            var vo = new ListingTypeVm();
+            vo.pageNumber = 1;
+            vo.keyword = "buy";
+            vo.isActive = true;
+
+            var res = listingTypeManager.search(vo);
+
+            if (res != null && res.Count == 1)
+            {
+                Assert.IsTrue(true);
+            }
+            else Assert.IsTrue(false);
+        }
 
         [TestMethod]
         public void getAllTest()
