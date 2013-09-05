@@ -30,7 +30,7 @@
        <div class="control-group">
         <label class="control-label">@Html.DisplayNameFor(model => model.makeTypeId)</label>
         <div class="controls">
-            <input type="text" value="@Html.DisplayFor(model => model.modelType.makeTypeId)" readonly="true">
+            <input type="text" value="@Html.DisplayFor(model => model.modelType.makeType.name)" readonly="true">
         </div>
     </div>
     
@@ -100,14 +100,15 @@
     <div class="control-group">
         <label class="control-label">@Html.DisplayNameFor(model => model.startDate)</label>
         <div class="controls">
-            <input type="text" value="@Html.DisplayFor(model => model.startDate)" readonly="true">
+            <input type="text" value="@String.Format("{0:MM/dd/yyy}", Model.startDate)"" readonly="true">
         </div>
     </div>
 
     <div class="control-group">
         <label class="control-label">@Html.DisplayNameFor(model => model.endDate)</label>
         <div class="controls">
-            <input type="text" value="@Html.DisplayFor(model => model.endDate)" readonly="true">
+            <input type="text"  value="@String.Format("{0:MM/dd/yyy}", Model.endDate)" readonly="true">
+           
         </div>
     </div>
 

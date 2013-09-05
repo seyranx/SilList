@@ -21,6 +21,7 @@ namespace SO.SilList.Manager.Managers
                 var result = db.car
                             .Include(s => s.site)
                             .Include(m => m.modelType)
+                            .Include(m => m.modelType.makeType)
                             .Include(b => b.carBodyType)
                             .Include(t => t.transmissionType)
                             .FirstOrDefault(r => r.carId == carId);
@@ -54,6 +55,7 @@ namespace SO.SilList.Manager.Managers
                 var list = db.car
                           .Include(s => s.site)
                             .Include(m => m.modelType)
+                            .Include(m=>m.modelType.makeType)
                             .Include(b => b.carBodyType)
                             .Include(t => t.transmissionType)
                              .Where(e => isActive == null || e.isActive == isActive)

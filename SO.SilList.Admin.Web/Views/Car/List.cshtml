@@ -44,10 +44,7 @@
             @Html.DisplayFor(modelItem => item.site.domain)
         </td>
         <td>
-            @if (item.modelTypeId != null)
-            {
-                @Html.DisplayFor(modelItem => item.modelType.makeTypeId)
-            }
+            @Html.DisplayFor(modelItem => item.modelType.makeType.name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.modelType.name)

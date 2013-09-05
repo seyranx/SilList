@@ -3,16 +3,24 @@
     function updateModelList( obj) {
         if (document.getElementById("modelList")) {
 
-            xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function () {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    document.getElementById("modelList").innerHTML = xmlhttp.responseText;
-                }
-            }
-            xmlhttp.open('POST', "/ModelType/DropDownList?_makeTypeId=" + obj.options[obj.selectedIndex].value);
-            xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            //xmlhttp = new XMLHttpRequest();
+            //xmlhttp.onreadystatechange = function () {
+            //    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            //        document.getElementById("modelList").innerHTML = xmlhttp.responseText;
+            //    }
+            //}
+            //xmlhttp.open('POST', "/ModelType/DropDownList?_makeTypeId=" + obj.options[obj.selectedIndex].value);
+            //xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-            xmlhttp.send();
+            //xmlhttp.send();
+
+            $.post("/ModelType/DropDownList?_makeTypeId=" + obj.options[obj.selectedIndex].value,
+                function (data) {
+
+                    $('#modelList').html(data);
+
+                }
+            );
         }
     }
 </script>
