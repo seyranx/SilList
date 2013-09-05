@@ -356,7 +356,6 @@
     <Content Include="Views\Business\Index.cshtml" />
     <Content Include="Views\BuySell\Index.cshtml" />
     <Content Include="Views\Linked\ShowNew.cshtml" />
-    <Content Include="Views\Business\List.cshtml" />
     <Content Include="Views\Business\Edit.cshtml">
       <SubType>Code</SubType>
     </Content>
@@ -401,7 +400,7 @@
     <Content Include="Views\SettingType\List.cshtml" />
     <Content Include="Views\Car\Index.cshtml" />
     <Content Include="Views\Car\_Menu.cshtml" />
-    <Content Include="Views\Car\List.cshtml" />
+    <Content Include="Views\Car\_List.cshtml" />
     <Content Include="Views\Car\Create.cshtml" />
     <Content Include="Views\Car\Edit.cshtml" />
     <Content Include="Views\Car\Details.cshtml" />
@@ -460,6 +459,11 @@
     <Content Include="Views\TransmissionType\_DropDownList.cshtml" />
     <Content Include="Views\Car\_DropDownList.cshtml" />
     <Content Include="Views\Car\_Filter.cshtml" />
+    <Content Include="Views\Business\_Pagination.cshtml" />
+    <Content Include="Views\Business\_DropDownList.cshtml" />
+    <Content Include="Views\Business\_Filter.cshtml" />
+    <Content Include="Views\Business\_List.cshtml" />
+    <Content Include="Views\Car\_Pagination.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
