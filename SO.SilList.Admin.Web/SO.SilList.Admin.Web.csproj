@@ -147,6 +147,7 @@
     <Compile Include="Controllers\EnvironmentTypeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\JobCategoryTypeController.cs" />
+    <Compile Include="Controllers\LeaseTermTypeController.cs" />
     <Compile Include="Controllers\JobController.cs" />
     <Compile Include="Controllers\ListingCategoryTypeController.cs" />
     <Compile Include="Controllers\ListingController.cs" />
@@ -156,15 +157,18 @@
     <Compile Include="Controllers\ListingTypeController.cs" />
     <Compile Include="Controllers\RentalImageController.cs" />
     <Compile Include="Controllers\ServiceTypeController.cs" />
+    <Compile Include="Controllers\PropertyTypeController.cs" />
+    <Compile Include="Controllers\RentTypeController.cs" />
     <Compile Include="Controllers\TransmissionTypeController.cs" />
     <Compile Include="Controllers\MakeTypeController.cs" />
     <Compile Include="Controllers\ModelTypeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LinkedController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
-    <Compile Include="Controllers\RentalsController.cs" />
+    <Compile Include="Controllers\RentalController.cs" />
     <Compile Include="Controllers\SettingTypeController.cs" />
     <Compile Include="Controllers\SiteController.cs" />
+    <Compile Include="Controllers\VisitController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -357,9 +361,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\_InnerLayout.cshtml" />
-    <Content Include="Views\Rentals\Index.cshtml" />
+    <Content Include="Views\Rental\Index.cshtml" />
     <Content Include="Views\Business\Index.cshtml" />
     <Content Include="Views\BuySell\Index.cshtml" />
+    <Content Include="Views\Jobs\Index.cshtml" />
     <Content Include="Views\Linked\ShowNew.cshtml" />
     <Content Include="Views\Business\Edit.cshtml">
       <SubType>Code</SubType>
@@ -467,6 +472,29 @@
     <Content Include="Views\ListingType\Edit.cshtml" />
     <Content Include="Views\ListingType\Details.cshtml" />
     <Content Include="Views\ListingType\_DropDownList.cshtml" />
+    <Content Include="Views\Rental\_List.cshtml" />
+    <Content Include="Views\Rental\Create.cshtml" />
+    <Content Include="Views\Rental\Details.cshtml" />
+    <Content Include="Views\Rental\Edit.cshtml" />
+    <Content Include="Views\Rental\_Menu.cshtml" />
+    <Content Include="Views\RentType\Create.cshtml" />
+    <Content Include="Views\RentType\Details.cshtml" />
+    <Content Include="Views\RentType\Edit.cshtml" />
+    <Content Include="Views\RentType\Index.cshtml" />
+    <Content Include="Views\RentType\List.cshtml" />
+    <Content Include="Views\PropertyType\Index.cshtml" />
+    <Content Include="Views\PropertyType\Create.cshtml" />
+    <Content Include="Views\PropertyType\Details.cshtml" />
+    <Content Include="Views\PropertyType\Edit.cshtml" />
+    <Content Include="Views\PropertyType\List.cshtml" />
+    <Content Include="Views\LeaseTermType\Index.cshtml" />
+    <Content Include="Views\LeaseTermType\Create.cshtml" />
+    <Content Include="Views\LeaseTermType\Details.cshtml" />
+    <Content Include="Views\LeaseTermType\List.cshtml" />
+    <Content Include="Views\LeaseTermType\Edit.cshtml" />
+    <Content Include="Views\LeaseTermType\_DropDownList.cshtml" />
+    <Content Include="Views\PropertyType\_DropDownList.cshtml" />
+    <Content Include="Views\RentType\_DropDownList.cshtml" />
     <Content Include="Views\Business\_Filter.cshtml" />
     <Content Include="Views\Business\_Pagination.cshtml" />
     <Content Include="Views\Image\BusinessImages.cshtml" />
@@ -498,6 +526,11 @@
     <Content Include="Views\BusinessImages\Edit.cshtml" />
     <Content Include="Views\BusinessImages\Index.cshtml" />
     <Content Include="Views\BusinessImages\_List.cshtml" />
+    <Content Include="Views\Visit\Index.cshtml" />
+    <Content Include="Views\Visit\_Filter.cshtml" />
+    <Content Include="Views\Visit\_List.cshtml" />
+    <Content Include="Views\Visit\_Pagination.cshtml" />
+    <Content Include="Views\Visit\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -540,7 +573,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>62094</DevelopmentServerPort>
+          <DevelopmentServerPort>50638</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:64907/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

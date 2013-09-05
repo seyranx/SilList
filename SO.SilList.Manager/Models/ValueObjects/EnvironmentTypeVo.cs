@@ -31,9 +31,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [StringLength(50)]
         public string url { get; set; }
 
-        [DisplayName("domain")]
-        [StringLength(250)]
-        public string domain { get; set; }
 
 
         [DisplayName("Description")]
@@ -57,6 +54,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [DisplayName("Is Active")]
         [Required]
         public bool isActive { get; set; }
+
+       
 
         public EnvironmentTypeVo()
         {
