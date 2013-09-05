@@ -55,7 +55,8 @@ namespace SO.SilList.Manager.Managers
                                     e.ipAddress.Contains(input.keyword)
                                  )
                                     ))
-                             .OrderBy(b => b.visitTime)
+                             .OrderBy(b => b.visitCount)
+                             .ThenBy(c => c.modified)
                              .Skip(input.skip)
                              .Take(input.rowsPerPage)
                              .ToList();
@@ -80,7 +81,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.visits
-                     .Where(e => e.visitTime < input)
+                     .Where(e => e.modified < input)
                      .Delete();
 
                 return 0;

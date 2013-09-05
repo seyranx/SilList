@@ -23,19 +23,6 @@ namespace SO.SilList.Manager.Models.ViewModels
         [ForeignKey("siteId")]
         public SiteVo site { get; set; }
 
-        [DisplayName("Griyp By: ")]
-        public GroupBy groupBy { get; set; }
-
-        public enum GroupBy
-        {
-            DontGroup,
-            GroupByDay,
-            GroupByWeek,
-            GroupByMonth,
-            GroupByYear
-        }
-
-
         [DisplayName("Page: ")]
         public int pageNumber { get; set; }
 

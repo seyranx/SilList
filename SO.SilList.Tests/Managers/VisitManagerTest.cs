@@ -41,10 +41,12 @@ namespace SO.SilList.Tests.Managers
                     visit.siteId = getRandomSite();
                     visit.ipAddress = getRandomIp();
                     visit.referrerUrl = getRandomReferrer();
-                    visit.visitTime = getRandomDate();
+                    visit.created = getRandomDate();
+                    visit.modified = visit.created.AddMinutes(r.Next(1, 60*24));
                     visit.browser = getRandomBrowser();
                     visit.controller = getRandomController();
                     visit.action = getRandomAction();
+                    visit.visitCount = r.Next(1, 10);
 
                     try
                     {
