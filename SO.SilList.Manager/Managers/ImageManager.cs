@@ -220,8 +220,10 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////
         // for Edit pages (upload and insert image right away?)
-        public void InsertImageAndCarImage(Guid carId, string imageName, string imageUrl, string uploadImageAbsFilePath)
+        public void InsertImageAndCarImageIntoDb(Guid carId, string imageName, string imageUrl, string uploadImageAbsFilePath)
         {
             ImageVo imgVo = new ImageVo();
             imgVo.name = imageName;
@@ -239,6 +241,60 @@ namespace SO.SilList.Manager.Managers
                 db.SaveChanges();
             }
         }
+
+        public void InsertImageForCar(Guid id, System HttpFileCollectionBase RequestFiles)
+        {
+            /////////////////////////////////////////////////////////////////
+            // carImage stuff. todo: need to move to Image controller or whatever ... to reuse from other locations
+            /// var id = item.carId;
+            string csRelativeBasePath = this.GetBasePathFromConfig();
+            string sBaseDir = Path.Combine("~/" + csRelativeBasePath);
+            string sDir = Server.MapPath(sBaseDir);
+
+            // todo: need to make sure we have write access to this folder.
+            if (!Directory.Exists(sDir))
+            {
+                Directory.CreateDirectory(sDir);
+            }
+
+            if (Request.Files.Count > 0)
+            {
+                // todo: need to make sure they are uploading image files 
+                var UploadImage1 = Request.Files["UploadImage1"];
+                var UploadImage2 = Request.Files["UploadImage2"];
+
+                if (UploadImage1 != null && UploadImage1.FileName != null)
+                {
+                    string fileName1 = Path.GetFileName(UploadImage1.FileName);
+                    string fileExtension1 = Path.GetExtension(UploadImage1.FileName);
+                    if (!string.IsNullOrEmpty(fileName1) && this.IsImageFile(fileExtension1))
+                    {
+                        string imageNameOnServer = Guid.NewGuid().ToString() + fileExtension1;
+                        string uploadImageAbsFilePath1 = Path.Combine(sDir, imageNameOnServer);
+                        UploadImage1.SaveAs(uploadImageAbsFilePath1);
+                        string imageUrl = Path.Combine("~/", this.GetBasePathFromConfig(), imageNameOnServer);
+                        this.InsertImageAndCarImageIntoDb(id, fileName1, imageUrl, uploadImageAbsFilePath1);
+                    }
+                }
+                if (UploadImage2 != null && UploadImage2.FileName != null)
+                {
+                    string fileName2 = Path.GetFileName(UploadImage2.FileName);
+                    string fileExtension2 = Path.GetExtension(UploadImage2.FileName);
+                    if (!string.IsNullOrEmpty(fileName2) && this.IsImageFile(fileExtension2))
+                    {
+                        string imageNameOnServer = Guid.NewGuid().ToString() + fileExtension2;
+                        string uploadImageAbsFilePath2 = Path.Combine(sDir, imageNameOnServer);
+                        string imageUrl = Path.Combine("~/", this.GetBasePathFromConfig(), imageNameOnServer);
+                        this.InsertImageAndCarImageIntoDb(id, fileName2, imageUrl, uploadImageAbsFilePath2);
+                        UploadImage2.SaveAs(uploadImageAbsFilePath2);
+                    }
+                }
+            }
+        }
+        /////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////
 
         public int count()
         {

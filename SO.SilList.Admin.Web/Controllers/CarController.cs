@@ -36,60 +36,24 @@ namespace SO.SilList.Admin.Web.Controllers
         [HttpPost]
         public ActionResult Create(CarVo input)
         {
+            Debug.Assert(Request.HttpMethod == "POST");
             if (this.ModelState.IsValid)
             {
                 var item = carManager.insert(input);
-
-
-                /////////////////////////////////////////////////////////////////
-                // carImage stuff. todo: need to move to Image controller or whatever ... to reuse from other locations
-                var id = item.carId;
-                ImageManager imageManager = new ImageManager();
-                string csRelativeBasePath = imageManager.GetBasePathFromConfig();
-                string sBaseDir = Path.Combine("~/" + csRelativeBasePath);
-                string sDir = Server.MapPath(sBaseDir);
-
-                // todo: need to make sure we have write access to this folder.
-                if (!Directory.Exists(sDir))
-                {
-                    Directory.CreateDirectory(sDir);
-                }
 
                 if (Request.Files.Count > 0)
                 {
                     // todo: need to make sure they are uploading image files 
                     var UploadImage1 = Request.Files["UploadImage1"];
                     var UploadImage2 = Request.Files["UploadImage2"];
-
-                    if (UploadImage1 != null && UploadImage1.FileName != null)
-                    {
-                        string fileName1 = Path.GetFileName(UploadImage1.FileName);
-                        string fileExtension1 = Path.GetExtension(UploadImage1.FileName);
-                        if (!string.IsNullOrEmpty(fileName1) && imageManager.IsImageFile(fileExtension1))
-                        {
-                            string imageNameOnServer = Guid.NewGuid().ToString() + fileExtension1;
-                            string uploadImageAbsFilePath1 = Path.Combine(sDir, imageNameOnServer);
-                            UploadImage1.SaveAs(uploadImageAbsFilePath1);
-                            string imageUrl = Path.Combine("~/", imageManager.GetBasePathFromConfig(), imageNameOnServer);
-                            imageManager.InsertImageAndCarImage(id, fileName1, imageUrl, uploadImageAbsFilePath1);
-                        }
-                    }
-                    if (UploadImage2 != null && UploadImage2.FileName != null)
-                    {
-                        string fileName2 = Path.GetFileName(UploadImage2.FileName);
-                        string fileExtension2 = Path.GetExtension(UploadImage2.FileName);
-                        if (!string.IsNullOrEmpty(fileName2) && imageManager.IsImageFile(fileExtension2))
-                        {
-                            string imageNameOnServer = Guid.NewGuid().ToString() + fileExtension2;
-                            string uploadImageAbsFilePath2 = Path.Combine(sDir, imageNameOnServer);
-                            string imageUrl = Path.Combine("~/", imageManager.GetBasePathFromConfig(), imageNameOnServer);
-                            imageManager.InsertImageAndCarImage(id, fileName2, imageUrl, uploadImageAbsFilePath2);
-                            UploadImage2.SaveAs(uploadImageAbsFilePath2);
-                        }
-                    }
                 }
-               
-                /////////////////////////////////////////////////////////////////
+                HttpRequestBase x = Request;
+                HttpPostedFileBase y = x.Files["UploadImage1"];
+                HttpFileCollectionBase ya = x.Files;
+
+                ImageManager imageManager = new ImageManager();
+                var Files = Request.Files;
+                imageManager.InsertImageForCar(item.carId, x.Files);
 
                 return RedirectToAction("Index");
             }
