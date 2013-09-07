@@ -10,6 +10,7 @@ using SO.SilList.Manager.DbContexts;
 using SO.SilList.Manager.Models.ValueObjects;
 using System.Data.SqlClient;
 using System.IO;
+using System.Web;
 
 namespace SO.SilList.Manager.Managers
 {
@@ -242,7 +243,7 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public void InsertImageForCar(Guid id, System HttpFileCollectionBase RequestFiles)
+        public void InsertImageForCar(Guid id, HttpFileCollectionBase requestFiles,  HttpServerUtilityBase Server)
         {
             /////////////////////////////////////////////////////////////////
             // carImage stuff. todo: need to move to Image controller or whatever ... to reuse from other locations
@@ -257,11 +258,11 @@ namespace SO.SilList.Manager.Managers
                 Directory.CreateDirectory(sDir);
             }
 
-            if (Request.Files.Count > 0)
+            if (requestFiles.Count > 0)
             {
                 // todo: need to make sure they are uploading image files 
-                var UploadImage1 = Request.Files["UploadImage1"];
-                var UploadImage2 = Request.Files["UploadImage2"];
+                var UploadImage1 = requestFiles["UploadImage1"];
+                var UploadImage2 = requestFiles["UploadImage2"];
 
                 if (UploadImage1 != null && UploadImage1.FileName != null)
                 {

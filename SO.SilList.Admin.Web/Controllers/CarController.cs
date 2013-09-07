@@ -41,19 +41,19 @@ namespace SO.SilList.Admin.Web.Controllers
             {
                 var item = carManager.insert(input);
 
-                if (Request.Files.Count > 0)
-                {
-                    // todo: need to make sure they are uploading image files 
-                    var UploadImage1 = Request.Files["UploadImage1"];
-                    var UploadImage2 = Request.Files["UploadImage2"];
-                }
-                HttpRequestBase x = Request;
-                HttpPostedFileBase y = x.Files["UploadImage1"];
-                HttpFileCollectionBase ya = x.Files;
+                //if (Request.Files.Count > 0)
+                //{
+                //    // todo: need to make sure they are uploading image files 
+                //    var UploadImage1 = Request.Files["UploadImage1"];
+                //    var UploadImage2 = Request.Files["UploadImage2"];
+                //}
+                //HttpRequestBase x = Request;
+                //HttpPostedFileBase y = x.Files["UploadImage1"];
+                //HttpFileCollectionBase ya = x.Files;
 
                 ImageManager imageManager = new ImageManager();
-                var Files = Request.Files;
-                imageManager.InsertImageForCar(item.carId, x.Files);
+
+                imageManager.InsertImageForCar(item.carId, Request.Files, Server);
 
                 return RedirectToAction("Index");
             }
