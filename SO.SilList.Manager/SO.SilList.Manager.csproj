@@ -122,6 +122,7 @@
     <Compile Include="Managers\SiteManager.cs" />
     <Compile Include="Managers\RentalManager.cs" />
     <Compile Include="Managers\TransmissionTypeManager.cs" />
+    <Compile Include="Models\ViewModels\BusinessVm.cs" />
     <Compile Include="Models\ViewModels\CarVm.cs" />
     <Compile Include="Models\ValueObjects\AdminVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessCategoryTypeVo.cs" />

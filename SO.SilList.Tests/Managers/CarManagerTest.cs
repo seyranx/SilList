@@ -10,6 +10,11 @@ namespace SO.SilList.Tests.Managers
     public class CarManagerTest
     {
         private CarManager carManager = new CarManager();
+        [TestMethod]
+        public void searchTest()
+        {
+
+        }
 
         [TestMethod]
         public void getAllTest()

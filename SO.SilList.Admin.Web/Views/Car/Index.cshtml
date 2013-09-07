@@ -8,7 +8,7 @@
 
 <form class="form-inline" method="get" action="@Url.Action("Index","Car")">
     
-    @Html.Action("_Filter",@Model)
+    @Html.Action("Filter",@Model)
     <div class="pull-right">
         @Model.rowCount of @Model.result.Count
     </div>

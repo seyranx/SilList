@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Manager.Managers
 {
@@ -45,6 +46,29 @@ namespace SO.SilList.Manager.Managers
                             .FirstOrDefault();
 
                 return res;
+            }
+        }
+
+        public List<BusinessVo> search(CarVm input)
+        {
+
+            using (var db = new MainDb())
+            {
+                var list = db.car
+                            .Include(s => s.site)
+                            .Include(m => m.modelType)
+                            .Include(m => m.modelType.makeType)
+                            .Include(b => b.carBodyType)
+                            .Include(t => t.transmissionType)
+                             .OrderBy(b => b.name)
+                             .Skip(input.skip)
+                             .Take(input.rowCount)
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                    )
+                             .ToList();
+
+                return list;
             }
         }
 
