@@ -20,13 +20,13 @@ namespace SO.SilList.Tests.Managers
         public void searchTest()
         {
             var vo = new BusinessVm();
-            vo.pageNumber = 2;
-            vo.keyword = "aa";
+            //vo.pageNumber = 2;
+            //vo.keyword = "aa";
             vo.isActive = true;
 
             var res = businessManager.search(vo);
 
-            if (res != null)
+            if (res.result != null)
             {
                 Assert.IsTrue(true);
             }

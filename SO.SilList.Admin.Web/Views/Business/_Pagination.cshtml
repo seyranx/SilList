@@ -1,11 +1,18 @@
-﻿<div class="pagination pull-right">
+﻿@model SO.SilList.Manager.Models.ViewModels.BusinessVm
+@{
+    
+   
+    
+}
+<div class="pagination pull-right">
   <ul>
-    <li><a href="#">Prev</a></li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
+       <li><a href="#">Prev</a></li>
+    @for(int i=1; i<10; i++){
+        var n = @Model;
+        n.pageNumber = i;
+    <li><a href="@Url.Action("Index","Business",new {pageNumber=@i, keyword=@Model.keyword})">@i</a></li>
+     
+    }
     <li><a href="#">Next</a></li>
   </ul>
 </div>

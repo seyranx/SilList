@@ -21,7 +21,7 @@ namespace SO.SilList.Admin.Web.Controllers
             
             if (this.ModelState.IsValid)
             {
-                input.result = businessManager.search(input);
+                input = businessManager.search(input);
                 return View(input);
             }
 
@@ -85,7 +85,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Pagination(BusinessVm input = null)
         {
-            return PartialView("_Pagination");
+            return PartialView("_Pagination", input);
         }
         
 

@@ -65,23 +65,27 @@ namespace SO.SilList.Manager.Managers
         }
 
 
-        public List<BusinessVo> search(BusinessVm input)
+        public BusinessVm search(BusinessVm input)
         {
            
             using (var db = new MainDb())
             {
-         
-                var list = db.businesses
+
+                var query = db.businesses
                              .Include(s => s.site)
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                                     )
-                             .OrderBy(b => b.name)
+                             .OrderBy(b => b.name);
+
+                input.totalCount = query.Count();
+
+                input.result = query
                              .Skip(input.skip)
                              .Take(input.maxRowCount)
                              .ToList();
-                  
-                return list;
+
+                return input;
             }
         }
         

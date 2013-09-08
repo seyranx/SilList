@@ -18,9 +18,12 @@ namespace SO.SilList.Manager.Models.ViewModels
          [DisplayName("isActive: ")]
          public bool? isActive { get; set; }
 
+
+         public int totalCount { get; set; }
+
         
 
-        public int skip {
+         public int skip {
             get
             {
                 if (pageNumber == null || pageNumber < 2 || maxRowCount < 1) return 0;
