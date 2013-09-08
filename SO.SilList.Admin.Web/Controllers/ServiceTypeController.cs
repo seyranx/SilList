@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using SO.SilList.Manager.Managers;
 using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
@@ -15,11 +16,22 @@ namespace SO.SilList.Admin.Web.Controllers
         //
         // GET: /ServiceType/
 
-        public ActionResult Index()
+        public ActionResult Index(ServiceTypeVm input = null)
         {
+            if (input == null)
+                input = new ServiceTypeVm();
+            if (this.ModelState.IsValid)
+            {
+                input.result = serviceTypeManager.search(input);
+                return View(input);
+            }
             return View();
         }
 
+        public ActionResult Filter(ServiceTypeVm Input)
+        {
+            return PartialView("_Filter", Input);
+        }
 
         public ActionResult List()
         {
@@ -80,6 +92,11 @@ namespace SO.SilList.Admin.Web.Controllers
             return View(result);
         }
 
+        public ActionResult Pagination()
+        {
+            return PartialView("_Pagination");
+        }
+        
         public ActionResult Delete(int id)
         {
             serviceTypeManager.delete(id);

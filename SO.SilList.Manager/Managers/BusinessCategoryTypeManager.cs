@@ -8,11 +8,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Manager.Managers
 {
     public class BusinessCategoryTypeManager : IBusinessCategoryTypeManager
     {
+
+        public BusinessCategoryTypeManager()
+        {
+
+        }
+
+        /// <summary>
+        /// Find The business with matching the name
+        /// </summary>
+        public BusinessCategoryTypeVo getByName(string name)
+        {
+            using (var db = new MainDb())
+            {
+                var res = db.businessCategoryType
+                             .Include(s => s.site)
+                            .FirstOrDefault(e => e.name == name);
+                return res;
+            }
+        }
+
         public BusinessCategoryTypeVo get(int businessCategoryTypeId)
         {
             using (var db = new MainDb())
@@ -39,6 +60,24 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
+        public List<BusinessCategoryTypeVo> search(BusinessCategoryTypeVm input)
+        {
+
+            using (var db = new MainDb())
+            {
+                var list = db.businessCategoryType
+                             .Include(s => s.site)
+                             .OrderBy(b => b.name)
+                             .Skip(input.skip)
+                             .Take(input.rowCount)
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                    )
+                             .ToList();
+
+                return list;
+            }
+        }
         public List<BusinessCategoryTypeVo> getAll(bool? isActive = true)
         {
             using (var db = new MainDb())

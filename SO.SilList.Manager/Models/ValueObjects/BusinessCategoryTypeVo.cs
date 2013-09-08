@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +10,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 
 namespace SO.SilList.Manager.Models.ValueObjects
-{
-     
+{     
     [Table("BusinessCategoryType", Schema = "app" )]
     [Serializable]
     public partial class BusinessCategoryTypeVo
