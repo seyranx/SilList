@@ -6,7 +6,7 @@
 
 <h2>@ViewBag.Title</h2>
 
-<form name="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Visit")">
+<form id="filterForm" name="filterForm" class="form-inline" method="post" action="@Url.Action("Index","Visit")">
 
  
 @Html.Action("Filter", @Model)

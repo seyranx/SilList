@@ -18,10 +18,13 @@ namespace SO.SilList.Admin.Web.Controllers
             if (null == input) 
                 input = new VisitVm();
 
+            if (null != input.btnSearch)
+                input.pageNumber = 1;
+
             if (this.ModelState.IsValid)
             {
-                input.result = visitManager.search(input);
-                input.totalRows = visitManager.count(input);
+                input = visitManager.search(input);
+                
                 return View(input);
             }
 

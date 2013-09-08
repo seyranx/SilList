@@ -14,6 +14,8 @@ namespace SO.SilList.Manager.Models.ViewModels
     {
         public List<VisitVo> result { get; set; }
 
+        public int totalRows { get; set; }
+
         [DisplayName("Keyword: ")]
         public string keyword { get; set; }
 
@@ -23,19 +25,6 @@ namespace SO.SilList.Manager.Models.ViewModels
         [ForeignKey("siteId")]
         public SiteVo site { get; set; }
 
-        [DisplayName("Griyp By: ")]
-        public GroupBy groupBy { get; set; }
-
-        public enum GroupBy
-        {
-            DontGroup,
-            GroupByDay,
-            GroupByWeek,
-            GroupByMonth,
-            GroupByYear
-        }
-
-
         [DisplayName("Page: ")]
         public int pageNumber { get; set; }
 
@@ -43,11 +32,11 @@ namespace SO.SilList.Manager.Models.ViewModels
         [Range(5, 50)]
         public int rowsPerPage { get; set; }
 
-        public int totalRows { get; set; }
-
         [DisplayName("Show Page Links: ")]
         [Range(2, 5)]
         public int pageLinkCount { get; set; }
+
+        public string btnSearch { get; set; }
 
         public int skip 
         {
@@ -73,6 +62,22 @@ namespace SO.SilList.Manager.Models.ViewModels
             }
         }
 
+        public int firstLinkPage
+        {
+            get
+            {
+                return Math.Max(1, pageNumber - pageLinkCount);
+            }
+        }
+
+        public int lastLinkPage
+        {
+            get
+            {
+                return Math.Min(totalPages, pageNumber + pageLinkCount);
+            }
+        }
+
         public int totalPages
         {
             get
@@ -85,9 +90,11 @@ namespace SO.SilList.Manager.Models.ViewModels
         public VisitVm()
         {
             this.result = new List<VisitVo>();
-            this.rowsPerPage = 10;
-            this.pageLinkCount = 2;
+            this.totalRows = 0;
             this.pageNumber = 1;
+
+            this.rowsPerPage = 10;
+            this.pageLinkCount = 3;            
         }
     }
 }
