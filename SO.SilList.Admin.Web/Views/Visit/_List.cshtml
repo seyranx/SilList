@@ -12,7 +12,13 @@
             @Html.DisplayNameFor(model => model.referrerUrl)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.visitTime)
+            @Html.DisplayNameFor(model => model.created)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.modified)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.visitCount)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.controller)
@@ -38,7 +44,13 @@
                 @Html.DisplayFor(modelItem => item.referrerUrl)
             </td>
             <td>
-                <span>@String.Format("{0:MM/dd/yyy}", item.visitTime)</span>
+                <span>@String.Format("{0:MM/dd/yyy}", item.created)</span>
+            </td>
+            <td>
+                <span>@String.Format("{0:MM/dd/yyy}", item.modified)</span>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.visitCount)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.controller)

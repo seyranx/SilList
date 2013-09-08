@@ -18,15 +18,6 @@
 @Html.TextBoxFor(model => model.keyword, new { Class = "input-large", placeholder = "Search" })
 @Html.ValidationMessageFor(model => model.keyword)
 
-Group By: 
-<select name="groupBy">
-    <option value="1">Don't Group</option>
-    <option value="2">Day</option>
-    <option value="3">Week</option>
-    <option value="4">Month</option>
-    <option value="5">year</option>
-</select>
-
-<button type="submit" class="btn" onclick="document.getElementById('pageNumber').value=1">Search</button>
+<button id="btnSearch" name="btnSearch" value="Search" type="submit" class="btn">Search</button>
      
 

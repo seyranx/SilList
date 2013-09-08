@@ -11,9 +11,7 @@ namespace SO.SilList.Manager.Interfaces
 {
     public interface IVisitManager
     {
-        int count(VisitVm input);
-
-        List<VisitVo> search(VisitVm input);
+        VisitVm search(VisitVm input);
 
         VisitVo insert(VisitVo input);
 

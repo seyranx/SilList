@@ -28,9 +28,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [DisplayName("Referrer URL")]
         public string referrerUrl { get; set; }
 
-        [DisplayName("Visit Time")]
-        public DateTime visitTime { get; set; }
-
         [DisplayName("Browser")]
         public string browser { get; set; }
 
@@ -40,6 +37,15 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [DisplayName("Action")]
         public string action { get; set; }
 
+        [DisplayName("Number of Visits")]
+        public int visitCount { get; set; }
+
+        [DisplayName("First Visited")]
+        public DateTime created { get; set; }
+
+        [DisplayName("Last Visited")]
+        public DateTime modified { get; set; }
+
         [DisplayName("Site")]
         [ForeignKey("siteId")]
         public virtual SiteVo site { get; set; }
@@ -47,6 +53,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public VisitVo()
         {
             this.visitId = Guid.NewGuid();
+            this.visitCount = 1;
         }
     }
 }
