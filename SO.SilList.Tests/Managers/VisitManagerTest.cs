@@ -22,9 +22,9 @@ namespace SO.SilList.Tests.Managers
             vo.pageNumber = 2;
             vo.keyword = "Home";
 
-            var result = visitManager.search(vo);
-            
-            Assert.IsTrue(0 != result.Count);            
+            var resultVm = visitManager.search(vo);
+
+            Assert.IsTrue(0 != resultVm.result.Count);            
         }
         
         

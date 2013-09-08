@@ -16,32 +16,11 @@ namespace SO.SilList.Manager.Managers
     public class VisitManager : IVisitManager
 
     {
-        public int count(VisitVm input)
+        public VisitVm search(VisitVm input)
         {
             using (var db = new MainDb())
             {
-                return db.visits
-                             .Where(e => (
-                                 (
-                                    null == input.siteId || e.siteId == input.siteId
-                                 ) &&
-                                 (
-                                    string.IsNullOrEmpty(input.keyword) ||
-                                    e.action.Contains(input.keyword) ||
-                                    e.controller.Contains(input.keyword) ||
-                                    e.referrerUrl.Contains(input.keyword) ||
-                                    e.ipAddress.Contains(input.keyword)
-                                 )
-                                    ))
-                             .Count();
-            }
-        }
-
-        public List<VisitVo> search(VisitVm input)
-        {
-            using (var db = new MainDb())
-            {
-                var list = db.visits
+                IQueryable<VisitVo> q = db.visits
                              .Include(s => s.site)
                              .Where(e => (
                                  (
@@ -54,14 +33,17 @@ namespace SO.SilList.Manager.Managers
                                     e.referrerUrl.Contains(input.keyword) ||
                                     e.ipAddress.Contains(input.keyword)
                                  )
-                                    ))
-                             .OrderBy(b => b.visitCount)
-                             .ThenBy(c => c.modified)
-                             .Skip(input.skip)
-                             .Take(input.rowsPerPage)
-                             .ToList();
+                                    ));
+                input.totalRows = q.Count();
 
-                return list;
+                input.result = q
+                    .OrderBy(b => b.visitCount)
+                    .ThenBy(c => c.modified)
+                    .Skip(input.skip)
+                    .Take(input.rowsPerPage)
+                    .ToList();
+
+                return input;
             }
         }
 
