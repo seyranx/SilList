@@ -15,6 +15,11 @@ namespace SO.SilList.Manager.Managers
     public class CarManager : ICarManager
     {
 
+            public CarManager()
+        {
+
+        }
+
         public CarVo get(Guid carId)
         {
             using (var db = new MainDb())
@@ -39,17 +44,17 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.car
-                          //.Include(s => s.site)
-                          //  .Include(m => m.modelType)
-                          //  .Include(b => b.carBodyType)
-                          //  .Include(t => t.transmissionType)
+                          .Include(s => s.site)
+                            .Include(m => m.modelType)
+                            .Include(b => b.carBodyType)
+                            .Include(t => t.transmissionType)
                             .FirstOrDefault();
 
                 return res;
             }
         }
 
-        public List<BusinessVo> search(CarVm input)
+        public List<CarVo> search(CarVm input)
         {
 
             using (var db = new MainDb())
@@ -60,11 +65,11 @@ namespace SO.SilList.Manager.Managers
                             .Include(m => m.modelType.makeType)
                             .Include(b => b.carBodyType)
                             .Include(t => t.transmissionType)
-                             .OrderBy(b => b.name)
+                             .OrderBy(b => b.modelType.name)
                              .Skip(input.skip)
                              .Take(input.rowCount)
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
-                                      && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                      && (e.modelType.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                                     )
                              .ToList();
 

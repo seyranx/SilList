@@ -8,11 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Manager.Managers
 {
     public class ModelTypeManager : IModelTypeManager
     {
+        public ModelTypeManager()
+        {}
+
         public ModelTypeVo get(int modelTypeId)
         {
             using (var db = new MainDb())
@@ -39,7 +43,26 @@ namespace SO.SilList.Manager.Managers
                 return res;
             }
         }
-        
+
+        public List<ModelTypeVo> search(ModelTypeVm input)
+        {
+
+            using (var db = new MainDb())
+            {
+                var list = db.modelType
+                            .Include(m => m.makeType)
+                             .OrderBy(b => b.name)
+                             .Skip(input.skip)
+                             .Take(input.rowCount)
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                    )
+                             .ToList();
+
+                return list;
+            }
+        }
+
         public List<ModelTypeVo> getAll(bool? isActive = true, int? makeTypeId =null)
         {
             using (var db = new MainDb())

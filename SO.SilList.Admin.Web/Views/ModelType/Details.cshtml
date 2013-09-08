@@ -7,7 +7,7 @@
 
 <h2>@ViewBag.Title</h2>
 
-<fieldset>
+<fieldset class="form-horizontal">
     <legend></legend>
 
         <div class="control-group">
@@ -72,7 +72,7 @@
         <div class="control-group">
         <label class="control-label">@Html.DisplayNameFor(model => model.isActive)</label>
         <div class="controls">
-            <input type="text" value="@Html.DisplayFor(model => model.isActive)" readonly="true">
+            @Html.DisplayFor(model => model.isActive)
         </div>
     </div>
 

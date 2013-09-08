@@ -141,6 +141,7 @@
     <Compile Include="Controllers\BusinessCategoryTypeController.cs" />
     <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\BuySellController.cs" />
+    <Compile Include="Controllers\CarImagesController.cs" />
     <Compile Include="Controllers\EnvironmentTypeController.cs" />
     <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="Controllers\JobCategoryTypeController.cs" />
@@ -404,7 +405,7 @@
     <Content Include="Views\Car\Create.cshtml" />
     <Content Include="Views\Car\Edit.cshtml" />
     <Content Include="Views\Car\Details.cshtml" />
-    <Content Include="Views\ModelType\List.cshtml" />
+    <Content Include="Views\ModelType\_List.cshtml" />
     <Content Include="Views\ModelType\Index.cshtml" />
     <Content Include="Views\ModelType\Edit.cshtml" />
     <Content Include="Views\ModelType\Details.cshtml" />
@@ -413,14 +414,14 @@
     <Content Include="Views\MakeType\Edit.cshtml" />
     <Content Include="Views\MakeType\Details.cshtml" />
     <Content Include="Views\MakeType\Create.cshtml" />
-    <Content Include="Views\MakeType\List.cshtml" />
+    <Content Include="Views\MakeType\_List.cshtml" />
     <Content Include="Views\CarBodyType\Index.cshtml" />
     <Content Include="Views\CarBodyType\Create.cshtml" />
     <Content Include="Views\CarBodyType\Details.cshtml" />
-    <Content Include="Views\CarBodyType\List.cshtml" />
+    <Content Include="Views\CarBodyType\_List.cshtml" />
     <Content Include="Views\CarBodyType\Edit.cshtml" />
     <Content Include="Views\TransmissionType\Index.cshtml" />
-    <Content Include="Views\TransmissionType\List.cshtml" />
+    <Content Include="Views\TransmissionType\_List.cshtml" />
     <Content Include="Views\TransmissionType\Details.cshtml" />
     <Content Include="Views\TransmissionType\Edit.cshtml" />
     <Content Include="Views\TransmissionType\Create.cshtml" />
@@ -464,6 +465,14 @@
     <Content Include="Views\Business\_Filter.cshtml" />
     <Content Include="Views\Business\_List.cshtml" />
     <Content Include="Views\Car\_Pagination.cshtml" />
+    <Content Include="Views\CarBodyType\_Pagination.cshtml" />
+    <Content Include="Views\CarBodyType\_Filter.cshtml" />
+    <Content Include="Views\MakeType\_Filter.cshtml" />
+    <Content Include="Views\MakeType\_Pagination.cshtml" />
+    <Content Include="Views\ModelType\_Filter.cshtml" />
+    <Content Include="Views\ModelType\_Pagination.cshtml" />
+    <Content Include="Views\TransmissionType\_Filter.cshtml" />
+    <Content Include="Views\TransmissionType\_Pagination.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

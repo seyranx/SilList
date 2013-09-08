@@ -8,11 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Manager.Managers
 {
-    public class CarImageManager: ICarImageManager
+    public class CarImagesManager: ICarImagesManager
     {
+        public CarImagesManager()
+        { }
 
         public CarImagesVo get(Guid carImagesId)
         {
@@ -40,6 +43,26 @@ namespace SO.SilList.Manager.Managers
                             .FirstOrDefault();
 
                 return res;
+            }
+        }
+
+        public List<CarImagesVo> search(CarImagesVm input)
+        {
+
+            using (var db = new MainDb())
+            {
+                var list = db.carImages
+                        .Include(c => c.car)
+                            .Include(i => i.image)
+                             .OrderBy(b => b.carId)
+                             .Skip(input.skip)
+                             .Take(input.rowCount)
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.carId.Equals(int.Parse(input.keyword)) || string.IsNullOrEmpty(input.keyword))
+                                    )
+                             .ToList();
+
+                return list;
             }
         }
 

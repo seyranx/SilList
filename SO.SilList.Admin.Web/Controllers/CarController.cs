@@ -21,6 +21,7 @@ namespace SO.SilList.Admin.Web.Controllers
             if (this.ModelState.IsValid)
             {
                 input.result = carManager.search(input);
+                return View(input);
             }
             return View();
         }
@@ -102,9 +103,9 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView("_DropDownList", car);
         }
 
-        public ActionResult Pagination()
+        public ActionResult Pagination(CarVm input)
         {
-            return PartialView("_Pagination");
+            return PartialView("_Pagination",input);
         }
 
         public ActionResult Filter(CarVm input)

@@ -1,11 +1,17 @@
-﻿<div class="pagination pull-right">
+﻿@model SO.SilList.Manager.Models.ViewModels.CarVm
+
+<div class="pagination pull-right">
   <ul>
+      @if(Model.result.Count > (int)Model.rowCount)
+      {
     <li><a href="#">Prev</a></li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
+
+          for (int i = 1; i <= (int)Math.Ceiling(Model.result.Count / (Decimal)Model.rowCount); i++)
+          {     
+              <li><a href="#">@i</a></li>
+          }
+      
     <li><a href="#">Next</a></li>
+       }
   </ul>
 </div>
