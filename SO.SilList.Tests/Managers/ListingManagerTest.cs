@@ -15,13 +15,13 @@ namespace SO.SilList.Tests.Managers
         public void searchTest()
         {
             var vo = new ListingVm();
-            vo.pageNumber = 2;
+            //vo.result.count = 2;
             vo.keyword = "2";
             vo.isActive = true;
 
             var res = listingManager.search(vo);
 
-            if (res != null && res.Count == 0)
+            if (res != null && res.result.Count == 0)
             {
                 Assert.IsTrue(true);
             }

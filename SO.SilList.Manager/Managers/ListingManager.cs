@@ -46,11 +46,27 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public List<ListingVo> search(ListingVm input)
+        public ListingVm search(ListingVm input)
         {
 
             using (var db = new MainDb())
             {
+                var query = db.listing
+                             .Include(s => s.site)
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                    )
+                             .OrderBy(b => b.title);
+
+                input.resultCount = query.Count();
+                
+                input.result = query
+                           .Skip(input.skip)
+                           .Take(input.rowCount)
+                           .ToList();
+
+                return input;
+                /*
                 var list = db.listing
                              .Include(s => s.site)
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
@@ -60,8 +76,10 @@ namespace SO.SilList.Manager.Managers
                              .Skip(input.skip)
                              .Take(input.rowCount)
                              .ToList();
+                 return input;
+                */
 
-                return list;
+
             }
         }
 

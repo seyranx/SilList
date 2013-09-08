@@ -14,6 +14,7 @@ namespace SO.SilList.Manager.Models.ViewModels
         public List<ListingVo> result { get; set; }
         public string keyword { get; set; }
         public int? pageNumber { get; set; }
+        public int? resultCount { get; set; }
 
         [DisplayName("isActive: ")]
         public bool? isActive { get; set; }

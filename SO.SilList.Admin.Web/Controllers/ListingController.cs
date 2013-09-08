@@ -19,7 +19,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
             if (this.ModelState.IsValid)
             {
-                input.result = listingManager.search(input);
+                input = listingManager.search(input);
                 return View(input);
             }
 
