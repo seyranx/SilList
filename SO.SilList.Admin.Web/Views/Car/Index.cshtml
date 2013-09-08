@@ -2,11 +2,11 @@
 @{
     ViewBag.Title = "Cars";
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
-}
+    }
 
 <h2>@ViewBag.Title</h2>
 
-<form class="form-inline" method="get" action="@Url.Action("Index","Car")">
+<form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Car")">
     
     @Html.Action("Filter",@Model)
     <div class="pull-right">

@@ -20,7 +20,9 @@ namespace SO.SilList.Admin.Web.Controllers
             if (input == null) input = new CarVm();
             if (this.ModelState.IsValid)
             {
-                input.result = carManager.search(input);
+                if (input.submitButton != null)
+                    input.pageNumber = 1;
+                input = carManager.search(input);
                 return View(input);
             }
             return View();

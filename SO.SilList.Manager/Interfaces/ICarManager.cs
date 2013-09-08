@@ -14,7 +14,7 @@ namespace SO.SilList.Manager.Interfaces
 
          CarVo get(Guid carId);
          List<CarVo> getAll(bool? isActive = true);
-         List<CarVo> search(CarVm input);
+         CarVm search(CarVm input);
          bool delete(Guid carId);
          CarVo update(CarVo input, Guid? carId = null);
          CarVo insert(CarVo input);

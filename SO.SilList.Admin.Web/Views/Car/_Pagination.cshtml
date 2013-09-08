@@ -2,16 +2,35 @@
 
 <div class="pagination pull-right">
   <ul>
-      @if(Model.result.Count > (int)Model.rowCount)
-      {
-    <li><a href="#">Prev</a></li>
 
-          for (int i = 1; i <= (int)Math.Ceiling(Model.result.Count / (Decimal)Model.rowCount); i++)
-          {     
-              <li><a href="#">@i</a></li>
+      @if(Model.totalCount > (int)Model.rowCount)
+      {
+              
+              var disablePrev = "enabled";
+              var disableNext = "enabled";
+              if (Model.pageNumber <= 1)
+              {
+                  disablePrev = "disabled";
+              }
+              if (Model.pageNumber >= Model.totalPages)
+              {
+                  disableNext = "disabled";
+              }
+          
+          <li class="@disablePrev"><a href="#" onclick="$('#pageNumber').val(@Model.prev10Page) ; $('#filterForm').submit();return false;">&lt&lt</a></li>
+          <li class="@disablePrev"><a href="#" onclick="$('#pageNumber').val(@Model.pageNumber-1) ; $('#filterForm').submit();return false;">&lt</a></li>
+         
+          for (int i = Model.startingLinkPage; i <= Model.endingLinkPage; i++)
+          {    
+              if(i ==Model.pageNumber){
+                  <li class="disabled"><a href="#" onclick="$('#pageNumber').val(@i) ; $('#filterForm').submit();return false;">@i</a></li>
+              }else{ 
+              <li><a href="#" onclick="$('#pageNumber').val(@i) ; $('#filterForm').submit();return false;">@i</a></li>
+              }
           }
       
-    <li><a href="#">Next</a></li>
+          <li class="@disableNext"><a href="#" onclick="$('#pageNumber').val(@Model.pageNumber+1) ; $('#filterForm').submit();return false;">&gt</a></li>
+          <li class="@disableNext"><a href="#" onclick="$('#pageNumber').val(@Model.next10Page) ; $('#filterForm').submit();return false;">&gt&gt</a></li>
        }
   </ul>
 </div>

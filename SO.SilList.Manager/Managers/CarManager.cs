@@ -54,26 +54,29 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public List<CarVo> search(CarVm input)
+        public CarVm search(CarVm input)
         {
 
             using (var db = new MainDb())
             {
-                var list = db.car
+                var query = db.car
                             .Include(s => s.site)
                             .Include(m => m.modelType)
                             .Include(m => m.modelType.makeType)
                             .Include(b => b.carBodyType)
                             .Include(t => t.transmissionType)
-                             .OrderBy(b => b.modelType.name)
+                            .OrderBy(b => b.modelType.name)
+                            .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.modelType.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                             );
+                input.totalCount = query.Count();
+                input.result = query         
                              .Skip(input.skip)
                              .Take(input.rowCount)
-                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
-                                      && (e.modelType.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
-                                    )
+
                              .ToList();
 
-                return list;
+                return input;
             }
         }
 
