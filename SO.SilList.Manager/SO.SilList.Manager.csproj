@@ -169,6 +169,7 @@
     <Compile Include="Models\ViewModels\BusinessCategoryTypeVm.cs" />
     <Compile Include="Models\ViewModels\BusinessVm.cs" />
     <Compile Include="Models\ViewModels\ListingTypeVm.cs" />
+    <Compile Include="Models\ViewModels\ServiceTypeVm.cs" />
     <Compile Include="Models\ViewModels\VisitVm.cs" />
     <Compile Include="Models\ViewModels\ListingCategoryTypeVm.cs" />
     <Compile Include="Models\ViewModels\ListingVm.cs" />

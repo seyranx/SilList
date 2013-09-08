@@ -14,6 +14,26 @@ namespace SO.SilList.Manager.Managers
 {
     public class BusinessCategoryTypeManager : IBusinessCategoryTypeManager
     {
+
+        public BusinessCategoryTypeManager()
+        {
+
+        }
+
+        /// <summary>
+        /// Find The business with matching the name
+        /// </summary>
+        public BusinessCategoryTypeVo getByName(string name)
+        {
+            using (var db = new MainDb())
+            {
+                var res = db.businessCategoryType
+                             .Include(s => s.site)
+                            .FirstOrDefault(e => e.name == name);
+                return res;
+            }
+        }
+
         public BusinessCategoryTypeVo get(int businessCategoryTypeId)
         {
             using (var db = new MainDb())

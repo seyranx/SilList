@@ -375,7 +375,7 @@
     <Content Include="Views\Member\Index.cshtml" />
     <Content Include="Views\Member\_List.cshtml" />
     <Content Include="Views\BusinessCategoryType\Index.cshtml" />
-    <Content Include="Views\BusinessCategoryType\List.cshtml" />
+    <Content Include="Views\BusinessCategoryType\_List.cshtml" />
     <Content Include="Views\Listing\Index.cshtml" />
     <Content Include="Views\Listing\_Menu.cshtml" />
     <Content Include="Views\Listing\Create.cshtml" />
@@ -452,7 +452,7 @@
     <Content Include="Views\BusinessCategoryType\Edit.cshtml" />
     <Content Include="Views\ServiceType\Index.cshtml" />
     <Content Include="Views\ServiceType\Create.cshtml" />
-    <Content Include="Views\ServiceType\List.cshtml" />
+    <Content Include="Views\ServiceType\_List.cshtml" />
     <Content Include="Views\ServiceType\Edit.cshtml" />
     <Content Include="Views\ServiceType\Details.cshtml" />
     <Content Include="Views\ListingCategoryType\Edit.cshtml" />
@@ -537,6 +537,10 @@
     <Content Include="Views\ListingCategoryType\_Pagination.cshtml" />
     <Content Include="Views\ListingType\_Filter.cshtml" />
     <Content Include="Views\ListingType\_Pagination.cshtml" />
+    <Content Include="Views\BusinessCategoryType\_Filter.cshtml" />
+    <Content Include="Views\BusinessCategoryType\_Pagination.cshtml" />
+    <Content Include="Views\ServiceType\_Pagination.cshtml" />
+    <Content Include="Views\ServiceType\_Filter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
