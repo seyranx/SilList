@@ -7,12 +7,12 @@
 
 
 
-
-
 <h2>@ViewBag.Title</h2>
 
 
-@using (Html.BeginForm()) {
+@* @using (Html.BeginForm()) *@
+@using (Html.BeginForm("Edit", "Car", FormMethod.Post, new { @encType = "multipart/form-data", id="myForm" }))
+{
     @Html.ValidationSummary(true)
 
     <fieldset>
@@ -24,7 +24,7 @@
             @Html.LabelFor(model => model.modelTypeId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList","ModelType",new {id=Model.modelTypeId})
+            @Html.Action("DropDownList", "ModelType", new { id = Model.modelTypeId })
         </div>
 
         <div class="editor-label">
@@ -47,21 +47,21 @@
             @Html.LabelFor(model => model.carBodyTypeId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList","CarBodyType",new {id=Model.carBodyTypeId})
+            @Html.Action("DropDownList", "CarBodyType", new { id = Model.carBodyTypeId })
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.siteId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList","Site",new {id=Model.siteId})
+            @Html.Action("DropDownList", "Site", new { id = Model.siteId })
         </div>
 
         <div class="editor-label">
-             @Html.LabelFor(model => model.transmissionTypeId)
+            @Html.LabelFor(model => model.transmissionTypeId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList","TransmissionType",new {id=Model.transmissionTypeId})
+            @Html.Action("DropDownList", "TransmissionType", new { id = Model.transmissionTypeId })
         </div>
 
         <div class="editor-label">
@@ -71,7 +71,7 @@
             @Html.EditorFor(model => model.startDate)
             @Html.ValidationMessageFor(model => model.startDate)
         </div>
-               <div class="editor-label">
+        <div class="editor-label">
             @Html.LabelFor(model => model.endDate)
         </div>
         <div class="editor-field">
@@ -95,13 +95,52 @@
             @Html.ValidationMessageFor(model => model.isActive)
         </div>
 
+
+        @* car image stuff below *@
+        @{
+    if (ViewBag.carImages != null)
+    {
+                @Html.Hidden("ImagesToRemove", null, new { id = "imagesToRemove" })
+                
+        int index = 0;
+        foreach (SO.SilList.Manager.Models.ValueObjects.ImageVo img in ViewBag.carImages)
+        {
+                    <img src="@img.url" id="img_@index" />
+        
+            @:Uncheck to remove: 
+            <input type="checkbox" id="removeImg_@index" checked="yes"/>
+
+            
+                    @* @Html.CheckBox("") *@
+
+        }
+                <br />
+    }
+        }
+        @Html.Partial("../Image/_ImagePickerControls")  @* direct call *@
+        <br />
+        @* car images stuff above *@
+
         <p>
             <input type="submit" value="Save" />
             <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
         </p>
         <hr />
- @*       <p>
-            @Html.Action("ImageListWithUploadForEdit", "Image" , new { id = Model.carId })
-        </p>*@
+                @*       <p>
+                    @Html.Action("ImageListWithUploadForEdit", "Image" , new { id = Model.carId })
+                </p>*@
     </fieldset>
 }
+
+<script type="text/javascript">
+    $('#myForm').submit(function() {
+        var numOfCheckboxes = @ViewBag.carImages.Count;
+        alert(" 1 " + numOfCheckboxes.toString() );
+        var myJSVariable = <%Viewbag.carImages.Count%>;
+        alert(" 1 " + myJSVariable.toString() );
+       // var yourVariable = @@Html.Raw(Json.Encode(ViewBag.yourVariable))
+        var yourVariable= @Html.Raw(ViewBag.carImages.Count);
+
+        alert(" 1 " + yourVariable.toString() );
+
+</script>

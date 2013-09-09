@@ -8,107 +8,115 @@
 <h2>Details</h2>
 
 <fieldset>
-    
+
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.modelTypeId)
+        @Html.DisplayNameFor(model => model.modelTypeId)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.modelType.name)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.year)
+        @Html.DisplayNameFor(model => model.year)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.year)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.millage)
+        @Html.DisplayNameFor(model => model.millage)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.millage)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.carBodyTypeId)
+        @Html.DisplayNameFor(model => model.carBodyTypeId)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.carBodyType.name)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.siteId)
+        @Html.DisplayNameFor(model => model.siteId)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.site.domain)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.transmissionTypeId)
+        @Html.DisplayNameFor(model => model.transmissionTypeId)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.transmissionType.name)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.created)
+        @Html.DisplayNameFor(model => model.created)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.created)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.modified)
+        @Html.DisplayNameFor(model => model.modified)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.modified)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.createdBy)
+        @Html.DisplayNameFor(model => model.createdBy)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.createdBy)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.modifiedBy)
+        @Html.DisplayNameFor(model => model.modifiedBy)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.modifiedBy)
     </div>
-    
+
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.startDate)
+        @Html.DisplayNameFor(model => model.startDate)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.startDate)
     </div>
 
-     <div class="display-label">
-         @Html.DisplayNameFor(model => model.endDate)
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.endDate)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.endDate)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.isApproved)
+        @Html.DisplayNameFor(model => model.isApproved)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.isApproved)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.isActive)
+        @Html.DisplayNameFor(model => model.isActive)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.isActive)
     </div>
 </fieldset>
 <p>
-       <a href="@Url.Action("Edit", new { id=Model.carId })" class="btn">Edit</a>
-      <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
+    <a href="@Url.Action("Edit", new { id=Model.carId })" class="btn">Edit</a>
+    <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
 </p>
+
+@* car images stuff *@
+@{
+    foreach( SO.SilList.Manager.Models.ValueObjects.ImageVo img in ViewBag.carImages)
+    {
+        <img src="@img.url" /> 
+    }
+}

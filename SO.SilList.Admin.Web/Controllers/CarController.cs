@@ -52,7 +52,6 @@ namespace SO.SilList.Admin.Web.Controllers
                 //HttpFileCollectionBase ya = x.Files;
 
                 ImageManager imageManager = new ImageManager();
-
                 imageManager.InsertImageForCar(item.carId, Request.Files, Server);
 
                 return RedirectToAction("Index");
@@ -69,12 +68,16 @@ namespace SO.SilList.Admin.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Guid id, CarVo input)
+        public ActionResult Edit(Guid id, CarVo input, int x)
         {
-
             if (this.ModelState.IsValid)
             {
                 var res = carManager.update(input, id);
+
+                ImageManager imageManager = new ImageManager();
+                //imageManager.RemoveImageForCar(id, ViewBag.carImages);
+                imageManager.InsertImageForCar(id, Request.Files, Server);
+                
                 return RedirectToAction("Index");
             }
 
@@ -84,12 +87,20 @@ namespace SO.SilList.Admin.Web.Controllers
         public ActionResult Edit(Guid id)
         {
             var result = carManager.get(id);
+
+            ImageManager imageManager = new ImageManager();
+            ViewBag.carImages = imageManager.getCarImages(id);
+
             return View(result);
         }
 
         public ActionResult Details(Guid id)
         {
             var result = carManager.get(id);
+
+            ImageManager imageManager = new ImageManager();
+            ViewBag.carImages = imageManager.getCarImages(id);
+
             return View(result);
         }
 
