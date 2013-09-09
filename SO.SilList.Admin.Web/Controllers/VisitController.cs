@@ -6,12 +6,14 @@ using System.Web.Mvc;
 using SO.SilList.Manager.Interfaces;
 using SO.SilList.Manager.Models.ViewModels;
 using SO.SilList.Manager.Managers;
+using SO.SilList.Admin.Web.Attributes;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
+    [DontTrackVisit]
     public class VisitController : Controller
     {
-        private IVisitManager visitManager = new VisitManager(); 
+        private IVisitManager visitManager = new VisitManager();
 
         public ActionResult Index(VisitVm input = null)
         {
