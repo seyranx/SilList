@@ -3,7 +3,7 @@
 <div class="pagination pull-right">
   <ul>
 
-@if(1 != @Model.pageNumber)
+@if(@Model.pageNumber != 1)
 {
     <li><a href="#" onclick="document.getElementById('pageNumber').value=1;document.filterForm.submit();return false;">First</a></li>
     <li><a href="#" onclick="document.getElementById('pageNumber').value=@(Model.pageNumber-1);document.filterForm.submit();return false;">Prev</a></li>

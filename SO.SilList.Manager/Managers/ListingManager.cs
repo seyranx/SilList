@@ -46,26 +46,36 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public ListingVm search(ListingVm input)
+        public int count(ListingVm input)
         {
-
             using (var db = new MainDb())
             {
-                var query = db.listing
+                return db.listing
                              .Include(s => s.site)
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                                     )
-                             .OrderBy(b => b.title);
+                             .Count();
+            }
+        }
 
-                input.resultCount = query.Count();
-                
-                input.result = query
-                           .Skip(input.skip)
-                           .Take(input.rowCount)
-                           .ToList();
+        public List<ListingVo> search(ListingVm input)
+        {
 
-                return input;
+            using (var db = new MainDb())
+            {
+                var list = db.listing
+                             .Include(s => s.site)
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                    )
+                             .OrderBy(b => b.title)
+                             .Skip(input.skip)
+                             .Take(input.resultPerPage)
+                             .ToList();
+
+                return list;
+
                 /*
                 var list = db.listing
                              .Include(s => s.site)

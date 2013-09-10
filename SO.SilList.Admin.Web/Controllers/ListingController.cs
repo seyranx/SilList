@@ -19,8 +19,12 @@ namespace SO.SilList.Admin.Web.Controllers
 
             if (this.ModelState.IsValid)
             {
-                input = listingManager.search(input);
+                input.result = listingManager.search(input);
+                input.totalRowCount = listingManager.count(input);
                 return View(input);
+
+                //input = listingManager.search(input);
+                //return View(input);
             }
 
             return View();
@@ -90,7 +94,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Pagination(ListingVm input = null)
         {
-            return PartialView("_Pagination");
+            return PartialView("_Pagination", input);
         }
 
         public ActionResult Delete(Guid id)
