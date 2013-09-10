@@ -11,7 +11,7 @@
 
 
 @* @using (Html.BeginForm()) *@
-@using (Html.BeginForm("Edit", "Car", FormMethod.Post, new { @encType = "multipart/form-data", id="myForm" }))
+@using (Html.BeginForm("Edit", "Car", FormMethod.Post, new { @encType = "multipart/form-data", id = "myForm" }))
 {
     @Html.ValidationSummary(true)
 
@@ -100,21 +100,21 @@
         @{
     if (ViewBag.carImages != null)
     {
-                @Html.Hidden("ImagesToRemove", null, new { id = "imagesToRemove" })
+            @Html.Hidden("ImagesToRemove", null, new { id = "imagesToRemove" })
                 
         int index = 0;
         foreach (SO.SilList.Manager.Models.ValueObjects.ImageVo img in ViewBag.carImages)
         {
-                    <img src="@img.url" id="img_@index" />
+            <img src="@img.url" id="img_@index" />
         
             @:Uncheck to remove: 
             <input type="checkbox" id="removeImg_@index" checked="yes"/>
 
             
-                    @* @Html.CheckBox("") *@
+@* @Html.CheckBox("") *@
 
         }
-                <br />
+            <br />
     }
         }
         @Html.Partial("../Image/_ImagePickerControls")  @* direct call *@
@@ -126,21 +126,22 @@
             <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
         </p>
         <hr />
-                @*       <p>
+        @*       <p>
                     @Html.Action("ImageListWithUploadForEdit", "Image" , new { id = Model.carId })
                 </p>*@
+
+
+        @Html.Hidden("x", 2)
     </fieldset>
 }
 
+
 <script type="text/javascript">
-    $('#myForm').submit(function() {
-        var numOfCheckboxes = @ViewBag.carImages.Count;
-        alert(" 1 " + numOfCheckboxes.toString() );
-        var myJSVariable = <%Viewbag.carImages.Count%>;
-        alert(" 1 " + myJSVariable.toString() );
-       // var yourVariable = @@Html.Raw(Json.Encode(ViewBag.yourVariable))
-        var yourVariable= @Html.Raw(ViewBag.carImages.Count);
+    $(document).ready(function () {
+        $("#myForm").submit(function () {
+            var numOfCheckboxes = @ViewBag.carImages.Count;
 
-        alert(" 1 " + yourVariable.toString() );
-
+            alert(" 1 " + aa.toString() );
+        });
+    });
 </script>

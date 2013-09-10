@@ -273,7 +273,7 @@ namespace SO.SilList.Manager.Managers
                         string imageNameOnServer = Guid.NewGuid().ToString() + fileExtension1;
                         string uploadImageAbsFilePath1 = Path.Combine(sDir, imageNameOnServer);
                         UploadImage1.SaveAs(uploadImageAbsFilePath1);
-                        string imageUrl = Path.Combine("~/", this.GetBasePathFromConfig(), imageNameOnServer);
+                        string imageUrl = "~/" + this.GetBasePathFromConfig() + "/" + imageNameOnServer;
                         this.InsertImageAndCarImageIntoDb(id, fileName1, imageUrl, uploadImageAbsFilePath1);
                     }
                 }
@@ -285,7 +285,7 @@ namespace SO.SilList.Manager.Managers
                     {
                         string imageNameOnServer = Guid.NewGuid().ToString() + fileExtension2;
                         string uploadImageAbsFilePath2 = Path.Combine(sDir, imageNameOnServer);
-                        string imageUrl = Path.Combine("~/", this.GetBasePathFromConfig(), imageNameOnServer);
+                        string imageUrl = "~/" + this.GetBasePathFromConfig() + "/" + imageNameOnServer;
                         this.InsertImageAndCarImageIntoDb(id, fileName2, imageUrl, uploadImageAbsFilePath2);
                         UploadImage2.SaveAs(uploadImageAbsFilePath2);
                     }
