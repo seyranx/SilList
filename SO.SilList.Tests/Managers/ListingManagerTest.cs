@@ -21,7 +21,7 @@ namespace SO.SilList.Tests.Managers
 
             var res = listingManager.search(vo);
 
-            if (res != null && res.result.Count == 0)
+            if (res != null && res.Count == 0)
             {
                 Assert.IsTrue(true);
             }
