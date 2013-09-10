@@ -3,11 +3,15 @@
     [siteId]      INT              NOT NULL,
     [ipAddress]   VARCHAR (50)     NOT NULL,
     [referrerUrl] VARCHAR (MAX)    NULL,
-    [visitTime]   DATETIME         DEFAULT (getdate()) NOT NULL,
     [browser]     VARCHAR (50)     NULL,
     [controller]  VARCHAR (50)     NOT NULL,
     [action]      VARCHAR (50)     NOT NULL,
+    [visitCount]  INT              DEFAULT ((1)) NOT NULL,
+    [created]     DATETIME         DEFAULT (getdate()) NOT NULL,
+    [modified]    DATETIME         DEFAULT (getdate()) NOT NULL,
     CONSTRAINT [PK_Visit] PRIMARY KEY CLUSTERED ([visitId] ASC),
     CONSTRAINT [FK_Visit_Site] FOREIGN KEY ([siteId]) REFERENCES [app].[Site] ([siteId]) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+
 
