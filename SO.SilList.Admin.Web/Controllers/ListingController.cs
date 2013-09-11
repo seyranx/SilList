@@ -15,7 +15,8 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Index(ListingVm input = null)
         {
-            if (input == null) input = new ListingVm();
+            if (input == null) 
+                input = new ListingVm();
 
             if (this.ModelState.IsValid)
             {
@@ -92,7 +93,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return View(result);
         }
 
-        public ActionResult Pagination(ListingVm input = null)
+        public ActionResult Pagination(ListingVm input)
         {
             return PartialView("_Pagination", input);
         }

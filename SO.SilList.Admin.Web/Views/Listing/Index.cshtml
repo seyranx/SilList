@@ -6,10 +6,10 @@
 
 <h2>@ViewBag.Title</h2>
 
-<form id="filterForm" name="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Listing")">
+<form name="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Listing")">
 
  
-@Html.Action("Filter",@Model)
+@Html.Action("Filter", @Model)
 
 <p style="margin-top:10px; margin-bottom:10px;"> </p>
 
@@ -22,10 +22,8 @@
 
 @Html.Partial("List", @Model.result)
 
-
 @Html.Action("Pagination", @Model)
 
 @* @Html.ActionLink("Clear Stats", "Delete") *@
-
 
  </form>
