@@ -14,9 +14,39 @@ namespace SO.SilList.Manager.Managers
 {
     public class ListingManager : IListingManager
     {
-        public ListingManager()
-        {
+        //public ListingManager()
+        //{
+        //        }
 
+        public int count(ListingVm input)
+        {
+            using (var db = new MainDb())
+            {
+                return db.listing
+                             .Include(s => s.site)
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                    )
+                             .Count();
+            }
+        }
+
+        public List<ListingVo> search(ListingVm input)
+        {
+            using (var db = new MainDb())
+            {
+                var list = db.listing
+                             .Include(s => s.site)
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                    )
+                             .OrderBy(b => b.title)
+                             .Skip(input.skip)
+                             .Take(input.resultPerPage)
+                             .ToList();
+
+                return list;
+            }
         }
 
         /// Find Listing matching the listingId
@@ -43,53 +73,6 @@ namespace SO.SilList.Manager.Managers
                             .FirstOrDefault();
                
                 return res;
-            }
-        }
-
-        public int count(ListingVm input)
-        {
-            using (var db = new MainDb())
-            {
-                return db.listing
-                             .Include(s => s.site)
-                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
-                                      && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
-                                    )
-                             .Count();
-            }
-        }
-
-        public List<ListingVo> search(ListingVm input)
-        {
-
-            using (var db = new MainDb())
-            {
-                var list = db.listing
-                             .Include(s => s.site)
-                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
-                                      && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
-                                    )
-                             .OrderBy(b => b.title)
-                             .Skip(input.skip)
-                             .Take(input.resultPerPage)
-                             .ToList();
-
-                return list;
-
-                /*
-                var list = db.listing
-                             .Include(s => s.site)
-                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
-                                      && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
-                                    )
-                             .OrderBy(b => b.title)
-                             .Skip(input.skip)
-                             .Take(input.rowCount)
-                             .ToList();
-                 return input;
-                */
-
-
             }
         }
 
@@ -146,7 +129,7 @@ namespace SO.SilList.Manager.Managers
         }
 
         // Insert Listing
-        public ListingVo insert(ListingVo input)
+        public ListingVo insert(ListingVo input) // maybe "Models.ValueObjects.ListingVo" ?
         {
             using (var db = new MainDb())
             {
