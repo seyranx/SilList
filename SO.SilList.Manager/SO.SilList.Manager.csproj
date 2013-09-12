@@ -164,6 +164,7 @@
     <Compile Include="Models\ViewModels\Admin\AccountLoginVm.cs" />
     <Compile Include="Models\ViewModels\Admin\AccountManageVm.cs" />
     <Compile Include="Models\ViewModels\BusinessVm.cs" />
+    <Compile Include="Models\ViewModels\RentalVm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

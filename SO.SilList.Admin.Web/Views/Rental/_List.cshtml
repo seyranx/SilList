@@ -6,9 +6,14 @@
 <table class="table table-bordered table-hover">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.propertyTypeId)
         </th>
-      
         <th>
             @Html.DisplayNameFor(model => model.siteId)
         </th>
@@ -21,7 +26,7 @@
         <th>
             @Html.DisplayNameFor(model => model.rentTypeId)
         </th>
-       <th>
+        <th>
             @Html.DisplayNameFor(model => model.startDate)
         </th>
         <th>
@@ -32,9 +37,14 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.propertyTypeId)
         </td>
-     
         <td>
             @Html.DisplayFor(modelItem => item.siteId)
         </td>

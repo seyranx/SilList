@@ -1,5 +1,6 @@
 ﻿using SO.SilList.Manager.Managers;
 using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Manager.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +16,16 @@ namespace SO.SilList.Admin.Web.Controllers
 
         private RentalManager rentalManager = new RentalManager();
 
-        public ActionResult Index()
+        public ActionResult Index(RentalVm input = null)
         {
+
+            if (input == null) input = new RentalVm();
+
+            if (this.ModelState.IsValid)
+            {
+                input.result = rentalManager.search(input);
+                return View(input);
+            }
             return View();
         }
 
@@ -75,6 +84,16 @@ namespace SO.SilList.Admin.Web.Controllers
         {
             rentalManager.delete(id);
             return RedirectToAction("index");
+        }
+
+        public ActionResult Pagination()
+        {
+            return PartialView("_Pagination");
+        }
+
+        public ActionResult Filter(RentalVm input)
+        {
+            return PartialView("_Filter", input);
         }
     }
 }

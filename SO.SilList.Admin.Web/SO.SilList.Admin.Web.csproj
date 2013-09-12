@@ -525,6 +525,8 @@
     <Content Include="Views\BusinessImages\Edit.cshtml" />
     <Content Include="Views\BusinessImages\Index.cshtml" />
     <Content Include="Views\BusinessImages\_List.cshtml" />
+    <Content Include="Views\Rental\_Pagination.cshtml" />
+    <Content Include="Views\Rental\_Filter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

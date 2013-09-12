@@ -8,6 +8,7 @@ using EntityFramework.Extensions;
 using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Interfaces;
 using SO.SilList.Manager.DbContexts;
+using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Manager.Managers
 {
@@ -22,6 +23,7 @@ namespace SO.SilList.Manager.Managers
                             .Include(t => t.leaseTermType)
                             .Include(c => c.rentType)
                             .Include(s => s.site)
+                            .Include(m => m.member)
                             .FirstOrDefault(r => r.rentalId == rentalId);
 
                 return result;
@@ -51,6 +53,7 @@ namespace SO.SilList.Manager.Managers
                             .Include(t => t.leaseTermType)
                             .Include(c => c.rentType)
                             .Include(s => s.site)
+                            .Include(m => m.memberId)
                             .Where(e => isActive == null || e.isActive == isActive)
                             .ToList();
 
@@ -109,6 +112,24 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 return db.rental.Count();
+            }
+        }
+
+
+        public List<RentalVo> search(RentalVm input)
+        {
+            using (var db = new MainDb())
+            {
+                var list = db.rental
+                    .Include(s => s.site)
+                    .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                        && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword)))
+                    .OrderBy(o => o.title)
+                    .Skip(input.skip)
+                    .Take(input.rowCount)
+                    .ToList();
+
+                return list;
             }
         }
     }

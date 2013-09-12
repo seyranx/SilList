@@ -11,6 +11,20 @@
     <legend>RentalVo</legend>
 
     <div class="display-label">
+         @Html.DisplayNameFor(model => model.title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.description)
+    </div>
+
+    <div class="display-label">
          @Html.DisplayNameFor(model => model.propertyTypeId)
     </div>
     <div class="display-field">
@@ -78,6 +92,13 @@
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.rentTypeId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.memberId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.memberId)
     </div>
 
     <div class="display-label">
