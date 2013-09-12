@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SO.SilList.Manager.Attributes;
 using SO.SilList.Manager.Managers;
 using SO.SilList.Manager.Models.ValueObjects;
 
@@ -27,6 +28,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView(results);
         }
 
+        [DontTrackVisit]
         public ActionResult DropDownList(int? id = null)
         {
             ViewBag.sites = siteManager.getAll(null);
@@ -38,6 +40,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView("_DropDownList", site);
         }
 
+        [DontTrackVisit]
         public ActionResult Menu()
         {
             return PartialView("_Menu");
