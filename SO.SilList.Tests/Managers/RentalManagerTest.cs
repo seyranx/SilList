@@ -6,19 +6,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Data.Entity;
 using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Tests.Managers
 {
      [TestClass]
     public class RentalManagerTest
     {
-        private RentalManager Rental = new RentalManager();
+        private RentalManager rentalManager = new RentalManager();
 
         [TestMethod]
         public void getAllTest()
         {
 
-            var res = Rental.getAll(null);
+            var res = rentalManager.getAll(null);
 
             if (res != null)
             {
@@ -35,7 +36,7 @@ namespace SO.SilList.Tests.Managers
                 var vo = new RentalVo();
                 vo.rent = i*1234;
                 //vo.name = i.ToString() + " Test BusinessCategoryType Name ";
-                var result = Rental.insert(vo);
+                var result = rentalManager.insert(vo);
                 if (result == null)
                 {
                     Assert.IsTrue(false);
@@ -52,12 +53,12 @@ namespace SO.SilList.Tests.Managers
             vo.rent = 1500.99;
 
 
-            var result = Rental.insert(vo);
-            var result2 = Rental.get(result.rentalId);
+            var result = rentalManager.insert(vo);
+            var result2 = rentalManager.get(result.rentalId);
 
-            Rental.delete(result.rentalId);
+            rentalManager.delete(result.rentalId);
 
-            var result3 = Rental.get(result.rentalId);
+            var result3 = rentalManager.get(result.rentalId);
 
             if (result != null && result2 != null && result3 == null && result2.rentalId != Guid.Empty)
             {
@@ -68,10 +69,27 @@ namespace SO.SilList.Tests.Managers
         }
 
         [TestMethod]
+        public void searchTest()
+        {
+            var vo = new RentalVm();
+            vo.pageNumber = 2;
+            vo.keyword = "Some title";
+            vo.isActive = true;
+
+            var res = rentalManager.search(vo);
+
+            if (res != null)
+            {
+                Assert.IsTrue(true);
+            }
+            else Assert.IsTrue(false);
+        }
+
+        [TestMethod]
         public void includesTest()
         {
 
-            var result = Rental.getFirst();
+            var result = rentalManager.getFirst();
 
             //FK-s are disabled temporarily
             //var site = result.site;

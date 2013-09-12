@@ -528,6 +528,8 @@
     <Content Include="Views\BusinessImages\_List.cshtml" />
     <Content Include="Views\Visit\Index.cshtml" />
     <Content Include="Views\Visit\_Filter.cshtml" />
+    <Content Include="Views\Rental\_Pagination.cshtml" />
+    <Content Include="Views\Rental\_Filter.cshtml" />
     <Content Include="Views\Visit\_List.cshtml" />
     <Content Include="Views\Visit\_Pagination.cshtml" />
     <Content Include="Views\Visit\Delete.cshtml" />

@@ -21,12 +21,24 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Rental")]
     	[Key]
         public System.Guid rentalId { get; set; }
-    		
+
+        
+        [DisplayName("Title")]
+        [StringLength(50)]
+        public string title { get; set; }
+
+        [DisplayName("Description")]
+        [StringLength(250)]
+        public string description { get; set; }
+
     	[DisplayName("Property Type")]
         public Nullable<int> propertyTypeId { get; set; }
     		
     	[DisplayName("Site Id")]
         public Nullable<int> siteId { get; set; }
+
+        [DisplayName("Member Id")]
+        public Nullable<int> memberId { get; set; }
     		
     	[DisplayName("Bedrooms")]
         public Nullable<int> bedrooms { get; set; }
@@ -93,6 +105,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         [ForeignKey("siteId")]
         public virtual SiteVo site { get; set; }
+
+        [ForeignKey("memberId")]
+        public virtual MemberVo member { get; set; }
 
         [Association("Rental_RentalImages", "rentalId", "rentalId", IsForeignKey = true)]
         public List<RentalImageVo> rentalImage { get; set; }
