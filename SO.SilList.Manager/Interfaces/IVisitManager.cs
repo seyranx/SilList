@@ -13,7 +13,7 @@ namespace SO.SilList.Manager.Interfaces
     {
         VisitVm search(VisitVm input);
 
-        VisitVo insert(VisitVo input);
+        VisitVo insertOrUpdate(VisitVo input);
 
         // delete everything older than given date
         int delete(DateTime input);

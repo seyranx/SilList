@@ -3,7 +3,7 @@
     [siteId]      INT              NOT NULL,
     [ipAddress]   VARCHAR (50)     NOT NULL,
     [referrerUrl] VARCHAR (MAX)    NULL,
-    [browser]     VARCHAR (50)     NULL,
+    [browser]     VARCHAR (MAX)     NULL,
     [controller]  VARCHAR (50)     NOT NULL,
     [action]      VARCHAR (50)     NOT NULL,
     [visitCount]  INT              NOT NULL DEFAULT 1,
