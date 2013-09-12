@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using SO.SilList.Admin.Web.Attributes;
+using SO.SilList.Manager.Attributes;
 using SO.SilList.Manager.Managers;
 using SO.SilList.Manager.Models.ValueObjects;
 

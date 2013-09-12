@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using SO.SilList.Manager.Interfaces;
 using SO.SilList.Manager.Models.ViewModels;
 using SO.SilList.Manager.Managers;
-using SO.SilList.Admin.Web.Attributes;
+using SO.SilList.Manager.Attributes;
 
 namespace SO.SilList.Admin.Web.Controllers
 {

@@ -7,7 +7,7 @@ using System.Web.Mvc;
 using SO.SilList.Manager.Managers;
 using SO.SilList.Manager.Models.ValueObjects;
 
-namespace SO.SilList.Admin.Web.Attributes
+namespace SO.SilList.Manager.Attributes
 {
     public class TrackVisitAttribute : IActionFilter 
     {

@@ -1,6 +1,6 @@
 ﻿using System.Web;
 using System.Web.Mvc;
-using SO.SilList.Admin.Web.Attributes;
+using SO.SilList.Manager.Attributes;
 
 namespace SO.SilList.Admin.Web
 {
