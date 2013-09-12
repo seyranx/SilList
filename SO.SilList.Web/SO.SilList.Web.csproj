@@ -279,6 +279,9 @@
     <Content Include="Views\Jobs\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutRentals.cshtml" />
     <Content Include="Views\Linked\ShowNew.cshtml" />
+    <Content Include="Views\Business\_BusinessItem.cshtml">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

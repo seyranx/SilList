@@ -40,6 +40,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -98,6 +99,7 @@
     <Compile Include="Managers\CarBodyTypeManager.cs" />
     <Compile Include="Managers\CarImageManager.cs" />
     <Compile Include="Managers\CarManager.cs" />
+    <Compile Include="Managers\CurrentMember.cs" />
     <Compile Include="Managers\EnvironmentTypeManager.cs" />
     <Compile Include="Managers\ImageManager.cs" />
     <Compile Include="Managers\JobCategoriesManager.cs" />
