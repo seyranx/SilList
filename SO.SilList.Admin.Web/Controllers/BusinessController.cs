@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Models.ViewModels;
+using System.Web.Security;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
@@ -16,7 +17,8 @@ namespace SO.SilList.Admin.Web.Controllers
           
         public ActionResult Index(BusinessVm input=null)
         {
-
+            var user = Membership.GetUser();
+           
             if (input == null)input = new BusinessVm();
             
             if (this.ModelState.IsValid)
