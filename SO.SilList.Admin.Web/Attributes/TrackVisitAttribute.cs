@@ -33,8 +33,8 @@ namespace SO.SilList.Admin.Web.Attributes
 
             visit.siteId = this.siteId;
 
-            visit.controller = filterContext.ActionDescriptor.ActionName;
-            visit.action = filterContext.ActionDescriptor.ControllerDescriptor.ControllerName;
+            visit.action = filterContext.ActionDescriptor.ActionName;
+            visit.controller = filterContext.ActionDescriptor.ControllerDescriptor.ControllerName;
 
             visit.ipAddress = filterContext.HttpContext.Request.UserHostAddress;
             if (null != filterContext.HttpContext.Request.UrlReferrer)
