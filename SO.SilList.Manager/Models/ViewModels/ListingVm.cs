@@ -22,7 +22,7 @@ namespace SO.SilList.Manager.Models.ViewModels
 
         public int totalRowCount { get; set; }
 
-        [Range(5, 50)]
+        [Range(4, 50)]
         public int resultPerPage { get; set; }
 
         [Range(2, 5)]
@@ -35,7 +35,7 @@ namespace SO.SilList.Manager.Models.ViewModels
         public int skip {
             get
             {
-                if (pageNumber < 2 || resultPerPage < 1) return 0;
+                if (pageNumber == null || pageNumber < 2 || resultPerPage < 1) return 0;
 
                 return ((pageNumber - 1) * resultPerPage);
             }
