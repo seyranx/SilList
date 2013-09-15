@@ -1,4 +1,5 @@
 ﻿using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Utility.Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,7 @@ namespace SO.SilList.Manager.Models.ViewModels
         public bool? isActive { get; set; }
         public int totalCount { get; set; }
         public string submitButton { get; set; }
+        public Paging paging;
 
         public int totalPages
         {
@@ -102,6 +104,7 @@ namespace SO.SilList.Manager.Models.ViewModels
         {
             pageNumber = 1;
             this.result = new List<CarVo>();
+            paging = new Paging();
         }
 
 
