@@ -14,9 +14,35 @@ namespace SO.SilList.Manager.Managers
 {
     public class ListingCategoryTypeManager : IListingCategoryTypeManager
     {
-        public ListingCategoryTypeManager()
+        public int count(ListingCategoryTypeVm input)
         {
+            using (var db = new MainDb())
+            {
 
+                var totcount = db.listingCategoryType
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                    )
+                             .Count();
+                return totcount;
+            }
+        }
+
+        public List<ListingCategoryTypeVo> search(ListingCategoryTypeVm input)
+        {
+            using (var db = new MainDb())
+            {
+                var list = db.listingCategoryType
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                    )
+                             .OrderBy(b => b.name)
+                             .Skip(input.skip)
+                             .Take(input.resultPerPage)
+                             .ToList();
+
+                return list;
+            }
         }
 
         /// Find ListingCategoryType matching the listingCategoryTypeId
@@ -42,25 +68,6 @@ namespace SO.SilList.Manager.Managers
                             .FirstOrDefault();
                
                 return res;
-            }
-        }
-
-        public List<ListingCategoryTypeVo> search(ListingCategoryTypeVm input)
-        {
-
-            using (var db = new MainDb())
-            {
-                var list = db.listingCategoryType
-                             //.Include(s => s.site)
-                             .OrderBy(b => b.name)
-                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
-                                      && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
-                                    )
-                             .Skip(input.skip)
-                             .Take(input.rowCount)
-                             .ToList();
-
-                return list;
             }
         }
 

@@ -15,12 +15,17 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Index(ListingVm input = null)
         {
-            if (input == null) input = new ListingVm();
+            if (input == null) 
+                input = new ListingVm();
 
             if (this.ModelState.IsValid)
             {
                 input.result = listingManager.search(input);
+                input.totalRowCount = listingManager.count(input);
                 return View(input);
+
+                //input = listingManager.search(input);
+                //return View(input);
             }
 
             return View();
@@ -45,16 +50,13 @@ namespace SO.SilList.Admin.Web.Controllers
         [HttpPost]
         public ActionResult Create(ListingVo input)
         {
-
             if (this.ModelState.IsValid)
             {
-
                 var item = listingManager.insert(input);
                 return RedirectToAction("Index");
             }
 
             return View();
-
         }
 
         public ActionResult Create()
@@ -66,7 +68,6 @@ namespace SO.SilList.Admin.Web.Controllers
         [HttpPost]
         public ActionResult Edit(Guid id, ListingVo input)
         {
-
             if (this.ModelState.IsValid)
             {
                 var res = listingManager.update(input, id);
@@ -74,8 +75,8 @@ namespace SO.SilList.Admin.Web.Controllers
             }
 
             return View();
-
         }
+
         public ActionResult Edit(Guid id)
         {
             var result = listingManager.get(id);
@@ -88,9 +89,9 @@ namespace SO.SilList.Admin.Web.Controllers
             return View(result);
         }
 
-        public ActionResult Pagination(ListingVm input = null)
+        public ActionResult Pagination(ListingVm input)
         {
-            return PartialView("_Pagination");
+            return PartialView("_Pagination", input);
         }
 
         public ActionResult Delete(Guid id)

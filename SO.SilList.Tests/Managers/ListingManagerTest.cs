@@ -15,7 +15,7 @@ namespace SO.SilList.Tests.Managers
         public void searchTest()
         {
             var vo = new ListingVm();
-            vo.pageNumber = 2;
+            //vo.result.count = 2;
             vo.keyword = "2";
             vo.isActive = true;
 
