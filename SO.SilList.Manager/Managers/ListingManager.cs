@@ -14,21 +14,18 @@ namespace SO.SilList.Manager.Managers
 {
     public class ListingManager : IListingManager
     {
-        //public ListingManager()
-        //{
-        //        }
-
         public int count(ListingVm input)
-        {
+        {   
             using (var db = new MainDb())
             {
-                return db.listing
-                             .Include(s => s.site)
+
+                var totcount = db.listing
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                                     )
                              .Count();
-            }
+                return totcount;
+            }          
         }
 
         public List<ListingVo> search(ListingVm input)
@@ -37,6 +34,7 @@ namespace SO.SilList.Manager.Managers
             {
                 var list = db.listing
                              .Include(s => s.site)
+                             .Include(t => t.listingType)
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                                     )

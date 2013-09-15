@@ -14,12 +14,8 @@ namespace SO.SilList.Manager.Models.ViewModels
     public class ListingVm
     {
         public List<ListingVo> result { get; set; }
-
         public string keyword { get; set; }
-
-        [DisplayName("Page ")]
         public int pageNumber { get; set; }
-
         public int totalRowCount { get; set; }
 
         [Range(4, 50)]
@@ -27,7 +23,6 @@ namespace SO.SilList.Manager.Models.ViewModels
 
         [Range(2, 5)]
         public int pageLinkCount { get; set; }
-
 
         [DisplayName("isActive: ")]
         public bool? isActive { get; set; }
@@ -61,6 +56,7 @@ namespace SO.SilList.Manager.Models.ViewModels
         {
             get
             {
+                //return totalRowCount;
                 return (int)Math.Ceiling((double)totalRowCount / resultPerPage);
             }
         }
@@ -71,18 +67,7 @@ namespace SO.SilList.Manager.Models.ViewModels
             this.resultPerPage = 4; //change this to adjust default resultPerPage
             this.pageLinkCount = 2;
             this.pageNumber = 1;
-
         }
 
-        // added this, but doesn't help
-        /*
-        public ListingVm(int pageNumber, string keyword, bool isActive)
-        {
-            this.keyword = keyword;
-            this.pageNumber = pageNumber;
-            this.isActive = isActive;
-            this.result = new List<ListingVo>();
-        }
-        */
     }
 }

@@ -15,11 +15,13 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Index(ListingTypeVm input = null)
         {
-            if (input == null) input = new ListingTypeVm();
+            if (input == null)
+                input = new ListingTypeVm();
 
             if (this.ModelState.IsValid)
             {
                 input.result = listingTypeManager.search(input);
+                input.totalRowCount = listingTypeManager.count(input);
                 return View(input);
             }
 
@@ -47,27 +49,24 @@ namespace SO.SilList.Admin.Web.Controllers
         [HttpPost]
         public ActionResult Create(ListingTypeVo input)
         {
-
             if (this.ModelState.IsValid)
             {
-
                 var item = listingTypeManager.insert(input);
                 return RedirectToAction("Index");
             }
 
             return View();
-
         }
 
         public ActionResult Create()
         {
-            return View();
+            var vo = new ListingTypeVo();
+            return View(vo); ;
         }
 
         [HttpPost]
         public ActionResult Edit(int id, ListingTypeVo input)
         {
-
             if (this.ModelState.IsValid)
             {
                 var res = listingTypeManager.update(input, id);
@@ -75,8 +74,8 @@ namespace SO.SilList.Admin.Web.Controllers
             }
 
             return View();
-
         }
+
         public ActionResult Edit(int id)
         {
             var result = listingTypeManager.get(id);
@@ -89,9 +88,9 @@ namespace SO.SilList.Admin.Web.Controllers
             return View(result);
         }
 
-        public ActionResult Pagination()
+        public ActionResult Pagination(ListingTypeVm input)
         {
-            return PartialView("_Pagination");
+            return PartialView("_Pagination", input);
         }
 
         public ActionResult Delete(int id)

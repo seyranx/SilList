@@ -50,16 +50,13 @@ namespace SO.SilList.Admin.Web.Controllers
         [HttpPost]
         public ActionResult Create(ListingVo input)
         {
-
             if (this.ModelState.IsValid)
             {
-
                 var item = listingManager.insert(input);
                 return RedirectToAction("Index");
             }
 
             return View();
-
         }
 
         public ActionResult Create()
@@ -71,7 +68,6 @@ namespace SO.SilList.Admin.Web.Controllers
         [HttpPost]
         public ActionResult Edit(Guid id, ListingVo input)
         {
-
             if (this.ModelState.IsValid)
             {
                 var res = listingManager.update(input, id);
@@ -79,8 +75,8 @@ namespace SO.SilList.Admin.Web.Controllers
             }
 
             return View();
-
         }
+
         public ActionResult Edit(Guid id)
         {
             var result = listingManager.get(id);
