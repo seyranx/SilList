@@ -129,6 +129,11 @@
     <Compile Include="Managers\RentalManager.cs" />
     <Compile Include="Managers\TransmissionTypeManager.cs" />
     <Compile Include="Managers\VisitManager.cs" />
+    <Compile Include="Models\ValueObjects\VisitVo.cs" />
+    <Compile Include="Models\ViewModels\Admin\AccountLoginVm.cs" />
+    <Compile Include="Models\ViewModels\Admin\AccountManageVm.cs" />
+    <Compile Include="Models\ViewModels\BusinessCategoryTypeVm.cs" />
+    <Compile Include="Models\ViewModels\BusinessVm.cs" />
     <Compile Include="Models\ViewModels\CarVm.cs" />
     <Compile Include="Models\ValueObjects\AdminVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessCategoryTypeVo.cs" />
