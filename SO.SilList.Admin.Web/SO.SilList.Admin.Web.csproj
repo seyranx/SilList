@@ -541,6 +541,10 @@
     <Content Include="Views\BusinessCategoryType\_Pagination.cshtml" />
     <Content Include="Views\ServiceType\_Pagination.cshtml" />
     <Content Include="Views\ServiceType\_Filter.cshtml" />
+    <Content Include="Views\Car\_Pagination.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Car\_Filter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
