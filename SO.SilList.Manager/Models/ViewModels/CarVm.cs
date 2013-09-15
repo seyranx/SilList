@@ -55,7 +55,7 @@ namespace SO.SilList.Manager.Models.ViewModels
                 {
                     int tmp = (int)pageNumber - (int)(pageLinkCount / 2);
                     if(tmp+pageLinkCount>totalPages)
-                    tmp = (totalPages - pageLinkCount)+1;
+                    tmp = (totalPages - pageLinkCount);
                     if (tmp <= 0)
                         tmp = 1;
                     return tmp;
