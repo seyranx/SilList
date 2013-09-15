@@ -12,7 +12,7 @@ namespace SO.SilList.Manager.Interfaces
     {
 
          ModelTypeVo get(int modelTypeId);
-         List<ModelTypeVo> getAll(bool? isActive = true);
+         List<ModelTypeVo> getAll(bool? isActive = true,int? makeTypeId =null );
          bool delete(int modelTypeId);
          ModelTypeVo update(ModelTypeVo input, int? modelTypeId = null);
          ModelTypeVo insert(ModelTypeVo input);

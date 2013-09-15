@@ -7,11 +7,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Manager.Managers
 {
     public class CarBodyTypeManager: ICarBodyTypeManager
     {
+        public CarBodyTypeManager()
+        {}
+
         public CarBodyTypeVo get(int carBodyTypeId)
         {
             using (var db = new MainDb())
@@ -34,6 +38,24 @@ namespace SO.SilList.Manager.Managers
                             .FirstOrDefault();
 
                 return res;
+            }
+        }
+
+        public List<CarBodyTypeVo> search(CarBodyTypeVm input)
+        {
+
+            using (var db = new MainDb())
+            {
+                var list = db.carBodyType
+                             .OrderBy(b => b.name)
+                             .Skip(input.skip)
+                             .Take(input.rowCount)
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                    )
+                             .ToList();
+
+                return list;
             }
         }
 

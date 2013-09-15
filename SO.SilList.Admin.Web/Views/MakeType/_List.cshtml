@@ -1,13 +1,11 @@
-﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.ModelTypeVo>
+﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.MakeTypeVo>
 
-<p>
-    <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
+<p style="margin-top:10px; margin-bottom:10px;">
+   <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
+
 </p>
 <table class="table table-bordered table-hover">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.makeTypeId)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.name)
         </th>
@@ -26,9 +24,6 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.makeType.name)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.name)
         </td>
         <td>
@@ -41,9 +36,9 @@
             @Html.DisplayFor(modelItem => item.isActive)
         </td>
         <td>
-            <a href="@Url.Action("Edit",new { id=item.modelTypeId })" class="btn">Edit</a>
-            <a href="@Url.Action("Details",new { id=item.modelTypeId })" class="btn">Details</a>
-            <a href="@Url.Action("Delete",new { id=item.modelTypeId })" class="btn">Delete</a>
+           <a href="@Url.Action("Edit",new { id=item.makeTypeId })" class="btn">Edit</a>
+            <a href="@Url.Action("Details",new { id=item.makeTypeId })" class="btn">Details</a>
+            <a href="@Url.Action("Delete",new { id=item.makeTypeId })" class="btn">Delete</a>
         </td>
     </tr>
 }

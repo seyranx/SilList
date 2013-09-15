@@ -8,7 +8,7 @@ namespace SO.SilList.Tests.Managers
     [TestClass]
     public class CarImageManagerTest
     {
-        private CarImageManager carImageManager = new CarImageManager();
+        private CarImagesManager carImageManager = new CarImagesManager();
 
         [TestMethod]
         public void getAllTest()

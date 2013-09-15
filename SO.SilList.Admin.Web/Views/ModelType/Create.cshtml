@@ -10,42 +10,49 @@
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
-    <fieldset>
+    <fieldset class="form-horizontal">
     <legend></legend>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.makeTypeId)
-        </div>
-        <div class="editor-field">
-             @Html.Action("DropDownList","MakeType",new {id=Model.makeTypeId})
-        </div>
 
-        <div class="editor-label">
+    
+        <div class="control-group">
+        <div class="control-label">
             @Html.LabelFor(model => model.name)
         </div>
-        <div class="editor-field">
+        <div class="controls">
             @Html.EditorFor(model => model.name)
             @Html.ValidationMessageFor(model => model.name)
         </div>
+        </div>
 
-        <div class="editor-label">
+            <div class="control-group">
+        <div class="control-label">
+            @Html.LabelFor(model => model.makeTypeId)
+        </div>
+        <div class="controls">
+             @Html.Action("DropDownList","MakeType",new {id=Model.makeTypeId})
+        </div>
+        </div>
+
+        <div class="control-group">
+        <div class="control-label">
             @Html.LabelFor(model => model.description)
         </div>
-        <div class="editor-field">
+        <div class="controls">
             @Html.EditorFor(model => model.description)
             @Html.ValidationMessageFor(model => model.description)
         </div>
+        </div>
 
-
-
-        <div class="editor-label">
+        <div class="control-group">
+        <div class="control-label">
             @Html.LabelFor(model => model.isActive)
         </div>
-        <div class="editor-field">
+        <div class="controls">
             @Html.EditorFor(model => model.isActive)
             @Html.ValidationMessageFor(model => model.isActive)
         </div>
-
+        </div>
         <p>
             <input type="submit" value="Create" />
             <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
