@@ -143,9 +143,15 @@
     <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\BusinessImagesController.cs" />
     <Compile Include="Controllers\BuySellController.cs" />
+<<<<<<< HEAD
     <Compile Include="Controllers\CarImageController.cs" />
     <Compile Include="Controllers\EnvironmentTypeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
+=======
+    <Compile Include="Controllers\CarImagesController.cs" />
+    <Compile Include="Controllers\EnvironmentTypeController.cs" />
+    <Compile Include="Controllers\ImagesController.cs" />
+>>>>>>> SiList_57
     <Compile Include="Controllers\JobCategoryTypeController.cs" />
     <Compile Include="Controllers\LeaseTermTypeController.cs" />
     <Compile Include="Controllers\JobController.cs" />
@@ -186,60 +192,6 @@
     <Content Include="Content\bootstrap\js\bootstrap.js" />
     <Content Include="Content\bootstrap\js\bootstrap.min.js" />
     <Content Include="Content\themes\base\images\topBack.jpg" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\themes\base\jquery-ui.css" />
-    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
-    <Content Include="Content\themes\base\jquery.ui.all.css" />
-    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
-    <Content Include="Content\themes\base\jquery.ui.base.css" />
-    <Content Include="Content\themes\base\jquery.ui.button.css" />
-    <Content Include="Content\themes\base\jquery.ui.core.css" />
-    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
-    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
-    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
-    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
-    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
-    <Content Include="Content\themes\base\jquery.ui.slider.css" />
-    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
-    <Content Include="Content\themes\base\jquery.ui.theme.css" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="CodeTemplates\AddView\CSHTML\Create.tt">
@@ -312,8 +264,6 @@
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery-ui-1.8.20.js" />
-    <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -375,7 +325,7 @@
     <Content Include="Views\Member\Index.cshtml" />
     <Content Include="Views\Member\_List.cshtml" />
     <Content Include="Views\BusinessCategoryType\Index.cshtml" />
-    <Content Include="Views\BusinessCategoryType\List.cshtml" />
+    <Content Include="Views\BusinessCategoryType\_List.cshtml" />
     <Content Include="Views\Listing\Index.cshtml" />
     <Content Include="Views\Listing\_Menu.cshtml" />
     <Content Include="Views\Listing\Create.cshtml" />
@@ -410,11 +360,11 @@
     <Content Include="Views\SettingType\List.cshtml" />
     <Content Include="Views\Car\Index.cshtml" />
     <Content Include="Views\Car\_Menu.cshtml" />
-    <Content Include="Views\Car\List.cshtml" />
+    <Content Include="Views\Car\_List.cshtml" />
     <Content Include="Views\Car\Create.cshtml" />
     <Content Include="Views\Car\Edit.cshtml" />
     <Content Include="Views\Car\Details.cshtml" />
-    <Content Include="Views\ModelType\List.cshtml" />
+    <Content Include="Views\ModelType\_List.cshtml" />
     <Content Include="Views\ModelType\Index.cshtml" />
     <Content Include="Views\ModelType\Edit.cshtml" />
     <Content Include="Views\ModelType\Details.cshtml" />
@@ -423,14 +373,14 @@
     <Content Include="Views\MakeType\Edit.cshtml" />
     <Content Include="Views\MakeType\Details.cshtml" />
     <Content Include="Views\MakeType\Create.cshtml" />
-    <Content Include="Views\MakeType\List.cshtml" />
+    <Content Include="Views\MakeType\_List.cshtml" />
     <Content Include="Views\CarBodyType\Index.cshtml" />
     <Content Include="Views\CarBodyType\Create.cshtml" />
     <Content Include="Views\CarBodyType\Details.cshtml" />
-    <Content Include="Views\CarBodyType\List.cshtml" />
+    <Content Include="Views\CarBodyType\_List.cshtml" />
     <Content Include="Views\CarBodyType\Edit.cshtml" />
     <Content Include="Views\TransmissionType\Index.cshtml" />
-    <Content Include="Views\TransmissionType\List.cshtml" />
+    <Content Include="Views\TransmissionType\_List.cshtml" />
     <Content Include="Views\TransmissionType\Details.cshtml" />
     <Content Include="Views\TransmissionType\Edit.cshtml" />
     <Content Include="Views\TransmissionType\Create.cshtml" />
@@ -452,7 +402,7 @@
     <Content Include="Views\BusinessCategoryType\Edit.cshtml" />
     <Content Include="Views\ServiceType\Index.cshtml" />
     <Content Include="Views\ServiceType\Create.cshtml" />
-    <Content Include="Views\ServiceType\List.cshtml" />
+    <Content Include="Views\ServiceType\_List.cshtml" />
     <Content Include="Views\ServiceType\Edit.cshtml" />
     <Content Include="Views\ServiceType\Details.cshtml" />
     <Content Include="Views\ListingCategoryType\Edit.cshtml" />
@@ -468,6 +418,7 @@
     <Content Include="Views\CarBodyType\_DropDownList.cshtml" />
     <Content Include="Views\TransmissionType\_DropDownList.cshtml" />
     <Content Include="Views\Car\_DropDownList.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\ListingType\Create.cshtml" />
     <Content Include="Views\ListingType\Edit.cshtml" />
     <Content Include="Views\ListingType\Details.cshtml" />
@@ -526,20 +477,39 @@
     <Content Include="Views\BusinessImages\Edit.cshtml" />
     <Content Include="Views\BusinessImages\Index.cshtml" />
     <Content Include="Views\BusinessImages\_List.cshtml" />
-<<<<<<< HEAD
+    <Content Include="Views\Visit\Index.cshtml" />
+    <Content Include="Views\Visit\_Filter.cshtml" />
+    <Content Include="Views\Rental\_Pagination.cshtml" />
+    <Content Include="Views\Rental\_Filter.cshtml" />
+    <Content Include="Views\Visit\_List.cshtml" />
+    <Content Include="Views\Visit\_Pagination.cshtml" />
+    <Content Include="Views\Visit\Delete.cshtml" />
     <Content Include="Views\Listing\_Filter.cshtml" />
     <Content Include="Views\Listing\_Pagination.cshtml" />
     <Content Include="Views\ListingCategoryType\_Filter.cshtml" />
     <Content Include="Views\ListingCategoryType\_Pagination.cshtml" />
     <Content Include="Views\ListingType\_Filter.cshtml" />
     <Content Include="Views\ListingType\_Pagination.cshtml" />
+    <Content Include="Views\BusinessCategoryType\_Filter.cshtml" />
+    <Content Include="Views\BusinessCategoryType\_Pagination.cshtml" />
+    <Content Include="Views\ServiceType\_Pagination.cshtml" />
+    <Content Include="Views\ServiceType\_Filter.cshtml" />
 =======
-    <Content Include="Views\Visit\Index.cshtml" />
-    <Content Include="Views\Visit\_Filter.cshtml" />
-    <Content Include="Views\Visit\_List.cshtml" />
-    <Content Include="Views\Visit\_Pagination.cshtml" />
-    <Content Include="Views\Visit\Delete.cshtml" />
->>>>>>> master
+    <Content Include="Views\Car\_Filter.cshtml" />
+    <Content Include="Views\Business\_Pagination.cshtml" />
+    <Content Include="Views\Business\_DropDownList.cshtml" />
+    <Content Include="Views\Business\_Filter.cshtml" />
+    <Content Include="Views\Business\_List.cshtml" />
+    <Content Include="Views\Car\_Pagination.cshtml" />
+    <Content Include="Views\CarBodyType\_Pagination.cshtml" />
+    <Content Include="Views\CarBodyType\_Filter.cshtml" />
+    <Content Include="Views\MakeType\_Filter.cshtml" />
+    <Content Include="Views\MakeType\_Pagination.cshtml" />
+    <Content Include="Views\ModelType\_Filter.cshtml" />
+    <Content Include="Views\ModelType\_Pagination.cshtml" />
+    <Content Include="Views\TransmissionType\_Filter.cshtml" />
+    <Content Include="Views\TransmissionType\_Pagination.cshtml" />
+>>>>>>> SiList_57
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -582,7 +552,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50638</DevelopmentServerPort>
+          <DevelopmentServerPort>61467</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:64907/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

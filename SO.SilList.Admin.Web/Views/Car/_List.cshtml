@@ -1,10 +1,17 @@
 ﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.CarVo>
 
-<p>
-    <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
+<p style="margin-top:10px; margin-bottom:10px;">
+   <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
+
 </p>
 <table class="table table-bordered table-hover">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.siteId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.makeTypeId)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.modelTypeId)
         </th>
@@ -13,9 +20,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.millage)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.siteId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.created)
@@ -38,6 +42,12 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.site.domain)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.modelType.makeType.name)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.modelType.name)
         </td>
         <td>
@@ -46,9 +56,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.millage)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.site.domain)
-        </td>
+
         <td>   
             <span>@String.Format("{0:MM/dd/yyy}", item.created)</span>
         </td>

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SO.SilList.Manager.Interfaces
 {
-    interface ICarImageManager
+    interface ICarImagesManager
     {
 
          CarImagesVo get(Guid carImagesId);

@@ -1,7 +1,9 @@
-﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.TransmissionTypeVo>
+﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.CarBodyTypeVo>
 
-<p>
-    <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
+
+<p style="margin-top:10px; margin-bottom:10px;">
+   <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
+
 </p>
 <table class="table table-bordered table-hover">
     <tr>
@@ -35,9 +37,9 @@
             @Html.DisplayFor(modelItem => item.isActive)
         </td>
         <td>
-             <a href="@Url.Action("Edit",new { id=item.transmissionTypeId })" class="btn">Edit</a>
-            <a href="@Url.Action("Details",new { id=item.transmissionTypeId })" class="btn">Details</a>
-            <a href="@Url.Action("Delete",new { id=item.transmissionTypeId })" class="btn">Delete</a>
+          <a href="@Url.Action("Edit",new { id=item.carBodyTypeId })" class="btn">Edit</a>
+            <a href="@Url.Action("Details",new { id=item.carBodyTypeId })" class="btn">Details</a>
+            <a href="@Url.Action("Delete",new { id=item.carBodyTypeId })" class="btn">Delete</a>
         </td>
     </tr>
 }
