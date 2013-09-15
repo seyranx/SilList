@@ -40,7 +40,9 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\DontTrackVisitAttribute.cs" />
+    <Compile Include="Attributes\TrackVisitAttribute.cs" />
     <Compile Include="Classes\Connection.cs" />
     <Compile Include="DbContexts\MainDb.cs" />
     <Compile Include="Interfaces\IAdminManager.cs" />
@@ -57,7 +61,7 @@
     <Compile Include="Interfaces\ITransmissionTypeManager.cs" />
     <Compile Include="Interfaces\IMakeTypeManager.cs" />
     <Compile Include="Interfaces\IModelTypeManager.cs" />
-    <Compile Include="Interfaces\ICarImageManager.cs" />
+    <Compile Include="Interfaces\ICarImagesManager.cs" />
     <Compile Include="Interfaces\ICarBodyTypeManager.cs" />
     <Compile Include="Interfaces\ICarManager.cs" />
     <Compile Include="Interfaces\IBusinessImagesManager.cs" />
@@ -96,8 +100,9 @@
     <Compile Include="Managers\BusinessRatingsManager.cs" />
     <Compile Include="Managers\BusinessServicesManager.cs" />
     <Compile Include="Managers\CarBodyTypeManager.cs" />
-    <Compile Include="Managers\CarImageManager.cs" />
+    <Compile Include="Managers\CarImagesManager.cs" />
     <Compile Include="Managers\CarManager.cs" />
+    <Compile Include="Managers\CurrentMember.cs" />
     <Compile Include="Managers\EnvironmentTypeManager.cs" />
     <Compile Include="Managers\ImageManager.cs" />
     <Compile Include="Managers\JobCategoriesManager.cs" />
@@ -123,7 +128,12 @@
     <Compile Include="Managers\SiteManager.cs" />
     <Compile Include="Managers\RentalManager.cs" />
     <Compile Include="Managers\TransmissionTypeManager.cs" />
+<<<<<<< HEAD
     <Compile Include="Managers\VisitManager.cs" />
+=======
+    <Compile Include="Models\ViewModels\BusinessVm.cs" />
+    <Compile Include="Models\ViewModels\CarVm.cs" />
+>>>>>>> SiList_57
     <Compile Include="Models\ValueObjects\AdminVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessCategoryTypeVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessCategoriesVo.cs" />
@@ -163,17 +173,25 @@
     <Compile Include="Models\ValueObjects\SettingTypeVo.cs" />
     <Compile Include="Models\ValueObjects\SiteVo.cs" />
     <Compile Include="Models\ValueObjects\TransmissionTypeVo.cs" />
+<<<<<<< HEAD
     <Compile Include="Models\ValueObjects\VisitVo.cs" />
     <Compile Include="Models\ViewModels\Admin\AccountLoginVm.cs" />
     <Compile Include="Models\ViewModels\Admin\AccountManageVm.cs" />
+    <Compile Include="Models\ViewModels\BusinessCategoryTypeVm.cs" />
     <Compile Include="Models\ViewModels\BusinessVm.cs" />
-<<<<<<< HEAD
     <Compile Include="Models\ViewModels\ListingTypeVm.cs" />
+    <Compile Include="Models\ViewModels\RentalVm.cs" />
+    <Compile Include="Models\ViewModels\ServiceTypeVm.cs" />
+    <Compile Include="Models\ViewModels\VisitVm.cs" />
     <Compile Include="Models\ViewModels\ListingCategoryTypeVm.cs" />
     <Compile Include="Models\ViewModels\ListingVm.cs" />
 =======
-    <Compile Include="Models\ViewModels\VisitVm.cs" />
->>>>>>> master
+    <Compile Include="Models\ViewModels\CarBodyTypeVm.cs" />
+    <Compile Include="Models\ViewModels\CarImagesVm.cs" />
+    <Compile Include="Models\ViewModels\TransmissionTypeVm.cs" />
+    <Compile Include="Models\ViewModels\MakeTypeVm.cs" />
+    <Compile Include="Models\ViewModels\ModelTypeVm.cs" />
+>>>>>>> SiList_57
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

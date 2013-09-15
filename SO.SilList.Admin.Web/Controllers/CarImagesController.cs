@@ -9,18 +9,18 @@ using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
-    public class CarBodyTypeController : Controller
+    public class CarImageController : Controller
     {
-        private CarBodyTypeManager carBodyTypeManager = new CarBodyTypeManager();
+        private CarImagesManager carImageManager = new CarImagesManager();
         //
         // GET: /CarBodyType/
 
-        public ActionResult Index(CarBodyTypeVm input = null)
+        public ActionResult Index(CarImagesVm input = null)
         {
-            if (input == null) input = new CarBodyTypeVm();
+            if (input == null) input = new CarImagesVm();
             if (this.ModelState.IsValid)
             {
-                input.result = carBodyTypeManager.search(input);
+                input.result = carImageManager.search(input);
                 return View(input);
             }
             return View();
@@ -33,18 +33,18 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult List()
         {
-            var results = carBodyTypeManager.getAll(null);
+            var results = carImageManager.getAll(null);
             return PartialView(results);
         }
 
         [HttpPost]
-        public ActionResult Create(CarBodyTypeVo input)
+        public ActionResult Create(CarImagesVo input)
         {
 
             if (this.ModelState.IsValid)
             {
 
-                var item = carBodyTypeManager.insert(input);
+                var item = carImageManager.insert(input);
                 return RedirectToAction("Index");
             }
 
@@ -55,48 +55,48 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Create()
         {
-            var vo = new CarBodyTypeVo();
+            var vo = new CarImagesVo();
             return View(vo);
         }
 
         [HttpPost]
-        public ActionResult Edit(int id, CarBodyTypeVo input)
+        public ActionResult Edit(Guid id, CarImagesVo input)
         {
 
             if (this.ModelState.IsValid)
             {
-                var res = carBodyTypeManager.update(input, id);
+                var res = carImageManager.update(input, id);
                 return RedirectToAction("Index");
             }
 
             return View();
 
         }
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
-            var result = carBodyTypeManager.get(id);
+            var result = carImageManager.get(id);
             return View(result);
         }
 
-        public ActionResult Details(int id)
+        public ActionResult Details(Guid id)
         {
-            var result = carBodyTypeManager.get(id);
+            var result = carImageManager.get(id);
             return View(result);
         }
 
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
-            carBodyTypeManager.delete(id);
+            carImageManager.delete(id);
             return RedirectToAction("Index");
         }
 
-        public ActionResult DropDownList(int? id = null)
+        public ActionResult DropDownList(Guid? id = null)
         {
-            ViewBag.bodies = carBodyTypeManager.getAll(null);
-            var body = new CarBodyTypeVo();
+            ViewBag.bodies = carImageManager.getAll(null);
+            var body = new CarImagesVo();
             if (id != null)
             {
-                body = carBodyTypeManager.get(id.Value);
+                body = carImageManager.get(id.Value);
             }
             return PartialView("_DropDownList", body);
         }
@@ -106,7 +106,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView("_Pagination");
         }
 
-        public ActionResult Filter(CarBodyTypeVm input)
+        public ActionResult Filter(CarImagesVm input)
         {
             return PartialView("_Filter", input);
         }
