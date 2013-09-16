@@ -68,20 +68,23 @@ namespace SO.SilList.Admin.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Guid id, CarVo input, int x)
+        public ActionResult Edit(Guid id, CarVm input, List<int> ImagesToRemove)
         {
-            if (this.ModelState.IsValid)
+            if (this.ModelState.IsValid && input.car!= null)
             {
-                var res = carManager.update(input, id);
+                var res = carManager.update(input.car, id);
 
+                // removing unchecked images
+
+                // uploading new images from edit page
                 ImageManager imageManager = new ImageManager();
                 //imageManager.RemoveImageForCar(id, ViewBag.carImages);
                 imageManager.InsertImageForCar(id, Request.Files, Server);
-                
+
                 return RedirectToAction("Index");
             }
 
-            return View();
+            return View(input);
 
         }
         public ActionResult Edit(Guid id)
@@ -91,7 +94,8 @@ namespace SO.SilList.Admin.Web.Controllers
             ImageManager imageManager = new ImageManager();
             ViewBag.carImages = imageManager.getCarImages(id);
 
-            return View(result);
+            CarVm carVm = new CarVm(result);
+            return View(carVm);
         }
 
         public ActionResult Details(Guid id)

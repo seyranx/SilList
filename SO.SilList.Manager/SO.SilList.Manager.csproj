@@ -169,6 +169,7 @@
     <Compile Include="Models\ViewModels\AccountManageVm.cs" />
     <Compile Include="Models\ViewModels\AccountLoginVm.cs" />
     <Compile Include="Models\ViewModels\CarImageVm.cs" />
+    <Compile Include="Models\ViewModels\CarVm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
