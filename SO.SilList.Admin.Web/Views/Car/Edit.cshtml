@@ -100,20 +100,20 @@
         @{
     if (ViewBag.carImages != null)
     {
-        @Html.Hidden("ImagesToRemove", 777, new { id = "test_debug_id" })
-                
         int index = 0;
         foreach (SO.SilList.Manager.Models.ValueObjects.ImageVo img in ViewBag.carImages)
         {
-            <img src="@img.url" id="img_@index" />
+            <br /><img src="@img.url" id="img_@index" />
         
-            @:Uncheck to remove: 
-            <input type="checkbox" id="removeImg_@index" checked="checked"/>
+            @: Uncheck to remove: 
+            <input name="removeImages" type="checkbox" id="removeImg_@index" checked="checked"/>
             // @Html.CheckBoxFor(model => model.car.isActive, new { id = "imagesToRemove", checked = "checked" } )
            
-            @Html.Hidden("removeImg_" + index.ToString(), 0)
+            @Html.Hidden("removeImgGuid_" + index.ToString(), img.id)
 
             index++;
+            @:
+            @:
 
         }
             <br />
@@ -132,16 +132,19 @@
                     @Html.Action("ImageListWithUploadForEdit", "Image" , new { id = Model.car.carId })
                 </p>*@
 
-
+        
     </fieldset>
 }
 
-
+@{
+    var numberOfExistingCarImages = ViewBag.carImages != null ? ViewBag.carImages.Count : 0;
+}
+    
 <script type="text/javascript">
     debugger;
     $(document).ready(function () {
         $("#myForm").submit(function () {
-            var numOfCheckboxes = @ViewBag.carImages.Count;
+            var numOfCheckboxes = @numberOfExistingCarImages;
             for(var ind = 0; ind < numOfCheckboxes; ind++)
             {
                 var checkBoxIdStr = "removeImg_" + ind;
@@ -150,15 +153,18 @@
                 {
                     if(checkBox.checked())
                     {
+                        alert( "checked: No: " + ind);
+                      //  this.appendChild("<input type='hidden' value='" + @img.id.ToString() + "' />");
+                        /*
                         var checkBox_CorrespondingHiddenControl = $(checkBoxIdStr);
                         if(checkBox_CorrespondingHiddenControl != null)
                             checkBox_CorrespondingHiddenControl.val(1);
+                        */
                     }
 
                 }
                 // assuming all removed
             }
-            alert(" 1 " + numOfCheckboxes.toString() );
         });
     });
 </script>
