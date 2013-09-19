@@ -109,7 +109,7 @@
             <input name="removeImages" type="checkbox" id="removeImg_@index" checked="checked"/>
             // @Html.CheckBoxFor(model => model.car.isActive, new { id = "imagesToRemove", checked = "checked" } )
            
-            @Html.Hidden("removeImgGuid_" + index.ToString(), img.id)
+            @Html.Hidden("removeImgGuid_" + index.ToString(), new { guid = @img.imageId } )
 
             index++;
             @:
@@ -153,8 +153,8 @@
                 {
                     if(checkBox.checked())
                     {
-                        alert( "checked: No: " + ind);
-                      //  this.appendChild("<input type='hidden' value='" + @img.id.ToString() + "' />");
+                        alert( "checked: Num: " + ind);
+                     
                         /*
                         var checkBox_CorrespondingHiddenControl = $(checkBoxIdStr);
                         if(checkBox_CorrespondingHiddenControl != null)
