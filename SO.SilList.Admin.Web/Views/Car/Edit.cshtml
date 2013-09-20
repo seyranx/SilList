@@ -98,20 +98,24 @@
 
         @* car image stuff below *@
         @{
-    if (ViewBag.carImages != null)
+    if (Model.imagesToRemove != null)
     {
-        int index = 0;
-        foreach (SO.SilList.Manager.Models.ValueObjects.ImageVo img in ViewBag.carImages)
+        for (int index = 0; index < Model.imagesToRemove.Count; ++index)
         {
-            <br /><img src="@img.url" id="img_@index" />
+            // SO.SilList.Manager.Models.ValueObjects.ImageVo img = Model.imagesToRemove[index];
+            
+            @Html.HiddenFor(x => x.imagesToRemove[index].imageIdStr);
+            @:
+            <br /><img src="@Model.imagesToRemove[index].imageUrlStr" id="img_@index" />
         
             @: Uncheck to remove: 
+@*
             <input name="removeImages" type="checkbox" id="removeImg_@index" checked="checked"/>
             // @Html.CheckBoxFor(model => model.car.isActive, new { id = "imagesToRemove", checked = "checked" } )
-           
-            @Html.Hidden("removeImgGuid_" + index.ToString(), new { guid = @img.imageId } )
+                       @Html.Hidden("removeImgGuid_" + index.ToString(), new { guid = @img.imageId } )
+*@  
+            @Html.CheckBoxFor(m => m.imagesToRemove[index].imageIsChecked, new { id = "removeImg_" + index.ToString() })
 
-            index++;
             @:
             @:
 

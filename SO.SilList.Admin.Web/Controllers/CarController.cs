@@ -68,52 +68,52 @@ namespace SO.SilList.Admin.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Guid id, CarVm input, IEnumerable<string> removeImages, IEnumerable<string> removeImgGuids)
-      {
-         if (this.ModelState.IsValid && input.car != null)
-         {
-            var res = carManager.update(input.car, id);
-
-            // Care Images stuff
-            ImageManager imageManager = new ImageManager();
-            // removing unchecked images
-            if (removeImages != null && removeImgGuids != null)
+        public ActionResult Edit(Guid id, CarVm input)
+        {
+            if (this.ModelState.IsValid && input.car != null)
             {
-               //int ind = 0;
-               //foreach (string chkBoxState in removeImages)
-               //{
-               //   if(chkBoxState != "on")
-               //   {
-               //      // remove image with given guid 
-               //       imageManager.RemoveImageForCar(id, removeImgGuids.ElementAt(ind));
-               //   }
-               //   ind++;
-               //}
-                foreach (string strImgGuid in removeImgGuids)
-               {
-                   Guid imgGuid = Guid.Empty;
-                   imgGuid = Guid.Parse(strImgGuid);
-                   imageManager.RemoveImageForCar(id, imgGuid);
-               }
+                var res = carManager.update(input.car, id);
 
+                // Care Images stuff
+                ImageManager imageManager = new ImageManager();
+                // removing unchecked images
+                if (input.imagesToRemove != null)
+                {
+                    for (int ind = 0; ind < input.imagesToRemove.Count(); ind++)
+                    {
+                        bool imgChecked = input.imagesToRemove[ind].imageIsChecked;
+                        if (!imgChecked)
+                        {
+                            string strGuid = input.imagesToRemove[ind].imageIdStr;
+                            Guid imgGuid = Guid.Empty;
+                            if (Guid.TryParse(strGuid, out imgGuid))
+                            {
+                                imageManager.RemoveImageForCar(id, imgGuid);
+                            }
+                        }
+                    }
+                }
+                // uploading new images from edit page
+                imageManager.InsertImageForCar(id, Request.Files, Server);
+
+                return RedirectToAction("Index");
             }
-            // uploading new images from edit page
-            imageManager.InsertImageForCar(id, Request.Files, Server);
 
-            return RedirectToAction("Index");
-         }
+            return View(input);
 
-         return View(input);
-
-      }
+        }
         public ActionResult Edit(Guid id)
         {
             var result = carManager.get(id);
 
             ImageManager imageManager = new ImageManager();
-            ViewBag.carImages = imageManager.getCarImages(id);
 
+            var carImages = imageManager.getCarImages(id);
             CarVm carVm = new CarVm(result);
+            foreach (ImageVo image in carImages)
+            {
+                carVm.AddCarImageInfo(image, true);
+            }
             return View(carVm);
         }
 

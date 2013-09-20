@@ -232,6 +232,7 @@ namespace SO.SilList.Manager.Managers
             imgVo.url = imageUrl;
             using (var db = new MainDb())
             {
+                //todo: need to use the other way LINQ ??
                 db.images.Add(imgVo);
 
                 CarImagesVo carImageVo = new CarImagesVo();
@@ -273,7 +274,6 @@ namespace SO.SilList.Manager.Managers
                         string imageNameOnServer = Guid.NewGuid().ToString() + fileExtension1;
                         string uploadImageAbsFilePath1 = Path.Combine(sDir, imageNameOnServer);
                         UploadImage1.SaveAs(uploadImageAbsFilePath1);
-                        ///string imageUrl = "~/" + this.GetBasePathFromConfig() + "/" + imageNameOnServer;
                         string imageUrl = this.GetBasePathFromConfig() + "/" + imageNameOnServer;
                         this.InsertImageAndCarImageIntoDb(id, fileName1, imageUrl, uploadImageAbsFilePath1);
                     }
@@ -286,8 +286,7 @@ namespace SO.SilList.Manager.Managers
                     {
                         string imageNameOnServer = Guid.NewGuid().ToString() + fileExtension2;
                         string uploadImageAbsFilePath2 = Path.Combine(sDir, imageNameOnServer);
-                        ///string imageUrl = "~/" + this.GetBasePathFromConfig() + "/" + imageNameOnServer;
-                        string imageUrl = "~" + this.GetBasePathFromConfig() + "/" + imageNameOnServer;
+                        string imageUrl = this.GetBasePathFromConfig() + "/" + imageNameOnServer;
                         this.InsertImageAndCarImageIntoDb(id, fileName2, imageUrl, uploadImageAbsFilePath2);
                         UploadImage2.SaveAs(uploadImageAbsFilePath2);
                     }
@@ -298,19 +297,34 @@ namespace SO.SilList.Manager.Managers
         public void RemoveImageForCar(Guid carId, Guid imgGuid)
         {
             //todo: note tested ... run to test
-
-            ImageVo imgVo = new ImageVo();
-            imgVo.imageId = imgGuid;
-            using (var db = new MainDb())
+            try
             {
-                db.images.Remove(imgVo);
+                using (var db = new MainDb())
+                {
+                    //todo: Ask Mesrop for what the form below is used .. and why it throws ..
 
-                CarImagesVo carImageVo = new CarImagesVo();
-                carImageVo.carId = carId;
-                carImageVo.imageId = imgGuid;
-                db.carImages.Add(carImageVo);
+                    ////ImageVo imgVo = new ImageVo();
+                    ////imgVo.imageId = imgGuid;
+                    //// db.images.Remove(imgVo)
 
-                db.SaveChanges();
+                    //Don't need db.SaveChanges() and carImages table got it's corresponding things removed too ..
+                    var res = db.images
+                        .Where(m => m.imageId == imgGuid)
+                        .Delete();
+
+                        var x_dbg = db.carImages
+                            .Where(m => m.carId == carId && m.image.imageId == imgGuid)
+                            .Count();
+
+                    res = db.carImages
+                        .Where(m => m.carId == carId && m.image.imageId == imgGuid)
+                        .Delete();
+
+                    db.SaveChanges(); // 
+                }
+            }
+            catch
+            {
             }
         }
         /////////////////////////////////////////////////////////////////
