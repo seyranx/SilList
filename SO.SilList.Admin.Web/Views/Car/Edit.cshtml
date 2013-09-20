@@ -98,32 +98,25 @@
 
         @* car image stuff below *@
         @{
-    if (Model.imagesToRemove != null)
-    {
-        for (int index = 0; index < Model.imagesToRemove.Count; ++index)
-        {
-            // SO.SilList.Manager.Models.ValueObjects.ImageVo img = Model.imagesToRemove[index];
-            
-            @Html.HiddenFor(x => x.imagesToRemove[index].imageIdStr);
-            @:
-            <br /><img src="@Model.imagesToRemove[index].imageUrlStr" id="img_@index" />
+            if (Model.imagesToRemove != null)
+            {
+                for (int index = 0; index < Model.imagesToRemove.Count; ++index)
+                {
+                    @Html.HiddenFor(x => x.imagesToRemove[index].imageIdStr);
+                    @:
+                    <br /><img src="@Model.imagesToRemove[index].imageUrlStr" id="img_@index" />
         
-            @: Uncheck to remove: 
-@*
-            <input name="removeImages" type="checkbox" id="removeImg_@index" checked="checked"/>
-            // @Html.CheckBoxFor(model => model.car.isActive, new { id = "imagesToRemove", checked = "checked" } )
-                       @Html.Hidden("removeImgGuid_" + index.ToString(), new { guid = @img.imageId } )
-*@  
-            @Html.CheckBoxFor(m => m.imagesToRemove[index].imageIsChecked, new { id = "removeImg_" + index.ToString() })
+                    @: Uncheck to remove: 
+                    @Html.CheckBoxFor(m => m.imagesToRemove[index].imageIsChecked, new { id = "removeImg_" + index.ToString() })
 
-            @:
-            @:
+                    @:
+                    @:
 
+                }
+                    <br />
+            }
         }
-            <br />
-    }
-        }
-        @Html.Partial("../Image/_ImagePickerControls")  @* direct call *@
+        @Html.Partial("../Image/_ImagePickerControls")
         <br />
         @* car images stuff above *@
 
@@ -132,17 +125,14 @@
             <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
         </p>
         <hr />
-        @*       <p>
-                    @Html.Action("ImageListWithUploadForEdit", "Image" , new { id = Model.car.carId })
-                </p>*@
-
         
     </fieldset>
 }
 
+@* don't need this for now
 @{
     var numberOfExistingCarImages = ViewBag.carImages != null ? ViewBag.carImages.Count : 0;
-}
+    }
     
 <script type="text/javascript">
     debugger;
@@ -172,3 +162,4 @@
         });
     });
 </script>
+*@

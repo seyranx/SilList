@@ -11,6 +11,7 @@ using SO.SilList.Manager.Models.ValueObjects;
 using System.Data.SqlClient;
 using System.IO;
 using System.Web;
+using System.Diagnostics;
 
 namespace SO.SilList.Manager.Managers
 {
@@ -296,35 +297,28 @@ namespace SO.SilList.Manager.Managers
 
         public void RemoveImageForCar(Guid carId, Guid imgGuid)
         {
-            //todo: note tested ... run to test
-            try
+            using (var db = new MainDb())
             {
-                using (var db = new MainDb())
+                var query = db.images
+                   .Where(m => m.imageId == imgGuid);
+
+                // Delete the file from the disk
+                var list = query.ToList();
+                Debug.Assert(list.Count == 1);
+                string imagePath = list[0].path;
+                if (!String.IsNullOrEmpty(imagePath))
                 {
-                    //todo: Ask Mesrop for what the form below is used .. and why it throws ..
-
-                    ////ImageVo imgVo = new ImageVo();
-                    ////imgVo.imageId = imgGuid;
-                    //// db.images.Remove(imgVo)
-
-                    //Don't need db.SaveChanges() and carImages table got it's corresponding things removed too ..
-                    var res = db.images
-                        .Where(m => m.imageId == imgGuid)
-                        .Delete();
-
-                        var x_dbg = db.carImages
-                            .Where(m => m.carId == carId && m.image.imageId == imgGuid)
-                            .Count();
-
-                    res = db.carImages
-                        .Where(m => m.carId == carId && m.image.imageId == imgGuid)
-                        .Delete();
-
-                    db.SaveChanges(); // 
+                    try
+                    {
+                        File.Delete(imagePath);
+                    }
+                    catch (DirectoryNotFoundException dirNotFound)
+                    {
+                        Console.WriteLine(dirNotFound.Message);
+                    }
                 }
-            }
-            catch
-            {
+                // Delete image from Db
+                query.Delete();
             }
         }
         /////////////////////////////////////////////////////////////////
