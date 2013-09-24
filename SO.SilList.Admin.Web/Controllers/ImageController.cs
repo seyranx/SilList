@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SO.SilList.Manager.Models.ValueObjects;
+using System.IO;
+using System.Diagnostics;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
@@ -25,13 +27,13 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult DropDownList(Guid? id = null)
         {
-           ViewBag.images = imageManager.getAll(null);
-           var image = new ImageVo();
-           if (id != null)
-           {
-              image = imageManager.get(id.Value);
-           }
-           return PartialView("_DropDownList", image);
+            ViewBag.images = imageManager.getAll(null);
+            var image = new ImageVo();
+            if (id != null)
+            {
+                image = imageManager.get(id.Value);
+            }
+            return PartialView("_DropDownList", image);
         }
 
 
@@ -56,7 +58,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult _ListCarImages()
         {
-            var results = imageManager.getCarImages();
+            var results = imageManager.getAllCarImages();
             return PartialView(results);
         }
 
@@ -149,5 +151,105 @@ namespace SO.SilList.Admin.Web.Controllers
             imageManager.delete(id);
             return RedirectToAction("Index");
         }
+        [HttpPost]
+        public ActionResult _ImageListWithUpload(Guid? id = null)
+        {
+            string csRelativeBasePath = imageManager.GetBasePathFromConfig();
+            string sBaseDir = "~/" + csRelativeBasePath;
+            string sDir = Server.MapPath(sBaseDir);
+            // todo: need to make sure we have write access to this folder.
+            if (!Directory.Exists(sDir))
+            {
+                Directory.CreateDirectory(sDir);
+            }
+
+            //if (Request.Files.Count > 0)
+            //{
+            //    // todo: need to make sure they are uploading image files 
+            //    var UploadImage1 = Request.Files["UploadImage1"];
+            //    var UploadImage2 = Request.Files["UploadImage2"];
+
+            //    string fileName1 = Path.GetFileName(UploadImage1.FileName);
+            //    string fileExtension1 = Path.GetExtension(UploadImage1.FileName);
+            //    if (!string.IsNullOrEmpty(fileName1) && IsImageFile(fileExtension1))
+            //    {
+            //        string uploadImageAbsFilePath1 = Path.Combine(sDir, Guid.NewGuid().ToString() + "." + fileExtension1);
+            //        UploadImage1.SaveAs(uploadImageAbsFilePath1);
+            //        imageManager.InsertImageAndCarImage(id.Value, uploadImageAbsFilePath1);
+            //    }
+            //    string fileName2 = Path.GetFileName(UploadImage2.FileName);
+            //    string fileExtension2 = Path.GetExtension(UploadImage2.FileName);
+            //    if (!string.IsNullOrEmpty(fileName2) && IsImageFile(fileExtension2))
+            //    {
+            //        string uploadImageAbsFilePath2 = Path.Combine(sDir, Guid.NewGuid().ToString() + "." + fileExtension2);
+            //        UploadImage2.SaveAs(uploadImageAbsFilePath2);
+            //        imageManager.InsertImageAndCarImage(id.Value, uploadImageAbsFilePath2);
+            //    }
+            //}
+            return PartialView("_ImageListWithUpload");
+        }
+
+        public ActionResult _ImagePickerControls()
+        {
+            //if (id != null)
+            //{
+            //    ViewBag.carId = id;
+            //    List<ImageVo> carImageList = imageManager.getCarImages(id.Value);
+            //    return PartialView("_ImageListWithUpload", carImageList);
+            //}
+            return PartialView();
+        }
+
+        [HttpPost]
+        public ActionResult _ImageListWithUpload_Edit(Guid? id = null)
+        {
+            string csRelativeBasePath = imageManager.GetBasePathFromConfig();
+            string sBaseDir = "~/" + csRelativeBasePath;
+            string sDir = Server.MapPath(sBaseDir);
+
+            // todo: need to make sure we have write access to this folder.
+            if (!Directory.Exists(sDir))
+            {
+                Directory.CreateDirectory(sDir);
+            }
+
+            //if (Request.Files.Count > 0)
+            //{
+            //    // todo: need to make sure they are uploading image files 
+            //    var UploadImage1 = Request.Files["UploadImage1"];
+            //    var UploadImage2 = Request.Files["UploadImage2"];
+
+            //    string fileName1 = Path.GetFileName(UploadImage1.FileName);
+            //    string fileExtension1 = Path.GetExtension(UploadImage1.FileName);
+            //    if (!string.IsNullOrEmpty(fileName1) && IsImageFile(fileExtension1))
+            //    {
+            //        string uploadImageAbsFilePath1 = Path.Combine(sDir, Guid.NewGuid().ToString() + "." + fileExtension1);
+            //        UploadImage1.SaveAs(uploadImageAbsFilePath1);
+            //        Debug.Assert(Path.GetFileName(uploadImageAbsFilePath1) == fileName1);
+            //        imageManager.InsertImageAndCarImage(id.Value, uploadImageAbsFilePath1);
+            //    }
+            //    string fileName2 = Path.GetFileName(UploadImage2.FileName);
+            //    string fileExtension2 = Path.GetExtension(UploadImage2.FileName);
+            //    if (!string.IsNullOrEmpty(fileName2) && IsImageFile(fileExtension2))
+            //    {
+            //        string uploadImageAbsFilePath2 = Path.Combine(sDir, Guid.NewGuid().ToString() + "." + fileExtension2);
+            //        UploadImage2.SaveAs(uploadImageAbsFilePath2);
+            //        imageManager.InsertImageAndCarImage(id.Value, uploadImageAbsFilePath2);
+            //    }
+            //}
+            return PartialView("_ImageListWithUpload_Edit");
+        }
+
+        public ActionResult _ImageListWithUpload_Edit(bool dummy, Guid? id = null)
+        {
+            if (id != null)
+            {
+                ViewBag.carId = id;
+                List<ImageVo> carImageList = imageManager.getCarImages(id.Value);
+                return PartialView("_ImageListWithUpload_Edit", carImageList);
+            }
+            return PartialView();
+        }
+
     }
 }

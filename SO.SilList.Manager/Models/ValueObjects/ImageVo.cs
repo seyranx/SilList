@@ -27,11 +27,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public string name { get; set; }
     		
     	[DisplayName("url")]
-    	[StringLength(50)]
+    	[StringLength(250)]
         public string url { get; set; }
     		
     	[DisplayName("path")]
-    	[StringLength(50)]
+    	[StringLength(250)]
         public string path { get; set; }
     		
     	[DisplayName("file Type")]

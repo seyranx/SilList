@@ -1,4 +1,4 @@
-﻿@model SO.SilList.Manager.Models.ValueObjects.CarVo
+﻿@model SO.SilList.Manager.Models.ViewModels.CarVm
 
 @{
     ViewBag.Title = "Edit";
@@ -6,19 +6,16 @@
 }
 
 
-
-
-
 <h2>@ViewBag.Title</h2>
 
-
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("Edit", "Car", FormMethod.Post, new { @encType = "multipart/form-data", id = "myForm" }))
+{
     @Html.ValidationSummary(true)
 
     <fieldset class="form-horizontal">
         <legend></legend>
 
-        @Html.HiddenFor(model => model.carId)
+        @Html.HiddenFor(model => model.car.carId)
         
         <div class="control-group">
             <div class="control-label">
@@ -49,7 +46,6 @@
 
         <div class="control-group">
         <div class="control-label">
-            @Html.LabelFor(model => model.modelTypeId)
         </div>
         <div class="controls" id ="modelList">
             @Html.Action("DropDownList","ModelType",new {id=Model.modelTypeId , _makeTypeId = Model.makeTypeId})
@@ -58,85 +54,101 @@
 
         <div class="control-group">
         <div class="control-label">
-            @Html.LabelFor(model => model.year)
         </div>
         <div class="controls">
-            @Html.EditorFor(model => model.year)
-            @Html.ValidationMessageFor(model => model.year)
+            @Html.EditorFor(model => model.car.year)
+            @Html.ValidationMessageFor(model => model.car.year)
         </div>
         </div>
 
         <div class="control-group">
         <div class="control-label">
-            @Html.LabelFor(model => model.millage)
         </div>
         <div class="controls">
-            @Html.EditorFor(model => model.millage)
-            @Html.ValidationMessageFor(model => model.millage)
+            @Html.EditorFor(model => model.car.millage)
+            @Html.ValidationMessageFor(model => model.car.millage)
         </div>
         </div>
 
         <div class="control-group">
         <div class="control-label">
-            @Html.LabelFor(model => model.carBodyTypeId)
         </div>
         <div class="controls">
-            @Html.Action("DropDownList","CarBodyType",new {id=Model.carBodyTypeId})
+            @Html.Action("DropDownList", "CarBodyType", new { id = Model.car.carBodyTypeId })
         </div>
         </div>
 
         <div class="control-group">
         <div class="control-label">
-             @Html.LabelFor(model => model.transmissionTypeId)
         </div>
         <div class="controls">
-            @Html.Action("DropDownList","TransmissionType",new {id=Model.transmissionTypeId})
+            @Html.Action("DropDownList", "TransmissionType", new { id = Model.car.transmissionTypeId })
         </div>
         </div>
 
         <div class="control-group">
         <div class="control-label">
-            @Html.LabelFor(model => model.startDate)
         </div>
         <div class="controls">
-            @Html.EditorFor(model => model.startDate)
-            @Html.ValidationMessageFor(model => model.startDate)
+            @Html.EditorFor(model => model.car.startDate)
+            @Html.ValidationMessageFor(model => model.car.startDate)
         </div>
         </div>
 
         <div class="control-group">
         <div class="control-label">
-            @Html.LabelFor(model => model.endDate)
         </div>
         <div class="controls">
-            @Html.EditorFor(model => model.endDate)
-            @Html.ValidationMessageFor(model => model.endDate)
+            @Html.EditorFor(model => model.car.endDate)
+            @Html.ValidationMessageFor(model => model.car.endDate)
         </div>
         </div>
 
         <div class="control-group">
         <div class="control-label">
-            @Html.LabelFor(model => model.isApproved)
         </div>
         <div class="controls">
-            @Html.EditorFor(model => model.isApproved)
-            @Html.ValidationMessageFor(model => model.isApproved)
+            @Html.EditorFor(model => model.car.isApproved)
+            @Html.ValidationMessageFor(model => model.car.isApproved)
         </div>
         </div>
 
         <div class="control-group">
         <div class="control-label">
-            @Html.LabelFor(model => model.isActive)
         </div>
         <div class="controls">
-            @Html.EditorFor(model => model.isActive)
-            @Html.ValidationMessageFor(model => model.isActive)
+            @Html.EditorFor(model => model.car.isActive)
+            @Html.ValidationMessageFor(model => model.car.isActive)
         </div>
          </div>
 
         <p class="controls">
+        @* car image stuff below *@
+        @{
+            if (Model.imagesToRemove != null)
+            {
+                for (int index = 0; index < Model.imagesToRemove.Count; ++index)
+                {
+                    <hr />
+                    @Html.HiddenFor(x => x.imagesToRemove[index].imageIdStr);
+                    <br /><img src="@Model.imagesToRemove[index].imageUrlStr" width="100px"  id="img_@index" />
+        
+                    @: Uncheck to remove: 
+                    @Html.CheckBoxFor(m => m.imagesToRemove[index].imageIsChecked, new { id = "removeImg_" + index.ToString() })
+                }
+                <br />
+            }
+        }
+        <hr />
+        @Html.Partial("../Image/_ImagePickerControls")
+        <br />
+        @* car images stuff above *@
+
+        <p>
             <input type="submit" value="Save" />
             <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
         </p>
+        <hr />
+        
     </fieldset>
 }

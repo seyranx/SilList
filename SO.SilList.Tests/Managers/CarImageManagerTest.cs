@@ -6,14 +6,14 @@ using SO.SilList.Manager.Managers;
 namespace SO.SilList.Tests.Managers
 {
     [TestClass]
-    public class CarImageManagerTest
+    public class CarImagesManagerTest
     {
-        private CarImagesManager carImageManager = new CarImagesManager();
+        private CarImagesManager carImagesManager = new CarImagesManager();
 
         [TestMethod]
         public void getAllTest()
         {
-            var res = carImageManager.getAll(null);
+            var res = carImagesManager.getAll(null);
 
             if (res != null)
             {
@@ -31,7 +31,7 @@ namespace SO.SilList.Tests.Managers
                 var vo = new CarImagesVo();
                // vo.imageId = i;
                 //vo.name = i.ToString() + " Test BusinessCategoryType Name ";
-                var result = carImageManager.insert(vo);
+                var result = carImagesManager.insert(vo);
                 if (result == null)
                 {
                     Assert.IsTrue(false);
@@ -49,12 +49,12 @@ namespace SO.SilList.Tests.Managers
              vo.carImagesId = Guid.NewGuid();
              vo.createdBy = 123;
 
-            var result = carImageManager.insert(vo);
-            var result2 = carImageManager.get(result.carImagesId);
+            var result = carImagesManager.insert(vo);
+            var result2 = carImagesManager.get(result.carImagesId);
 
-            carImageManager.delete(result.carImagesId);
+            carImagesManager.delete(result.carImagesId);
 
-            var result3 = carImageManager.get(result.carImagesId);
+            var result3 = carImagesManager.get(result.carImagesId);
 
             if (result != null && result2 != null && result3 == null && result2.carImagesId != null)
             {
@@ -68,7 +68,7 @@ namespace SO.SilList.Tests.Managers
         public void includesTest()
         {
 
-            var result = carImageManager.getFirst();
+            var result = carImagesManager.getFirst();
 
             //FK-s are disabled temporarily
             //var site = result.site;

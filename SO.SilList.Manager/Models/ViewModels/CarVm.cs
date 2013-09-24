@@ -10,6 +10,23 @@ using System.Threading.Tasks;
 
 namespace SO.SilList.Manager.Models.ViewModels
 {
+    public class CarImageCheckBoxInfo
+    {
+        public CarImageCheckBoxInfo()
+        {
+
+        }
+        public CarImageCheckBoxInfo(string imgIdStr, string imgUrlStr, bool isChecked = true)
+        {
+            this.imageIdStr = imgIdStr;
+            this.imageUrlStr = imgUrlStr;
+            this.imageIsChecked = isChecked;
+        }
+        public string imageIdStr { get; set; }
+        public string imageUrlStr { get; set; }
+        public bool imageIsChecked { get; set; }
+    };
+
     public class CarVm
     {
         public List<CarVo> result { get; set; }
@@ -22,20 +39,40 @@ namespace SO.SilList.Manager.Models.ViewModels
         public string submitButton { get; set; }
         public Paging paging;
 
+        public CarVo car { get; set; }
+        public List<CarImageCheckBoxInfo> imagesToRemove { get; set; }
+
+        public CarVm(CarVo input)
+        {
+            car = input;
+            InitPaging();
+        }
+
+        public void AddCarImageInfo(ImageVo carImageVo, bool isChecked = true)
+        {
+            if (imagesToRemove == null)
+            {
+                imagesToRemove = new List<CarImageCheckBoxInfo>();
+            }
+            CarImageCheckBoxInfo carImgInfo = new CarImageCheckBoxInfo(carImageVo.imageId.ToString(), carImageVo.url);
+            imagesToRemove.Add(carImgInfo);
+
+        }
+
         public int totalPages
         {
             get
             {
                 return (int)Math.Ceiling(totalCount / (Decimal)rowCount);
             }
-           
+
 
         }
         public int next10Page
         {
             get
             {
-                return (int)Math.Min((int)pageNumber+10,totalPages);
+                return (int)Math.Min((int)pageNumber + 10, totalPages);
             }
         }
         public int prev10Page
@@ -56,8 +93,8 @@ namespace SO.SilList.Manager.Models.ViewModels
                 if (pageNumber > (int)(pageLinkCount / 2))
                 {
                     int tmp = (int)pageNumber - (int)(pageLinkCount / 2);
-                    if(tmp+pageLinkCount>totalPages)
-                    tmp = (totalPages - pageLinkCount);
+                    if (tmp + pageLinkCount > totalPages)
+                        tmp = (totalPages - pageLinkCount);
                     if (tmp <= 0)
                         tmp = 1;
                     return tmp;
@@ -89,7 +126,7 @@ namespace SO.SilList.Manager.Models.ViewModels
         {
             get
             {
-                return  3;
+                return 3;
             }
         }
         public int rowCount
@@ -100,16 +137,17 @@ namespace SO.SilList.Manager.Models.ViewModels
             }
         }
 
-        public CarVm()
+        void InitPaging()
         {
             pageNumber = 1;
             this.result = new List<CarVo>();
             paging = new Paging();
         }
 
-
-
-
+        public CarVm()
+        {
+            car = new CarVo();
+            InitPaging();
+        }
     }
 }
-
