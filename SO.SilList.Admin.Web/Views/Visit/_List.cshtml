@@ -1,0 +1,67 @@
+﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.VisitVo>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            Site
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ipAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.referrerUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.created)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.modified)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.visitCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.controller)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.action)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.browser)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.site.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ipAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.referrerUrl)
+            </td>
+            <td>
+                <span>@String.Format("{0:MM/dd/yyy}", item.created)</span>
+            </td>
+            <td>
+                <span>@String.Format("{0:MM/dd/yyy}", item.modified)</span>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.visitCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.controller)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.action)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.browser)
+            </td>
+        </tr>
+    }
+
+</table>

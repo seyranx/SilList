@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+@if(Request.Browser.IsBrowser("IE"))
+{
+<script>
+    $(document).ready(function () {
+        $('#oldestDate').datepicker({
+            format: 'mm/dd/yyyy',
+            todayBtn: "linked",
+            autoclose: true,
+            todayHighlight: true
+        });
+    });
+</script>
+}
+
+<h2>Clear Site Statistics</h2>
+
+@using (Html.BeginForm()) {
+    <p>
+        Remove records older than <input name="oldestDate" id="oldestDate" type="date"/>
+
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Cancel", "Index")
+    </p>
+}

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
@@ -14,8 +15,14 @@ namespace SO.SilList.Admin.Web.Controllers
         //
         // GET: /TransmissionType/
 
-        public ActionResult Index()
+        public ActionResult Index(TransmissionTypeVm input = null)
         {
+            if (input == null) input = new TransmissionTypeVm();
+            if (this.ModelState.IsValid)
+            {
+                input.result = transmissionTypeManager.search(input);
+                return View(input);
+            }
             return View();
         }
 
@@ -93,5 +100,16 @@ namespace SO.SilList.Admin.Web.Controllers
             }
             return PartialView("_DropDownList", transmission);
         }
+
+        public ActionResult Pagination()
+        {
+            return PartialView("_Pagination");
+        }
+
+        public ActionResult Filter(TransmissionTypeVm input)
+        {
+            return PartialView("_Filter", input);
+        }
+
     }
 }

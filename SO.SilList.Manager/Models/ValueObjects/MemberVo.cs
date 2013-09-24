@@ -71,6 +71,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public string ipAddress { get; set; }
     		
     	[DisplayName("last Login")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
     	[Required]
         public System.DateTime lastLogin { get; set; }
     		
@@ -97,6 +98,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         [ForeignKey("siteId")]
         public virtual SiteVo site { get; set; }
+
+        [Association("Member_Rental", "memberId", "memberId", IsForeignKey = true)]
+        public List<RentalImageVo> rentalImage { get; set; }
 
     	public MemberVo(){
             this.lastLogin = DateTime.MinValue;

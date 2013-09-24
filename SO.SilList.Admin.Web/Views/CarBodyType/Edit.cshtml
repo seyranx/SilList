@@ -10,38 +10,51 @@
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
-    <fieldset>
-
+    <fieldset class="form-horizontal">
+        <legend></legend>
 
         @Html.HiddenFor(model => model.carBodyTypeId)
+                
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.carBodyTypeId)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.carBodyTypeId)" readonly="true">
+            </div>
+        </div>
 
-        <div class="editor-label">
+        <div class="control-group">
+        <div class="control-label">
             @Html.LabelFor(model => model.name)
         </div>
-        <div class="editor-field">
+        <div class="controls">
             @Html.EditorFor(model => model.name)
             @Html.ValidationMessageFor(model => model.name)
         </div>
+        </div>
 
-        <div class="editor-label">
+        <div class="control-group">
+        <div class="control-label">
             @Html.LabelFor(model => model.description)
         </div>
-        <div class="editor-field">
+        <div class="controls">
             @Html.EditorFor(model => model.description)
             @Html.ValidationMessageFor(model => model.description)
         </div>
+        </div>
 
-
-
-        <div class="editor-label">
+        <div class="control-group">
+        <div class="control-label">
             @Html.LabelFor(model => model.isActive)
         </div>
-        <div class="editor-field">
+        <div class="controls">
             @Html.EditorFor(model => model.isActive)
             @Html.ValidationMessageFor(model => model.isActive)
         </div>
+        </div>
 
-        <p>
+        <p class="controls">
             <input type="submit" value="Save" />
            <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
         </p>

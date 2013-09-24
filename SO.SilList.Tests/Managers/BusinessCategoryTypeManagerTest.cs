@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Data.Entity;
 using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Tests.Managers
 {
@@ -13,6 +14,23 @@ namespace SO.SilList.Tests.Managers
     public class BusinessCategoryTypeManagerTest
     {
         private BusinessCategoryTypeManager businessCategoryType = new BusinessCategoryTypeManager();
+
+        [TestMethod]
+        public void searchTest()
+        {
+            var vo = new BusinessCategoryTypeVm();
+            vo.pageNumber = 2;
+            vo.keyword = "aa";
+            vo.isActive = true;
+
+            var res = businessCategoryType.search(vo);
+
+            if (res != null)
+            {
+                Assert.IsTrue(true);
+            }
+            else Assert.IsTrue(false);
+        }
 
         [TestMethod]
         public void getAllTest()

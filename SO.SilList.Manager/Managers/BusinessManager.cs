@@ -8,6 +8,7 @@ using EntityFramework.Extensions;
 using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Interfaces;
 using SO.SilList.Manager.DbContexts;
+using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Manager.Managers
 {
@@ -63,7 +64,31 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        //
+
+        public BusinessVm search(BusinessVm input)
+        {
+           
+            using (var db = new MainDb())
+            {
+
+                var query = db.businesses
+                             .Include(s => s.site)
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                    )
+                             .OrderBy(b => b.name);
+
+                input.totalCount = query.Count();
+
+                input.result = query
+                             .Skip(input.skip)
+                             .Take(input.maxRowCount)
+                             .ToList();
+
+                return input;
+            }
+        }
+        
         public List<BusinessVo> getAll(bool? isActive=true)
         {
             using (var db = new MainDb())
@@ -71,6 +96,7 @@ namespace SO.SilList.Manager.Managers
                 var list = db.businesses
                              .Include(s => s.site)
                              .Where(e => isActive==null || e.isActive == isActive )
+
                              .ToList();
 
                 return list;

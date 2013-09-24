@@ -1,0 +1,23 @@
+﻿@model SO.SilList.Manager.Models.ViewModels.VisitVm
+ 
+<style>
+
+    #isActive {
+
+        width:90px;
+    }
+
+</style>
+
+@Html.ValidationSummary(true)
+
+@Html.LabelFor(model => model.siteId)
+@Html.Action("DropDownList", "Site", new {id=Model.siteId})
+
+@Html.LabelFor(model => model.keyword)
+@Html.TextBoxFor(model => model.keyword, new { Class = "input-large", placeholder = "Search" })
+@Html.ValidationMessageFor(model => model.keyword)
+
+<button id="btnSearch" name="btnSearch" value="Search" type="submit" class="btn">Search</button>
+     
+

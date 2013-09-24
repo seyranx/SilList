@@ -1,5 +1,6 @@
 ﻿using System.Web;
 using System.Web.Mvc;
+using SO.SilList.Manager.Attributes;
 
 namespace SO.SilList.Admin.Web
 {
@@ -8,6 +9,7 @@ namespace SO.SilList.Admin.Web
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            //filters.Add(new TrackVisitAttribute(1));
         }
     }
 }

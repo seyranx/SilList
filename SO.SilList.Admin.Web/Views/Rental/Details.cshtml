@@ -1,0 +1,142 @@
+﻿@model SO.SilList.Manager.Models.ValueObjects.RentalVo
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>RentalVo</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.propertyTypeId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.propertyTypeId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.siteId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.siteId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.bedrooms)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.bedrooms)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.bathrooms)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.bathrooms)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.rent)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.rent)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.leaseTermTypeId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.leaseTermTypeId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.size)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.size)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.lotSize)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.lotSize)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.acceptsSection8)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.acceptsSection8)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.rentTypeId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.rentTypeId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.memberId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.memberId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.modifiedBy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.modifiedBy)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.modified)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.modified)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.createdBy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.createdBy)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.created)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.created)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.isActive)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.isActive)
+    </div>
+</fieldset>
+<p>
+      <a href="@Url.Action("Index", new { id=Model.rentalId })" class="btn">Edit</a>
+      <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
+</p>

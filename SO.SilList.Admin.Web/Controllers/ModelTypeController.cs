@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
@@ -14,8 +15,14 @@ namespace SO.SilList.Admin.Web.Controllers
         //
         // GET: /ModelType/
 
-        public ActionResult Index()
+        public ActionResult Index(ModelTypeVm input = null)
         {
+            if (input == null) input = new ModelTypeVm();
+            if (this.ModelState.IsValid)
+            {
+                input.result = modelTypeManager.search(input);
+                return View(input);
+            }
             return View();
         }
 
@@ -83,9 +90,9 @@ namespace SO.SilList.Admin.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult DropDownList(int? id = null)
+        public ActionResult DropDownList(int? id = null,int? _makeTypeId = 0)
         {
-            ViewBag.models = modelTypeManager.getAll(null);
+            ViewBag.models = modelTypeManager.getAll(null,_makeTypeId);
             var model = new ModelTypeVo();
             if (id != null)
             {
@@ -93,5 +100,16 @@ namespace SO.SilList.Admin.Web.Controllers
             }
             return PartialView("_DropDownList", model);
         }
+
+        public ActionResult Pagination()
+        {
+            return PartialView("_Pagination");
+        }
+
+        public ActionResult Filter(ModelTypeVm input)
+        {
+            return PartialView("_Filter", input);
+        }
+
     }
 }

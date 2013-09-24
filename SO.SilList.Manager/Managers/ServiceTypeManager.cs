@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Manager.Managers
 {
@@ -23,7 +24,9 @@ namespace SO.SilList.Manager.Managers
         {
             using (var db = new MainDb())
             {
-                var res = db.serviceTypes.FirstOrDefault(e => e.name == name);
+                var res = db.serviceTypes
+                    .Include(s => s.site)
+                    .FirstOrDefault(e => e.name == name);
                 return res;
             }
         }
@@ -36,6 +39,40 @@ namespace SO.SilList.Manager.Managers
                             .Include(s=>s.site)
                             .FirstOrDefault(p => p.serviceTypeId == serviceTypeId);
                 return res;
+            }
+        }
+
+        /// <summary>
+        /// Get First Item
+        /// </summary>
+        public ServiceTypeVo getFirst()
+        {
+            using (var db = new MainDb())
+            {
+                var res = db.serviceTypes
+                //            .Include(s =>s.site)
+                            .FirstOrDefault();
+
+                return res;
+            }
+        }
+
+        public List<ServiceTypeVo> search(ServiceTypeVm input)
+        {
+
+            using (var db = new MainDb())
+            {
+                var list = db.serviceTypes
+                             .Include(s => s.site)
+                             .OrderBy(b => b.name)
+                             .Skip(input.skip)
+                             .Take(input.rowCount)
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                    )
+                             .ToList();
+
+                return list;
             }
         }
 
@@ -78,6 +115,10 @@ namespace SO.SilList.Manager.Managers
                 input.createdBy = res.createdBy;
                 db.Entry(res).CurrentValues.SetValues(input);
 
+
+ //               input.created = res.created;
+ //               input.createdBy = res.createdBy;
+ //               db.Entry(res).CurrentValues.SetValues(input);
 
                 db.SaveChanges();
                 return res;

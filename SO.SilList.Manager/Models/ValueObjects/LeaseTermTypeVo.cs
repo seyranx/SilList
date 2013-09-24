@@ -22,11 +22,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[Key]
         public int leaseTermTypeId { get; set; }
     		
-    	[DisplayName("name")]
+    	[DisplayName("Name")]
     	[StringLength(50)]
         public string name { get; set; }
     		
-    	[DisplayName("description")]
+    	[DisplayName("Description")]
         public string description { get; set; }
     		
     	[DisplayName("modified By")]
@@ -43,7 +43,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[Required]
         public System.DateTime created { get; set; }
     		
-    	[DisplayName("is Active")]
+    	[DisplayName("Is Active")]
     	[Required]
         public bool isActive { get; set; }
 

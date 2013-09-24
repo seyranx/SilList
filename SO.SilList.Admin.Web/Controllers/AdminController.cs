@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SO.SilList.Manager.Attributes;
 using SO.SilList.Manager.Managers;
 using SO.SilList.Manager.Models.ValueObjects;
 
@@ -17,9 +18,11 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Index()
         {
+        
             return View();
         }
 
+        [DontTrackVisit]
         public ActionResult Menu()
         {
             return PartialView("_Menu");

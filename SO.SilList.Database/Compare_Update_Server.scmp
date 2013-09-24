@@ -38,7 +38,7 @@
       </PropertyElementName>
       <PropertyElementName>
         <Name>BlockOnPossibleDataLoss</Name>
-        <Value>True</Value>
+        <Value>False</Value>
       </PropertyElementName>
       <PropertyElementName>
         <Name>BlockWhenDriftDetected</Name>
@@ -303,10 +303,6 @@
       <PropertyElementName>
         <Name>VerifyDeployment</Name>
         <Value>True</Value>
-      </PropertyElementName>
-      <PropertyElementName>
-        <Name>RunDeploymentPlanExecutors</Name>
-        <Value>False</Value>
       </PropertyElementName>
       <PropertyElementName>
         <Name>AllowDropBlockingAssemblies</Name>

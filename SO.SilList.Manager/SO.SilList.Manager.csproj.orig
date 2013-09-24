@@ -40,6 +40,9 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,24 +50,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\DontTrackVisitAttribute.cs" />
+    <Compile Include="Attributes\TrackVisitAttribute.cs" />
     <Compile Include="Classes\Connection.cs" />
     <Compile Include="DbContexts\MainDb.cs" />
+    <Compile Include="Interfaces\IAdminManager.cs" />
+    <Compile Include="Interfaces\IEnvironmentTypeManager.cs" />
+    <Compile Include="Interfaces\IRentalManager.cs" />
+    <Compile Include="Interfaces\ISettingTypeManager.cs" />
     <Compile Include="Interfaces\ITransmissionTypeManager.cs" />
     <Compile Include="Interfaces\IMakeTypeManager.cs" />
     <Compile Include="Interfaces\IModelTypeManager.cs" />
-    <Compile Include="Interfaces\ICarImageManager.cs" />
+    <Compile Include="Interfaces\ICarImagesManager.cs" />
     <Compile Include="Interfaces\ICarBodyTypeManager.cs" />
     <Compile Include="Interfaces\ICarManager.cs" />
     <Compile Include="Interfaces\IBusinessImagesManager.cs" />
     <Compile Include="Interfaces\IBusinessServicesManager.cs" />
-<<<<<<< HEAD
     <Compile Include="Interfaces\IJobCategoriesManager.cs" />
     <Compile Include="Interfaces\IJobManager.cs" />
     <Compile Include="Interfaces\IListingCategoriesManager.cs" />
     <Compile Include="Interfaces\IListingCategoryTypeManager.cs" />
-=======
->>>>>>> SiList_39
-    <Compile Include="Interfaces\IListingDetailManager.cs" />
     <Compile Include="Interfaces\IImageManager.cs" />
     <Compile Include="Interfaces\IListingImagesManager.cs" />
     <Compile Include="Interfaces\IListingManager.cs" />
@@ -72,16 +77,20 @@
     <Compile Include="Interfaces\IMemberManager.cs" />
     <Compile Include="Interfaces\IBusinessCategoriesManager.cs" />
     <Compile Include="Interfaces\IBusinessRatingsManager.cs" />
+    <Compile Include="Interfaces\IJobTypeManager.cs" />
     <Compile Include="Interfaces\IPropertyTypeManager.cs" />
     <Compile Include="Interfaces\IRatingManager.cs" />
+    <Compile Include="Interfaces\IJobCompanyManager.cs" />
     <Compile Include="Interfaces\ILeasingTermTypeManager.cs" />
     <Compile Include="Interfaces\IRentalImagesManager.cs" />
     <Compile Include="Interfaces\IServiceTypeManager.cs" />
     <Compile Include="Interfaces\ISiteManager.cs" />
     <Compile Include="Interfaces\IBusinessCategoryTypeManager.cs" />
-    <Compile Include="Interfaces\IRentalManager.cs" />
     <Compile Include="Interfaces\IBusinessManager.cs" />
     <Compile Include="Interfaces\IRentTypeManager.cs" />
+    <Compile Include="Interfaces\IJobCategoryTypeManager.cs" />
+    <Compile Include="Interfaces\IVisitManager.cs" />
+    <Compile Include="Managers\AdminManager.cs" />
     <Compile Include="Managers\BusinessCategoriesManager.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -91,19 +100,18 @@
     <Compile Include="Managers\BusinessRatingsManager.cs" />
     <Compile Include="Managers\BusinessServicesManager.cs" />
     <Compile Include="Managers\CarBodyTypeManager.cs" />
-    <Compile Include="Managers\CarImageManager.cs" />
+    <Compile Include="Managers\CarImagesManager.cs" />
     <Compile Include="Managers\CarManager.cs" />
+    <Compile Include="Managers\CurrentMember.cs" />
+    <Compile Include="Managers\EnvironmentTypeManager.cs" />
     <Compile Include="Managers\ImageManager.cs" />
-<<<<<<< HEAD
     <Compile Include="Managers\JobCategoriesManager.cs" />
+    <Compile Include="Managers\JobCategoryTypeManager.cs" />
     <Compile Include="Managers\JobCompanyManager.cs" />
     <Compile Include="Managers\JobManager.cs" />
     <Compile Include="Managers\JobTypeManager.cs" />
     <Compile Include="Managers\ListingCategoriesManager.cs" />
     <Compile Include="Managers\ListingCategoryTypeManager.cs" />
-=======
->>>>>>> SiList_39
-    <Compile Include="Managers\ListingDetailManager.cs" />
     <Compile Include="Managers\ListingImagesManager.cs" />
     <Compile Include="Managers\ListingManager.cs" />
     <Compile Include="Managers\ListingTypeManager.cs" />
@@ -116,9 +124,17 @@
     <Compile Include="Managers\RentTypeManager.cs" />
     <Compile Include="Managers\LeaseTermTypeManager.cs" />
     <Compile Include="Managers\ServiceTypeManager.cs" />
+    <Compile Include="Managers\SettingTypeManager.cs" />
     <Compile Include="Managers\SiteManager.cs" />
     <Compile Include="Managers\RentalManager.cs" />
     <Compile Include="Managers\TransmissionTypeManager.cs" />
+<<<<<<< HEAD
+    <Compile Include="Managers\VisitManager.cs" />
+=======
+    <Compile Include="Models\ViewModels\BusinessVm.cs" />
+    <Compile Include="Models\ViewModels\CarVm.cs" />
+>>>>>>> SiList_57
+    <Compile Include="Models\ValueObjects\AdminVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessCategoryTypeVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessCategoriesVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessImagesVo.cs" />
@@ -132,11 +148,16 @@
     <Compile Include="Models\ValueObjects\CarVo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\ValueObjects\EnvironmentTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\JobCategoriesVo.cs" />
+    <Compile Include="Models\ValueObjects\JobCategoryTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\JobCompanyVo.cs" />
     <Compile Include="Models\ValueObjects\ImageVo.cs" />
+    <Compile Include="Models\ValueObjects\JobTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\JobVo.cs" />
     <Compile Include="Models\ValueObjects\LeaseTermTypeVo.cs" />
     <Compile Include="Models\ValueObjects\ListingCategoriesVo.cs" />
     <Compile Include="Models\ValueObjects\ListingCategoryTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\ListingDetailVo.cs" />
     <Compile Include="Models\ValueObjects\ListingImagesVo.cs" />
     <Compile Include="Models\ValueObjects\ListingTypeVo.cs" />
     <Compile Include="Models\ValueObjects\ListingVo.cs" />
@@ -149,8 +170,28 @@
     <Compile Include="Models\ValueObjects\PropertyTypeVo.cs" />
     <Compile Include="Models\ValueObjects\RentTypeVo.cs" />
     <Compile Include="Models\ValueObjects\ServiceTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\SettingTypeVo.cs" />
     <Compile Include="Models\ValueObjects\SiteVo.cs" />
     <Compile Include="Models\ValueObjects\TransmissionTypeVo.cs" />
+<<<<<<< HEAD
+    <Compile Include="Models\ValueObjects\VisitVo.cs" />
+    <Compile Include="Models\ViewModels\Admin\AccountLoginVm.cs" />
+    <Compile Include="Models\ViewModels\Admin\AccountManageVm.cs" />
+    <Compile Include="Models\ViewModels\BusinessCategoryTypeVm.cs" />
+    <Compile Include="Models\ViewModels\BusinessVm.cs" />
+    <Compile Include="Models\ViewModels\ListingTypeVm.cs" />
+    <Compile Include="Models\ViewModels\RentalVm.cs" />
+    <Compile Include="Models\ViewModels\ServiceTypeVm.cs" />
+    <Compile Include="Models\ViewModels\VisitVm.cs" />
+    <Compile Include="Models\ViewModels\ListingCategoryTypeVm.cs" />
+    <Compile Include="Models\ViewModels\ListingVm.cs" />
+=======
+    <Compile Include="Models\ViewModels\CarBodyTypeVm.cs" />
+    <Compile Include="Models\ViewModels\CarImagesVm.cs" />
+    <Compile Include="Models\ViewModels\TransmissionTypeVm.cs" />
+    <Compile Include="Models\ViewModels\MakeTypeVm.cs" />
+    <Compile Include="Models\ViewModels\ModelTypeVm.cs" />
+>>>>>>> SiList_57
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -166,6 +207,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
