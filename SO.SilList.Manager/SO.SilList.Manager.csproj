@@ -183,7 +183,6 @@
     <Compile Include="Models\ViewModels\TransmissionTypeVm.cs" />
     <Compile Include="Models\ViewModels\MakeTypeVm.cs" />
     <Compile Include="Models\ViewModels\CarImageVm.cs" />
-    <Compile Include="Models\ViewModels\CarVm.cs" />
     <Compile Include="Models\ViewModels\ModelTypeVm.cs" />
     <Compile Include="Models\ViewModels\ListingTypeVm.cs" />
     <Compile Include="Models\ViewModels\RentalVm.cs" />

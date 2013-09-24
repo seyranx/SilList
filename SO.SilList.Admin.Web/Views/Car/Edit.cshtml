@@ -12,87 +12,117 @@
 {
     @Html.ValidationSummary(true)
 
-    <fieldset>
+    <fieldset class="form-horizontal">
         <legend></legend>
 
         @Html.HiddenFor(model => model.car.carId)
+        
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.carId)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.carId)" readonly="true">
+            </div>
+        </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.car.modelTypeId)
-        </div>
-        <div class="editor-field">
-            @Html.Action("DropDownList", "ModelType", new { id = Model.car.modelTypeId })
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.siteId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList","Site",new {id=Model.siteId})
+            </div>
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.car.year)
+               <div class="control-group">
+        <div class="control-label">
+            @Html.LabelFor(model => model.makeTypeId)
         </div>
-        <div class="editor-field">
+        <div class="controls">
+            @Html.Action("DropDownList","MakeType",new {id=Model.makeTypeId})
+        </div>
+        </div>
+
+        <div class="control-group">
+        <div class="control-label">
+        </div>
+        <div class="controls" id ="modelList">
+            @Html.Action("DropDownList","ModelType",new {id=Model.modelTypeId , _makeTypeId = Model.makeTypeId})
+        </div>
+        </div>
+
+        <div class="control-group">
+        <div class="control-label">
+        </div>
+        <div class="controls">
             @Html.EditorFor(model => model.car.year)
             @Html.ValidationMessageFor(model => model.car.year)
         </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.car.millage)
         </div>
-        <div class="editor-field">
+
+        <div class="control-group">
+        <div class="control-label">
+        </div>
+        <div class="controls">
             @Html.EditorFor(model => model.car.millage)
             @Html.ValidationMessageFor(model => model.car.millage)
         </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.car.carBodyTypeId)
         </div>
-        <div class="editor-field">
+
+        <div class="control-group">
+        <div class="control-label">
+        </div>
+        <div class="controls">
             @Html.Action("DropDownList", "CarBodyType", new { id = Model.car.carBodyTypeId })
         </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.car.siteId)
-        </div>
-        <div class="editor-field">
-            @Html.Action("DropDownList", "Site", new { id = Model.car.siteId })
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.car.transmissionTypeId)
+        <div class="control-group">
+        <div class="control-label">
         </div>
-        <div class="editor-field">
+        <div class="controls">
             @Html.Action("DropDownList", "TransmissionType", new { id = Model.car.transmissionTypeId })
         </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.car.startDate)
         </div>
-        <div class="editor-field">
+
+        <div class="control-group">
+        <div class="control-label">
+        </div>
+        <div class="controls">
             @Html.EditorFor(model => model.car.startDate)
             @Html.ValidationMessageFor(model => model.car.startDate)
         </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.car.endDate)
         </div>
-        <div class="editor-field">
+
+        <div class="control-group">
+        <div class="control-label">
+        </div>
+        <div class="controls">
             @Html.EditorFor(model => model.car.endDate)
             @Html.ValidationMessageFor(model => model.car.endDate)
         </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.car.isApproved)
         </div>
-        <div class="editor-field">
+
+        <div class="control-group">
+        <div class="control-label">
+        </div>
+        <div class="controls">
             @Html.EditorFor(model => model.car.isApproved)
             @Html.ValidationMessageFor(model => model.car.isApproved)
         </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.car.isActive)
         </div>
-        <div class="editor-field">
+
+        <div class="control-group">
+        <div class="control-label">
+        </div>
+        <div class="controls">
             @Html.EditorFor(model => model.car.isActive)
             @Html.ValidationMessageFor(model => model.car.isActive)
         </div>
+         </div>
 
-
+        <p class="controls">
         @* car image stuff below *@
         @{
             if (Model.imagesToRemove != null)

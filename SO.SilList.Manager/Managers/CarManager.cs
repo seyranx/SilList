@@ -66,7 +66,7 @@ namespace SO.SilList.Manager.Managers
                             .Include(b => b.carBodyType)
                             .Include(t => t.transmissionType)
                             .OrderBy(b => b.modelType.name)
-                            .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                            .Where(e => (input.car.isActive == null || e.isActive == input.isActive)
                                       && (e.modelType.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                              );
                 input.totalCount = query.Count();

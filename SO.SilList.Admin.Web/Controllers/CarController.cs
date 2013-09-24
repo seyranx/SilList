@@ -17,8 +17,16 @@ namespace SO.SilList.Admin.Web.Controllers
         //
         // GET: /Car/
 
-        public ActionResult Index()
+        public ActionResult Index(CarVm input = null)
         {
+            if (input == null) input = new CarVm();
+            if (this.ModelState.IsValid)
+            {
+                if (input.submitButton != null)
+                    input.pageNumber = 1;
+                input = carManager.search(input);
+                return View(input);
+            }
             return View();
         }
 
@@ -39,6 +47,7 @@ namespace SO.SilList.Admin.Web.Controllers
             Debug.Assert(Request.HttpMethod == "POST");
             if (this.ModelState.IsValid)
             {
+
                 var item = carManager.insert(input);
 
                 //if (Request.Files.Count > 0)
@@ -56,6 +65,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
                 return RedirectToAction("Index");
             }
+
 
             return View();
 
@@ -107,6 +117,8 @@ namespace SO.SilList.Admin.Web.Controllers
             var result = carManager.get(id);
 
             ImageManager imageManager = new ImageManager();
+            if (result.modelTypeId != null)
+                result.makeTypeId = (int)result.modelType.makeTypeId;
 
             var carImages = imageManager.getCarImages(id);
             CarVm carVm = new CarVm(result);
@@ -143,5 +155,16 @@ namespace SO.SilList.Admin.Web.Controllers
             }
             return PartialView("_DropDownList", car);
         }
+
+        public ActionResult Pagination(CarVm input)
+        {
+            return PartialView("_Pagination",input);
+        }
+
+        public ActionResult Filter(CarVm input)
+        {
+            return PartialView("_Filter", input);
+        }
+
     }
 }
