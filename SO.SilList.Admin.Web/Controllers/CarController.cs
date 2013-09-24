@@ -19,7 +19,9 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Index(CarVm input = null)
         {
-            if (input == null) input = new CarVm();
+            if (input == null)
+                input = new CarVm();
+            input.car = new CarVo();
             if (this.ModelState.IsValid)
             {
                 if (input.submitButton != null)
@@ -158,7 +160,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Pagination(CarVm input)
         {
-            return PartialView("_Pagination",input);
+            return PartialView("_Pagination", input);
         }
 
         public ActionResult Filter(CarVm input)
