@@ -6,11 +6,8 @@
 }
 
 
-
 <h2>@ViewBag.Title</h2>
 
-
-@* @using (Html.BeginForm()) *@
 @using (Html.BeginForm("Edit", "Car", FormMethod.Post, new { @encType = "multipart/form-data", id = "myForm" }))
 {
     @Html.ValidationSummary(true)
@@ -102,20 +99,17 @@
             {
                 for (int index = 0; index < Model.imagesToRemove.Count; ++index)
                 {
+                    <hr />
                     @Html.HiddenFor(x => x.imagesToRemove[index].imageIdStr);
-                    @:
-                    <br /><img src="@Model.imagesToRemove[index].imageUrlStr" id="img_@index" />
+                    <br /><img src="@Model.imagesToRemove[index].imageUrlStr" width="100px"  id="img_@index" />
         
                     @: Uncheck to remove: 
                     @Html.CheckBoxFor(m => m.imagesToRemove[index].imageIsChecked, new { id = "removeImg_" + index.ToString() })
-
-                    @:
-                    @:
-
                 }
-                    <br />
+                <br />
             }
         }
+        <hr />
         @Html.Partial("../Image/_ImagePickerControls")
         <br />
         @* car images stuff above *@
@@ -128,38 +122,3 @@
         
     </fieldset>
 }
-
-@* don't need this for now
-@{
-    var numberOfExistingCarImages = ViewBag.carImages != null ? ViewBag.carImages.Count : 0;
-    }
-    
-<script type="text/javascript">
-    debugger;
-    $(document).ready(function () {
-        $("#myForm").submit(function () {
-            var numOfCheckboxes = @numberOfExistingCarImages;
-            for(var ind = 0; ind < numOfCheckboxes; ind++)
-            {
-                var checkBoxIdStr = "removeImg_" + ind;
-                var checkBox = $("#" + checkBoxIdStr);
-                if(checkBox != null)
-                {
-                    if(checkBox.checked())
-                    {
-                        alert( "checked: Num: " + ind);
-                     
-                        /*
-                        var checkBox_CorrespondingHiddenControl = $(checkBoxIdStr);
-                        if(checkBox_CorrespondingHiddenControl != null)
-                            checkBox_CorrespondingHiddenControl.val(1);
-                        */
-                    }
-
-                }
-                // assuming all removed
-            }
-        });
-    });
-</script>
-*@
