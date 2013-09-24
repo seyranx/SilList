@@ -1,8 +1,41 @@
-﻿@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutWith3Columns.cshtml";
+﻿@model SO.SilList.Manager.Models.ViewModels.ListingVm
+@{
+    ViewBag.Title = "Index";    //"Listings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+     //Layout = "~/Views/Shared/_InnerLayout.cshtml";
 }
 
-<h2>Buy Sell Index</h2>
+<h2>@ViewBag.Title</h2>
 
-some text here
+<ul class="media-list" >
+
+
+ @for(int i=0; i<10; i++){
+  <li class="row, media" style="border-bottom:1px solid #ccc;" >
+   
+     @Html.Partial("_BuySellItem")
+
+  </li>
+     
+ }
+</ul>
+
+@*
+<form name="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Listing")">
+
+@Html.Action("Filter", @Model)
+
+<p style="margin-top:10px; margin-bottom:10px;"> </p>
+
+<div class="pull-right">
+    Showing @Model.firstVisibleRow - @Model.lastVisibleRow of @Model.totalRowCount
+</div>
+
+@Html.Partial("List", @Model.result)
+
+@Html.Action("Pagination", @Model)
+
+@* @Html.ActionLink("Clear Stats", "Delete")
+
+ </form>
+*@
