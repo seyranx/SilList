@@ -1,9 +1,14 @@
-﻿@{
+﻿@model SO.SilList.Manager.Models.ViewModels.MemberVm
+@{
     ViewBag.Title = "Members";
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 }
 
 <h2>@ViewBag.Title</h2>
 
+<form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index", "Car")">
 
-@Html.Action("_List")
+    @Html.Partial("_List", @Model.result)
+    @Html.Action("Pagination"), @Model)
+
+</form>

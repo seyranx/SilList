@@ -1,0 +1,30 @@
+﻿@model SO.SilList.Manager.Models.ViewModels.MemberVm
+
+<div class="pagination pull-right">
+        @Model.skip--@Model.skip+@Model.result.Count of "result.Count:" @Model.result.Count 
+        or totalCount: @Model.totalCount 
+    {}
+        @Model.skip hoh @Model.skip+@Model.result.Count of "result.Count:" @Model.result.Count 
+        or totalCount: @Model.totalCount 
+
+
+    @Html.HiddenFor(m => m.pageNumber)
+
+    <ul>
+        <li><a href="#">First</a></li>
+        <li><a href="#">Prev</a></li>
+
+        @{
+            int curPage = Model.pageNumber != null && Model.pageNumber.Value > 1 ? Model.pageNumber.Value - 2 : 0;
+            int lastVisiblePageNum = Model.pageNumber != null && Model.pageNumber.Value < (Model.pageCount + 1) ? Model.pageNumber.Value + 2 : 0;
+            for (; curPage < lastVisiblePageNum; ++curPage)
+            {
+                string enable = Model.pageNumber == curPage ? "enabled" : "disabled";
+                <li class="@enable"><a href="#">@curPage</a></li>
+            }
+        }
+
+        <li><a href="#">Next</a></li>
+        <li><a href="#">Last</a></li>
+    </ul>
+</div>

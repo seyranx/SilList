@@ -95,6 +95,7 @@
         </td>
         @*<td>
             @Html.DisplayFor(modelItem => item.lastLogin)
+            <span>@String.Format("{0:MM/dd/yyy}", item.lastLogin)</span>
         </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.isEmailSubscribed)
