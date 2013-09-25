@@ -17,7 +17,8 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Index(CarImagesVm input = null)
         {
-            if (input == null) input = new CarImagesVm();
+            if (input == null) 
+                input = new CarImagesVm();
             if (this.ModelState.IsValid)
             {
                 input.result = carImageManager.search(input);
