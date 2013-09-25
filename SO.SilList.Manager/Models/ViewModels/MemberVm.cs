@@ -10,7 +10,7 @@ namespace SO.SilList.Manager.Models.ViewModels
 {
     public class MemberVm
     {
-        public MemberVo member;
+        // public MemberVo member;
         public List<MemberVo> result { get; set; }
         public string keyword { get; set; }
         public int? pageNumber { get; set; }
@@ -42,19 +42,26 @@ namespace SO.SilList.Manager.Models.ViewModels
         {
             get
             {
-                return totalCount / maxRowCount + 1;
+                return (int)System.Math.Round(totalCount / maxRowCount + 0.5);
             }
+        }
+
+        public string FromToTextOfPagination()
+        {
+           int fromNum = skip+1;  
+           int toNum = skip + result.Count;
+           return fromNum + "--" + toNum + " of " + totalCount;
         }
 
         public MemberVm()
         {
             this.result = new List<MemberVo>();
-            member = new MemberVo();
+            // member = new MemberVo();
         }
-        public MemberVm(MemberVo memberVo)
-        {
-            this.result = new List<MemberVo>();
-            member = memberVo;
-        }
+        //public MemberVm(MemberVo memberVo)
+        //{
+        //    this.result = new List<MemberVo>();
+        //    member = memberVo;
+        //}
     }
 }

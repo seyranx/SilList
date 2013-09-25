@@ -17,8 +17,6 @@ namespace SO.SilList.Admin.Web.Controllers
         {
             if (input == null)
                 input = new MemberVm();
-            if (input.member == null)
-                input.member = new MemberVo();
             if (this.ModelState.IsValid)
             {
                 /*
