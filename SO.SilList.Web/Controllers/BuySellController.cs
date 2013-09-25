@@ -31,6 +31,18 @@ namespace SO.SilList.Web.Controllers
         {
             return PartialView("_Menu");
         }
+
+        public ActionResult Filter(ListingVm input)
+        {
+            return PartialView("_Filter", input);
+            //return PartialView("_Filter");
+        }
+
+        public ActionResult List()
+        {
+            var results = listingManager.getAll(null);
+            return PartialView(results);
+        }
         /*
         private ListingManager listingManager = new ListingManager();
 
@@ -47,11 +59,6 @@ namespace SO.SilList.Web.Controllers
             }
 
             return View();
-        }
-
-        public ActionResult Filter(ListingVm input)
-        {
-            return PartialView("_Filter", input);
         }
 
         public ActionResult Menu()

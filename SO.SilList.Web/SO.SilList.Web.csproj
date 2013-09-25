@@ -285,6 +285,7 @@
     <Content Include="Views\BuySell\_BuySellItem.cshtml" />
     <Content Include="Views\Shared\_LayoutBuySell.cshtml" />
     <Content Include="Views\BuySell\_Menu.cshtml" />
+    <Content Include="Views\BuySell\_Filter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

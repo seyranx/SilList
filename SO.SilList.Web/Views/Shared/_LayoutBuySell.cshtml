@@ -1,24 +1,62 @@
-﻿@{
+﻿@model SO.SilList.Manager.Models.ViewModels.ListingVm
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="row" style="height:400PX" >
+<div class="row-fluid">
 
-<div id="leftColumn" class="span2 leftColumn"  >
+<div id="leftColumn" class="span3 searchPageLeftColumn"  >
         
-<div style="font-size:17px; font-weight:bold; text-align:center; padding-top:20px;"></div>
-<br />
+<div style="font-size:17px; font-weight:bold; text-align:center; padding-top:20px;">Listing Search:</div>
+<hr />
+<form >
+    <label>Title:</label>
+    <input id="titleSearch" type="text" style="width:90%;">
 
-@Html.Action("Menu", ViewContext.RouteData.Values["controller"].ToString())
+   
+     <label>City, State or Zip:</label>
+    <input id="locationSearch" type="text" style="width:90%;">
 
-</div>
+     <label>Category:</label>
+     <input id="categorySearch" type="text" style="width:90%;" placeholder="Filter">
 
-     <div id="mainContent" class="span9" style="padding-left:0px; padding-right:0px; background-color:white; min-height:400px;">
+        <button type="submit" class="btn btn-success pull-right">Search</button>
+
+       
+</form>
+
+
+<label>Title:</label>
+@Html.Action("Filter",@Model)
+
+
+ <br />
+  <ul class="nav nav-list" style="background-color:none; color:white; margin-top:10px; " >
+        <li class="nav-header">Top Categories:</li>
+
+  <li ><a href="/Clubs/Los-Angeles-CA/Adventures/">Markets</a></li>
+  <li ><a href="/Clubs/Los-Angeles-CA/Art/">Contractors</a></li>
+  <li ><a href="/Clubs/Los-Angeles-CA/Business/">Buyer</a></li>
+  <li ><a href="/Clubs/Los-Angeles-CA/Business/">Seller</a></li>
+ 
+
+</ul>
+  
+
+
+
+    </div>
+
+     <div id="mainContent" class="span6" style="padding-left:0px; padding-right:0px; background-color:white;">
         
          @RenderBody()
 
     </div>
 
-   
+      <div class="span2" style="background-color:black;">
+          right
+
+    </div>
 
 </div>

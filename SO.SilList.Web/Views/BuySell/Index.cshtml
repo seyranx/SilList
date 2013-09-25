@@ -1,8 +1,7 @@
 ﻿@model SO.SilList.Manager.Models.ViewModels.ListingVm
 @{
-    ViewBag.Title = "Index";    //"Listings";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-     //Layout = "~/Views/Shared/_InnerLayout.cshtml";
+    ViewBag.Title = "Armenian Listings";
+    Layout = "~/Views/Shared/_LayoutBuySell.cshtml";
 }
 
 <h2>@ViewBag.Title</h2>
@@ -14,6 +13,7 @@
   <li class="row, media" style="border-bottom:1px solid #ccc;" >
    
      @Html.Partial("_BuySellItem")
+     @*  @Html.Partial("_BuySellItem", @Model.result) *@
 
   </li>
      
