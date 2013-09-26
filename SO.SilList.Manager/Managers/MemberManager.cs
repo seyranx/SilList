@@ -8,6 +8,7 @@ using EntityFramework.Extensions;
 using SO.SilList.Manager.DbContexts;
 using SO.SilList.Manager.Interfaces;
 using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Manager.Managers
 {
@@ -115,6 +116,28 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
+        public MemberVm search(MemberVm input)
+        {
+            using (var db = new MainDb())
+            {
+                var query = db.members
+                             .Include(s => s.site)
+                             .Where(e => (input.filterIsActive == null || e.isActive == input.filterIsActive)
+                                      && (string.IsNullOrEmpty(input.keyword) || e.firstName.Contains(input.keyword) || e.lastName.Contains(input.keyword))
+                                    )
+                             .OrderBy(b => b.firstName);
+
+                input.totalCount = query.Count();
+
+                input.result = query
+                             .Skip(input.skip)
+                             .Take(input.maxRowCount)
+                             .ToList();
+
+                return input;
+            }
+        }
+        
         // Additional methods
         public Nullable<int> GetFirstAvailableSiteId()
         {

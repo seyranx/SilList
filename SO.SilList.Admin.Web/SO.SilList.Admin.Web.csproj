@@ -323,6 +323,9 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Views\Business\_DropDownList.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -437,7 +440,6 @@
     <Content Include="Views\BusinessImages\_List.cshtml" />
     <Content Include="Views\BusinessImages\Edit.cshtml" />
     <Content Include="Views\BusinessImages\Details.cshtml" />
-    <Content Include="Views\Business\_DropDownList.cshtml" />
     <None Include="Views\Image\CarImages.cshtml" />
     <Content Include="Views\Image\ListingImages.cshtml" />
     <Content Include="Views\Image\RentalImages.cshtml" />
@@ -545,9 +547,6 @@
     <Content Include="Views\CarImage\Edit.cshtml" />
     <Content Include="Views\CarImage\Index.cshtml" />
     <Content Include="Views\CarImage\_List.cshtml" />
-    <Content Include="Views\Business\_DropDownList.cshtml">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="Views\Business\_List.cshtml">
       <SubType>Code</SubType>
     </Content>
@@ -582,6 +581,7 @@
     <Content Include="Views\ListingImages\Edit.cshtml" />
     <Content Include="Views\Image\_ImagePickerControls.cshtml" />
     <Content Include="Views\Image\_ImageListWithUpload_Edit.cshtml" />
+    <Content Include="Views\Member\_Pagination.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

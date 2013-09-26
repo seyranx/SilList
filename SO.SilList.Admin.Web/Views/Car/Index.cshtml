@@ -10,7 +10,7 @@
     
     @Html.Action("Filter",@Model)
     <div class="pull-right">
-        @Model.rowCount of @Model.result.Count
+        @Model.result.Count of @Model.rowCount 
     </div>
     @Html.Partial("_List", @Model.result)
     @Html.Action("Pagination", @Model)
