@@ -44,26 +44,6 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public List<MemberVo> getAll(bool? isActive = true)
-        {
-            using (var db = new MainDb())
-            {
-               try
-               {
-                  var list = db.members
-                               .Include(s => s.site)
-                               .Where(e => isActive == null || e.isActive == isActive)
-                               .ToList();
-                  return list;
-               }
-               catch (Exception e)
-               {
-                  System.Console.WriteLine(e.ToString());
-               }
-                return new List<MemberVo>();
-            }
-        }
-
         public bool delete(int memberId)
         {
             using (var db = new MainDb())
@@ -116,6 +96,25 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
+        public List<MemberVo> getAll(bool? isActive = true)
+        {
+            using (var db = new MainDb())
+            {
+                try
+                {
+                    var list = db.members
+                                 .Include(s => s.site)
+                                 .Where(e => isActive == null || e.isActive == isActive)
+                                 .ToList();
+                    return list;
+                }
+                catch (Exception e)
+                {
+                    System.Console.WriteLine(e.ToString());
+                }
+                return new List<MemberVo>();
+            }
+        }
         public MemberVm search(MemberVm input)
         {
             using (var db = new MainDb())
@@ -123,9 +122,17 @@ namespace SO.SilList.Manager.Managers
                 var query = db.members
                              .Include(s => s.site)
                              .Where(e => (input.filterIsActive == null || e.isActive == input.filterIsActive)
-                                      && (string.IsNullOrEmpty(input.keyword) || e.firstName.Contains(input.keyword) || e.lastName.Contains(input.keyword))
+                                      && (string.IsNullOrEmpty(input.keyword) 
+                                      || e.firstName.Contains(input.keyword) 
+                                      || e.lastName.Contains(input.keyword)
+                                      || e.address.Contains(input.keyword)
+                                      || e.city.Contains(input.keyword)
+                                      || e.state.Contains(input.keyword)
+                                      || e.email.Contains(input.keyword)
+                                      || e.username.Contains(input.keyword))
                                     )
-                             .OrderBy(b => b.firstName);
+                             .OrderBy(b => b.firstName)
+                             .ThenBy(b=> b.lastName);
 
                 input.totalCount = query.Count();
 

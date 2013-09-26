@@ -7,7 +7,9 @@
 <h2>@ViewBag.Title</h2>
 
 <form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index", "Member")">
-
+    @Html.Action("Filter", @Model)
+    <br />
+    <br />
     @Html.Partial("_List", @Model.result)
     @Html.Action("Pagination", @Model)
 
