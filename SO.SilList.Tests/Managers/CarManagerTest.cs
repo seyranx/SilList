@@ -16,7 +16,7 @@ namespace SO.SilList.Tests.Managers
         public void searchTest()
         {
             var vo = new CarVm();
-            vo.pageNumber = 2;
+            vo.paging.pageNumber = 2;
             vo.keyword = "aa";
             vo.isActive = true;
 
