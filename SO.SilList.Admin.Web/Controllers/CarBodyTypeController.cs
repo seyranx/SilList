@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Models.ViewModels;
+using SO.SilList.Utility.Classes;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
@@ -15,12 +16,15 @@ namespace SO.SilList.Admin.Web.Controllers
         //
         // GET: /CarBodyType/
 
-        public ActionResult Index(CarBodyTypeVm input = null)
+        public ActionResult Index(CarBodyTypeVm input = null, Paging paging= null)
         {
             if (input == null) input = new CarBodyTypeVm();
+            input.paging = paging;
             if (this.ModelState.IsValid)
             {
-                input.result = carBodyTypeManager.search(input);
+                if (input.submitButton != null)
+                    input.paging.pageNumber = 1;
+                input = carBodyTypeManager.search(input);
                 return View(input);
             }
             return View();
@@ -101,9 +105,9 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView("_DropDownList", body);
         }
 
-        public ActionResult Pagination()
+        public ActionResult Pagination(Paging input)
         {
-            return PartialView("_Pagination");
+            return PartialView("_Pagination",input);
         }
 
         public ActionResult Filter(CarBodyTypeVm input)

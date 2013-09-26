@@ -41,21 +41,24 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public List<CarBodyTypeVo> search(CarBodyTypeVm input)
+        public CarBodyTypeVm search(CarBodyTypeVm input)
         {
 
             using (var db = new MainDb())
             {
-                var list = db.carBodyType
+                var query = db.carBodyType
                              .OrderBy(b => b.name)
-                             .Skip(input.skip)
-                             .Take(input.rowCount)
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
-                                    )
+                                    );
+                input.paging.totalCount = query.Count();
+                input.result = query         
+                             .Skip(input.paging.skip)
+                             .Take(input.paging.rowCount)
+
                              .ToList();
 
-                return list;
+                return input;
             }
         }
 

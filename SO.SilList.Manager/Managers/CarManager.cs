@@ -15,7 +15,7 @@ namespace SO.SilList.Manager.Managers
     public class CarManager : ICarManager
     {
 
-        public CarManager()
+            public CarManager()
         {
 
         }
@@ -69,10 +69,10 @@ namespace SO.SilList.Manager.Managers
                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.modelType.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                              );
-                input.totalCount = query.Count();
-                input.result = query
-                             .Skip(input.skip)
-                             .Take(input.rowCount)
+                input.paging.totalCount = query.Count();
+                input.result = query         
+                             .Skip(input.paging.skip)
+                             .Take(input.paging.rowCount)
 
                              .ToList();
 
@@ -87,11 +87,12 @@ namespace SO.SilList.Manager.Managers
                 var list = db.car
                           .Include(s => s.site)
                             .Include(m => m.modelType)
-                            .Include(m => m.modelType.makeType)
+                            .Include(m=>m.modelType.makeType)
                             .Include(b => b.carBodyType)
                             .Include(t => t.transmissionType)
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
+                
 
                 return list;
             }
@@ -119,10 +120,10 @@ namespace SO.SilList.Manager.Managers
                 var res = db.car.FirstOrDefault(e => e.carId == carId);
 
                 if (res == null) return null;
-
+                
                 input.created = res.created;
                 input.createdBy = res.createdBy;
-
+               
                 db.Entry(res).CurrentValues.SetValues(input);
 
 

@@ -18,6 +18,6 @@
        @Html.LabelFor(model => model.isActive) 
          @Html.EditorFor(model => model.isActive)
      </label>
+@Html.HiddenFor(model=> model.paging.pageNumber)
 
-
-    <button type="submit" class="btn">Search</button>
+    <button name="submitButton" value="Search" type="submit" class="btn">Search</button>
