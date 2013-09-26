@@ -9,7 +9,6 @@
 <form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index", "Member")">
 
     @Html.Partial("_List", @Model.result)
-    @*@Html.Action("Pagination", @Model)*@
-    @Html.Partial("_Pagination", @Model)
+    @Html.Action("Pagination", @Model)
 
 </form>
