@@ -18,6 +18,11 @@ namespace SO.SilList.Manager.Models.ViewModels
         public int pageNumber { get; set; }
         public int totalRowCount { get; set; }
 
+        //these are for Web search
+        public int buyOrSell { get; set; }
+        public string location { get; set; }
+        public int searchCount { get; set; }
+
         [Range(4, 50)]
         public int resultPerPage { get; set; }
 
@@ -64,7 +69,7 @@ namespace SO.SilList.Manager.Models.ViewModels
         public ListingVm()
         {
             this.result = new List<ListingVo>();
-            this.resultPerPage = 4; //change this to adjust default resultPerPage
+            this.resultPerPage = 30; //change this to adjust default resultPerPage
             this.pageLinkCount = 2;
             this.pageNumber = 1;
         }

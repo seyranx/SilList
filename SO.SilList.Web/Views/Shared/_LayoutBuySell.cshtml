@@ -10,24 +10,7 @@
         
 <div style="font-size:17px; font-weight:bold; text-align:center; padding-top:20px;">Listing Search:</div>
 <hr />
-<form >
-    <label>Title:</label>
-    <input id="titleSearch" type="text" style="width:90%;">
 
-   
-     <label>City, State or Zip:</label>
-    <input id="locationSearch" type="text" style="width:90%;">
-
-     <label>Category:</label>
-     <input id="categorySearch" type="text" style="width:90%;" placeholder="Filter">
-
-        <button type="submit" class="btn btn-success pull-right">Search</button>
-
-       
-</form>
-
-
-<label>Title:</label>
 @Html.Action("Filter",@Model)
 
 

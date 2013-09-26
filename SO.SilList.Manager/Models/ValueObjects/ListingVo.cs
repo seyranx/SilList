@@ -30,7 +30,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public string title { get; set; }
     		
     	[DisplayName("Description")]
-    	[StringLength(50)]
+    	[StringLength(250)]
         public string description { get; set; }
     		
     	[DisplayName("Site")]

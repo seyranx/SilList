@@ -21,7 +21,7 @@ namespace SO.SilList.Admin.Web.Controllers
             if (this.ModelState.IsValid)
             {
                 input.result = listingManager.search(input);
-                input.totalRowCount = listingManager.count(input);
+                input.searchCount = listingManager.webcount(input);
                 return View(input);
 
                 //input = listingManager.search(input);
