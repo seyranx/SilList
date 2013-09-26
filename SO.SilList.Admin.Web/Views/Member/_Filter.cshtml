@@ -9,7 +9,7 @@
 @Html.ValidationSummary(true)
 @Html.ValidationMessageFor(model => model.keyword)
 
-@Html.TextBoxFor(model => model.keyword, new { @class = "input-large", placeholder = "Search" })
+@Html.TextBoxFor(model => model.keyword, new { @class = "input-large span3 search-query", placeholder = "Search" })
 
 <label class="checkbox" style="margin-left: 10px;">
     @Html.LabelFor(model => model.filterIsActive)
