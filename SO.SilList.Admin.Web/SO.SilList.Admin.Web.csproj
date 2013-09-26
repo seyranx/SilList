@@ -541,10 +541,14 @@
     <Content Include="Views\BusinessCategoryType\_Pagination.cshtml" />
     <Content Include="Views\ServiceType\_Pagination.cshtml" />
     <Content Include="Views\ServiceType\_Filter.cshtml" />
-    <Content Include="Views\Car\_Pagination.cshtml">
+    <Content Include="Views\Shared\_Pagination.cshtml">
       <SubType>Code</SubType>
     </Content>
     <Content Include="Views\Car\_Filter.cshtml" />
+    <Content Include="Views\CarBodyType\_Filter.cshtml" />
+    <Content Include="Views\MakeType\_Filter.cshtml" />
+    <Content Include="Views\ModelType\_Filter.cshtml" />
+    <Content Include="Views\TransmissionType\_Filter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -69,10 +69,10 @@ namespace SO.SilList.Manager.Managers
                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.modelType.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                              );
-                input.totalCount = query.Count();
+                input.paging.totalCount = query.Count();
                 input.result = query         
-                             .Skip(input.skip)
-                             .Take(input.rowCount)
+                             .Skip(input.paging.skip)
+                             .Take(input.paging.rowCount)
 
                              .ToList();
 
@@ -92,6 +92,7 @@ namespace SO.SilList.Manager.Managers
                             .Include(t => t.transmissionType)
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
+                
 
                 return list;
             }

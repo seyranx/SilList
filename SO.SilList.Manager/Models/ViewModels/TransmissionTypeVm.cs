@@ -1,4 +1,5 @@
 ﻿using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Utility.Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,34 +14,19 @@ namespace SO.SilList.Manager.Models.ViewModels
     {
         public List<TransmissionTypeVo> result { get; set; }
         public string keyword { get; set; }
-        public int? pageNumber { get; set; }
 
         [DisplayName("isActive: ")]
         public bool? isActive { get; set; }
+        public string submitButton { get; set; }
+        public Paging paging;
 
-
-
-        public int skip
-        {
-            get
-            {
-                if (pageNumber == null || pageNumber < 2 || rowCount < 1) return 0;
-
-                return ((int)(pageNumber - 1) * (int)rowCount);
-            }
-        }
-
-        public int rowCount
-        {
-            get
-            {
-                return 30;
-            }
-        }
 
         public TransmissionTypeVm()
         {
             this.result = new List<TransmissionTypeVo>();
+
+            if (paging == null)
+                paging = new Paging();
         }
 
 

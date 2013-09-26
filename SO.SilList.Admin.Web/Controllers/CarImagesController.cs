@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Models.ViewModels;
+using SO.SilList.Utility.Classes;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
@@ -15,12 +16,15 @@ namespace SO.SilList.Admin.Web.Controllers
         //
         // GET: /CarBodyType/
 
-        public ActionResult Index(CarImagesVm input = null)
+        public ActionResult Index(CarImagesVm input = null, Paging paging = null)
         {
             if (input == null) input = new CarImagesVm();
+            input.paging = paging;
             if (this.ModelState.IsValid)
             {
-                input.result = carImageManager.search(input);
+                if (input.submitButton != null)
+                    input.paging.pageNumber = 1;
+                input = carImageManager.search(input);
                 return View(input);
             }
             return View();

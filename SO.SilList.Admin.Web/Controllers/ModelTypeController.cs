@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Models.ViewModels;
+using SO.SilList.Utility.Classes;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
@@ -15,12 +16,15 @@ namespace SO.SilList.Admin.Web.Controllers
         //
         // GET: /ModelType/
 
-        public ActionResult Index(ModelTypeVm input = null)
+        public ActionResult Index(ModelTypeVm input = null, Paging paging = null)
         {
             if (input == null) input = new ModelTypeVm();
+            input.paging = paging;
             if (this.ModelState.IsValid)
             {
-                input.result = modelTypeManager.search(input);
+                if (input.submitButton != null)
+                    input.paging.pageNumber = 1;
+                input = modelTypeManager.search(input);
                 return View(input);
             }
             return View();
@@ -101,9 +105,9 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView("_DropDownList", model);
         }
 
-        public ActionResult Pagination()
+        public ActionResult Pagination(Paging input)
         {
-            return PartialView("_Pagination");
+            return PartialView("_Pagination",input);
         }
 
         public ActionResult Filter(ModelTypeVm input)

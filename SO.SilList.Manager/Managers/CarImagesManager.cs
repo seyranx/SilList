@@ -48,23 +48,26 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public List<CarImagesVo> search(CarImagesVm input)
+        public CarImagesVm search(CarImagesVm input)
         {
 
             using (var db = new MainDb())
             {
-                var list = db.carImages
+                var query = db.carImages
                         .Include(c => c.car)
                             .Include(i => i.image)
                              .OrderBy(b => b.carId)
-                             .Skip(input.skip)
-                             .Take(input.rowCount)
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.carId.Equals(int.Parse(input.keyword)) || string.IsNullOrEmpty(input.keyword))
-                                    )
+                                    );
+                               input.paging.totalCount = query.Count();
+                input.result = query         
+                             .Skip(input.paging.skip)
+                             .Take(input.paging.rowCount)
+
                              .ToList();
 
-                return list;
+                return input;
             }
         }
 
