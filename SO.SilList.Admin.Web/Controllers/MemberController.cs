@@ -113,6 +113,10 @@ namespace SO.SilList.Admin.Web.Controllers
         {
             return PartialView("_Pagination", input);
         }
-        
+
+        public ActionResult Filter(MemberVm input)
+        {
+            return PartialView("_Filter", input);
+        }       
     }
 }

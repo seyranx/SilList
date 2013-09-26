@@ -580,6 +580,7 @@
     <Content Include="Views\Image\_ImagePickerControls.cshtml" />
     <Content Include="Views\Image\_ImageListWithUpload_Edit.cshtml" />
     <Content Include="Views\Member\_Pagination.cshtml" />
+    <Content Include="Views\Member\_Filter.cshtml" />
     <Content Include="Views\MakeType\_Filter.cshtml" />
     <Content Include="Views\ModelType\_Filter.cshtml" />
     <Content Include="Views\Shared\_Pagination.cshtml" />
