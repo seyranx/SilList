@@ -440,6 +440,7 @@
     <Content Include="Views\BusinessImages\_List.cshtml" />
     <Content Include="Views\BusinessImages\Edit.cshtml" />
     <Content Include="Views\BusinessImages\Details.cshtml" />
+    <Content Include="Views\CarBodyType\_Filter.cshtml" />
     <None Include="Views\Image\CarImages.cshtml" />
     <Content Include="Views\Image\ListingImages.cshtml" />
     <Content Include="Views\Image\RentalImages.cshtml" />
@@ -571,9 +572,6 @@
     <Content Include="Views\BusinessCategoryType\_Pagination.cshtml" />
     <Content Include="Views\ServiceType\_Pagination.cshtml" />
     <Content Include="Views\ServiceType\_Filter.cshtml" />
-    <Content Include="Views\Car\_Pagination.cshtml">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="Views\Car\_Filter.cshtml">
       <SubType>Code</SubType>
     </Content>
@@ -582,6 +580,10 @@
     <Content Include="Views\Image\_ImagePickerControls.cshtml" />
     <Content Include="Views\Image\_ImageListWithUpload_Edit.cshtml" />
     <Content Include="Views\Member\_Pagination.cshtml" />
+    <Content Include="Views\MakeType\_Filter.cshtml" />
+    <Content Include="Views\ModelType\_Filter.cshtml" />
+    <Content Include="Views\Shared\_Pagination.cshtml" />
+    <Content Include="Views\TransmissionType\_Filter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
