@@ -1,7 +1,7 @@
 ﻿@model SO.SilList.Manager.Models.ViewModels.ListingVm
 @{
     ViewBag.Title = "Armenian Listings";
-    Layout = "~/Views/Shared/_LayoutBuySell.cshtml";
+    Layout = "~/Views/Shared/_LayoutListings.cshtml";
 }
 
 <h2>@ViewBag.Title</h2>
@@ -12,7 +12,7 @@
     Showing @Model.firstVisibleRow - @Model.lastVisibleRow of @Model.searchCount
 </div>
 
- @Html.Partial("_BuySellItem", @Model.result)
+ @Html.Partial("_ListingItem", @Model.result)
 
     
 </ul>

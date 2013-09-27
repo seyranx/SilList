@@ -35,7 +35,7 @@ namespace SO.SilList.Manager.Managers
 
                 var totcount = db.listing
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
-                                      && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                      && (e.title.Contains(input.keyword) || e.description.Contains(input.keyword)  || string.IsNullOrEmpty(input.keyword))
                                     )
                              .Count();
                 return totcount;
@@ -69,7 +69,7 @@ namespace SO.SilList.Manager.Managers
                              .Include(s => s.site)
                              .Include(t => t.listingType)
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
-                                      && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                      && (e.title.Contains(input.keyword) || e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                                     )
                              .OrderBy(b => b.title)
                              .Skip(input.skip)

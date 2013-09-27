@@ -2,7 +2,10 @@
 
 @foreach (var item in Model) {
     
-<div class="span12 businessInfo" id="mainContent">
+ @*  
+<div class="span12 businessInfo" id="mainContent" style="background-color:lavender">
+ *@
+<div class="span12 businessInfo" id="mainContent" style="background-color:lavender">
       <a class="pull-left" href="#" >
       <img class="media-object, thumbnail" data-src="holder.js/60x60">
     </a>
@@ -23,7 +26,8 @@
     </div>
 
          <div style="margin-top:10px; margin-bottom:5px;" > @Html.DisplayFor(modelItem => item.description): </div> 
-
+    <hr />
+    
 </div>
 }   
 

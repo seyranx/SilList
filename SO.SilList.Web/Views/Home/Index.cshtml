@@ -1,4 +1,6 @@
-﻿@{
+﻿@model SO.SilList.Manager.Models.ViewModels.ListingVm
+
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -48,21 +50,11 @@
             
      </div>
 
- <div class="hero-unit span5 blackbox">
+<div class="hero-unit span5 blackbox">
 
-
-      <h2>Buy/Sell:</h2> 
-               <hr />
-<form >
-    <label>Type a keyword to search within existing listings</label>
-    <input type="text" placeholder="Type something…" style="width:95%;">
-     <button type="submit" class="btn btn-success btn-large pull-right">Search</button>
-    @*<a href="@Url.Action("Index","BuySell")" class="btn btn-success btn-large pull-right" style="width:120px;">Search</a>*@
-</form>
-
-
+@Html.Partial("_ListingsBox")
             
-     </div>
+</div>
 
 
 <div class="hero-unit span5 blackbox">

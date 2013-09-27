@@ -1,0 +1,17 @@
+﻿@model SO.SilList.Manager.Models.ViewModels.ListingVm
+
+<h2>Listings:</h2> 
+<hr />
+
+<form name="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Listings")">
+
+    <label>Keyword:</label>
+    <br />
+    @Html.ValidationSummary(true)
+    @Html.TextBoxFor(model => model.keyword,new { Class = "input-xlarge", placeholder =  "Keyword" })
+    @Html.ValidationMessageFor(model => model.keyword)
+
+    @*<input type="text" placeholder="Type something…" style="width:95%;"> *@
+    <br /> <br />
+    <button type="submit" class="btn btn-success btn-large pull-right">Search</button>
+</form>

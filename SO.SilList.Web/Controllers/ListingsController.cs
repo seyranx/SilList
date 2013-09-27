@@ -9,7 +9,7 @@ using SO.SilList.Manager.Managers;
 
 namespace SO.SilList.Web.Controllers
 {
-    public class BuySellController : Controller
+    public class ListingsController : Controller
     {
         private ListingManager listingManager = new ListingManager();
         
@@ -20,21 +20,26 @@ namespace SO.SilList.Web.Controllers
             return View();
         }
         */
-        public ActionResult _BuySellItem()
+        public ActionResult _ListingItem()
         {
             var results = listingManager.getAll(null);
             return PartialView(results);
         }
-
+/*
         public ActionResult Menu()
         {
             return PartialView("_Menu");
         }
-
+*/
         public ActionResult Filter(ListingVm input)
         {
             return PartialView("_Filter", input);
             //return PartialView("_Filter");
+        }
+
+        public ActionResult ListingsBox()
+        {
+            return PartialView("_ListingsBox");
         }
 
         public ActionResult Index(ListingVm input = null)
