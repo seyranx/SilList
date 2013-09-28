@@ -6,13 +6,57 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using System.ComponentModel.DataAnnotations.Schema;
+using SO.SilList.Utility.Classes;
 
 namespace SO.SilList.Manager.Models.ViewModels
 {
     public class ListingVm
     {
+        public List<ListingVo> result { get; set; }
+        public string keyword { get; set; }
+
+
+        [DisplayName("isActive: ")]
+        public bool? isActive { get; set; }
+        //  public int totalCount { get; set; }
+        public string submitButton { get; set; }
+        public Paging paging;
+
+        public ListingVo listing { get; set; }
+        //public List<CarImageCheckBoxInfo> imagesToRemove { get; set; }
+
+        public ListingVm()
+        {
+            //pageNumber = 1;
+            listing = new ListingVo();
+            this.result = new List<ListingVo>();
+            if (paging == null)
+                paging = new Paging();
+        }
+
+        public ListingVm(ListingVo input)
+        {
+            listing = input;
+            this.result = new List<ListingVo>();
+            if (paging == null)
+                paging = new Paging();
+        }
+
+        /*
+        public void AddCarImageInfo(ImageVo carImageVo, bool isChecked = true)
+        {
+            if (imagesToRemove == null)
+            {
+                imagesToRemove = new List<CarImageCheckBoxInfo>();
+            }
+            CarImageCheckBoxInfo carImgInfo = new CarImageCheckBoxInfo(carImageVo.imageId.ToString(), carImageVo.url);
+            imagesToRemove.Add(carImgInfo);
+
+        }
+        */
+
+        /*
         public List<ListingVo> result { get; set; }
         public string keyword { get; set; }
         public int pageNumber { get; set; }
@@ -69,10 +113,10 @@ namespace SO.SilList.Manager.Models.ViewModels
         public ListingVm()
         {
             this.result = new List<ListingVo>();
-            this.resultPerPage = 30; //change this to adjust default resultPerPage
+            this.resultPerPage = 4; //change this to adjust default resultPerPage
             this.pageLinkCount = 2;
             this.pageNumber = 1;
         }
-
+    */
     }
 }

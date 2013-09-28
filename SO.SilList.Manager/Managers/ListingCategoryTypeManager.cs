@@ -9,11 +9,36 @@ using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Interfaces;
 using SO.SilList.Manager.DbContexts;
 using SO.SilList.Manager.Models.ViewModels;
+using System.Threading.Tasks;
 
 namespace SO.SilList.Manager.Managers
 {
     public class ListingCategoryTypeManager : IListingCategoryTypeManager
     {
+        public ListingCategoryTypeManager()
+        {
+
+        }
+
+        public ListingCategoryTypeVm search(ListingCategoryTypeVm input)
+        {
+            using (var db = new MainDb())
+            {
+                var query = db.listingCategoryType
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                    );
+                input.paging.totalCount = query.Count();
+                input.result = query
+                             .OrderBy(b => b.name)
+                             .Skip(input.paging.skip)
+                             .Take(input.paging.rowCount)
+                             .ToList();
+                return input;
+            }
+        }
+
+/*        
         public int count(ListingCategoryTypeVm input)
         {
             using (var db = new MainDb())
@@ -44,7 +69,7 @@ namespace SO.SilList.Manager.Managers
                 return list;
             }
         }
-
+*/
         /// Find ListingCategoryType matching the listingCategoryTypeId
         public ListingCategoryTypeVo get(int listingCategoryTypeId)
         {

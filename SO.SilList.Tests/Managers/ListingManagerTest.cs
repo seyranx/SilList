@@ -19,7 +19,7 @@ namespace SO.SilList.Tests.Managers
             vo.keyword = "2";
             vo.isActive = true;
 
-            var res = listingManager.search(vo);
+            var res = listingManager.websearch(vo);
 
             if (res != null && res.Count == 0)
             {

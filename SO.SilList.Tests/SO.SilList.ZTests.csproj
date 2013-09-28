@@ -121,7 +121,6 @@
     <Compile Include="Managers\ListingCategoryTypeManagerTest.cs" />
     <Compile Include="Managers\ImageManagerTest.cs" />
     <Compile Include="Managers\ListingImagesManagerTest.cs" />
-    <Compile Include="Managers\ListingManagerTest.cs" />
     <Compile Include="Managers\ListingTypeManagerTest.cs" />
     <Compile Include="Managers\PropertyTypeManagerTest.cs" />
     <Compile Include="Managers\RatingManagerTest.cs" />

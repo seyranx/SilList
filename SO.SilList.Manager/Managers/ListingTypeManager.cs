@@ -14,6 +14,32 @@ namespace SO.SilList.Manager.Managers
 {
     public class ListingTypeManager : IListingTypeManager
     {
+        public ListingTypeManager()
+        {
+
+        }
+
+        public ListingTypeVm search(ListingTypeVm input)
+        {
+            using (var db = new MainDb())
+            {
+                var query = db.listingType
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                    );
+                input.paging.totalCount = query.Count();
+                input.result = query
+                             .OrderBy(b => b.name)
+                             .Skip(input.paging.skip)
+                             .Take(input.paging.rowCount)
+                             .ToList();
+                return input;
+            }
+        } 
+        
+        
+        
+ /*       
         public int count(ListingTypeVm input)
         {
             using (var db = new MainDb())
@@ -44,7 +70,7 @@ namespace SO.SilList.Manager.Managers
                 return list;
             }
         }
-
+*/
         /// Find ListingType matching the listingTypeId
         public ListingTypeVo get(int listingTypeId)
         {

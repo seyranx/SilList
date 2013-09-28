@@ -7,11 +7,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
+using SO.SilList.Utility.Classes;
 
 namespace SO.SilList.Manager.Models.ViewModels
 {
     public class ListingCategoryTypeVm
     {
+        public List<ListingCategoryTypeVo> result { get; set; }
+        public string keyword { get; set; }
+
+
+        [DisplayName("isActive: ")]
+        public bool? isActive { get; set; }
+        //  public int totalCount { get; set; }
+        public string submitButton { get; set; }
+        public Paging paging;
+
+        public ListingCategoryTypeVo listing { get; set; }
+        //public List<CarImageCheckBoxInfo> imagesToRemove { get; set; }
+
+        public ListingCategoryTypeVm()
+        {
+            //pageNumber = 1;
+            listing = new ListingCategoryTypeVo();
+            this.result = new List<ListingCategoryTypeVo>();
+            if (paging == null)
+                paging = new Paging();
+        }
+
+        public ListingCategoryTypeVm(ListingCategoryTypeVo input)
+        {
+            listing = input;
+            this.result = new List<ListingCategoryTypeVo>();
+            if (paging == null)
+                paging = new Paging();
+        }
+/*
         public List<ListingCategoryTypeVo> result { get; set; }
         public string keyword { get; set; }
         public int pageNumber { get; set; }
@@ -67,6 +98,6 @@ namespace SO.SilList.Manager.Models.ViewModels
             this.pageLinkCount = 2;
             this.pageNumber = 1;
         }
-
+*/
     }
 }

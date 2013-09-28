@@ -9,11 +9,60 @@ using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Interfaces;
 using SO.SilList.Manager.DbContexts;
 using SO.SilList.Manager.Models.ViewModels;
+using System.Threading.Tasks;
 
 namespace SO.SilList.Manager.Managers
 {
     public class ListingManager : IListingManager
     {
+
+        public ListingManager()
+        {
+
+        }
+
+        public ListingVm search(ListingVm input)
+        {
+            using (var db = new MainDb())
+            {
+                var query = db.listing
+                             .Include(s => s.site)
+                             .Include(t => t.listingType)
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                    );
+                input.paging.totalCount = query.Count();
+                input.result = query
+                             .OrderBy(b => b.title)
+                             .Skip(input.paging.skip)
+                             .Take(input.paging.rowCount)
+                             .ToList();
+                return input;
+            }
+        }
+/*
+        public ListingVm websearch(ListingVm input)
+        {
+            using (var db = new MainDb())
+            {
+                var query = db.listing
+                             .Include(s => s.site)
+                             .Include(t => t.listingType)
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.title.Contains(input.keyword) || e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                    );
+                input.paging.totalCount = query.Count();
+                input.result = query
+                             .OrderBy(b => b.title)
+                             .Skip(input.paging.skip)
+                             .Take(input.paging.rowCount)
+                             .ToList();
+                return input;
+            }
+        }
+*/
+
+/*
         public int count(ListingVm input)
         {   
             using (var db = new MainDb())
@@ -25,21 +74,10 @@ namespace SO.SilList.Manager.Managers
                                     )
                              .Count();
                 return totcount;
+
+
+                input.paging.totalCount = query.Count();
             }          
-        }
-
-        public int webcount(ListingVm input)
-        {
-            using (var db = new MainDb())
-            {
-
-                var totcount = db.listing
-                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
-                                      && (e.title.Contains(input.keyword) || e.description.Contains(input.keyword)  || string.IsNullOrEmpty(input.keyword))
-                                    )
-                             .Count();
-                return totcount;
-            }
         }
 
         public List<ListingVo> search(ListingVm input)
@@ -54,13 +92,27 @@ namespace SO.SilList.Manager.Managers
                                     )
                              .OrderBy(b => b.title)
                              .Skip(input.skip)
-                             .Take(input.resultPerPage)
+                             .Take(input.rowCount)
                              .ToList();
 
                 return list;
             }
         }
 
+        public int webcount(ListingVm input)
+        {
+            using (var db = new MainDb())
+            {
+
+                var totcount = db.listing
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.title.Contains(input.keyword) || e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                    )
+                             .Count();
+                return totcount;
+            }
+        }
+        
         public List<ListingVo> websearch(ListingVm input)
         {
             using (var db = new MainDb())
@@ -79,7 +131,7 @@ namespace SO.SilList.Manager.Managers
                 return list;
             }
         }
-
+*/
         /// Find Listing matching the listingId
         public ListingVo get(Guid listingId)
         {

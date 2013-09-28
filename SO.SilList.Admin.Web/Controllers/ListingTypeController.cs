@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Models.ViewModels;
+using SO.SilList.Utility.Classes;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
@@ -21,7 +22,7 @@ namespace SO.SilList.Admin.Web.Controllers
             if (this.ModelState.IsValid)
             {
                 input.result = listingTypeManager.search(input);
-                input.totalRowCount = listingTypeManager.count(input);
+                input.totalRowCount = listingTypeManager.count(input); // here
                 return View(input);
             }
 

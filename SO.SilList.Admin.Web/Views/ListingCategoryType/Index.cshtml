@@ -9,17 +9,13 @@
 <form name="filterForm" class="form-inline" method="get" action="@Url.Action("Index","ListingCategoryType")">
 
 @Html.Action("Filter", @Model)
-
 <p style="margin-top:10px; margin-bottom:10px;"> </p>
-
 <div class="pull-right">
-    Showing @Model.firstVisibleRow - @Model.lastVisibleRow of @Model.totalRowCount
+     @Model.paging.rowCount of @Model.result.Count
+     @*Showing @Model.firstVisibleRow - @Model.lastVisibleRow of @Model.totalRowCount *@
 </div>
 
 @Html.Partial("List", @Model.result)
+@Html.Action("Pagination",  @Model.paging)
 
-@Html.Action("Pagination", @Model)
-
-@* @Html.ActionLink("Clear Stats", "Delete") *@
-
- </form>
+</form>
