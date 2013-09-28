@@ -19,6 +19,7 @@ namespace SO.SilList.Admin.Web.Controllers
         public ActionResult Index(CarVm input = null,Paging paging = null)
         {
             if (input == null) input = new CarVm();
+input.car = new CarVo();
             input.paging = paging;
             if (this.ModelState.IsValid)
             {
@@ -47,8 +48,11 @@ namespace SO.SilList.Admin.Web.Controllers
 
             if (this.ModelState.IsValid)
             {
-
                 var item = carManager.insert(input);
+
+                ImageManager imageManager = new ImageManager();
+                imageManager.InsertImageForCar(item.carId, Request.Files, Server);
+
                 return RedirectToAction("Index");
             }
 
@@ -64,29 +68,64 @@ namespace SO.SilList.Admin.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Guid id, CarVo input)
+        public ActionResult Edit(Guid id, CarVm input)
         {
+            if (this.ModelState.IsValid && input.car != null)
+        {
+                var res = carManager.update(input.car, id);
 
-            if (this.ModelState.IsValid)
+                // Care Images stuff
+                ImageManager imageManager = new ImageManager();
+                // removing unchecked images
+                if (input.imagesToRemove != null)
+                {
+                    for (int ind = 0; ind < input.imagesToRemove.Count(); ind++)
+                    {
+                        bool imgChecked = input.imagesToRemove[ind].imageIsChecked;
+                        if (!imgChecked)
+                        {
+                            string strGuid = input.imagesToRemove[ind].imageIdStr;
+                            Guid imgGuid = Guid.Empty;
+                            if (Guid.TryParse(strGuid, out imgGuid))
             {
-                var res = carManager.update(input, id);
+                                imageManager.RemoveImageForCar(id, imgGuid);
+                            }
+                        }
+                    }
+                }
+                // uploading new images from edit page
+                imageManager.InsertImageForCar(id, Request.Files, Server);
+
                 return RedirectToAction("Index");
             }
 
-            return View();
+            return View(input);
 
         }
         public ActionResult Edit(Guid id)
         {
             var result = carManager.get(id);
+
+            ImageManager imageManager = new ImageManager();
             if (result.modelTypeId != null)
                 result.makeTypeId = (int)result.modelType.makeTypeId;
-            return View(result);
+
+            var carImages = imageManager.getCarImages(id);
+            CarVm carVm = new CarVm(result);
+            foreach (ImageVo image in carImages)
+            {
+                carVm.AddCarImageInfo(image, true);
+            }
+            return View(carVm);
         }
 
         public ActionResult Details(Guid id)
         {
             var result = carManager.get(id);
+
+            ImageManager imageManager = new ImageManager();
+            ViewBag.carImages = imageManager.getCarImages(id);
+
             return View(result);
         }
 
