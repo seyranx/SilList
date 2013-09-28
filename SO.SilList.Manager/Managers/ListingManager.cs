@@ -14,9 +14,70 @@ namespace SO.SilList.Manager.Managers
 {
     public class ListingManager : IListingManager
     {
-        public ListingManager()
-        {
+        public int count(ListingVm input)
+        {   
+            using (var db = new MainDb())
+            {
 
+                var totcount = db.listing
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                    )
+                             .Count();
+                return totcount;
+            }          
+        }
+
+        public int webcount(ListingVm input)
+        {
+            using (var db = new MainDb())
+            {
+
+                var totcount = db.listing
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.title.Contains(input.keyword) || e.description.Contains(input.keyword)  || string.IsNullOrEmpty(input.keyword))
+                                    )
+                             .Count();
+                return totcount;
+            }
+        }
+
+        public List<ListingVo> search(ListingVm input)
+        {
+            using (var db = new MainDb())
+            {
+                var list = db.listing
+                             .Include(s => s.site)
+                             .Include(t => t.listingType)
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                    )
+                             .OrderBy(b => b.title)
+                             .Skip(input.skip)
+                             .Take(input.resultPerPage)
+                             .ToList();
+
+                return list;
+            }
+        }
+
+        public List<ListingVo> websearch(ListingVm input)
+        {
+            using (var db = new MainDb())
+            {
+                var list = db.listing
+                             .Include(s => s.site)
+                             .Include(t => t.listingType)
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.title.Contains(input.keyword) || e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                    )
+                             .OrderBy(b => b.title)
+                             .Skip(input.skip)
+                             .Take(input.resultPerPage)
+                             .ToList();
+
+                return list;
+            }
         }
 
         /// Find Listing matching the listingId
@@ -43,25 +104,6 @@ namespace SO.SilList.Manager.Managers
                             .FirstOrDefault();
                
                 return res;
-            }
-        }
-
-        public List<ListingVo> search(ListingVm input)
-        {
-
-            using (var db = new MainDb())
-            {
-                var list = db.listing
-                             .Include(s => s.site)
-                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
-                                      && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
-                                    )
-                             .OrderBy(b => b.title)
-                             .Skip(input.skip)
-                             .Take(input.rowCount)
-                             .ToList();
-
-                return list;
             }
         }
 
@@ -118,7 +160,7 @@ namespace SO.SilList.Manager.Managers
         }
 
         // Insert Listing
-        public ListingVo insert(ListingVo input)
+        public ListingVo insert(ListingVo input) // maybe "Models.ValueObjects.ListingVo" ?
         {
             using (var db = new MainDb())
             {

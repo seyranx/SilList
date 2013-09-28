@@ -1,0 +1,47 @@
+﻿@model SO.SilList.Manager.Models.ViewModels.ListingVm
+@{
+    ViewBag.Title = "Armenian Listings";
+    Layout = "~/Views/Shared/_LayoutListings.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<ul class="media-list" >
+
+<div class="pull-right">
+    Showing @Model.firstVisibleRow - @Model.lastVisibleRow of @Model.searchCount
+</div>
+
+ @Html.Partial("_ListingItem", @Model.result)
+
+    
+</ul>
+
+@*
+ @for(int i=0; i<10; i++){
+  <li class="row, media" style="border-bottom:1px solid #ccc;" >
+   
+     @Html.Partial("_BuySellItem")
+     //  @Html.Partial("_BuySellItem", @Model.result) 
+
+  </li>
+     
+ }
+
+
+<form name="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Listing")">
+
+@Html.Action("Filter", @Model)
+
+<p style="margin-top:10px; margin-bottom:10px;"> </p>
+
+<div class="pull-right">
+    Showing @Model.firstVisibleRow - @Model.lastVisibleRow of @Model.totalRowCount
+</div>
+
+@Html.Partial("List", @Model.result)
+
+@Html.Action("Pagination", @Model)
+
+ </form>
+*@

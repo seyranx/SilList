@@ -1,13 +1,45 @@
-﻿@model SO.SilList.Manager.Models.ViewModels.ListingCategoryTypeVm
+﻿@model SO.SilList.Manager.Models.ViewModels.ListingTypeVm
 
 <div class="pagination pull-right">
-  <ul>
-    <li> @Html.ActionLink("Prev", "Index", new { pageNumber = 0}) </li>
-    <li> @Html.ActionLink("1", "Index", new { pageNumber = 1 }) </li>
-    <li> @Html.ActionLink("2", "Index", new { pageNumber = 2 }) </li>
-    <li> @Html.ActionLink("3", "Index", new { pageNumber = 3 }) </li>
-    <li> @Html.ActionLink("4", "Index", new { pageNumber = 4 }) </li>
-    <li> @Html.ActionLink("5", "Index", new { pageNumber = 5 }) </li>
-    <li> @Html.ActionLink("Next", "Index", new { pageNumber = 6 }) </li>
-  </ul>
+    
+<ul>
+
+@if (Model.pageNumber != 1 && Model.totalPages > 0)
+{
+    <li><a href="#" onclick="document.getElementById('pageNumber').value=1;document.filterForm.submit();return false;">First</a></li>
+   @*
+     <li><a href="#" onclick="document.getElementById('pageNumber').value=@(Model.pageNumber-1);document.filterForm.submit();return false;">Prev</a></li>
+   *@
+}
+
+@for (int p = Math.Max(1, Model.pageNumber - Model.pageLinkCount); p <= Model.totalPages; p++)
+{
+    if (Model.pageNumber == p)
+    {   
+        <li><a href="#" style="color: red;" onclick="document.getElementById('pageNumber').value=@p;document.filterForm.submit();return false;">@p</a></li>  
+    }
+    else
+    {
+        <li><a href="#"  onclick="document.getElementById('pageNumber').value=@p;document.filterForm.submit();return false;">@p</a></li>
+    }
+}
+    <li>
+    @if (true)
+    {
+        <select name="pageNumber" id="pageNumber" onchange="this.form.submit()" style="width: auto" >
+             @for (int i = 1; i <= @Model.totalPages; i++)
+            {
+                  <option value="@i" @(i == Model.pageNumber ? "selected" : "") display: none; valign="top";>@i</option>
+            }
+        </select>
+    }
+    </li>
+@*
+@if (Model.pageNumber != Model.totalPages)
+{
+    <li><a href="#" onclick="document.getElementById('pageNumber').value=@Model.totalPages;document.filterForm.submit();return false;">Last</a></li>
+}
+*@
+</ul>
+
 </div>
