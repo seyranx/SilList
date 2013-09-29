@@ -70,6 +70,21 @@ namespace SO.SilList.Utility.Classes
                     return startingLinkPage + pageLinkCount; ;
             }
         }
+        public int showingFrom
+        {
+            get
+            {
+                return (rowCount > totalCount ? 0 : ((pageNumber - 1) * rowCount + 1));
+            }
+        }
+        public int showingTo
+        {
+            get
+            {
+                return Math.Min(pageNumber * rowCount, totalCount);
+            }
+        }
+
         public int skip
         {
             get
