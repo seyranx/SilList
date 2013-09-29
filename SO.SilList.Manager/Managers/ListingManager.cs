@@ -39,7 +39,7 @@ namespace SO.SilList.Manager.Managers
                 return input;
             }
         }
-/*
+
         public ListingVm websearch(ListingVm input)
         {
             using (var db = new MainDb())
@@ -59,7 +59,6 @@ namespace SO.SilList.Manager.Managers
                 return input;
             }
         }
-*/
 
 /*
         public int count(ListingVm input)

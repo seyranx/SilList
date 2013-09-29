@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Models.ViewModels;
 using SO.SilList.Manager.Managers;
+using SO.SilList.Utility.Classes;
 
 namespace SO.SilList.Web.Controllers
 {
@@ -49,8 +50,12 @@ namespace SO.SilList.Web.Controllers
 
             if (this.ModelState.IsValid)
             {
-                input.result = listingManager.websearch(input);
-                input.searchCount = listingManager.webcount(input);
+                //input.result = listingManager.websearch(input);
+                //input.searchCount = listingManager.webcount(input);
+
+                //if (input.submitButton != null)
+                  //  input.paging.pageNumber = 1;
+                input = listingManager.search(input);
                 return View(input);
             }
 

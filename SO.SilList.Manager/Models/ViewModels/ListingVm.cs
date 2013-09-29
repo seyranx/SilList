@@ -14,6 +14,7 @@ namespace SO.SilList.Manager.Models.ViewModels
     {
         public List<ListingVo> result { get; set; }
         public string keyword { get; set; }
+        public string location { get; set; } //added
 
 
         [DisplayName("isActive: ")]
