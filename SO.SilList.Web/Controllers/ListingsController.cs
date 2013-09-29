@@ -13,14 +13,25 @@ namespace SO.SilList.Web.Controllers
     public class ListingsController : Controller
     {
         private ListingManager listingManager = new ListingManager();
-        
-        // GET: /Rentals/
-        /*
-        public ActionResult Index()
+
+        public ActionResult Index(ListingVm input = null, Paging paging = null)
         {
+            if (input == null)
+                input = new ListingVm();
+            input.listing = new ListingVo();
+            input.paging = paging;
+
+            if (this.ModelState.IsValid)
+            {
+                if (input.submitButton != null)
+                    input.paging.pageNumber = 1;
+                input = listingManager.search(input);
+                return View(input);
+            }
+
             return View();
         }
-        */
+
         public ActionResult _ListingItem()
         {
             var results = listingManager.getAll(null);
@@ -35,7 +46,6 @@ namespace SO.SilList.Web.Controllers
         public ActionResult Filter(ListingVm input)
         {
             return PartialView("_Filter", input);
-            //return PartialView("_Filter");
         }
 
         public ActionResult ListingsBox()
@@ -43,23 +53,9 @@ namespace SO.SilList.Web.Controllers
             return PartialView("_ListingsBox");
         }
 
-        public ActionResult Index(ListingVm input = null)
+        public ActionResult Pagination(Paging input)
         {
-            if (input == null)
-                input = new ListingVm();
-
-            if (this.ModelState.IsValid)
-            {
-                //input.result = listingManager.websearch(input);
-                //input.searchCount = listingManager.webcount(input);
-
-                //if (input.submitButton != null)
-                  //  input.paging.pageNumber = 1;
-                input = listingManager.search(input);
-                return View(input);
-            }
-
-            return View();
+            return PartialView("_Pagination", input);
         }
 
         /*

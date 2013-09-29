@@ -16,7 +16,6 @@ namespace SO.SilList.Manager.Models.ViewModels
         public string keyword { get; set; }
         public string location { get; set; } //added
 
-
         [DisplayName("isActive: ")]
         public bool? isActive { get; set; }
         //  public int totalCount { get; set; }
@@ -24,7 +23,6 @@ namespace SO.SilList.Manager.Models.ViewModels
         public Paging paging;
 
         public ListingVo listing { get; set; }
-        //public List<CarImageCheckBoxInfo> imagesToRemove { get; set; }
 
         public ListingVm()
         {
