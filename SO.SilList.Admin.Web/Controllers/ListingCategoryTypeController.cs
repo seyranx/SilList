@@ -14,15 +14,18 @@ namespace SO.SilList.Admin.Web.Controllers
     {
         private ListingCategoryTypeManager listingCategoryTypeManager = new ListingCategoryTypeManager();
 
-        public ActionResult Index(ListingCategoryTypeVm input = null)
+        public ActionResult Index(ListingCategoryTypeVm input = null, Paging paging = null)
         {
             if (input == null)
                 input = new ListingCategoryTypeVm();
+            input.listingCategoryType = new ListingCategoryTypeVo();
+            input.paging = paging;
 
             if (this.ModelState.IsValid)
             {
-                input.result = listingCategoryTypeManager.search(input);
-                input.totalRowCount = listingCategoryTypeManager.count(input);
+                if (input.submitButton != null)
+                    input.paging.pageNumber = 1;
+                input = listingCategoryTypeManager.search(input);
                 return View(input);
             }
 
@@ -88,7 +91,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return View(result);
         }
 
-        public ActionResult Pagination(ListingCategoryTypeVm input)
+        public ActionResult Pagination(Paging input)
         {
             return PartialView("_Pagination", input);
         }

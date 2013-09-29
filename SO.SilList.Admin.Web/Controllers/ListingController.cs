@@ -27,7 +27,6 @@ namespace SO.SilList.Admin.Web.Controllers
                     input.paging.pageNumber = 1;
                 input = listingManager.search(input);
                 return View(input);
-
             }
 
             return View();
