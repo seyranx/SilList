@@ -1,7 +1,7 @@
 ﻿@model SO.SilList.Manager.Models.ViewModels.ListingVm
  
 
-<form name="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Listings")">
+<form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Listings")">
 
 <label>Keyword:</label>
 @Html.ValidationSummary(true)
@@ -15,9 +15,12 @@
 
 <br /><br />
 
-<button type="submit" class="btn btn-success pull-right">Search</button> 
+ @Html.HiddenFor(model=> model.paging.pageNumber)
+
+<button name="submitButton" value="Search" type="submit" class="btn btn-success pull-right">Search</button>
+
  @*
-<button type="submit" class="btn" onclick="document.getElementById('pageNumber').value=1">Search</button> 
+<button type="submit" class="btn btn-success pull-right">Search</button> 
  *@
 
  </form>

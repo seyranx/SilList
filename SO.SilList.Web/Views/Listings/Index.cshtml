@@ -9,39 +9,12 @@
 <ul class="media-list" >
 
 <div class="pull-right">
-    Showing @Model.firstVisibleRow - @Model.lastVisibleRow of @Model.searchCount
+    @(@Model.paging.rowCount <  @Model.paging.totalCount ? @Model.paging.rowCount : @Model.paging.totalCount) of @Model.paging.totalCount
+    
+    @*@Model.paging.rowCount of @Model.paging.totalCount *@
 </div>
 
- @Html.Partial("_ListingItem", @Model.result)
-
+@Html.Partial("_ListingItem", @Model.result)
+@Html.Action("Pagination",  @Model.paging)
     
 </ul>
-
-@*
- @for(int i=0; i<10; i++){
-  <li class="row, media" style="border-bottom:1px solid #ccc;" >
-   
-     @Html.Partial("_BuySellItem")
-     //  @Html.Partial("_BuySellItem", @Model.result) 
-
-  </li>
-     
- }
-
-
-<form name="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Listing")">
-
-@Html.Action("Filter", @Model)
-
-<p style="margin-top:10px; margin-bottom:10px;"> </p>
-
-<div class="pull-right">
-    Showing @Model.firstVisibleRow - @Model.lastVisibleRow of @Model.totalRowCount
-</div>
-
-@Html.Partial("List", @Model.result)
-
-@Html.Action("Pagination", @Model)
-
- </form>
-*@

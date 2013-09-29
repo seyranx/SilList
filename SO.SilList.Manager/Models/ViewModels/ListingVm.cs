@@ -14,7 +14,7 @@ namespace SO.SilList.Manager.Models.ViewModels
     {
         public List<ListingVo> result { get; set; }
         public string keyword { get; set; }
-
+        public string location { get; set; } //added
 
         [DisplayName("isActive: ")]
         public bool? isActive { get; set; }
@@ -23,7 +23,6 @@ namespace SO.SilList.Manager.Models.ViewModels
         public Paging paging;
 
         public ListingVo listing { get; set; }
-        //public List<CarImageCheckBoxInfo> imagesToRemove { get; set; }
 
         public ListingVm()
         {
