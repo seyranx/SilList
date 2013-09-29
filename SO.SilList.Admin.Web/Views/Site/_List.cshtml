@@ -1,7 +1,12 @@
 ﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.SiteVo>
 
 <p>
-    @*@Html.ActionLink("Create New", "Create")*@
+    <a href="/car/edit" class="btn btn-info">Go back</a>
+</p>
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { Class="btn btn-info" })
+    </p>
+<p>
     <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
 </p>
 <table class="table table-bordered table-hover">

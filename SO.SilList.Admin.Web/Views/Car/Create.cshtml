@@ -14,122 +14,124 @@
 
     <fieldset class="form-horizontal">
         <legend></legend>
-        
-    
-           <div class="control-group">
+
+
+        <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.siteId)
             </div>
             <div class="controls">
-                @Html.Action("DropDownList","Site",new {id=Model.siteId})
+                @Html.Action("DropDownList", "Site", new { id = Model.siteId })
+                <a href="@Url.Action("Index", "Site")" class="btn" style="width:120px;">Sites
+                </a>
             </div>
         </div>
-        
+
         <div class="control-group">
-        <div class="control-label">
-            @Html.LabelFor(model => model.makeTypeId)
-        </div>
-        <div class="controls">
-            @Html.Action("DropDownList","MakeType",new {id=Model.makeTypeId})
-        </div>
+            <div class="control-label">
+                @Html.LabelFor(model => model.makeTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "MakeType", new { id = Model.makeTypeId })
+            </div>
         </div>
 
         <div class="control-group">
-        <div class="control-label">
-            @Html.LabelFor(model => model.modelTypeId)
-        </div>
-        <div class="controls" id ="modelList">
-            @Html.Action("DropDownList", "ModelType", new { id = Model.modelTypeId, _makeTypeId = Model.makeTypeId })
-        </div>
-        </div>
-
-        <div class="control-group">
-        <div class="control-label">
-            @Html.LabelFor(model => model.year)
-        </div>
-        <div class="controls">
-            @{
-                int currentYear = DateTime.Now.Year;
-            var mylist = new string[31];
-            for(int i =0;i<31;i++)
-            {
-                mylist.SetValue((currentYear - 30 + i).ToString(),30-i);
-            }
-            var selectlist = new SelectList(mylist);
-             }  
-            @Html.DropDownListFor(model=> model.year,selectlist)
-            @Html.ValidationMessageFor(model => model.year)
-        </div>
+            <div class="control-label">
+                @Html.LabelFor(model => model.modelTypeId)
+            </div>
+            <div class="controls" id="modelList">
+                @Html.Action("DropDownList", "ModelType", new { id = Model.modelTypeId, _makeTypeId = Model.makeTypeId })
+            </div>
         </div>
 
         <div class="control-group">
-        <div class="control-label">
-            @Html.LabelFor(model => model.millage)
-        </div>
-        <div class="controls">
-            @Html.EditorFor(model => model.millage)
-            @Html.ValidationMessageFor(model => model.millage)
-        </div>
-        </div>
-
-        <div class="control-group">
-        <div class="control-label">
-            @Html.LabelFor(model => model.carBodyTypeId)
-        </div>
-        <div class="controls">
-            @Html.Action("DropDownList", "CarBodyType", new { id = Model.carBodyTypeId })
-        </div>
-        </div>
-
-        <div class="control-group">
-        <div class="control-label">
-             @Html.LabelFor(model => model.transmissionTypeId)
-        </div>
-        <div class="controls">
-            @Html.Action("DropDownList", "TransmissionType", new { id = Model.transmissionTypeId })
-        </div>
+            <div class="control-label">
+                @Html.LabelFor(model => model.year)
+            </div>
+            <div class="controls">
+                @{
+    int currentYear = DateTime.Now.Year;
+    var mylist = new string[31];
+    for (int i = 0; i < 31; i++)
+    {
+        mylist.SetValue((currentYear - 30 + i).ToString(), 30 - i);
+    }
+    var selectlist = new SelectList(mylist);
+                }
+                @Html.DropDownListFor(model => model.year, selectlist)
+                @Html.ValidationMessageFor(model => model.year)
+            </div>
         </div>
 
         <div class="control-group">
-        <div class="control-label">
-            @Html.LabelFor(model => model.startDate)
-        </div>
-        <div class="controls">
-            @Html.EditorFor(model => model.startDate)
-            @Html.ValidationMessageFor(model => model.startDate)
-        </div>
-        </div>
-
-        <div class="control-group">
-        <div class="control-label">
-            @Html.LabelFor(model => model.endDate)
-        </div>
-        <div class="controls">
-            <!-- <input type="text" value="@Html.DisplayFor(model => model.endDate)" id="endDate" /> -->
-            @Html.EditorFor(model => model.endDate)
-            @Html.ValidationMessageFor(model => model.endDate)
-        </div>
+            <div class="control-label">
+                @Html.LabelFor(model => model.millage)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.millage)
+                @Html.ValidationMessageFor(model => model.millage)
+            </div>
         </div>
 
         <div class="control-group">
-        <div class="control-label">
-            @Html.LabelFor(model => model.isApproved)
-        </div>
-        <div class="controls">
-            @Html.EditorFor(model => model.isApproved)
-            @Html.ValidationMessageFor(model => model.isApproved)
-        </div>
+            <div class="control-label">
+                @Html.LabelFor(model => model.carBodyTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "CarBodyType", new { id = Model.carBodyTypeId })
+            </div>
         </div>
 
         <div class="control-group">
-        <div class="control-label">
-            @Html.LabelFor(model => model.isActive)
+            <div class="control-label">
+                @Html.LabelFor(model => model.transmissionTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "TransmissionType", new { id = Model.transmissionTypeId })
+            </div>
         </div>
-        <div class="controls">
-            @Html.EditorFor(model => model.isActive)
-            @Html.ValidationMessageFor(model => model.isActive)
+
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.startDate)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.startDate)
+                @Html.ValidationMessageFor(model => model.startDate)
+            </div>
         </div>
-         </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.endDate)
+            </div>
+            <div class="controls">
+                <!-- <input type="text" value="@Html.DisplayFor(model => model.endDate)" id="endDate" /> -->
+                @Html.EditorFor(model => model.endDate)
+                @Html.ValidationMessageFor(model => model.endDate)
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.isApproved)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.isApproved)
+                @Html.ValidationMessageFor(model => model.isApproved)
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.isActive)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.isActive)
+                @Html.ValidationMessageFor(model => model.isActive)
+            </div>
+        </div>
         <p class="controls">
             <input type="submit" value="Create" />
             <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
