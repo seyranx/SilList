@@ -11,17 +11,7 @@
 @Html.Action("Filter", @Model)
 @*<p style="margin-top:10px; margin-bottom:10px;"> </p>*@
 <div class="pull-right">
-    @(@Model.paging.rowCount <  @Model.paging.totalCount ? @Model.paging.rowCount : @Model.paging.totalCount) of @Model.paging.totalCount
-
-    @*
-     @(@Model.paging.rowCount <  @Model.paging.totalCount ? (((@Model.paging.pageNumber - 1)* @Model.paging.rowCount)-(@Model.paging.pageNumber * @Model.paging.rowCount)) : @Model.paging.totalCount) of @Model.paging.totalCount
-  *@
-    
-   @* (totalRowCount > 0 ? (pageNumber - 1) * resultPerPage + 1 : 0);
-    (pageNumber * resultPerPage, totalRowCount);
-    *@
-    
-     @*Showing @Model.firstVisibleRow - @Model.lastVisibleRow of @Model.totalRowCount *@
+    @Model.paging.showingFrom - @Model.paging.showingTo of @Model.paging.totalCount
 </div>
 
 @Html.Partial("List", @Model.result)

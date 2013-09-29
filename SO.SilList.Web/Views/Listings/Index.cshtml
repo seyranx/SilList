@@ -9,9 +9,7 @@
 <ul class="media-list" >
 
 <div class="pull-right">
-    @(@Model.paging.rowCount <  @Model.paging.totalCount ? @Model.paging.rowCount : @Model.paging.totalCount) of @Model.paging.totalCount
-    
-    @*@Model.paging.rowCount of @Model.paging.totalCount *@
+    @Model.paging.showingFrom - @Model.paging.showingTo of @Model.paging.totalCount
 </div>
 
 @Html.Partial("_ListingItem", @Model.result)
