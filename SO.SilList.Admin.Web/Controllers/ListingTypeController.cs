@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Models.ViewModels;
+using SO.SilList.Utility.Classes;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
@@ -13,13 +14,18 @@ namespace SO.SilList.Admin.Web.Controllers
     {
         private ListingTypeManager listingTypeManager = new ListingTypeManager();
 
-        public ActionResult Index(ListingTypeVm input = null)
+        public ActionResult Index(ListingTypeVm input = null, Paging paging = null)
         {
-            if (input == null) input = new ListingTypeVm();
+            if (input == null)
+                input = new ListingTypeVm();
+            input.listingType = new ListingTypeVo();
+            input.paging = paging;
 
             if (this.ModelState.IsValid)
             {
-                input.result = listingTypeManager.search(input);
+                if (input.submitButton != null)
+                    input.paging.pageNumber = 1;
+                input = listingTypeManager.search(input);
                 return View(input);
             }
 
@@ -37,7 +43,6 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView(results);
         }
 
-
         public ActionResult Menu()
         {
             return PartialView("../Listing/_Menu");
@@ -47,27 +52,24 @@ namespace SO.SilList.Admin.Web.Controllers
         [HttpPost]
         public ActionResult Create(ListingTypeVo input)
         {
-
             if (this.ModelState.IsValid)
             {
-
                 var item = listingTypeManager.insert(input);
                 return RedirectToAction("Index");
             }
 
             return View();
-
         }
 
         public ActionResult Create()
         {
-            return View();
+            var vo = new ListingTypeVo();
+            return View(vo); ;
         }
 
         [HttpPost]
         public ActionResult Edit(int id, ListingTypeVo input)
         {
-
             if (this.ModelState.IsValid)
             {
                 var res = listingTypeManager.update(input, id);
@@ -75,8 +77,8 @@ namespace SO.SilList.Admin.Web.Controllers
             }
 
             return View();
-
         }
+
         public ActionResult Edit(int id)
         {
             var result = listingTypeManager.get(id);
@@ -89,9 +91,9 @@ namespace SO.SilList.Admin.Web.Controllers
             return View(result);
         }
 
-        public ActionResult Pagination()
+        public ActionResult Pagination(Paging input)
         {
-            return PartialView("_Pagination");
+            return PartialView("_Pagination", input);
         }
 
         public ActionResult Delete(int id)

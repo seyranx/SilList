@@ -1,0 +1,49 @@
+﻿@model SO.SilList.Manager.Models.ViewModels.VisitVm
+
+<div class="pagination pull-right">
+  <ul>
+
+<<<<<<< HEAD
+@if(1 != @Model.pageNumber && @Model.totalPages > 0)
+=======
+@if(@Model.pageNumber != 1)
+>>>>>>> SilList_working
+{
+    <li><a href="#" onclick="$('#pageNumber').val(1);$('#filterForm').submit();return false;">First</a></li>
+    <li><a href="#" onclick="$('#pageNumber').val(@(Model.pageNumber-1));$('#filterForm').submit();return false;">Prev</a></li>
+}
+
+@for (int p = Model.firstLinkPage; p <= Model.lastLinkPage; p++)
+{
+    if(Model.pageNumber == p)
+    {
+        <li><span>@p</span></li>
+    }
+    else
+    {
+        <li><a href="#" onclick="$('#pageNumber').val(@p);$('#filterForm').submit();return false;">@p</a></li>
+    }
+
+}
+
+@if(Model.totalPages > Model.pageNumber)
+{
+    <li><a href="#" onclick="$('#pageNumber').val(@(Model.pageNumber+1));$('#filterForm').submit();return false;">Next</a></li>
+    <li><a href="#" onclick="$('#pageNumber').val(@Model.totalPages);$('#filterForm').submit();return false;">Last</a></li>
+}
+  </ul>
+
+@if(Model.totalPages > 0)
+{
+    <div class="span3 pull-right">
+        Showing page
+        <select name="pageNumber" id="pageNumber" onchange="this.form.submit()" style="width: auto">
+            @for (int i = 1; i <= Model.totalPages; i++ )
+            {
+                <option value="@i" @(i == Model.pageNumber ? "selected" : "")>@i</option>
+            }
+        </select>
+        of @Model.totalPages
+    </div>
+}
+</div>

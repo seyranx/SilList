@@ -563,11 +563,8 @@
     <Content Include="Views\Visit\_Pagination.cshtml" />
     <Content Include="Views\Visit\Delete.cshtml" />
     <Content Include="Views\Listing\_Filter.cshtml" />
-    <Content Include="Views\Listing\_Pagination.cshtml" />
     <Content Include="Views\ListingCategoryType\_Filter.cshtml" />
-    <Content Include="Views\ListingCategoryType\_Pagination.cshtml" />
     <Content Include="Views\ListingType\_Filter.cshtml" />
-    <Content Include="Views\ListingType\_Pagination.cshtml" />
     <Content Include="Views\BusinessCategoryType\_Filter.cshtml" />
     <Content Include="Views\BusinessCategoryType\_Pagination.cshtml" />
     <Content Include="Views\ServiceType\_Pagination.cshtml" />

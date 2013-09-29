@@ -1,0 +1,23 @@
+﻿@model SO.SilList.Manager.Models.ViewModels.ListingVm
+ 
+
+<form name="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Listings")">
+
+<label>Keyword:</label>
+@Html.ValidationSummary(true)
+@Html.TextBoxFor(model => model.keyword,new { Class = "input-large", placeholder =  "Keyword" })
+@Html.ValidationMessageFor(model => model.keyword)
+
+<label>Location:</label>
+@Html.ValidationSummary(true)
+@Html.TextBoxFor(model => model.location,new { Class = "input-large", placeholder =  "Location" })
+@Html.ValidationMessageFor(model => model.location)
+
+<br /><br />
+
+<button type="submit" class="btn btn-success pull-right">Search</button> 
+ @*
+<button type="submit" class="btn" onclick="document.getElementById('pageNumber').value=1">Search</button> 
+ *@
+
+ </form>
