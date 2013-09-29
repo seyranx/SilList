@@ -6,10 +6,10 @@
 
 <h2>@ViewBag.Title</h2>
 
-<form name="filterForm" class="form-inline" method="get" action="@Url.Action("Index","ListingType")">
+<form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index","ListingType")">
 
 @Html.Action("Filter", @Model)
-<p style="margin-top:10px; margin-bottom:10px;"> </p>
+@*<p style="margin-top:10px; margin-bottom:10px;"> </p>*@
 <div class="pull-right">
      @Model.paging.rowCount of @Model.result.Count
      @*Showing @Model.firstVisibleRow - @Model.lastVisibleRow of @Model.totalRowCount *@

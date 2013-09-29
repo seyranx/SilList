@@ -9,7 +9,6 @@ using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Interfaces;
 using SO.SilList.Manager.DbContexts;
 using SO.SilList.Manager.Models.ViewModels;
-using System.Threading.Tasks;
 
 namespace SO.SilList.Manager.Managers
 {

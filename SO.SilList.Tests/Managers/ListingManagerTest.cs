@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SO.SilList.Manager.Managers;
 using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Models.ViewModels;
+using SO.SilList.Utility.Classes;
 
 namespace SO.SilList.Tests.Managers
 {
@@ -15,13 +16,13 @@ namespace SO.SilList.Tests.Managers
         public void searchTest()
         {
             var vo = new ListingVm();
-            //vo.result.count = 2;
+            vo.paging.pageNumber = 4;
             vo.keyword = "2";
             vo.isActive = true;
 
-            var res = listingManager.websearch(vo);
+            var res = listingManager.search(vo);
 
-            if (res != null && res.Count == 0)
+            if (res != null)
             {
                 Assert.IsTrue(true);
             }

@@ -6,7 +6,6 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations.Schema;
 using SO.SilList.Utility.Classes;
 
 namespace SO.SilList.Manager.Models.ViewModels

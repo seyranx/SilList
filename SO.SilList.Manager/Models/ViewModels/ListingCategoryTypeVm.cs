@@ -23,13 +23,13 @@ namespace SO.SilList.Manager.Models.ViewModels
         public string submitButton { get; set; }
         public Paging paging;
 
-        public ListingCategoryTypeVo listing { get; set; }
+        public ListingCategoryTypeVo listingCategoryType { get; set; }
         //public List<CarImageCheckBoxInfo> imagesToRemove { get; set; }
 
         public ListingCategoryTypeVm()
         {
             //pageNumber = 1;
-            listing = new ListingCategoryTypeVo();
+            listingCategoryType = new ListingCategoryTypeVo();
             this.result = new List<ListingCategoryTypeVo>();
             if (paging == null)
                 paging = new Paging();
@@ -37,7 +37,7 @@ namespace SO.SilList.Manager.Models.ViewModels
 
         public ListingCategoryTypeVm(ListingCategoryTypeVo input)
         {
-            listing = input;
+            listingCategoryType = input;
             this.result = new List<ListingCategoryTypeVo>();
             if (paging == null)
                 paging = new Paging();
