@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.SiteVo>
 
 <p>
-    <a href="@Request.UrlReferrer" class="btn btn-info">Back</a>
+    <a href="@Request.UrlReferrer" class="btn btn-inverse">Back to @ViewBag.referrerName</a>
 </p>
 <p>
     @Html.ActionLink("Create New", "Create", null, new { Class = "btn btn-info" })

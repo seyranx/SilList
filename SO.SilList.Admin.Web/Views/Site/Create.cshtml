@@ -6,6 +6,9 @@
 }
 
 <h2>Create</h2>
+<p>
+    <a href="@ViewBag.urlReferrer" class="btn btn-inverse">Back to @ViewBag.referrerName</a>
+</p>
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
