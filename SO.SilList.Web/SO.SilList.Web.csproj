@@ -287,6 +287,7 @@
     <Content Include="Views\Listings\_Filter.cshtml" />
     <Content Include="Views\Listings\_ListingItem.cshtml" />
     <Content Include="Views\Listings\_Menu.cshtml" />
+    <Content Include="Views\Shared\_Pagination.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

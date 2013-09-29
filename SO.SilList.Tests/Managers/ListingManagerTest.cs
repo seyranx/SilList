@@ -17,7 +17,7 @@ namespace SO.SilList.Tests.Managers
         {
             var vo = new ListingVm();
             vo.paging.pageNumber = 4;
-            vo.location = "2";
+            vo.totalCount = "2";
             vo.isActive = true;
 
             var res = listingManager.search(vo);
