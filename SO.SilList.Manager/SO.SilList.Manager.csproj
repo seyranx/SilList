@@ -180,16 +180,16 @@
     <Compile Include="Models\ValueObjects\TransmissionTypeVo.cs" />
     <Compile Include="Models\ViewModels\CarBodyTypeVm.cs" />
     <Compile Include="Models\ViewModels\CarImagesVm.cs" />
+    <Compile Include="Models\ViewModels\ListingCategoryTypeVm.cs" />
+    <Compile Include="Models\ViewModels\ListingTypeVm.cs" />
     <Compile Include="Models\ViewModels\MemberVm.cs" />
     <Compile Include="Models\ViewModels\TransmissionTypeVm.cs" />
     <Compile Include="Models\ViewModels\MakeTypeVm.cs" />
     <Compile Include="Models\ViewModels\CarImageVm.cs" />
     <Compile Include="Models\ViewModels\ModelTypeVm.cs" />
-    <Compile Include="Models\ViewModels\ListingTypeVm.cs" />
     <Compile Include="Models\ViewModels\RentalVm.cs" />
     <Compile Include="Models\ViewModels\ServiceTypeVm.cs" />
     <Compile Include="Models\ViewModels\VisitVm.cs" />
-    <Compile Include="Models\ViewModels\ListingCategoryTypeVm.cs" />
     <Compile Include="Models\ViewModels\ListingVm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

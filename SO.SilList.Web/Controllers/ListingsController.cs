@@ -1,22 +1,22 @@
-﻿using SO.SilList.Manager.Managers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Models.ViewModels;
+using SO.SilList.Manager.Managers;
 using SO.SilList.Utility.Classes;
 
-namespace SO.SilList.Admin.Web.Controllers
+namespace SO.SilList.Web.Controllers
 {
-    public class ListingController : Controller
+    public class ListingsController : Controller
     {
         private ListingManager listingManager = new ListingManager();
 
         public ActionResult Index(ListingVm input = null, Paging paging = null)
         {
-            if (input == null) 
+            if (input == null)
                 input = new ListingVm();
             input.listing = new ListingVo();
             input.paging = paging;
@@ -32,62 +32,25 @@ namespace SO.SilList.Admin.Web.Controllers
             return View();
         }
 
+        public ActionResult _ListingItem()
+        {
+            var results = listingManager.getAll(null);
+            return PartialView(results);
+        }
+/*
+        public ActionResult Menu()
+        {
+            return PartialView("_Menu");
+        }
+*/
         public ActionResult Filter(ListingVm input)
         {
             return PartialView("_Filter", input);
         }
 
-        public ActionResult Menu()
+        public ActionResult ListingsBox()
         {
-            return PartialView("_Menu");
-        }
-
-        public ActionResult List()
-        {
-            var results = listingManager.getAll(null);
-            return PartialView(results);
-        }
-
-        [HttpPost]
-        public ActionResult Create(ListingVo input)
-        {
-            if (this.ModelState.IsValid)
-            {
-                var item = listingManager.insert(input);
-                return RedirectToAction("Index");
-            }
-
-            return View();
-        }
-
-        public ActionResult Create()
-        {
-            var vo = new ListingVo();
-            return View(vo);
-        }
-
-        [HttpPost]
-        public ActionResult Edit(Guid id, ListingVo input)
-        {
-            if (this.ModelState.IsValid)
-            {
-                var res = listingManager.update(input, id);
-                return RedirectToAction("Index");
-            }
-
-            return View();
-        }
-
-        public ActionResult Edit(Guid id)
-        {
-            var result = listingManager.get(id);
-            return View(result);
-        }
-
-        public ActionResult Details(Guid id)
-        {
-            var result = listingManager.get(id);
-            return View(result);
+            return PartialView("_ListingsBox");
         }
 
         public ActionResult Pagination(Paging input)
@@ -95,10 +58,35 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView("_Pagination", input);
         }
 
-        public ActionResult Delete(Guid id)
+        /*
+
+        public ActionResult Index(ListingVm input = null)
         {
-            listingManager.delete(id);
-            return RedirectToAction("Index");
+            if (input == null)
+                input = new ListingVm();
+
+            if (this.ModelState.IsValid)
+            {
+                input.result = listingManager.search(input);
+                input.totalRowCount = listingManager.count(input);
+                return View(input);
+            }
+
+            return View();
         }
+
+        // [HttpPost]
+        public ActionResult Details(Guid id)
+        {
+            var result = listingManager.get(id);
+            return View(result);
+        }
+
+        public ActionResult Pagination(ListingVm input)
+        {
+            return PartialView("_Pagination", input);
+        }
+
+*/
     }
 }

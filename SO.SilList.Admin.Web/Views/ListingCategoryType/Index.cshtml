@@ -6,23 +6,15 @@
 
 <h2>@ViewBag.Title</h2>
 
-@*
-@Html.Action("List")
-    *@
+<form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index","ListingCategoryType")">
 
-<form class="form-inline" method="get" action="@Url.Action("Index","ListingCategoryType")">
-
- 
-@Html.Action("Filter",@Model)
-
+@Html.Action("Filter", @Model)
+@*<p style="margin-top:10px; margin-bottom:10px;"> </p>*@
 <div class="pull-right">
-   @Model.rowCount of @Model.result.Count()
-
+    @Model.paging.showingFrom - @Model.paging.showingTo of @Model.paging.totalCount
 </div>
+
 @Html.Partial("List", @Model.result)
+@Html.Action("Pagination",  @Model.paging)
 
-
-@Html.Action("Pagination", @Model)
-
-
- </form>
+</form>

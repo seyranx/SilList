@@ -19,6 +19,58 @@ namespace SO.SilList.Manager.Managers
 
         }
 
+        public ListingTypeVm search(ListingTypeVm input)
+        {
+            using (var db = new MainDb())
+            {
+                var query = db.listingType
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                    );
+                input.paging.totalCount = query.Count();
+                input.result = query
+                             .OrderBy(b => b.name)
+                             .Skip(input.paging.skip)
+                             .Take(input.paging.rowCount)
+                             .ToList();
+                return input;
+            }
+        } 
+        
+        
+        
+ /*       
+        public int count(ListingTypeVm input)
+        {
+            using (var db = new MainDb())
+            {
+
+                var totcount = db.listingType
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                    )
+                             .Count();
+                return totcount;
+            }
+        }
+
+        public List<ListingTypeVo> search(ListingTypeVm input)
+        {
+            using (var db = new MainDb())
+            {
+                var list = db.listingType
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                    )
+                             .OrderBy(b => b.name)
+                             .Skip(input.skip)
+                             .Take(input.resultPerPage)
+                             .ToList();
+
+                return list;
+            }
+        }
+*/
         /// Find ListingType matching the listingTypeId
         public ListingTypeVo get(int listingTypeId)
         {
@@ -42,26 +94,6 @@ namespace SO.SilList.Manager.Managers
                             .FirstOrDefault();
                
                 return res;
-            }
-        }
-
-        // added this method for Search
-        public List<ListingTypeVo> search(ListingTypeVm input)
-        {
-
-            using (var db = new MainDb())
-            {
-                var list = db.listingType
-                             //.Include(s => s.site)
-                             .OrderBy(b => b.name)
-                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
-                                      && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
-                                    )
-                             .Skip(input.skip)
-                             .Take(input.rowCount)
-                             .ToList();
-
-                return list;
             }
         }
 

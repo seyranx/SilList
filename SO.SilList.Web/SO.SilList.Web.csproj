@@ -135,10 +135,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BusinessController.cs" />
-    <Compile Include="Controllers\BuySellController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LinkedController.cs" />
+    <Compile Include="Controllers\ListingsController.cs" />
     <Compile Include="Controllers\RentalController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -275,13 +275,19 @@
     <Content Include="Views\Shared\_LayoutBusiness.cshtml" />
     <Content Include="Views\Rentals\Index.cshtml" />
     <Content Include="Views\Business\Index.cshtml" />
-    <Content Include="Views\BuySell\Index.cshtml" />
     <Content Include="Views\Jobs\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutRentals.cshtml" />
     <Content Include="Views\Linked\ShowNew.cshtml" />
     <Content Include="Views\Business\_BusinessItem.cshtml">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="Views\Shared\_LayoutListings.cshtml" />
+    <Content Include="Views\Shared\_ListingsBox.cshtml" />
+    <Content Include="Views\Listings\Index.cshtml" />
+    <Content Include="Views\Listings\_Filter.cshtml" />
+    <Content Include="Views\Listings\_ListingItem.cshtml" />
+    <Content Include="Views\Listings\_Menu.cshtml" />
+    <Content Include="Views\Shared\_Pagination.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

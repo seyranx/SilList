@@ -1,0 +1,18 @@
+﻿@model SO.SilList.Manager.Models.ViewModels.ListingVm
+@{
+    ViewBag.Title = "Armenian Listings";
+    Layout = "~/Views/Shared/_LayoutListings.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<ul class="media-list" >
+
+<div class="pull-right">
+    @Model.paging.showingFrom - @Model.paging.showingTo of @Model.paging.totalCount
+</div>
+
+@Html.Partial("_ListingItem", @Model.result)
+@Html.Action("Pagination",  @Model.paging)
+    
+</ul>

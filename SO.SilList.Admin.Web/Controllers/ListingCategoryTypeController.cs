@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Models.ViewModels;
+using SO.SilList.Utility.Classes;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
@@ -13,13 +14,18 @@ namespace SO.SilList.Admin.Web.Controllers
     {
         private ListingCategoryTypeManager listingCategoryTypeManager = new ListingCategoryTypeManager();
 
-        public ActionResult Index(ListingCategoryTypeVm input = null)
+        public ActionResult Index(ListingCategoryTypeVm input = null, Paging paging = null)
         {
-            if (input == null) input = new ListingCategoryTypeVm();
+            if (input == null)
+                input = new ListingCategoryTypeVm();
+            input.listingCategoryType = new ListingCategoryTypeVo();
+            input.paging = paging;
 
             if (this.ModelState.IsValid)
             {
-                input.result = listingCategoryTypeManager.search(input);
+                if (input.submitButton != null)
+                    input.paging.pageNumber = 1;
+                input = listingCategoryTypeManager.search(input);
                 return View(input);
             }
 
@@ -45,7 +51,6 @@ namespace SO.SilList.Admin.Web.Controllers
         [HttpPost]
         public ActionResult Create(ListingCategoryTypeVo input)
         {
-
             if (this.ModelState.IsValid)
             {
 
@@ -54,18 +59,17 @@ namespace SO.SilList.Admin.Web.Controllers
             }
 
             return View();
-
         }
 
         public ActionResult Create()
         {
-            return View();
+            var vo = new ListingCategoryTypeVo();
+            return View(vo);
         }
 
         [HttpPost]
         public ActionResult Edit(int id, ListingCategoryTypeVo input)
         {
-
             if (this.ModelState.IsValid)
             {
                 var res = listingCategoryTypeManager.update(input, id);
@@ -73,8 +77,8 @@ namespace SO.SilList.Admin.Web.Controllers
             }
 
             return View();
-
         }
+
         public ActionResult Edit(int id)
         {
             var result = listingCategoryTypeManager.get(id);
@@ -87,9 +91,9 @@ namespace SO.SilList.Admin.Web.Controllers
             return View(result);
         }
 
-        public ActionResult Pagination()
+        public ActionResult Pagination(Paging input)
         {
-            return PartialView("_Pagination");
+            return PartialView("_Pagination", input);
         }
 
         public ActionResult Delete(int id)
