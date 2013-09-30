@@ -8,7 +8,8 @@
 
 <h2>Edit</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.ValidationSummary(true)
 
     <fieldset>
@@ -20,7 +21,8 @@
             @Html.LabelFor(model => model.siteId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList","Site",new {id=Model.siteId})
+            @Html.Action("DropDownList", "Site", new { id = Model.siteId })
+            <a href="@Url.Action("Index", "Site", new { backUrl = @Url.RouteUrl(ViewContext.RouteData.Values), backName = @ViewContext.RouteData.Values["controller"].ToString() })" class="btn">Sites</a>
         </div>
 
         <div class="editor-label">
@@ -61,7 +63,7 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.zip)
             @Html.ValidationMessageFor(model => model.zip)
-        </div> 
+        </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.isActive)
@@ -78,5 +80,5 @@
 }
 
 <div>
-      <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
+    <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
 </div>

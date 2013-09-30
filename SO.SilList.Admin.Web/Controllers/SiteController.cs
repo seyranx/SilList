@@ -18,16 +18,16 @@ namespace SO.SilList.Admin.Web.Controllers
 
         //
         // GET: /Site/
-        public ActionResult Index(string backUrl = null)
+        public ActionResult Index(string backUrl = null, string backName = null)
         {
             // "Go Back to" button stuff
-            string myController = Request.RequestContext.RouteData.Values["controller"].ToString();
-            if (myController != "Site")
+            if (backUrl != null && backName != null && backName != "Site")
             {
-                urlReferrer = Request.UrlReferrer;
-                int indexEnd = Request.UrlReferrer.AbsolutePath.IndexOf('/', 1);
-                referrerName = Request.UrlReferrer.AbsolutePath.Substring(1, indexEnd - 1);
-                ViewBag.referrerName = referrerName;
+                var baseUrlString = string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, Url.Content("~"));
+                urlReferrer = new Uri(baseUrlString);
+                urlReferrer = new Uri(urlReferrer, backUrl);
+                referrerName = backName;
+
             }
             return View();
         }
@@ -36,12 +36,10 @@ namespace SO.SilList.Admin.Web.Controllers
         public ActionResult _List()
         {
             // "Go Back to" button stuff
-            string myController = Request.RequestContext.RouteData.Values["controller"].ToString();
-            if (myController != "Site")
+            if (urlReferrer != null)
             {
-                int indexEnd = Request.UrlReferrer.AbsolutePath.IndexOf('/', 1);
-                referrerName = Request.UrlReferrer.AbsolutePath.Substring(1, indexEnd - 1);
-                ViewBag.referrerName = referrerName;
+                ViewBag.backUrl = urlReferrer;
+                ViewBag.backName = referrerName;            
             }
             var results = siteManager.getAll(null);
             return PartialView(results);
@@ -81,8 +79,11 @@ namespace SO.SilList.Admin.Web.Controllers
         public ActionResult Create()
         {
             // "Go Back to" button stuff
-            ViewBag.urlReferrer = urlReferrer;
-            ViewBag.referrerName = referrerName;
+            if (urlReferrer != null)
+            {
+                ViewBag.backUrl = urlReferrer;
+                ViewBag.backName = referrerName;
+            }
 
             var site = new SiteVo();
             return View(site);
@@ -92,8 +93,11 @@ namespace SO.SilList.Admin.Web.Controllers
         public ActionResult Details(int id)
         {
             // "Go Back to" button stuff
-            ViewBag.urlReferrer = urlReferrer;
-            ViewBag.referrerName = referrerName;
+            if (urlReferrer != null)
+            {
+                ViewBag.backUrl = urlReferrer;
+                ViewBag.backName = referrerName;
+            }
 
             var result = siteManager.get(id);
             return View(result);
@@ -113,8 +117,11 @@ namespace SO.SilList.Admin.Web.Controllers
         public ActionResult Edit(int id)
         {
             // "Go Back to" button stuff
-            ViewBag.urlReferrer = urlReferrer;
-            ViewBag.referrerName = referrerName;
+            if (urlReferrer != null)
+            {
+                ViewBag.backUrl = urlReferrer;
+                ViewBag.backName = referrerName;
+            }
 
             var result = siteManager.get(id);
             return View(result);
