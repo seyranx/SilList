@@ -31,7 +31,8 @@
             </div>
             <div class="controls">
                 @Html.Action("DropDownList", "Site", new { id = Model.car.siteId })
-                <a href="@Url.Action("Index", "Site")" class="btn" style="width:120px;">Sites
+
+                <a href="@Url.Action("Index", "Site", new { backUrl = @ViewContext.RouteData.Values["controller"].ToString() })" class="btn" style="width:120px;">Sites
                 </a>
             </div>
         </div>

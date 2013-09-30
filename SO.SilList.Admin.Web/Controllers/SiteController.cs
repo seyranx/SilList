@@ -16,13 +16,9 @@ namespace SO.SilList.Admin.Web.Controllers
         private static Uri urlReferrer { get; set; }
         private static string referrerName { get; set; }
 
-        string GetControllerFromUrl(Uri input)
-        {
-        }
-
         //
         // GET: /Site/
-        public ActionResult Index()
+        public ActionResult Index(string backUrl = null)
         {
             // "Go Back to" button stuff
             string myController = Request.RequestContext.RouteData.Values["controller"].ToString();
