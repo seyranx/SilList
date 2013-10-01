@@ -7,13 +7,14 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.ValidationSummary(true)
 
     <fieldset>
         <legend>Setting</legend>
 
-        
+
         <div class="editor-label">
             @Html.LabelFor(model => model.name)
         </div>
@@ -46,7 +47,7 @@
             @Html.ValidationMessageFor(model => model.description)
         </div>
 
-        
+
         <div class="editor-label">
             @Html.LabelFor(model => model.isActive)
         </div>
@@ -60,6 +61,7 @@
         </div>
         <div class="editor-field">
             @Html.Action("DropDownList", "Site", new { id = Model.siteId })
+            <a href="@Url.Action("Index", "Site", new { backUrl = @Url.RouteUrl(ViewContext.RouteData.Values), backName = @ViewContext.RouteData.Values["controller"].ToString() })" class="btn">Sites</a>
         </div>
 
         <div class="editor-label">

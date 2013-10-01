@@ -582,6 +582,10 @@
     <Content Include="Views\ModelType\_Filter.cshtml" />
     <Content Include="Views\Shared\_Pagination.cshtml" />
     <Content Include="Views\TransmissionType\_Filter.cshtml" />
+    <Content Include="Views\Site\Details.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Site\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
