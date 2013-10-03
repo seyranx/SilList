@@ -37,8 +37,16 @@ namespace SO.SilList.Web.Controllers
             var results = listingManager.getAll(null);
             return PartialView(results);
         }
+
+        public ActionResult DetailView(ListingVo input)
+        {
+            return PartialView("_DetailView", input);
+
+            //var results = listingManager.get(input.listingId);
+            //return PartialView(results);
+        }
 /*
-        public ActionResult Menu()
+        public ActionResult Menu()  "_DetailView"   "_DetailView"
         {
             return PartialView("_Menu");
         }
