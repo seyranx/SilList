@@ -61,8 +61,11 @@ namespace SO.SilList.Admin.Web.Controllers
 
             if (this.ModelState.IsValid)
             {
-
                 var item = businessManager.insert(input);
+
+                ImageManager imageManager = new ImageManager();
+                imageManager.InsertImageForBusiness(item.businessId, Request.Files, Server);
+
                 return RedirectToAction("Index");
             }
             return View();

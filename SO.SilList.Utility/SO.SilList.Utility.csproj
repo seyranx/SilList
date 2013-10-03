@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\BaseDbContext.cs" />
+    <Compile Include="Classes\Imaging.cs" />
     <Compile Include="Classes\Paging.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -15,8 +15,25 @@ using System.Diagnostics;
 
 namespace SO.SilList.Manager.Managers
 {
+    public class ImageInsertIntoDbInfo
+    {
+        public ImageInsertIntoDbInfo(Guid id, string fileName, string imgUrl, string uploadImageAbsFilePath)
+        {
+            this.id = id;
+            this.fileName = fileName;
+            this.imgUrl = imgUrl;
+            this.uploadImageAbsFilePath = uploadImageAbsFilePath;
+        }
+        public Guid id { get; set; }
+        public string fileName { get; set; }
+        public string imgUrl { get; set; }
+        public string uploadImageAbsFilePath { get; set; }
+    }
+
     public class ImageManager : IImageManager
     {
+        enum ImageCategory { carImage, businessImage, listingImage, jobImage };
+
         /// <summary>
         /// Find Image matching the imageId (primary key)
         /// </summary>
@@ -224,20 +241,76 @@ namespace SO.SilList.Manager.Managers
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////
+        public ImageInsertIntoDbInfo? PrepareImageDbInfo(Guid id, HttpFileCollectionBase requestFiles, HttpServerUtilityBase Server, string imageIndex)
+        {
+            ImageInsertIntoDbInfo ret = null;
+
+            /////////////////////////////////////////////////////////////////
+            // carImage stuff. todo: need to move to Image controller or whatever ... to reuse from other locations
+            /// var id = item.carId;
+            string csRelativeBasePath = this.GetBasePathFromConfig();
+            string sBaseDir = Path.Combine("~/" + csRelativeBasePath);
+            string sDir = Server.MapPath(sBaseDir);
+
+            // todo: need to make sure we have write access to this folder.
+            if (!Directory.Exists(sDir))
+            {
+                Directory.CreateDirectory(sDir);
+            }
+
+            if (requestFiles.Count > 0)
+            {
+                // todo: need to make sure they are uploading image files 
+                var UploadImage = requestFiles[imageIndex];
+
+                if (UploadImage != null && UploadImage.FileName != null)
+                {
+                    string fileName1 = Path.GetFileName(UploadImage.FileName);
+                    string fileExtension1 = Path.GetExtension(UploadImage.FileName);
+                    if (!string.IsNullOrEmpty(fileName1) && this.IsImageFile(fileExtension1))
+                    {
+                        string imageNameOnServer = Guid.NewGuid().ToString() + fileExtension1;
+                        string uploadImageAbsFilePath1 = Path.Combine(sDir, imageNameOnServer);
+                        UploadImage.SaveAs(uploadImageAbsFilePath1);
+                        string imageUrl = this.GetBasePathFromConfig() + "/" + imageNameOnServer;
+                        this.InsertImageAndCarImageIntoDb(id, fileName1, imageUrl, uploadImageAbsFilePath1);
+
+                        ret = new ImageInsertIntoDbInfo(id, fileName1, imageUrl, uploadImageAbsFilePath1);
+                    }
+                }
+            }
+            return ret;
+        }
+        public void insert2(Guid id, HttpFileCollectionBase requestFiles, HttpServerUtilityBase Server, ImageCategory imageCategory)
+        {
+            ImageInsertIntoDbInfo imgInfo = PrepareImageDbInfo(id, requestFiles, Server);
+            switch(imageCategory)
+            {
+                case ImageCategory.carImage:
+            if (imgInfo != null)
+                InsertImageAndCarImageIntoDb(imgInfo);
+                case ImageCategory.businessImage:
+                case ImageCategory.listingImage:
+                case ImageCategory.jobImage:
+                default:
+                    Debug.Assert(false , "Unknown catogory for image");
+        }
+
+        //////////////////////////////////////////   22
         // for Edit pages (upload and insert image right away?)
-        public void InsertImageAndCarImageIntoDb(Guid carId, string imageName, string imageUrl, string uploadImageAbsFilePath)
+        public void InsertImageAndCarImageIntoDb(ImageInsertIntoDbInfo imgInfo)
         {
             ImageVo imgVo = new ImageVo();
-            imgVo.name = imageName;
-            imgVo.path = uploadImageAbsFilePath;
-            imgVo.url = imageUrl;
+            imgVo.name = imgInfo.fileName; // use file name as image name field in database
+            imgVo.path = imgInfo.uploadImageAbsFilePath;
+            imgVo.url = imgInfo.imgUrl;
             using (var db = new MainDb())
             {
                 //todo: need to use the other way LINQ ??
                 db.images.Add(imgVo);
 
                 CarImagesVo carImageVo = new CarImagesVo();
-                carImageVo.carId = carId;
+                carImageVo.carId = imgInfo.id;
                 carImageVo.imageId = imgVo.imageId;
                 db.carImages.Add(carImageVo);
 

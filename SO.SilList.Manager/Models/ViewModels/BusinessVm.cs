@@ -1,4 +1,5 @@
 ﻿using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Utility.Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,15 +16,15 @@ namespace SO.SilList.Manager.Models.ViewModels
         public string keyword { get; set; }
         public int? pageNumber { get; set; }
 
-         [DisplayName("isActive: ")]
-         public bool? isActive { get; set; }
+        [DisplayName("isActive: ")]
+        public bool? isActive { get; set; }
 
+        public int totalCount { get; set; }
 
-         public int totalCount { get; set; }
+        public List<ImageCheckBoxInfo> imagesToRemove { get; set; }
 
-        
-
-         public int skip {
+        public int skip
+        {
             get
             {
                 if (pageNumber == null || pageNumber < 2 || maxRowCount < 1) return 0;
@@ -32,10 +33,12 @@ namespace SO.SilList.Manager.Models.ViewModels
             }
         }
 
-        public  int maxRowCount { 
-               get{
-                   return 30;
-               }
+        public int maxRowCount
+        {
+            get
+            {
+                return 30;
+            }
         }
 
         public BusinessVm()
@@ -43,7 +46,15 @@ namespace SO.SilList.Manager.Models.ViewModels
             this.result = new List<BusinessVo>();
         }
 
-
+        public void AddBusinessImageInfo(ImageVo businessImageVo, bool isChecked = true)
+        {
+            if (imagesToRemove == null)
+            {
+                imagesToRemove = new List<ImageCheckBoxInfo>();
+            }
+            ImageCheckBoxInfo busnessImgInfo = new ImageCheckBoxInfo(businessImageVo.imageId.ToString(), businessImageVo.url);
+            imagesToRemove.Add(busnessImgInfo);
+        }
 
 
     }
