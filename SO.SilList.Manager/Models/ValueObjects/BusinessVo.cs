@@ -31,6 +31,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [StringLength(250)]
         public string address { get; set; }
 
+        [DisplayName("Url")]
+        [StringLength(50)]
+        public string url { get; set; }
+
+        
         [DisplayName("City")]
         [StringLength(250)]
         public string city { get; set; }

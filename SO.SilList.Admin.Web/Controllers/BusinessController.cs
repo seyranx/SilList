@@ -76,8 +76,9 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Details(Guid id)
         {
+            //var idNew = new Guid("6ebe653d-0a10-44bf-bff6-84e1dbe6e36d");
             var result = businessManager.get(id);
-            return View(result);
+            return PartialView(result);
         }
 
         public ActionResult Menu()
