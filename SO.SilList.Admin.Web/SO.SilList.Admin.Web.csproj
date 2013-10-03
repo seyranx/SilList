@@ -545,6 +545,7 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="Views\Car\_Filter.cshtml" />
+    <Content Include="Views\EnvironmentType\_DropDownList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
