@@ -8,6 +8,7 @@ using EntityFramework.Extensions;
 using SO.SilList.Manager.DbContexts;
 using SO.SilList.Manager.Interfaces;
 using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Manager.Managers
 {
@@ -30,6 +31,28 @@ namespace SO.SilList.Manager.Managers
                             .FirstOrDefault(p => p.businessCategoryId == businessCategoryId);
 
                 return res;
+            }
+        }
+
+        public BusinessCategoriesVm search(BusinessCategoriesVm input)
+        {
+
+            using (var db = new MainDb())
+            {
+                var query = db.businessCategories
+                             .Include(s => s.business)
+                             .Include(b => b.businessCategoryType)
+                             .OrderBy(e => e.business.name)
+                            .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.business.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                             );
+                input.paging.totalCount = query.Count();
+                input.result = query
+                             .Skip(input.paging.skip)
+                             .Take(input.paging.rowCount)
+                             .ToList();
+
+                return input;
             }
         }
 

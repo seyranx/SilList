@@ -44,6 +44,30 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
+        public RentalVm search(RentalVm input)
+        {
+
+            using (var db = new MainDb())
+            {
+                var query = db.rental
+                            .Include(r => r.propertyType)
+                            .Include(t => t.leaseTermType)
+                            .Include(c => c.rentType)
+                            .Include(s => s.site)
+                            .OrderBy(b => b.description)
+                            .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                             );
+                input.paging.totalCount = query.Count();
+                input.result = query
+                             .Skip(input.paging.skip)
+                             .Take(input.paging.rowCount)
+
+                             .ToList();
+
+                return input;
+            }
+        }
         public List<RentalVo> getAll(bool? isActive = true)
         {
             using (var db = new MainDb())
@@ -53,7 +77,6 @@ namespace SO.SilList.Manager.Managers
                             .Include(t => t.leaseTermType)
                             .Include(c => c.rentType)
                             .Include(s => s.site)
-                            .Include(m => m.memberId)
                             .Where(e => isActive == null || e.isActive == isActive)
                             .ToList();
 
@@ -115,22 +138,5 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-
-        public List<RentalVo> search(RentalVm input)
-        {
-            using (var db = new MainDb())
-            {
-                var list = db.rental
-                    .Include(s => s.site)
-                    .Where(e => (input.isActive == null || e.isActive == input.isActive)
-                        && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword)))
-                    .OrderBy(o => o.title)
-                    .Skip(input.skip)
-                    .Take(input.rowCount)
-                    .ToList();
-
-                return list;
-            }
-        }
     }
 }

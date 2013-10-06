@@ -77,12 +77,10 @@ namespace SO.SilList.Manager.Managers
                                       && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                                     )
                              .OrderBy(b => b.name);
-
-                input.totalCount = query.Count();
-
-                input.result = query
-                             .Skip(input.skip)
-                             .Take(input.maxRowCount)
+                           input.paging.totalCount = query.Count();
+                input.result = query         
+                             .Skip(input.paging.skip)
+                             .Take(input.paging.rowCount)
                              .ToList();
 
                 return input;

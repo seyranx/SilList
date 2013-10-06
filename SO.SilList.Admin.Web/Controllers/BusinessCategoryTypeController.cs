@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SO.SilList.Manager.Models.ViewModels;
+using SO.SilList.Utility.Classes;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
@@ -16,13 +17,16 @@ namespace SO.SilList.Admin.Web.Controllers
         //
         // GET: /BusinessCategoryType/
 
-        public ActionResult Index(BusinessCategoryTypeVm input = null)
+        public ActionResult Index(BusinessCategoryTypeVm input = null, Paging paging = null)
         {
             if (input == null)
                 input = new BusinessCategoryTypeVm();
+            input.paging = paging;
             if (this.ModelState.IsValid)
             {
-                input.result = businessCategoryTypeManager.search(input);
+                if (input.submitButton != null)
+                    input.paging.pageNumber = 1;
+                input = businessCategoryTypeManager.search(input);
                 return View(input);
             }
             return View();
@@ -91,9 +95,9 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView("../Business/_Menu");
         }
 
-        public ActionResult Pagination()
+        public ActionResult Pagination(Paging input)
         {
-            return PartialView("_Pagination");
+            return PartialView("_Pagination", input);
         }
         
         public ActionResult Delete(int id)
