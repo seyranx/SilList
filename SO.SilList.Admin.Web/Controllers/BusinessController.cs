@@ -64,8 +64,7 @@ namespace SO.SilList.Admin.Web.Controllers
                 var item = businessManager.insert(input);
 
                 ImageManager imageManager = new ImageManager();
-                imageManager.InsertImageForBusiness(item.businessId, Request.Files, Server);
-
+                imageManager.insert2(item.businessId, Request.Files, Server, ImageManager.ImageCategory.businessImage);
                 return RedirectToAction("Index");
             }
             return View();

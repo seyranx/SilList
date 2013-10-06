@@ -32,7 +32,7 @@ namespace SO.SilList.Manager.Managers
 
     public class ImageManager : IImageManager
     {
-        enum ImageCategory { carImage, businessImage, listingImage, jobImage };
+        public enum ImageCategory { carImage, businessImage, listingImage, jobImage } ImageCategory;
 
         /// <summary>
         /// Find Image matching the imageId (primary key)
@@ -241,7 +241,8 @@ namespace SO.SilList.Manager.Managers
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////
-        public ImageInsertIntoDbInfo? PrepareImageDbInfo(Guid id, HttpFileCollectionBase requestFiles, HttpServerUtilityBase Server, string imageIndex)
+        // new
+        public ImageInsertIntoDbInfo PrepareImageDbInfo(Guid id, HttpFileCollectionBase requestFiles, HttpServerUtilityBase Server, string imageIndex)
         {
             ImageInsertIntoDbInfo ret = null;
 
@@ -281,23 +282,34 @@ namespace SO.SilList.Manager.Managers
             }
             return ret;
         }
+        //new
         public void insert2(Guid id, HttpFileCollectionBase requestFiles, HttpServerUtilityBase Server, ImageCategory imageCategory)
         {
             ImageInsertIntoDbInfo imgInfo = PrepareImageDbInfo(id, requestFiles, Server);
-            switch(imageCategory)
-            {
-                case ImageCategory.carImage:
             if (imgInfo != null)
-                InsertImageAndCarImageIntoDb(imgInfo);
-                case ImageCategory.businessImage:
-                case ImageCategory.listingImage:
-                case ImageCategory.jobImage:
-                default:
-                    Debug.Assert(false , "Unknown catogory for image");
+            {
+                switch (imageCategory)
+                {
+                    case ImageCategory.carImage:
+                        InsertImageAndCarImageIntoDb(imgInfo);
+                        break;
+                    case ImageCategory.businessImage:
+                        InsertImageAndBusinessImageIntoDb(imgInfo);
+                        break;
+                    case ImageCategory.listingImage:
+                        break;
+                    case ImageCategory.jobImage:
+                        break;
+                    default:
+                        Debug.Assert(false, "Unknown catogory for image");
+                        break;
+                }
+            }
         }
 
         //////////////////////////////////////////   22
         // for Edit pages (upload and insert image right away?)
+        //new
         public void InsertImageAndCarImageIntoDb(ImageInsertIntoDbInfo imgInfo)
         {
             ImageVo imgVo = new ImageVo();
@@ -313,6 +325,26 @@ namespace SO.SilList.Manager.Managers
                 carImageVo.carId = imgInfo.id;
                 carImageVo.imageId = imgVo.imageId;
                 db.carImages.Add(carImageVo);
+
+                db.SaveChanges();
+            }
+        }
+        //new
+        public void InsertImageAndBusinessImageIntoDb(ImageInsertIntoDbInfo imgInfo)
+        {
+            ImageVo imgVo = new ImageVo();
+            imgVo.name = imgInfo.fileName; // use file name as image name field in database
+            imgVo.path = imgInfo.uploadImageAbsFilePath;
+            imgVo.url = imgInfo.imgUrl;
+            using (var db = new MainDb())
+            {
+                //todo: need to use the other way LINQ ??
+                db.images.Add(imgVo);
+
+                BusinessImagesVo businessImageVo = new BusinessImagesVo();
+                businessImageVo.businessId = imgInfo.id;
+                businessImageVo.imageId = imgVo.imageId;
+                db.businessImages.Add(businessImageVo);
 
                 db.SaveChanges();
             }
@@ -349,7 +381,8 @@ namespace SO.SilList.Manager.Managers
                         string uploadImageAbsFilePath1 = Path.Combine(sDir, imageNameOnServer);
                         UploadImage1.SaveAs(uploadImageAbsFilePath1);
                         string imageUrl = this.GetBasePathFromConfig() + "/" + imageNameOnServer;
-                        this.InsertImageAndCarImageIntoDb(id, fileName1, imageUrl, uploadImageAbsFilePath1);
+                        ImageInsertIntoDbInfo param = new ImageInsertIntoDbInfo(id, fileName1, imageUrl, uploadImageAbsFilePath1);
+                        this.InsertImageAndCarImageIntoDb(param);
                     }
                 }
                 if (UploadImage2 != null && UploadImage2.FileName != null)
@@ -361,7 +394,8 @@ namespace SO.SilList.Manager.Managers
                         string imageNameOnServer = Guid.NewGuid().ToString() + fileExtension2;
                         string uploadImageAbsFilePath2 = Path.Combine(sDir, imageNameOnServer);
                         string imageUrl = this.GetBasePathFromConfig() + "/" + imageNameOnServer;
-                        this.InsertImageAndCarImageIntoDb(id, fileName2, imageUrl, uploadImageAbsFilePath2);
+                        ImageInsertIntoDbInfo param = new ImageInsertIntoDbInfo(id, fileName2, imageUrl, uploadImageAbsFilePath2);
+                        this.InsertImageAndCarImageIntoDb(param);
                         UploadImage2.SaveAs(uploadImageAbsFilePath2);
                     }
                 }
