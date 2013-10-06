@@ -19,7 +19,9 @@
 
 @Html.Partial("_List", @Model.result)
 
-
+        <div class="pull-right">
+        @((Model.paging.pageNumber-1) * Model.paging.rowCount + Model.result.Count) of @Model.paging.totalCount
+    </div>
 @Html.Action("Pagination", @Model.paging)
 
 @Html.ActionLink("Clear Stats", "Delete")

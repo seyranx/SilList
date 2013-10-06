@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using SO.SilList.Manager.Attributes;
 using SO.SilList.Manager.Managers;
 using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Utility.Classes;
+using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
@@ -97,6 +99,14 @@ namespace SO.SilList.Admin.Web.Controllers
         {
             var adminModel = adminManager.get(id);
             return View(adminModel);
+        }
+        public ActionResult Pagination(Paging input)
+        {
+            return PartialView("_Pagination", input);
+        }
+        public ActionResult Filter(AdminVm Input)
+        {
+            return PartialView("_Filter", Input);
         }
     }
 }
