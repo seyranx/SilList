@@ -18,7 +18,6 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Index(RentalVm input = null)
         {
-
             if (input == null) input = new RentalVm();
 
             if (this.ModelState.IsValid)

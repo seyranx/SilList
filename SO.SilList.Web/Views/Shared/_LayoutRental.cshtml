@@ -1,27 +1,19 @@
-﻿@{
+﻿@model SO.SilList.Manager.Models.ViewModels.RentalVm
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <div class="row-fluid">
 
-<div class="span2 searchPageLeftColumn" >
+<div class="span2 searchPageLeftColumn" id="leftColumn">
         
 <div style="font-size:17px; font-weight:bold; text-align:center; padding-top:20px;">Rental Search:</div>
 <hr />
-<form >
-    <label>Name:</label>
-    <input type="text" style="width:90%;">
 
-   
-     <label>City, State or Zip:</label>
-    <input type="text" style="width:90%;">
+@Html.Action("Filter",@Model)
 
-     <label>Category:</label>
-     <input type="text" style="width:90%;" placeholder="Filter">
 
-        <button type="submit" class="btn btn-success pull-right">Search</button>
-
-       
-</form>
  <br />
   <ul class="nav nav-list" style="background-color:none; color:white; margin-top:10px; " >
         <li class="nav-header">Top Categories:</li>

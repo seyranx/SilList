@@ -1,0 +1,21 @@
+﻿@model SO.SilList.Manager.Models.ViewModels.RentalVm
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutRental.cshtml";
+}
+
+<h2>Armenian Business Directory</h2>
+
+<ul class="media-list" >
+
+
+ @for(int i=0; i<10; i++){
+  <li class="row, media" style="border-bottom:1px solid #ccc;" >
+   
+     @Html.Partial("_RentalItem", Model.result)
+
+  </li>
+     
+ }
+</ul>

@@ -50,7 +50,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public Nullable<double> rent { get; set; }
     		
     	[DisplayName("Lease Term")]
-        //[ForeignKey("leaseTermTyprId")]
         public Nullable<int> leaseTermTypeId { get; set; }
     		
     	[DisplayName("Size")]

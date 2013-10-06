@@ -1,0 +1,26 @@
+﻿@model SO.SilList.Manager.Models.ViewModels.RentalVm
+ 
+
+<form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Rental")">
+
+<label>Keyword:</label>
+@Html.ValidationSummary(true)
+@Html.TextBoxFor(model => model.keyword,new { Class = "input-large", placeholder =  "Keyword" })
+@Html.ValidationMessageFor(model => model.keyword)
+
+<label>Location:</label>
+@Html.ValidationSummary(true)
+@Html.TextBoxFor(model => model.location,new { Class = "input-large", placeholder =  "Location" })
+@Html.ValidationMessageFor(model => model.location)
+
+<br /><br />
+
+ @Html.HiddenFor(model=> model.paging.pageNumber)
+
+<button name="submitButton" value="Search" type="submit" class="btn btn-success pull-right">Search</button>
+
+ @*
+<button type="submit" class="btn btn-success pull-right">Search</button> 
+ *@
+
+ </form>

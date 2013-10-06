@@ -1,4 +1,5 @@
 ﻿using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Utility.Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +14,31 @@ namespace SO.SilList.Manager.Models.ViewModels
         public List<RentalVo> result { get; set; }
         public string keyword { get; set; }
         public int? pageNumber { get; set; }
+        public string location { get; set; }
 
         [DisplayName("isActive: ")]
         public bool? isActive { get; set; }
+
+        public Paging paging;
+
+        public RentalVo listing { get; set; }
+
+        public RentalVm()
+        {
+
+            listing = new RentalVo();
+            this.result = new List<RentalVo>();
+            if (paging == null)
+                paging = new Paging();
+        }
+
+        public RentalVm(RentalVo input)
+        {
+            listing = input;
+            this.result = new List<RentalVo>();
+            if (paging == null)
+                paging = new Paging();
+        }
 
         public int skip
         {
@@ -33,11 +56,6 @@ namespace SO.SilList.Manager.Models.ViewModels
             {
                 return 30;
             }
-        }
-
-        public RentalVm()
-        {
-            this.result = new List<RentalVo>();
         }
     }
 }
