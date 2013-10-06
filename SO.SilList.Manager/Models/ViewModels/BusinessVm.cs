@@ -22,6 +22,7 @@ namespace SO.SilList.Manager.Models.ViewModels
         public int totalCount { get; set; }
 
         public List<ImageCheckBoxInfo> imagesToRemove { get; set; }
+        public BusinessVo business { get; set; }
 
         public int skip
         {

@@ -34,15 +34,20 @@ namespace SO.SilList.Admin.Web.Controllers
         {
             return PartialView("_Filter", input);
         }
-
          
         [HttpPost]
-        public ActionResult Edit(Guid id, BusinessVo input)
+        public ActionResult Edit(Guid id, BusinessVm input)
         {
-
             if (this.ModelState.IsValid)
             {
-                var res = businessManager.update(input, id);
+                var res = businessManager.update(input.business, id);
+
+                // Business Images stuff
+                ImageManager imageManager = new ImageManager();
+                imageManager.RemoveImages(id, input.imagesToRemove, ImageCategory.businessImage);
+                // uploading new images from edit page
+                imageManager.insert2(id, Request.Files, Server, ImageCategory.businessImage);
+
                 return RedirectToAction("Index");
             }
 
@@ -64,7 +69,7 @@ namespace SO.SilList.Admin.Web.Controllers
                 var item = businessManager.insert(input);
 
                 ImageManager imageManager = new ImageManager();
-                imageManager.insert2(item.businessId, Request.Files, Server, ImageManager.ImageCategory.businessImage);
+                imageManager.insert2(item.businessId, Request.Files, Server, SO.SilList.Manager.Managers.ImageCategory.businessImage);
                 return RedirectToAction("Index");
             }
             return View();

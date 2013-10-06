@@ -10,22 +10,6 @@ using System.Threading.Tasks;
 
 namespace SO.SilList.Manager.Models.ViewModels
 {
-    public class CarImageCheckBoxInfo
-    {
-        public CarImageCheckBoxInfo()
-        {
-        }
-        public CarImageCheckBoxInfo(string imgIdStr, string imgUrlStr, bool isChecked = true)
-        {
-            this.imageIdStr = imgIdStr;
-            this.imageUrlStr = imgUrlStr;
-            this.imageIsChecked = isChecked;
-        }
-        public string imageIdStr { get; set; }
-        public string imageUrlStr { get; set; }
-        public bool imageIsChecked { get; set; }
-    };
-
     public class CarVm
     {
         public List<CarVo> result { get; set; }
@@ -39,7 +23,7 @@ namespace SO.SilList.Manager.Models.ViewModels
         public Paging paging;
 
         public CarVo car { get; set; }
-        public List<CarImageCheckBoxInfo> imagesToRemove { get; set; }
+        public List<ImageCheckBoxInfo> imagesToRemove { get; set; }
 
         public CarVm()
         {
@@ -62,9 +46,9 @@ namespace SO.SilList.Manager.Models.ViewModels
         {
             if (imagesToRemove == null)
             {
-                imagesToRemove = new List<CarImageCheckBoxInfo>();
+                imagesToRemove = new List<ImageCheckBoxInfo>();
             }
-            CarImageCheckBoxInfo carImgInfo = new CarImageCheckBoxInfo(carImageVo.imageId.ToString(), carImageVo.url);
+            ImageCheckBoxInfo carImgInfo = new ImageCheckBoxInfo(carImageVo.imageId.ToString(), carImageVo.url);
             imagesToRemove.Add(carImgInfo);
 
         }

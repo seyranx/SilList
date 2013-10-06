@@ -24,7 +24,7 @@ namespace SO.SilList.Manager.Models.ViewModels
         public Paging paging;
 
         public ListingCategoryTypeVo listingCategoryType { get; set; }
-        //public List<CarImageCheckBoxInfo> imagesToRemove { get; set; }
+        //public List<ImageCheckBoxInfo> imagesToRemove { get; set; }
 
         public ListingCategoryTypeVm()
         {

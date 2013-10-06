@@ -51,7 +51,7 @@ input.car = new CarVo();
                 var item = carManager.insert(input);
 
                 ImageManager imageManager = new ImageManager();
-                imageManager.InsertImageForCar(item.carId, Request.Files, Server);
+                imageManager.insert2(item.carId, Request.Files, Server, SO.SilList.Manager.Managers.ImageCategory.carImage);
 
                 return RedirectToAction("Index");
             }
@@ -77,24 +77,9 @@ input.car = new CarVo();
                 // Care Images stuff
                 ImageManager imageManager = new ImageManager();
                 // removing unchecked images
-                if (input.imagesToRemove != null)
-                {
-                    for (int ind = 0; ind < input.imagesToRemove.Count(); ind++)
-                    {
-                        bool imgChecked = input.imagesToRemove[ind].imageIsChecked;
-                        if (!imgChecked)
-                        {
-                            string strGuid = input.imagesToRemove[ind].imageIdStr;
-                            Guid imgGuid = Guid.Empty;
-                            if (Guid.TryParse(strGuid, out imgGuid))
-            {
-                                imageManager.RemoveImageForCar(id, imgGuid);
-                            }
-                        }
-                    }
-                }
+                imageManager.RemoveImages(id, input.imagesToRemove, ImageCategory.carImage);
                 // uploading new images from edit page
-                imageManager.InsertImageForCar(id, Request.Files, Server);
+                imageManager.insert2(id, Request.Files, Server, ImageCategory.carImage);
 
                 return RedirectToAction("Index");
             }

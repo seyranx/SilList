@@ -12,6 +12,8 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Web;
 using System.Diagnostics;
+using SO.SilList.Manager.Models.ViewModels;
+using SO.SilList.Utility.Classes;
 
 namespace SO.SilList.Manager.Managers
 {
@@ -30,9 +32,10 @@ namespace SO.SilList.Manager.Managers
         public string uploadImageAbsFilePath { get; set; }
     }
 
+    public enum ImageCategory { carImage, businessImage, listingImage, jobImage };
+
     public class ImageManager : IImageManager
     {
-        public enum ImageCategory { carImage, businessImage, listingImage, jobImage } ImageCategory;
 
         /// <summary>
         /// Find Image matching the imageId (primary key)
@@ -274,8 +277,7 @@ namespace SO.SilList.Manager.Managers
                         string uploadImageAbsFilePath1 = Path.Combine(sDir, imageNameOnServer);
                         UploadImage.SaveAs(uploadImageAbsFilePath1);
                         string imageUrl = this.GetBasePathFromConfig() + "/" + imageNameOnServer;
-                        this.InsertImageAndCarImageIntoDb(id, fileName1, imageUrl, uploadImageAbsFilePath1);
-
+                        ///this.InsertImageAndCarImageIntoDb(id, fileName1, imageUrl, uploadImageAbsFilePath1);
                         ret = new ImageInsertIntoDbInfo(id, fileName1, imageUrl, uploadImageAbsFilePath1);
                     }
                 }
@@ -285,16 +287,19 @@ namespace SO.SilList.Manager.Managers
         //new
         public void insert2(Guid id, HttpFileCollectionBase requestFiles, HttpServerUtilityBase Server, ImageCategory imageCategory)
         {
-            ImageInsertIntoDbInfo imgInfo = PrepareImageDbInfo(id, requestFiles, Server);
+            ImageInsertIntoDbInfo imgInfo = PrepareImageDbInfo(id, requestFiles, Server, "UploadImage1");
+            ImageInsertIntoDbInfo imgInfo2 = PrepareImageDbInfo(id, requestFiles, Server, "UploadImage2");
             if (imgInfo != null)
             {
                 switch (imageCategory)
                 {
                     case ImageCategory.carImage:
                         InsertImageAndCarImageIntoDb(imgInfo);
+                        InsertImageAndCarImageIntoDb(imgInfo2);
                         break;
                     case ImageCategory.businessImage:
                         InsertImageAndBusinessImageIntoDb(imgInfo);
+                        InsertImageAndBusinessImageIntoDb(imgInfo2);
                         break;
                     case ImageCategory.listingImage:
                         break;
@@ -465,6 +470,26 @@ namespace SO.SilList.Manager.Managers
 
         }
 
+        public void RemoveImages(Guid id, List<ImageCheckBoxInfo> imagesToRemove, ImageCategory imgCategory)
+        {
+            // removing unchecked images
+            if (imagesToRemove != null)
+            {
+                for (int ind = 0; ind < imagesToRemove.Count(); ind++)
+                {
+                    bool imgChecked = imagesToRemove[ind].imageIsChecked;
+                    if (!imgChecked)
+                    {
+                        string strGuid = imagesToRemove[ind].imageIdStr;
+                        Guid imgGuid = Guid.Empty;
+                        if (Guid.TryParse(strGuid, out imgGuid))
+                        {
+                            this.RemoveImageForCar(id, imgGuid);
+                        }
+                    }
+                }
+            }
+        }
 
     }
 }
