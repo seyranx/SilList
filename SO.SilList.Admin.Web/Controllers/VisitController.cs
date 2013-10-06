@@ -7,6 +7,7 @@ using SO.SilList.Manager.Interfaces;
 using SO.SilList.Manager.Models.ViewModels;
 using SO.SilList.Manager.Managers;
 using SO.SilList.Manager.Attributes;
+using SO.SilList.Utility.Classes;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
@@ -21,7 +22,7 @@ namespace SO.SilList.Admin.Web.Controllers
                 input = new VisitVm();
 
             if (null != input.btnSearch)
-                input.pageNumber = 1;
+                input.paging.pageNumber = 1;
 
             if (this.ModelState.IsValid)
             {
@@ -38,7 +39,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView("_Filter", input);
         }
 
-        public ActionResult Pagination(VisitVm input)
+        public ActionResult Pagination(Paging input)
         {
             return PartialView("_Pagination", input);
         }

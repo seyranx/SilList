@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Manager.Managers
 {
@@ -37,6 +38,29 @@ namespace SO.SilList.Manager.Managers
                 return res;
             }
         }
+
+        public LeaseTermTypeVm search(LeaseTermTypeVm input)
+        {
+
+            using (var db = new MainDb())
+            {
+                var query = db.leaseTermType
+    
+                            .OrderBy(b => b.name)
+                            .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                             );
+                input.paging.totalCount = query.Count();
+                input.result = query
+                             .Skip(input.paging.skip)
+                             .Take(input.paging.rowCount)
+
+                             .ToList();
+
+                return input;
+            }
+        }
+
 
         public List<LeaseTermTypeVo> getAll(bool? isActive = true)
         {

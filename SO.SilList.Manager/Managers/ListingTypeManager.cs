@@ -46,22 +46,25 @@ namespace SO.SilList.Manager.Managers
         }
 
         // added this method for Search
-        public List<ListingTypeVo> search(ListingTypeVm input)
+        public ListingTypeVm search(ListingTypeVm input)
         {
 
             using (var db = new MainDb())
             {
-                var list = db.listingType
-                             //.Include(s => s.site)
+                var query = db.listingType
+                    //.Include(s => s.site)
                              .OrderBy(b => b.name)
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
-                                    )
-                             .Skip(input.skip)
-                             .Take(input.rowCount)
+                                    );
+                input.paging.totalCount = query.Count();
+                input.result = query         
+                             .Skip(input.paging.skip)
+                             .Take(input.paging.rowCount)
+
                              .ToList();
 
-                return list;
+                return input;
             }
         }
 

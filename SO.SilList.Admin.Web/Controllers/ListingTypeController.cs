@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Models.ViewModels;
+using SO.SilList.Utility.Classes;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
@@ -13,13 +14,15 @@ namespace SO.SilList.Admin.Web.Controllers
     {
         private ListingTypeManager listingTypeManager = new ListingTypeManager();
 
-        public ActionResult Index(ListingTypeVm input = null)
+        public ActionResult Index(ListingTypeVm input = null, Paging paging = null)
         {
             if (input == null) input = new ListingTypeVm();
-
+            input.paging = paging;
             if (this.ModelState.IsValid)
             {
-                input.result = listingTypeManager.search(input);
+                if (input.submitButton != null)
+                    input.paging.pageNumber = 1;
+                input = listingTypeManager.search(input);
                 return View(input);
             }
 
@@ -89,9 +92,9 @@ namespace SO.SilList.Admin.Web.Controllers
             return View(result);
         }
 
-        public ActionResult Pagination()
+        public ActionResult Pagination(Paging input)
         {
-            return PartialView("_Pagination");
+            return PartialView("_Pagination", input);
         }
 
         public ActionResult Delete(int id)

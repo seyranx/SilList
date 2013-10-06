@@ -15,10 +15,8 @@ namespace SO.SilList.Manager.Models.ViewModels
         public List<CarVo> result { get; set; }
         public string keyword { get; set; }
      
-
         [DisplayName("isActive: ")]
         public bool? isActive { get; set; }
-      //  public int totalCount { get; set; }
         public string submitButton { get; set; }
         public Paging paging;
 

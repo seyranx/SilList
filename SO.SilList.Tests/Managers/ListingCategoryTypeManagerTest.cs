@@ -15,13 +15,13 @@ namespace SO.SilList.Tests.Managers
         public void searchTest()
         {
             var vo = new ListingCategoryTypeVm();
-            vo.pageNumber = 1;
+            vo.paging.pageNumber = 1;
             vo.keyword = "1";
             vo.isActive = null;
 
             var res = listingCategoryTypeManager.search(vo);
 
-            if (res != null && res.Count == 4)
+            if (res != null && res.result.Count == 4)
             {
                 Assert.IsTrue(true);
             }

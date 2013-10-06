@@ -15,13 +15,12 @@
 </p>
 
 <div class="pull-right">
-   Showing @Model.firstVisibleRow - @Model.lastVisibleRow of @Model.totalRows
 </div>
 
 @Html.Partial("_List", @Model.result)
 
 
-@Html.Action("Pagination", @Model)
+@Html.Action("Pagination", @Model.paging)
 
 @Html.ActionLink("Clear Stats", "Delete")
 

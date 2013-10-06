@@ -45,24 +45,28 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public List<ListingCategoryTypeVo> search(ListingCategoryTypeVm input)
+        public ListingCategoryTypeVm search(ListingCategoryTypeVm input)
         {
 
             using (var db = new MainDb())
             {
-                var list = db.listingCategoryType
-                             //.Include(s => s.site)
-                             .OrderBy(b => b.name)
-                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                var query = db.listingCategoryType
+                           // .Include(s => s.site)
+                            .OrderBy(b => b.name)
+                            .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
-                                    )
-                             .Skip(input.skip)
-                             .Take(input.rowCount)
+                             );
+                input.paging.totalCount = query.Count();
+                input.result = query         
+                             .Skip(input.paging.skip)
+                             .Take(input.paging.rowCount)
+
                              .ToList();
 
-                return list;
+                return input;
             }
         }
+
 
         // Get All Items
         public List<ListingCategoryTypeVo> getAll(bool? isActive = true)

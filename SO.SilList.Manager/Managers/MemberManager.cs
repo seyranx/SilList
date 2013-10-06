@@ -43,6 +43,27 @@ namespace SO.SilList.Manager.Managers
                 return res;
             }
         }
+        public MemberVm search(MemberVm input)
+        {
+
+            using (var db = new MainDb())
+            {
+                var query = db.members
+                             .Include(s => s.site)
+                            .OrderBy(b => b.firstName)
+                            .Where(e => (input.filterIsActive == null || e.isActive == input.filterIsActive)
+                                      && (e.firstName.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                             );
+                input.paging.totalCount = query.Count();
+                input.result = query
+                             .Skip(input.paging.skip)
+                             .Take(input.paging.rowCount)
+
+                             .ToList();
+
+                return input;
+            }
+        }
 
         public List<MemberVo> getAll(bool? isActive = true)
         {
@@ -116,27 +137,6 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public MemberVm search(MemberVm input)
-        {
-            using (var db = new MainDb())
-            {
-                var query = db.members
-                             .Include(s => s.site)
-                             .Where(e => (input.filterIsActive == null || e.isActive == input.filterIsActive)
-                                      && (string.IsNullOrEmpty(input.keyword) || e.firstName.Contains(input.keyword) || e.lastName.Contains(input.keyword))
-                                    )
-                             .OrderBy(b => b.firstName);
-
-                input.totalCount = query.Count();
-
-                input.result = query
-                             .Skip(input.skip)
-                             .Take(input.maxRowCount)
-                             .ToList();
-
-                return input;
-            }
-        }
         
         // Additional methods
         public Nullable<int> GetFirstAvailableSiteId()

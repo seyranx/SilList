@@ -1,39 +1,47 @@
 ﻿@model SO.SilList.Utility.Classes.Paging
 
+<input data-val="true" data-val-number="The field pageNumber must be a number." data-val-required="The pageNumber field is required." id="paging_pageNumber" name="paging.pageNumber" type="hidden" value="@Model.pageNumber" />
+
 <div class="pagination pull-right">
         
     
     
   <ul>
 
-      @if(Model.totalCount > (int)Model.rowCount)
+      @if (Model.totalCount > (int)Model.rowCount)
       {
-              
-              var disablePrev = "enabled";
-              var disableNext = "enabled";
-              if (Model.pageNumber <= 1)
-              {
-                  disablePrev = "disabled";
-              }
-              if (Model.pageNumber >= Model.totalPages)
-              {
-                  disableNext = "disabled";
-              }
-          
-          <li class="@disablePrev"><a href="#" onclick="$('#paging_pageNumber').val(@Model.prev10Page) ; $('#filterForm').submit();return false;">&lt&lt</a></li>
-          <li class="@disablePrev"><a href="#" onclick="$('#paging_pageNumber').val(@Model.pageNumber-1) ; $('#filterForm').submit();return false;">&lt</a></li>
-         
-          for (int i = Model.startingLinkPage; i <= Model.endingLinkPage; i++)
-          {    
-              if(i ==Model.pageNumber){
-                  <li class="disabled"><a href="#">@i</a></li>
-              }else{ 
-               <li><a href="#" onclick="$('#paging_pageNumber').val(@i) ; $('#filterForm').submit();return false;">@i</a></li>
-             }
+
+          if (Model.pageNumber <= 1)
+          {
+                <li class="disabled"><a  ><i class="icon-large icon-backward"></i></a></li>
+                <li class="disabled"><a  >Prev</a></li>
           }
-      
-          <li class="@disableNext"><a href="#" onclick="$('#paging_pageNumber').val(@Model.pageNumber+1) ; $('#filterForm').submit();return false;">&gt</a></li>
-          <li class="@disableNext"><a href="#" onclick="$('#paging_pageNumber').val(@Model.next10Page) ; $('#filterForm').submit();return false;">&gt&gt</a></li>
-       }
+          else
+          {
+                <li ><a href="#"  onclick="$('#paging_pageNumber').val(@Model.prevPagesLinks) ; $('#filterForm').submit();return false;"><i class="icon-large icon-backward"></i></a></li>
+                <li ><a href="#" onclick="$('#paging_pageNumber').val(@Model.pageNumber-1) ; $('#filterForm').submit();return false;">Prev</a></li>
+          }
+          for (int i = Model.startingLinkPage; i <= Model.endingLinkPage; i++)
+          {
+              if (i == Model.pageNumber)
+              {
+                  <li class="disabled"><a >@i</a></li>
+              }
+              else
+              { 
+               <li><a href="#" onclick="$('#paging_pageNumber').val(@i) ; $('#filterForm').submit();return false;">@i</a></li>
+              }
+          }
+          if (Model.pageNumber >= Model.totalPages)
+          {
+              <li class="disabled"><a >Next</a></li>
+              <li class="disabled"><a ><i class="icon-large icon-forward"></i></a></li>
+          }
+          else
+          {
+              <li ><a href="#" onclick="$('#paging_pageNumber').val(@Model.pageNumber+1) ; $('#filterForm').submit();return false;">Next</a></li>
+              <li ><a href="#" onclick="$('#paging_pageNumber').val(@Model.nextPagesLinks) ; $('#filterForm').submit();return false;"><i class="icon-large icon-forward"></i></a></li>
+          }
+      }
   </ul>
 </div>

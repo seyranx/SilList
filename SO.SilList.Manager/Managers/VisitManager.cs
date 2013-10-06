@@ -35,12 +35,12 @@ namespace SO.SilList.Manager.Managers
                                  )
                                     ));
                 input.totalRows = q.Count();
-
+                
                 input.result = q
                     .OrderBy(b => b.visitCount)
                     .ThenBy(c => c.modified)
-                    .Skip(input.skip)
-                    .Take(input.rowsPerPage)
+                   // .Skip(input.skip)
+                  //  .Take(input.rowsPerPage)
                     .ToList();
 
                 return input;

@@ -19,7 +19,7 @@ namespace SO.SilList.Tests.Managers
         public void searchTest()
         {
             var vo = new VisitVm();
-            vo.pageNumber = 2;
+            vo.paging.pageNumber = 2;
             vo.keyword = "Home";
 
             var resultVm = visitManager.search(vo);
