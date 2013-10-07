@@ -32,7 +32,11 @@ _ReSharper*/
 *.dbmdl
 *.refactorlog
 #Ignore temporary files create by kdiff
-*.cshtml.orig
+# *.cshtml.orig
+# *.csproj.orig
+# *.sql.orig
+# *.sqlproj.orig
+*.orig
 #Ignore user uploaded files. Change it if target path changes in web.config.
 SO.SilList.Admin.Web/Uploads/Images/*
 #
