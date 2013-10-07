@@ -15,12 +15,11 @@ namespace SO.SilList.Tests.Managers
         [TestMethod]
         public void searchTest()
         {
-            var vo = new ListingVm();
-            vo.paging.pageNumber = 4;
-            vo.totalCount = "2";
-            vo.isActive = true;
+            var vm = new ListingVm();
+            vm.paging.pageNumber = 4;
+            vm.isActive = true;
 
-            var res = listingManager.search(vo);
+            var res = listingManager.search(vm);
 
             if (res != null)
             {
