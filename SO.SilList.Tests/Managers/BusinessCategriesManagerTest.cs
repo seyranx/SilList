@@ -9,7 +9,6 @@ namespace SO.SilList.Tests.Managers
     public class BusinessCategriesManagerTest
     {
         private BusinessCategoriesManager businessCategoriesManager = new BusinessCategoriesManager();
-        private Guid? NULL;
 
         [TestMethod]
         public void getAllTest()

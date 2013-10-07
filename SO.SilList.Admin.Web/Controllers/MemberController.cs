@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Models.ViewModels;
+using SO.SilList.Utility.Classes;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
@@ -19,12 +20,9 @@ namespace SO.SilList.Admin.Web.Controllers
                 input = new MemberVm();
             if (this.ModelState.IsValid)
             {
-                /*
-                 * if (input.submitButton != null)
-                    input.pageNumber = 1;
-                */
-                if (input.pageNumber == null)
-                    input.pageNumber = 1;
+                if (input.submitButton != null)
+                  input.paging.pageNumber = 1;
+
 
                 input = memberManager.search(input);
 
@@ -109,7 +107,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Pagination(MemberVm input = null)
+        public ActionResult Pagination(Paging input)
         {
             return PartialView("_Pagination", input);
         }

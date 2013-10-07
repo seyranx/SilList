@@ -1,6 +1,7 @@
 ﻿using SO.SilList.Manager.DbContexts;
 using SO.SilList.Manager.Interfaces;
 using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Manager.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,27 @@ namespace SO.SilList.Manager.Managers
                 return result;
             }
         }
+        public SiteVm search(SiteVm input)
+        {
 
+            using (var db = new MainDb())
+            {
+                var query = db.sites
+
+                            .OrderBy(b => b.name)
+                            .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                             );
+                input.paging.totalCount = query.Count();
+                input.result = query
+                             .Skip(input.paging.skip)
+                             .Take(input.paging.rowCount)
+
+                             .ToList();
+
+                return input;
+            }
+        }
         public List<SiteVo> getAll(bool? isActive = true)
         {
             using (var db = new MainDb())

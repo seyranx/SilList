@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EntityFramework.Extensions;
+using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Manager.Managers
 {
@@ -21,6 +22,28 @@ namespace SO.SilList.Manager.Managers
                             .FirstOrDefault(p => p.propertyTypeId == propertyTypeId);
 
                 return res;
+            }
+        }
+
+        public PropertyTypeVm search(PropertyTypeVm input)
+        {
+
+            using (var db = new MainDb())
+            {
+                var query = db.propertyTypes
+
+                            .OrderBy(b => b.name)
+                            .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                             );
+                input.paging.totalCount = query.Count();
+                input.result = query
+                             .Skip(input.paging.skip)
+                             .Take(input.paging.rowCount)
+
+                             .ToList();
+
+                return input;
             }
         }
 

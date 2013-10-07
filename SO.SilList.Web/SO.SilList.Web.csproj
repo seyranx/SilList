@@ -135,6 +135,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BusinessController.cs" />
+    <Compile Include="Controllers\ConfigurationController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LinkedController.cs" />
@@ -281,6 +282,7 @@
     <Content Include="Views\Business\_BusinessItem.cshtml">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="Views\Business\Details.cshtml" />
     <Content Include="Views\Shared\_LayoutListings.cshtml" />
     <Content Include="Views\Shared\_ListingsBox.cshtml" />
     <Content Include="Views\Listings\Index.cshtml" />
@@ -326,7 +328,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>62099</DevelopmentServerPort>
+          <DevelopmentServerPort>64560</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:64907/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

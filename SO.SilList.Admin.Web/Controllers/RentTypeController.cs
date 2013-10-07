@@ -1,5 +1,7 @@
 ﻿using SO.SilList.Manager.Managers;
 using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Manager.Models.ViewModels;
+using SO.SilList.Utility.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +17,17 @@ namespace SO.SilList.Admin.Web.Controllers
 
         private RentTypeManager rentalTypeManager = new RentTypeManager();
 
-        public ActionResult Index()
+        public ActionResult Index(RentTypeVm input = null, Paging paging = null)
         {
+            if (input == null) input = new RentTypeVm();
+            input.paging = paging;
+            if (this.ModelState.IsValid)
+            {
+                if (input.submitButton != null)
+                    input.paging.pageNumber = 1;
+                input = rentalTypeManager.search(input);
+                return View(input);
+            }
             return View();
         }
 
@@ -85,6 +96,14 @@ namespace SO.SilList.Admin.Web.Controllers
                 rentType = rentalTypeManager.get(id.Value);
             }
             return PartialView("_DropDownList", rentType);
+        }
+        public ActionResult Filter(RentTypeVm Input)
+        {
+            return PartialView("_Filter", Input);
+        }
+        public ActionResult Pagination(Paging input)
+        {
+            return PartialView("_Pagination", input);
         }
     }
 }

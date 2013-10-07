@@ -55,7 +55,7 @@ namespace SO.SilList.Tests.Managers
 
             var result3 = carBodyTypeManager.get(result.carBodyTypeId);
 
-            if (result != null && result2 != null && result3 == null && result2.carBodyTypeId != null)
+            if (result != null && result2 != null && result3 == null && result2.carBodyTypeId != 0)
             {
                 Assert.IsTrue(true);
             }

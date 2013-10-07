@@ -12,14 +12,14 @@
  
 @Html.Action("Filter",@Model)
 
-<div class="pull-right">
-   @Model.maxRowCount of @Model.result.Count()
+   <div class="pull-right">
+        @((Model.paging.pageNumber-1) * Model.paging.rowCount + Model.result.Count) of @Model.paging.totalCount
+    </div>
 
-</div>
 @Html.Partial("_List", @Model.result)
 
 
-@Html.Action("Pagination", @Model)
+@Html.Action("Pagination", @Model.paging)
 
 
  </form>

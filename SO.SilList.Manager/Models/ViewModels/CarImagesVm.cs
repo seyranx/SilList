@@ -20,9 +20,6 @@ namespace SO.SilList.Manager.Models.ViewModels
         public string submitButton { get; set; }
         public Paging paging;
 
-
- 
-
         public CarImagesVm()
         {
             this.result = new List<CarImagesVo>();

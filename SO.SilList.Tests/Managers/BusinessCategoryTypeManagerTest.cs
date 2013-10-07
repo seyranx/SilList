@@ -19,7 +19,7 @@ namespace SO.SilList.Tests.Managers
         public void searchTest()
         {
             var vo = new BusinessCategoryTypeVm();
-            vo.pageNumber = 2;
+            vo.paging.pageNumber = 2;
             vo.keyword = "aa";
             vo.isActive = true;
 
@@ -75,7 +75,7 @@ namespace SO.SilList.Tests.Managers
 
             var result3 = businessCategoryType.get(result.businessCategoryTypeId);
 
-            if (result != null && result2 != null && result3 == null && result2.businessCategoryTypeId != null )
+            if (result != null && result2 != null && result3 == null && result2.businessCategoryTypeId != 0 )
             {
                 Assert.IsTrue(true);
             }

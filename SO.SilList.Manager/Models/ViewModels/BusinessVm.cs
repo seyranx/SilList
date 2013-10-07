@@ -14,37 +14,22 @@ namespace SO.SilList.Manager.Models.ViewModels
     {
         public List<BusinessVo> result { get; set; }
         public string keyword { get; set; }
-        public int? pageNumber { get; set; }
 
         [DisplayName("isActive: ")]
         public bool? isActive { get; set; }
-
-        public int totalCount { get; set; }
-
+         public string submitButton { get; set; }
+         public Paging paging;
         public List<ImageCheckBoxInfo> imagesToRemove { get; set; }
         public BusinessVo business { get; set; }
-
-        public int skip
-        {
             get
             {
-                if (pageNumber == null || pageNumber < 2 || maxRowCount < 1) return 0;
-
-                return ((int)(pageNumber - 1) * maxRowCount);
-            }
-        }
-
-        public int maxRowCount
-        {
-            get
-            {
-                return 30;
-            }
-        }
 
         public BusinessVm()
         {
             this.result = new List<BusinessVo>();
+
+            if (paging == null)
+                paging = new Paging();
         }
 
         public void AddBusinessImageInfo(ImageVo businessImageVo, bool isChecked = true)

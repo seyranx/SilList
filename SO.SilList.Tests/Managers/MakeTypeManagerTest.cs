@@ -55,7 +55,7 @@ namespace SO.SilList.Tests.Managers
 
             var result3 = makeTypeManager.get(result.makeTypeId);
 
-            if (result != null && result2 != null && result3 == null && result2.makeTypeId != null)
+            if (result != null && result2 != null && result3 == null && result2.makeTypeId != 0)
             {
                 Assert.IsTrue(true);
             }

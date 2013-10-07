@@ -60,22 +60,24 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public List<BusinessCategoryTypeVo> search(BusinessCategoryTypeVm input)
+        public BusinessCategoryTypeVm search(BusinessCategoryTypeVm input)
         {
 
             using (var db = new MainDb())
             {
-                var list = db.businessCategoryType
+                var query = db.businessCategoryType
                              .Include(s => s.site)
                              .OrderBy(b => b.name)
-                             .Skip(input.skip)
-                             .Take(input.rowCount)
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
-                                    )
+                                    );
+                input.paging.totalCount = query.Count();
+                input.result = query
+                             .Skip(input.paging.skip)
+                             .Take(input.paging.rowCount)
                              .ToList();
 
-                return list;
+                return input;
             }
         }
         public List<BusinessCategoryTypeVo> getAll(bool? isActive = true)

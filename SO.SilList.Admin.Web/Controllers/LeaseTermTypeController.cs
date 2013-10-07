@@ -1,5 +1,7 @@
 ﻿using SO.SilList.Manager.Managers;
 using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Manager.Models.ViewModels;
+using SO.SilList.Utility.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +17,20 @@ namespace SO.SilList.Admin.Web.Controllers
 
         private LeaseTermTypeManager leaseTermTypeManager = new LeaseTermTypeManager();
 
-        public ActionResult Index()
+        public ActionResult Index(LeaseTermTypeVm input = null, Paging paging = null)
         {
+            if (input == null) input = new LeaseTermTypeVm();
+            input.paging = paging;
+            if (this.ModelState.IsValid)
+            {
+                if (input.submitButton != null)
+                    input.paging.pageNumber = 1;
+                input = leaseTermTypeManager.search(input);
+                return View(input);
+            }
             return View();
         }
+
         public ActionResult List()
         {
             var results = leaseTermTypeManager.getAll(null);
@@ -90,6 +102,14 @@ namespace SO.SilList.Admin.Web.Controllers
                 leaseType = leaseTermTypeManager.get(id.Value);
             }
             return PartialView("_DropDownList", leaseType);
+        }
+        public ActionResult Filter(LeaseTermTypeVm Input)
+        {
+            return PartialView("_Filter", Input);
+        }
+        public ActionResult Pagination(Paging input)
+        {
+            return PartialView("_Pagination", input);
         }
     }
 }

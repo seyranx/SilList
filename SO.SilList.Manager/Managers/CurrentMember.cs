@@ -76,7 +76,7 @@ namespace SO.EventCave.Manager.Managers
 
                     return mem;
                 }
-                catch (Exception ex)
+                catch (Exception /*ex*/)
                 {
                     return null;
                 }
@@ -88,7 +88,7 @@ namespace SO.EventCave.Manager.Managers
                 {
                     HttpContext.Current.Session[sessionKey] = value;
                 }
-                catch (Exception ex)
+                catch (Exception /*ex*/)
                 { 
                     return; 
                 }

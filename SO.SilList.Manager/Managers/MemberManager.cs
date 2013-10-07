@@ -134,11 +134,11 @@ namespace SO.SilList.Manager.Managers
                              .OrderBy(b => b.firstName)
                              .ThenBy(b=> b.lastName);
 
-                input.totalCount = query.Count();
+                input.paging.totalCount = query.Count();
 
                 input.result = query
-                             .Skip(input.skip)
-                             .Take(input.maxRowCount)
+                             .Skip(input.paging.skip)
+                             .Take(input.paging.rowCount)
                              .ToList();
 
                 return input;
