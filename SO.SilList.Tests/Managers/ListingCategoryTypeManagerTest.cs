@@ -56,7 +56,7 @@ namespace SO.SilList.Tests.Managers
 
             var result3 = listingCategoryTypeManager.get(result.listingCategoryTypeId);
 
-            if (result != null && result2 != null && result3 == null && result2.listingCategoryTypeId != null)
+            if (result != null && result2 != null && result3 == null && result2.listingCategoryTypeId != 0)
             {
                 Assert.IsTrue(true);
             }

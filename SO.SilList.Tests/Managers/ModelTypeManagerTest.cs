@@ -55,7 +55,7 @@ namespace SO.SilList.Tests.Managers
 
             var result3 = modelTypeManager.get(result.modelTypeId);
 
-            if (result != null && result2 != null && result3 == null && result2.modelTypeId != null
+            if (result != null && result2 != null && result3 == null && result2.modelTypeId != 0
                 )
             {
                 Assert.IsTrue(true);

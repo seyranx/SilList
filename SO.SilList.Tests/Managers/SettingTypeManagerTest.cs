@@ -57,7 +57,7 @@ namespace SO.SilList.Tests.Managers
 
             var result3 = settingType.get(result.settingTypeId);
 
-            if (result != null && result2 != null && result3 == null && result2.settingTypeId != null)
+            if (result != null && result2 != null && result3 == null && result2.settingTypeId != 0)
             {
                 Assert.IsTrue(true);
             }
