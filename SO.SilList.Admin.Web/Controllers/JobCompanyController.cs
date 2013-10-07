@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Manager.Models.ViewModels;
+using SO.SilList.Utility.Classes;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
@@ -14,10 +16,20 @@ namespace SO.SilList.Admin.Web.Controllers
         //
         // GET: /JobCompany/
 
-        public ActionResult Index()
+        public ActionResult Index(JobCompanyVm input = null, Paging paging = null)
         {
+            if (input == null) input = new JobCompanyVm();
+            input.paging = paging;
+            if (this.ModelState.IsValid)
+            {
+                if (input.submitButton != null)
+                    input.paging.pageNumber = 1;
+                input = jobCompanyManager.search(input);
+                return View(input);
+            }
             return View();
         }
+
         public ActionResult Menu()
         {
             return PartialView("../Job/Menu");
@@ -70,6 +82,14 @@ namespace SO.SilList.Admin.Web.Controllers
         {
             jobCompanyManager.delete(id);
             return RedirectToAction("Index");
+        }
+        public ActionResult Filter(JobCompanyVm Input)
+        {
+            return PartialView("_Filter", Input);
+        }
+        public ActionResult Pagination(Paging input)
+        {
+            return PartialView("_Pagination", input);
         }
     }
 }

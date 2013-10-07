@@ -1,6 +1,7 @@
 ﻿using SO.SilList.Manager.Managers;
 using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Models.ViewModels;
+using SO.SilList.Utility.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,14 +17,16 @@ namespace SO.SilList.Admin.Web.Controllers
 
         private RentalManager rentalManager = new RentalManager();
 
-        public ActionResult Index(RentalVm input = null)
+        public ActionResult Index(RentalVm input = null,Paging paging = null)
         {
 
             if (input == null) input = new RentalVm();
-
+            input.paging = paging;
             if (this.ModelState.IsValid)
             {
-                input.result = rentalManager.search(input);
+                if (input.submitButton != null)
+                    input.paging.pageNumber = 1;
+                input = rentalManager.search(input);
                 return View(input);
             }
             return View();
@@ -86,9 +89,9 @@ namespace SO.SilList.Admin.Web.Controllers
             return RedirectToAction("index");
         }
 
-        public ActionResult Pagination()
+        public ActionResult Pagination(Paging input)
         {
-            return PartialView("_Pagination");
+            return PartialView("_Pagination", input);
         }
 
         public ActionResult Filter(RentalVm input)

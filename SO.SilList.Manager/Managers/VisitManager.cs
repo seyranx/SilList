@@ -35,12 +35,12 @@ namespace SO.SilList.Manager.Managers
                                  )
                                     ));
                 input.totalRows = q.Count();
-
+                
                 input.result = q
                     .OrderBy(b => b.visitCount)
                     .ThenBy(c => c.modified)
-                    .Skip(input.skip)
-                    .Take(input.rowsPerPage)
+                   // .Skip(input.skip)
+                  //  .Take(input.rowsPerPage)
                     .ToList();
 
                 return input;
@@ -59,7 +59,7 @@ namespace SO.SilList.Manager.Managers
                                         e.controller == input.controller &&
                                         e.action == input.action &&
                                         e.created > d);
-                if (q.Count() == 0)
+                /*if (q.Count() == 0)
                 {
                     db.visits.Add(input);
                 }
@@ -68,7 +68,7 @@ namespace SO.SilList.Manager.Managers
                     VisitVo visit = q.First();
                     visit.visitCount++;
                     db.Entry(visit).CurrentValues.SetValues(visit);
-                }
+                }*/
                 
                 db.SaveChanges();
 

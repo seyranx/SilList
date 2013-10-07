@@ -10,30 +10,12 @@
 
 @Html.Action("Filter", @Model)
 @*<p style="margin-top:10px; margin-bottom:10px;"> </p>*@
-<div class="pull-right">
-    @Model.paging.showingFrom - @Model.paging.showingTo of @Model.paging.totalCount
-</div>
+    <div class="pull-right">
+        @((Model.paging.pageNumber-1) * Model.paging.rowCount + Model.result.Count) of @Model.paging.totalCount
+    </div>
 
-@Html.Partial("List", @Model.result)
+@Html.Partial("_List", @Model.result)
 @Html.Action("Pagination",  @Model.paging)
 
 </form>
 
-
-@*
-<form name="filterForm" class="form-inline" method="get" action="@Url.Action("Index","ListingType")">
-
-@Html.Action("Filter", @Model)
-
-<p style="margin-top:10px; margin-bottom:10px;"> </p>
-
-<div class="pull-right">
-    Showing @Model.firstVisibleRow - @Model.lastVisibleRow of @Model.totalRowCount
-</div>
-
-@Html.Partial("List", @Model.result)
-
-@Html.Action("Pagination", @Model)
-
- </form>
-*@

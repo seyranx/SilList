@@ -1,5 +1,7 @@
 ﻿using SO.SilList.Manager.Managers;
 using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Manager.Models.ViewModels;
+using SO.SilList.Utility.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +15,17 @@ namespace SO.SilList.Admin.Web.Controllers
 
         private SettingTypeManager settingTypeManager = new SettingTypeManager();
 
-        public ActionResult Index()
+        public ActionResult Index(SettingTypeVm input = null, Paging paging = null)
         {
+            if (input == null) input = new SettingTypeVm();
+            input.paging = paging;
+            if (this.ModelState.IsValid)
+            {
+                if (input.submitButton != null)
+                    input.paging.pageNumber = 1;
+                input = settingTypeManager.search(input);
+                return View(input);
+            }
             return View();
         }
 
@@ -79,6 +90,13 @@ namespace SO.SilList.Admin.Web.Controllers
             settingTypeManager.delete(id);
             return RedirectToAction("Index");
         }
-
+        public ActionResult Filter(SettingTypeVm Input)
+        {
+            return PartialView("_Filter", Input);
+        }
+        public ActionResult Pagination(Paging input)
+        {
+            return PartialView("_Pagination", input);
+        }
     }
 }
