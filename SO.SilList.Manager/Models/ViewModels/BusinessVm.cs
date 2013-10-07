@@ -21,8 +21,6 @@ namespace SO.SilList.Manager.Models.ViewModels
          public Paging paging;
         public List<ImageCheckBoxInfo> imagesToRemove { get; set; }
         public BusinessVo business { get; set; }
-            get
-            {
 
         public BusinessVm()
         {
