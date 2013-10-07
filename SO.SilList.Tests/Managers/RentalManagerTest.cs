@@ -72,7 +72,7 @@ namespace SO.SilList.Tests.Managers
         public void searchTest()
         {
             var vo = new RentalVm();
-            vo.pageNumber = 2;
+            vo.paging.pageNumber = 2;
             vo.keyword = "Some title";
             vo.isActive = true;
 

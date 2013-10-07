@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Models.ViewModels;
 using System.Web.Security;
+using SO.SilList.Utility.Classes;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
@@ -15,18 +16,20 @@ namespace SO.SilList.Admin.Web.Controllers
         private BusinessManager businessManager = new BusinessManager();
 
           
-        public ActionResult Index(BusinessVm input=null)
+        public ActionResult Index(BusinessVm input=null,Paging paging = null)
         {
             var user = Membership.GetUser();
-           
+            input.paging = paging;
             if (input == null)input = new BusinessVm();
             
             if (this.ModelState.IsValid)
             {
+                if (input.submitButton != null)
+                    input.paging.pageNumber = 1;
                 input = businessManager.search(input);
                 return View(input);
             }
-
+           
             return View();
 
         }
@@ -86,7 +89,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView("_Menu");
         }
 
-        public ActionResult Pagination(BusinessVm input = null)
+        public ActionResult Pagination(Paging input)
         {
             return PartialView("_Pagination", input);
         }

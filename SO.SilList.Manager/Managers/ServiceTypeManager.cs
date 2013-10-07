@@ -57,22 +57,25 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public List<ServiceTypeVo> search(ServiceTypeVm input)
+        public ServiceTypeVm search(ServiceTypeVm input)
         {
 
             using (var db = new MainDb())
             {
-                var list = db.serviceTypes
+                var query = db.serviceTypes
                              .Include(s => s.site)
                              .OrderBy(b => b.name)
-                             .Skip(input.skip)
-                             .Take(input.rowCount)
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
-                                    )
+                                    );
+                input.paging.totalCount = query.Count();
+
+                input.result = query
+                            .Skip(input.paging.skip)
+                            .Take(input.paging.rowCount)
                              .ToList();
 
-                return list;
+                return input;
             }
         }
 

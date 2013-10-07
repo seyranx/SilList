@@ -8,6 +8,7 @@ using EntityFramework.Extensions;
 using SO.SilList.Manager.Interfaces;
 using SO.SilList.Manager.DbContexts;
 using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Manager.Models.ViewModels;
 
 
 namespace SO.SilList.Manager.Managers
@@ -35,6 +36,29 @@ namespace SO.SilList.Manager.Managers
                             .FirstOrDefault();
 
                 return result;
+            }
+        }
+        public JobVm search(JobVm input)
+        {
+
+            using (var db = new MainDb())
+            {
+                var query = db.jobs
+                             .Include(s => s.site)
+                             .Include(j => j.jobTypes)
+                             .Include(t => t.jobCompany)
+                            .OrderBy(b => b.title)
+                            .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                             );
+                input.paging.totalCount = query.Count();
+                input.result = query
+                             .Skip(input.paging.skip)
+                             .Take(input.paging.rowCount)
+
+                             .ToList();
+
+                return input;
             }
         }
 
