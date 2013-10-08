@@ -66,35 +66,5 @@ namespace SO.SilList.Web.Controllers
             return PartialView("_Pagination", input);
         }
 
-        /*
-
-        public ActionResult Index(ListingVm input = null)
-        {
-            if (input == null)
-                input = new ListingVm();
-
-            if (this.ModelState.IsValid)
-            {
-                input.result = listingManager.search(input);
-                input.totalRowCount = listingManager.count(input);
-                return View(input);
-            }
-
-            return View();
-        }
-
-        // [HttpPost]
-        public ActionResult Details(Guid id)
-        {
-            var result = listingManager.get(id);
-            return View(result);
-        }
-
-        public ActionResult Pagination(ListingVm input)
-        {
-            return PartialView("_Pagination", input);
-        }
-
-*/
     }
 }
