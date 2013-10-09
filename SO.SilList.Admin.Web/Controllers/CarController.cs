@@ -110,6 +110,7 @@ input.car = new CarVo();
 
             ImageManager imageManager = new ImageManager();
             ViewBag.carImages = imageManager.getCarImages(id);
+            ViewBag.Images = imageManager.getCarImages(id);
 
             return View(result);
         }

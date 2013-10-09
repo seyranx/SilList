@@ -124,6 +124,20 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
+        public List<ImageVo> getBusinessImages(Guid businessId)
+        {
+            using (var db = new MainDb())
+            {
+                var list = (from i in db.images
+                            join c in db.businessImages on i.imageId equals c.imageId
+                            where c.businessId == businessId
+                            select i
+                            ).ToList();
+
+                return list;
+            }
+        }
+
         public List<ImageVo> getListingImages(bool? isActive = true)
         {
             using (var db = new MainDb())

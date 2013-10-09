@@ -434,9 +434,7 @@
     <Content Include="Views\CarImage\Details.cshtml" />
     <Content Include="Views\CarImage\Edit.cshtml" />
     <Content Include="Views\BusinessImages\Index.cshtml" />
-    <Content Include="Views\BusinessImages\_List.cshtml" />
     <Content Include="Views\BusinessImages\Edit.cshtml" />
-    <Content Include="Views\BusinessImages\Details.cshtml" />
     <Content Include="Views\CarBodyType\_Filter.cshtml" />
     <Content Include="Views\EnvironmentType\_Filter.cshtml" />
     <Content Include="Views\EnvironmentType\_List.cshtml" />
@@ -542,8 +540,6 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="Views\BusinessImages\Details.cshtml" />
-    <Content Include="Views\BusinessImages\Edit.cshtml" />
-    <Content Include="Views\BusinessImages\Index.cshtml" />
     <Content Include="Views\BusinessImages\_List.cshtml" />
     <Content Include="Views\Visit\Index.cshtml" />
     <Content Include="Views\Visit\_Filter.cshtml" />
@@ -601,6 +597,7 @@
     <Content Include="Views\SettingType\_Filter.cshtml" />
     <Content Include="Views\SettingType\_List.cshtml" />
     <Content Include="Views\Site\_Filter.cshtml" />
+    <Content Include="Views\Image\ImagesOnDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

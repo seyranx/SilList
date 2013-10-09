@@ -88,6 +88,11 @@ namespace SO.SilList.Admin.Web.Controllers
         {
             //var idNew = new Guid("6ebe653d-0a10-44bf-bff6-84e1dbe6e36d");
             var result = businessManager.get(id);
+
+            ImageManager imageManager = new ImageManager();
+            ViewBag.businessImages = imageManager.getBusinessImages(id);
+            ViewBag.Images = imageManager.getBusinessImages(id);
+
             return PartialView(result);
         }
 

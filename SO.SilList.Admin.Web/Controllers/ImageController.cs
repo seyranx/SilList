@@ -251,5 +251,9 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView();
         }
 
+        public ActionResult ImagesOnDetails()
+        {
+            return PartialView();
+        }
     }
 }
