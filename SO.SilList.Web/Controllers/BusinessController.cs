@@ -1,4 +1,6 @@
 ﻿using SO.SilList.Manager.Managers;
+using SO.SilList.Manager.Models.ViewModels;
+using SO.SilList.Utility.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,10 +16,17 @@ namespace SO.SilList.Web.Controllers
         //
         // GET: /Rentals/
 
-        public ActionResult Index()
+        public ActionResult Index(BusinessVm input = null, Paging paging = null)
         {
+            if (input == null)
+                input = new BusinessVm();
+            
+            if (this.ModelState.IsValid)
+            {
+                input = businessManager.search(input);
+                return View(input);
+            }
 
-            //var res = businessCategoryManager.get(id);
             return View();
         }
 
