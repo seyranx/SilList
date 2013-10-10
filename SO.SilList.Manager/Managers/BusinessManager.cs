@@ -43,6 +43,8 @@ namespace SO.SilList.Manager.Managers
             {
                 var res = db.businesses
                             .Include(s => s.site)
+                            .Include(b=>b.businessCategories)
+                            .Include(e=>e.businessCategories.Select(m=>m.businessCategoryType))
                             .FirstOrDefault(p => p.businessId == businessId);
                  
                 return res;

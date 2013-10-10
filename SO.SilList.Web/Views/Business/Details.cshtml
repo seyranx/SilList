@@ -19,13 +19,30 @@
          <h5 class="media-heading" ">@Html.DisplayFor(model => model.name)</h5>
          </a>
 
-          <div class="businessAddressLine">Category: <a href="/">??Plumbing???</a></div> 
+          <div class="businessAddressLine">Category: 
+              
+              
+              @{
+                  int count = 1;
+              foreach (var category in Model.businessCategories)
+              {
+                  <a href="@Url.Action("Categories")">@category.businessCategoryType.name</a>
+                  
+                  if(count < Model.businessCategories.Count){
+                  <span>,</span>
+                  }
+                   count++;
+              }
+              }
+
+
+          </div> 
           <div class="businessAddressLine">Location: <a href="/">@Html.DisplayFor(model => model.city), @Html.DisplayFor(model => model.state)</a> </div>  
         
         <div style="margin-left:70%; margin-top:-40px; ">
           <div class="businessAddressLine">@Html.DisplayFor(model => model.address)</div>
           <div class="businessAddressLine">@Html.DisplayFor(model => model.city), @Html.DisplayFor(model => model.state) @Html.DisplayFor(model => model.zip)</div> 
-          <div class="businessAddressLine">???818-222-3344???</div>  
+          <div class="businessAddressLine">Ph: @Html.DisplayFor(model => model.phone)</div>  
           <div class="businessAddressLine"><a href="/">Website: @Html.DisplayFor(model => model.url)</a></div>  
         </div>
     </div>
