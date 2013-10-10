@@ -38,13 +38,12 @@ namespace SO.SilList.Web.Controllers
             return PartialView(results);
         }
 
-        public ActionResult DetailView(ListingVo input)
+        public ActionResult _Details(Guid id)
         {
-            return PartialView("_DetailView", input);
-
-            //var results = listingManager.get(input.listingId);
-            //return PartialView(results);
+            var result = listingManager.get(id);
+            return PartialView(result);
         }
+
 /*
         public ActionResult Menu()  "_DetailView"   "_DetailView"
         {

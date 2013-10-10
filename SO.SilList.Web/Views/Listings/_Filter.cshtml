@@ -4,6 +4,7 @@
 <form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Listings")">  
 
 <label>Keyword:</label>
+ <label class="pull-center">  @Html.CheckBox("a") Title Only</label>
 @Html.ValidationSummary(true)
 @Html.TextBoxFor(model => model.keyword,new { Class = "input-large", placeholder =  "Keyword" })
 @Html.ValidationMessageFor(model => model.keyword)

@@ -1,19 +1,30 @@
 ﻿@model SO.SilList.Manager.Models.ValueObjects.ListingVo
 @{
-    ViewBag.Title = "Detail View";
+    ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_LayoutDetail.cshtml";
 }
- @* @Html.DisplayFor(model => Model.listingCategories.FirstOrDefault().listingCategoryType.name *@
-<div class="span12 businessInfo" id="mainContent" style="background-color:lavender">
-      <a class="pull-left" href="#" >
-      <img class="media-object, thumbnail" data-src="holder.js/60x60">  @Html.DisplayFor(model => model.siteId)
-    </a>
-    <div class="media-body" style="padding:5px;">
 
-          <div class="businessAddressLine">Category: @Html.DisplayFor(model => model.listingCategories.FirstOrDefault().listingCategoryType.name) </div> 
+ @* @Html.DisplayFor(model => Model.listingCategories.FirstOrDefault().listingCategoryType.name *@
+<div class="span12 businessInfo" id="mainContent" style="background-color:lavender"> <br />
+      <a class="pull-left" href="#" >
+      <img class="media-object, thumbnail" data-src="holder.js/60x60"> 
+    </a>
+    <div class="media-body" style="padding:5px;">  
+         <h5 class="media-heading">  @Model.title </h5>
+     
+          <div class="businessAddressLine">Category: 
+               @{ 
+                   foreach(var category in Model.listingCategories){
+                       <span> <a href="/"> @category.listingCategoryType.name  </a></span>          
+                       <span>, </span>
+                   }  
+                   
+               } 
+          </div>  
+
           <div class="businessAddressLine">Type: @Html.DisplayFor(model => model.listingType.name) </div> 
            
-        <div style="margin-left:70%; margin-top:-40px; ">
+        <div style="margin-left:70%; margin-top:-40px; "> <br />
           <div class="businessAddressLine">123 Address</div>
           <div class="businessAddressLine">Los Angeles, CA 92222</div> 
           <div class="businessAddressLine">818-222-3344</div>  
