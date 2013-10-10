@@ -20,7 +20,7 @@ namespace SO.SilList.Manager.Models.ViewModels
         public Paging paging;
 
         public ListingTypeVo listingType { get; set; }
-        //public List<CarImageCheckBoxInfo> imagesToRemove { get; set; }
+        //public List<ImageCheckBoxInfo> imagesToRemove { get; set; }
 
         [DisplayName("isActive: ")]
         public bool? isActive { get; set; }
