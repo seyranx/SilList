@@ -15,10 +15,12 @@ namespace SO.SilList.Manager.Models.ViewModels
         public List<BusinessVo> result { get; set; }
         public string keyword { get; set; }
 
-         [DisplayName("isActive: ")]
-         public bool? isActive { get; set; }
+        [DisplayName("isActive: ")]
+        public bool? isActive { get; set; }
          public string submitButton { get; set; }
          public Paging paging;
+        public List<ImageCheckBoxInfo> imagesToRemove { get; set; }
+        public BusinessVo business { get; set; }
 
         public BusinessVm()
         {
@@ -27,9 +29,12 @@ namespace SO.SilList.Manager.Models.ViewModels
             if (paging == null)
                 paging = new Paging();
         }
-
-
-
-
-    }
+        public BusinessVm(BusinessVo input)
+        {
+            business = input;
+            this.result = new List<BusinessVo>();
+            if (paging == null)
+                paging = new Paging();
+        }
+}
 }

@@ -46,9 +46,9 @@ namespace SO.SilList.Manager.Models.ViewModels
         {
             if (imagesToRemove == null)
             {
-                imagesToRemove = new List<CarImageCheckBoxInfo>();
+                imagesToRemove = new List<ImageCheckBoxInfo>();
             }
-            CarImageCheckBoxInfo carImgInfo = new CarImageCheckBoxInfo(carImageVo.imageId.ToString(), carImageVo.url);
+            ImageCheckBoxInfo carImgInfo = new ImageCheckBoxInfo(carImageVo.imageId.ToString(), carImageVo.url);
             imagesToRemove.Add(carImgInfo);
 
         }

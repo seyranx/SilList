@@ -37,15 +37,20 @@ namespace SO.SilList.Admin.Web.Controllers
         {
             return PartialView("_Filter", input);
         }
-
          
         [HttpPost]
-        public ActionResult Edit(Guid id, BusinessVo input)
+        public ActionResult Edit(Guid id, BusinessVm input)
         {
-
             if (this.ModelState.IsValid)
             {
-                var res = businessManager.update(input, id);
+                var res = businessManager.update(input.business, id);
+
+                // Business Images stuff
+                ImageManager imageManager = new ImageManager();
+                imageManager.RemoveImages(id, input.imagesToRemove, ImageCategory.businessImage);
+                // uploading new images from edit page
+                imageManager.InsertUploadImages(id, Request.Files, Server, ImageCategory.businessImage);
+
                 return RedirectToAction("Index");
             }
 
@@ -55,7 +60,13 @@ namespace SO.SilList.Admin.Web.Controllers
         public ActionResult Edit(Guid id)
         {
             var result = businessManager.get(id);
-            return View(result);
+            ImageManager imageManager = new ImageManager();
+            var businessImages = imageManager.getBusinessImages(id);
+            BusinessVm businessVm = new BusinessVm(result);
+
+            businessVm.imagesToRemove = imageManager.CreateOrAddToImageList(businessImages, true);
+
+            return View(businessVm);
         }
 
         [HttpPost]
@@ -64,8 +75,10 @@ namespace SO.SilList.Admin.Web.Controllers
 
             if (this.ModelState.IsValid)
             {
-
                 var item = businessManager.insert(input);
+
+                ImageManager imageManager = new ImageManager();
+                imageManager.InsertUploadImages(item.businessId, Request.Files, Server, SO.SilList.Manager.Managers.ImageCategory.businessImage);
                 return RedirectToAction("Index");
             }
             return View();
@@ -81,6 +94,11 @@ namespace SO.SilList.Admin.Web.Controllers
         {
             //var idNew = new Guid("6ebe653d-0a10-44bf-bff6-84e1dbe6e36d");
             var result = businessManager.get(id);
+
+            ImageManager imageManager = new ImageManager();
+            ViewBag.businessImages = imageManager.getBusinessImages(id);
+            ViewBag.Images = imageManager.getBusinessImages(id);
+
             return PartialView(result);
         }
 

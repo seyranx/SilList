@@ -12,11 +12,31 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Web;
 using System.Diagnostics;
+using SO.SilList.Manager.Models.ViewModels;
+using SO.SilList.Utility.Classes;
 
 namespace SO.SilList.Manager.Managers
 {
+    public class ImageInsertIntoDbInfo
+    {
+        public ImageInsertIntoDbInfo(Guid id, string fileName, string imgUrl, string uploadImageAbsFilePath)
+        {
+            this.id = id;
+            this.fileName = fileName;
+            this.imgUrl = imgUrl;
+            this.uploadImageAbsFilePath = uploadImageAbsFilePath;
+        }
+        public Guid id { get; set; }
+        public string fileName { get; set; }
+        public string imgUrl { get; set; }
+        public string uploadImageAbsFilePath { get; set; }
+    }
+
+    public enum ImageCategory { carImage, businessImage, listingImage, jobImage };
+
     public class ImageManager : IImageManager
     {
+
         /// <summary>
         /// Find Image matching the imageId (primary key)
         /// </summary>
@@ -97,6 +117,20 @@ namespace SO.SilList.Manager.Managers
                 var list = (from i in db.images
                             join c in db.carImages on i.imageId equals c.imageId
                             where c.carId == carId
+                            select i
+                            ).ToList();
+
+                return list;
+            }
+        }
+
+        public List<ImageVo> getBusinessImages(Guid businessId)
+        {
+            using (var db = new MainDb())
+            {
+                var list = (from i in db.images
+                            join c in db.businessImages on i.imageId equals c.imageId
+                            where c.businessId == businessId
                             select i
                             ).ToList();
 
@@ -224,29 +258,11 @@ namespace SO.SilList.Manager.Managers
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////
-        // for Edit pages (upload and insert image right away?)
-        public void InsertImageAndCarImageIntoDb(Guid carId, string imageName, string imageUrl, string uploadImageAbsFilePath)
+        // new
+        public ImageInsertIntoDbInfo PrepareImageDbInfo(Guid id, HttpFileCollectionBase requestFiles, HttpServerUtilityBase Server, string imageIndex)
         {
-            ImageVo imgVo = new ImageVo();
-            imgVo.name = imageName;
-            imgVo.path = uploadImageAbsFilePath;
-            imgVo.url = imageUrl;
-            using (var db = new MainDb())
-            {
-                //todo: need to use the other way LINQ ??
-                db.images.Add(imgVo);
+            ImageInsertIntoDbInfo ret = null;
 
-                CarImagesVo carImageVo = new CarImagesVo();
-                carImageVo.carId = carId;
-                carImageVo.imageId = imgVo.imageId;
-                db.carImages.Add(carImageVo);
-
-                db.SaveChanges();
-            }
-        }
-
-        public void InsertImageForCar(Guid id, HttpFileCollectionBase requestFiles, HttpServerUtilityBase Server)
-        {
             /////////////////////////////////////////////////////////////////
             // carImage stuff. todo: need to move to Image controller or whatever ... to reuse from other locations
             /// var id = item.carId;
@@ -263,64 +279,97 @@ namespace SO.SilList.Manager.Managers
             if (requestFiles.Count > 0)
             {
                 // todo: need to make sure they are uploading image files 
-                var UploadImage1 = requestFiles["UploadImage1"];
-                var UploadImage2 = requestFiles["UploadImage2"];
+                var UploadImage = requestFiles[imageIndex];
 
-                if (UploadImage1 != null && UploadImage1.FileName != null)
+                if (UploadImage != null && UploadImage.FileName != null)
                 {
-                    string fileName1 = Path.GetFileName(UploadImage1.FileName);
-                    string fileExtension1 = Path.GetExtension(UploadImage1.FileName);
+                    string fileName1 = Path.GetFileName(UploadImage.FileName);
+                    string fileExtension1 = Path.GetExtension(UploadImage.FileName);
                     if (!string.IsNullOrEmpty(fileName1) && this.IsImageFile(fileExtension1))
                     {
                         string imageNameOnServer = Guid.NewGuid().ToString() + fileExtension1;
                         string uploadImageAbsFilePath1 = Path.Combine(sDir, imageNameOnServer);
-                        UploadImage1.SaveAs(uploadImageAbsFilePath1);
+                        UploadImage.SaveAs(uploadImageAbsFilePath1);
                         string imageUrl = this.GetBasePathFromConfig() + "/" + imageNameOnServer;
-                        this.InsertImageAndCarImageIntoDb(id, fileName1, imageUrl, uploadImageAbsFilePath1);
+                        ///this.InsertImageAndCarImageIntoDb(id, fileName1, imageUrl, uploadImageAbsFilePath1);
+                        ret = new ImageInsertIntoDbInfo(id, fileName1, imageUrl, uploadImageAbsFilePath1);
                     }
                 }
-                if (UploadImage2 != null && UploadImage2.FileName != null)
+            }
+            return ret;
+        }
+        
+        public void InsertUploadImages(Guid id, HttpFileCollectionBase requestFiles, HttpServerUtilityBase Server, ImageCategory imageCategory)
+        {
+            for (int ind = 1; ind <= 2; ++ind)
+            {
+                string imageUploadNameIndex = "UploadImage" + ind.ToString();
+                ImageInsertIntoDbInfo imgInfo = PrepareImageDbInfo(id, requestFiles, Server, imageUploadNameIndex);
+                if (imgInfo != null) // if image was not chosen
                 {
-                    string fileName2 = Path.GetFileName(UploadImage2.FileName);
-                    string fileExtension2 = Path.GetExtension(UploadImage2.FileName);
-                    if (!string.IsNullOrEmpty(fileName2) && this.IsImageFile(fileExtension2))
+                    switch (imageCategory)
                     {
-                        string imageNameOnServer = Guid.NewGuid().ToString() + fileExtension2;
-                        string uploadImageAbsFilePath2 = Path.Combine(sDir, imageNameOnServer);
-                        string imageUrl = this.GetBasePathFromConfig() + "/" + imageNameOnServer;
-                        this.InsertImageAndCarImageIntoDb(id, fileName2, imageUrl, uploadImageAbsFilePath2);
-                        UploadImage2.SaveAs(uploadImageAbsFilePath2);
+                        case ImageCategory.carImage:
+                            InsertImageAndCarImageIntoDb(imgInfo);
+                            break;
+                        case ImageCategory.businessImage:
+                            InsertImageAndBusinessImageIntoDb(imgInfo);
+                            break;
+                        case ImageCategory.listingImage:
+                            break;
+                        case ImageCategory.jobImage:
+                            break;
+                        default:
+                            Debug.Assert(false, "Unknown catogory for image");
+                            break;
                     }
                 }
             }
         }
 
-        public void RemoveImageForCar(Guid carId, Guid imgGuid)
+        //////////////////////////////////////////   22
+        // for Edit pages (upload and insert image right away?)
+        //new
+        public void InsertImageAndCarImageIntoDb(ImageInsertIntoDbInfo imgInfo)
         {
+            ImageVo imgVo = new ImageVo();
+            imgVo.name = imgInfo.fileName; // use file name as image name field in database
+            imgVo.path = imgInfo.uploadImageAbsFilePath;
+            imgVo.url = imgInfo.imgUrl;
             using (var db = new MainDb())
             {
-                var query = db.images
-                   .Where(m => m.imageId == imgGuid);
+                //todo: need to use the other way LINQ ??
+                db.images.Add(imgVo);
 
-                // Delete the file from the disk
-                var list = query.ToList();
-                Debug.Assert(list.Count == 1);
-                string imagePath = list[0].path;
-                if (!String.IsNullOrEmpty(imagePath))
-                {
-                    try
-                    {
-                        File.Delete(imagePath);
-                    }
-                    catch (DirectoryNotFoundException dirNotFound)
-                    {
-                        Console.WriteLine(dirNotFound.Message);
-                    }
-                }
-                // Delete image from Db
-                query.Delete();
+                CarImagesVo carImageVo = new CarImagesVo();
+                carImageVo.carId = imgInfo.id;
+                carImageVo.imageId = imgVo.imageId;
+                db.carImages.Add(carImageVo);
+
+                db.SaveChanges();
             }
         }
+        //new
+        public void InsertImageAndBusinessImageIntoDb(ImageInsertIntoDbInfo imgInfo)
+        {
+            ImageVo imgVo = new ImageVo();
+            imgVo.name = imgInfo.fileName; // use file name as image name field in database
+            imgVo.path = imgInfo.uploadImageAbsFilePath;
+            imgVo.url = imgInfo.imgUrl;
+            using (var db = new MainDb())
+            {
+                //todo: need to use the other way LINQ ??
+                db.images.Add(imgVo);
+
+                BusinessImagesVo businessImageVo = new BusinessImagesVo();
+                businessImageVo.businessId = imgInfo.id;
+                businessImageVo.imageId = imgVo.imageId;
+                db.businessImages.Add(businessImageVo);
+
+                db.SaveChanges();
+            }
+        }
+
         /////////////////////////////////////////////////////////////////
         /////////////////////////////////////////////////////////////////
         /////////////////////////////////////////////////////////////////
@@ -358,6 +407,66 @@ namespace SO.SilList.Manager.Managers
 
         }
 
+        public void RemoveImages(Guid id, List<ImageCheckBoxInfo> imagesToRemove, ImageCategory imgCategory)
+        {
+            // removing unchecked images
+            if (imagesToRemove != null)
+            {
+                for (int ind = 0; ind < imagesToRemove.Count(); ind++)
+                {
+                    bool imgChecked = imagesToRemove[ind].imageIsChecked;
+                    if (!imgChecked)
+                    {
+                        string strGuid = imagesToRemove[ind].imageIdStr;
+                        Guid imgGuid = Guid.Empty;
+                        if (Guid.TryParse(strGuid, out imgGuid))
+                        {
+                            this.RemoveImageFromDisk(/*id,*/ imgGuid);
+                        }
+                    }
+                }
+            }
+        }
+
+        public void RemoveImageFromDisk(/*Guid carId,*/ Guid imgGuid)
+        {
+            using (var db = new MainDb())
+            {
+                var query = db.images
+                   .Where(m => m.imageId == imgGuid);
+
+                // Delete the file from the disk
+                var list = query.ToList();
+                Debug.Assert(list.Count == 1);
+                string imagePath = list[0].path;
+                if (!String.IsNullOrEmpty(imagePath))
+                {
+                    try
+                    {
+                        File.Delete(imagePath);
+                    }
+                    catch (DirectoryNotFoundException dirNotFound)
+                    {
+                        Console.WriteLine(dirNotFound.Message);
+                    }
+                }
+                // Delete image from Db
+                query.Delete();
+            }
+        }
+
+        // create list with check box info for Edit View (the list is sstored in CarVm, BusinessVm ...
+        public List<ImageCheckBoxInfo> CreateOrAddToImageList(List<ImageVo> carImages, bool isChecked = true)
+        {
+            List<ImageCheckBoxInfo> imagesToRemove = new List<ImageCheckBoxInfo>();
+            foreach (ImageVo image in carImages)
+            {
+
+                ImageCheckBoxInfo carImgInfo = new ImageCheckBoxInfo(image.imageId.ToString(), image.url);
+                imagesToRemove.Add(carImgInfo);
+            }
+            return imagesToRemove;
+        }
 
     }
 }

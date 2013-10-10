@@ -1,44 +1,43 @@
-﻿@model SO.SilList.Manager.Models.ValueObjects.BusinessVo
+﻿@model SO.SilList.Manager.Models.ViewModels.BusinessVm
 
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 
 }
+<h2>@ViewBag.Title</h2>
 
-<h2>Edit</h2>
-
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Business", FormMethod.Post, new { @encType = "multipart/form-data", id = "myForm" }))
 {
     @Html.ValidationSummary(true)
 
     <fieldset>
         <legend>BusinessVo</legend>
 
-        @Html.HiddenFor(model => model.businessId)
+        @Html.HiddenFor(model => model.business.businessId)
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.siteId)
+            @Html.LabelFor(model => model.business.siteId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList", "Site", new { id = Model.siteId })
+            @Html.Action("DropDownList", "Site", new { id = Model.business.siteId })
             <a href="@Url.Action("Index", "Site", new { backUrl = @Url.RouteUrl(ViewContext.RouteData.Values), backName = @ViewContext.RouteData.Values["controller"].ToString() })" class="btn">Sites</a>
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.name)
+            @Html.LabelFor(model => model.business.name)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.name)
-            @Html.ValidationMessageFor(model => model.name)
+            @Html.EditorFor(model => model.business.name)
+            @Html.ValidationMessageFor(model => model.business.name)
         </div>
         
         <div class="editor-label">
-            @Html.LabelFor(model => model.url)
+            @Html.LabelFor(model => model.business.url)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.url)
-            @Html.ValidationMessageFor(model => model.url)
+            @Html.EditorFor(model => model.business.url)
+            @Html.ValidationMessageFor(model => model.business.url)
         </div>
 
         <div class="editor-label">
@@ -51,44 +50,66 @@
 
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.address)
+            @Html.LabelFor(model => model.business.address)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.address)
-            @Html.ValidationMessageFor(model => model.address)
+            @Html.EditorFor(model => model.business.address)
+            @Html.ValidationMessageFor(model => model.business.address)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.city)
+            @Html.LabelFor(model => model.business.city)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.city)
-            @Html.ValidationMessageFor(model => model.city)
+            @Html.EditorFor(model => model.business.city)
+            @Html.ValidationMessageFor(model => model.business.city)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.state)
+            @Html.LabelFor(model => model.business.state)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.state)
-            @Html.ValidationMessageFor(model => model.state)
+            @Html.EditorFor(model => model.business.state)
+            @Html.ValidationMessageFor(model => model.business.state)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.zip)
+            @Html.LabelFor(model => model.business.zip)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.zip)
-            @Html.ValidationMessageFor(model => model.zip)
+            @Html.EditorFor(model => model.business.zip)
+            @Html.ValidationMessageFor(model => model.business.zip)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.isActive)
+            @Html.LabelFor(model => model.business.isActive)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.isActive)
-            @Html.ValidationMessageFor(model => model.isActive)
+            @Html.EditorFor(model => model.business.isActive)
+            @Html.ValidationMessageFor(model => model.business.isActive)
         </div>
+
+        @* business image stuff below *@
+        @{
+            if (Model.imagesToRemove != null)
+            {
+                for (int index = 0; index < Model.imagesToRemove.Count; ++index)
+                {
+                    <hr />
+                    @Html.HiddenFor(x => x.imagesToRemove[index].imageIdStr);
+                    <br />
+                    <img src="@Model.imagesToRemove[index].imageUrlStr" width="100px"  id="img_@index" />
+        
+                    @: Uncheck to remove: 
+                    @Html.CheckBoxFor(m => m.imagesToRemove[index].imageIsChecked, new { id = "removeImg_" + index.ToString() })
+                }
+                    <br />
+            }
+        }
+        <hr />
+        @Html.Partial("../Image/_ImagePickerControls")
+        <br />
+        @* end of business images stuff *@
 
         <p>
             <input type="submit" value="Save" />
