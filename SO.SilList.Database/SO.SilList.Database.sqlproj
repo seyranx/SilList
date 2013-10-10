@@ -213,6 +213,14 @@
     <Build Include="data\Tables\Visit.sql">
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
+    <Build Include="app\Tables\CarColorType.sql" />
+    <Build Include="app\Tables\CarEngineType.sql" />
+    <Build Include="app\Tables\CarFuelType.sql" />
+    <Build Include="app\Tables\CarDriveType.sql" />
+    <Build Include="data\Tables\CarDoorType.sql" />
+    <Build Include="app\Tables\CityType.sql" />
+    <Build Include="app\Tables\StateType.sql" />
+    <Build Include="app\Tables\CountryType.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />
@@ -220,5 +228,8 @@
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="app\Script.SuperAdmin.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="SO.SilList.Database.refactorlog" />
   </ItemGroup>
 </Project>
