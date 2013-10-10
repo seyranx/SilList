@@ -5,10 +5,9 @@
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 
 }
+<h2>@ViewBag.Title</h2>
 
-<h2>Edit</h2>
-
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Business", FormMethod.Post, new { @encType = "multipart/form-data", id = "myForm" }))
 {
     @Html.ValidationSummary(true)
 
@@ -33,11 +32,11 @@
             @Html.ValidationMessageFor(model => model.business.name)
         </div>
         <div class="editor-label">
-            @Html.LabelFor(model => model.url)
+            @Html.LabelFor(model => model.business.url)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.url)
-            @Html.ValidationMessageFor(model => model.url)
+            @Html.EditorFor(model => model.business.url)
+            @Html.ValidationMessageFor(model => model.business.url)
         </div>
 
         <div class="editor-label">

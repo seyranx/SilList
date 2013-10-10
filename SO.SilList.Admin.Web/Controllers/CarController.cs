@@ -51,7 +51,7 @@ input.car = new CarVo();
                 var item = carManager.insert(input);
 
                 ImageManager imageManager = new ImageManager();
-                imageManager.insert2(item.carId, Request.Files, Server, SO.SilList.Manager.Managers.ImageCategory.carImage);
+                imageManager.InsertUploadImages(item.carId, Request.Files, Server, SO.SilList.Manager.Managers.ImageCategory.carImage);
 
                 return RedirectToAction("Index");
             }
@@ -79,7 +79,7 @@ input.car = new CarVo();
                 // removing unchecked images
                 imageManager.RemoveImages(id, input.imagesToRemove, ImageCategory.carImage);
                 // uploading new images from edit page
-                imageManager.insert2(id, Request.Files, Server, ImageCategory.carImage);
+                imageManager.InsertUploadImages(id, Request.Files, Server, ImageCategory.carImage);
 
                 return RedirectToAction("Index");
             }
@@ -97,10 +97,9 @@ input.car = new CarVo();
 
             var carImages = imageManager.getCarImages(id);
             CarVm carVm = new CarVm(result);
-            foreach (ImageVo image in carImages)
-            {
-                carVm.AddCarImageInfo(image, true);
-            }
+
+            carVm.imagesToRemove = imageManager.CreateOrAddToImageList(carImages, true);
+
             return View(carVm);
         }
 

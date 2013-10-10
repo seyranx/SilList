@@ -49,7 +49,7 @@ namespace SO.SilList.Admin.Web.Controllers
                 ImageManager imageManager = new ImageManager();
                 imageManager.RemoveImages(id, input.imagesToRemove, ImageCategory.businessImage);
                 // uploading new images from edit page
-                imageManager.insert2(id, Request.Files, Server, ImageCategory.businessImage);
+                imageManager.InsertUploadImages(id, Request.Files, Server, ImageCategory.businessImage);
 
                 return RedirectToAction("Index");
             }
@@ -60,7 +60,13 @@ namespace SO.SilList.Admin.Web.Controllers
         public ActionResult Edit(Guid id)
         {
             var result = businessManager.get(id);
-            return View(result);
+            ImageManager imageManager = new ImageManager();
+            var businessImages = imageManager.getBusinessImages(id);
+            BusinessVm businessVm = new BusinessVm(result);
+
+            businessVm.imagesToRemove = imageManager.CreateOrAddToImageList(businessImages, true);
+
+            return View(businessVm);
         }
 
         [HttpPost]
@@ -72,7 +78,7 @@ namespace SO.SilList.Admin.Web.Controllers
                 var item = businessManager.insert(input);
 
                 ImageManager imageManager = new ImageManager();
-                imageManager.insert2(item.businessId, Request.Files, Server, SO.SilList.Manager.Managers.ImageCategory.businessImage);
+                imageManager.InsertUploadImages(item.businessId, Request.Files, Server, SO.SilList.Manager.Managers.ImageCategory.businessImage);
                 return RedirectToAction("Index");
             }
             return View();

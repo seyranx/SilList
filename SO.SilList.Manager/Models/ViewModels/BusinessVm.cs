@@ -29,17 +29,12 @@ namespace SO.SilList.Manager.Models.ViewModels
             if (paging == null)
                 paging = new Paging();
         }
-
-        public void AddBusinessImageInfo(ImageVo businessImageVo, bool isChecked = true)
+        public BusinessVm(BusinessVo input)
         {
-            if (imagesToRemove == null)
-            {
-                imagesToRemove = new List<ImageCheckBoxInfo>();
-            }
-            ImageCheckBoxInfo busnessImgInfo = new ImageCheckBoxInfo(businessImageVo.imageId.ToString(), businessImageVo.url);
-            imagesToRemove.Add(busnessImgInfo);
+            business = input;
+            this.result = new List<BusinessVo>();
+            if (paging == null)
+                paging = new Paging();
         }
-
-
-    }
+}
 }
