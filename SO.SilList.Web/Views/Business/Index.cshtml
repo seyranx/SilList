@@ -1,4 +1,5 @@
-﻿@{
+﻿@model SO.SilList.Manager.Models.ViewModels.BusinessVm 
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutBusiness.cshtml";
 }
@@ -11,7 +12,7 @@
  @for(int i=0; i<10; i++){
   <li class="row, media" style="border-bottom:1px solid #ccc;" >
    
-     @Html.Partial("_BusinessItem")
+     @Html.Partial("_BusinessItem",Model.result);
 
   </li>
      

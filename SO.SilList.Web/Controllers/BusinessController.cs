@@ -10,11 +10,14 @@ namespace SO.SilList.Web.Controllers
     public class BusinessController : Controller
     {
         private BusinessManager businessManager = new BusinessManager();
+        private BusinessCategoriesManager businessCategoryManager = new BusinessCategoriesManager();
         //
         // GET: /Rentals/
 
         public ActionResult Index()
         {
+
+            //var res = businessCategoryManager.get(id);
             return View();
         }
 
@@ -24,6 +27,14 @@ namespace SO.SilList.Web.Controllers
             var result = businessManager.get(idNew);
             return PartialView(result);
         }
+
+        public ActionResult Categories(Guid? id = null)
+        {
+            var idNew = new Guid("6ebe653d-0a10-44bf-bff6-84e1dbe6e36d");
+            var result = businessCategoryManager.get(idNew);
+            return PartialView(result);
+        }
+
 
     }
 }

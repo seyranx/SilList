@@ -1,0 +1,13 @@
+﻿@model SO.SilList.Manager.Models.ValueObjects.BusinessCategoriesVo
+
+@{
+    ViewBag.Title = "Categories";
+    Layout = "~/Views/Shared/_LayoutBusiness.cshtml";
+}
+
+<h2>Categories</h2>
+
+@*@foreach(var category in Model.business.name) *@
+
+    
+@Html.DisplayFor(model => model.business.name)
