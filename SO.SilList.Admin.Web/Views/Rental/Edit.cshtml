@@ -1,4 +1,4 @@
-﻿@model SO.SilList.Manager.Models.ValueObjects.RentalVo
+﻿@model SO.SilList.Manager.Models.ViewModels.RentalVm
 
 @{
     ViewBag.Title = "Edit";
@@ -7,131 +7,155 @@
 
 <h2>Edit</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("Edit", "Rental", FormMethod.Post, new { @encType = "multipart/form-data"; id = "myForm" })) {
+    
     @Html.ValidationSummary(true)
 
     <fieldset>
         <legend>RentalVo</legend>
 
-        @Html.HiddenFor(model => model.rentalId)
+        @Html.HiddenFor(model => model.rental.rentalId)
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.title)
+            @Html.LabelFor(model => model.rental.title)
         </div>
 
         <div class="editor-field">
-            @Html.EditorFor(model => model.title)
-            @Html.ValidationMessageFor(model => model.title)
+            @Html.EditorFor(model => model.rental.title)
+            @Html.ValidationMessageFor(model => model.rental.title)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.description)
+            @Html.LabelFor(model => model.rental.description)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.description)
-            @Html.ValidationMessageFor(model => model.description)
+            @Html.EditorFor(model => model.rental.description)
+            @Html.ValidationMessageFor(model => model.rental.description)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.propertyTypeId)
+            @Html.LabelFor(model => model.rental.propertyTypeId)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.propertyTypeId)
-            @Html.ValidationMessageFor(model => model.propertyTypeId)
+            @Html.EditorFor(model => model.rental.propertyTypeId)
+            @Html.ValidationMessageFor(model => model.rental.propertyTypeId)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.siteId)
+            @Html.LabelFor(model => model.rental.siteId)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.siteId)
-            @Html.ValidationMessageFor(model => model.siteId)
+            @Html.EditorFor(model => model.rental.siteId)
+            @Html.ValidationMessageFor(model => model.rental.siteId)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.bedrooms)
+            @Html.LabelFor(model => model.rental.bedrooms)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.bedrooms)
-            @Html.ValidationMessageFor(model => model.bedrooms)
+            @Html.EditorFor(model => model.rental.bedrooms)
+            @Html.ValidationMessageFor(model => model.rental.bedrooms)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.bathrooms)
+            @Html.LabelFor(model => model.rental.bathrooms)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.bathrooms)
-            @Html.ValidationMessageFor(model => model.bathrooms)
+            @Html.EditorFor(model => model.rental.bathrooms)
+            @Html.ValidationMessageFor(model => model.rental.bathrooms)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.rent)
+            @Html.LabelFor(model => model.rental.rent)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.rent)
-            @Html.ValidationMessageFor(model => model.rent)
+            @Html.EditorFor(model => model.rental.rent)
+            @Html.ValidationMessageFor(model => model.rental.rent)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.leaseTermTypeId)
+            @Html.LabelFor(model => model.rental.leaseTermTypeId)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.leaseTermTypeId)
-            @Html.ValidationMessageFor(model => model.leaseTermTypeId)
+            @Html.EditorFor(model => model.rental.leaseTermTypeId)
+            @Html.ValidationMessageFor(model => model.rental.leaseTermTypeId)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.size)
+            @Html.LabelFor(model => model.rental.size)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.size)
-            @Html.ValidationMessageFor(model => model.size)
+            @Html.EditorFor(model => model.rental.size)
+            @Html.ValidationMessageFor(model => model.rental.size)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.lotSize)
+            @Html.LabelFor(model => model.rental.lotSize)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.lotSize)
-            @Html.ValidationMessageFor(model => model.lotSize)
+            @Html.EditorFor(model => model.rental.lotSize)
+            @Html.ValidationMessageFor(model => model.rental.lotSize)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.acceptsSection8)
+            @Html.LabelFor(model => model.rental.acceptsSection8)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.acceptsSection8)
-            @Html.ValidationMessageFor(model => model.acceptsSection8)
+            @Html.EditorFor(model => model.rental.acceptsSection8)
+            @Html.ValidationMessageFor(model => model.rental.acceptsSection8)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.memberId)
+            @Html.LabelFor(model => model.rental.memberId)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.memberId)
-            @Html.ValidationMessageFor(model => model.memberId)
+            @Html.EditorFor(model => model.rental.memberId)
+            @Html.ValidationMessageFor(model => model.rental.memberId)
         </div>
 
          <div class="editor-label">
-            @Html.LabelFor(model => model.startDate)
+            @Html.LabelFor(model => model.rental.startDate)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.startDate)
-            @Html.ValidationMessageFor(model => model.startDate)
+            @Html.EditorFor(model => model.rental.startDate)
+            @Html.ValidationMessageFor(model => model.rental.startDate)
         </div>
             <div class="editor-label">
-            @Html.LabelFor(model => model.endDate)
+            @Html.LabelFor(model => model.rental.endDate)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.endDate)
-            @Html.ValidationMessageFor(model => model.endDate)
+            @Html.EditorFor(model => model.rental.endDate)
+            @Html.ValidationMessageFor(model => model.rental.endDate)
         <div class="editor-label">
-            @Html.LabelFor(model => model.isActive)
+            @Html.LabelFor(model => model.rental.isActive)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.isActive)
-            @Html.ValidationMessageFor(model => model.isActive)
+            @Html.EditorFor(model => model.rental.isActive)
+            @Html.ValidationMessageFor(model => model.rental.isActive)
         </div>
+
+
+        @* Rental image stuff below *@
+        @{
+        if (Model.rentalimagesToRemove != null)
+        {
+            for (int index = 0; index < Model.rentalimagesToRemove.Count; ++index)
+            {
+                <hr />
+                @Html.HiddenFor(x => x.imagesToRemove[index].imageIdStr);
+                <br />
+                <img src="@Model.rentalimagesToRemove[index].imageUrlStr" width="100px"  id="img_@index" />
+        
+                @: Uncheck to remove: 
+                @Html.CheckBoxFor(m => m.imagesToRemove[index].imageIsChecked, new { id = "removeImg_" + index.ToString() })
+            }
+                <br />
+        }
+        }
+        <hr />
+        @Html.Partial("../Image/_ImagePickerControls")
+        <br />
+        @* end of Rental images stuff *@
 
         <p>
             <input type="submit" value="Save" />
