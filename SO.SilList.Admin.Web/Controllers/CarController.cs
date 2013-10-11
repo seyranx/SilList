@@ -74,7 +74,7 @@ input.car = new CarVo();
         {
                 var res = carManager.update(input.car, id);
 
-                // Care Images stuff
+                // Car Images stuff
                 ImageManager imageManager = new ImageManager();
                 // removing unchecked images
                 imageManager.RemoveImages(id, input.imagesToRemove, ImageCategory.carImage);
@@ -91,13 +91,13 @@ input.car = new CarVo();
         {
             var result = carManager.get(id);
 
-            ImageManager imageManager = new ImageManager();
             if (result.modelTypeId != null)
                 result.makeTypeId = (int)result.modelType.makeTypeId;
 
+            // Images
+            ImageManager imageManager = new ImageManager();
             var carImages = imageManager.getCarImages(id);
             CarVm carVm = new CarVm(result);
-
             carVm.imagesToRemove = imageManager.CreateOrAddToImageList(carImages, true);
 
             return View(carVm);
@@ -107,8 +107,8 @@ input.car = new CarVo();
         {
             var result = carManager.get(id);
 
+            // Images
             ImageManager imageManager = new ImageManager();
-            ViewBag.carImages = imageManager.getCarImages(id);
             ViewBag.Images = imageManager.getCarImages(id);
 
             return View(result);

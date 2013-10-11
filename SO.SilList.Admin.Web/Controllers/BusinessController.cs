@@ -96,7 +96,6 @@ namespace SO.SilList.Admin.Web.Controllers
             var result = businessManager.get(id);
 
             ImageManager imageManager = new ImageManager();
-            ViewBag.businessImages = imageManager.getBusinessImages(id);
             ViewBag.Images = imageManager.getBusinessImages(id);
 
             return PartialView(result);

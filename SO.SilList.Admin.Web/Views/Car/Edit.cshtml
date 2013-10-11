@@ -133,20 +133,20 @@
 
         @* car image stuff below *@
         @{
-    if (Model.imagesToRemove != null)
-    {
-        for (int index = 0; index < Model.imagesToRemove.Count; ++index)
+        if (Model.imagesToRemove != null)
         {
-            <hr />
-            @Html.HiddenFor(x => x.imagesToRemove[index].imageIdStr);
-            <br />
-            <img src="@Model.imagesToRemove[index].imageUrlStr" width="100px"  id="img_@index" />
+            for (int index = 0; index < Model.imagesToRemove.Count; ++index)
+            {
+                <hr />
+                @Html.HiddenFor(x => x.imagesToRemove[index].imageIdStr);
+                <br />
+                <img src="@Model.imagesToRemove[index].imageUrlStr" width="100px"  id="img_@index" />
         
-            @: Uncheck to remove: 
-            @Html.CheckBoxFor(m => m.imagesToRemove[index].imageIsChecked, new { id = "removeImg_" + index.ToString() })
-        }
+                @: Uncheck to remove: 
+                @Html.CheckBoxFor(m => m.imagesToRemove[index].imageIsChecked, new { id = "removeImg_" + index.ToString() })
+            }
             <br />
-    }
+        }
         }
         <hr />
         @Html.Partial("../Image/_ImagePickerControls")
