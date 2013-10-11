@@ -131,11 +131,9 @@
 </p>
 </fieldset>
  
-@* @Html.Raw( @Html.Action("ImagesOnDetails", "Image") ) *@
-
 @* car images stuff *@
 @{
-    foreach (SO.SilList.Manager.Models.ValueObjects.ImageVo img in ViewBag.carImages)
+    foreach (SO.SilList.Manager.Models.ValueObjects.ImageVo img in ViewBag.Images)
     { 
         <hr />
         <img src="@img.url" width="200px" /> 

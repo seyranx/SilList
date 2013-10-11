@@ -8,9 +8,11 @@
     [modified]       DATETIME         DEFAULT (getdate()) NOT NULL,
     [isActive]       BIT              DEFAULT ((1)) NOT NULL,
     PRIMARY KEY CLUSTERED ([listingImageId] ASC),
-    CONSTRAINT [FK_ListingImages_Image] FOREIGN KEY ([imageId]) REFERENCES [data].[Image] ([imageId]),
-    CONSTRAINT [FK_ListingImages_Listing] FOREIGN KEY ([listingId]) REFERENCES [data].[Listing] ([listingId])
+    CONSTRAINT [FK_ListingImages_Image] FOREIGN KEY ([imageId]) REFERENCES [data].[Image] ([imageId]) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT [FK_ListingImages_Listing] FOREIGN KEY ([listingId]) REFERENCES [data].[Listing] ([listingId]) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+
 
 
 
