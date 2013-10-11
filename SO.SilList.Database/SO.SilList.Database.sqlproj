@@ -217,10 +217,10 @@
     <Build Include="app\Tables\CarEngineType.sql" />
     <Build Include="app\Tables\CarFuelType.sql" />
     <Build Include="app\Tables\CarDriveType.sql" />
-    <Build Include="data\Tables\CarDoorType.sql" />
     <Build Include="app\Tables\CityType.sql" />
     <Build Include="app\Tables\StateType.sql" />
     <Build Include="app\Tables\CountryType.sql" />
+    <Build Include="app\Tables\CarDoorType.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />

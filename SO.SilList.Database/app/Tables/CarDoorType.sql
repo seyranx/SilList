@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[CarDoorType]
+﻿CREATE TABLE [app].[CarDoorType]
 (
 	[carDoorTypeId] INT NOT NULL PRIMARY KEY, 
     [name] NVARCHAR(50) NOT NULL,

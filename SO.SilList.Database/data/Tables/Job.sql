@@ -4,8 +4,13 @@
     [title]            NVARCHAR (50)    NULL,
     [description]      NVARCHAR (50)    NULL,
     [jobTypeId]        INT              NULL,
-    [city]             NVARCHAR (20)    NULL,
-    [state]            NVARCHAR (20)    NULL,
+    [address]          NVARCHAR (MAX)   NULL,
+    [cityId]           INT              NULL,
+    [stateId]          INT              NULL,
+    [countryId]        INT              NULL,
+    [zip]              INT              NULL,
+    [phone]            NVARCHAR (50)    NULL,
+    [fax]              NVARCHAR (50)    NULL,
     [isTravelRequired] BIT              NULL,
     [isTelecomute]     BIT              NULL,
     [jobCompanyId]     UNIQUEIDENTIFIER NULL,
@@ -18,9 +23,14 @@
     [modifiedBy]       INT              NULL,
     [isActive]         BIT              DEFAULT ((1)) NOT NULL,
     PRIMARY KEY CLUSTERED ([jobId] ASC),
+    CONSTRAINT [FK_Job_CityType] FOREIGN KEY ([cityId]) REFERENCES [app].[CityType] ([cityTypeId]) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT [FK_Job_CountryType] FOREIGN KEY ([countryId]) REFERENCES [app].[CountryType] ([countryTypeId]) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT [FK_Job_JobCompany1] FOREIGN KEY ([jobCompanyId]) REFERENCES [data].[JobCompany] ([jobCompanyId]) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT [FK_Job_JobType1] FOREIGN KEY ([jobTypeId]) REFERENCES [app].[JobType] ([jobTypeId]) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT [FK_Job_JobType1] FOREIGN KEY ([jobTypeId]) REFERENCES [app].[JobType] ([jobTypeId]) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT [FK_Job_StateType] FOREIGN KEY ([stateId]) REFERENCES [app].[StateType] ([stateTypeId]) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+
 
 
 

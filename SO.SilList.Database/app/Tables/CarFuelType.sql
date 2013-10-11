@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[CarFuelType]
+﻿CREATE TABLE [app].[CarFuelType]
 (
 	[carFuelTypeId] INT NOT NULL PRIMARY KEY, 
     [name] NVARCHAR(50) NOT NULL,
