@@ -40,5 +40,5 @@ _ReSharper*/
 #Ignore user uploaded files. Change it if target path changes in web.config.
 SO.SilList.Admin.Web/Uploads/Images/*
 #
-Compare_Update_Code_Seyran.scmp
-Compare_Update_Server_Seyran.scmp
+Seyran Compare_Update_Code.scmp
+Seyran Compare_Update_Server.scmp
