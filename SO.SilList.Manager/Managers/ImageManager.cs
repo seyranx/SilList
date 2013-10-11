@@ -110,6 +110,7 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
+        // used to show given entity's images on Details and Edit pages
         public List<ImageVo> getCarImages(Guid carId)
         {
             using (var db = new MainDb())
@@ -124,6 +125,7 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
+        // used to show given entity's images on Details and Edit pages
         public List<ImageVo> getBusinessImages(Guid businessId)
         {
             using (var db = new MainDb())
@@ -144,6 +146,21 @@ namespace SO.SilList.Manager.Managers
             {
                 var list = (from i in db.images
                             join m in db.listingImages on i.imageId equals m.imageId
+                            select i
+                            ).ToList();
+
+                return list;
+            }
+        }
+
+        // used to show given entity's images on Details and Edit pages
+        public List<ImageVo> getListingImages(Guid listingId)
+        {
+            using (var db = new MainDb())
+            {
+                var list = (from i in db.images
+                            join c in db.listingImages on i.imageId equals c.imageId
+                            where c.listingId == listingId
                             select i
                             ).ToList();
 
@@ -256,16 +273,12 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-        //////////////////////////////////////////
-        // new
+        // construct ImageInsertIntoDbInfo to use appropriately
         public ImageInsertIntoDbInfo PrepareImageDbInfo(Guid id, HttpFileCollectionBase requestFiles, HttpServerUtilityBase Server, string imageIndex)
         {
             ImageInsertIntoDbInfo ret = null;
 
-            /////////////////////////////////////////////////////////////////
-            // carImage stuff. todo: need to move to Image controller or whatever ... to reuse from other locations
-            /// var id = item.carId;
+            //
             string csRelativeBasePath = this.GetBasePathFromConfig();
             string sBaseDir = Path.Combine("~/" + csRelativeBasePath);
             string sDir = Server.MapPath(sBaseDir);
@@ -291,6 +304,7 @@ namespace SO.SilList.Manager.Managers
                         string uploadImageAbsFilePath1 = Path.Combine(sDir, imageNameOnServer);
                         UploadImage.SaveAs(uploadImageAbsFilePath1);
                         string imageUrl = this.GetBasePathFromConfig() + "/" + imageNameOnServer;
+                        /// Moved actual insertion out of this function. Now we only prepare necessary data here
                         ///this.InsertImageAndCarImageIntoDb(id, fileName1, imageUrl, uploadImageAbsFilePath1);
                         ret = new ImageInsertIntoDbInfo(id, fileName1, imageUrl, uploadImageAbsFilePath1);
                     }
@@ -298,7 +312,7 @@ namespace SO.SilList.Manager.Managers
             }
             return ret;
         }
-        
+
         public void InsertUploadImages(Guid id, HttpFileCollectionBase requestFiles, HttpServerUtilityBase Server, ImageCategory imageCategory)
         {
             for (int ind = 1; ind <= 2; ++ind)
@@ -316,6 +330,7 @@ namespace SO.SilList.Manager.Managers
                             InsertImageAndBusinessImageIntoDb(imgInfo);
                             break;
                         case ImageCategory.listingImage:
+                            InsertImageAndListingImageIntoDb(imgInfo);
                             break;
                         case ImageCategory.jobImage:
                             break;
@@ -327,9 +342,8 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        //////////////////////////////////////////   22
+        //
         // for Edit pages (upload and insert image right away?)
-        //new
         public void InsertImageAndCarImageIntoDb(ImageInsertIntoDbInfo imgInfo)
         {
             ImageVo imgVo = new ImageVo();
@@ -349,7 +363,8 @@ namespace SO.SilList.Manager.Managers
                 db.SaveChanges();
             }
         }
-        //new
+
+        //
         public void InsertImageAndBusinessImageIntoDb(ImageInsertIntoDbInfo imgInfo)
         {
             ImageVo imgVo = new ImageVo();
@@ -370,9 +385,28 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        /////////////////////////////////////////////////////////////////
-        /////////////////////////////////////////////////////////////////
-        /////////////////////////////////////////////////////////////////
+        //
+        // for Edit pages (upload and insert image right away)
+        public void InsertImageAndListingImageIntoDb(ImageInsertIntoDbInfo imgInfo)
+        {
+            ImageVo imgVo = new ImageVo();
+            imgVo.name = imgInfo.fileName; // use file name as image name field in database
+            imgVo.path = imgInfo.uploadImageAbsFilePath;
+            imgVo.url = imgInfo.imgUrl;
+            using (var db = new MainDb())
+            {
+                //todo: need to use the other way LINQ ??
+                db.images.Add(imgVo);
+
+                ListingImagesVo listingImageVo = new ListingImagesVo();
+                listingImageVo.listingId = imgInfo.id;
+                listingImageVo.imageId = imgVo.imageId;
+                db.listingImages.Add(listingImageVo);
+
+                db.SaveChanges();
+            }
+        }
+
         /////////////////////////////////////////////////////////////////
 
         public int count()
@@ -386,7 +420,7 @@ namespace SO.SilList.Manager.Managers
         public string GetBasePathFromConfig()
         {
             // Add a key/value pair in <appSettings> in web.config to override this default value.
-            string sRet = "/Uploads/Images";
+            string sRet = "/Uploads/Images"; // default value if no configuration value exists
             string sVal = System.Configuration.ConfigurationManager.AppSettings.Get("UserImagesFolder");
             if (!String.IsNullOrEmpty(sVal))
             {
@@ -421,14 +455,14 @@ namespace SO.SilList.Manager.Managers
                         Guid imgGuid = Guid.Empty;
                         if (Guid.TryParse(strGuid, out imgGuid))
                         {
-                            this.RemoveImageFromDisk(/*id,*/ imgGuid);
+                            this.RemoveImageFromDiskAndDb(/*id,*/ imgGuid);
                         }
                     }
                 }
             }
         }
 
-        public void RemoveImageFromDisk(/*Guid carId,*/ Guid imgGuid)
+        public void RemoveImageFromDiskAndDb(/*Guid carId,*/ Guid imgGuid)
         {
             using (var db = new MainDb())
             {
@@ -455,7 +489,7 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        // create list with check box info for Edit View (the list is sstored in CarVm, BusinessVm ...
+        // create list with check box info for Edit View (the list is stored in CarVm, BusinessVm ...
         public List<ImageCheckBoxInfo> CreateOrAddToImageList(List<ImageVo> carImages, bool isChecked = true)
         {
             List<ImageCheckBoxInfo> imagesToRemove = new List<ImageCheckBoxInfo>();
@@ -467,6 +501,5 @@ namespace SO.SilList.Manager.Managers
             }
             return imagesToRemove;
         }
-
     }
 }

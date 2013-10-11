@@ -54,6 +54,11 @@ namespace SO.SilList.Admin.Web.Controllers
             if (this.ModelState.IsValid)
             {
                 var item = listingManager.insert(input);
+
+                // Images
+                ImageManager imageManager = new ImageManager();
+                imageManager.InsertUploadImages(item.listingId, Request.Files, Server, SO.SilList.Manager.Managers.ImageCategory.listingImage);
+
                 return RedirectToAction("Index");
             }
 
@@ -67,26 +72,45 @@ namespace SO.SilList.Admin.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Guid id, ListingVo input)
+        public ActionResult Edit(Guid id, ListingVm input)
         {
             if (this.ModelState.IsValid)
             {
-                var res = listingManager.update(input, id);
+                var res = listingManager.update(input.listing, id);
+
+                // Listing Images stuff
+                ImageManager imageManager = new ImageManager();
+                // removing unchecked images
+                imageManager.RemoveImages(id, input.imagesToRemove, ImageCategory.listingImage);
+                // uploading new images from edit page
+                imageManager.InsertUploadImages(id, Request.Files, Server, ImageCategory.listingImage);
+
                 return RedirectToAction("Index");
             }
 
-            return View();
+            return View(input);
         }
 
         public ActionResult Edit(Guid id)
         {
             var result = listingManager.get(id);
-            return View(result);
+            
+            // Images
+            ImageManager imageManager = new ImageManager();
+            var listingImages = imageManager.getListingImages(id);
+            ListingVm listingVm = new ListingVm(result);
+            listingVm.imagesToRemove = imageManager.CreateOrAddToImageList(listingImages, true);
+
+            return View(listingVm);
         }
 
         public ActionResult Details(Guid id)
         {
             var result = listingManager.get(id);
+            // Images
+            ImageManager imageManager = new ImageManager();
+            ViewBag.Images = imageManager.getListingImages(id);
+
             return View(result);
         }
 

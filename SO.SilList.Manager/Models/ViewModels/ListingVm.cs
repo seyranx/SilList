@@ -16,6 +16,9 @@ namespace SO.SilList.Manager.Models.ViewModels
         public string keyword { get; set; }
         public string location { get; set; } //added
 
+        // Images
+        public List<ImageCheckBoxInfo> imagesToRemove { get; set; }
+
         [DisplayName("isActive: ")]
         public bool? isActive { get; set; }
         //  public int totalCount { get; set; }
@@ -40,19 +43,6 @@ namespace SO.SilList.Manager.Models.ViewModels
             if (paging == null)
                 paging = new Paging();
         }
-
-        /*
-        public void AddCarImageInfo(ImageVo carImageVo, bool isChecked = true)
-        {
-            if (imagesToRemove == null)
-            {
-                imagesToRemove = new List<ImageCheckBoxInfo>();
-            }
-            ImageCheckBoxInfo carImgInfo = new ImageCheckBoxInfo(carImageVo.imageId.ToString(), carImageVo.url);
-            imagesToRemove.Add(carImgInfo);
-
-        }
-        */
 
         /*
         public List<ListingVo> result { get; set; }

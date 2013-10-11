@@ -12,7 +12,7 @@
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 -->
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("Create", "Listing", FormMethod.Post, new { @encType = "multipart/form-data" })) {
     @Html.ValidationSummary(true)
 
     <fieldset>
@@ -79,6 +79,12 @@
             <input type="submit" value="Create" />
             <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
         </p>
+
+        
+        @* Listing Images *@
+        <hr />
+        @Html.Partial("../Image/_ImagePickerControls")
+
     </fieldset>
 }
 
