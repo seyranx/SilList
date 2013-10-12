@@ -29,9 +29,9 @@
           <div class="businessAddressLine">Type: <a href="/"> @Html.DisplayFor(modelItem => item.listingType.name) </a> </div> 
 
         <div style="margin-left:70%; margin-top:-40px; ">
-          <div class="businessAddressLine">123 Address</div>
-          <div class="businessAddressLine">Los Angeles, CA 92222</div> 
-          <div class="businessAddressLine">818-222-3344</div>  
+          <div class="businessAddressLine">@Html.DisplayFor(modelItem  => item.address)</div>
+          <div class="businessAddressLine">@Html.DisplayFor(modelItem  => item.cityTypeId) , @Html.DisplayFor(modelItem  => item.stateTypeId)  @Html.DisplayFor(modelItem  => item.zip)</div> 
+          <div class="businessAddressLine">@Html.DisplayFor(modelItem  => item.phone)</div>  
           <div class="businessAddressLine"><a href="/">  @Html.DisplayFor(modelItem => item.site.domain) </a></div>  
         </div>
     </div>

@@ -24,10 +24,10 @@
 
           <div class="businessAddressLine">Type: @Html.DisplayFor(model => model.listingType.name) </div> 
            
-        <div style="margin-left:70%; margin-top:-40px; "> <br />
-          <div class="businessAddressLine">123 Address</div>
-          <div class="businessAddressLine">Los Angeles, CA 92222</div> 
-          <div class="businessAddressLine">818-222-3344</div>  
+        <div style="margin-left:70%; margin-top:-50px; ">
+          <div class="businessAddressLine">@Html.DisplayFor(model => model.address)</div>
+          <div class="businessAddressLine">@Html.DisplayFor(model => model.cityTypeId) , @Html.DisplayFor(model => model.stateTypeId)  @Html.DisplayFor(model => model.zip)</div> 
+          <div class="businessAddressLine">@Html.DisplayFor(model => model.phone)</div>  
           <div class="businessAddressLine"><a href="/">  @Html.DisplayFor(model => model.site.domain) </a></div>  
         </div>
     </div>
