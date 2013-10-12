@@ -25,7 +25,7 @@ namespace SO.SilList.Web.Controllers
             {
                 if (input.submitButton != null)
                     input.paging.pageNumber = 1;
-                input = listingManager.search(input);
+                input = listingManager.websearch(input);
                 return View(input);
             }
 

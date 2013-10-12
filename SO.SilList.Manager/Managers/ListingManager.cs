@@ -41,7 +41,7 @@ namespace SO.SilList.Manager.Managers
                 return input;
             }
         }
-        /*
+        
         public ListingVm websearch(ListingVm input)
         {
             using (var db = new MainDb())
@@ -53,7 +53,9 @@ namespace SO.SilList.Manager.Managers
                              .Include(t => t.listingCategories.Select(c => c.listingCategoryType)) 
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.title.Contains(input.keyword) || e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
-                                    );
+                                      && ((input.location == 0) || (e.cityTypeId == input.location)
+                                            || (e.stateTypeId == input.location) || (e.zip == input.location)) 
+                                    );   // change '== 0' to 'null' and change '==' to '.Contains'                   
                 input.paging.totalCount = query.Count();
                 input.result = query
                              .OrderBy(b => b.title)
@@ -63,7 +65,7 @@ namespace SO.SilList.Manager.Managers
                 return input;
             }
         }
-        */
+        
 
         /// Find Listing matching the listingId
         public ListingVo get(Guid listingId)
