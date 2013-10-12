@@ -35,17 +35,29 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [StringLength(50)]
         public string url { get; set; }
 
-        
+
+        [DisplayName("Address")]
+        public string address { get; set; }
+
         [DisplayName("City")]
-        [StringLength(250)]
-        public string city { get; set; }
+        public Nullable<int> cityTypeId { get; set; }
 
         [DisplayName("State")]
-        [StringLength(50)]
-        public string state { get; set; }
+        public Nullable<int> stateTypeId { get; set; }
+
+        [DisplayName("Country")]
+        public Nullable<int> countryTypeId { get; set; }
 
         [DisplayName("Zip")]
         public Nullable<int> zip { get; set; }
+
+        [DisplayName("Phone")]
+        [StringLength(50)]
+        public string phone { get; set; }
+
+        [DisplayName("Fax")]
+        [StringLength(50)]
+        public string fax { get; set; }
 
         [DisplayName("start Date")]
         [Required]
@@ -79,6 +91,15 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [DisplayName("Site")]
         [ForeignKey("siteId")]
         public virtual SiteVo site { get; set; }
+
+        [ForeignKey("countryTypeId")]
+        public virtual CountryTypeVo countryType { get; set; }
+
+        [ForeignKey("stateTypeId")]
+        public virtual StateTypeVo stateType { get; set; }
+
+        [ForeignKey("cityTypeId")]
+        public virtual CityTypeVo cityType { get; set; }
 
         [Association("Business_BusinessCategories", "businessId", "businessId", IsForeignKey = true)]
         public List<BusinessCategoriesVo> businessCategories { get; set; }

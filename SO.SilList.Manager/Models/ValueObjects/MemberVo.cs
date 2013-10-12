@@ -30,22 +30,29 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("last Name")]
     	[StringLength(50)]
         public string lastName { get; set; }
-    		
-    	[DisplayName("address")]
-    	[StringLength(50)]
+
+        [DisplayName("Address")]
         public string address { get; set; }
-    		
-    	[DisplayName("city")]
-    	[StringLength(50)]
-        public string city { get; set; }
-    		
-    	[DisplayName("state")]
-    	[StringLength(50)]
-        public string state { get; set; }
-    		
-    	[DisplayName("zip")]
-    	[StringLength(50)]
-        public string zip { get; set; }
+
+        [DisplayName("City")]
+        public Nullable<int> cityTypeId { get; set; }
+
+        [DisplayName("State")]
+        public Nullable<int> stateTypeId { get; set; }
+
+        [DisplayName("Country")]
+        public Nullable<int> countryTypeId { get; set; }
+
+        [DisplayName("Zip")]
+        public Nullable<int> zip { get; set; }
+
+        [DisplayName("Phone")]
+        [StringLength(50)]
+        public string phone { get; set; }
+
+        [DisplayName("Fax")]
+        [StringLength(50)]
+        public string fax { get; set; }
     		
     	[DisplayName("email")]
     	[StringLength(50)]
@@ -58,10 +65,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("password")]
     	[StringLength(50)]
         public string password { get; set; }
-    		
-    	[DisplayName("phone")]
-    	[StringLength(50)]
-        public string phone { get; set; }
     		
     	[DisplayName("is Email Confirmed")]
         public Nullable<bool> isEmailConfirmed { get; set; }
@@ -99,8 +102,18 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [ForeignKey("siteId")]
         public virtual SiteVo site { get; set; }
 
+        [ForeignKey("countryTypeId")]
+        public virtual CountryTypeVo countryType { get; set; }
+
+        [ForeignKey("stateTypeId")]
+        public virtual StateTypeVo stateType { get; set; }
+
+        [ForeignKey("cityTypeId")]
+        public virtual CityTypeVo cityType { get; set; }
+
         [Association("Member_Rental", "memberId", "memberId", IsForeignKey = true)]
         public List<RentalImageVo> rentalImage { get; set; }
+
 
     	public MemberVo(){
             this.lastLogin = DateTime.MinValue;

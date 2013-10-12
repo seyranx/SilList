@@ -4,9 +4,9 @@
     [firstName]         NVARCHAR (50)  NULL,
     [lastName]          NVARCHAR (50)  NULL,
     [address]           NVARCHAR (MAX) NULL,
-    [cityId]            INT            NULL,
-    [stateId]           INT            NULL,
-    [CountryId]         INT            NULL,
+    [cityTypeId]            INT            NULL,
+    [stateTypeId]           INT            NULL,
+    [CountryTypeId]         INT            NULL,
     [zip]               INT            NULL,
     [fax]               NVARCHAR (50)  NULL,
     [email]             NVARCHAR (50)  NULL,
@@ -23,10 +23,10 @@
     [modifiedBy]        INT            NULL,
     [isActive]          BIT            CONSTRAINT [DF__Member__isActive__66603565] DEFAULT ((1)) NULL,
     CONSTRAINT [PK_Member] PRIMARY KEY CLUSTERED ([memberId] ASC),
-    CONSTRAINT [FK_Member_CityType] FOREIGN KEY ([cityId]) REFERENCES [app].[CityType] ([cityTypeId]),
-    CONSTRAINT [FK_Member_CountryType] FOREIGN KEY ([CountryId]) REFERENCES [app].[CountryType] ([countryTypeId]),
+    CONSTRAINT [FK_Member_CityType] FOREIGN KEY ([cityTypeId]) REFERENCES [app].[CityType] ([cityTypeId]),
+    CONSTRAINT [FK_Member_CountryType] FOREIGN KEY ([CountryTypeId]) REFERENCES [app].[CountryType] ([countryTypeId]),
     CONSTRAINT [FK_Member_Site] FOREIGN KEY ([siteId]) REFERENCES [app].[Site] ([siteId]),
-    CONSTRAINT [FK_Member_StateType] FOREIGN KEY ([stateId]) REFERENCES [app].[StateType] ([stateTypeId])
+    CONSTRAINT [FK_Member_StateType] FOREIGN KEY ([stateTypeId]) REFERENCES [app].[StateType] ([stateTypeId])
 );
 
 
