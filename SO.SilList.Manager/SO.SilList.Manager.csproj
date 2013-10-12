@@ -117,6 +117,8 @@
     <Compile Include="Managers\CarColorTypeManager.cs" />
     <Compile Include="Managers\CarEngineTypeManager.cs" />
     <Compile Include="Managers\CarFuelTypeManager.cs" />
+    <Compile Include="Managers\CarDriveTypeManager.cs" />
+    <Compile Include="Managers\CarDoorTypeManager.cs" />
     <Compile Include="Managers\StateTypeManager.cs" />
     <Compile Include="Managers\CountryTypeManager.cs" />
     <Compile Include="Managers\CurrentMember.cs" />

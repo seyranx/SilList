@@ -14,7 +14,7 @@ namespace SO.SilList.Manager.Managers
 {
     public class CarDoorTypeManager : ICarDoorTypeManager
     {
-        CarDoorTypeManager()
+        public CarDoorTypeManager()
         {
 
         }

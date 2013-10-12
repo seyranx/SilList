@@ -14,7 +14,7 @@ namespace SO.SilList.Manager.Managers
 {
     public class CarFuelTypeManager : ICarFuelTypeManager
     {
-        CarFuelTypeManager()
+        public CarFuelTypeManager()
         {
 
         }

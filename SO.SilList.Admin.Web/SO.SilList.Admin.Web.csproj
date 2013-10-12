@@ -143,7 +143,15 @@
     <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\BusinessImagesController.cs" />
     <Compile Include="Controllers\BuySellController.cs" />
+    <Compile Include="Controllers\CarEngineTypeController.cs" />
     <Compile Include="Controllers\CarImagesController.cs" />
+    <Compile Include="Controllers\CarColorTypeController.cs" />
+    <Compile Include="Controllers\CarFuelTypeController.cs" />
+    <Compile Include="Controllers\CarDriveTypeController.cs" />
+    <Compile Include="Controllers\CarDoorTypeController.cs" />
+    <Compile Include="Controllers\CityTypeController.cs" />
+    <Compile Include="Controllers\StateTypeController.cs" />
+    <Compile Include="Controllers\CountryTypeController.cs" />
     <Compile Include="Controllers\EnvironmentTypeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\JobCategoryTypeController.cs" />
