@@ -15,11 +15,12 @@ namespace SO.SilList.Tests.Managers
         [TestMethod]
         public void searchTest()
         {
-            var vm = new ListingVm();
-            vm.paging.pageNumber = 4;
-            vm.isActive = true;
+            var vo = new ListingVm();
+            vo.paging.pageNumber = 4;
+           // vo.totalCount = "2";
+            vo.isActive = true;
 
-            var res = listingManager.search(vm);
+            var res = listingManager.search(vo);
 
             if (res != null)
             {
@@ -34,6 +35,19 @@ namespace SO.SilList.Tests.Managers
         {
 
             var res = listingManager.getAll(null);
+
+            if (res != null)
+            {
+                Assert.IsTrue(true);
+            }
+            else Assert.IsTrue(false);
+        }
+
+         [TestMethod]
+        public void getOneTest()
+        {
+            Guid id = new Guid("ed6bbfdf-0363-4ff4-987c-1ac216a90391");
+            var res = listingManager.get(id);
 
             if (res != null)
             {
