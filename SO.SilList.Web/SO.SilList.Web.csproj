@@ -293,10 +293,11 @@
     <Content Include="Views\Shared\_Pagination.cshtml" />
     <Content Include="Views\Car\Index.cshtml" />
     <Content Include="Views\Car\_CarItem.cshtml" />
+    <Content Include="Views\Listings\_Details.cshtml" />
+    <Content Include="Views\Shared\_LayoutDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\BuySell\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
