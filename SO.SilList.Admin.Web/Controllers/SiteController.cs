@@ -75,6 +75,13 @@ namespace SO.SilList.Admin.Web.Controllers
         [DontTrackVisit]
         public ActionResult Menu()
         {
+            // "Go Back to" button stuff
+            if (urlReferrer != null)
+            {
+                ViewBag.backUrl = urlReferrer;
+                ViewBag.backName = referrerName;
+            }
+
             return PartialView("_Menu");
         }
 
@@ -93,12 +100,14 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Create()
         {
+            /* Moved to the Menu 
             // "Go Back to" button stuff
             if (urlReferrer != null)
             {
                 ViewBag.backUrl = urlReferrer;
                 ViewBag.backName = referrerName;
             }
+            */
 
             var site = new SiteVo();
             return View(site);
@@ -107,13 +116,14 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Details(int id)
         {
+            /* Moved to the Menu 
             // "Go Back to" button stuff
             if (urlReferrer != null)
             {
                 ViewBag.backUrl = urlReferrer;
                 ViewBag.backName = referrerName;
             }
-
+            */
             var result = siteManager.get(id);
             return View(result);
         }
@@ -131,12 +141,14 @@ namespace SO.SilList.Admin.Web.Controllers
         }
         public ActionResult Edit(int id)
         {
+            /* Moved to the Menu 
             // "Go Back to" button stuff
             if (urlReferrer != null)
             {
                 ViewBag.backUrl = urlReferrer;
                 ViewBag.backName = referrerName;
             }
+            */
 
             var result = siteManager.get(id);
             return View(result);

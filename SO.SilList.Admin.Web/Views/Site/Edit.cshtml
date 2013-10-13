@@ -6,13 +6,6 @@
 }
 
 <h2>Edit</h2>
-<p>
-    @if (ViewBag.backUrl != null && ViewBag.backName != null)
-    {
-        <a href="@ViewBag.backUrl" class="btn btn-inverse">Back to @ViewBag.backName</a>
-    }
-</p>
-
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
@@ -75,22 +68,6 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.modified)
             @Html.ValidationMessageFor(model => model.modified)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.createdBy)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.createdBy)
-            @Html.ValidationMessageFor(model => model.createdBy)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.modifiedBy)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.modifiedBy)
-            @Html.ValidationMessageFor(model => model.modifiedBy)
         </div>
 
         <div class="editor-label">
