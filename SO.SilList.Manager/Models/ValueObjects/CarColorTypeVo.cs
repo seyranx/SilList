@@ -13,13 +13,13 @@ using System.Data.Entity;
 namespace SO.SilList.Manager.Models.ValueObjects
 {
      
-    [Table("CarColorType", Schema = "dbo" )]
+    [Table("CarColorType", Schema = "app" )]
     [Serializable]
     public partial class CarColorTypeVo
     {
     		
     	[DisplayName("car Color Type Id")]
-    	[Required]
+    	[Key]
         public int carColorTypeId { get; set; }
     		
     	[DisplayName("name")]
@@ -47,10 +47,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
 
 
-        [Association("CarColorType_Car", "carColorTypeId", "exteriorColorTypeId", IsForeignKey = true)]
-        public List<CarVo> car { get; set; }
+        //[Association("CarColorType_Car", "carColorTypeId", "exteriorColorTypeId", IsForeignKey = true)]
+        //public List<CarVo> cars { get; set; }
 
-        //[Association("CarColorType_Car", "carColorTypeId", "interiorColorTypeId", IsForeignKey = true)]
+        ////[Association("CarColorType_Car", "carColorTypeId", "interiorColorTypeId", IsForeignKey = true)]
         //public List<CarVo> car { get; set; }
       
     	public CarColorTypeVo(){

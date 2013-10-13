@@ -13,13 +13,13 @@ using System.Data.Entity;
 namespace SO.SilList.Manager.Models.ValueObjects
 {
      
-    [Table("CarFuelType", Schema = "dbo" )]
+    [Table("CarFuelType", Schema = "app" )]
     [Serializable]
     public partial class CarFuelTypeVo
     {
     		
     	[DisplayName("car Fuel Type Id")]
-    	[Required]
+    	[Key]
         public int carFuelTypeId { get; set; }
     		
     	[DisplayName("name")]

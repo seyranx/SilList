@@ -19,7 +19,7 @@ namespace SO.SilList.Admin.Web.Controllers
         public ActionResult Index(CarVm input = null,Paging paging = null)
         {
             if (input == null) input = new CarVm();
-input.car = new CarVo();
+            input.car = new CarVo();
             input.paging = paging;
             if (this.ModelState.IsValid)
             {
