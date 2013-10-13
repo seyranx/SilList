@@ -27,6 +27,10 @@ namespace SO.SilList.Manager.Managers
                 var query = db.listing
                              .Include(s => s.site)
                              .Include(t => t.listingType)
+                            .Include(i => i.cityType)
+                            .Include(o => o.countryType)
+                            .Include(u => u.stateType) 
+
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                                     );
@@ -47,6 +51,10 @@ namespace SO.SilList.Manager.Managers
                 var query = db.listing
                              .Include(s => s.site)
                              .Include(t => t.listingType)
+                           .Include(i => i.cityType)
+                            .Include(o => o.countryType)
+                            .Include(u => u.stateType) 
+
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.title.Contains(input.keyword) || e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                                     );
@@ -138,6 +146,10 @@ namespace SO.SilList.Manager.Managers
                 var res = db.listing
                             .Include(s => s.site)
                             .Include(t => t.listingType)
+                              .Include(i => i.cityType)
+                            .Include(o => o.countryType)
+                            .Include(u => u.stateType) 
+
                             .FirstOrDefault(p => p.listingId == listingId);
                  
                 return res;
@@ -165,6 +177,10 @@ namespace SO.SilList.Manager.Managers
                 var list = db.listing
                              .Include(s => s.site)
                              .Include(t => t.listingType)
+                            .Include(i => i.cityType)
+                            .Include(o => o.countryType)
+                            .Include(u => u.stateType) 
+
                              .Where(e => isActive==null || e.isActive == isActive )
                              .ToList();
 

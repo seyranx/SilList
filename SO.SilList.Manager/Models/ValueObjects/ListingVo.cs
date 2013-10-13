@@ -39,6 +39,29 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Listing Type")]
         public int? listingTypeId { get; set; }
 
+        [DisplayName("Address")]
+        public string address { get; set; }
+
+        [DisplayName("City")]
+        public Nullable<int> cityTypeId { get; set; }
+
+        [DisplayName("State")]
+        public Nullable<int> stateTypeId { get; set; }
+
+        [DisplayName("Country")]
+        public Nullable<int> countryTypeId { get; set; }
+
+        [DisplayName("Zip")]
+        public Nullable<int> zip { get; set; }
+
+        [DisplayName("Phone")]
+        [StringLength(50)]
+        public string phone { get; set; }
+
+        [DisplayName("Fax")]
+        [StringLength(50)]
+        public string fax { get; set; }
+
         [DisplayName("Start Date")]
         [Required]
         public System.DateTime startDate { get; set; }
@@ -77,6 +100,15 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         [ForeignKey("siteId")]
         public virtual SiteVo site { get; set; }
+
+        [ForeignKey("countryTypeId")]
+        public virtual CountryTypeVo countryType { get; set; }
+
+        [ForeignKey("stateTypeId")]
+        public virtual StateTypeVo stateType { get; set; }
+
+        [ForeignKey("cityTypeId")]
+        public virtual CityTypeVo cityType { get; set; }
 
         [Association("ListingCategories_Listing", "listingId", "listingId", IsForeignKey = true)]
         public List<ListingCategoriesVo> listingCategories { get; set; }

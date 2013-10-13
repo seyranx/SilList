@@ -24,6 +24,9 @@ namespace SO.SilList.Manager.Managers
                             .Include(c => c.rentType)
                             .Include(s => s.site)
                             .Include(m => m.member)
+                            .Include(i => i.cityType)
+                            .Include(o => o.countryType)
+                            .Include(u => u.stateType) 
                             .FirstOrDefault(r => r.rentalId == rentalId);
 
                 return result;
@@ -54,6 +57,9 @@ namespace SO.SilList.Manager.Managers
                             .Include(t => t.leaseTermType)
                             .Include(c => c.rentType)
                             .Include(s => s.site)
+                            .Include(i => i.cityType)
+                            .Include(o => o.countryType)
+                            .Include(u => u.stateType) 
                             .OrderBy(b => b.description)
                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
@@ -77,6 +83,10 @@ namespace SO.SilList.Manager.Managers
                             .Include(t => t.leaseTermType)
                             .Include(c => c.rentType)
                             .Include(s => s.site)
+                            .Include(i => i.cityType)
+                            .Include(o => o.countryType)
+                            .Include(u => u.stateType) 
+
                             .Where(e => isActive == null || e.isActive == isActive)
                             .ToList();
 

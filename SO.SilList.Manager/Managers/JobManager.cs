@@ -23,6 +23,10 @@ namespace SO.SilList.Manager.Managers
                             .Include(s => s.site)
                             .Include(j => j.jobTypes)
                             .Include(t => t.jobCompany)
+                            .Include(i => i.cityType)
+                            .Include(o => o.countryType)
+                            .Include(u => u.stateType) 
+
                             .FirstOrDefault(s => s.jobId == jobId);
                 return result;
             }
@@ -47,6 +51,10 @@ namespace SO.SilList.Manager.Managers
                              .Include(s => s.site)
                              .Include(j => j.jobTypes)
                              .Include(t => t.jobCompany)
+                            .Include(i => i.cityType)
+                            .Include(o => o.countryType)
+                            .Include(u => u.stateType) 
+
                             .OrderBy(b => b.title)
                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
@@ -70,6 +78,10 @@ namespace SO.SilList.Manager.Managers
                              .Include(s => s.site)
                              .Include(j => j.jobTypes)
                              .Include(t => t.jobCompany)
+                            .Include(i => i.cityType)
+                            .Include(o => o.countryType)
+                            .Include(u => u.stateType) 
+
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
 

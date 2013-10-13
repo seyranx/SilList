@@ -48,7 +48,30 @@ namespace SO.SilList.Manager.Models.ValueObjects
     		
     	[DisplayName("Rent")]
         public Nullable<double> rent { get; set; }
-    		
+
+        [DisplayName("Address")]
+        public string address { get; set; }
+
+        [DisplayName("City")]
+        public Nullable<int> cityTypeId { get; set; }
+
+        [DisplayName("State")]
+        public Nullable<int> stateTypeId { get; set; }
+
+        [DisplayName("Country")]
+        public Nullable<int> countryTypeId { get; set; }
+
+        [DisplayName("Zip")]
+        public Nullable<int> zip { get; set; }
+
+        [DisplayName("Phone")]
+        [StringLength(50)]
+        public string phone { get; set; }
+
+        [DisplayName("Fax")]
+        [StringLength(50)]
+        public string fax { get; set; }
+
     	[DisplayName("Lease Term")]
         //[ForeignKey("leaseTermTyprId")]
         public Nullable<int> leaseTermTypeId { get; set; }
@@ -108,6 +131,15 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         [ForeignKey("memberId")]
         public virtual MemberVo member { get; set; }
+
+        [ForeignKey("countryTypeId")]
+        public virtual CountryTypeVo countryType { get; set; }
+
+        [ForeignKey("stateTypeId")]
+        public virtual StateTypeVo stateType { get; set; }
+
+        [ForeignKey("cityTypeId")]
+        public virtual CityTypeVo cityType { get; set; }
 
         [Association("Rental_RentalImages", "rentalId", "rentalId", IsForeignKey = true)]
         public List<RentalImageVo> rentalImage { get; set; }
