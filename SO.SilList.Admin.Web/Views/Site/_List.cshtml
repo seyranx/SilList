@@ -1,12 +1,6 @@
 ﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.SiteVo>
 
 <p>
-    @if (ViewBag.backUrl != null && ViewBag.backName != null)
-    {
-        <a href="@ViewBag.backUrl" class="btn btn-inverse">Back to @ViewBag.backName</a>
-    }
-</p>
-<p>
     @Html.ActionLink("Create New", "Create", null, new { Class = "btn btn-info" })
 </p>
 <table class="table table-bordered table-hover">
@@ -31,12 +25,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.modified)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.createdBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.modifiedBy)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.isActive)
@@ -67,12 +55,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.modified)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.createdBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.modifiedBy)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.isActive)
