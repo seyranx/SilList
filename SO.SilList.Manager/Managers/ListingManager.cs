@@ -9,6 +9,7 @@ using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Interfaces;
 using SO.SilList.Manager.DbContexts;
 using SO.SilList.Manager.Models.ViewModels;
+using System.Web;
 
 namespace SO.SilList.Manager.Managers
 {
@@ -46,16 +47,24 @@ namespace SO.SilList.Manager.Managers
         {
             using (var db = new MainDb())
             {
+                //var category = (string)(HttpContext.Current.Session["category"]);
+                var category = "Rentals";
+
                 var query = db.listing
                              .Include(s => s.site)
                              .Include(t => t.listingType)
                              .Include(t => t.listingCategories) //
                              .Include(t => t.listingCategories.Select(c => c.listingCategoryType)) 
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
-                                      && (e.title.Contains(input.keyword) || e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                      && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                                       && ((input.location == 0) || (e.cityTypeId == input.location)
-                                            || (e.stateTypeId == input.location) || (e.zip == input.location)) 
-                                    );   // change '== 0' to 'null' and change '==' to '.Contains'                   
+                                            || (e.stateTypeId == input.location) || (e.zip == input.location))
+                                      && ((category == null) || (e.listingCategories.Any(c => c.listingCategoryType.name == category)))
+
+                                    );   // change '== 0' to 'null' and change '==' to '.Contains'
+                //|| e.description.Contains(input.keyword)
+                //HttpContext.Current.Session["category"] = null;    All.listingCategoryType.name
+  
                 input.paging.totalCount = query.Count();
                 input.result = query
                              .OrderBy(b => b.title)

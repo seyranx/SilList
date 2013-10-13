@@ -4,10 +4,12 @@
 <form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Listings")">  
 
 <label>Keyword:</label>
- <label class="pull-center">  @Html.CheckBox("a") Title Only</label>
+ <label class="pull-center">  
 @Html.ValidationSummary(true)
 @Html.TextBoxFor(model => model.keyword,new { Class = "input-large", placeholder =  "Keyword" })
 @Html.ValidationMessageFor(model => model.keyword)
+<br />
+@Html.CheckBox("a") Title Only</label>
 
 <label>Location:</label>
 @Html.ValidationSummary(true)
@@ -15,9 +17,44 @@
 @Html.ValidationMessageFor(model => model.location)
 
 <br /><br />
-
- @Html.HiddenFor(model=> model.paging.pageNumber)
-
 <button name="submitButton" value="Search" type="submit" class="btn btn-success pull-right">Search</button>
+<br /><br />
 
- </form>
+@Html.HiddenFor(model=> model.paging.pageNumber)
+
+ <br />
+  <ul class="nav nav-list" style="background-color:none; color:white; margin-top:10px; " >
+    <li class="nav-header" style="background-color:DimGray;">By Category:</li>
+
+    <li > <a href="@Url.Action("Index","Listings",new { id = "Rentals" })"> Rentals </a></li>
+      <!--
+    <li ><a href="Url.Action("Index","Listings", new { Class = "input-large", placeholder =  "Keyword" })">Rentals</a></li>
+    <li ><a href="Url.Action("Index","Listings", Session["category"] = "Jobs")">Jobs</a></li>
+    <li ><a href="Url.Action("Index","Listings", Session["category"] = "Cars")">Cars</a></li>
+    <li ><a href="Url.Action("Index","Listings", Session["category"] = "Businesses")">Businesses</a></li> 
+          -->
+      <!--
+    <li ><a href="Url.Action("Index","Listings",new { id="Business" })">Business</a></li>
+         Html.TextBoxFor(model => model.category,new { model.category =  "Location" }) 
+          -->
+   </ul>
+  <br />
+
+  <ul class="nav nav-list" style="background-color:none; color:white; margin-top:10px; " >
+    <li class="nav-header" style="background-color:DimGray;">By Type:</li>
+
+    <li ><a href="@Url.Action("Index","Listings",new { id="Buy" })">Buy</a></li>
+    <li ><a href="@Url.Action("Index","Listings",new { id="Sell" })">Sell</a></li>
+  </ul>
+
+</form>
+<!--
+<script>
+
+  $('#Rentals').click(function (@Model) {
+    $("#category").val('Rentals');
+ });
+    
+</script>
+
+-->

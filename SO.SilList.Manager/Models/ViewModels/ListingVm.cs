@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SO.SilList.Utility.Classes;
+using System.Web;
 
 namespace SO.SilList.Manager.Models.ViewModels
 {
@@ -15,6 +16,8 @@ namespace SO.SilList.Manager.Models.ViewModels
         public List<ListingVo> result { get; set; }
         public string keyword { get; set; }
         public int location { get; set; } //change int to 'string'
+        public string category { get; set; } //change int to 'string'
+        public string type { get; set; } //change int to 'string'
 
         // Images
         public List<ImageCheckBoxInfo> imagesToRemove { get; set; }
@@ -42,6 +45,9 @@ namespace SO.SilList.Manager.Models.ViewModels
             this.result = new List<ListingVo>();
             if (paging == null)
                 paging = new Paging();
+
+            this.category = "Rentals";
+            this.type = null;
         }
 
     }

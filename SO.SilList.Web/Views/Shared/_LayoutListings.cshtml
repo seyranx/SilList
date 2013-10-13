@@ -1,4 +1,6 @@
-﻿@model SO.SilList.Manager.Models.ViewModels.ListingVm
+﻿using System.Web.HtpCookie
+
+@model SO.SilList.Manager.Models.ViewModels.ListingVm
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -13,25 +15,7 @@
 
 @Html.Action("Filter",@Model)
 
- <br />
-  <ul class="nav nav-list" style="background-color:none; color:white; margin-top:10px; " >
-    <li class="nav-header" style="background-color:DimGray;">By Category:</li>
-
-    <li ><a href="/Clubs/Los-Angeles-CA/Adventures/">Rentals</a></li>
-    <li ><a href="/Clubs/Los-Angeles-CA/Art/">Jobs</a></li>
-    <li ><a href="/Clubs/Los-Angeles-CA/Business/">Cars</a></li>
-    <li ><a href="/Clubs/Los-Angeles-CA/Business/">Business</a></li>
-   </ul>
-  <br />
-
-  <ul class="nav nav-list" style="background-color:none; color:white; margin-top:10px; " >
-    <li class="nav-header" style="background-color:DimGray;">By Type:</li>
-
-    <li ><a href="/Clubs/Los-Angeles-CA/Adventures/">Buy</a></li>
-    <li ><a href="/Clubs/Los-Angeles-CA/Art/">Sell</a></li>
-  </ul>
-
-  </div>
+</div>
 
   <div id="mainContent" class="span6" style="padding-left:0px; padding-right:0px; background-color:white;">
         
