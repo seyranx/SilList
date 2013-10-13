@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row-fluid">
+
+<div id="leftColumn" class="span3 searchPageLeftColumn"  >
+        
+<div style="font-size:17px; font-weight:bold; text-align:center; padding-top:20px;">Search:</div>
+<hr />
+
+ <br />
+
+    </div>
+
+     <div id="mainContent" class="span6" style="padding-left:0px; padding-right:0px; background-color:white;">
+        
+         @RenderBody()
+
+    </div>
+
+      <div class="span2" style="background-color:black;">
+          right
+
+    </div>
+
+</div>

@@ -12,7 +12,14 @@
     @Model.paging.showingFrom - @Model.paging.showingTo of @Model.paging.totalCount
 </div>
 
+<script>
+$('#Rentals').click(function (@Model) {
+       $("#category").val('Rentals');
+});
+</script>
+
 @Html.Partial("_ListingItem", @Model.result)
 @Html.Action("Pagination",  @Model.paging)
     
 </ul>
+
