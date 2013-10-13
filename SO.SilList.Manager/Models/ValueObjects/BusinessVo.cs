@@ -31,12 +31,18 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [StringLength(250)]
         public string address { get; set; }
 
+        [DisplayName("City")]
+        public Nullable<int> cityTypeId { get; set; }
+
+        [DisplayName("State")]
+        public Nullable<int> stateTypeId { get; set; }
+
+        [DisplayName("Country")]
+        public Nullable<int> countryTypeId { get; set; }
+
         [DisplayName("Url")]
         [StringLength(50)]
         public string url { get; set; }
-
-
-
 
         [DisplayName("Zip")]
         public Nullable<int> zip { get; set; }
@@ -82,12 +88,15 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [ForeignKey("siteId")]
         public virtual SiteVo site { get; set; }
 
+        [DisplayName("Country")]
         [ForeignKey("countryTypeId")]
         public virtual CountryTypeVo countryType { get; set; }
 
+        [DisplayName("State")]
         [ForeignKey("stateTypeId")]
         public virtual StateTypeVo stateType { get; set; }
 
+        [DisplayName("City")]
         [ForeignKey("cityTypeId")]
         public virtual CityTypeVo cityType { get; set; }
 

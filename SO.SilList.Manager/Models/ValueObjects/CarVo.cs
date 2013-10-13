@@ -146,10 +146,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public virtual CarDoorTypeVo carDoorType { get; set; }
         
         [ForeignKey("exteriorColorTypeId")]
-        public virtual CarColorTypeVo carColorType { get; set; }
+        public virtual CarColorTypeVo exteriorColorType { get; set; }
         
         [ForeignKey("interiorColorTypeId")]
-        public virtual CarColorTypeVo intColorType { get; set; }
+        public virtual CarColorTypeVo interiorColorType { get; set; }
      
         [ForeignKey("countryTypeId")]
         public virtual CountryTypeVo countryType { get; set; }

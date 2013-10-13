@@ -13,13 +13,13 @@ using System.Data.Entity;
 namespace SO.SilList.Manager.Models.ValueObjects
 {
      
-    [Table("CountryType", Schema = "dbo" )]
+    [Table("CountryType", Schema = "app" )]
     [Serializable]
     public partial class CountryTypeVo
     {
     		
     	[DisplayName("country Type Id")]
-    	[Required]
+    	[Key]
         public int countryTypeId { get; set; }
     		
     	[DisplayName("name")]
