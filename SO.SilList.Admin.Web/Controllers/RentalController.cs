@@ -67,7 +67,7 @@ namespace SO.SilList.Admin.Web.Controllers
             RentalVm rentalVm = new RentalVm(result);
             rentalVm.imagesToRemove = imageManager.CreateOrAddToImageList(rentalImages, true);
 
-            return View(result);
+            return View(rentalVm);
         }
 
         [HttpPost]
