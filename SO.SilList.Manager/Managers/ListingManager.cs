@@ -28,11 +28,11 @@ namespace SO.SilList.Manager.Managers
                 var query = db.listing
                              .Include(s => s.site)
                              .Include(t => t.listingType)
-                            .Include(i => i.cityType)
-                            .Include(o => o.countryType)
+                             .Include(i => i.cityType)
+                             .Include(o => o.countryType)
                              .Include(t => t.listingCategories) //
                              .Include(t => t.listingCategories.Select(c=>c.listingCategoryType)) 
-                            .Include(u => u.stateType) 
+                             .Include(u => u.stateType) 
 
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.title.Contains(input.keyword) || e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
@@ -52,22 +52,22 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 //var category = (string)(HttpContext.Current.Session["category"]);
-                var category = "Rentals";
+                //input.category = "Rentals";
 
                 var query = db.listing
                              .Include(s => s.site)
                              .Include(t => t.listingType)
-                           .Include(i => i.cityType)
-                            .Include(o => o.countryType)
+                             .Include(i => i.cityType)
+                             .Include(o => o.countryType)
                              .Include(t => t.listingCategories) //
                              .Include(t => t.listingCategories.Select(c => c.listingCategoryType)) 
-                            .Include(u => u.stateType) 
+                             .Include(u => u.stateType) 
 
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                                       && ((input.location == 0) || (e.cityTypeId == input.location)
                                             || (e.stateTypeId == input.location) || (e.zip == input.location))
-                                      && ((category == null) || (e.listingCategories.Any(c => c.listingCategoryType.name == category)))
+                                      && ((input.category == null) || (e.listingCategories.Any(c => c.listingCategoryType.name == input.category)))
 
                                     );   // change '== 0' to 'null' and change '==' to '.Contains'
                 //|| e.description.Contains(input.keyword)
@@ -92,7 +92,7 @@ namespace SO.SilList.Manager.Managers
                 var res = db.listing
                             .Include(s => s.site)
                             .Include(t => t.listingType)
-                              .Include(i => i.cityType)
+                            .Include(i => i.cityType)
                             .Include(o => o.countryType)
                             .Include(t => t.listingCategories) //
                             .Include(t => t.listingCategories.Select(c => c.listingCategoryType)) 

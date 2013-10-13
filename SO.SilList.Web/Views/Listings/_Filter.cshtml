@@ -21,13 +21,19 @@
 <br /><br />
 
 @Html.HiddenFor(model=> model.paging.pageNumber)
+    <!--
+<input  id="listing_category" name="listing_category" type="hidden" value="Model.category" />
+        -->
+@Html.HiddenFor(model=> model.category)
 
  <br />
   <ul class="nav nav-list" style="background-color:none; color:white; margin-top:10px; " >
     <li class="nav-header" style="background-color:DimGray;">By Category:</li>
 
-    <li > <a href="@Url.Action("Index","Listings",new { id = "Rentals" })"> Rentals </a></li>
-      <!--
+
+       <li ><a href="#"  onclick="$('#category').val('Rentals'); $('#filterForm').submit();return false">Rentals</a></li>
+
+      <!--  <a href="Url.Action("Index","Listings",new { id = "Rentals" })"> Rentals </a>
     <li ><a href="Url.Action("Index","Listings", new { Class = "input-large", placeholder =  "Keyword" })">Rentals</a></li>
     <li ><a href="Url.Action("Index","Listings", Session["category"] = "Jobs")">Jobs</a></li>
     <li ><a href="Url.Action("Index","Listings", Session["category"] = "Cars")">Cars</a></li>

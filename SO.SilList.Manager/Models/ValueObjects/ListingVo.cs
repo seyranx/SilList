@@ -79,27 +79,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
     		
     	[DisplayName("Modified By")]
         public int? modifiedBy { get; set; }
-
-        [DisplayName("Address")]
-        public string address { get; set; }
-
-        [DisplayName("City")]
-        public int? cityTypeId { get; set; }
-
-        [DisplayName("State")]
-        public int? stateTypeId { get; set; }
-
-        [DisplayName("Country")]
-        public int? countryTypeId { get; set; }
-
-        [DisplayName("Zip Code")]
-        public int? zip { get; set; }
-
-        [DisplayName("Phone")]
-        public string phone { get; set; }
-
-        [DisplayName("Fax")]
-        public string fax { get; set; }
    
     	[DisplayName("Created")]
     	[Required]
