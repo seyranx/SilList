@@ -23,6 +23,10 @@ namespace SO.SilList.Manager.Managers
             {
                 var res = db.members
                             .Include(s => s.site)
+                             .Include(i => i.cityType)
+                            .Include(o => o.countryType)
+                            .Include(u => u.stateType) 
+
                             .FirstOrDefault(p => p.memberId == memberId);
 
                 return res;
@@ -37,8 +41,12 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.members
-                            //.Include(s => s.site)
-                            .FirstOrDefault();
+                           .Include(s => s.site)
+                             .Include(i => i.cityType)
+                            .Include(o => o.countryType)
+                            .Include(u => u.stateType) 
+
+                           .FirstOrDefault();
 
                 return res;
             }
@@ -104,6 +112,10 @@ namespace SO.SilList.Manager.Managers
                 {
                     var list = db.members
                                  .Include(s => s.site)
+                                 .Include(i => i.cityType)
+                                .Include(o => o.countryType)
+                                .Include(u => u.stateType) 
+
                                  .Where(e => isActive == null || e.isActive == isActive)
                                  .ToList();
                     return list;
@@ -121,13 +133,18 @@ namespace SO.SilList.Manager.Managers
             {
                 var query = db.members
                              .Include(s => s.site)
+                             .Include(i => i.cityType)
+                             .Include(o => o.countryType)
+                             .Include(u => u.stateType) 
+
                              .Where(e => (input.filterIsActive == null || e.isActive == input.filterIsActive)
                                       && (string.IsNullOrEmpty(input.keyword) 
                                       || e.firstName.Contains(input.keyword) 
                                       || e.lastName.Contains(input.keyword)
                                       || e.address.Contains(input.keyword)
-                                      || e.city.Contains(input.keyword)
-                                      || e.state.Contains(input.keyword)
+                                      || e.cityType.name.Contains(input.keyword)
+                                      || e.stateType.name.Contains(input.keyword)
+                                      || e.countryType.name.Contains(input.keyword)
                                       || e.email.Contains(input.keyword)
                                       || e.username.Contains(input.keyword))
                                     )

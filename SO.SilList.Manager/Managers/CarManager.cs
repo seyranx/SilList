@@ -27,9 +27,17 @@ namespace SO.SilList.Manager.Managers
                 var result = db.car
                             .Include(s => s.site)
                             .Include(m => m.modelType)
-                            .Include(m => m.modelType.makeType)
+                            .Include(l => l.modelType.makeType)
                             .Include(b => b.carBodyType)
                             .Include(t => t.transmissionType)
+                            .Include(e => e.carEngineType)
+                            .Include(d => d.carDoorType)
+                            .Include(r => r.carDriveType)
+                            .Include(f => f.carFuelType)
+                            .Include(c => c.carColorType)
+                            .Include(i => i.cityType)
+                            .Include(o => o.countryType)
+                            .Include(u => u.stateType) 
                             .FirstOrDefault(r => r.carId == carId);
 
                 return result;
@@ -44,10 +52,19 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.car
-                          .Include(s => s.site)
+                            .Include(s => s.site)
                             .Include(m => m.modelType)
+                            .Include(l => l.modelType.makeType)
                             .Include(b => b.carBodyType)
                             .Include(t => t.transmissionType)
+                            .Include(e => e.carEngineType)
+                            .Include(d => d.carDoorType)
+                            .Include(r => r.carDriveType)
+                            .Include(f => f.carFuelType)
+                            .Include(c => c.carColorType)
+                            .Include(i => i.cityType)
+                            .Include(o => o.countryType)
+                            .Include(u => u.stateType) 
                             .FirstOrDefault();
 
                 return res;
@@ -62,9 +79,17 @@ namespace SO.SilList.Manager.Managers
                 var query = db.car
                             .Include(s => s.site)
                             .Include(m => m.modelType)
-                            .Include(m => m.modelType.makeType)
+                            .Include(l => l.modelType.makeType)
                             .Include(b => b.carBodyType)
                             .Include(t => t.transmissionType)
+                            .Include(e => e.carEngineType)
+                            .Include(d => d.carDoorType)
+                            .Include(r => r.carDriveType)
+                            .Include(f => f.carFuelType)
+                            .Include(c => c.carColorType)
+                            .Include(i => i.cityType)
+                            .Include(o => o.countryType)
+                            .Include(u => u.stateType) 
                             .OrderBy(b => b.modelType.name)
                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.modelType.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
@@ -85,11 +110,19 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var list = db.car
-                          .Include(s => s.site)
+                            .Include(s => s.site)
                             .Include(m => m.modelType)
-                            .Include(m=>m.modelType.makeType)
+                            .Include(l => l.modelType.makeType)
                             .Include(b => b.carBodyType)
                             .Include(t => t.transmissionType)
+                            .Include(e => e.carEngineType)
+                            .Include(d => d.carDoorType)
+                            .Include(r => r.carDriveType)
+                            .Include(f => f.carFuelType)
+                            .Include(c => c.carColorType)
+                            .Include(i => i.cityType)
+                            .Include(o => o.countryType)
+                            .Include(u => u.stateType) 
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
                 

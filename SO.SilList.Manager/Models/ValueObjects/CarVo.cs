@@ -40,6 +40,57 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Transmission")]
         public Nullable<int> transmissionTypeId { get; set; }
 
+        [DisplayName("Price")]
+        public Nullable<int> price { get; set; }
+
+        [DisplayName("Vin Number")]
+        [StringLength(50)]
+        public string vin { get; set; }
+
+        [DisplayName("Description")]
+        public string description { get; set; }
+
+        [DisplayName("Address")]
+        public string address { get; set; }
+
+        [DisplayName("City")]
+        public Nullable<int> cityTypeId { get; set; }
+
+        [DisplayName("State")]
+        public Nullable<int> stateTypeId { get; set; }
+
+        [DisplayName("Country")]
+        public Nullable<int> countryTypeId { get; set; }
+
+        [DisplayName("Zip")]
+        public Nullable<int> zip { get; set; }
+
+        [DisplayName("Phone")]
+        [StringLength(50)]
+        public string phone { get; set; }
+
+        [DisplayName("Fax")]
+        [StringLength(50)]
+        public string fax { get; set; }
+
+        [DisplayName("Engine")]
+        public Nullable<int> carEngineTypeId { get; set; }
+
+        [DisplayName("Drive")]
+        public Nullable<int> carDriveTypeId { get; set; }
+
+        [DisplayName("Fuel")]
+        public Nullable<int> carFuelTypeId { get; set; }
+
+        [DisplayName("Door")]
+        public Nullable<int> carDoorTypeId { get; set; }
+
+        [DisplayName("Exterior Color")]
+        public Nullable<int> exteriorColorTypeId { get; set; }
+
+        [DisplayName("Interior Color")]
+        public Nullable<int> interiorColorTypeId { get; set; }
+    	
         [DisplayName("Start date")]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         [Required]
@@ -70,9 +121,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Active")]
         public bool isActive { get; set; }
 
-        [Association("Car_CarImages", "carId", "carId", IsForeignKey = true)]
-        public List<CarImagesVo> carImages { get; set; }
-
         [ForeignKey("modelTypeId")]
         public virtual ModelTypeVo modelType { get; set; }
 
@@ -84,7 +132,36 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         [ForeignKey("carBodyTypeId")]
         public virtual CarBodyTypeVo carBodyType { get; set; }
+        
+        [ForeignKey("carEngineTypeId")]
+        public virtual CarEngineTypeVo carEngineType { get; set; }
+        
+        [ForeignKey("carDriveTypeId")]
+        public virtual CarDriveTypeVo carDriveType { get; set; }
+        
+        [ForeignKey("carFuelTypeId")]
+        public virtual CarFuelTypeVo carFuelType { get; set; }
+        
+        [ForeignKey("carDoorTypeId")]
+        public virtual CarDoorTypeVo carDoorType { get; set; }
+        
+        [ForeignKey("exteriorColorTypeId")]
+        public virtual CarColorTypeVo carColorType { get; set; }
+        
+        [ForeignKey("interiorColorTypeId")]
+        public virtual CarColorTypeVo intColorType { get; set; }
+     
+        [ForeignKey("countryTypeId")]
+        public virtual CountryTypeVo countryType { get; set; }
+                
+        [ForeignKey("stateTypeId")]
+        public virtual StateTypeVo stateType { get; set; }
+                
+        [ForeignKey("cityTypeId")]
+        public virtual CityTypeVo cityType { get; set; }
 
+        [Association("Car_CarImages", "carId", "carId", IsForeignKey = true)]
+        public List<CarImagesVo> carImages { get; set; }
 
         [NotMapped]
         [DisplayName("Make")]

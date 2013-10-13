@@ -29,6 +29,10 @@ namespace SO.SilList.Manager.Managers
             {
                 var res = db.businesses
                              .Include(s => s.site)
+                             .Include(i => i.cityType)
+                            .Include(o => o.countryType)
+                            .Include(u => u.stateType) 
+
                             .FirstOrDefault(e => e.name == name);
                 return res;
             }
@@ -43,8 +47,10 @@ namespace SO.SilList.Manager.Managers
             {
                 var res = db.businesses
                             .Include(s => s.site)
-                            .Include(b=>b.businessCategories)
-                            .Include(e=>e.businessCategories.Select(m=>m.businessCategoryType))
+                            .Include(i => i.cityType)
+                            .Include(o => o.countryType)
+                            .Include(u => u.stateType) 
+
                             .FirstOrDefault(p => p.businessId == businessId);
                  
                 return res;
@@ -59,7 +65,11 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.businesses
-                            //.Include(s=>s.site)
+                            .Include(s=>s.site)
+                            .Include(i => i.cityType)
+                            .Include(o => o.countryType)
+                            .Include(u => u.stateType) 
+
                             .FirstOrDefault();
                
                 return res;
@@ -75,6 +85,10 @@ namespace SO.SilList.Manager.Managers
 
                 var query = db.businesses
                              .Include(s => s.site)
+                            .Include(i => i.cityType)
+                            .Include(o => o.countryType)
+                            .Include(u => u.stateType) 
+
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                                     )
@@ -95,6 +109,10 @@ namespace SO.SilList.Manager.Managers
             {
                 var list = db.businesses
                              .Include(s => s.site)
+                            .Include(i => i.cityType)
+                            .Include(o => o.countryType)
+                            .Include(u => u.stateType) 
+
                              .Where(e => isActive==null || e.isActive == isActive )
 
                              .ToList();

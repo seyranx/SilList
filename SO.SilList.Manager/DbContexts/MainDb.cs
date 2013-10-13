@@ -65,6 +65,14 @@ namespace SO.SilList.Manager.DbContexts
         public DbSet<BusinessImagesVo> businessImages { get; set; }
         public DbSet<CarVo> car { get; set; }
         public DbSet<CarBodyTypeVo> carBodyType { get; set; }
+        public DbSet<CarColorTypeVo> carColorType { get; set; }
+        public DbSet<CarDoorTypeVo> carDoorType { get; set; }
+        public DbSet<CarDriveTypeVo> carDriveType { get; set; }
+        public DbSet<CarEngineTypeVo> carEngineType { get; set; }
+        public DbSet<CarFuelTypeVo> carFuelType { get; set; }
+        public DbSet<CountryTypeVo> countryType { get; set; }
+        public DbSet<StateTypeVo> stateType { get; set; }
+        public DbSet<CityTypeVo> cityType { get; set; }
         public DbSet<ModelTypeVo> modelType { get; set; }
         public DbSet<MakeTypeVo> makeType { get; set; }
         public DbSet<CarImagesVo> carImages { get; set; }

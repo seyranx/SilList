@@ -33,7 +33,7 @@ namespace SO.SilList.Tests.Managers
             for (int i = 1; i <= 10; i++)
             {
                 var vo = new JobVo();
-                vo.city = i.ToString()+"Test";
+                vo.address = i.ToString()+"Test";
                 vo.siteId = 1;
                 var result = jobManager.insert(vo);
                 if (result == null)
@@ -49,7 +49,7 @@ namespace SO.SilList.Tests.Managers
         public void insertDeleteTest()
         {
             var vo = new JobVo();
-           vo.city = "testcity";
+           vo.address = "testcity";
            vo.description = "124 address";
 
             var result = jobManager.insert(vo);
