@@ -7,7 +7,8 @@
 
 <h2>Edit</h2>
 
-@using (Html.BeginForm("Edit", "Rental", FormMethod.Post, new { @encType = "multipart/form-data"; id = "myForm" })) {
+@using (Html.BeginForm("Edit", "Rental", FormMethod.Post, new { @encType = "multipart/form-data", id = "myForm" }))
+{
     
     @Html.ValidationSummary(true)
 
@@ -113,56 +114,56 @@
             @Html.ValidationMessageFor(model => model.rental.memberId)
         </div>
 
-         <div class="editor-label">
+        <div class="editor-label">
             @Html.LabelFor(model => model.rental.startDate)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.rental.startDate)
             @Html.ValidationMessageFor(model => model.rental.startDate)
         </div>
-            <div class="editor-label">
+        <div class="editor-label">
             @Html.LabelFor(model => model.rental.endDate)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.rental.endDate)
             @Html.ValidationMessageFor(model => model.rental.endDate)
-        <div class="editor-label">
-            @Html.LabelFor(model => model.rental.isActive)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.rental.isActive)
-            @Html.ValidationMessageFor(model => model.rental.isActive)
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.rental.isActive)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.rental.isActive)
+                @Html.ValidationMessageFor(model => model.rental.isActive)
+            </div>
 
 
-        @* Rental image stuff below *@
-        @{
-        if (Model.rentalimagesToRemove != null)
-        {
-            for (int index = 0; index < Model.rentalimagesToRemove.Count; ++index)
-            {
-                <hr />
-                @Html.HiddenFor(x => x.imagesToRemove[index].imageIdStr);
-                <br />
-                <img src="@Model.rentalimagesToRemove[index].imageUrlStr" width="100px"  id="img_@index" />
+            @* Rental image stuff below *@
+            @{
+                if (Model.imagesToRemove != null)
+                {
+                    for (int index = 0; index < Model.imagesToRemove.Count; ++index)
+                    {
+                            <hr />
+                            @Html.HiddenFor(x => x.imagesToRemove[index].imageIdStr);
+                            <br />
+                            <img src="@Model.imagesToRemove[index].imageUrlStr" width="100px"  id="img_@index" />
         
-                @: Uncheck to remove: 
-                @Html.CheckBoxFor(m => m.imagesToRemove[index].imageIsChecked, new { id = "removeImg_" + index.ToString() })
+                            @: Uncheck to remove: 
+                            @Html.CheckBoxFor(m => m.imagesToRemove[index].imageIsChecked, new { id = "removeImg_" + index.ToString() })
+                    }
+                            <br />
+                }
             }
-                <br />
-        }
-        }
-        <hr />
-        @Html.Partial("../Image/_ImagePickerControls")
-        <br />
-        @* end of Rental images stuff *@
+            <hr />
+            @Html.Partial("../Image/_ImagePickerControls")
+            <br />
+            @* end of Rental images stuff *@
 
-        <p>
-            <input type="submit" value="Save" />
-        </p>
+            <p>
+                <input type="submit" value="Save" />
+            </p>
     </fieldset>
 }
 
 <div>
-      <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
+    <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
 </div>
