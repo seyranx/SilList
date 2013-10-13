@@ -140,3 +140,12 @@
       <a href="@Url.Action("Index", new { id=Model.rentalId })" class="btn">Edit</a>
       <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
 </p>
+
+@* Rental images stuff *@
+@{
+    foreach (SO.SilList.Manager.Models.ValueObjects.ImageVo img in ViewBag.Images)
+    { 
+        <hr />
+        <img src="@img.url" width="200px" /> 
+    }
+}

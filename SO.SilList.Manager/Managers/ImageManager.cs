@@ -32,7 +32,7 @@ namespace SO.SilList.Manager.Managers
         public string uploadImageAbsFilePath { get; set; }
     }
 
-    public enum ImageCategory { carImage, businessImage, listingImage, jobImage };
+    public enum ImageCategory { carImage, businessImage, listingImage, rentalImage };
 
     public class ImageManager : IImageManager
     {
@@ -180,6 +180,22 @@ namespace SO.SilList.Manager.Managers
                 return list;
             }
         }
+
+        // used to show given entity's images on Details and Edit pages
+        public List<ImageVo> getRentalImages(Guid rentalId)
+        {
+            using (var db = new MainDb())
+            {
+                var list = (from i in db.images
+                            join c in db.rentalImages on i.imageId equals c.imageId
+                            where c.rentalId == rentalId
+                            select i
+                            ).ToList();
+
+                return list;
+            }
+        }
+
 
 
         public List<ImageVo> getBusinessImages(bool? isActive = true)
@@ -332,7 +348,8 @@ namespace SO.SilList.Manager.Managers
                         case ImageCategory.listingImage:
                             InsertImageAndListingImageIntoDb(imgInfo);
                             break;
-                        case ImageCategory.jobImage:
+                        case ImageCategory.rentalImage:
+                            InsertImageAndRentalImageIntoDb(imgInfo);
                             break;
                         default:
                             Debug.Assert(false, "Unknown catogory for image");
@@ -407,8 +424,29 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        /////////////////////////////////////////////////////////////////
+        //
+        // for Edit pages (upload and insert image right away)
+        public void InsertImageAndRentalImageIntoDb(ImageInsertIntoDbInfo imgInfo)
+        {
+            ImageVo imgVo = new ImageVo();
+            imgVo.name = imgInfo.fileName; // use file name as image name field in database
+            imgVo.path = imgInfo.uploadImageAbsFilePath;
+            imgVo.url = imgInfo.imgUrl;
+            using (var db = new MainDb())
+            {
+                //todo: need to use the other way LINQ ??
+                db.images.Add(imgVo);
 
+                RentalImageVo rentalImageVo = new RentalImageVo();
+                rentalImageVo.rentalId = imgInfo.id;
+                rentalImageVo.imageId = imgVo.imageId;
+                db.rentalImages.Add(rentalImageVo);
+
+                db.SaveChanges();
+            }
+        }
+        
+        /////////////////////////////////////////////////////////////////
         public int count()
         {
             using (var db = new MainDb())

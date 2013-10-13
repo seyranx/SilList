@@ -9,7 +9,8 @@
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("Create", "Rental", FormMethod.Post, new { @encType = "multipart/form-data", id = "myForm" }))
+{
     @Html.ValidationSummary(true)
 
     <fieldset>
@@ -34,14 +35,14 @@
             @Html.LabelFor(model => model.propertyTypeId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList", "PropertyType",new {id=Model.propertyTypeId})
+            @Html.Action("DropDownList", "PropertyType", new { id = Model.propertyTypeId })
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.siteId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList","Site",new {id=Model.siteId})
+            @Html.Action("DropDownList", "Site", new { id = Model.siteId })
             <a href="@Url.Action("Index", "Site", new { backUrl = @Url.RouteUrl(ViewContext.RouteData.Values), backName = @ViewContext.RouteData.Values["controller"].ToString() })" class="btn">Sites</a>
         </div>
 
@@ -73,7 +74,7 @@
             @Html.LabelFor(model => model.leaseTermTypeId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList", "LeaseTermType",new {id=Model.leaseTermTypeId})
+            @Html.Action("DropDownList", "LeaseTermType", new { id = Model.leaseTermTypeId })
         </div>
 
         <div class="editor-label">
@@ -104,7 +105,7 @@
             @Html.LabelFor(model => model.rentTypeId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList", "RentType",new {id=Model.rentTypeId})
+            @Html.Action("DropDownList", "RentType", new { id = Model.rentTypeId })
         </div>
 
         <div class="editor-label">
@@ -142,6 +143,12 @@
         <p>
             <input type="submit" value="Create" />
         </p>
+        
+        @* Rental Images *@
+        <hr />
+        @Html.Partial("../Image/_ImagePickerControls")
+
+
     </fieldset>
 }
 

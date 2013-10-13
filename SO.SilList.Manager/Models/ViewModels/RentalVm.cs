@@ -19,10 +19,22 @@ namespace SO.SilList.Manager.Models.ViewModels
         public string submitButton { get; set; }
         public Paging paging;
 
+        public RentalVo rental { get; set; }
+        public List<ImageCheckBoxInfo> imagesToRemove { get; set; }
+
         public RentalVm()
         {
             this.result = new List<RentalVo>();
 
+            if (paging == null)
+                paging = new Paging();
+        }
+
+        public RentalVm(RentalVo rentalVo)
+        {
+            rental = rentalVo;
+
+            this.result = new List<RentalVo>();
             if (paging == null)
                 paging = new Paging();
         }

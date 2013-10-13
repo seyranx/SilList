@@ -100,7 +100,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public virtual SiteVo site { get; set; }
 
         [Association("Member_Rental", "memberId", "memberId", IsForeignKey = true)]
-        public List<RentalImageVo> rentalImage { get; set; }
+        public List<RentalVo> rentalImage { get; set; }
 
     	public MemberVo(){
             this.lastLogin = DateTime.MinValue;

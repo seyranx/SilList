@@ -39,12 +39,20 @@ namespace SO.SilList.Admin.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Guid id, RentalVo input)
+        public ActionResult Edit(Guid id, RentalVm input)
         {
             if (this.ModelState.IsValid)
             {
-                var result = rentalManager.update(input, id);
-                    return RedirectToAction("Index");
+                var result = rentalManager.update(input.rental, id);
+
+                // Rental Images stuff
+                ImageManager imageManager = new ImageManager();
+                // removing unchecked images
+                imageManager.RemoveImages(id, input.imagesToRemove, ImageCategory.rentalImage);
+                // uploading new images from edit page
+                imageManager.InsertUploadImages(id, Request.Files, Server, ImageCategory.rentalImage);
+
+                return RedirectToAction("Index");
             }
             return View();
         }
@@ -52,7 +60,14 @@ namespace SO.SilList.Admin.Web.Controllers
         public ActionResult Edit(Guid id)
         {
             var result = rentalManager.get(id);
-                return View(result);
+
+            // Images
+            ImageManager imageManager = new ImageManager();
+            var rentalImages = imageManager.getRentalImages(id);
+            RentalVm rentalVm = new RentalVm(result);
+            rentalVm.imagesToRemove = imageManager.CreateOrAddToImageList(rentalImages, true);
+
+            return View(rentalVm);
         }
 
         [HttpPost]
@@ -61,6 +76,11 @@ namespace SO.SilList.Admin.Web.Controllers
             if(this.ModelState.IsValid)
             {
                 var rentalItem = rentalManager.insert(input);
+
+                // Images
+                ImageManager imageManager = new ImageManager();
+                imageManager.InsertUploadImages(rentalItem.rentalId, Request.Files, Server, SO.SilList.Manager.Managers.ImageCategory.rentalImage);
+
                 return RedirectToAction("Index");
             }
             return View();
@@ -75,6 +95,11 @@ namespace SO.SilList.Admin.Web.Controllers
         public ActionResult Details(Guid id)
         {
             var result = rentalManager.get(id);
+
+            // Images
+            ImageManager imageManager = new ImageManager();
+            ViewBag.Images = imageManager.getRentalImages(id);
+
             return View(result);
         }
 
