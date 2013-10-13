@@ -9,13 +9,6 @@
 
 <form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Site")">
 
-<p>
-    @if (ViewBag.backUrl != null && ViewBag.backName != null)
-    {
-        <a href="@ViewBag.backUrl" class="btn btn-inverse">Back to @ViewBag.backName</a>
-    }
-</p>    
-
     @Html.Action("Filter",@Model)
     <div class="pull-right">
         @((Model.paging.pageNumber-1) * Model.paging.rowCount + Model.result.Count) of @Model.paging.totalCount

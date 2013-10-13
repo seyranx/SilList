@@ -2,17 +2,10 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
 }
 
 <h2>Details</h2>
-<p>
-    @if (ViewBag.backUrl != null && ViewBag.backName != null)
-    {
-        <a href="@ViewBag.backUrl" class="btn btn-inverse">Back to @ViewBag.backName</a>
-    }
-</p>
-
 
 <fieldset>
     <legend>SiteVo</legend>
