@@ -14,7 +14,7 @@ namespace SO.SilList.Manager.Interfaces
 
         CarDoorTypeVo get(int carDoorTypeId);
          List<CarDoorTypeVo> getAll(bool? isActive = true);
-         CityTypeVm search(CityTypeVm input);
+         CarDoorTypeVm search(CarDoorTypeVm input);
          bool delete(int carDoorTypeId);
          CarDoorTypeVo update(CarDoorTypeVo input, int? carDoorTypeId = null);
          CarDoorTypeVo insert(CarDoorTypeVo input);

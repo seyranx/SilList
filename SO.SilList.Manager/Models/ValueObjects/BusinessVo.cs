@@ -35,10 +35,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [StringLength(50)]
         public string url { get; set; }
 
-
-        [DisplayName("Address")]
-        public string address { get; set; }
-
         [DisplayName("City")]
         public Nullable<int> cityTypeId { get; set; }
 

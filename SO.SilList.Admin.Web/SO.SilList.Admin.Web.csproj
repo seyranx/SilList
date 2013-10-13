@@ -449,6 +449,10 @@
     <Content Include="Views\EnvironmentType\_Filter.cshtml" />
     <Content Include="Views\EnvironmentType\_List.cshtml" />
     <Content Include="Views\Admin\_Filter.cshtml" />
+    <Content Include="Views\CarColorType\Index.cshtml" />
+    <Content Include="Views\CarColorType\_Filter.cshtml" />
+    <Content Include="Views\CarColorType\_DropDownList.cshtml" />
+    <Content Include="Views\CarColorType\_List.cshtml" />
     <None Include="Views\Image\CarImages.cshtml" />
     <Content Include="Views\Image\ListingImages.cshtml" />
     <Content Include="Views\Image\RentalImages.cshtml" />
