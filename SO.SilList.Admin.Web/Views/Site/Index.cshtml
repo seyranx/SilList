@@ -2,13 +2,21 @@
 @{
     ViewBag.Title = "Sites";
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
-    }
+}
 
 <h2>@ViewBag.Title</h2>
 
+
 <form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Site")">
-    
-    @Html.Action("_Filter",@Model)
+
+<p>
+    @if (ViewBag.backUrl != null && ViewBag.backName != null)
+    {
+        <a href="@ViewBag.backUrl" class="btn btn-inverse">Back to @ViewBag.backName</a>
+    }
+</p>    
+
+    @Html.Action("Filter",@Model)
     <div class="pull-right">
         @((Model.paging.pageNumber-1) * Model.paging.rowCount + Model.result.Count) of @Model.paging.totalCount
     </div>

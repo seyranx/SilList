@@ -20,7 +20,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
         //
         // GET: /Site/
-        public ActionResult Index(string backUrl = null, string backName = null)
+        public ActionResult Index(SiteVm input = null, Paging paging = null, string backUrl = null, string backName = null)
         {
             // "Go Back to" button stuff
             if (backUrl != null && backName != null && backName != "Site")
@@ -30,6 +30,18 @@ namespace SO.SilList.Admin.Web.Controllers
                 urlReferrer = new Uri(urlReferrer, backUrl);
                 referrerName = backName;
 
+                ViewBag.backUrl = urlReferrer;
+                ViewBag.backName = referrerName;
+            }
+            if (input == null)
+                input = new SiteVm();
+            input.paging = paging;
+            if (this.ModelState.IsValid)
+            {
+                if (input.submitButton != null)
+                    input.paging.pageNumber = 1;
+                input = siteManager.search(input);
+                return View(input);
             }
             return View();
         }
@@ -41,10 +53,11 @@ namespace SO.SilList.Admin.Web.Controllers
             if (urlReferrer != null)
             {
                 ViewBag.backUrl = urlReferrer;
-                ViewBag.backName = referrerName;            
+                ViewBag.backName = referrerName;
             }
             var results = siteManager.getAll(null);
             return PartialView(results);
+            //return PartialView("_List", results);
         }
 
         [DontTrackVisit]
