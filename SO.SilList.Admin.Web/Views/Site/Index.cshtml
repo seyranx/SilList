@@ -8,7 +8,7 @@
 
 <form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Site")">
     
-    @Html.Action("Filter",@Model)
+    @Html.Action("_Filter",@Model)
     <div class="pull-right">
         @((Model.paging.pageNumber-1) * Model.paging.rowCount + Model.result.Count) of @Model.paging.totalCount
     </div>
