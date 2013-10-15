@@ -46,7 +46,7 @@ namespace SO.SilList.Manager.Models.ViewModels
             if (paging == null)
                 paging = new Paging();
 
-            this.category = "Rentals";
+            this.category = null;
             this.type = null;
         }
 

@@ -67,8 +67,9 @@ namespace SO.SilList.Manager.Managers
                                       && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                                       && ((input.location == 0) || (e.cityTypeId == input.location)
                                             || (e.stateTypeId == input.location) || (e.zip == input.location))
-                                      && ((input.category == null) || (e.listingCategories.Any(c => c.listingCategoryType.name == input.category)))
-
+                                     // && ((input.category == null) || (e.listingCategories.Any(c => c.listingCategoryType.name == input.category)))
+                                      && ((input.category == null) || (e.listingCategories.Any(c => c.listingCategoryType.name.Contains(input.category))))
+                                      && ((input.type == null) || (e.listingType.name.Contains(input.type)))
                                     );   // change '== 0' to 'null' and change '==' to '.Contains'
                 //|| e.description.Contains(input.keyword)
                 //HttpContext.Current.Session["category"] = null;    All.listingCategoryType.name
