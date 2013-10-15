@@ -1,3 +1,3 @@
 ﻿@model SO.SilList.Manager.Models.ValueObjects.CarBodyTypeVo
 
-@Html.DropDownListFor(b=>b.carBodyTypeId, new SelectList(ViewBag.bodies,"carBodyTypeId","name",Model),"Select One")
+@Html.DropDownList((string)ViewBag.propertyName, new SelectList(ViewBag.bodies,"carBodyTypeId","name",Model.carBodyTypeId),"Select one")

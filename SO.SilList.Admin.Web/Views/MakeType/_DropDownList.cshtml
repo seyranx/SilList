@@ -14,7 +14,7 @@
 
             //xmlhttp.send();
 
-            $.post("/ModelType/DropDownList?_makeTypeId=" + obj.options[obj.selectedIndex].value,
+            $.post("/ModelType/DropDownList?_makeTypeId=" + obj.options[obj.selectedIndex].value + "&propertyName=car.modelTypeId",
                 function (data) {
 
                     $('#modelList').html(data);
@@ -25,4 +25,4 @@
     }
 </script>
 
-@Html.DropDownListFor(m=>m.makeTypeId, new SelectList(ViewBag.makes,"makeTypeId","name",Model),"Select One", new { onChange = "updateModelList(this)" })
+@Html.DropDownList((string)ViewBag.propertyName, new SelectList(ViewBag.makes,"makeTypeId","name",Model.makeTypeId),"Select One", new { onChange = "updateModelList(this)" })

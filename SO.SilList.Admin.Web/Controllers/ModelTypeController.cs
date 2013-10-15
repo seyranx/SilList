@@ -94,7 +94,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult DropDownList(int? id = null,int? _makeTypeId = 0)
+        public ActionResult DropDownList(int? id = null,int? _makeTypeId = 0, string propertyName=null)
         {
             ViewBag.models = modelTypeManager.getAll(null,_makeTypeId);
             var model = new ModelTypeVo();
@@ -102,6 +102,9 @@ namespace SO.SilList.Admin.Web.Controllers
             {
                 model = modelTypeManager.get(id.Value);
             }
+            if (propertyName == null)
+                propertyName = "modelTypeId";
+            ViewBag.propertyName = propertyName;
             return PartialView("_DropDownList", model);
         }
 

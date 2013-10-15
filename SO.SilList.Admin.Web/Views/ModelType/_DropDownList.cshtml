@@ -1,4 +1,4 @@
 ﻿@model SO.SilList.Manager.Models.ValueObjects.ModelTypeVo
 
-@Html.DropDownListFor(m => m.modelTypeId, new SelectList(ViewBag.models, "modelTypeId", "name", Model), "Select One")
+@Html.DropDownList((string)ViewBag.propertyName, new SelectList(ViewBag.models, "modelTypeId", "name", Model.modelTypeId), "Select One")
 

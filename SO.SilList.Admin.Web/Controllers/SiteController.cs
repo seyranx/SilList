@@ -61,7 +61,7 @@ namespace SO.SilList.Admin.Web.Controllers
         }
 
         [DontTrackVisit]
-        public ActionResult DropDownList(int? id = null)
+        public ActionResult DropDownList(int? id = null,string propertyName = null)
         {
             ViewBag.sites = siteManager.getAll(null);
             var site = new SiteVo();
@@ -69,6 +69,9 @@ namespace SO.SilList.Admin.Web.Controllers
             {
                 site = siteManager.get(id.Value);
             }
+            if (propertyName == null)
+                propertyName = "siteId";
+            ViewBag.propertyName = propertyName;
             return PartialView("_DropDownList", site);
         }
 
