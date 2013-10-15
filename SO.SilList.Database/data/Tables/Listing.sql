@@ -13,7 +13,7 @@
     [fax]           NVARCHAR (50)    NULL,
     [startDate]     DATE             NOT NULL,
     [endDate]       DATE             NOT NULL,
-    [isApproved]    BIT              DEFAULT ((0)) NOT NULL,
+    [isApproved]    BIT              CONSTRAINT [DF__Listing__isAppro__7F80E8EA] DEFAULT ((0)) NOT NULL,
     [createdBy ]    INT              NULL,
     [modifiedBy]    INT              NULL,
     [created]       DATETIME         CONSTRAINT [DF__Listing__created__589C25F3] DEFAULT (getdate()) NOT NULL,

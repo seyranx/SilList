@@ -9,6 +9,7 @@ using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Interfaces;
 using SO.SilList.Manager.DbContexts;
 using SO.SilList.Manager.Models.ViewModels;
+using System.Web;
 
 namespace SO.SilList.Manager.Managers
 {
@@ -27,12 +28,14 @@ namespace SO.SilList.Manager.Managers
                 var query = db.listing
                              .Include(s => s.site)
                              .Include(t => t.listingType)
-                            .Include(i => i.cityType)
-                            .Include(o => o.countryType)
-                            .Include(u => u.stateType) 
+                             .Include(i => i.cityType)
+                             .Include(o => o.countryType)
+                             .Include(t => t.listingCategories) //
+                             .Include(t => t.listingCategories.Select(c=>c.listingCategoryType)) 
+                             .Include(u => u.stateType) 
 
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
-                                      && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                      && (e.title.Contains(input.keyword) || e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                                     );
                 input.paging.totalCount = query.Count();
                 input.result = query
@@ -43,21 +46,34 @@ namespace SO.SilList.Manager.Managers
                 return input;
             }
         }
-
+        
         public ListingVm websearch(ListingVm input)
         {
             using (var db = new MainDb())
             {
+                //var category = (string)(HttpContext.Current.Session["category"]);
+                //input.category = "Rentals";
+
                 var query = db.listing
                              .Include(s => s.site)
                              .Include(t => t.listingType)
-                           .Include(i => i.cityType)
-                            .Include(o => o.countryType)
-                            .Include(u => u.stateType) 
+                             .Include(i => i.cityType)
+                             .Include(o => o.countryType)
+                             .Include(t => t.listingCategories) //
+                             .Include(t => t.listingCategories.Select(c => c.listingCategoryType)) 
+                             .Include(u => u.stateType) 
 
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
-                                      && (e.title.Contains(input.keyword) || e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
-                                    );
+                                      && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                      && ((input.location == 0) || (e.cityTypeId == input.location)
+                                            || (e.stateTypeId == input.location) || (e.zip == input.location))
+                                     // && ((input.category == null) || (e.listingCategories.Any(c => c.listingCategoryType.name == input.category)))
+                                      && ((input.category == null) || (e.listingCategories.Any(c => c.listingCategoryType.name.Contains(input.category))))
+                                      && ((input.type == null) || (e.listingType.name.Contains(input.type)))
+                                    );   // change '== 0' to 'null' and change '==' to '.Contains'
+                //|| e.description.Contains(input.keyword)
+                //HttpContext.Current.Session["category"] = null;    All.listingCategoryType.name
+  
                 input.paging.totalCount = query.Count();
                 input.result = query
                              .OrderBy(b => b.title)
@@ -67,77 +83,8 @@ namespace SO.SilList.Manager.Managers
                 return input;
             }
         }
-
-/*
-        public int count(ListingVm input)
-        {   
-            using (var db = new MainDb())
-            {
-
-                var totcount = db.listing
-                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
-                                      && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
-                                    )
-                             .Count();
-                return totcount;
-
-
-                input.paging.totalCount = query.Count();
-            }          
-        }
-
-        public List<ListingVo> search(ListingVm input)
-        {
-            using (var db = new MainDb())
-            {
-                var list = db.listing
-                             .Include(s => s.site)
-                             .Include(t => t.listingType)
-                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
-                                      && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
-                                    )
-                             .OrderBy(b => b.title)
-                             .Skip(input.skip)
-                             .Take(input.rowCount)
-                             .ToList();
-
-                return list;
-            }
-        }
-
-        public int webcount(ListingVm input)
-        {
-            using (var db = new MainDb())
-            {
-
-                var totcount = db.listing
-                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
-                                      && (e.title.Contains(input.keyword) || e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
-                                    )
-                             .Count();
-                return totcount;
-            }
-        }
         
-        public List<ListingVo> websearch(ListingVm input)
-        {
-            using (var db = new MainDb())
-            {
-                var list = db.listing
-                             .Include(s => s.site)
-                             .Include(t => t.listingType)
-                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
-                                      && (e.title.Contains(input.keyword) || e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
-                                    )
-                             .OrderBy(b => b.title)
-                             .Skip(input.skip)
-                             .Take(input.resultPerPage)
-                             .ToList();
 
-                return list;
-            }
-        }
-*/
         /// Find Listing matching the listingId
         public ListingVo get(Guid listingId)
         {
@@ -146,8 +93,10 @@ namespace SO.SilList.Manager.Managers
                 var res = db.listing
                             .Include(s => s.site)
                             .Include(t => t.listingType)
-                              .Include(i => i.cityType)
+                            .Include(i => i.cityType)
                             .Include(o => o.countryType)
+                            .Include(t => t.listingCategories) //
+                            .Include(t => t.listingCategories.Select(c => c.listingCategoryType)) 
                             .Include(u => u.stateType) 
 
                             .FirstOrDefault(p => p.listingId == listingId);
