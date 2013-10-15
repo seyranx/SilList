@@ -94,7 +94,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult DropDownList(int? id = null)
+        public ActionResult DropDownList(int? id = null,string propertyName = null)
         {
             ViewBag.transmissions = transmissionTypeManager.getAll(null);
             var transmission = new TransmissionTypeVo();
@@ -102,6 +102,9 @@ namespace SO.SilList.Admin.Web.Controllers
             {
                 transmission = transmissionTypeManager.get(id.Value);
             }
+            if (propertyName == null)
+                propertyName = "transmissionTypeId";
+            ViewBag.propertyName = propertyName;
             return PartialView("_DropDownList", transmission);
         }
 
