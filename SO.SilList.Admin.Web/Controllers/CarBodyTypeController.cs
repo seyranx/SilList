@@ -94,7 +94,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult DropDownList(int? id = null)
+        public ActionResult DropDownList(int? id = null, string propertyName=null)
         {
             ViewBag.bodies = carBodyTypeManager.getAll(null);
             var body = new CarBodyTypeVo();
@@ -102,6 +102,9 @@ namespace SO.SilList.Admin.Web.Controllers
             {
                 body = carBodyTypeManager.get(id.Value);
             }
+            if (propertyName == null)
+                propertyName = "carBodyTypeId"; 
+            ViewBag.propertyName = propertyName;
             return PartialView("_DropDownList", body);
         }
 

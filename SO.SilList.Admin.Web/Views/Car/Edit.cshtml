@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 }
 
+
 <h2>@ViewBag.Title</h2>
 
 @using (Html.BeginForm("Edit", "Car", FormMethod.Post, new { @encType = "multipart/form-data", id = "myForm" }))
@@ -24,13 +25,13 @@
                 <input type="text" value="@Html.DisplayFor(model => model.car.carId)" readonly="true">
             </div>
         </div>
-
+       
         <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.car.siteId)
             </div>
             <div class="controls">
-                @Html.Action("DropDownList", "Site", new { id = Model.car.siteId })
+                @Html.Action("DropDownList", "Site", new { id = Model.car.siteId ,propertyName = "car.siteId"})
                 <a href="@Url.Action("Index", "Site", new { backUrl = @Url.RouteUrl(ViewContext.RouteData.Values), backName = @ViewContext.RouteData.Values["controller"].ToString() })" class="btn">Sites</a>
             </div>
         </div>
@@ -40,7 +41,7 @@
                 @Html.LabelFor(model => model.car.makeTypeId)
             </div>
             <div class="controls">
-                @Html.Action("DropDownList", "MakeType", new { id = Model.car.makeTypeId })
+                @Html.Action("DropDownList", "MakeType", new { id = Model.car.makeTypeId , propertyName="car.makeTypeId"})
             </div>
         </div>
 
@@ -49,7 +50,7 @@
                 @Html.LabelFor(model => model.car.modelTypeId)
             </div>
             <div class="controls" id="modelList">
-                @Html.Action("DropDownList", "ModelType", new { id = Model.car.modelTypeId, _makeTypeId = Model.car.makeTypeId })
+                @Html.Action("DropDownList", "ModelType", new { id = Model.car.modelTypeId, _makeTypeId = Model.car.makeTypeId, propertyName="car.modelTypeId" })
             </div>
         </div>
 
@@ -58,7 +59,16 @@
                 @Html.LabelFor(model => model.car.year)
             </div>
             <div class="controls">
-                @Html.EditorFor(model => model.car.year)
+                @{
+                    int currentYear = DateTime.Now.Year;
+                    var mylist = new string[31];
+                    for (int i = 0; i < 31; i++)
+                    {
+                        mylist.SetValue((currentYear - 30 + i).ToString(), 30 - i);
+                    }
+                    var selectlist = new SelectList(mylist);
+                }
+                @Html.DropDownListFor(model => model.car.year, selectlist)
                 @Html.ValidationMessageFor(model => model.car.year)
             </div>
         </div>
@@ -78,7 +88,7 @@
                 @Html.LabelFor(model => model.car.carBodyTypeId)
             </div>
             <div class="controls">
-                @Html.Action("DropDownList", "CarBodyType", new { id = Model.car.carBodyTypeId })
+                @Html.Action("DropDownList", "CarBodyType", new { id = Model.car.carBodyTypeId, propertyName="car.carBodyTypeId" })
             </div>
         </div>
 
@@ -87,7 +97,7 @@
                 @Html.LabelFor(model => model.car.transmissionTypeId)
             </div>
             <div class="controls">
-                @Html.Action("DropDownList", "TransmissionType", new { id = Model.car.transmissionTypeId })
+                @Html.Action("DropDownList", "TransmissionType", new { id = Model.car.transmissionTypeId, propertyName="car.transmissionTypeId" })
             </div>
         </div>
 
