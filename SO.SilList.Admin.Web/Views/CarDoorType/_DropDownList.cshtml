@@ -1,0 +1,3 @@
+﻿@model SO.SilList.Manager.Models.ValueObjects.CarDoorTypeVo
+
+@Html.DropDownList((string)ViewBag.propertyName, new SelectList(ViewBag.doors,"carDoorTypeId","name",Model.carDoorTypeId),"Select One")

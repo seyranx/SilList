@@ -92,8 +92,8 @@ namespace SO.SilList.Manager.Managers
                             .Include(c => c.interiorColorType)
                             .Include(i => i.cityType)
                             .Include(o => o.countryType)
-                            .Include(u => u.stateType) 
-                            .OrderBy(b => b.created)
+                            .Include(u => u.stateType)
+                            .OrderByDescending(b => b.created)
                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.modelType.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                              );

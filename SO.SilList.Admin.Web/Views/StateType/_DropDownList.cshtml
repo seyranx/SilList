@@ -1,0 +1,3 @@
+﻿@model SO.SilList.Manager.Models.ValueObjects.StateTypeVo
+
+@Html.DropDownList((string)ViewBag.propertyName, new SelectList(ViewBag.Fuels,"stateTypeId","name",Model.stateTypeId),"Select One")

@@ -94,7 +94,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult DropDownList(int? id = null)
+        public ActionResult DropDownList(int? id = null, string propertyName = null)
         {
             ViewBag.engines = carEngineTypeManager.getAll(null);
             var engine = new CarEngineTypeVo();
@@ -102,6 +102,9 @@ namespace SO.SilList.Admin.Web.Controllers
             {
                 engine = carEngineTypeManager.get(id.Value);
             }
+            if (propertyName == null)
+                propertyName = "carEngineTypeId";
+            ViewBag.propertyName = propertyName;
             return PartialView("_DropDownList", engine);
         }
 

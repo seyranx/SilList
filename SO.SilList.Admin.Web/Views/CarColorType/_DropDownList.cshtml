@@ -1,3 +1,3 @@
 ﻿@model SO.SilList.Manager.Models.ValueObjects.CarColorTypeVo
 
-@Html.DropDownListFor(c=>c.carColorTypeId, new SelectList(ViewBag.colors,"carColorTypeId","carColorTypeId",Model),"Select One")
+@Html.DropDownList((string)ViewBag.propertyName, new SelectList(ViewBag.colors,"carColorTypeId","name",Model.carColorTypeId),"Select One")

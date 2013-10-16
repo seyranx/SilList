@@ -31,8 +31,9 @@
                 @Html.LabelFor(model => model.makeTypeId)
             </div>
             <div class="controls">
-                @Html.Action("DropDownList", "MakeType", new { id = Model.makeTypeId })
-            </div>
+                @Html.Action("DropDownList", "MakeType", new { id = Model.makeTypeId, propertyName="makeTypeId" })
+            
+                </div>
         </div>
 
         <div class="control-group">
@@ -40,7 +41,7 @@
                 @Html.LabelFor(model => model.modelTypeId)
             </div>
             <div class="controls" id="modelList">
-                @Html.Action("DropDownList", "ModelType", new { id = Model.modelTypeId, _makeTypeId = Model.makeTypeId })
+                @Html.Action("DropDownList", "ModelType", new { id = Model.modelTypeId, _makeTypeId = Model.makeTypeId, propertyName="modelTypeId" })
             </div>
         </div>
 
@@ -88,6 +89,60 @@
             </div>
             <div class="controls">
                 @Html.Action("DropDownList", "TransmissionType", new { id = Model.transmissionTypeId })
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.carDoorTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "carDoorType", new { id = Model.carDoorTypeId })
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.carDriveTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "carDriveType", new { id = Model.carDriveTypeId })
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.carEngineTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "carEngineType", new { id = Model.carEngineTypeId })
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.carFuelTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "carFuelType", new { id = Model.carFuelTypeId })
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.exteriorColorTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "carColorType", new { id = Model.exteriorColorTypeId, propertyName="exteriorColorTypeId" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.interiorColorTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "carColorType", new { id = Model.interiorColorTypeId,  propertyName="interiorColorTypeId" })
             </div>
         </div>
 

@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [app].[CountryType]
 (
-	[countryTypeId] INT NOT NULL PRIMARY KEY, 
+	[countryTypeId] INT NOT NULL PRIMARY KEY IDENTITY, 
     [name] NVARCHAR(50) NULL,
 		[created]       DATETIME       CONSTRAINT [DF__CarCountryTy__creat__0E391C95] DEFAULT (getdate()) NOT NULL,
     [modified]      DATETIME       CONSTRAINT [DF__CarCountryTy__modif__0F2D40CE] DEFAULT (getdate()) NOT NULL,

@@ -32,7 +32,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Menu()
         {
-            return PartialView("../Car/_Menu");
+            return PartialView("../Admin/_Menu");
         }
 
         public ActionResult List()
@@ -94,7 +94,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult DropDownList(int? id = null)
+        public ActionResult DropDownList(int? id = null, string propertyName = null)
         {
             ViewBag.cities = CityTypeManager.getAll(null);
             var city = new CityTypeVo();
@@ -102,6 +102,9 @@ namespace SO.SilList.Admin.Web.Controllers
             {
                 city = CityTypeManager.get(id.Value);
             }
+            if (propertyName == null)
+                propertyName = "cityTypeId";
+            ViewBag.propertyName = propertyName;
             return PartialView("_DropDownList", city);
         }
 
