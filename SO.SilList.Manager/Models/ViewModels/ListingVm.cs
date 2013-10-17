@@ -16,8 +16,10 @@ namespace SO.SilList.Manager.Models.ViewModels
         public List<ListingVo> result { get; set; }
         public string keyword { get; set; }
         public int location { get; set; } //change int to 'string'
+        public string locKeyword { get; set; } //change int to 'string'
         public string category { get; set; } //change int to 'string'
         public string type { get; set; } //change int to 'string'
+        public bool titleOnly { get; set; }
 
         // Images
         public List<ImageCheckBoxInfo> imagesToRemove { get; set; }
