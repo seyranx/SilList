@@ -27,6 +27,26 @@
 
         <div class="control-group">
             <div class="control-label">
+                @Html.LabelFor(model => model.stateCode)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.stateCode)
+                @Html.ValidationMessageFor(model => model.stateCode)
+            </div>
+        </div>
+
+                <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.countryTypeId)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.countryTypeId)
+                @Html.ValidationMessageFor(model => model.countryTypeId)
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
             @Html.LabelFor(model => model.isActive)
         </div>
             <div class="controls">

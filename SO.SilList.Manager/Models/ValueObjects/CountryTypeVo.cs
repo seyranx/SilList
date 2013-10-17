@@ -44,7 +44,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[Required]
         public bool isActive { get; set; }
 
+        [Association("CountryType_CityType", "countryTypeId", "countryTypeId", IsForeignKey = true)]
+        public List<CityTypeVo> city { get; set; }
 
+        [Association("CountryType_StateType", "countryTypeId", "countryTypeId", IsForeignKey = true)]
+        public List<StateTypeVo> state { get; set; }
 
         [Association("CountryType_Car", "countryTypeId", "countryTypeId", IsForeignKey = true)]
         public List<CarVo> car { get; set; }
