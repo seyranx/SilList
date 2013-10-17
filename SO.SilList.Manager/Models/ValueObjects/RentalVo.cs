@@ -27,13 +27,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [StringLength(50)]
         public string title { get; set; }
 
-        [DisplayName("Address")]
-        [StringLength(50)]
-        public string address { get; set; }
-
-        [DisplayName("Phone Number")]
-        [StringLength(15)]
-        public string phone { get; set; }
 
         [DisplayName("Description")]
         [StringLength(250)]
