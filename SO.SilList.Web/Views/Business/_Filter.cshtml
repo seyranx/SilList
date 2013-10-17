@@ -1,0 +1,36 @@
+﻿@model SO.SilList.Manager.Models.ViewModels.BusinessVm
+
+@{
+    ViewBag.Title = "Filter";
+    Layout = "~/Views/Shared/_LayoutBusiness.cshtml";
+}
+
+
+<fieldset>
+    <legend>BusinessVm</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.result)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.result)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.isActive)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.isActive)
+    </div>
+
+@*    <div class="display-label">
+         @Html.DisplayNameFor(model => model.submitButton)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.submitButton)
+    </div>*@
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

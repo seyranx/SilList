@@ -30,11 +30,16 @@ namespace SO.SilList.Web.Controllers
             return View();
         }
 
+        public ActionResult Filter(BusinessVm input)
+        {
+            return PartialView("_Filter", input);
+        }
+
         public ActionResult Details(Guid? id = null)
         {
             var idNew = new Guid("2c00a271-da52-49ed-ac5e-c0d8baa1dfb6");
             var result = businessManager.get(idNew);
-            return PartialView(result);
+            return View(result);
         }
 
         public ActionResult Categories(Guid? id = null)

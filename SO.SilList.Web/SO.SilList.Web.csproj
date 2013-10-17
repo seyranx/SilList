@@ -135,6 +135,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BusinessController.cs" />
+    <Compile Include="Controllers\CarController.cs" />
     <Compile Include="Controllers\ConfigurationController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -291,6 +292,9 @@
     <Content Include="Views\Listings\_Menu.cshtml" />
     <Content Include="Views\Shared\_Pagination.cshtml" />
     <Content Include="Views\Business\Categories.cshtml" />
+    <Content Include="Views\Car\_CarItem.cshtml" />
+    <Content Include="Views\Car\Index.cshtml" />
+    <Content Include="Views\Business\_Filter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

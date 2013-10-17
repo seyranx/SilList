@@ -1,4 +1,5 @@
-﻿@{
+﻿@model SO.SilList.Manager.Models.ViewModels.BusinessVm
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -20,7 +21,8 @@
      <input type="text" style="width:90%;" placeholder="Filter">
 
         <button type="submit" class="btn btn-success pull-right">Search</button>
-
+        @*@Html.Partial("_Filter",@Model)*@;
+        @*@Html.Action("Filter",@Model.result)*@
        
 </form>
  <br />
