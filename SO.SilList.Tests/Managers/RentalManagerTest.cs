@@ -34,7 +34,7 @@ namespace SO.SilList.Tests.Managers
             for (int i = 1; i <= 10; i++)
             {
                 var vo = new RentalVo();
-                vo.rent = i*1234;
+                vo.price = i*1234;
                 //vo.name = i.ToString() + " Test BusinessCategoryType Name ";
                 var result = rentalManager.insert(vo);
                 if (result == null)
@@ -50,7 +50,7 @@ namespace SO.SilList.Tests.Managers
         public void insertDeleteTest()
         {
             var vo = new RentalVo();
-            vo.rent = 1500.99;
+            vo.price = 1500.99;
 
 
             var result = rentalManager.insert(vo);

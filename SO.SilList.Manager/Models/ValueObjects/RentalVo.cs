@@ -54,8 +54,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Bathrooms")]
         public Nullable<int> bathrooms { get; set; }
     		
-    	[DisplayName("Rent")]
-        public Nullable<double> rent { get; set; }
+    	[DisplayName("Price")]
+        public Nullable<decimal> price { get; set; }
     		
     	[DisplayName("Lease Term")]
         public Nullable<int> leaseTermTypeId { get; set; }

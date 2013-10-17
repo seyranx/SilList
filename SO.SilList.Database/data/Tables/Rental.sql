@@ -8,7 +8,7 @@
     [siteId]          INT              NULL,
     [bedrooms]        INT              NULL,
     [bathrooms]       INT              NULL,
-    [rent]            FLOAT (53)       NULL,
+    [price]           DECIMAL       NULL,
     [leaseTermTypeId] INT              NULL,
     [size]            INT              NULL,
     [lotSize]         INT              NULL,
