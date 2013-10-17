@@ -1,42 +1,41 @@
-﻿@model IEnumerable<SO.SilList.Manager.Models.ViewModels.CarColorTypeVm>
+﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.CarColorTypeVo>
 
 
+<p style="margin-top:10px; margin-bottom:10px;">
+   <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
 
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.keyword)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.isActive)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.submitButton)
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.keyword)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.isActive)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.submitButton)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-    }
-    
-    </table>
+</p>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.created)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isActive)
+        </th>
+        <th></th>
+    </tr>
 
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            <span>@String.Format("{0:MM/dd/yyy}", item.created)</span>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isActive)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit",new { id=item.carColorTypeId })" class="btn">Edit</a>
+            <a href="@Url.Action("Details",new { id=item.carColorTypeId })" class="btn">Details</a>
+            <a href="@Url.Action("Delete",new { id=item.carColorTypeId })" class="btn">Delete</a>
+        </td>
+    </tr>
+}
+
+</table>

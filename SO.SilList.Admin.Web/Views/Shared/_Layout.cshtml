@@ -40,18 +40,13 @@
 
         $(document).ready(function () {
 
-            $('#startDate').datepicker({
+            $("[id*='Date']").datepicker({
                 format: 'mm/dd/yyyy',
                 todayBtn: "linked",
                 autoclose: true,
                 todayHighlight: true
             });
-            $('#endDate').datepicker({
-                format: 'mm/dd/yyyy',
-                todayBtn: "linked",
-                autoclose: true,
-                todayHighlight: true
-            });
+
         });
 
 </script>

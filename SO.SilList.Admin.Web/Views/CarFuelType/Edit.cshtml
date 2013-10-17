@@ -1,0 +1,44 @@
+﻿@model SO.SilList.Manager.Models.ValueObjects.CarFuelTypeVo
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm("Edit", "CarFuelType", FormMethod.Post, new { @encType = "multipart/form-data", id = "myForm" }))
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset class="form-horizontal">
+        <legend></legend>
+
+        @Html.HiddenFor(model => model.carFuelTypeId)
+
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.name)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.name)
+                @Html.ValidationMessageFor(model => model.name)
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+            @Html.LabelFor(model => model.isActive)
+        </div>
+            <div class="controls">
+            @Html.EditorFor(model => model.isActive)
+            @Html.ValidationMessageFor(model => model.isActive)
+        </div>
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+            <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
+        </p>
+    </fieldset>
+}

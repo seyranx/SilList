@@ -36,6 +36,13 @@
             </div>
         </div>
 
+          <div class="control-group">
+        <div class="control-label">@Html.DisplayNameFor(model => model.car.price)</div>
+        <div class="controls">
+           @Html.EditorFor(model => model.car.price)
+        </div>
+        </div>
+
         <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.car.makeTypeId)
@@ -103,6 +110,60 @@
 
         <div class="control-group">
             <div class="control-label">
+                @Html.LabelFor(model => model.car.carDoorTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "carDoorType", new { id = Model.car.carDoorTypeId,  propertyName="car.carDoorTypeId"  })
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.car.carDriveTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "carDriveType", new { id = Model.car.carDriveTypeId, propertyName="car.carDriveTypeId"  })
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.car.carEngineTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "carEngineType", new { id = Model.car.carEngineTypeId, propertyName="car.carEngineTypeId"  })
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.car.carFuelTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "carFuelType", new { id = Model.car.carFuelTypeId, propertyName="car.carFuelTypeId"  })
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.car.exteriorColorTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "carColorType", new { id = Model.car.exteriorColorTypeId, propertyName="car.exteriorColorTypeId" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.car.interiorColorTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "carColorType", new { id = Model.car.interiorColorTypeId,  propertyName="car.interiorColorTypeId" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
                 @Html.LabelFor(model => model.car.startDate)
             </div>
             <div class="controls">
@@ -120,6 +181,15 @@
                 @Html.ValidationMessageFor(model => model.car.endDate)
             </div>
         </div>
+
+                <div class="control-group">
+        <div class="control-label">
+            @Html.DisplayNameFor(model => model.car.description)
+        </div>
+        <div class="controls">
+                @Html.TextAreaFor(model => model.car.description,new {@rows = 5 }) 
+        </div>
+     </div>
 
         <div class="control-group">
             <div class="control-label">

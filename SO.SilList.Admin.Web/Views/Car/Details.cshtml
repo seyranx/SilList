@@ -26,6 +26,12 @@
             <input type="text" value="@Html.DisplayFor(model => model.site.domain)" readonly="true">
         </div>
     </div>
+           <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.price)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.price)" readonly="true">
+        </div>
+    </div>
 
        <div class="control-group">
         <label class="control-label">@Html.DisplayNameFor(model => model.makeTypeId)</label>
@@ -66,6 +72,55 @@
         <label class="control-label">@Html.DisplayNameFor(model => model.transmissionTypeId)</label>
         <div class="controls">
             <input type="text" value="@Html.DisplayFor(model => model.transmissionType.name)" readonly="true">
+        </div>
+    </div>
+
+        <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.carDoorTypeId)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.carDoorType.name)" readonly="true">
+        </div>
+    </div>
+
+            <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.carDriveTypeId)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.carDriveType.name)" readonly="true">
+        </div>
+    </div>
+
+            <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.carEngineTypeId)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.carEngineType.name)" readonly="true">
+        </div>
+    </div>
+
+            <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.carFuelTypeId)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.carFuelType.name)" readonly="true">
+        </div>
+    </div>
+
+            <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.exteriorColorTypeId)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.exteriorColorType.name)" readonly="true">
+        </div>
+    </div>
+
+                <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.interiorColorTypeId)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.interiorColorType.name)" readonly="true">
+        </div>
+    </div>
+
+               <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.description)</label>
+        <div class="controls">
+                @Html.TextAreaFor(model => model.description,new {@rows = 5  ,@readonly=true}) 
         </div>
     </div>
 

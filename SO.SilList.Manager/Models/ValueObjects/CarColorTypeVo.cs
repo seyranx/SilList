@@ -18,30 +18,30 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class CarColorTypeVo
     {
     		
-    	[DisplayName("car Color Type Id")]
+    	[DisplayName("Color")]
     	[Key]
         public int carColorTypeId { get; set; }
     		
-    	[DisplayName("name")]
+    	[DisplayName("Name")]
     	[Required]
     	[StringLength(50)]
         public string name { get; set; }
     		
-    	[DisplayName("created")]
+    	[DisplayName("Created")]
     	[Required]
         public System.DateTime created { get; set; }
     		
-    	[DisplayName("modified")]
+    	[DisplayName("Modified")]
     	[Required]
         public System.DateTime modified { get; set; }
     		
-    	[DisplayName("created By")]
+    	[DisplayName("Created By")]
         public Nullable<int> createdBy { get; set; }
     		
-    	[DisplayName("modified By")]
+    	[DisplayName("Modified By")]
         public Nullable<int> modifiedBy { get; set; }
     		
-    	[DisplayName("is Active")]
+    	[DisplayName("Is Active")]
     	[Required]
         public bool isActive { get; set; }
 

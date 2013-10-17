@@ -94,7 +94,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult DropDownList(int? id = null)
+        public ActionResult DropDownList(int? id = null, string propertyName = null)
         {
             ViewBag.Fuels = carFuelTypeManager.getAll(null);
             var fuel = new CarFuelTypeVo();
@@ -102,6 +102,9 @@ namespace SO.SilList.Admin.Web.Controllers
             {
                 fuel = carFuelTypeManager.get(id.Value);
             }
+            if (propertyName == null)
+                propertyName = "carFuelTypeId";
+            ViewBag.propertyName = propertyName;
             return PartialView("_DropDownList", fuel);
         }
 

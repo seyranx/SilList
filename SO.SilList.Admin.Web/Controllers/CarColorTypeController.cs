@@ -95,7 +95,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult DropDownList(int? id = null)
+        public ActionResult DropDownList(int? id = null,string propertyName=null)
         {
             ViewBag.colors = carColorTypeManager.getAll(null);
             var color = new CarColorTypeVo();
@@ -103,6 +103,9 @@ namespace SO.SilList.Admin.Web.Controllers
             {
                 color  = carColorTypeManager.get(id.Value);
             }
+            if (propertyName == null)
+                propertyName = "carColorTypeId";
+            ViewBag.propertyName = propertyName;
             return PartialView("_DropDownList", color);
         }
 

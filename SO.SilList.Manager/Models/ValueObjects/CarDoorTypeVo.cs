@@ -18,30 +18,30 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class CarDoorTypeVo
     {
     		
-    	[DisplayName("car Door Type Id")]
+    	[DisplayName("Door")]
     	[Key]
         public int carDoorTypeId { get; set; }
     		
-    	[DisplayName("name")]
+    	[DisplayName("Name")]
     	[Required]
     	[StringLength(50)]
         public string name { get; set; }
     		
-    	[DisplayName("created")]
+    	[DisplayName("Created")]
     	[Required]
         public System.DateTime created { get; set; }
     		
-    	[DisplayName("modified")]
+    	[DisplayName("Modified")]
     	[Required]
         public System.DateTime modified { get; set; }
     		
-    	[DisplayName("created By")]
+    	[DisplayName("Created By")]
         public Nullable<int> createdBy { get; set; }
     		
-    	[DisplayName("modified By")]
+    	[DisplayName("Modified By")]
         public Nullable<int> modifiedBy { get; set; }
     		
-    	[DisplayName("is Active")]
+    	[DisplayName("Is Active")]
     	[Required]
         public bool isActive { get; set; }
 

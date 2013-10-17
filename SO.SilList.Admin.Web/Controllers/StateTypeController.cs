@@ -32,7 +32,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Menu()
         {
-            return PartialView("../Car/_Menu");
+            return PartialView("../Admin/_Menu");
         }
 
         public ActionResult List()
@@ -94,7 +94,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult DropDownList(int? id = null)
+        public ActionResult DropDownList(int? id = null, string propertyName = null)
         {
             ViewBag.states = StateTypeManager.getAll(null);
             var state = new StateTypeVo();
@@ -102,6 +102,9 @@ namespace SO.SilList.Admin.Web.Controllers
             {
                 state = StateTypeManager.get(id.Value);
             }
+            if (propertyName == null)
+                propertyName = "stateTypeId";
+            ViewBag.propertyName = propertyName;
             return PartialView("_DropDownList", state);
         }
 
