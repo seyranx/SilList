@@ -137,6 +137,7 @@
     <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\CarController.cs" />
     <Compile Include="Controllers\ConfigurationController.cs" />
+    <Compile Include="Controllers\CityController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LinkedController.cs" />

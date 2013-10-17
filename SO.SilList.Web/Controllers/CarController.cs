@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace SO.SilList.Web.Controllers
@@ -11,6 +12,8 @@ namespace SO.SilList.Web.Controllers
     public class CarController : Controller
     {
         private CarManager carManager = new CarManager();
+        private CityTypeManager cityTypeManager = new CityTypeManager();
+       
         //
         // GET: /Car/
 
@@ -26,6 +29,14 @@ namespace SO.SilList.Web.Controllers
                 return View(input.result);
             }
             return View();
+        }
+
+        public JsonResult Search(string keyword)
+        {
+            var result = cityTypeManager.search(keyword);
+             
+           var json = Json(result, JsonRequestBehavior.AllowGet);
+           return json;
         }
 
     }

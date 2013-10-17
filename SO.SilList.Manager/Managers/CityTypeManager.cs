@@ -39,6 +39,21 @@ namespace SO.SilList.Manager.Managers
         }
 
 
+        public List<CityTypeVo> search(string keywrod)
+        {
+            using (var db = new MainDb())
+            {
+                var query = (from c in db.cityType
+                            // join s in db.stateType on c.cityTypeId equals s.stateTypeId
+                             where c.name.StartsWith(keywrod)
+                             select c
+                            );
+                 
+
+                return query.ToList();
+            }
+        }
+
         public CityTypeVm search(CityTypeVm input)
         {
 
