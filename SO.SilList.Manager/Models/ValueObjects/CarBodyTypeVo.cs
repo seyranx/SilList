@@ -25,7 +25,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Name")]
     	[StringLength(50)]
         public string name { get; set; }
-    		
+
     	[DisplayName("Description")]
         public string description { get; set; }
     		
