@@ -5,9 +5,9 @@
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 }
 
-<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+@*<script src="~/Scripts/jquery-1.7.1.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>*@
 
 @using (Html.BeginForm("Create", "Rental", FormMethod.Post, new { @encType = "multipart/form-data", id = "myForm" }))
 {
@@ -22,6 +22,22 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.title)
             @Html.ValidationMessageFor(model => model.title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.address)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.address)
+            @Html.ValidationMessageFor(model => model.address)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.phone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.phone)
+            @Html.ValidationMessageFor(model => model.phone)
         </div>
 
         <div class="editor-label">
@@ -63,11 +79,11 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.rent)
+            @Html.LabelFor(model => model.price)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.rent)
-            @Html.ValidationMessageFor(model => model.rent)
+            @Html.EditorFor(model => model.price)
+            @Html.ValidationMessageFor(model => model.price)
         </div>
 
         <div class="editor-label">
