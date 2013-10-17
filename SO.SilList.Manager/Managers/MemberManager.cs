@@ -63,6 +63,39 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
+        public MemberVo getByUsernameAndPassword(string username, string password)
+        {
+            using (var db = new MainDb())
+            {
+                MemberVo mem = null;
+
+                try
+                {
+                    mem = db.members
+                            .Include(s => s.site)
+                            .FirstOrDefault(p => (p.email == username || p.username == username) && p.password == password);
+                }
+                catch (Exception ex)
+                {
+                    mem = null;
+                }
+
+                return mem;
+            }
+        }
+
+        public MemberVo getByUsernameOrEmail(string usernameOrEmail)
+        {
+            using (var db = new MainDb())
+            {
+                var mem = db.members
+                            .Include(s => s.site)
+                            .FirstOrDefault(p => p.email == usernameOrEmail || p.username == usernameOrEmail);
+
+                return mem;
+            }
+        }
+
         public bool delete(int memberId)
         {
             using (var db = new MainDb())

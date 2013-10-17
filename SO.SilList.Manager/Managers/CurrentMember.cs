@@ -15,17 +15,14 @@ namespace SO.EventCave.Manager.Managers
     {
         private static string sessionKey = "_CurrentMember";
         private static MemberManager memberManager = new MemberManager();
-       // private static MemberRoleTypeManager memberRoleTypeManager = new MemberRoleTypeManager();
-
 
         public CurrentMember()
         {
-
         }
 
         public static  bool validateUser(string username, string password)
         {
-            MemberVo user = null;//Todo memberManager.getByUsernameAndPassword(username, password);
+            MemberVo user = memberManager.getByUsernameAndPassword(username, password);
             if (user == null)
                 return false;
 
@@ -36,8 +33,14 @@ namespace SO.EventCave.Manager.Managers
         {
             get
             {
-                try{ return HttpContext.Current.User.Identity;}
-                catch { return null; }
+                try
+                { 
+                    return HttpContext.Current.User.Identity;
+                }
+                catch 
+                { 
+                    return null; 
+                }
             }
         }
 
@@ -45,8 +48,13 @@ namespace SO.EventCave.Manager.Managers
         {
             get
             {
-                try { return currentUser.IsAuthenticated; }
-                catch { return false; }
+                try { 
+                    return currentUser.IsAuthenticated; 
+                }
+                catch 
+                { 
+                    return false; 
+                }
             }
         }
 
@@ -65,11 +73,12 @@ namespace SO.EventCave.Manager.Managers
                         HttpContext.Current.Session[sessionKey] = null;
                         return null;
                     }
+
                     var mem = (MemberVo)HttpContext.Current.Session[sessionKey];
 
                     if (mem == null)
                     {
-                        //Todo mem = memberManager.getByUsernameOrEmail(currentUser.Name);
+                        mem = memberManager.getByUsernameOrEmail(currentUser.Name);
                         if (mem != null)
                             HttpContext.Current.Session[sessionKey] = mem;
                     }

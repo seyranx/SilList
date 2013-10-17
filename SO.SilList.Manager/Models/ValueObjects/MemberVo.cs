@@ -103,8 +103,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public List<RentalImageVo> rentalImage { get; set; }
 
     	public MemberVo(){
-            this.lastLogin = DateTime.MinValue;
-            this.isActive = true;
+            this.lastLogin = DateTime.Now;
+            this.isActive = false;
     	}
     }
 }

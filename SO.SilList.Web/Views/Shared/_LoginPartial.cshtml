@@ -5,21 +5,23 @@
      <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"> @User.Identity.Name<b class="caret white-caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Settings</a></li>
+                  <li>@Html.ActionLink("Settings", "Manage", "Member")</li>
                   <li><a href="#">My Clubs</a></li>
                   <li class="divider"></li>
-                  <li><a href="#">Logout</a></li>
+                  <li>@Html.ActionLink("Logout", "Logout", "Member")</li>
                 </ul>
      </li>
          </ul>
     
 } else {
   
+    <form class="navbar-form pull-right" method="get" action="@Url.Action("Register","Member",null)">
+        <button type="submit" class="btn">Register</button>
+    </form>
     
-       <form class="navbar-form pull-right" method="post" action="@Url.Action("Login","Member",null)">
-              <input id="email" name="email" class="span2" type="text" placeholder="Email" required="required"> 
-              <input  id="password" name="password" class="span2" type="password" placeholder="Password" required>
-              <button type="submit" class="btn">Sign in</button>
-       </form>
-    
+    <form class="navbar-form pull-right" method="post" action="@Url.Action("Login","Member",null)">
+        <input id="email" name="email" class="span2" type="text" placeholder="Email" required="required"> 
+        <input  id="password" name="password" class="span2" type="password" placeholder="Password" required>
+        <button type="submit" class="btn">Sign in</button>
+    </form>
 }
