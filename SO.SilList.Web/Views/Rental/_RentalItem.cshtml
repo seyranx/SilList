@@ -13,13 +13,14 @@
          </a>
 
           <div class="businessAddressLine">Category: <a href="/">Renting</a></div> 
-          <div class="businessAddressLine">Type: <a href="/"> @Html.DisplayFor(modelItem => item.rentTypeId) </a> </div>  
+          <div class="businessAddressLine">Type: <a href="/"> @Html.DisplayFor(modelItem => item.rentType.name) </a> </div>
+          <div class="businessAddressLine">Price: <a href="/"> @Html.DisplayFor(modelItem => item.price) </a> </div>  
         
         <div style="margin-left:70%; margin-top:-40px; ">
           <div class="businessAddressLine">Address <a href="/"> @Html.DisplayFor(modelItem => item.address) </a> </div>
           <div class="businessAddressLine">Los Angeles, CA 92222</div> 
           <div class="businessAddressLine">Phone Number<a href="/">@Html.DisplayFor(modelItem =>item.phone)</a></div>  
-          <div class="businessAddressLine">Website<a href="/">  @Html.DisplayFor(modelItem =>item.site.name)</a></div>
+          <div class="businessAddressLine">Website<a href="/">  @Html.DisplayFor(modelItem =>item.site.domain)</a></div>
         </div>
     </div>
 
