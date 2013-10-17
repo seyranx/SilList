@@ -276,10 +276,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\_LayoutBusiness.cshtml" />
-    <Content Include="Views\Rentals\Index.cshtml" />
     <Content Include="Views\Business\Index.cshtml" />
     <Content Include="Views\Jobs\Index.cshtml" />
-    <Content Include="Views\Shared\_LayoutRentals.cshtml" />
+    <Content Include="Views\Shared\_LayoutRental.cshtml" />
     <Content Include="Views\Linked\ShowNew.cshtml" />
     <Content Include="Views\Business\_BusinessItem.cshtml">
       <SubType>Code</SubType>
@@ -296,6 +295,10 @@
     <Content Include="Views\Car\_CarItem.cshtml" />
     <Content Include="Views\Listings\_Details.cshtml" />
     <Content Include="Views\Shared\_LayoutDetail.cshtml" />
+    <Content Include="Views\Rental\Index.cshtml" />
+    <Content Include="Views\Rental\_RentalItem.cshtml" />
+    <Content Include="Views\Rental\_Filter.cshtml" />
+    <Content Include="Views\Rental\_Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

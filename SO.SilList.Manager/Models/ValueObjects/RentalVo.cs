@@ -27,6 +27,14 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [StringLength(50)]
         public string title { get; set; }
 
+        [DisplayName("Address")]
+        [StringLength(50)]
+        public string address { get; set; }
+
+        [DisplayName("Phone Number")]
+        [StringLength(15)]
+        public string phone { get; set; }
+
         [DisplayName("Description")]
         [StringLength(250)]
         public string description { get; set; }
@@ -46,8 +54,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Bathrooms")]
         public Nullable<int> bathrooms { get; set; }
     		
-    	[DisplayName("Rent")]
-        public Nullable<double> rent { get; set; }
+    	[DisplayName("Price")]
+        public Nullable<decimal> price { get; set; }
 
         [DisplayName("Address")]
         public string address { get; set; }
@@ -73,7 +81,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public string fax { get; set; }
 
     	[DisplayName("Lease Term")]
-        //[ForeignKey("leaseTermTyprId")]
         public Nullable<int> leaseTermTypeId { get; set; }
     		
     	[DisplayName("Size")]

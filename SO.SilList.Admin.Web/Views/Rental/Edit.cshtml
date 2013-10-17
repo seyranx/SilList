@@ -27,6 +27,22 @@
         </div>
 
         <div class="editor-label">
+            @Html.LabelFor(model => model.rental.address)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.rental.address)
+            @Html.ValidationMessageFor(model => model.rental.address)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.rental.phone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.rental.phone)
+            @Html.ValidationMessageFor(model => model.rental.phone)
+        </div>
+
+        <div class="editor-label">
             @Html.LabelFor(model => model.rental.description)
         </div>
         <div class="editor-field">
@@ -38,16 +54,15 @@
             @Html.LabelFor(model => model.rental.propertyTypeId)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.rental.propertyTypeId)
-            @Html.ValidationMessageFor(model => model.rental.propertyTypeId)
+             @Html.Action("DropDownList", "PropertyType",new {id=Model.rental.propertyTypeId})
+
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.rental.siteId)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.rental.siteId)
-            @Html.ValidationMessageFor(model => model.rental.siteId)
+            @Html.Action("DropDownList","Site",new {id=Model.rental.siteId})
             <a href="@Url.Action("Index", "Site", new { backUrl = @Url.RouteUrl(ViewContext.RouteData.Values), backName = @ViewContext.RouteData.Values["controller"].ToString() })" class="btn">Sites</a>
         </div>
 
@@ -68,19 +83,18 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.rental.rent)
+            @Html.LabelFor(model => model.rental.price)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.rental.rent)
-            @Html.ValidationMessageFor(model => model.rental.rent)
+            @Html.EditorFor(model => model.rental.price)
+            @Html.ValidationMessageFor(model => model.rental.price)
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.rental.leaseTermTypeId)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.rental.leaseTermTypeId)
-            @Html.ValidationMessageFor(model => model.rental.leaseTermTypeId)
+            @Html.Action("DropDownList", "LeaseTermType",new {id=Model.rental.leaseTermTypeId})
         </div>
 
         <div class="editor-label">
@@ -105,6 +119,13 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.rental.acceptsSection8)
             @Html.ValidationMessageFor(model => model.rental.acceptsSection8)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.rentTypeId)
+        </div>
+        <div class="editor-field">
+            @Html.Action("DropDownList", "RentType",new {id=Model.rentTypeId})
         </div>
 
         <div class="editor-label">

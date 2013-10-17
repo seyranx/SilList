@@ -13,6 +13,7 @@ namespace SO.SilList.Manager.Models.ViewModels
     {
         public List<RentalVo> result { get; set; }
         public string keyword { get; set; }
+        public string location { get; set; }
 
         [DisplayName("isActive: ")]
         public bool? isActive { get; set; }
@@ -21,6 +22,34 @@ namespace SO.SilList.Manager.Models.ViewModels
 
         public RentalVo rental { get; set; }
         public List<ImageCheckBoxInfo> imagesToRemove { get; set; }
+        public RentalVo listing { get; set; }
+
+        public RentalVm()
+        {
+
+            listing = new RentalVo();
+            this.result = new List<RentalVo>();
+            if (paging == null)
+                paging = new Paging();
+        }
+
+        public RentalVm(RentalVo input)
+        {
+            listing = input;
+            this.result = new List<RentalVo>();
+            if (paging == null)
+                paging = new Paging();
+        }
+
+        public int skip
+        {
+            get
+            {
+                if (pageNumber == null || pageNumber < 2 || rowCount < 1)
+                    return 0;
+                return ((int)(pageNumber - 1) * (int)rowCount);
+            }
+        }
 
         public RentalVm()
         {
@@ -29,7 +58,6 @@ namespace SO.SilList.Manager.Models.ViewModels
             if (paging == null)
                 paging = new Paging();
         }
-
         public RentalVm(RentalVo rentalVo)
         {
             rental = rentalVo;

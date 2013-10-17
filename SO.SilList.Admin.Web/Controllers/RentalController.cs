@@ -19,7 +19,6 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Index(RentalVm input = null,Paging paging = null)
         {
-
             if (input == null) input = new RentalVm();
             input.paging = paging;
             if (this.ModelState.IsValid)

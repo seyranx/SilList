@@ -1,4 +1,7 @@
-﻿using System;
+﻿using SO.SilList.Manager.Managers;
+using SO.SilList.Manager.Models.ViewModels;
+using SO.SilList.Utility.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,10 +14,33 @@ namespace SO.SilList.Web.Controllers
         //
         // GET: /Rentals/
 
-        public ActionResult Index()
+        private RentalManager rentalManager = new RentalManager();
+
+        public ActionResult Index(RentalVm input = null)
         {
+            if (input == null) input = new RentalVm();
+
+            if (this.ModelState.IsValid)
+            {
+                input.result = rentalManager.search(input);
+                return View(input);
+            }
             return View();
         }
 
+        public ActionResult Menu()
+        {
+            return PartialView("_Menu");
+        }
+
+        public ActionResult Filter(RentalVm input)
+        {
+            return PartialView("_Filter", input);
+        }
+
+        public ActionResult Pagination(Paging input)
+        {
+            return PartialView("_Pagination", input);
+        }
     }
 }
