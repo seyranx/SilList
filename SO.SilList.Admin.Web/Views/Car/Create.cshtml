@@ -26,6 +26,13 @@
             </div>
         </div>
 
+                   <div class="control-group">
+        <div class="control-label">@Html.DisplayNameFor(model => model.price)</div>
+        <div class="controls">
+           @Html.EditorFor(model => model.price)
+        </div>
+    </div>
+
         <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.makeTypeId)
@@ -166,6 +173,15 @@
                 @Html.ValidationMessageFor(model => model.endDate)
             </div>
         </div>
+
+        <div class="control-group">
+        <div class="control-label">
+            @Html.DisplayNameFor(model => model.description)
+        </div>
+        <div class="controls">
+                @Html.TextAreaFor(model => model.description,new {@rows = 5 }) 
+        </div>
+     </div>
 
         <div class="control-group">
             <div class="control-label">

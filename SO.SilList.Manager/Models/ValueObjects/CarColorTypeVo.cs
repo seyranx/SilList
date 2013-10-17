@@ -18,7 +18,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class CarColorTypeVo
     {
     		
-    	[DisplayName("car Color Type Id")]
+    	[DisplayName("Color")]
     	[Key]
         public int carColorTypeId { get; set; }
     		
