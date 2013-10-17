@@ -155,6 +155,64 @@
 
         <div class="control-group">
             <div class="control-label">
+                @Html.LabelFor(model => model.address)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.address)
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.cityTypeId)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.cityTypeId)
+            </div>
+        </div>
+         <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.stateTypeId)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.stateTypeId)
+            </div>
+        </div>
+                <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.countryTypeId)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.countryTypeId)
+            </div>
+        </div>
+                <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.zip)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.zip)
+                @Html.ValidationMessageFor(model => model.zip)
+            </div>
+        </div>
+                        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.phone)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.phone)
+            </div>
+        </div>
+                                <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.fax)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.fax)
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
                 @Html.LabelFor(model => model.startDate)
             </div>
             <div class="controls">

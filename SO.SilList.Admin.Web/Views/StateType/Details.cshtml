@@ -28,6 +28,24 @@
     </div>
     </div>
 
+            <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.stateCode)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.stateCode)" readonly="true">
+            </div>
+        </div>
+
+                <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.countryTypeId)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.countryTypeId)" readonly="true">
+            </div>
+        </div>
+
     <div class="control-group">
         <div class="control-label">
          @Html.DisplayNameFor(model => model.created)

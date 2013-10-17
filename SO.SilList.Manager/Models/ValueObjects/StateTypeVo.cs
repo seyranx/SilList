@@ -25,7 +25,14 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Name")]
     	[StringLength(50)]
         public string name { get; set; }
-    		
+
+        [DisplayName("Code")]
+        [StringLength(2)]
+        public string stateCode { get; set; }
+
+        [DisplayName("Country")]
+        public int countryTypeId { get; set; }
+
     	[DisplayName("Created")]
     	[Required]
         public System.DateTime created { get; set; }
@@ -44,8 +51,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[Required]
         public bool isActive { get; set; }
 
+        [ForeignKey("countryTypeId")]
+        public virtual CountryTypeVo countryType { get; set; }
 
-
+        [Association("StateType_CityType", "stateTypeId", "stateTypeId", IsForeignKey = true)]
+        public List<CityTypeVo> city { get; set; }
 
         [Association("StateType_Car", "stateTypeId", "stateTypeId", IsForeignKey = true)]
         public List<CarVo> car { get; set; }

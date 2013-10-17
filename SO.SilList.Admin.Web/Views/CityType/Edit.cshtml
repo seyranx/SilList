@@ -25,7 +25,25 @@
                 @Html.ValidationMessageFor(model => model.name)
             </div>
         </div>
+                        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.stateTypeId)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.stateTypeId)
+                @Html.ValidationMessageFor(model => model.stateTypeId)
+            </div>
+        </div>
 
+                        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.countryTypeId)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.countryTypeId)
+                @Html.ValidationMessageFor(model => model.countryTypeId)
+            </div>
+        </div>
         <div class="control-group">
             <div class="control-label">
             @Html.LabelFor(model => model.isActive)
