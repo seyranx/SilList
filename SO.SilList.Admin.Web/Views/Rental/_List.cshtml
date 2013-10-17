@@ -9,13 +9,7 @@
             @Html.DisplayNameFor(model => model.title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.propertyTypeId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.siteId)
+            @Html.DisplayNameFor(model => model.propertyType)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.bedrooms)
@@ -32,6 +26,9 @@
         <th>
             @Html.DisplayNameFor(model => model.endDate)
         </th>     
+        <td>
+            
+        </td>
     </tr>
 
 @foreach (var item in Model) {
@@ -40,13 +37,7 @@
             @Html.DisplayFor(modelItem => item.title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.propertyTypeId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.siteId)
+            @Html.DisplayFor(modelItem => item.propertyType.name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.bedrooms)

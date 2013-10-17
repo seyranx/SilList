@@ -1,6 +1,8 @@
 ﻿CREATE TABLE [data].[Rental] (
 	[rentalId]        UNIQUEIDENTIFIER NOT NULL,
-	[title]			  NVARCHAR(50) NULL, 
+	[title]			  NVARCHAR(50) NULL,
+	[address]		  NVARCHAR(50) NULL,
+	[phone]			  NVARCHAR(15) NULL, 
     [description]	  NVARCHAR(MAX) NULL,
     [propertyTypeId]  INT              NULL,
     [siteId]          INT              NULL,

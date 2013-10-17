@@ -28,6 +28,11 @@ namespace SO.SilList.Web.Controllers
             return View();
         }
 
+        public ActionResult Menu()
+        {
+            return PartialView("_Menu");
+        }
+
         public ActionResult Filter(RentalVm input)
         {
             return PartialView("_Filter", input);

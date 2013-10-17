@@ -53,7 +53,6 @@ namespace SO.SilList.Manager.Managers
                             .Include(t => t.leaseTermType)
                             .Include(c => c.rentType)
                             .Include(s => s.site)
-                            .Include(m => m.memberId)
                             .Where(e => isActive == null || e.isActive == isActive)
                             .ToList();
 
@@ -121,6 +120,9 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var list = db.rental
+                    .Include(r => r.propertyType)
+                    .Include(t => t.leaseTermType)
+                    .Include(c => c.rentType)
                     .Include(s => s.site)
                     .Where(e => (input.isActive == null || e.isActive == input.isActive)
                         && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword)))
