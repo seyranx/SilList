@@ -13,12 +13,15 @@ namespace SO.SilList.Manager.Models.ViewModels
     public class CarVm
     {
         public List<CarVo> result { get; set; }
-        public string keyword { get; set; }
+
 
 
         [DisplayName("isActive: ")]
         public bool? isActive { get; set; }
-        //  public int totalCount { get; set; }
+        //properties for search
+        public string keyword { get; set; }
+        public int? site { get; set; }
+        //*****
         public string submitButton { get; set; }
         public Paging paging;
 

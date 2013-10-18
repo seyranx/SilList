@@ -1,5 +1,19 @@
 ﻿@model SO.SilList.Manager.Models.ViewModels.CarVm
- 
+ <script>
+     function advanceSearch() {
+        //prompt($("#more").val());
+         if ($("#more").val() == "less") {
+             $("#more").html('<i class="icon-large icon-plus-sign"></i>');
+             $("#more").val("more");
+             $("#detailSearch").hide();
+         }
+         else if ($("#more").val() == "more") {
+             $("#more").html('<i class="icon-large icon-minus-sign"></i>');
+             $("#more").val("less");
+             $("#detailSearch").show();
+         }
+     };
+ </script>
 <style>
 
     #isActive {
@@ -10,6 +24,9 @@
 </style>
 
      @Html.ValidationSummary(true)
+
+      @Html.Action("DropDownList", "Site", new { id = Model.site , propertyName="site",defaultValue = "All Sites"})
+
      @Html.ValidationMessageFor(model => model.keyword)
 
      @Html.TextBoxFor(model => model.keyword,new { Class = "input-large", placeholder =  "Search" })
@@ -20,4 +37,8 @@
      </label>
 
   
-    <button name="submitButton" value="Search" type="submit" class="btn">Search</button>
+    <button id= "test" name="submitButton" value="Search" type="submit" class="btn">Search</button>
+    <button id="more" value="more" type="button" class="btn" onclick="advanceSearch()"><i class="icon-large icon-plus-sign"></i></button>
+<div id="detailSearch" hidden="hidden">
+     @Html.Action("DropDownList", "make", new { id = Model.site , propertyName="site",defaultValue = "Any"})
+</div>
