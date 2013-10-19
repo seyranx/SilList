@@ -9,12 +9,19 @@
 @Html.TextBoxFor(model => model.keyword,new { Class = "input-large", placeholder =  "Keyword" })
 @Html.ValidationMessageFor(model => model.keyword)
 <br />
-@Html.CheckBox("a") Title Only</label>
 
+@Html.CheckBoxFor(model => model.titleOnly) Title Only</label>
+@*
 <label>Location:</label>
 @Html.ValidationSummary(true)
 @Html.TextBoxFor(model => model.location,new { Class = "input-large", placeholder =  "Location" })
 @Html.ValidationMessageFor(model => model.location)
+*@
+ <br /><br />
+<label>Location:</label>
+@Html.ValidationSummary(true)
+@Html.TextBoxFor(model => model.locKeyword,new { Class = "input-large", placeholder =  "City, State or Zip" })
+@Html.ValidationMessageFor(model => model.locKeyword)
 
 <br /><br />
 <button name="submitButton" value="Search" type="submit" class="btn btn-success pull-right">Search</button>
@@ -63,7 +70,7 @@
         var cat = $('#category').val();
         if (cat.length == 0) {
             $('#category').val('Rentals');
-            //$('#r').body.style.backgrounColor = "red";
+            //$('#rentals').body.style.backgrounColor = "red";
         } else {
             $('#category').val(null);
            // $('#rentals').body.style.backgroundColor = "white";
