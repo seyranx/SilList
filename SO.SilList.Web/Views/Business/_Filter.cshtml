@@ -1,11 +1,28 @@
 ﻿@model SO.SilList.Manager.Models.ViewModels.BusinessVm
+ 
 
-@{
-    ViewBag.Title = "Filter";
-    Layout = "~/Views/Shared/_LayoutBusiness.cshtml";
-}
+<form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Business")">
 
+<label>Keyword:</label>
+@Html.ValidationSummary(true)
+@Html.TextBoxFor(model => model.keyword,new { Class = "input-large", placeholder =  "Keyword" })
+@Html.ValidationMessageFor(model => model.keyword)
 
+<label>Location:</label>
+@Html.ValidationSummary(true)
+@Html.TextBoxFor(model => model.location,new { Class = "input-large", placeholder =  "Location" })
+@Html.ValidationMessageFor(model => model.location)
+
+<br /><br />
+
+ @Html.HiddenFor(model=> model.paging.pageNumber)
+
+<button name="submitButton" value="Search" type="submit" class="btn btn-success pull-right">Search</button>
+
+ 
+ </form>
+
+@*
 <fieldset>
     <legend>BusinessVm</legend>
 
@@ -23,14 +40,9 @@
         @Html.DisplayFor(model => model.isActive)
     </div>
 
-@*    <div class="display-label">
-         @Html.DisplayNameFor(model => model.submitButton)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.submitButton)
-    </div>*@
 </fieldset>
 <p>
     @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+*@
