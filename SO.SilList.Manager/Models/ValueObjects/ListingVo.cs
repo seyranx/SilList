@@ -40,6 +40,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Listing Type")]
         public int? listingTypeId { get; set; }
 
+        [DisplayName("Price")]
+        public decimal? price { get; set; }
+
         [DisplayName("Address")]
         public string address { get; set; }
 
