@@ -50,7 +50,7 @@ namespace SO.SilList.Tests.Managers
         public void insertDeleteTest()
         {
             var vo = new RentalVo();
-            vo.price = 1500.99;
+            vo.price = (decimal)1500.99;
 
 
             var result = rentalManager.insert(vo);
