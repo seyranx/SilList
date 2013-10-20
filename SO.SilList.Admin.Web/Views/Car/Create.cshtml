@@ -234,13 +234,20 @@
 
         <div class="control-group">
         <div class="control-label">
+            @Html.DisplayNameFor(model => model.vin)
+        </div>
+        <div class="controls">
+                @Html.EditorFor(model => model.vin) 
+        </div>
+     </div>
+                <div class="control-group">
+        <div class="control-label">
             @Html.DisplayNameFor(model => model.description)
         </div>
         <div class="controls">
                 @Html.TextAreaFor(model => model.description,new {@rows = 5 }) 
         </div>
      </div>
-
         <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.isApproved)

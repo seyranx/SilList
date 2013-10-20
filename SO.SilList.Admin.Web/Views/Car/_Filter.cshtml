@@ -1,23 +1,84 @@
 ﻿@model SO.SilList.Manager.Models.ViewModels.CarVm
- 
+ <script>
+     function advanceSearch() {
+        //prompt($("#more").val());
+         //if ($("#more").val() == "less") {
+         //    $("#more").html('<i class="icon-large icon-plus-sign"></i>');
+         //    $("#more").val("more");
+         //    //$("#more").title("Advance Search");
+         //    $("#detailSearch").hide();
+         //}
+         //else if ($("#more").val() == "more") {
+         //    $("#more").html('<i class="icon-large icon-minus-sign"></i>');
+         //    $("#more").val("less");
+         //    //$("#more").title("Basic Search");
+         //    $("#detailSearch").show();
+         //}
+         if ($("#more").html() == "Basic Search") {
+             $("#detailSearch").hide();
+             $("#more").html("Advance Search");
+         }
+         else if ($("#more").html() == "Advance Search") {
+             $("#detailSearch").show();
+             $("#more").html("Basic Search");
+         }
+     };
+ </script>
 <style>
 
     #isActive {
 
         width:90px;
     }
-
+    #detailSearch {
+        padding:5px; 
+        border:2px outset #5f69b2;
+        width:700px;
+        margin-top:10px;
+    }
+        #detailSearch select {
+            margin:5px;
+        }
 </style>
 
      @Html.ValidationSummary(true)
+
+      @Html.Action("DropDownList", "Site", new { id = Model.site , propertyName="site",defaultValue = "All Sites"})
+
      @Html.ValidationMessageFor(model => model.keyword)
 
-     @Html.TextBoxFor(model => model.keyword,new { Class = "input-large", placeholder =  "Search" })
+   
 
      <label class="checkbox" style="margin-left:10px;">
-       @Html.LabelFor(model => model.isActive) 
+       Active
          @Html.EditorFor(model => model.isActive)
      </label>
 
   
-    <button name="submitButton" value="Search" type="submit" class="btn">Search</button>
+    
+
+<div class="input-append" >
+    @Html.TextBoxFor(model => model.keyword,new { Class = "input-large", placeholder =  "Search" })
+ 
+  <button class="btn" name="submitButton" type="submit">Search</button>
+</div>
+
+
+   <!--
+        <button  value="more" type="button" class="btn" title="Advance Search" onclick="advanceSearch()"><i class="icon-large icon-plus-sign"></i></button>
+    -->
+       <a id="more" onclick="advanceSearch()">Advance Search</a>
+<div id="detailSearch" hidden="hidden" >
+     @Html.Action("DropDownList", "MakeType", new { id = Model.make , propertyName="make",defaultValue = "Any Make"})
+    <i id="modelList">
+        @Html.Action("DropDownList", "ModelType", new { id = Model.model ,_makeTypeId=Model.make, propertyName="model",defaultValue = "Any Model"})
+    </i>
+    @Html.Action("DropDownList", "CarBodyType", new { id = Model.body , propertyName="body",defaultValue = "Any Body Types"})
+    @Html.Action("DropDownList", "TransmissionType", new { id = Model.transmission , propertyName="transmission",defaultValue = "Any Transmission"})
+    @Html.Action("DropDownList", "CarEngineType", new { id = Model.engine , propertyName="engine",defaultValue = "Any Engine"})
+    @Html.Action("DropDownList", "CarDriveType", new { id = Model.drive , propertyName="drive",defaultValue = "Any Drive"})
+    @Html.Action("DropDownList", "CarDoorType", new { id = Model.door , propertyName="door",defaultValue = "Any Doors"})
+    @Html.Action("DropDownList", "CarFuelType", new { id = Model.fuel , propertyName="fuel",defaultValue = "Any Fuel Type"})
+    @Html.Action("DropDownList", "CarColorType", new { id = Model.exColor , propertyName="exColor",defaultValue = "Any Color"})
+    @Html.Action("DropDownList", "CarColorType", new { id = Model.inColor , propertyName="inColor",defaultValue = "Any Interior"})
+</div>
