@@ -1,4 +1,6 @@
 ﻿@model SO.SilList.Manager.Models.ValueObjects.PropertyTypeVo
 
-@Html.DropDownListFor(s=>s.propertyTypeId, new SelectList(ViewBag.propertyType,"propertyTypeId",
-                                                            "name",Model),"Select One")
+@Html.DropDownList((string)ViewBag.propertyName, new SelectList(ViewBag.propertyType,"propertyTypeId",
+                                                            "name",Model.propertyTypeId),"Select One")
+
+

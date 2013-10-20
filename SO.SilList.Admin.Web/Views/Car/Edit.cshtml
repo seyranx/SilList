@@ -181,7 +181,14 @@
                 @Html.ValidationMessageFor(model => model.car.endDate)
             </div>
         </div>
-
+                <div class="control-group">
+        <div class="control-label">
+            @Html.DisplayNameFor(model => model.vin)
+        </div>
+        <div class="controls">
+                @Html.EditorFor(model => model.vin) 
+        </div>
+     </div>
                 <div class="control-group">
         <div class="control-label">
             @Html.DisplayNameFor(model => model.car.description)

@@ -88,7 +88,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return RedirectToAction("index");
         }
 
-        public ActionResult DropDownList(int? id = null)
+        public ActionResult DropDownList(int? id = null, string propertyName = null)
         {
             ViewBag.propertyType = propertyTypeManager.getAll(null);
             var propertyType = new PropertyTypeVo();
@@ -96,6 +96,9 @@ namespace SO.SilList.Admin.Web.Controllers
             {
                 propertyType = propertyTypeManager.get(id.Value);
             }
+            if (propertyName == null)
+                propertyName = "modelTypeId";
+            ViewBag.propertyName = propertyName;
             return PartialView("_DropDownList", propertyType);
         }
         public ActionResult Filter(PropertyTypeVm Input)
