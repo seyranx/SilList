@@ -27,7 +27,7 @@
                 @Html.ValidationMessageFor(model => model.title)
             </div>
         </div>
-
+        @*
         <div class="control-group">
             <div class="control-label">
                 Listing Category
@@ -36,7 +36,7 @@
                 @Html.Action("DropDownList","ListingCategoryType",new {id= Model.listingCategories.All(c=>c.listingCategoryType.listingCategoryTypeId)})
             </div>
         </div>
-
+        *@
         <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.listingTypeId)
@@ -65,11 +65,32 @@
         </div>
         <div class="control-group">
             <div class="control-label">
+                @Html.LabelFor(model => model.address)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.address)
+                @Html.ValidationMessageFor(model => model.address)
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.stateTypeId)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.stateTypeId)
+                @Html.ValidationMessageFor(model => model.stateTypeId)
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
                 @Html.LabelFor(model => model.cityTypeId)
             </div>
             <div class="controls">
+                @Html.Action("DropDownList","CityType",new {id=Model.cityTypeId})
+                @*
                 @Html.EditorFor(model => model.cityTypeId)
                 @Html.ValidationMessageFor(model => model.cityTypeId)
+                *@
             </div>
         </div>
         <div class="control-group">

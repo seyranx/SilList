@@ -1,12 +1,11 @@
 ﻿@model SO.SilList.Manager.Models.ViewModels.ListingVm
  
-
 <form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Listings")">  
 
 <label>Keyword:</label>
  <label class="pull-center">  
 @Html.ValidationSummary(true)
-@Html.TextBoxFor(model => model.keyword,new { Class = "input-large", placeholder =  "Keyword" })
+@Html.TextBoxFor(model => model.keyword,new { Class = "input-large", placeholder =  "Keyword"})
 @Html.ValidationMessageFor(model => model.keyword)
 <br />
 
@@ -20,7 +19,7 @@
  <br /><br />
 <label>Location:</label>
 @Html.ValidationSummary(true)
-@Html.TextBoxFor(model => model.locKeyword,new { Class = "input-large", placeholder =  "City, State or Zip" })
+@Html.TextBoxFor(model => model.locKeyword,new { Class = "input-large", placeholder =  "City, State or Zip"})
 @Html.ValidationMessageFor(model => model.locKeyword)
 
 <br /><br />
@@ -65,7 +64,20 @@
 
 
 <script> 
+    /*
+    $('.typeahead').typeahead({
 
+        source: function (query, process) {
+            return $.getJSON(
+                'path/to/lookup',
+                { query: query },
+                function (data) {
+                    return process(data);
+                });
+        }
+
+    });
+    */
     function rentalsAction() {
         var cat = $('#category').val();
         if (cat.length == 0) {
