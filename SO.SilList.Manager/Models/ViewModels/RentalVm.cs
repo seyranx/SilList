@@ -41,6 +41,7 @@ namespace SO.SilList.Manager.Models.ViewModels
                 paging = new Paging();
         }
 
+        /*
         public int skip
         {
             get
@@ -66,5 +67,6 @@ namespace SO.SilList.Manager.Models.ViewModels
             if (paging == null)
                 paging = new Paging();
         }
+         */
     }
 }

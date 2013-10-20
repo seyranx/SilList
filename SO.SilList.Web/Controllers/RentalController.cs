@@ -22,7 +22,7 @@ namespace SO.SilList.Web.Controllers
 
             if (this.ModelState.IsValid)
             {
-                input.result = rentalManager.search(input);
+                input = rentalManager.search(input);
                 return View(input);
             }
             return View();

@@ -46,7 +46,7 @@ namespace SO.SilList.Manager.Managers
                 return res;
             }
         }
-
+        
         public RentalVm search(RentalVm input)
         {
 
@@ -74,6 +74,7 @@ namespace SO.SilList.Manager.Managers
                 return input;
             }
         }
+         
         public List<RentalVo> getAll(bool? isActive = true)
         {
             using (var db = new MainDb())
@@ -148,7 +149,7 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-
+        /*
         public List<RentalVo> search(RentalVm input)
         {
             using (var db = new MainDb())
@@ -168,5 +169,7 @@ namespace SO.SilList.Manager.Managers
                 return list;
             }
         }
+         */
+         
     }
 }

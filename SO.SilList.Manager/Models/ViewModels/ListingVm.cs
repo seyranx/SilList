@@ -39,6 +39,9 @@ namespace SO.SilList.Manager.Models.ViewModels
             this.result = new List<ListingVo>();
             if (paging == null)
                 paging = new Paging();
+
+            this.category = null;
+            this.type = null;
         }
 
         public ListingVm(ListingVo input)
