@@ -1,7 +1,7 @@
 ﻿@model SO.SilList.Manager.Models.ValueObjects.SiteVo
 
 
-@Html.DropDownList((string)ViewBag.propertyName, new SelectList(ViewBag.sites,"siteId","domain",Model.siteId),"Select One")
+@Html.DropDownList((string)ViewBag.propertyName, new SelectList(ViewBag.sites,"siteId","domain",Model.siteId),(string)ViewBag.defaultValue)
 
 
  

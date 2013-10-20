@@ -45,12 +45,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var query = db.stateType
-                            .Include(c => c.car)
-                            .Include(j => j.job)
-                            .Include(m => m.member)
-                            .Include(b => b.business)
-                            .Include(l => l.listing)
-                            .Include(r => r.rental)
+                            .Include(c => c.countryType)
                             .OrderBy(b => b.name)
                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
