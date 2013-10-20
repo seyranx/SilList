@@ -141,7 +141,9 @@
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LinkedController.cs" />
+    <Compile Include="Controllers\ListingCategoryTypeController.cs" />
     <Compile Include="Controllers\ListingsController.cs" />
+    <Compile Include="Controllers\ListingTypeController.cs" />
     <Compile Include="Controllers\RentalController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -299,6 +301,8 @@
     <Content Include="Views\Rental\_RentalItem.cshtml" />
     <Content Include="Views\Rental\_Filter.cshtml" />
     <Content Include="Views\Rental\_Menu.cshtml" />
+    <Content Include="Views\ListingCategoryType\getTopCategories.cshtml" />
+    <Content Include="Views\ListingType\getTopTypes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

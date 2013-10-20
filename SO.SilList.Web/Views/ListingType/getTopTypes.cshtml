@@ -1,0 +1,9 @@
+﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.ListingTypeVo>
+
+@{ 
+    foreach (var item in @Model)
+    {
+         <li ><a href="#"  id="@item.name" > @item.name </a></li>
+    } 
+    
+}

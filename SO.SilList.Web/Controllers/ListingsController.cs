@@ -44,12 +44,6 @@ namespace SO.SilList.Web.Controllers
             return PartialView(result);
         }
 
-/*
-        public ActionResult Menu()  "_DetailView"   "_DetailView"
-        {
-            return PartialView("_Menu");
-        }
-*/
         public ActionResult Filter(ListingVm input)
         {
             return PartialView("_Filter", input);

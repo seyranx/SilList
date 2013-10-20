@@ -17,8 +17,8 @@ namespace SO.SilList.Manager.Models.ViewModels
         public string keyword { get; set; }
         public int location { get; set; } //change int to 'string'
         public string locKeyword { get; set; } //change int to 'string'
-        public string category { get; set; } //change int to 'string'
-        public string type { get; set; } //change int to 'string'
+        public string listingCategoryTypeId { get; set; } //change int to 'string'
+        public string listingTypeId { get; set; } //change int to 'string'
         public bool titleOnly { get; set; }
 
         // Images
@@ -40,8 +40,8 @@ namespace SO.SilList.Manager.Models.ViewModels
             if (paging == null)
                 paging = new Paging();
 
-            this.category = null;
-            this.type = null;
+            this.listingCategoryTypeId = null;
+            this.listingTypeId = null;
         }
 
         public ListingVm(ListingVo input)
@@ -51,8 +51,8 @@ namespace SO.SilList.Manager.Models.ViewModels
             if (paging == null)
                 paging = new Paging();
 
-            this.category = null;
-            this.type = null;
+            this.listingCategoryTypeId = null;
+            this.listingTypeId = null;
         }
 
     }
