@@ -67,7 +67,7 @@
    <!--
         <button  value="more" type="button" class="btn" title="Advance Search" onclick="advanceSearch()"><i class="icon-large icon-plus-sign"></i></button>
     -->
-       <a id="more" onclick="advanceSearch()">Advance Search</a>
+       <a id="more" style="cursor:pointer" onclick="advanceSearch()">Advance Search</a>
 <div id="detailSearch" hidden="hidden" >
      @Html.Action("DropDownList", "MakeType", new { id = Model.make , propertyName="make",defaultValue = "Any Make"})
     <i id="modelList">

@@ -7,9 +7,6 @@
 <table class="table table-bordered table-hover">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.siteId)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.makeTypeId)
         </th>
         <th>
@@ -42,9 +39,6 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.site.domain)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.modelType.makeType.name)
         </td>
         <td>
@@ -73,9 +67,9 @@
             @Html.DisplayFor(modelItem => item.isActive)
         </td>
         <td>
-            <a href="@Url.Action("Edit",new { id=item.carId })" class="btn">Edit</a>
-            <a href="@Url.Action("Details",new { id=item.carId })" class="btn">Details</a>
-            <a href="@Url.Action("Delete",new { id=item.carId })" class="btn">Delete</a>
+            <a href="@Url.Action("Edit",new { id=item.carId })" class="btn" title="Edit"><i class="icon-edit"></i></a>
+            <a href="@Url.Action("Details",new { id=item.carId })" class="btn" title="Detail"><i class="icon-list"></i></a>
+            <a href="@Url.Action("Delete",new { id=item.carId })" class="btn" title="Delete"><i class="icon-trash"></i></a>
         </td>
     </tr>
 }

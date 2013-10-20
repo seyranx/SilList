@@ -50,6 +50,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Price")]
         public Nullable<decimal> price { get; set; }
 
+        [DisplayName("Address")]
+        public string address { get; set; }
+
         [DisplayName("City")]
         public Nullable<int> cityTypeId { get; set; }
 
@@ -61,6 +64,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         [DisplayName("Zip")]
         public Nullable<int> zip { get; set; }
+
+        [DisplayName("Phone")]
+        [StringLength(50)]
+        public string phone { get; set; }
 
         [DisplayName("Fax")]
         [StringLength(50)]
