@@ -1,19 +1,30 @@
 ﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.ListingCategoryTypeVo>
-<script>
-
-    function onListingCategory(id) {
-    }
 
 
-</script>
 @{ 
     foreach (var item in @Model)
     {
+         <li ><a href="#"  id="@item.name" onclick="onListingCategory(@item.listingCategoryTypeId)"> @item.name </a></li>
+    @*
          <li ><a href="#"  id="@item.name" onclick="$('#listingCategoryTypeId').val('@item.listingCategoryTypeId'); $('#filterForm').submit();return false"> @item.name </a></li>
-    
-        
+    *@   
     } 
     
     @Html.Hidden("listingCategoryTypeId")
-
 }
+
+<script>
+    function onListingCategory(id) {
+        var cat = $('#listingCategoryTypeId').val();
+        if (cat.length == 0) {
+            $('#listingCategoryTypeId').val(id);
+            //$('#rentals').body.style.backgrounColor = "red";
+        } else {
+            $('#listingCategoryTypeId').val(null);
+            // $('#rentals').body.style.backgroundColor = "white";
+        }
+        $('#filterForm').submit();
+        return false;
+    };
+
+</script>

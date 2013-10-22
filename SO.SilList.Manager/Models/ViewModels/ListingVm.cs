@@ -17,8 +17,8 @@ namespace SO.SilList.Manager.Models.ViewModels
         public string keyword { get; set; }
         public int location { get; set; } //change int to 'string'
         public string locKeyword { get; set; } //change int to 'string'
-        public string listingCategoryTypeId { get; set; } //change int to 'string'
-        public string listingTypeId { get; set; } //change int to 'string'
+        public int? listingCategoryTypeId { get; set; } //change int to 'string'
+        public int? listingTypeId { get; set; } //change int to 'string'
         public bool titleOnly { get; set; }
 
         // Images
