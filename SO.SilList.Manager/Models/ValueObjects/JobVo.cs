@@ -119,8 +119,12 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         [Association("JobCategories_Job", "jobId", "jobId", IsForeignKey = true)]
         public List<JobCategoriesVo> jobCategories { get; set; }
-      
-    	public JobVo(){
+
+        [ForeignKey("entryStatusTypeId")]
+        public virtual EntryStatusTypeVo entryStatusType { get; set; }
+
+        public JobVo()
+        {
     			
     		this.jobId = Guid.NewGuid();
             this.isApproved = false;
