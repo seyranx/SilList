@@ -22,7 +22,7 @@
     [createdBy]         INT              NULL,
     [modifiedBy]        INT              NULL,
     [isActive]          BIT              CONSTRAINT [DF__tmp_ms_xx__isAct__3DE82FB7] DEFAULT ((1)) NOT NULL,
-    [isApproved]        BIT              NULL,
+    [isApproved]        BIT              CONSTRAINT [DF_Job_isApproved] DEFAULT ((0)) NULL,
     CONSTRAINT [PK__tmp_ms_x__164AA1A8BD5F9C61] PRIMARY KEY CLUSTERED ([jobId] ASC),
     CONSTRAINT [FK_Job_CityType] FOREIGN KEY ([cityTypeId]) REFERENCES [app].[CityType] ([cityTypeId]) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT [FK_Job_CountryType] FOREIGN KEY ([countryTypeId]) REFERENCES [app].[CountryType] ([countryTypeId]) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -32,6 +32,8 @@
     CONSTRAINT [FK_Job_Site] FOREIGN KEY ([siteId]) REFERENCES [app].[Site] ([siteId]) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT [FK_Job_StateType] FOREIGN KEY ([stateTypeId]) REFERENCES [app].[StateType] ([stateTypeId]) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+
 
 
 

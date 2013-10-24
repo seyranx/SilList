@@ -78,7 +78,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public System.DateTime endDate { get; set; }
 
         [DisplayName("is Approved")]
-        public bool isApproved { get; set; }
+        public bool? isApproved { get; set; }
     		
         [DisplayName("Entry Status Type")]
         public Nullable<int> entryStatusTypeId { get; set; }
