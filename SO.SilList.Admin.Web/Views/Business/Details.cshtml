@@ -31,7 +31,12 @@
         @Html.DisplayFor(model => model.phone)
     </div>
 
-
+        <div class="display-label">
+         @Html.DisplayNameFor(model => model.fax)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.fax)
+    </div>
     <div class="display-label">
          @Html.DisplayNameFor(model => model.address)
     </div>
@@ -43,14 +48,20 @@
          @Html.DisplayNameFor(model => model.cityTypeId)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.cityTypeId)
+        @Html.DisplayFor(model => model.cityType.name)
     </div>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.stateTypeId)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.stateTypeId)
+        @Html.DisplayFor(model => model.stateType.name)
+    </div>
+        <div class="display-label">
+         @Html.DisplayNameFor(model => model.countryTypeId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.countryType.name)
     </div>
 
     <div class="display-label">

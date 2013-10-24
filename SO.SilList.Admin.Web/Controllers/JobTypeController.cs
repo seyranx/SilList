@@ -32,7 +32,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Menu()
         {
-            return PartialView("../Job/Menu");
+            return PartialView("../Job/_Menu");
         }
         public ActionResult List()
         {
@@ -97,15 +97,21 @@ namespace SO.SilList.Admin.Web.Controllers
         {
             return PartialView("_Pagination", input);
         }
-       /* public ActionResult DropDownList(int? id = null)
+        public ActionResult DropDownList(int? id = null, string propertyName = null, string defaultValue = null)
         {
-            ViewBag.models = jobTypeManager.getAll(null);
-            var model = new ModelTypeVo();
+            ViewBag.bodies = jobTypeManager.getAll(null);
+            var body = new JobTypeVo();
             if (id != null)
             {
-                model = jobTypeManager.get(id.Value);
+                body = jobTypeManager.get(id.Value);
             }
-            return PartialView("_DropDownList", model);
-       // }*/
+            if (propertyName == null)
+                propertyName = "jobTypeId";
+            ViewBag.propertyName = propertyName;
+            if (defaultValue == null)
+                defaultValue = "Select One";
+            ViewBag.defaultValue = defaultValue;
+            return PartialView("_DropDownList", body);
+        }
     }
 }

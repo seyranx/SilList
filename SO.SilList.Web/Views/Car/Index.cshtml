@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.CarVo>
+﻿@model SO.SilList.Manager.Models.ViewModels.CarVm
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutCar.cshtml";
@@ -8,7 +8,7 @@
 
 <ul class="media-list" >
 
- @foreach (var item in Model) {
+ @foreach (var item in Model.result) {
   <li class="row, media" style="border-bottom:1px solid #ccc;" >
    
      @Html.Partial("_CarItem",item)
