@@ -45,8 +45,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public Nullable<bool> isActive { get; set; }
 
         [Association("EntryStatusType_Job", "entryStatusTypeId", "entryStatusTypeId", IsForeignKey = true)]
-        public List<JobVo> job { get; set; }
-        
+        public List<JobVo> jobs { get; set; }
+
+        [Association("EntryStatusType_Business", "entryStatusTypeId", "entryStatusTypeId", IsForeignKey = true)]
+        public List<BusinessVo> businesses { get; set; }
+
         public EntryStatusTypeVo()
         {
             this.isActive = true;
