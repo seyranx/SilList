@@ -301,6 +301,7 @@
     <Content Include="Views\Rental\_RentalItem.cshtml" />
     <Content Include="Views\Rental\_Filter.cshtml" />
     <Content Include="Views\Rental\_Menu.cshtml" />
+    <Content Include="Views\Shared\_LayoutCar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

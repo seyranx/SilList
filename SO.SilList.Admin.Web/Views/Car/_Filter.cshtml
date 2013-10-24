@@ -1,19 +1,6 @@
 ﻿@model SO.SilList.Manager.Models.ViewModels.CarVm
  <script>
      function advanceSearch() {
-        //prompt($("#more").val());
-         //if ($("#more").val() == "less") {
-         //    $("#more").html('<i class="icon-large icon-plus-sign"></i>');
-         //    $("#more").val("more");
-         //    //$("#more").title("Advance Search");
-         //    $("#detailSearch").hide();
-         //}
-         //else if ($("#more").val() == "more") {
-         //    $("#more").html('<i class="icon-large icon-minus-sign"></i>');
-         //    $("#more").val("less");
-         //    //$("#more").title("Basic Search");
-         //    $("#detailSearch").show();
-         //}
          if ($("#more").html() == "Basic Search") {
              $("#detailSearch").hide();
              $("#more").html("Advance Search");
@@ -30,15 +17,28 @@
 
         width:90px;
     }
+    #year {
+        width:95px;
+    }
+    #vin{
+        width:150px;
+    }
     #detailSearch {
         padding:5px; 
         border:2px outset #5f69b2;
-        width:700px;
+        width:660px;
         margin-top:10px;
+        border-radius:5px;
     }
-        #detailSearch select {
-            margin:5px;
-        }
+    #zip {
+    width:100px;
+    margin:3px;
+    }
+    #detailSearch select{
+        margin:3px;
+        width:155px;
+    }
+
 </style>
 
      @Html.ValidationSummary(true)
@@ -63,10 +63,6 @@
   <button class="btn" name="submitButton" type="submit">Search</button>
 </div>
 
-
-   <!--
-        <button  value="more" type="button" class="btn" title="Advance Search" onclick="advanceSearch()"><i class="icon-large icon-plus-sign"></i></button>
-    -->
        <a id="more" style="cursor:pointer" onclick="advanceSearch()">Advance Search</a>
 <div id="detailSearch" hidden="hidden" >
      @Html.Action("DropDownList", "MakeType", new { id = Model.make , propertyName="make",defaultValue = "Any Make"})
@@ -81,4 +77,29 @@
     @Html.Action("DropDownList", "CarFuelType", new { id = Model.fuel , propertyName="fuel",defaultValue = "Any Fuel Type"})
     @Html.Action("DropDownList", "CarColorType", new { id = Model.exColor , propertyName="exColor",defaultValue = "Any Color"})
     @Html.Action("DropDownList", "CarColorType", new { id = Model.inColor , propertyName="inColor",defaultValue = "Any Interior"})
+                    @{
+                    int currentYear = DateTime.Now.Year;
+                    var mylist = new string[31];
+                    for (int i = 0; i < 31; i++)
+                    {
+                        mylist.SetValue((currentYear - 30 + i).ToString(), 30 - i);
+                    }
+                    var selectlist = new SelectList(mylist);
+                }
+    @Html.DropDownListFor(model => model.year, selectlist,"Any Year")
+    @Html.TextBoxFor(model => model.vin, new { placeholder = "Vin Number" })
+           @Html.TextBoxFor(model => model.city, new { placeholder = "City" })
+        @Html.TextBoxFor(model => model.state, new { placeholder = "State" })
+    @Html.TextBoxFor(model => model.zip, new { placeholder = "zip" })  
+   <div>
+         <label>Price</label> 
+        $<input type="text" value="@Model.startingPrice" style="width:50px; margin:5px" placeholder="Starting" name="startingPrice"/>
+        to $<input type="text" value="@Model.endingPrice" style="width:50px; margin:5px" placeholder="Ending" name="endingPrice"/>
+   
+        <label>Millage</label> 
+        <input type="text" value="@Model.startingMillage" style="width:50px; margin:5px" placeholder="Starting" name="startingMillage"/>
+         to <input type="text" value="@Model.endingMillage" style="width:50px; margin:5px" placeholder="Ending" name="endingMillage"/>
+   </div>
 </div>
+
+

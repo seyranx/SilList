@@ -27,8 +27,7 @@ namespace SO.SilList.Tests.Managers
                 var vo = new JobCompanyVo();
                 vo.name = i.ToString() + ":  AAA Co" + "  >>";
                 vo.address = i.ToString() + "123 main st" + "  >>";
-                vo.city = "Los Angeles";
-                vo.state = "CA";
+               
                 vo.zip = 12345;
                 vo.createdBy = 11111;
                 vo.modifiedBy = 11111;
@@ -48,8 +47,7 @@ namespace SO.SilList.Tests.Managers
             var vo = new JobCompanyVo();
             vo.name = "ABC Co";
             vo.address = "123 main st";
-            vo.city = "Los Angeles";
-            vo.state = "CA";
+
             vo.zip = 12345;
             vo.createdBy = 11111;
             vo.modifiedBy = 11111;

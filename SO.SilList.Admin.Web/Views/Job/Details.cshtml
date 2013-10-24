@@ -7,107 +7,122 @@
 
 <h2>Details</h2>
 
-<fieldset>
-    <legend>JobVo</legend>
+<fieldset class="form-horizontal">
+    <legend></legend>
 
     
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.siteId)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.siteId)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.title)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.title)
+     <div class="control-group">
+        <div class="control-label">
+            @Html.LabelFor(model => model.jobId)
+        </div>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.jobId)" readonly="true">
+        </div>
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.description)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.description)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.jobTypeId)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.jobTypeId)
+    <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.siteId)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.site.domain)" readonly="true">
+        </div>
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.cityTypeId)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.cityTypeId)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.stateTypeId)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.stateTypeId)
+    <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.title)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.title)" readonly="true">
+        </div>
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.isTravelRequired)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.isTravelRequired)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.isTelecomute)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.isTelecomute)
+    <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.description)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.description)" readonly="true">
+        </div>
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.jobCompanyId)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.jobCompanyId)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.created)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.created)
+    <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.jobTypeId)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.jobType.name)" readonly="true">
+        </div>
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.modified)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.modified)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.createdBy)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.createdBy)
+    <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.cityTypeId)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.cityType.name)" readonly="true">
+        </div>
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.modifiedBy)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.modifiedBy)
+    <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.stateTypeId)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.stateType.name)" readonly="true">
+        </div>
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.isActive)
+    <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.isTravelRequired)</label>
+        <div class="controls">
+                @Html.DisplayFor(model => model.isTravelRequired)
+        </div>
     </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.isActive)
+    
+     <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.isTelecomute)</label>
+        <div class="controls">
+                @Html.DisplayFor(model => model.isTelecomute)
+        </div>
+    </div>
+
+     <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.jobCompanyId)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.jobCompany.name)" readonly="true">
+        </div>
+    </div>
+
+     <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.created)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.created)" readonly="true">
+        </div>
+    </div>
+
+        <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.modified)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.modified)" readonly="true">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.createdBy)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.createdBy)" readonly="true">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.modifiedBy)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.modifiedBy)" readonly="true">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label"> @Html.DisplayNameFor(model => model.isApproved)</label>
+        <div class="controls">
+            @Html.DisplayFor(model => model.isApproved)
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label"> @Html.DisplayNameFor(model => model.isActive)</label>
+        <div class="controls">
+            @Html.DisplayFor(model => model.isActive)
+        </div>
     </div>
 </fieldset>
 <p>

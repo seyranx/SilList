@@ -21,7 +21,7 @@ namespace SO.SilList.Manager.Managers
             {
                 var result = db.jobs
                             .Include(s => s.site)
-                            .Include(j => j.jobTypes)
+                            .Include(j => j.jobType)
                             .Include(t => t.jobCompany)
                             .Include(i => i.cityType)
                             .Include(o => o.countryType)
@@ -49,7 +49,7 @@ namespace SO.SilList.Manager.Managers
             {
                 var query = db.jobs
                              .Include(s => s.site)
-                             .Include(j => j.jobTypes)
+                             .Include(j => j.jobType)
                              .Include(t => t.jobCompany)
                             .Include(i => i.cityType)
                             .Include(o => o.countryType)
@@ -76,7 +76,7 @@ namespace SO.SilList.Manager.Managers
             {
                 var list = db.jobs
                              .Include(s => s.site)
-                             .Include(j => j.jobTypes)
+                             .Include(j => j.jobType)
                              .Include(t => t.jobCompany)
                             .Include(i => i.cityType)
                             .Include(o => o.countryType)

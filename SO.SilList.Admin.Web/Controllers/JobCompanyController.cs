@@ -32,7 +32,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Menu()
         {
-            return PartialView("../Job/Menu");
+            return PartialView("../Job/_Menu");
         }
         public ActionResult List()
         {
