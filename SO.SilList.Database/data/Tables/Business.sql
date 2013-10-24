@@ -18,6 +18,7 @@
     [created]           DATETIME         CONSTRAINT [DF_Business_created] DEFAULT (getdate()) NOT NULL,
     [isActive]          BIT              CONSTRAINT [DF_Business_isActive] DEFAULT ((1)) NOT NULL,
     [url]               NVARCHAR (50)    NULL,
+    [isApproved]        BIT              NULL,
     CONSTRAINT [PK_Business] PRIMARY KEY CLUSTERED ([businessId] ASC),
     CONSTRAINT [FK_Business_CityType] FOREIGN KEY ([cityTypeId]) REFERENCES [app].[CityType] ([cityTypeId]) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT [FK_Business_CountryType] FOREIGN KEY ([countryTypeId]) REFERENCES [app].[CountryType] ([countryTypeId]) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -25,6 +26,8 @@
     CONSTRAINT [FK_Business_Site] FOREIGN KEY ([siteId]) REFERENCES [app].[Site] ([siteId]) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT [FK_Business_StateType] FOREIGN KEY ([stateTypeId]) REFERENCES [app].[StateType] ([stateTypeId]) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+
 
 
 
