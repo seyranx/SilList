@@ -68,11 +68,11 @@ namespace SO.SilList.Manager.Managers
                                             || ((input.titleOnly == false)  && (e.title.Contains(input.keyword) || e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))))
                                         // change '== 0' to 'null' and change '==' to '.Contains'
                                       && ((input.location == 0) || (e.cityTypeId == input.location) || (e.stateTypeId == input.location) || (e.zip == input.location))
-                                      && ((input.listingCategoryTypeId == null) || (input.listingCategoryTypeId == k.listingCategoryTypeId))) // here fix
+                                      && ((input.listingCategoryTypeId == null) || (e.listingCategories.Any(c=>c.listingCategoryType.listingCategoryTypeId==input.listingCategoryTypeId)  )) // here fix
                                       && ((input.listingTypeId == null) || (e.listingType.listingTypeId ==  input.listingTypeId))
                                       
                                       
-                                      //&& ((input.listingCategoryTypeId == null) || (e.listingCategories.Any(c => c.listingCategoryType.name.Contains(input.listingCategoryTypeId))))
+                                      //&& ((input.listingCategoryTypeId == null) || (e.listingCategories.Any(c => c.listingCategoryType.name.Contains(input.listingCategoryTypeId)))  )
                                       //&& ((input.listingTypeId == null) || (e.listingType.name.Contains(input.listingTypeId)))
                                     );   
   

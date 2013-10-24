@@ -1,30 +1,32 @@
 ﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.ListingCategoryTypeVo>
 
-
 @{ 
+    <li ><a href="#" id="showAllCategory" class="TopCategory" onclick="return onListingCategory(null, this)">
+                <font face="verdana"><i>Show All </i></font></a></li>
+    
     foreach (var item in @Model)
     {
-         <li ><a href="#"  id="@item.name" onclick="onListingCategory(@item.listingCategoryTypeId)"> @item.name </a></li>
-    @*
-         <li ><a href="#"  id="@item.name" onclick="$('#listingCategoryTypeId').val('@item.listingCategoryTypeId'); $('#filterForm').submit();return false"> @item.name </a></li>
-    *@   
-    } 
-    
-    @Html.Hidden("listingCategoryTypeId")
+         <li ><a href="#" id="@item.listingCategoryTypeId" class="TopCategory"
+                onclick="return onListingCategory('@item.listingCategoryTypeId', this)"> @item.name </a></li>  
+    }       
 }
 
 <script>
-    function onListingCategory(id) {
-        var cat = $('#listingCategoryTypeId').val();
-        if (cat.length == 0) {
-            $('#listingCategoryTypeId').val(id);
-            //$('#rentals').body.style.backgrounColor = "red";
-        } else {
-            $('#listingCategoryTypeId').val(null);
-            // $('#rentals').body.style.backgroundColor = "white";
-        }
+    function onListingCategory(id, item) {
+        $('#listingCategoryTypeId').val(id);
+       
         $('#filterForm').submit();
         return false;
     };
+    
+    // change the color for the selected category
+    //
+    var listingCategoryTypeId = '@Request["listingCategoryTypeId"]';
+    if (listingCategoryTypeId != '') {
+        $('#' + listingCategoryTypeId).css('color', 'red');
+    }
+    else {
+        $('#showAllCategory').css('color', 'red');
+    }
 
 </script>
