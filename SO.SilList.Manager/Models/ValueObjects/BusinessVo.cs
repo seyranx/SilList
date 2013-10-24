@@ -64,7 +64,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public System.DateTime endDate { get; set; }
 
         [DisplayName("is Approved")]
-        public bool isApproved { get; set; }
+        public bool? isApproved { get; set; }
+
+        [DisplayName("Entry Status Type")]
+        public Nullable<int> entryStatusTypeId { get; set; }
 
         [DisplayName("created By")]
         public Nullable<int> createdBy { get; set; }
@@ -112,11 +115,15 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [Association("Business_BusinessImages", "businessId", "businessId", IsForeignKey = true)]
         public List<BusinessImagesVo> businessImages { get; set; }
 
+        [ForeignKey("entryStatusTypeId")]
+        public virtual EntryStatusTypeVo entryStatusType { get; set; }
+
         public BusinessVo()
         {
     		this.businessId = Guid.NewGuid();
     	    this.isActive = true;
             this.isApproved = false;
+            //this.entryStatusTypeId = 0;
     	 }
 
     }

@@ -80,6 +80,7 @@ namespace SO.SilList.Manager.DbContexts
         public DbSet<AdminVo> admins { get; set; }
         public DbSet<VisitVo> visits { get; set; }
 
+        public DbSet<EntryStatusTypeVo> entryStatusType { get; set; }
     }
 
 }

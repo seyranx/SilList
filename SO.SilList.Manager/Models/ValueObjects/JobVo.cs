@@ -78,8 +78,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public System.DateTime endDate { get; set; }
 
         [DisplayName("is Approved")]
-        public bool isApproved { get; set; }
+        public bool? isApproved { get; set; }
     		
+        [DisplayName("Entry Status Type")]
+        public Nullable<int> entryStatusTypeId { get; set; }
+
         public Nullable<System.DateTime> created { get; set; }
     		
     	[DisplayName("Modified")]
@@ -119,8 +122,12 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         [Association("JobCategories_Job", "jobId", "jobId", IsForeignKey = true)]
         public List<JobCategoriesVo> jobCategories { get; set; }
-      
-    	public JobVo(){
+
+        [ForeignKey("entryStatusTypeId")]
+        public virtual EntryStatusTypeVo entryStatusType { get; set; }
+
+        public JobVo()
+        {
     			
     		this.jobId = Guid.NewGuid();
             this.isApproved = false;

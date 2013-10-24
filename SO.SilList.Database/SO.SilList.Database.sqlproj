@@ -135,7 +135,7 @@
       <AnsiNulls>Off</AnsiNulls>
     </Build>
     <Build Include="data\Tables\Job.sql">
-      <AnsiNulls>Off</AnsiNulls>
+      <AnsiNulls>On</AnsiNulls>
     </Build>
     <Build Include="data\Tables\Member.sql">
       <AnsiNulls>Off</AnsiNulls>
@@ -225,6 +225,7 @@
     </Build>
     <Build Include="app\Tables\CountryType.sql" />
     <Build Include="app\Tables\CarDoorType.sql" />
+    <Build Include="app\Tables\EntryStatusType.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />
