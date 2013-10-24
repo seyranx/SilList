@@ -1,4 +1,4 @@
-﻿@model SO.SilList.Manager.Models.ValueObjects.JobTypeVo
+﻿@model SO.SilList.Manager.Models.ValueObjects.JobCompanyVo
 
 @{
     ViewBag.Title = "Create";
@@ -11,7 +11,7 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>JobTypeVo</legend>
+        <legend></legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.name)
@@ -22,43 +22,75 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.description)
+            @Html.LabelFor(model => model.address)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.description)
-            @Html.ValidationMessageFor(model => model.description)
+            @Html.EditorFor(model => model.address)
+            @Html.ValidationMessageFor(model => model.address)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.created)
+            @Html.LabelFor(model => model.cityTypeId)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.created)
-            @Html.ValidationMessageFor(model => model.created)
+            @Html.EditorFor(model => model.cityTypeId)
+            @Html.ValidationMessageFor(model => model.cityTypeId)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.modified)
+            @Html.LabelFor(model => model.stateTypeId)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.modified)
-            @Html.ValidationMessageFor(model => model.modified)
+            @Html.EditorFor(model => model.stateTypeId)
+            @Html.ValidationMessageFor(model => model.stateTypeId)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.createdBy)
+            @Html.LabelFor(model => model.countryTypeId)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.createdBy)
-            @Html.ValidationMessageFor(model => model.createdBy)
+            @Html.EditorFor(model => model.countryTypeId)
+            @Html.ValidationMessageFor(model => model.countryTypeId)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.modifiedBy)
+            @Html.LabelFor(model => model.zip)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.modifiedBy)
-            @Html.ValidationMessageFor(model => model.modifiedBy)
+            @Html.EditorFor(model => model.zip)
+            @Html.ValidationMessageFor(model => model.zip)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.website)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.website)
+            @Html.ValidationMessageFor(model => model.website)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.phone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.phone)
+            @Html.ValidationMessageFor(model => model.phone)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.fax)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.fax)
+            @Html.ValidationMessageFor(model => model.fax)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.siteId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.siteId)
+            @Html.ValidationMessageFor(model => model.siteId)
         </div>
 
         <div class="editor-label">
@@ -69,12 +101,11 @@
             @Html.ValidationMessageFor(model => model.isActive)
         </div>
 
-        <p>
+        <p class="controls">
             <input type="submit" value="Create" />
+            <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
         </p>
-    </fieldset>
+ </fieldset>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+

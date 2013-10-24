@@ -26,7 +26,7 @@ namespace SO.SilList.Web.Controllers
                 if (input.submitButton != null)
                     input.paging.pageNumber = 1;
                 input = carManager.search(input);
-                return View(input.result);
+                return View(input);
             }
             return View();
         }

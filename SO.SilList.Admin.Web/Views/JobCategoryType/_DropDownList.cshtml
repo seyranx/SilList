@@ -1,0 +1,3 @@
+﻿@model SO.SilList.Manager.Models.ValueObjects.JobCategoryTypeVo
+
+@Html.DropDownList((string)ViewBag.propertyName, new SelectList(ViewBag.bodies,"jobCategoryTypeId","name",Model.jobCategoryTypeId),(string)ViewBag.defaultValue)

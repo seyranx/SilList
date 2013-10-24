@@ -39,17 +39,37 @@
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.city)
+         @Html.DisplayNameFor(model => model.cityTypeId)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.city)
+        @Html.DisplayFor(model => model.cityType.name)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.state)
+         @Html.DisplayNameFor(model => model.stateTypeId)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.state)
+        @Html.DisplayFor(model => model.stateType.name)
+    </div>
+
+        <div class="display-label">
+         @Html.DisplayNameFor(model => model.countryTypeId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.countryType.name)
+    </div>
+
+        <div class="display-label">
+         @Html.DisplayNameFor(model => model.phone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.phone)
+    </div>
+        <div class="display-label">
+         @Html.DisplayNameFor(model => model.fax)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.fax)
     </div>
 
     <div class="display-label">
