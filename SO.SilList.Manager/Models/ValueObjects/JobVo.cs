@@ -80,6 +80,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [DisplayName("is Approved")]
         public bool isApproved { get; set; }
     		
+        [DisplayName("Entry Status Type")]
+        public Nullable<int> entryStatusTypeId { get; set; }
+
         public Nullable<System.DateTime> created { get; set; }
     		
     	[DisplayName("Modified")]

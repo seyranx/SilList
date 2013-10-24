@@ -66,6 +66,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [DisplayName("is Approved")]
         public bool isApproved { get; set; }
 
+        [DisplayName("Entry Status Type")]
+        public Nullable<int> entryStatusTypeId { get; set; }
+
         [DisplayName("created By")]
         public Nullable<int> createdBy { get; set; }
 
