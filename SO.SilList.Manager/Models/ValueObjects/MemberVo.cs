@@ -96,6 +96,16 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [Required]
         public bool isActive { get; set; }
 
+        [NotMapped]
+        [ReadOnly(true)]
+        public string fullName
+        {
+            get
+            {
+                return firstName + " " + lastName + " (" + username + ")";
+            }
+        }
+
         [ForeignKey("siteId")]
         public virtual SiteVo site { get; set; }
 

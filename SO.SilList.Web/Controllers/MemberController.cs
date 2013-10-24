@@ -51,9 +51,9 @@ namespace SO.SilList.Web.Controllers
             return View();
         }
 
-        public ActionResult Manage(string username)
+        public ActionResult Manage(int id)
         {
-            var member = memberManager.get(1);
+            var member = memberManager.get(id);
             return View(member);
         }
 
@@ -101,6 +101,11 @@ namespace SO.SilList.Web.Controllers
             CurrentMember.member = null;
 
             return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult ConfirmEmail()
+        {
+            return View();
         }
     }
 }

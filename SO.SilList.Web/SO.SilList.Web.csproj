@@ -285,6 +285,7 @@
     </Content>
     <Content Include="Views\Member\Login.cshtml" />
     <Content Include="Views\Member\Register.cshtml" />
+    <Content Include="Views\Member\ConfirmEmail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
