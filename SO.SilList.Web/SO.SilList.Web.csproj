@@ -295,7 +295,6 @@
     <Content Include="Views\Car\_CarItem.cshtml" />
     <Content Include="Views\Listings\_Details.cshtml" />
     <Content Include="Views\Shared\_LayoutDetail.cshtml" />
-    <Content Include="Views\Car\Index.cshtml" />
     <Content Include="Views\Business\_Filter.cshtml" />
     <Content Include="Views\Rental\Index.cshtml" />
     <Content Include="Views\Rental\_RentalItem.cshtml" />

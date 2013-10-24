@@ -48,7 +48,13 @@
             @Html.ValidationMessageFor(model => model.business.phone)
         </div>
 
-
+                <div class="editor-label">
+            @Html.LabelFor(model => model.business.fax)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.business.fax)
+            @Html.ValidationMessageFor(model => model.business.fax)
+        </div>
         <div class="editor-label">
             @Html.LabelFor(model => model.business.address)
         </div>
@@ -72,7 +78,13 @@
             @Html.EditorFor(model => model.business.stateTypeId)
             @Html.ValidationMessageFor(model => model.business.stateTypeId)
         </div>
-
+                <div class="editor-label">
+            @Html.LabelFor(model => model.business.countryTypeId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.business.countryTypeId)
+            @Html.ValidationMessageFor(model => model.business.countryTypeId)
+        </div>
         <div class="editor-label">
             @Html.LabelFor(model => model.business.zip)
         </div>

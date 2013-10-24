@@ -13,7 +13,7 @@ namespace SO.SilList.Admin.Web.Controllers
     public class JobController : Controller
     {
 
-        private JobManager jobManager = new JobManager ();
+        private JobManager jobManager = new JobManager();
         //
         // GET: /Rentals/
 
@@ -54,15 +54,16 @@ namespace SO.SilList.Admin.Web.Controllers
 
             return View();
         }
-             public ActionResult Create()
+        public ActionResult Create()
         {
-            return View();
+            JobVo vo = new JobVo();
+            return View(vo);
         }
         public ActionResult Edit()
         {
             return View();
         }
-           [HttpPost]
+        [HttpPost]
         public ActionResult Edit(Guid id, JobVo input)
         {
 
@@ -74,23 +75,23 @@ namespace SO.SilList.Admin.Web.Controllers
 
             return View();
         }
-           public ActionResult Details(Guid id)
-           {
-               var result = jobManager.get(id);
-               return View(result);
-           }
-           public ActionResult Delete(Guid id)
-           {
-               jobManager.delete(id);
-               return RedirectToAction("Index");
-           }
-           public ActionResult Filter(JobVm Input)
-           {
-               return PartialView("_Filter", Input);
-           }
-           public ActionResult Pagination(Paging input)
-           {
-               return PartialView("_Pagination", input);
-           }
+        public ActionResult Details(Guid id)
+        {
+            var result = jobManager.get(id);
+            return View(result);
+        }
+        public ActionResult Delete(Guid id)
+        {
+            jobManager.delete(id);
+            return RedirectToAction("Index");
+        }
+        public ActionResult Filter(JobVm Input)
+        {
+            return PartialView("_Filter", Input);
+        }
+        public ActionResult Pagination(Paging input)
+        {
+            return PartialView("_Pagination", input);
+        }
     }
 }

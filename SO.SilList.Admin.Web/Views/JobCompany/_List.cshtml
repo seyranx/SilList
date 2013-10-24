@@ -16,9 +16,6 @@
             @Html.DisplayNameFor(model => model.cityTypeId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.stateTypeId)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.zip)
         </th>
         <th>
@@ -26,9 +23,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.phone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.siteId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.created)
@@ -48,10 +42,7 @@
             @Html.DisplayFor(modelItem => item.address)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.cityType.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.stateType.name)
+            @Html.DisplayFor(modelItem => item.cityTypeId)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.zip)
@@ -63,10 +54,7 @@
             @Html.DisplayFor(modelItem => item.phone)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.siteId)
-        </td>
-        <td>
-            <span>@String.Format("{0:MM/dd/yyy}", item.created)</span>
+             <span>@String.Format("{0:MM/dd/yyy}", item.created)</span>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.isActive)

@@ -42,9 +42,9 @@
             @Html.DisplayFor(modelItem => item.isActive)
         </td>
         <td>
-            <a href="@Url.Action("Edit",new { id=item.modelTypeId })" class="btn">Edit</a>
-            <a href="@Url.Action("Details",new { id=item.modelTypeId })" class="btn">Details</a>
-            <a href="@Url.Action("Delete",new { id=item.modelTypeId })" class="btn">Delete</a>
+            <a href="@Url.Action("Edit",new { id=item.modelTypeId })" class="btn" title="Edit"><i class="icon-edit"></i></a>
+            <a href="@Url.Action("Details",new { id=item.modelTypeId })" class="btn" title="Detail"><i class="icon-list"></i></a>
+            <a href="@Url.Action("Delete",new { id=item.modelTypeId })" class="btn" title="Delete"><i class="icon-trash"></i></a>
         </td>
     </tr>
 }

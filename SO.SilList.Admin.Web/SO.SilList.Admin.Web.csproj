@@ -522,7 +522,6 @@
     <Content Include="Views\TransmissionType\Details.cshtml" />
     <Content Include="Views\TransmissionType\Edit.cshtml" />
     <Content Include="Views\TransmissionType\Create.cshtml" />
-    <Content Include="Views\Job\Create.cshtml" />
     <Content Include="Views\Job\Details.cshtml" />
     <Content Include="Views\Job\Index.cshtml" />
     <Content Include="Views\Job\Edit.cshtml" />
@@ -644,9 +643,6 @@
     <Content Include="Views\JobCategoryType\_List.cshtml" />
     <Content Include="Views\JobCategoryType\_Filter.cshtml" />
     <Content Include="Views\JobCompany\_Filter.cshtml" />
-    <Content Include="Views\JobCompany\_List.cshtml" />
-    <Content Include="Views\JobCompany\Create.cshtml" />
-    <Content Include="Views\JobCompany\Details.cshtml" />
     <Content Include="Views\JobCompany\Edit.cshtml" />
     <Content Include="Views\LeaseTermType\_Filter.cshtml" />
     <Content Include="Views\LeaseTermType\_List.cshtml" />
@@ -664,6 +660,10 @@
     <Content Include="Views\Image\ImagesOnDetails.cshtml" />
     <Content Include="Views\JobCategoryType\_DropDownList.cshtml" />
     <Content Include="Views\JobType\_DropDownList.cshtml" />
+    <Content Include="Views\JobCompany\_List.cshtml" />
+    <Content Include="Views\JobCompany\Create.cshtml" />
+    <Content Include="Views\JobCompany\Details.cshtml" />
+    <Content Include="Views\Job\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

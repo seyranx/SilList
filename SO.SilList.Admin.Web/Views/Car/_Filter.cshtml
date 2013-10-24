@@ -8,6 +8,8 @@
          else if ($("#more").html() == "Advance Search") {
              $("#detailSearch").show();
              $("#more").html("Basic Search");
+
+             $("#more").css('display', 'normal');
          }
      };
  </script>
@@ -64,7 +66,7 @@
 </div>
 
        <a id="more" style="cursor:pointer" onclick="advanceSearch()">Advance Search</a>
-<div id="detailSearch" hidden="hidden" >
+<div id="detailSearch" style="display:none;" >
      @Html.Action("DropDownList", "MakeType", new { id = Model.make , propertyName="make",defaultValue = "Any Make"})
     <i id="modelList">
         @Html.Action("DropDownList", "ModelType", new { id = Model.model ,_makeTypeId=Model.make, propertyName="model",defaultValue = "Any Model"})
