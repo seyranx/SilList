@@ -51,7 +51,62 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.endDate)
     </div>
-
+       <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.address)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.address)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.cityTypeId)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.cityType.name)" readonly="true">
+            </div>
+        </div>
+         <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.stateTypeId)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.stateType.name)" readonly="true">
+            </div>
+        </div>
+                <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.countryTypeId)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.countryType.name)" readonly="true">
+            </div>
+        </div>
+                <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.zip)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.zip)" readonly="true">
+            </div>
+        </div>
+                        <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.phone)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.phone)" readonly="true">
+            </div>
+        </div>
+                                <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.fax)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.fax)" readonly="true">
+            </div>
+        </div>
     <div class="display-label">
          @Html.DisplayNameFor(model => model.createdBy)
     </div>

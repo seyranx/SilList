@@ -40,57 +40,62 @@
             @Html.ValidationMessageFor(model => model.business.url)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.business.phone)
+               <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.business.address)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.business.address)
+            </div>
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.business.phone)
-            @Html.ValidationMessageFor(model => model.business.phone)
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.business.cityTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "CityType", new { id = Model.business.cityTypeId, propertyName="business.cityTypeId" })
+            </div>
         </div>
-
-                <div class="editor-label">
-            @Html.LabelFor(model => model.business.fax)
+         <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.business.stateTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "StateType", new { id = Model.business.stateTypeId, propertyName="business.stateTypeId" })
+            </div>
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.business.fax)
-            @Html.ValidationMessageFor(model => model.business.fax)
+                <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.business.countryTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "CountryType", new { id = Model.business.countryTypeId , propertyName="business.countryTypeId"})
+            </div>
         </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.business.address)
+                <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.business.zip)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.business.zip)
+                @Html.ValidationMessageFor(model => model.business.zip)
+            </div>
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.business.address)
-            @Html.ValidationMessageFor(model => model.business.address)
+                        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.business.phone)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.business.phone)
+            </div>
         </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.business.cityTypeId)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.business.cityTypeId)
-            @Html.ValidationMessageFor(model => model.business.cityTypeId)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.business.stateTypeId)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.business.stateTypeId)
-            @Html.ValidationMessageFor(model => model.business.stateTypeId)
-        </div>
-                <div class="editor-label">
-            @Html.LabelFor(model => model.business.countryTypeId)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.business.countryTypeId)
-            @Html.ValidationMessageFor(model => model.business.countryTypeId)
-        </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.business.zip)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.business.zip)
-            @Html.ValidationMessageFor(model => model.business.zip)
+                                <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.business.fax)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.business.fax)
+            </div>
         </div>
 
         <div class="editor-label">

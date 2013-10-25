@@ -44,6 +44,65 @@
         @Html.EditorFor(model => model.listing.description)
         @Html.ValidationMessageFor(model => model.listing.description)
     </div>
+
+     <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.listing.address)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.listing.address)
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.listing.cityTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "CityType", new { id = Model.listing.cityTypeId, propertyName="listing.cityTypeId" })
+            </div>
+        </div>
+         <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.listing.stateTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "StateType", new { id = Model.listing.stateTypeId, propertyName="listing.stateTypeId" })
+            </div>
+        </div>
+                <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.listing.countryTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "CountryType", new { id = Model.listing.countryTypeId , propertyName="listing.countryTypeId"})
+            </div>
+        </div>
+                <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.listing.zip)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.listing.zip)
+                @Html.ValidationMessageFor(model => model.listing.zip)
+            </div>
+        </div>
+                        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.listing.phone)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.listing.phone)
+            </div>
+        </div>
+                                <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.listing.fax)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.listing.fax)
+            </div>
+        </div>
+
     <div class="editor-label">
         @Html.LabelFor(model => model.listing.startDate)
     </div>

@@ -51,7 +51,7 @@
             </div>
         </div>
 
-        <div class="control-group">
+       <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.address)
             </div>
@@ -59,13 +59,12 @@
                 @Html.EditorFor(model => model.address)
             </div>
         </div>
-
-           <div class="control-group">
+        <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.cityTypeId)
             </div>
             <div class="controls">
-                @Html.EditorFor(model => model.cityTypeId)
+                @Html.Action("DropDownList", "CityType", new { id = Model.cityTypeId })
             </div>
         </div>
          <div class="control-group">
@@ -73,7 +72,7 @@
                 @Html.LabelFor(model => model.stateTypeId)
             </div>
             <div class="controls">
-                @Html.EditorFor(model => model.stateTypeId)
+                @Html.Action("DropDownList", "StateType", new { id = Model.stateTypeId })
             </div>
         </div>
                 <div class="control-group">
@@ -81,11 +80,10 @@
                 @Html.LabelFor(model => model.countryTypeId)
             </div>
             <div class="controls">
-                @Html.EditorFor(model => model.countryTypeId)
+                @Html.Action("DropDownList", "CountryType", new { id = Model.countryTypeId })
             </div>
         </div>
-
-         <div class="control-group">
+                <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.zip)
             </div>
@@ -94,7 +92,7 @@
                 @Html.ValidationMessageFor(model => model.zip)
             </div>
         </div>
-        <div class="control-group">
+                        <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.phone)
             </div>

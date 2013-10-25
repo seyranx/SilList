@@ -94,9 +94,9 @@ namespace SO.SilList.Admin.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult DropDownList(int? id = null, string propertyName = null)
+        public ActionResult DropDownList(int? id = null, string propertyName = null, string defaultValue = null)
         {
-            ViewBag.cities = CityTypeManager.getAll(null);
+            ViewBag.Cities = CityTypeManager.getAll(null);
             var city = new CityTypeVo();
             if (id != null)
             {
@@ -105,6 +105,9 @@ namespace SO.SilList.Admin.Web.Controllers
             if (propertyName == null)
                 propertyName = "cityTypeId";
             ViewBag.propertyName = propertyName;
+            if (defaultValue == null)
+                defaultValue = "Select One";
+            ViewBag.defaultValue = defaultValue;
             return PartialView("_DropDownList", city);
         }
 
