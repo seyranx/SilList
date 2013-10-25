@@ -161,7 +161,63 @@
                 @Html.Action("DropDownList", "carColorType", new { id = Model.car.interiorColorTypeId,  propertyName="car.interiorColorTypeId" })
             </div>
         </div>
-
+         <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.car.address)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.car.address)
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.car.cityTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "CityType", new { id = Model.car.cityTypeId, propertyName="car.cityTypeId" })
+            </div>
+        </div>
+         <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.car.stateTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "StateType", new { id = Model.car.stateTypeId, propertyName="car.stateTypeId" })
+            </div>
+        </div>
+                <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.car.countryTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "CountryType", new { id = Model.car.countryTypeId , propertyName="car.countryTypeId"})
+            </div>
+        </div>
+                <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.car.zip)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.car.zip)
+                @Html.ValidationMessageFor(model => model.car.zip)
+            </div>
+        </div>
+                        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.car.phone)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.car.phone)
+            </div>
+        </div>
+                                <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.car.fax)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.car.fax)
+            </div>
+        </div>
         <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.car.startDate)
