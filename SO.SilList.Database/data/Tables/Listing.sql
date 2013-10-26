@@ -4,10 +4,11 @@
     [description]   NVARCHAR (MAX)   NULL,
     [siteId]        INT              NULL,
     [listingTypeId] INT              NULL,
+    [price]         DECIMAL (18)     NULL,
     [address]       NVARCHAR (MAX)   NULL,
-    [cityTypeId]        INT              NULL,
-    [stateTypeId]       INT              NULL,
-    [countryTypeId]     INT              NULL,
+    [cityTypeId]    INT              NULL,
+    [stateTypeId]   INT              NULL,
+    [countryTypeId] INT              NULL,
     [zip]           INT              NULL,
     [phone]         NVARCHAR (50)    NULL,
     [fax]           NVARCHAR (50)    NULL,
@@ -26,6 +27,8 @@
     CONSTRAINT [FK_Listing_Site] FOREIGN KEY ([siteId]) REFERENCES [app].[Site] ([siteId]) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT [FK_Listing_StateType] FOREIGN KEY ([stateTypeId]) REFERENCES [app].[StateType] ([stateTypeId]) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+
 
 
 
