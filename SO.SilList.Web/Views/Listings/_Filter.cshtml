@@ -28,8 +28,7 @@
   <ul class="nav nav-list" style="background-color:none; color:white; margin-top:10px; " >
     <li class="nav-header" style="background-color:DimGray;">By Category:</li>
       
-      @Html.Action("getTopCategories", "ListingCategoryType")
-      
+      @Html.Action("getTopCategories", "ListingCategoryType")    
 <!--
       <li ><a href="#"  id="rentals" onclick="rentalsAction()"> Rentals </a></li>
       <li ><a href="#"  id="jobs" onclick="jobsAction()">Jobs</a></li>
@@ -64,19 +63,6 @@
 
 <script> 
     /*
-    $('.typeahead').typeahead({
-
-        source: function (query, process) {
-            return $.getJSON(
-                'path/to/lookup',
-                { query: query },
-                function (data) {
-                    return process(data);
-                });
-        }
-
-    });
-    */
     function rentalsAction() {
         var cat = $('#category').val();
         if (cat.length == 0) {
@@ -89,61 +75,6 @@
         $('#filterForm').submit();
         return false;
     };
-
-    function carsAction() {
-        var cat = $('#category').val();
-        if (cat.length == 0) {
-            $('#category').val('Cars');
-        } else {
-            $('#category').val(null);
-        }
-        $('#filterForm').submit();
-        return false;
-    };
-
-    function jobsAction() {
-        var cat = $('#category').val();
-        if (cat.length == 0) {
-            $('#category').val('Jobs');
-        } else {
-            $('#category').val(null);
-        }
-        $('#filterForm').submit();
-        return false;
-    };
-
-    function businessAction() {
-        var cat = $('#category').val();
-        if (cat.length == 0) {
-            $('#category').val('Business');
-        } else {
-            $('#category').val(null);
-        }
-        $('#filterForm').submit();
-        return false;
-    };
-
-    function buyAction() {
-        var cat = $('#type').val();
-        if (cat.length == 0) {
-            $('#type').val('Buy');
-        } else {
-            $('#type').val(null);
-        }
-        $('#filterForm').submit();
-        return false;
-    };
-
-    function sellAction() {
-        var cat = $('#type').val();
-        if (cat.length == 0) {
-            $('#type').val('Sell');
-        } else {
-            $('#type').val(null);
-        }
-        $('#filterForm').submit();
-        return false;
-    };
-
+    */
 </script>
 

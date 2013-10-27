@@ -6,7 +6,7 @@
     
     foreach (var item in @Model)
     {
-         <li ><a href="#" id="@item.listingTypeId" class="TopType"
+         <li ><a href="#" id="type_@item.listingTypeId" class="TopType"
                 onclick="return onListingType('@item.listingTypeId', this)"> @item.name </a></li>  
     }       
 }
@@ -23,7 +23,7 @@
     //
     var listingTypeId = '@Request["listingTypeId"]';
     if (listingTypeId != '') {
-        $('#' + listingTypeId).css('background-color', 'DarkSlateGray');
+        $('#type_' + listingTypeId).css('background-color', 'DarkSlateGray');
     }
     else {
         $('#showAllType').css('background-color', 'DarkSlateGray');
