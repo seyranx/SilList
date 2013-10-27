@@ -75,8 +75,14 @@ namespace SO.SilList.Web.Controllers
             ViewBag.defaultValue = defaultValue;
             return PartialView("_CarColorDropDownList", color);
         }
-        public ActionResult CarBodyDropDownList(int? id = null, string propertyName = null, string defaultValue = null)
+        public ActionResult CarBodyDropDownList(int? id = null, string propertyName = null, string defaultValue = null, Type modelType=null)
         {
+
+            if (modelType == typeof(CarBodyTypeVo))
+            {
+
+            }
+
             ViewBag.bodies = carBodyTypeManager.getAll(null);
             var body = new CarBodyTypeVo();
             if (id != null)

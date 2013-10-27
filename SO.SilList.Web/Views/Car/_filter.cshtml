@@ -1,4 +1,5 @@
 ﻿@model SO.SilList.Manager.Models.ViewModels.CarVm
+@using SO.SilList.Manager.Models.ValueObjects
 <script>
     function advanceSearch() {
         if ($("#more").html() == "Basic Search") {
@@ -21,12 +22,14 @@
         margin: 1px;
         margin-top: 5px;
         margin-bottom: 5px;
+        border-radius: 5px;
     }
 
     #detailSearch select {
         width: 158px;
         margin: 1px;
         margin-top: 5px;
+        border-radius: 5px;
     }
 </style>
 <form id="filterForm">
@@ -48,12 +51,39 @@
     <a id="more" style="cursor: pointer" onclick="advanceSearch()">Advance</a>
     @Html.HiddenFor(model => model.isAdvanceOn)
     <div id="detailSearch" hidden="hidden">
-        <label>Make:</label>
-        @Html.Action("MakeDropDownList", "car", new { id = Model.make, propertyName = "make", defaultValue = "Any Make" })
-        <label>Model:</label>
-        <i id="modelList">
-            @Html.Action("ModelDropDownList", "car", new { id = Model.model, _makeTypeId = Model.make, propertyName = "model", defaultValue = "Any Model" })
-        </i>
+
+        <div class="accordion" id="accordion2">
+
+
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <label class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse1">
+                        Make
+                    </label>
+                </div>
+                <div id="collapse1" class="accordion-body collapse in">
+                    <div class="accordion-inner">
+                        @Html.Action("MakeDropDownList", "car", new { id = Model.make, propertyName = "make", defaultValue = "Any Make" })
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <label class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse2">
+                        Model
+                    </label>
+                </div>
+                <div id="collapse2" class="accordion-body collapse in">
+                    <div class="accordion-inner">
+                        <i id="modelList">
+                            @Html.Action("ModelDropDownList", "car", new { id = Model.model, _makeTypeId = Model.make, propertyName = "model", defaultValue = "Any Model" })
+                        </i>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <label>Year Range:</label>
         @{
             int currentYear = DateTime.Now.Year;
@@ -70,7 +100,7 @@
         <label>Vin Number:</label>
         @Html.TextBoxFor(model => model.vin, new { placeholder = "Vin Number" })
         <label>Body Type:</label>
-        @Html.Action("CarBodyDropDownList", "car", new { id = Model.body, propertyName = "body", defaultValue = "All Bodies" })
+        @Html.Action("CarBodyDropDownList", "car", new { id = Model.body, propertyName = "body", defaultValue = "All Bodies", modelType = typeof(CarBodyTypeVo) })
         <label>Exterior Color:</label>
         @Html.Action("CarColorDropDownList", "car", new { id = Model.exColor, propertyName = "exColor", defaultValue = "Any Color" })
         <label>Interior Color:</label>
