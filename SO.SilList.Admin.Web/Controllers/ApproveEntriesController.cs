@@ -64,32 +64,13 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView("_Menu");
         }
 
-        [HttpPost]
-        public ActionResult Create(SiteVo input)
-        {
-            if (this.ModelState.IsValid)
-            {
-                var item = approveEntriesManager.insert(input);
-                return RedirectToAction("Index");
-            }
-
-            return View();
-        }
-
-        public ActionResult Create()
-        {
-            var site = new SiteVo();
-            return View(site);
-        }
-
-
         public ActionResult Details(int id)
         {
             var result = approveEntriesManager.get(id);
             return View(result);
         }
         [HttpPost]
-        public ActionResult Edit(int id, SiteVo input)
+        public ActionResult Edit(int id, JobVo input)
         {
             if (this.ModelState.IsValid)
             {

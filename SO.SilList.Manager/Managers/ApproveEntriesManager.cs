@@ -8,14 +8,21 @@ using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Manager.Managers
 {
-    class ApproveEntriesManager
+    public class ApproveEntriesManager
     {
-        // implement first for Jobs . ..
+        //TODO: implement first for Jobs . .. later add other componens that are subject to Approval
         public ApproveEntriesVm search(ApproveEntriesVm input)
         {
+
             using (var db = new MainDb())
             {
                 var query = db.jobs
+                            // .Include(s => s.site)
+                            // .Include(j => j.jobType)
+                            // .Include(t => t.jobCompany)
+                            //.Include(i => i.cityType)
+                            //.Include(o => o.countryType)
+                            //.Include(u => u.stateType) 
 
                             .OrderBy(b => b.title)
                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
@@ -27,6 +34,16 @@ namespace SO.SilList.Manager.Managers
                              .Take(input.paging.rowCount)
 
                              .ToList();
+
+                return input;
+            }
+        }
+        public JobVo insert(JobVo input)
+        {
+            using (var db = new MainDb())
+            {
+                db.jobs.Add(input);
+                db.SaveChanges();
 
                 return input;
             }
