@@ -27,7 +27,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [StringLength(50)]
         public string title { get; set; }
 
-
         [DisplayName("Description")]
         [StringLength(250)]
         public string description { get; set; }
@@ -51,7 +50,12 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public Nullable<decimal> price { get; set; }
 
         [DisplayName("Address")]
+        [StringLength(50)]
         public string address { get; set; }
+
+        [DisplayName("Phone")]
+        [StringLength(15)]
+        public string phone { get; set; }
 
         [DisplayName("City")]
         public Nullable<int> cityTypeId { get; set; }
@@ -65,10 +69,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [DisplayName("Zip")]
         public Nullable<int> zip { get; set; }
 
-        [DisplayName("Phone")]
-        [StringLength(50)]
-        public string phone { get; set; }
-
         [DisplayName("Fax")]
         [StringLength(50)]
         public string fax { get; set; }
@@ -79,7 +79,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Size")]
         public Nullable<int> size { get; set; }
     		
-    	[DisplayName("lot Size")]
+    	[DisplayName("Lot Size")]
         public Nullable<int> lotSize { get; set; }
     		
     	[DisplayName("Accepts Section8")]
