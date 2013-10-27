@@ -101,5 +101,16 @@ namespace SO.SilList.Admin.Web.Controllers
             listingCategoryTypeManager.delete(id);
             return RedirectToAction("Index");
         }
+
+        public ActionResult DropDownList(int? id = null)
+        {
+            ViewBag.listingCategoryTypes = listingCategoryTypeManager.getAll(null);
+            var listingCategoryType = new ListingCategoryTypeVo();
+            if (id != null)
+            {
+                listingCategoryType = listingCategoryTypeManager.get(id.Value);
+            }
+            return PartialView("_DropDownList", listingCategoryType);
+        }
     }
 }
