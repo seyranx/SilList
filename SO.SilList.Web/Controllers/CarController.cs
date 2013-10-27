@@ -59,6 +59,16 @@ namespace SO.SilList.Web.Controllers
         //   var json = Json(result, JsonRequestBehavior.AllowGet);
         //   return json;
         //}
+        public ActionResult CollapseList(int? id = null, string propertyName = null, Type modelType = null)
+        {
+            
+            if (modelType == typeof(MakeTypeVo))
+            {
+                ViewBag.list = makeTypeManager.getAll(true);               
+            }
+            
+            return PartialView("_CollapseList");
+        }
         public ActionResult CarColorDropDownList(int? id = null, string propertyName = null, string defaultValue = null)
         {
             ViewBag.colors = carColorTypeManager.getAll(null);

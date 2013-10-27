@@ -63,7 +63,7 @@
                 </div>
                 <div id="collapse1" class="accordion-body collapse in">
                     <div class="accordion-inner">
-                        @Html.Action("MakeDropDownList", "car", new { id = Model.make, propertyName = "make", defaultValue = "Any Make" })
+                        @Html.Action("CollapseList","car",new{id = Model.make,propertyName = "make", modelType = typeof(MakeTypeVo)})
                     </div>
                 </div>
             </div>

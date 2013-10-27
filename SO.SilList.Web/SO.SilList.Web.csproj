@@ -311,6 +311,7 @@
     <Content Include="Views\Car\_MakeDropDownList.cshtml" />
     <Content Include="Views\Car\_ModelDropDownList.cshtml" />
     <Content Include="Views\Car\_TransmissionDropDownList.cshtml" />
+    <Content Include="Views\Car\_CollapseList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
