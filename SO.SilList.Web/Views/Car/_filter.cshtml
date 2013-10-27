@@ -1,0 +1,125 @@
+﻿@model SO.SilList.Manager.Models.ViewModels.CarVm
+<script>
+    function advanceSearch() {
+        if ($("#more").html() == "Basic Search") {
+            $("#detailSearch").hide();
+            $("#more").html("Advance");
+            $("#isAdvanceOn").val(false);
+            $("#leftColumn").css("min-height", "600px");
+        }
+        else if ($("#more").html() == "Advance") {
+            $("#detailSearch").show();
+            $("#more").html("Basic Search");
+            $("#isAdvanceOn").val(true);
+            $("#leftColumn").css("min-height", "1400px");
+        }
+    };
+</script>
+<style>
+    #detailSearch input {
+        width: 144px;
+        margin: 1px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    #detailSearch select {
+        width: 158px;
+        margin: 1px;
+        margin-top: 5px;
+    }
+</style>
+<form id="filterForm">
+
+    @Html.HiddenFor(model => model.paging.pageNumber)
+
+    <label>Keyword:</label>
+    <input type="text" style="width: 90%;">
+
+
+    <label>City, State or Zip:</label>
+    <input type="text" style="width: 90%;">
+
+    <label>Category:</label>
+    <input type="text" style="width: 90%;" placeholder="Filter">
+
+    <button type="submit" class="btn btn-success pull-right">Search</button>
+
+    <a id="more" style="cursor: pointer" onclick="advanceSearch()">Advance</a>
+    @Html.HiddenFor(model => model.isAdvanceOn)
+    <div id="detailSearch" hidden="hidden">
+        <label>Make:</label>
+        @Html.Action("MakeDropDownList", "car", new { id = Model.make, propertyName = "make", defaultValue = "Any Make" })
+        <label>Model:</label>
+        <i id="modelList">
+            @Html.Action("ModelDropDownList", "car", new { id = Model.model, _makeTypeId = Model.make, propertyName = "model", defaultValue = "Any Model" })
+        </i>
+        <label>Year Range:</label>
+        @{
+            int currentYear = DateTime.Now.Year;
+            var mylist = new string[31];
+            for (int i = 0; i < 31; i++)
+            {
+                mylist.SetValue((currentYear - 30 + i).ToString(), 30 - i);
+            }
+            var selectlist = new SelectList(mylist);
+        }
+        @Html.DropDownListFor(model => model.year, selectlist, "Any", new { style = "width: 67px;margin-right: -1px;" })
+        To
+        @Html.DropDownListFor(model => model.yearTo, selectlist, "Any", new { style = "width: 67px;margin-left: -1px;" })
+        <label>Vin Number:</label>
+        @Html.TextBoxFor(model => model.vin, new { placeholder = "Vin Number" })
+        <label>Body Type:</label>
+        @Html.Action("CarBodyDropDownList", "car", new { id = Model.body, propertyName = "body", defaultValue = "All Bodies" })
+        <label>Exterior Color:</label>
+        @Html.Action("CarColorDropDownList", "car", new { id = Model.exColor, propertyName = "exColor", defaultValue = "Any Color" })
+        <label>Interior Color:</label>
+        @Html.Action("CarColorDropDownList", "car", new { id = Model.inColor, propertyName = "inColor", defaultValue = "Any Interior Color" })
+        <div>
+            <label>Price Range:</label>
+            <input type="text" value="@Model.startingPrice" style="width:54px; margin:1px" placeholder="Starting" name="startingPrice"/>
+            to
+            <input type="text" value="@Model.endingPrice" style="width:54px; margin:1px" placeholder="Ending" name="endingPrice"/>
+
+            <label>Millage Range:</label>
+            <input type="text" value="@Model.startingMillage" style="width:54px; margin:1px" placeholder="Starting" name="startingMillage"/>
+            to
+        <input type="text" value="@Model.endingMillage" style="width:54px; margin:1px" placeholder="Ending" name="endingMillage"/>
+        </div>
+        <label>Transmission Type:</label>
+        @Html.Action("TransmissionDropDownList", "car", new { id = Model.transmission, propertyName = "transmission", defaultValue = "Any Transmission" })
+        <label>Engine:</label>
+        @Html.Action("CarEngineDropDownList", "car", new { id = Model.engine, propertyName = "engine", defaultValue = "Any Engine" })
+        <label>Drive Train:</label>
+        @Html.Action("CarDriveDropDownList", "car", new { id = Model.drive, propertyName = "drive", defaultValue = "Any Drive Train" })
+        <label>Door Count:</label>
+        @Html.Action("CarDoorDropDownList", "car", new { id = Model.door, propertyName = "door", defaultValue = "Any Doors" })
+        <label>Fuel Type:</label>
+        @Html.Action("CarFuelDropDownList", "car", new { id = Model.fuel, propertyName = "fuel", defaultValue = "Any Fuel Type" })
+        <label>Listing Date</label>
+        <select id="listigDate" name="listigDate">
+            <option value="">Any Date</option>
+            <option value="0">Last 1 Day</option>
+            <option value="1">Last 3 Days</option>
+            <option value="2">Last 7 Days</option>
+            <option value="3">Last 2 Weeks</option>
+            <option value="4">Last Month</option>
+            <option value="5">Last 2 Months</option>
+        </select>
+
+        <button type="submit" class="btn btn-success pull-right" style="margin-top: 4px">Search</button>
+    </div>
+
+
+
+    @if (Model.isAdvanceOn == true)
+    {
+        <script>
+            $("#detailSearch").show();
+            $("#more").html("Basic Search");
+            $("#leftColumn").css("min-height", "1400px");
+        </script>
+    }
+
+
+</form>

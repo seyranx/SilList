@@ -107,7 +107,7 @@ namespace SO.SilList.Utility.Classes
         {
             get
             {
-                return 5;
+                return 10;
             }
         }
 

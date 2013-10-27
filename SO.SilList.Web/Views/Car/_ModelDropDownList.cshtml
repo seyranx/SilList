@@ -1,0 +1,4 @@
+﻿@model SO.SilList.Manager.Models.ValueObjects.ModelTypeVo
+
+@Html.DropDownList((string)ViewBag.propertyName, new SelectList(ViewBag.models, "modelTypeId", "name", Model.modelTypeId), (string)ViewBag.defaultValue)
+

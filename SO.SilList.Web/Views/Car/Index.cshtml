@@ -5,6 +5,9 @@
 }
 
 <h2>Cars</h2>
+    <div class="pull-right">
+        @((Model.paging.pageNumber-1) * Model.paging.rowCount + Model.result.Count) of @Model.paging.totalCount
+    </div>
 
 <ul class="media-list" >
 
@@ -13,7 +16,8 @@
    
      @Html.Partial("_CarItem",item)
 
-  </li>
-     
+  </li>  
  }
+
+    @Html.Action("Pagination", @Model.paging)
 </ul>

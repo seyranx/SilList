@@ -19,6 +19,7 @@ namespace SO.SilList.Manager.Models.ViewModels
         [DisplayName("isActive: ")]
         public bool? isActive { get; set; }
         //properties for search
+        public Boolean isAdvanceOn { get; set; }
         public string keyword { get; set; }
         public int? site { get; set; }
         public int? make { get; set; }
@@ -32,6 +33,7 @@ namespace SO.SilList.Manager.Models.ViewModels
         public int? inColor { get; set; }
         public int? exColor { get; set; }
         public int? year { get; set; }
+        public int? yearTo { get; set; }
         public string vin { get; set; }
         public int? startingPrice {get;set;}
         public int? endingPrice { get; set; }
@@ -40,6 +42,7 @@ namespace SO.SilList.Manager.Models.ViewModels
         public string city { get; set; }
         public string state { get; set; }
         public int? zip { get; set; }
+        public int? listigDate { get; set; }
         //*****
         public string submitButton { get; set; }
         public Paging paging;
@@ -50,6 +53,7 @@ namespace SO.SilList.Manager.Models.ViewModels
         public CarVm()
         {
             //pageNumber = 1;
+            isAdvanceOn = false;
             car = new CarVo();
             this.result = new List<CarVo>();
             if (paging == null)
@@ -58,6 +62,7 @@ namespace SO.SilList.Manager.Models.ViewModels
 
         public CarVm(CarVo input)
         {
+            isAdvanceOn = false;
             car = input;
             this.result = new List<CarVo>();
             if (paging == null)
