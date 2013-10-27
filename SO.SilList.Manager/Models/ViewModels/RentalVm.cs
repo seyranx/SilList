@@ -38,6 +38,6 @@ namespace SO.SilList.Manager.Models.ViewModels
             if (paging == null)
                 paging = new Paging();
         }
-  
+
     }
 }

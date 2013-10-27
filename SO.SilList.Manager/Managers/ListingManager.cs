@@ -60,19 +60,21 @@ namespace SO.SilList.Manager.Managers
                              .Include(i => i.cityType)
                              .Include(o => o.countryType)
                              .Include(t => t.listingCategories) //
-                             .Include(t => t.listingCategories.Select(c => c.listingCategoryType)) 
+                             .Include(k => k.listingCategories.Select(c => c.listingCategoryType))
                              .Include(u => u.stateType) 
 
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
-                                      && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
-                                      && ((input.location == 0) || (e.cityTypeId == input.location)
-                                            || (e.stateTypeId == input.location) || (e.zip == input.location))
-                                     // && ((input.category == null) || (e.listingCategories.Any(c => c.listingCategoryType.name == input.category)))
-                                      && ((input.category == null) || (e.listingCategories.Any(c => c.listingCategoryType.name.Contains(input.category))))
-                                      && ((input.type == null) || (e.listingType.name.Contains(input.type)))
-                                    );   // change '== 0' to 'null' and change '==' to '.Contains'
-                //|| e.description.Contains(input.keyword)
-                //HttpContext.Current.Session["category"] = null;    All.listingCategoryType.name
+                                      && (((input.titleOnly == true) && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword)))
+                                            || ((input.titleOnly == false)  && (e.title.Contains(input.keyword) || e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))))
+                                        // change '== 0' to 'null' and change '==' to '.Contains'
+                                      && ((input.location == 0) || (e.cityTypeId == input.location) || (e.stateTypeId == input.location) || (e.zip == input.location))
+                                      && ((input.listingCategoryTypeId == null) || (e.listingCategories.Any(c=>c.listingCategoryType.listingCategoryTypeId==input.listingCategoryTypeId)  )) // here fix
+                                      && ((input.listingTypeId == null) || (e.listingType.listingTypeId ==  input.listingTypeId))
+                                      
+                                      
+                                      //&& ((input.listingCategoryTypeId == null) || (e.listingCategories.Any(c => c.listingCategoryType.name.Contains(input.listingCategoryTypeId)))  )
+                                      //&& ((input.listingTypeId == null) || (e.listingType.name.Contains(input.listingTypeId)))
+                                    );   
   
                 input.paging.totalCount = query.Count();
                 input.result = query
@@ -195,6 +197,11 @@ namespace SO.SilList.Manager.Managers
             {
                 return db.listing.Count();
             }
+        }
+
+        private static object MaskedTextProvider()
+        {
+            throw new NotImplementedException();
         }
 
     }
