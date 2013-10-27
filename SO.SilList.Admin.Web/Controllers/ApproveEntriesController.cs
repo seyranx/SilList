@@ -13,7 +13,6 @@ namespace SO.SilList.Admin.Web.Controllers
 {
     public class ApproveEntriesController : Controller
     {
-
         private ApproveEntriesManager approveEntriesManager = new ApproveEntriesManager();
 
         public ActionResult Index(ApproveEntriesVm input = null, Paging paging = null)
@@ -25,7 +24,7 @@ namespace SO.SilList.Admin.Web.Controllers
             {
                 if (input.submitButton != null)
                     input.paging.pageNumber = 1;
-                input = ApproveEntriesManager.search(input);
+                input = approveEntriesManager.search(input);
                 return View(input);
             }
             return View();
@@ -34,20 +33,20 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult _List()
         {
-            var results = ApproveEntriesManager.getAll(null);
+            var results = approveEntriesManager.getAll(null);
             return PartialView(results);
             //return PartialView("_List", results);
         }
 
         [DontTrackVisit]
-        public ActionResult DropDownList(int? id = null,string propertyName = null,string defaultValue = null)
+        public ActionResult DropDownList(Guid? id = null,string propertyName = null,string defaultValue = null)
         {
             ViewBag.sites = approveEntriesManager.getAll(null);
-            var site = new SiteVo();
-            if (id != null)
-            {
-                site = approveEntriesManager.get(id.Value);
-            }
+            //var site = new JobVo();
+            //if (id != null)
+            //{
+            //    job = approveEntriesManager.get(id.Value);
+            //}
             if (propertyName == null)
                 propertyName = "siteId";
             ViewBag.propertyName = propertyName;
@@ -102,5 +101,5 @@ namespace SO.SilList.Admin.Web.Controllers
         {
             return PartialView("_Filter", input);
         }
-    }    }
+    }    
 }

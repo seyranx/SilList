@@ -12,7 +12,6 @@ namespace SO.SilList.Admin.Web.Controllers
 {
     public class JobController : Controller
     {
-
         private JobManager jobManager = new JobManager();
         //
         // GET: /Rentals/
