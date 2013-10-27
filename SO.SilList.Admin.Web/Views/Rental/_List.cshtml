@@ -9,7 +9,7 @@
             @Html.DisplayNameFor(model => model.title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.propertyType)
+            @Html.DisplayNameFor(model => model.propertyTypeId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.bedrooms)
@@ -46,7 +46,7 @@
             @Html.DisplayFor(modelItem => item.bathrooms)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.rentTypeId)
+            @Html.DisplayFor(modelItem => item.rentType.name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.startDate)
