@@ -141,7 +141,9 @@
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LinkedController.cs" />
+    <Compile Include="Controllers\ListingCategoryTypeController.cs" />
     <Compile Include="Controllers\ListingsController.cs" />
+    <Compile Include="Controllers\ListingTypeController.cs" />
     <Compile Include="Controllers\RentalController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -300,7 +302,7 @@
     <Content Include="Views\Rental\_RentalItem.cshtml" />
     <Content Include="Views\Rental\_Filter.cshtml" />
     <Content Include="Views\Rental\_Menu.cshtml" />
-    <Content Include="Views\Shared\_LayoutCar.cshtml" />
+    <Content Include="Views\ListingCategoryType\getTopCategories.cshtml" />
     <Content Include="Views\Car\_filter.cshtml" />
     <Content Include="Views\Car\_CarColorDropDownList.cshtml" />
     <Content Include="Views\Car\_CarBodyDropDownList.cshtml" />
