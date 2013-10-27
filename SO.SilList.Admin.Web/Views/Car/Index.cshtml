@@ -6,13 +6,13 @@
 
 <h2>@ViewBag.Title</h2>
 
-<form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Car")">
+<form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Car")" style="min-width:800px">
     
     @Html.Action("Filter",@Model)
-    <div class="pull-right">
-       
+     <div class="pull-right">
         @((Model.paging.pageNumber-1) * Model.paging.rowCount + Model.result.Count) of @Model.paging.totalCount
     </div>
     @Html.Partial("_List", @Model.result)
+
     @Html.Action("Pagination", @Model.paging)
 </form>

@@ -1,14 +1,11 @@
 ﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.JobVo>
 
-<p>
-     <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
+<p style="margin-top:10px; margin-bottom:10px;">
+   <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
+
 </p>
 <table class="table table-bordered table-hover">
     <tr>
-        
-        <th>
-            @Html.DisplayNameFor(model => model.siteId)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.title)
         </th>
@@ -22,28 +19,10 @@
             @Html.DisplayNameFor(model => model.cityTypeId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.stateTypeId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.isTravelRequired)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.isTelecomute)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.jobCompanyId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.created)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.modified)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.createdBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.modifiedBy)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.isActive)
@@ -53,10 +32,6 @@
 
 @foreach (var item in Model) {
     <tr>
-       
-        <td>
-            @Html.DisplayFor(modelItem => item.siteId)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.title)
         </td>
@@ -70,36 +45,18 @@
             @Html.DisplayFor(modelItem => item.cityTypeId)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.stateTypeId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.isTravelRequired)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.isTelecomute)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.jobCompanyId)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.created)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.modified)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.createdBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.modifiedBy)
+            <span>@String.Format("{0:MM/dd/yyy}", item.created)</span>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.isActive)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.jobId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.jobId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.jobId })
+            <a href="@Url.Action("Edit",new { id=item.jobId })" class="btn" title="Edit"><i class="icon-edit"></i></a>
+            <a href="@Url.Action("Details",new { id=item.jobId })" class="btn" title="Detail"><i class="icon-list"></i></a>
+            <a href="@Url.Action("Delete",new { id=item.jobId })" class="btn" title="Delete"><i class="icon-trash"></i></a>
         </td>
     </tr>
 }

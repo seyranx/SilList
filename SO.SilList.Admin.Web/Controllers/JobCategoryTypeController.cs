@@ -10,7 +10,7 @@ using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
-    public class JobCategoryType : Controller
+    public class JobCategoryTypeController : Controller
     {
         private JobCategoryTypeManager jobCategoryTypeManager = new JobCategoryTypeManager();
         //
@@ -32,7 +32,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Menu()
         {
-            return PartialView("../Job/Menu");
+            return PartialView("../Job/_Menu");
         }
 
         public ActionResult List()
@@ -100,6 +100,22 @@ namespace SO.SilList.Admin.Web.Controllers
         public ActionResult Pagination(Paging input)
         {
             return PartialView("_Pagination", input);
+        }
+        public ActionResult DropDownList(int? id = null, string propertyName = null, string defaultValue = null)
+        {
+            ViewBag.bodies = jobCategoryTypeManager.getAll(null);
+            var body = new JobCategoryTypeVo();
+            if (id != null)
+            {
+                body = jobCategoryTypeManager.get(id.Value);
+            }
+            if (propertyName == null)
+                propertyName = "jobCategoryTypeId";
+            ViewBag.propertyName = propertyName;
+            if (defaultValue == null)
+                defaultValue = "Select One";
+            ViewBag.defaultValue = defaultValue;
+            return PartialView("_DropDownList", body);
         }
     }
 }

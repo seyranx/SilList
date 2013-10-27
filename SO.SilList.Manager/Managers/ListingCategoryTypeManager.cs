@@ -37,38 +37,6 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-/*        
-        public int count(ListingCategoryTypeVm input)
-        {
-            using (var db = new MainDb())
-            {
-
-                var totcount = db.listingCategoryType
-                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
-                                      && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
-                                    )
-                             .Count();
-                return totcount;
-            }
-        }
-
-        public List<ListingCategoryTypeVo> search(ListingCategoryTypeVm input)
-        {
-            using (var db = new MainDb())
-            {
-                var list = db.listingCategoryType
-                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
-                                      && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
-                                    )
-                             .OrderBy(b => b.name)
-                             .Skip(input.skip)
-                             .Take(input.resultPerPage)
-                             .ToList();
-
-                return list;
-            }
-        }
-*/
         /// Find ListingCategoryType matching the listingCategoryTypeId
         public ListingCategoryTypeVo get(int listingCategoryTypeId)
         {
@@ -168,5 +136,7 @@ namespace SO.SilList.Manager.Managers
                 return db.listingCategoryType.Count();
             }
         }
+
+
     }
 }

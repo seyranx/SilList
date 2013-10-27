@@ -1,0 +1,4 @@
+﻿@model SO.SilList.Manager.Models.ValueObjects.ListingCategoryTypeVo
+
+@Html.DropDownListFor(t=>t.listingCategoryTypeId, new SelectList(ViewBag.listingCategoryTypes,"listingCategoryTypeId","name",Model),"Select One")
+

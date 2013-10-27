@@ -75,7 +75,32 @@ namespace SO.SilList.Manager.Managers
 
         public CarVm search(CarVm input)
         {
-
+             DateTime listingDate = new DateTime();
+             listingDate = DateTime.Today.Date;
+             if (input.listigDate != null)
+             {
+                 switch(input.listigDate)
+                 {
+                     case 0: //last 1 day
+                         listingDate=listingDate.Subtract(new TimeSpan(1, 0, 0, 0, 0));
+                         break;
+                     case 1: //last 3 days
+                         listingDate=listingDate.Subtract(new TimeSpan(3, 0, 0, 0, 0));
+                         break;
+                     case 2: //last 7 days
+                         listingDate=listingDate.Subtract(new TimeSpan(7, 0, 0, 0, 0));
+                         break;
+                     case 3: //2 weeks
+                         listingDate=listingDate.Subtract(new TimeSpan(14, 0, 0, 0, 0));
+                         break;
+                     case 4: // last month
+                         listingDate =listingDate.Subtract(new TimeSpan(31, 0, 0, 0, 0));
+                         break;
+                     case 5: // last Two month
+                         listingDate =listingDate.Subtract(new TimeSpan(62, 0, 0, 0, 0));
+                         break;
+                 }
+             }
             using (var db = new MainDb())
             {
                 var query = db.car
@@ -95,6 +120,23 @@ namespace SO.SilList.Manager.Managers
                             .Include(u => u.stateType)
                             .OrderByDescending(b => b.created)
                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (input.site == null || e.siteId == input.site)
+                                      && (input.make == null || e.modelType.makeTypeId == input.make)
+                                      && (input.model == null || e.modelTypeId== input.model)
+                                      && (input.body == null || e.carBodyTypeId == input.body)
+                                      && (input.drive == null || e.carDriveTypeId == input.drive)
+                                      && (input.door == null || e.carDoorTypeId == input.door)
+                                      && (input.fuel == null || e.carFuelTypeId == input.fuel)
+                                      && (input.exColor == null || e.exteriorColorTypeId == input.exColor)
+                                      && (input.inColor == null || e.interiorColorTypeId == input.inColor)
+                                      && (input.listigDate ==null || DateTime.Compare(e.startDate, listingDate) >= 0)
+                                      && ((e.year >= input.year || input.year == null)
+                                            && (e.year <= input.yearTo || input.yearTo == null))
+                                      && ((e.price >= input.startingPrice || input.startingPrice == null)
+                                            && (e.price <= input.endingPrice || input.endingPrice == null))
+                                      && ((e.millage >= input.startingMillage || input.startingMillage == null)
+                                            && (e.millage <= input.endingMillage || input.endingMillage == null))
+                                      && (e.vin.Contains(input.vin) || string.IsNullOrEmpty(input.vin))
                                       && (e.modelType.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword)
                                       || e.modelType.makeType.name.Contains(input.keyword) 
                                       || e.carBodyType.name.Contains(input.keyword)
@@ -110,6 +152,7 @@ namespace SO.SilList.Manager.Managers
                                       || e.description.Contains(input.keyword)
                                       || e.exteriorColorType.name.Contains(input.keyword)
                                       || e.interiorColorType.name.Contains(input.keyword)
+                                      || System.Data.Objects.SqlClient.SqlFunctions.StringConvert((double)e.millage).Contains(input.keyword)
                                       || System.Data.Objects.SqlClient.SqlFunctions.StringConvert((double)e.price).Contains(input.keyword)
                                       || System.Data.Objects.SqlClient.SqlFunctions.StringConvert((double)e.year).Contains(input.keyword)
                                       )

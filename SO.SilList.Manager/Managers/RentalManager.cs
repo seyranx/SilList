@@ -46,7 +46,7 @@ namespace SO.SilList.Manager.Managers
                 return res;
             }
         }
-
+        
         public RentalVm search(RentalVm input)
         {
 
@@ -74,7 +74,7 @@ namespace SO.SilList.Manager.Managers
                 return input;
             }
         }
-        
+         
         public List<RentalVo> getAll(bool? isActive = true)
         {
             using (var db = new MainDb())
@@ -148,5 +148,28 @@ namespace SO.SilList.Manager.Managers
                 return db.rental.Count();
             }
         }
+
+        /*
+        public List<RentalVo> search(RentalVm input)
+        {
+            using (var db = new MainDb())
+            {
+                var list = db.rental
+                    .Include(r => r.propertyType)
+                    .Include(t => t.leaseTermType)
+                    .Include(c => c.rentType)
+                    .Include(s => s.site)
+                    .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                        && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword)))
+                    .OrderBy(o => o.title)
+                    .Skip(input.skip)
+                    .Take(input.rowCount)
+                    .ToList();
+
+                return list;
+            }
+        }
+         */
+         
     }
 }

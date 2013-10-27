@@ -40,20 +40,23 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Listing Type")]
         public int? listingTypeId { get; set; }
 
+        [DisplayName("Price")]
+        public decimal? price { get; set; }
+
         [DisplayName("Address")]
         public string address { get; set; }
 
         [DisplayName("City")]
-        public Nullable<int> cityTypeId { get; set; }
+        public int? cityTypeId { get; set; }
 
         [DisplayName("State")]
-        public Nullable<int> stateTypeId { get; set; }
+        public int? stateTypeId { get; set; }
 
         [DisplayName("Country")]
-        public Nullable<int> countryTypeId { get; set; }
+        public int? countryTypeId { get; set; }
 
         [DisplayName("Zip")]
-        public Nullable<int> zip { get; set; }
+        public int? zip { get; set; }
 
         [DisplayName("Phone")]
         [StringLength(50)]

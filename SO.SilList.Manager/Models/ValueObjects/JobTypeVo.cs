@@ -16,44 +16,42 @@ namespace SO.SilList.Manager.Models.ValueObjects
     [Serializable]
     public partial class JobTypeVo
     {
-        [DisplayName("jobType Id")]
+        [DisplayName("jobType")]
         [Key]
         public int jobTypeId { get; set; }
 
-        [DisplayName("name")]
+        [DisplayName("Name")]
         [Required]
         [StringLength(50)]
         public string name { get; set; }
 
-        [DisplayName("description")]
+        [DisplayName("Description")]
         [Required]
         public string description { get; set; }
 
-        [DisplayName("created")]
+        [DisplayName("Created")]
         [Required]
         public System.DateTime created { get; set; }
 
-        [DisplayName("modified")]
+        [DisplayName("Modified")]
         [Required]
         public System.DateTime modified { get; set; }
 
-        [DisplayName("created By")]
+        [DisplayName("Created By")]
         public Nullable<int> createdBy { get; set; }
 
-        [DisplayName("modified By")]
+        [DisplayName("Modified By")]
         public Nullable<int> modifiedBy { get; set; }
 
-        [DisplayName("is Active")]
+        [DisplayName("Active")]
         public bool isActive { get; set; }
 
         [Association("JobType_Job", "jobTypeId", "jobTypeId", IsForeignKey = true)]
-        public List<JobVo> job { get; set; }
+        public List<JobVo> jobs { get; set; }
 
         public JobTypeVo()
         {
-            //this.created= getDate();
-            //this.modified = getDate();
-            this.jobTypeId = 1;
+           // this.jobTypeId = 1;
             this.isActive = true;
         }
     }

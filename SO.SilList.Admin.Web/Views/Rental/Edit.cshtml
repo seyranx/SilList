@@ -27,22 +27,6 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.rental.address)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.rental.address)
-            @Html.ValidationMessageFor(model => model.rental.address)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.rental.phone)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.rental.phone)
-            @Html.ValidationMessageFor(model => model.rental.phone)
-        </div>
-
-        <div class="editor-label">
             @Html.LabelFor(model => model.rental.description)
         </div>
         <div class="editor-field">
@@ -54,8 +38,7 @@
             @Html.LabelFor(model => model.rental.propertyTypeId)
         </div>
         <div class="editor-field">
-             @Html.Action("DropDownList", "PropertyType",new {id=Model.rental.propertyTypeId})
-
+         @Html.Action("DropDownList", "PropertyType",new {id=Model.rental.propertyTypeId, propertyName = "rental.propertyTypeId"})
         </div>
 
         <div class="editor-label">
@@ -122,10 +105,10 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.rentTypeId)
+            @Html.LabelFor(model => model.rental.rentTypeId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList", "RentType",new {id=Model.rentTypeId})
+            @Html.Action("DropDownList", "RentType",new {id=Model.rental.rentTypeId})
         </div>
 
         <div class="editor-label">
@@ -134,6 +117,64 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.rental.memberId)
             @Html.ValidationMessageFor(model => model.rental.memberId)
+        </div>
+
+             <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.rental.address)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.rental.address)
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.rental.cityTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "CityType", new { id = Model.rental.cityTypeId, propertyName="listing.cityTypeId" })
+            </div>
+        </div>
+         <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.rental.stateTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "StateType", new { id = Model.rental.stateTypeId, propertyName="listing.stateTypeId" })
+            </div>
+        </div>
+                <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.rental.countryTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "CountryType", new { id = Model.rental.countryTypeId , propertyName="listing.countryTypeId"})
+            </div>
+        </div>
+                <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.rental.zip)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.rental.zip)
+                @Html.ValidationMessageFor(model => model.rental.zip)
+            </div>
+        </div>
+                        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.rental.phone)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.rental.phone)
+            </div>
+        </div>
+                                <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.rental.fax)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.rental.fax)
+            </div>
         </div>
 
         <div class="editor-label">

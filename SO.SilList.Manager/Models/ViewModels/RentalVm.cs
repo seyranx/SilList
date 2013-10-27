@@ -22,12 +22,10 @@ namespace SO.SilList.Manager.Models.ViewModels
 
         public RentalVo rental { get; set; }
         public List<ImageCheckBoxInfo> imagesToRemove { get; set; }
-        public RentalVo listing { get; set; }
 
         public RentalVm()
         {
-
-            listing = new RentalVo();
+            rental = new RentalVo();
             this.result = new List<RentalVo>();
             if (paging == null)
                 paging = new Paging();
@@ -35,10 +33,11 @@ namespace SO.SilList.Manager.Models.ViewModels
 
         public RentalVm(RentalVo input)
         {
-            listing = input;
+            rental = input;
             this.result = new List<RentalVo>();
             if (paging == null)
                 paging = new Paging();
         }
+
     }
 }

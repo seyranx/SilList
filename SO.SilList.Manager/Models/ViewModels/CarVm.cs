@@ -13,12 +13,37 @@ namespace SO.SilList.Manager.Models.ViewModels
     public class CarVm
     {
         public List<CarVo> result { get; set; }
-        public string keyword { get; set; }
+
 
 
         [DisplayName("isActive: ")]
         public bool? isActive { get; set; }
-        //  public int totalCount { get; set; }
+        //properties for search
+        public Boolean isAdvanceOn { get; set; }
+        public string keyword { get; set; }
+        public int? site { get; set; }
+        public int? make { get; set; }
+        public int? model { get; set; }
+        public int? body { get; set; }
+        public int? transmission { get; set; }
+        public int? engine { get; set; }
+        public int? drive { get; set; }
+        public int? door { get; set; }
+        public int? fuel { get; set; }
+        public int? inColor { get; set; }
+        public int? exColor { get; set; }
+        public int? year { get; set; }
+        public int? yearTo { get; set; }
+        public string vin { get; set; }
+        public int? startingPrice {get;set;}
+        public int? endingPrice { get; set; }
+        public int? startingMillage {get; set; }
+        public int? endingMillage { get; set; }
+        public string city { get; set; }
+        public string state { get; set; }
+        public int? zip { get; set; }
+        public int? listigDate { get; set; }
+        //*****
         public string submitButton { get; set; }
         public Paging paging;
 
@@ -28,6 +53,7 @@ namespace SO.SilList.Manager.Models.ViewModels
         public CarVm()
         {
             //pageNumber = 1;
+            isAdvanceOn = false;
             car = new CarVo();
             this.result = new List<CarVo>();
             if (paging == null)
@@ -36,6 +62,7 @@ namespace SO.SilList.Manager.Models.ViewModels
 
         public CarVm(CarVo input)
         {
+            isAdvanceOn = false;
             car = input;
             this.result = new List<CarVo>();
             if (paging == null)

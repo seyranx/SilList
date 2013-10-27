@@ -8,7 +8,7 @@
 <h2>Details</h2>
 
 <fieldset>
-    <legend>RentalVo</legend>
+    <legend></legend>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.title)
@@ -16,21 +16,62 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.title)
     </div>
-
-    <div class="display-field">
-        @Html.DisplayNameFor(model => model.address)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.address)
-    </div>
-
-    <div class="display-field">
-        @Html.DisplayNameFor(model => model.phone)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.phone)
-    </div>
-
+       <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.address)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.address)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.cityTypeId)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.cityType.name)" readonly="true">
+            </div>
+        </div>
+         <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.stateTypeId)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.stateType.name)" readonly="true">
+            </div>
+        </div>
+                <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.countryTypeId)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.countryType.name)" readonly="true">
+            </div>
+        </div>
+                <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.zip)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.zip)" readonly="true">
+            </div>
+        </div>
+                        <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.phone)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.phone)" readonly="true">
+            </div>
+        </div>
+                                <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.fax)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.fax)" readonly="true">
+            </div>
+        </div>
     <div class="display-label">
          @Html.DisplayNameFor(model => model.description)
     </div>
@@ -43,15 +84,13 @@
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.propertyType.name)
-        @*@Html.Action("DropDownList", "PropertyType",new {id=Model.propertyTypeId})*@
     </div>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.siteId)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.site.name)
-       @* @Html.Action("DropDownList","Site",new {id=Model.siteId})*@
+        @Html.DisplayFor(model => model.site.domain)
     </div>
 
     <div class="display-label">
@@ -80,7 +119,6 @@
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.leaseTermType.name)
-        @*@Html.Action("DropDownList", "LeaseTermType",new {id=Model.leaseTermTypeId})*@
     </div>
 
     <div class="display-label">
@@ -110,7 +148,6 @@
     <div class="display-field">
 
         @Html.DisplayFor(model => model.rentType.name)
-        @*@Html.Action("DropDownList", "RentType",new {id=Model.rentTypeId})*@
     </div>
 
     <div class="display-label">

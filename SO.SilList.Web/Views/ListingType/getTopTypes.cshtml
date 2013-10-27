@@ -1,0 +1,32 @@
+﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.ListingTypeVo>
+
+@{ 
+    <li ><a href="#" id="showAllType" class="TopType" onclick="return onListingType(null, this)">
+                <font face="verdana"><i>Show All </i></font></a></li>
+    
+    foreach (var item in @Model)
+    {
+         <li ><a href="#" id="type_@item.listingTypeId" class="TopType"
+                onclick="return onListingType('@item.listingTypeId', this)"> @item.name </a></li>  
+    }       
+}
+
+<script>
+    function onListingType(id, item) {
+        $('#listingTypeId').val(id);
+
+        $('#filterForm').submit();
+        return false;
+    };
+
+    // change the color for the selected category
+    //
+    var listingTypeId = '@Request["listingTypeId"]';
+    if (listingTypeId != '') {
+        $('#type_' + listingTypeId).css('background-color', 'DarkSlateGray');
+    }
+    else {
+        $('#showAllType').css('background-color', 'DarkSlateGray');
+    }
+
+</script>

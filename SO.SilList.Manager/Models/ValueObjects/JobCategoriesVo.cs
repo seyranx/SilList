@@ -16,14 +16,14 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class JobCategoriesVo
     {
     		
-    	[DisplayName("job Category Id")]
+    	[DisplayName("job Category")]
     	[Key]
         public Guid jobCategoriesId { get; set; }
 
-        [DisplayName("job Category Type Id")]  // this was missing
+        [DisplayName("job Category Type")]  // this was missing
         public int? jobCategoryTypeId { get; set; }
 
-    	[DisplayName("job Id")]
+    	[DisplayName("job")]
         public Nullable<System.Guid> jobId { get; set; }
     		
     	[DisplayName("Created")]
@@ -37,10 +37,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Created By")]
         public Nullable<int> createdBy { get; set; }
     		
-    	[DisplayName("modified By")]
+    	[DisplayName("Modified By")]
         public Nullable<int> modifiedBy { get; set; }
     		
-    	[DisplayName("is Active")]
+    	[DisplayName("Active")]
         public bool isActive { get; set; }
 
 

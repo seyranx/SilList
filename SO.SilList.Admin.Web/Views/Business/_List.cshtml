@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.BusinessVo>
 
-<p style="margin-top:10px; margin-bottom:10px;">
-   <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
+<p style="margin-top: 10px; margin-bottom: 10px;">
+    <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
 
 </p>
 <table class="table table-bordered table-hover">
@@ -55,9 +55,10 @@
             </td>
 
             <td>
-                <a href="@Url.Action("Edit", new { id = item.businessId })" class="btn">Edit</a>
-                <a href="@Url.Action("Details", new { id = item.businessId })" class="btn">Details</a>
-                <a href="@Url.Action("Delete", new { id = item.businessId })" class="btn">Delete</a>
+                <a href="@Url.Action("Edit", new { id = item.businessId })" class="btn" title="Edit"><i class="icon-edit"></i></a>
+                <a href="@Url.Action("Details", new { id = item.businessId })" class="btn" title="Detail"><i class="icon-list"></i></a>
+                <a href="@Url.Action("Delete", new { id = item.businessId })" class="btn" title="Delete"><i class="icon-trash"></i></a>
+
             </td>
         </tr>
     }

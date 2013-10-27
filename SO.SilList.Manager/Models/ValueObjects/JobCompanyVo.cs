@@ -17,60 +17,72 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class JobCompanyVo
     {
 
-        [DisplayName("jobCompany Id")]
+        [DisplayName("JobCompany")]
         [Key]
         public Guid jobCompanyId { get; set; }
 
-        [DisplayName("name")]
+        [DisplayName("Name")]
         [StringLength(250)]
         public string name { get; set; }
 
-        [DisplayName("address")]
-        [StringLength(50)]
+        [DisplayName("Address")]
         public string address { get; set; }
 
-        [DisplayName("city")]
-        [StringLength(50)]
-        public string city { get; set; }
+        [DisplayName("City")]
+        public int cityTypeId { get; set; }
 
-        [DisplayName("state")]
-        [StringLength(50)]
-        public string state { get; set; }
+        [DisplayName("State")]
+        public int stateTypeId { get; set; }
+     
+        [DisplayName("Country")]
+        public int countryTypeId { get; set; }
 
-        [DisplayName("zip")]
+        [DisplayName("Zip")]
         public int zip { get; set; }
 
-        [DisplayName("website")]
+        [DisplayName("Website")]
         [StringLength(50)]
         public string website { get; set; }
 
-        [DisplayName("phone")]
+        [DisplayName("Phone")]
         [StringLength(50)]
         public string phone { get; set; }
 
-        [DisplayName("siteId")]
-        [StringLength(10)]
-        public string siteId { get; set; }
+        [DisplayName("Fax")]
+        [StringLength(50)]
+        public string fax { get; set; }
 
-        [DisplayName("created")]
+        [DisplayName("Site")]
+        public int siteId { get; set; }
+
+        [DisplayName("Created")]
         [Required]
         public System.DateTime created { get; set; }
 
-        [DisplayName("modified")]
+        [DisplayName("Modified")]
         [Required]
         public System.DateTime modified { get; set; }
 
-        [DisplayName("created By")]
+        [DisplayName("Created By")]
         public Nullable<int> createdBy { get; set; }
 
-        [DisplayName("modified By")]
+        [DisplayName("Modified By")]
         public Nullable<int> modifiedBy { get; set; }
 
-        [DisplayName("is Active")]
+        [DisplayName("Active")]
         public bool isActive { get; set; }
 
-        //[ForeignKey("siteId")]
-        //public virtual SiteVo site { get; set; }
+        [ForeignKey("countryTypeId")]
+        public virtual CountryTypeVo countryType { get; set; }
+
+        [ForeignKey("stateTypeId")]
+        public virtual StateTypeVo stateType { get; set; }
+
+        [ForeignKey("cityTypeId")]
+        public virtual CityTypeVo cityType { get; set; }
+
+        [ForeignKey("siteId")]
+        public virtual SiteVo site { get; set; }
 
         [Association("JobCompany_Job", "JobCompanyId", "JobCompanyId", IsForeignKey = true)]
         public List<JobVo> job { get; set; }

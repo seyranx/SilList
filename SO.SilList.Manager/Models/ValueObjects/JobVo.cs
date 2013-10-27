@@ -18,12 +18,12 @@ namespace SO.SilList.Manager.Models.ValueObjects
     public partial class JobVo
     {
     		
-    	[DisplayName("Job Id")]
+    	[DisplayName("Job")]
     	[Key]
         public System.Guid jobId { get; set; }
     		
     		
-    	[DisplayName("site Id")]
+    	[DisplayName("Site")]
         public Nullable<int> siteId { get; set; }
     		
     	[DisplayName("Title")]
@@ -34,8 +34,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[StringLength(50)]
         public string description { get; set; }
     		
-    	[DisplayName("Job Type")]
-        public Nullable<int> jobTypeId { get; set; }
+    	[DisplayName("Type")]
+        public int? jobTypeId { get; set; }
 
         [DisplayName("Address")]
         public string address { get; set; }
@@ -61,25 +61,28 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public string fax { get; set; }
     		
     	[DisplayName("Travel Required")]
-        public Nullable<bool> isTravelRequired { get; set; }
+        public bool isTravelRequired { get; set; }
     		
     	[DisplayName("Telecomute")]
-        public Nullable<bool> isTelecomute { get; set; }
+        public bool isTelecomute { get; set; }
     		
-    	[DisplayName("Company Id")]
+    	[DisplayName("Company")]
         public Nullable<System.Guid> jobCompanyId { get; set; }
 
-        [DisplayName("start Date")]
+        [DisplayName("Start Date")]
         [Required]
         public System.DateTime startDate { get; set; }
 
-        [DisplayName("end Date")]
+        [DisplayName("End Date")]
         [Required]
         public System.DateTime endDate { get; set; }
 
-        [DisplayName("is Approved")]
-        public bool isApproved { get; set; }
+        [DisplayName("Approved")]
+        public bool? isApproved { get; set; }
     		
+        [DisplayName("Entry Status Type")]
+        public Nullable<int> entryStatusTypeId { get; set; }
+
         public Nullable<System.DateTime> created { get; set; }
     		
     	[DisplayName("Modified")]
@@ -91,19 +94,14 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Modified By")]
         public Nullable<int> modifiedBy { get; set; }
     		
-    	[DisplayName("is Active")]
+    	[DisplayName("Active")]
         public bool isActive { get; set; }
 
         [ForeignKey("siteId")]
         public virtual SiteVo site { get; set; }
 
-       // [ForeignKey("listingDetailId")]
-       // public virtual ListingDetailVo listingDetails { get; set; }
-        //[ForeignKey("listingDetailId")]
-        //public virtual ListingDetailVo listingDetails { get; set; }
-
         [ForeignKey("jobTypeId")]
-        public virtual JobTypeVo jobTypes { get; set; }
+        public virtual JobTypeVo jobType { get; set; }
 
         [ForeignKey("jobCompanyId")]
         public virtual JobCompanyVo jobCompany { get; set; }
@@ -119,16 +117,16 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         [Association("JobCategories_Job", "jobId", "jobId", IsForeignKey = true)]
         public List<JobCategoriesVo> jobCategories { get; set; }
-      
-    	public JobVo(){
+
+        [ForeignKey("entryStatusTypeId")]
+        public virtual EntryStatusTypeVo entryStatusType { get; set; }
+
+        public JobVo()
+        {
     			
     		this.jobId = Guid.NewGuid();
             this.isApproved = false;
     	    this.isActive = true;
     	}
-
-       // public string name { get; set; }
-
-       // public string address { get; set; }
     }
 }

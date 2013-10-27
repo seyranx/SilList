@@ -9,7 +9,7 @@
             @Html.DisplayNameFor(model => model.title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.propertyType)
+            @Html.DisplayNameFor(model => model.propertyTypeId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.bedrooms)
@@ -46,7 +46,7 @@
             @Html.DisplayFor(modelItem => item.bathrooms)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.rentTypeId)
+            @Html.DisplayFor(modelItem => item.rentType.name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.startDate)
@@ -56,9 +56,9 @@
         </td>
 
         <td>
-            <a href="@Url.Action("Edit",new { id=item.rentalId  })" class="btn">Edit</a>
-            <a href="@Url.Action("Details",new { id=item.rentalId })" class="btn">Details</a>
-            <a href="@Url.Action("Delete",new { id=item.rentalId })" class="btn">Delete</a>
+            <a href="@Url.Action("Edit",new { id=item.rentalId })" class="btn" title="Edit"><i class="icon-edit"></i></a>
+            <a href="@Url.Action("Details",new { id=item.rentalId })" class="btn" title="Detail"><i class="icon-list"></i></a>
+            <a href="@Url.Action("Delete",new { id=item.rentalId })" class="btn" title="Delete"><i class="icon-trash"></i></a>
         </td>
     </tr>
 }
