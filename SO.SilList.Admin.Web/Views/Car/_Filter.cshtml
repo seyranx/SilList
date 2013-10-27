@@ -5,11 +5,13 @@
             $("#detailSearch").hide();
             $("#more").html("Advance Search");
             //$("#detailSearch").css('display', 'none');
-           
+            $("#isAdvanceOn").val(false);
+
         }
         else if ($("#more").html() == "Advance Search") {
             $("#detailSearch").show();
             $("#more").html("Basic Search");
+            $("#isAdvanceOn").val(true);
 
         }
     };
@@ -69,8 +71,8 @@
 </div>
 
 <a id="more" style="cursor: pointer" onclick="advanceSearch()">Advance Search</a>
-
-<div id="detailSearch" hidden="hidden" style="display:none;">
+@Html.HiddenFor(model => model.isAdvanceOn)
+<div id="detailSearch" hidden="hidden">
     @Html.Action("DropDownList", "MakeType", new { id = Model.make, propertyName = "make", defaultValue = "Any Make" })
     <i id="modelList">
         @Html.Action("DropDownList", "ModelType", new { id = Model.model, _makeTypeId = Model.make, propertyName = "model", defaultValue = "Any Model" })
@@ -109,4 +111,10 @@
     </div>
 </div>
 
-
+@if(Model.isAdvanceOn == true)
+{
+    <script>
+        $("#detailSearch").show();
+        $("#more").html("Basic Search");
+    </script>
+}

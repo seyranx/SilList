@@ -6,7 +6,7 @@
 
 <h2>@ViewBag.Title</h2>
 
-<form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Car")">
+<form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Car")" style="min-width:800px">
     
     @Html.Action("Filter",@Model)
      <div class="pull-right">

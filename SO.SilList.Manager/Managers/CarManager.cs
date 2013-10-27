@@ -75,7 +75,32 @@ namespace SO.SilList.Manager.Managers
 
         public CarVm search(CarVm input)
         {
-
+             DateTime listingDate = new DateTime();
+             listingDate = DateTime.Today.Date;
+             if (input.listigDate != null)
+             {
+                 switch(input.listigDate)
+                 {
+                     case 0: //last 1 day
+                         listingDate=listingDate.Subtract(new TimeSpan(1, 0, 0, 0, 0));
+                         break;
+                     case 1: //last 3 days
+                         listingDate=listingDate.Subtract(new TimeSpan(3, 0, 0, 0, 0));
+                         break;
+                     case 2: //last 7 days
+                         listingDate=listingDate.Subtract(new TimeSpan(7, 0, 0, 0, 0));
+                         break;
+                     case 3: //2 weeks
+                         listingDate=listingDate.Subtract(new TimeSpan(14, 0, 0, 0, 0));
+                         break;
+                     case 4: // last month
+                         listingDate =listingDate.Subtract(new TimeSpan(31, 0, 0, 0, 0));
+                         break;
+                     case 5: // last Two month
+                         listingDate =listingDate.Subtract(new TimeSpan(62, 0, 0, 0, 0));
+                         break;
+                 }
+             }
             using (var db = new MainDb())
             {
                 var query = db.car
@@ -104,7 +129,9 @@ namespace SO.SilList.Manager.Managers
                                       && (input.fuel == null || e.carFuelTypeId == input.fuel)
                                       && (input.exColor == null || e.exteriorColorTypeId == input.exColor)
                                       && (input.inColor == null || e.interiorColorTypeId == input.inColor)
-                                      && (input.year ==null || e.year == input.year)
+                                      && (input.listigDate ==null || DateTime.Compare(e.startDate, listingDate) >= 0)
+                                      && ((e.year >= input.year || input.year == null)
+                                            && (e.year <= input.yearTo || input.yearTo == null))
                                       && ((e.price >= input.startingPrice || input.startingPrice == null)
                                             && (e.price <= input.endingPrice || input.endingPrice == null))
                                       && ((e.millage >= input.startingMillage || input.startingMillage == null)
