@@ -13,16 +13,9 @@ namespace SO.SilList.Manager.Managers
         // implement first for Jobs . ..
         public ApproveEntriesVm search(ApproveEntriesVm input)
         {
-
             using (var db = new MainDb())
             {
                 var query = db.jobs
-                             .Include(s => s.site)
-                             .Include(j => j.jobType)
-                             .Include(t => t.jobCompany)
-                            .Include(i => i.cityType)
-                            .Include(o => o.countryType)
-                            .Include(u => u.stateType)
 
                             .OrderBy(b => b.title)
                             .Where(e => (input.isActive == null || e.isActive == input.isActive)

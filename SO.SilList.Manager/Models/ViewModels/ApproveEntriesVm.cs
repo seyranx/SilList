@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace SO.SilList.Manager.Models.ViewModels
 {
+    // todo: change Job to be generic (or implement for job,listing, and any other component that has isApproved field)
     public class ApproveEntriesVm
     {
         public List<JobVo> result { get; set; }
