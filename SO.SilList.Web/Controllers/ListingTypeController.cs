@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using SO.SilList.Manager.Managers;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
