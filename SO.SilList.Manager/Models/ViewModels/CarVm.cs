@@ -22,7 +22,18 @@ namespace SO.SilList.Manager.Models.ViewModels
         public Boolean isAdvanceOn { get; set; }
         public string keyword { get; set; }
         public int? site { get; set; }
-        public int? make { get; set; }
+        private int? _make;
+        public int? make
+        {
+            get{
+                return _make;
+            }
+            set
+            {
+                model = null;
+                _make = value;
+            }
+        }
         public int? model { get; set; }
         public int? body { get; set; }
         public int? transmission { get; set; }
