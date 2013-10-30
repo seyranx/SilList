@@ -1,21 +1,6 @@
 ﻿@model SO.SilList.Manager.Models.ViewModels.CarVm
 @using SO.SilList.Manager.Models.ValueObjects
-<script>
-    function advanceSearch() {
-        if ($("#more").html() == "Basic Search") {
-            $("#detailSearch").hide();
-            $("#more").html("Advance");
-            $("#isAdvanceOn").val(false);
-            $("#leftColumn").css("min-height", "600px");
-        }
-        else if ($("#more").html() == "Advance") {
-            $("#detailSearch").show();
-            $("#more").html("Basic Search");
-            $("#isAdvanceOn").val(true);
-            $("#leftColumn").css("min-height", "1400px");
-        }
-    };
-</script>
+
 <style>
     #detailSearch input {
         width: 144px;
@@ -43,100 +28,253 @@
     <label>City, State or Zip:</label>
     <input type="text" style="width: 90%;">
 
-    <label>Category:</label>
-    <input type="text" style="width: 90%;" placeholder="Filter">
-
+        <div style="height:40px;">
     <button type="submit" class="btn btn-success pull-right">Search</button>
+    </div>
 
-    <a id="more" style="cursor: pointer" onclick="advanceSearch()">Advance</a>
-    @Html.HiddenFor(model => model.isAdvanceOn)
-    <div id="detailSearch" hidden="hidden">
-
-        <div class="accordion" id="accordion2">
-
-
-            <div class="accordion-group">
-                <div class="accordion-heading">
-                    <label class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse1">
-                        Make
-                    </label>
-                </div>
-                <div id="collapse1" class="accordion-body collapse in">
-                    <div class="accordion-inner">
-                        @Html.Action("CollapseList","car",new{id = Model.make,propertyName = "make", modelType = typeof(MakeTypeVo)})
-                    </div>
+    <div id="detailSearch">
+        @Html.HiddenFor(model => model.make)
+        @Html.HiddenFor(model => model.model)
+        @Html.HiddenFor(model => model.body)
+        @Html.HiddenFor(model => model.exColor)
+        @Html.HiddenFor(model => model.inColor)
+        @Html.HiddenFor(model => model.transmission)
+        @Html.HiddenFor(model => model.fuel)
+        @Html.HiddenFor(model => model.listigDate)
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <label class="accordion-toggle" data-toggle="collapse" href="#collapse1">
+                    Make
+                </label>
+            </div>
+            <div id="collapse1" class="accordion-body collapse">
+                <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                    @Html.Action("CollapseList", "car", new { id = Model.make, propertyName = "make", modelType = typeof(MakeTypeVo) })
                 </div>
             </div>
-            <div class="accordion-group">
-                <div class="accordion-heading">
-                    <label class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse2">
-                        Model
-                    </label>
-                </div>
-                <div id="collapse2" class="accordion-body collapse in">
-                    <div class="accordion-inner">
-                        <i id="modelList">
-                            @Html.Action("ModelDropDownList", "car", new { id = Model.model, _makeTypeId = Model.make, propertyName = "model", defaultValue = "Any Model" })
-                        </i>
-
-                    </div>
+        </div>
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <label class="accordion-toggle" data-toggle="collapse" href="#collapse2">
+                    Model
+                </label>
+            </div>
+            <div id="collapse2" class="accordion-body collapse">
+                <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                    @Html.Action("CollapseListModel", "car", new { id = Model.model, makeId = Model.make, propertyName = "model" })
                 </div>
             </div>
         </div>
 
-        <label>Year Range:</label>
-        @{
-            int currentYear = DateTime.Now.Year;
-            var mylist = new string[31];
-            for (int i = 0; i < 31; i++)
-            {
-                mylist.SetValue((currentYear - 30 + i).ToString(), 30 - i);
-            }
-            var selectlist = new SelectList(mylist);
-        }
-        @Html.DropDownListFor(model => model.year, selectlist, "Any", new { style = "width: 67px;margin-right: -1px;" })
-        To
-        @Html.DropDownListFor(model => model.yearTo, selectlist, "Any", new { style = "width: 67px;margin-left: -1px;" })
-        <label>Vin Number:</label>
-        @Html.TextBoxFor(model => model.vin, new { placeholder = "Vin Number" })
-        <label>Body Type:</label>
-        @Html.Action("CarBodyDropDownList", "car", new { id = Model.body, propertyName = "body", defaultValue = "All Bodies", modelType = typeof(CarBodyTypeVo) })
-        <label>Exterior Color:</label>
-        @Html.Action("CarColorDropDownList", "car", new { id = Model.exColor, propertyName = "exColor", defaultValue = "Any Color" })
-        <label>Interior Color:</label>
-        @Html.Action("CarColorDropDownList", "car", new { id = Model.inColor, propertyName = "inColor", defaultValue = "Any Interior Color" })
-        <div>
-            <label>Price Range:</label>
-            <input type="text" value="@Model.startingPrice" style="width:54px; margin:1px" placeholder="Starting" name="startingPrice"/>
-            to
-            <input type="text" value="@Model.endingPrice" style="width:54px; margin:1px" placeholder="Ending" name="endingPrice"/>
 
-            <label>Millage Range:</label>
-            <input type="text" value="@Model.startingMillage" style="width:54px; margin:1px" placeholder="Starting" name="startingMillage"/>
-            to
-        <input type="text" value="@Model.endingMillage" style="width:54px; margin:1px" placeholder="Ending" name="endingMillage"/>
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <label class="accordion-toggle" data-toggle="collapse" href="#collapse3">
+                    Year
+                </label>
+            </div>
+            <div id="collapse3" class="accordion-body collapse">
+                <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                    <ul class="nav nav-list" style="background-color: none; color: white; text-align: center;">
+                        <li><a href="#" onclick="selectAction(null,'year')">Any </a></li>
+                        @{
+       
+                            int item;
+                            for (int i = 0; i < 20; i += 2)
+                            {
+                                item = (DateTime.Now.Year - i);
+                            <li><a href="#"  onclick="selectAction(@item,'yearTo'); selectAction(@(item - 2),'year')">@(item - 2) To @item </a></li>
+
+                            }
+                        }
+                    </ul>
+                    <label>Year Range:</label>
+                    @{
+                        int currentYear = DateTime.Now.Year;
+                        var mylist = new string[31];
+                        for (int i = 0; i < 31; i++)
+                        {
+                            mylist.SetValue((currentYear - 30 + i).ToString(), 30 - i);
+                        }
+                        var selectlist = new SelectList(mylist);
+                    }
+                    @Html.DropDownListFor(model => model.year, selectlist, "Any", new { style = "width: 67px;margin-right: -1px;", onchange = "$('#filterForm').submit();" })
+                    To
+                @Html.DropDownListFor(model => model.yearTo, selectlist, "Any", new { style = "width: 67px;margin-left: -1px;", onchange = "$('#filterForm').submit();" })
+                </div>
+            </div>
         </div>
-        <label>Transmission Type:</label>
-        @Html.Action("TransmissionDropDownList", "car", new { id = Model.transmission, propertyName = "transmission", defaultValue = "Any Transmission" })
-        <label>Engine:</label>
-        @Html.Action("CarEngineDropDownList", "car", new { id = Model.engine, propertyName = "engine", defaultValue = "Any Engine" })
-        <label>Drive Train:</label>
-        @Html.Action("CarDriveDropDownList", "car", new { id = Model.drive, propertyName = "drive", defaultValue = "Any Drive Train" })
-        <label>Door Count:</label>
-        @Html.Action("CarDoorDropDownList", "car", new { id = Model.door, propertyName = "door", defaultValue = "Any Doors" })
-        <label>Fuel Type:</label>
-        @Html.Action("CarFuelDropDownList", "car", new { id = Model.fuel, propertyName = "fuel", defaultValue = "Any Fuel Type" })
-        <label>Listing Date</label>
-        <select id="listigDate" name="listigDate">
-            <option value="">Any Date</option>
-            <option value="0">Last 1 Day</option>
-            <option value="1">Last 3 Days</option>
-            <option value="2">Last 7 Days</option>
-            <option value="3">Last 2 Weeks</option>
-            <option value="4">Last Month</option>
-            <option value="5">Last 2 Months</option>
-        </select>
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <label class="accordion-toggle" data-toggle="collapse" href="#collapse4">
+                    Body Type
+                </label>
+            </div>
+            <div id="collapse4" class="accordion-body collapse">
+                <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                    @Html.Action("CollapseList", "car", new { id = Model.body, propertyName = "body", modelType = typeof(CarBodyTypeVo) })
+                </div>
+            </div>
+        </div>
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <label class="accordion-toggle" data-toggle="collapse" href="#collapse5">
+                    Exterior Color
+                </label>
+            </div>
+            <div id="collapse5" class="accordion-body collapse">
+                <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                    @Html.Action("CollapseList", "car", new { id = Model.exColor, propertyName = "exColor", modelType = typeof(CarColorTypeVo) })
+                </div>
+            </div>
+        </div>
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <label class="accordion-toggle" data-toggle="collapse" href="#collapse6">
+                    Interior Color
+                </label>
+            </div>
+            <div id="collapse6" class="accordion-body collapse">
+                <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                    @Html.Action("CollapseList", "car", new { id = Model.inColor, propertyName = "inColor", modelType = typeof(CarColorTypeVo) })
+                </div>
+            </div>
+        </div>
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <label class="accordion-toggle" data-toggle="collapse" href="#collapsePrice">
+                    Price
+                </label>
+            </div>
+            <div id="collapsePrice" class="accordion-body collapse">
+                <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                    <label>Price Range:</label>
+                    <input type="text" value="@Model.startingPrice" style="width:54px; margin:1px" placeholder="Starting" name="startingPrice"/>
+                    to
+                     <input type="text" value="@Model.endingPrice" style="width:54px; margin:1px" placeholder="Ending" name="endingPrice"/>
+                </div>
+            </div>
+        </div>
 
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <label class="accordion-toggle" data-toggle="collapse" href="#collapseMill">
+                    Millage
+                </label>
+            </div>
+            <div id="collapseMill" class="accordion-body collapse">
+                <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                    <label>Millage Range:</label>
+                    <input type="text" value="@Model.startingMillage" style="width:54px; margin:1px" placeholder="Starting" name="startingMillage"/>
+                    to
+                     <input type="text" value="@Model.endingMillage" style="width:54px; margin:1px" placeholder="Ending" name="endingMillage"/>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <label class="accordion-toggle" data-toggle="collapse" href="#collapse7">
+                    Transmission
+                </label>
+            </div>
+            <div id="collapse7" class="accordion-body collapse">
+                <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                    @Html.Action("CollapseList", "car", new { id = Model.transmission, propertyName = "transmission", modelType = typeof(TransmissionTypeVo) })
+                </div>
+            </div>
+        </div>
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <label class="accordion-toggle" data-toggle="collapse" href="#collapse8">
+                    Fuel
+                </label>
+            </div>
+            <div id="collapse8" class="accordion-body collapse">
+                <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                    @Html.Action("CollapseList", "car", new { id = Model.fuel, propertyName = "fuel", modelType = typeof(CarFuelTypeVo) })
+                </div>
+            </div>
+        </div>
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <label class="accordion-toggle" data-toggle="collapse" href="#collapseEngine">
+                    Engine
+                </label>
+            </div>
+            <div id="collapseEngine" class="accordion-body collapse">
+                <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                    @Html.Action("CollapseList", "car", new { id = Model.engine, propertyName = "engine", modelType = typeof(CarEngineTypeVo) })
+                </div>
+            </div>
+        </div>
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <label class="accordion-toggle" data-toggle="collapse" href="#collapseDrive">
+                    Drive Train
+                </label>
+            </div>
+            <div id="collapseDrive" class="accordion-body collapse">
+                <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                    @Html.Action("CollapseList", "car", new { id = Model.drive, propertyName = "drive", modelType = typeof(CarDriveTypeVo) })
+                </div>
+            </div>
+        </div>
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <label class="accordion-toggle" data-toggle="collapse" href="#collapseDoor">
+                    Doors
+                </label>
+            </div>
+            <div id="collapseDoor" class="accordion-body collapse">
+                <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                    @Html.Action("CollapseList", "car", new { id = Model.door, propertyName = "door", modelType = typeof(CarDoorTypeVo) })
+                </div>
+            </div>
+        </div>
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <label class="accordion-toggle" data-toggle="collapse" href="#collapse9">
+                    Listing Date
+                </label>
+            </div>
+            <div id="collapse9" class="accordion-body collapse">
+                <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                    <ul class="nav nav-list" style="background-color: none; color: white; text-align: center">
+                        @{
+                            string[] list = { "Any Date", "Last 1 Day", "Last 3 Days", "Last 7 Days", "Last 2 Weeks", "Last Month", "Last 2 Months" };
+                            for (int i = 0; i < 7; i++)
+                            {
+                                if (Model.listigDate == null)
+                                {
+                                    if (i == 0)
+                                    {
+                            <li style="background-color: blue;"><a href="#" onclick="selectAction(null,'listigDate');">@list[i] </a></li>
+                                    }
+                                    else
+                                    {
+                            <li><a href="#" onclick="selectAction(null,'listigDate');">@list[i] </a></li>
+                                    }
+                                }
+                                else
+                                {
+                                    if (i - 1 == Model.listigDate)
+                                    {
+                            <li style="background-color: blue;"><a href="#"  onclick="selectAction(@(i - 1),'listigDate');">@list[i] </a></li>
+                                    }
+                                    else
+                                    {
+                            <li><a href="#"  onclick="selectAction(@(i - 1),'listigDate');">@list[i] </a></li>
+                                    }
+                                }
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
         <button type="submit" class="btn btn-success pull-right" style="margin-top: 4px">Search</button>
     </div>
 

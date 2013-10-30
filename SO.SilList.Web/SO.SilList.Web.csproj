@@ -302,16 +302,9 @@
     <Content Include="Views\Rental\_Menu.cshtml" />
     <Content Include="Views\Shared\_LayoutCar.cshtml" />
     <Content Include="Views\Car\_filter.cshtml" />
-    <Content Include="Views\Car\_CarColorDropDownList.cshtml" />
-    <Content Include="Views\Car\_CarBodyDropDownList.cshtml" />
-    <Content Include="Views\Car\_CarDoorDropDownList.cshtml" />
-    <Content Include="Views\Car\_CarDriveDropDownList.cshtml" />
-    <Content Include="Views\Car\_CarEngineDropDownList.cshtml" />
-    <Content Include="Views\Car\_CarFuelDropDownList.cshtml" />
-    <Content Include="Views\Car\_MakeDropDownList.cshtml" />
-    <Content Include="Views\Car\_ModelDropDownList.cshtml" />
-    <Content Include="Views\Car\_TransmissionDropDownList.cshtml" />
     <Content Include="Views\Car\_CollapseList.cshtml" />
+    <Content Include="Views\Car\Detail.cshtml" />
+    <Content Include="Views\Car\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
