@@ -1,0 +1,25 @@
+﻿@model IEnumerable<SO.SilList.Manager.Models.ViewModels.ApproveEntriesVm>
+
+<table>
+    <tr>
+        <th>
+            a @*@Html.DisplayNameFor(model => model.keyword)*@
+        </th>
+         <th></th>
+    </tr>
+
+@foreach (var item in Model) 
+{
+    <tr>
+        <td>
+            a a will be generic / now only Job  @*@Html.DisplayFor(modelItem => item.keyword)*@
+        </td>
+       
+        <td>
+            @Html.ActionLink("Approve", "Approve", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Decline", "Decline", new { /* id=item.PrimaryKey */ }) |
+        </td>
+    </tr>
+}
+
+</table>
