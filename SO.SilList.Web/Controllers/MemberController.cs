@@ -35,9 +35,9 @@ namespace SO.SilList.Web.Controllers
                 mem.lastName = input.lastName;
 
                 mem.address = input.address;
-                mem.city = input.city;
-                mem.state = input.state;
-                mem.zip = input.zip;
+                // mem.city = input.city;
+                // mem.state = input.state;
+                mem.zip = Int32.Parse(input.zip);
                 mem.phone = input.phone;
 
                 mem.email = input.email;
