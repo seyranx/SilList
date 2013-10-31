@@ -112,6 +112,7 @@
     <Folder Include="app" />
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
+    <Folder Include="appData" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="data\Tables\Business.sql">
@@ -225,6 +226,7 @@
     <Build Include="app\Tables\CountryType.sql" />
     <Build Include="app\Tables\CarDoorType.sql" />
     <Build Include="app\Tables\EntryStatusType.sql" />
+    <Build Include="appData\AppDataImport.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />

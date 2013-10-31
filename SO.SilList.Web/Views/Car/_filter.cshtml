@@ -33,13 +33,13 @@
     </div>
 
     <div id="detailSearch">
-        @Html.HiddenFor(model => model.make)
-        @Html.HiddenFor(model => model.model)
-        @Html.HiddenFor(model => model.body)
-        @Html.HiddenFor(model => model.exColor)
-        @Html.HiddenFor(model => model.inColor)
-        @Html.HiddenFor(model => model.transmission)
-        @Html.HiddenFor(model => model.fuel)
+        @Html.HiddenFor(model => model.makeTypeId)
+        @Html.HiddenFor(model => model.modelTypeId)
+        @Html.HiddenFor(model => model.bodyTypeId)
+        @Html.HiddenFor(model => model.exColorTypeId)
+        @Html.HiddenFor(model => model.inColorTypeId)
+        @Html.HiddenFor(model => model.transmissionTypeId)
+        @Html.HiddenFor(model => model.fuelTypeId)
         @Html.HiddenFor(model => model.listigDate)
         <div class="accordion-group">
             <div class="accordion-heading">
@@ -49,7 +49,7 @@
             </div>
             <div id="collapse1" class="accordion-body collapse">
                 <div class="accordion-inner" style="margin: 1px; padding: 1px;">
-                    @Html.Action("CollapseList", "car", new { id = Model.make, propertyName = "make", modelType = typeof(MakeTypeVo) })
+                    @Html.Action("CollapseList", "car", new { id = Model.makeTypeId, propertyName = "makeTypeId", modelType = typeof(MakeTypeVo) })
                 </div>
             </div>
         </div>
@@ -61,7 +61,7 @@
             </div>
             <div id="collapse2" class="accordion-body collapse">
                 <div class="accordion-inner" style="margin: 1px; padding: 1px;">
-                    @Html.Action("CollapseListModel", "car", new { id = Model.model, makeId = Model.make, propertyName = "model" })
+                    @Html.Action("CollapseListModel", "car", new { id = Model.modelTypeId, makeId = Model.makeTypeId, propertyName = "modelTypeId" })
                 </div>
             </div>
         </div>
@@ -112,7 +112,7 @@
             </div>
             <div id="collapse4" class="accordion-body collapse">
                 <div class="accordion-inner" style="margin: 1px; padding: 1px;">
-                    @Html.Action("CollapseList", "car", new { id = Model.body, propertyName = "body", modelType = typeof(CarBodyTypeVo) })
+                    @Html.Action("CollapseList", "car", new { id = Model.bodyTypeId, propertyName = "bodyTypeId", modelType = typeof(CarBodyTypeVo) })
                 </div>
             </div>
         </div>
@@ -124,7 +124,7 @@
             </div>
             <div id="collapse5" class="accordion-body collapse">
                 <div class="accordion-inner" style="margin: 1px; padding: 1px;">
-                    @Html.Action("CollapseList", "car", new { id = Model.exColor, propertyName = "exColor", modelType = typeof(CarColorTypeVo) })
+                    @Html.Action("CollapseList", "car", new { id = Model.exColorTypeId, propertyName = "exColorTypeId", modelType = typeof(CarColorTypeVo) })
                 </div>
             </div>
         </div>
@@ -136,7 +136,7 @@
             </div>
             <div id="collapse6" class="accordion-body collapse">
                 <div class="accordion-inner" style="margin: 1px; padding: 1px;">
-                    @Html.Action("CollapseList", "car", new { id = Model.inColor, propertyName = "inColor", modelType = typeof(CarColorTypeVo) })
+                    @Html.Action("CollapseList", "car", new { id = Model.inColorTypeId, propertyName = "inColorTypeId", modelType = typeof(CarColorTypeVo) })
                 </div>
             </div>
         </div>
@@ -182,7 +182,7 @@
             </div>
             <div id="collapse7" class="accordion-body collapse">
                 <div class="accordion-inner" style="margin: 1px; padding: 1px;">
-                    @Html.Action("CollapseList", "car", new { id = Model.transmission, propertyName = "transmission", modelType = typeof(TransmissionTypeVo) })
+                    @Html.Action("CollapseList", "car", new { id = Model.transmissionTypeId, propertyName = "transmissionTypeId", modelType = typeof(TransmissionTypeVo) })
                 </div>
             </div>
         </div>
@@ -194,7 +194,7 @@
             </div>
             <div id="collapse8" class="accordion-body collapse">
                 <div class="accordion-inner" style="margin: 1px; padding: 1px;">
-                    @Html.Action("CollapseList", "car", new { id = Model.fuel, propertyName = "fuel", modelType = typeof(CarFuelTypeVo) })
+                    @Html.Action("CollapseList", "car", new { id = Model.fuelTypeId, propertyName = "fuelTypeId", modelType = typeof(CarFuelTypeVo) })
                 </div>
             </div>
         </div>
@@ -206,7 +206,7 @@
             </div>
             <div id="collapseEngine" class="accordion-body collapse">
                 <div class="accordion-inner" style="margin: 1px; padding: 1px;">
-                    @Html.Action("CollapseList", "car", new { id = Model.engine, propertyName = "engine", modelType = typeof(CarEngineTypeVo) })
+                    @Html.Action("CollapseList", "car", new { id = Model.engineTypeId, propertyName = "engineTypeId", modelType = typeof(CarEngineTypeVo) })
                 </div>
             </div>
         </div>
@@ -218,7 +218,7 @@
             </div>
             <div id="collapseDrive" class="accordion-body collapse">
                 <div class="accordion-inner" style="margin: 1px; padding: 1px;">
-                    @Html.Action("CollapseList", "car", new { id = Model.drive, propertyName = "drive", modelType = typeof(CarDriveTypeVo) })
+                    @Html.Action("CollapseList", "car", new { id = Model.driveTypeId, propertyName = "driveTypeId", modelType = typeof(CarDriveTypeVo) })
                 </div>
             </div>
         </div>
@@ -230,7 +230,7 @@
             </div>
             <div id="collapseDoor" class="accordion-body collapse">
                 <div class="accordion-inner" style="margin: 1px; padding: 1px;">
-                    @Html.Action("CollapseList", "car", new { id = Model.door, propertyName = "door", modelType = typeof(CarDoorTypeVo) })
+                    @Html.Action("CollapseList", "car", new { id = Model.doorTypeId, propertyName = "doorTypeId", modelType = typeof(CarDoorTypeVo) })
                 </div>
             </div>
         </div>
