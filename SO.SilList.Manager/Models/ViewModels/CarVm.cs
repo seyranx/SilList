@@ -21,28 +21,28 @@ namespace SO.SilList.Manager.Models.ViewModels
         //properties for search
         public Boolean isAdvanceOn { get; set; }
         public string keyword { get; set; }
-        public int? site { get; set; }
-        private int? _make;
-        public int? make
+        public int? siteId { get; set; }
+        private int? _makeTypeId;
+        public int? makeTypeId
         {
             get{
-                return _make;
+                return _makeTypeId;
             }
             set
             {
-                model = null;
-                _make = value;
+                modelTypeId = null;
+                _makeTypeId = value;
             }
         }
-        public int? model { get; set; }
-        public int? body { get; set; }
-        public int? transmission { get; set; }
-        public int? engine { get; set; }
-        public int? drive { get; set; }
-        public int? door { get; set; }
-        public int? fuel { get; set; }
-        public int? inColor { get; set; }
-        public int? exColor { get; set; }
+        public int? modelTypeId { get; set; }
+        public int? bodyTypeId { get; set; }
+        public int? transmissionTypeId { get; set; }
+        public int? engineTypeId { get; set; }
+        public int? driveTypeId { get; set; }
+        public int? doorTypeId { get; set; }
+        public int? fuelTypeId { get; set; }
+        public int? inColorTypeId { get; set; }
+        public int? exColorTypeId { get; set; }
         public int? year { get; set; }
         public int? yearTo { get; set; }
         public string vin { get; set; }
@@ -50,8 +50,8 @@ namespace SO.SilList.Manager.Models.ViewModels
         public int? endingPrice { get; set; }
         public int? startingMillage {get; set; }
         public int? endingMillage { get; set; }
-        public string city { get; set; }
-        public string state { get; set; }
+        public string cityTypeId { get; set; }
+        public string stateTypeId { get; set; }
         public int? zip { get; set; }
         public int? listigDate { get; set; }
         //*****
