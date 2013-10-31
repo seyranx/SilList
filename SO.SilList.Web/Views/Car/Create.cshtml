@@ -6,23 +6,13 @@
 }
 <style>
     .info {
-        border: 1px solid #808080;
         padding: 1px;
         border-radius: 6px;
-        height: 20px;
-        background-color: #ccc;
     }
 </style>
 
 
-<div class="row" style="margin: 5px;">
-    <div class="span8">
-        <h2 style="color: #090f4a; text-shadow: 5px 3px 2px #a3a3a4">@Html.DisplayFor(model => model.year) @Html.DisplayFor(model => model.modelType.makeType.name) @Html.DisplayFor(model => model.modelType.name)</h2>
-    </div>
-    <div class="span4" style="text-align: center;">
-        <h3>$@Html.DisplayFor(model => model.price)<b style="font-size: small;">.00</b></h3>
-    </div>
-</div>
+
 <div class="row" style="margin-left: 5px;">
     <div class="span8">
         <img class="media-object, thumbnail" data-src="holder.js/440x300">
@@ -41,7 +31,15 @@
         </div>
     </div>
 </div>
-
+<div class="row" style="margin: 5px;">
+    <div class="span8">
+        <h2 style="color: #090f4a; text-shadow: 5px 3px 2px #a3a3a4">@Html.DisplayFor(model => model.year) @Html.DisplayFor(model => model.modelType.makeType.name) @Html.DisplayFor(model => model.modelType.name)</h2>
+    </div>
+    <div class="span4" style="text-align: center;">
+        Price: 
+        @Html.EditorFor(model => model.price)
+    </div>
+</div>
 <div class="row" style="height: 400px; margin: 5px;">
     <div class="span8" style="height: 400px; border-radius: 6px;">
         <div style="border: inset; border-color: #808080; height: 120px; border-radius: 6px; margin-bottom: 5px">
@@ -105,9 +103,9 @@
         <b>Exterior Color:</b>
         <div class="info">@Html.EditorFor(model => model.exteriorColorType.name)</div>
         <b>Interior Color:</b>
-        <div class="info">@Html.DisplayFor(model => model.interiorColorType.name)</div>
+        <div class="info">@Html.EditorFor(model => model.interiorColorType.name)</div>
         <b>Vin:</b>
-        <div class="info">@Html.DisplayFor(model => model.vin)</div>
+        <div class="info">@Html.EditorFor(model => model.vin)</div>
 
     </div>
 </div>
