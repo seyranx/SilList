@@ -42,7 +42,7 @@ namespace SO.SilList.Manager.Managers
                 return result;
             }
         }
-        public JobVm search(ApproveEntriesVm input)
+        public ApproveEntriesVm search(ApproveEntriesVm input)
         {
 
             using (var db = new MainDb())

@@ -38,24 +38,24 @@ namespace SO.SilList.Admin.Web.Controllers
             //return PartialView("_List", results);
         }
 
-        [DontTrackVisit]
-        public ActionResult DropDownList(Guid? id = null,string propertyName = null,string defaultValue = null)
-        {
-            ViewBag.sites = approveEntriesManager.getAll(null);
-            //var site = new JobVo();
-            //if (id != null)
-            //{
-            //    job = approveEntriesManager.get(id.Value);
-            //}
-            if (propertyName == null)
-                propertyName = "siteId";
-            ViewBag.propertyName = propertyName;
-            if (defaultValue == null)
-                defaultValue = "Select One";
-            ViewBag.defaultValue = defaultValue;
+        //[DontTrackVisit]
+        //public ActionResult DropDownList(Guid? id = null,string propertyName = null,string defaultValue = null)
+        //{
+        //    ViewBag.sites = approveEntriesManager.getAll(null);
+        //    //var site = new JobVo();
+        //    //if (id != null)
+        //    //{
+        //    //    job = approveEntriesManager.get(id.Value);
+        //    //}
+        //    if (propertyName == null)
+        //        propertyName = "siteId";
+        //    ViewBag.propertyName = propertyName;
+        //    if (defaultValue == null)
+        //        defaultValue = "Select One";
+        //    ViewBag.defaultValue = defaultValue;
 
-            return PartialView("_DropDownList", site);
-        }
+        //    return PartialView("_DropDownList", site);
+        //}
 
         [DontTrackVisit]
         public ActionResult Menu()
@@ -63,13 +63,13 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView("_Menu");
         }
 
-        public ActionResult Details(int id)
+        public ActionResult Details(Guid id)
         {
             var result = approveEntriesManager.get(id);
             return View(result);
         }
         [HttpPost]
-        public ActionResult Edit(int id, JobVo input)
+        public ActionResult Edit(Guid id, JobVo input)
         {
             if (this.ModelState.IsValid)
             {
@@ -80,13 +80,13 @@ namespace SO.SilList.Admin.Web.Controllers
             return View();
 
         }
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
             var result = approveEntriesManager.get(id);
             return View(result);
         }
 
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
             approveEntriesManager.delete(id);
             return RedirectToAction("Index");
@@ -97,7 +97,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView("_Pagination", input);
         }
 
-        public ActionResult Filter(SiteVm input)
+        public ActionResult Filter(ApproveEntriesVm input)
         {
             return PartialView("_Filter", input);
         }

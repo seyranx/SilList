@@ -506,6 +506,8 @@
     <Content Include="Views\StateType\Index.cshtml" />
     <Content Include="Views\ApproveEntries\Index.cshtml" />
     <Content Include="Views\ApproveEntries\_List.cshtml" />
+    <Content Include="Views\ApproveEntries\_Filter.cshtml" />
+    <Content Include="Views\ApproveEntries\_Menu.cshtml" />
     <None Include="Views\Image\CarImages.cshtml" />
     <Content Include="Views\Image\ListingImages.cshtml" />
     <Content Include="Views\Image\RentalImages.cshtml" />
