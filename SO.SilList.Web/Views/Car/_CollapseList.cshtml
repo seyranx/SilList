@@ -15,8 +15,8 @@
             @{
                 int count = ViewBag.list.Count;
                 int id = 0;
-                int max = 3;
-                if (count < 15)
+                int max = 10;
+                if (count < 10)
                 {
                     max = count;
                 }
@@ -38,7 +38,7 @@
             }
         </ul>
 
-        @if (count > 15)
+        @if (count > 10)
         {
             <a href="#seeMore" role="link" data-toggle="modal">See More</a>
         }
