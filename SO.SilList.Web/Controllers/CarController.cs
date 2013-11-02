@@ -68,7 +68,8 @@ namespace SO.SilList.Web.Controllers
                 makeId = -1;
                 ViewBag.list = modelTypeManager.getAll(true,makeId);
                 ViewBag.propertyId = "modelTypeId";
- 
+            if (makeId>=0)
+                ViewBag.titleName = makeTypeManager.get((int)makeId).name + " Models";
             return PartialView("_CollapseList");
         }
 
@@ -115,42 +116,49 @@ namespace SO.SilList.Web.Controllers
                 ViewBag.list = makeTypeManager.getAll(true); 
                // var idList = list.Select(c => c.makeTypeId).ToList();
                 ViewBag.propertyId = "makeTypeId";
-                
+                ViewBag.titleName = "Make";
             }
             else if (modelType == typeof(CarBodyTypeVo))
             {
                 ViewBag.list = carBodyTypeManager.getAll(true);
                 ViewBag.propertyId = "carBodyTypeId";
+                ViewBag.titleName = "Body";
             }
             else if (modelType == typeof(TransmissionTypeVo))
             {
                 ViewBag.list = transmissionTypeManager.getAll(true);
                 ViewBag.propertyId = "transmissionTypeId";
+                ViewBag.titleName = "Transmission";
             }
             else if (modelType == typeof(CarColorTypeVo))
             {
                 ViewBag.list = carColorTypeManager.getAll(true);
                 ViewBag.propertyId = "carColorTypeId";
+                ViewBag.titleName = "Color";
             }
             else if (modelType == typeof(CarDoorTypeVo))
             {
                 ViewBag.list = carDoorTypeManager.getAll(true);
                 ViewBag.propertyId = "carDoorTypeId";
+                ViewBag.titleName = "Doors";
             }
             else if (modelType == typeof(CarDriveTypeVo))
             {
                 ViewBag.list = carDriveTypeManager.getAll(true);
                 ViewBag.propertyId = "carDriveTypeId";
+                ViewBag.titleName = "Drive Train";
             }
             else if (modelType == typeof(CarEngineTypeVo))
             {
                 ViewBag.list = carEngineTypeManager.getAll(true);
                 ViewBag.propertyId = "carEngineTypeId";
+                ViewBag.titleName = "Engine";
             }
             else if (modelType == typeof(CarFuelTypeVo))
             {
                 ViewBag.list = carFuelTypeManager.getAll(true);
                 ViewBag.propertyId = "carFuelTypeId";
+                ViewBag.titleName = "Fuel";
             }
 
             return PartialView("_CollapseList");

@@ -16,6 +16,10 @@
         margin-top: 5px;
         border-radius: 5px;
     }
+
+    .title {
+        margin: -5px;
+    }
 </style>
 <form id="filterForm">
 
@@ -28,8 +32,8 @@
     <label>City, State or Zip:</label>
     <input type="text" style="width: 90%;">
 
-        <div style="height:40px;">
-    <button type="submit" class="btn btn-success pull-right">Search</button>
+    <div style="height: 40px;">
+        <button type="submit" class="btn btn-success pull-right">Search</button>
     </div>
 
     <div id="detailSearch">
@@ -43,11 +47,9 @@
         @Html.HiddenFor(model => model.listigDate)
         <div class="accordion-group">
             <div class="accordion-heading">
-                <label class="accordion-toggle" data-toggle="collapse" href="#collapse1">
-                    Make
-                </label>
+                <span class="accordion-toggle title" data-toggle="collapse" href="#collapseMake">Make</span>
             </div>
-            <div id="collapse1" class="accordion-body collapse">
+            <div id="collapseMake" class="accordion-body collapse">
                 <div class="accordion-inner" style="margin: 1px; padding: 1px;">
                     @Html.Action("CollapseList", "car", new { id = Model.makeTypeId, propertyName = "makeTypeId", modelType = typeof(MakeTypeVo) })
                 </div>
@@ -55,11 +57,9 @@
         </div>
         <div class="accordion-group">
             <div class="accordion-heading">
-                <label class="accordion-toggle" data-toggle="collapse" href="#collapse2">
-                    Model
-                </label>
+                <span class="accordion-toggle title" data-toggle="collapse" href="#collapseModel">Model</span>
             </div>
-            <div id="collapse2" class="accordion-body collapse">
+            <div id="collapseModel" class="accordion-body collapse">
                 <div class="accordion-inner" style="margin: 1px; padding: 1px;">
                     @Html.Action("CollapseListModel", "car", new { id = Model.modelTypeId, makeId = Model.makeTypeId, propertyName = "modelTypeId" })
                 </div>
@@ -69,14 +69,12 @@
 
         <div class="accordion-group">
             <div class="accordion-heading">
-                <label class="accordion-toggle" data-toggle="collapse" href="#collapse3">
-                    Year
-                </label>
+                <span class="accordion-toggle title" data-toggle="collapse" href="#collapseYear">Year</span>
             </div>
-            <div id="collapse3" class="accordion-body collapse">
+            <div id="collapseYear" class="accordion-body collapse">
                 <div class="accordion-inner" style="margin: 1px; padding: 1px;">
                     <ul class="nav nav-list" style="background-color: none; color: white; text-align: center;">
-                        <li><a href="#" onclick="selectAction(null,'year')">Any </a></li>
+                        <li><a href="#" onclick="selectAction(null,'year'); selectAction(null,'yearTo')">Any </a></li>
                         @{
        
                             int item;
@@ -106,11 +104,9 @@
         </div>
         <div class="accordion-group">
             <div class="accordion-heading">
-                <label class="accordion-toggle" data-toggle="collapse" href="#collapse4">
-                    Body Type
-                </label>
+                <span class="accordion-toggle title" data-toggle="collapse" href="#collapseBody">Body Type</span>
             </div>
-            <div id="collapse4" class="accordion-body collapse">
+            <div id="collapseBody" class="accordion-body collapse">
                 <div class="accordion-inner" style="margin: 1px; padding: 1px;">
                     @Html.Action("CollapseList", "car", new { id = Model.bodyTypeId, propertyName = "bodyTypeId", modelType = typeof(CarBodyTypeVo) })
                 </div>
@@ -118,11 +114,9 @@
         </div>
         <div class="accordion-group">
             <div class="accordion-heading">
-                <label class="accordion-toggle" data-toggle="collapse" href="#collapse5">
-                    Exterior Color
-                </label>
+                <span class="accordion-toggle title" data-toggle="collapse" href="#collapseExColor">Exterior Color</span>
             </div>
-            <div id="collapse5" class="accordion-body collapse">
+            <div id="collapseExColor" class="accordion-body collapse">
                 <div class="accordion-inner" style="margin: 1px; padding: 1px;">
                     @Html.Action("CollapseList", "car", new { id = Model.exColorTypeId, propertyName = "exColorTypeId", modelType = typeof(CarColorTypeVo) })
                 </div>
@@ -130,11 +124,10 @@
         </div>
         <div class="accordion-group">
             <div class="accordion-heading">
-                <label class="accordion-toggle" data-toggle="collapse" href="#collapse6">
-                    Interior Color
-                </label>
+                <span class="accordion-toggle title" data-toggle="collapse" href="#collapseInColor">Interior Color</span>
+
             </div>
-            <div id="collapse6" class="accordion-body collapse">
+            <div id="collapseInColor" class="accordion-body collapse">
                 <div class="accordion-inner" style="margin: 1px; padding: 1px;">
                     @Html.Action("CollapseList", "car", new { id = Model.inColorTypeId, propertyName = "inColorTypeId", modelType = typeof(CarColorTypeVo) })
                 </div>
@@ -142,32 +135,58 @@
         </div>
         <div class="accordion-group">
             <div class="accordion-heading">
-                <label class="accordion-toggle" data-toggle="collapse" href="#collapsePrice">
-                    Price
-                </label>
+                <span class="accordion-toggle title" data-toggle="collapse" href="#collapsePrice">Price</span>
             </div>
             <div id="collapsePrice" class="accordion-body collapse">
                 <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+
+                    <ul class="nav nav-list" style="background-color: none; color: white; text-align: center;">
+                        <li><a href="#" onclick="selectAction(null,'endingPrice'); selectAction(null,'startingPrice')">Any </a></li>
+                        @{
+       
+                            
+                            for (int i = 1; i < 10; i += 1)
+                            {
+                                item = i * 1000;
+                            <li><a href="#"  onclick="selectAction(@item,'startingPrice'); selectAction(@(item * 2),'endingPrice')">@item To @(item * 2) </a></li>
+
+                            }
+                        }
+                    </ul>
                     <label>Price Range:</label>
-                    <input type="text" value="@Model.startingPrice" style="width:54px; margin:1px" placeholder="Starting" name="startingPrice"/>
+                    <input type="text" value="@Model.startingPrice" style="width:54px; margin:1px" placeholder="Starting" id="startingPrice" name="startingPrice"/>
                     to
-                     <input type="text" value="@Model.endingPrice" style="width:54px; margin:1px" placeholder="Ending" name="endingPrice"/>
+                     <input type="text" value="@Model.endingPrice" style="width:54px; margin:1px" placeholder="Ending" id="endingPrice" name="endingPrice"/>
                 </div>
             </div>
         </div>
 
         <div class="accordion-group">
             <div class="accordion-heading">
-                <label class="accordion-toggle" data-toggle="collapse" href="#collapseMill">
-                    Millage
-                </label>
+                <span class="accordion-toggle title" data-toggle="collapse" href="#collapseMill">Millage</span>
             </div>
             <div id="collapseMill" class="accordion-body collapse">
                 <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+
+                    <ul class="nav nav-list" style="background-color: none; color: white; text-align: center;">
+                        <li><a href="#" onclick="selectAction(null,'startingMillage'); selectAction(null,'endingMillage')">Any </a></li>
+                        @{
+       
+                            
+                            for (int i = 2; i < 11; i++)
+                            {
+                                item = i * 10000;
+                            <li><a href="#"  onclick="selectAction(0,'startingMillage'); selectAction(@item,'endingMillage')">@item or Less </a></li>
+
+                            }
+                        }
+                        <li><a href="#" onclick="selectAction(100000,'startingMillage'); selectAction(null,'endingMillage')">100000 or More </a></li>
+
+                    </ul>
                     <label>Millage Range:</label>
-                    <input type="text" value="@Model.startingMillage" style="width:54px; margin:1px" placeholder="Starting" name="startingMillage"/>
+                    <input type="text" value="@Model.startingMillage" style="width:54px; margin:1px" placeholder="Starting" id="startingMillage" name="startingMillage"/>
                     to
-                     <input type="text" value="@Model.endingMillage" style="width:54px; margin:1px" placeholder="Ending" name="endingMillage"/>
+                     <input type="text" value="@Model.endingMillage" style="width:54px; margin:1px" placeholder="Ending" id="endingMillage" name="endingMillage"/>
 
                 </div>
             </div>
@@ -176,11 +195,9 @@
 
         <div class="accordion-group">
             <div class="accordion-heading">
-                <label class="accordion-toggle" data-toggle="collapse" href="#collapse7">
-                    Transmission
-                </label>
+                <span class="accordion-toggle title" data-toggle="collapse" href="#collapseTransmission">Transmission</span>
             </div>
-            <div id="collapse7" class="accordion-body collapse">
+            <div id="collapseTransmission" class="accordion-body collapse">
                 <div class="accordion-inner" style="margin: 1px; padding: 1px;">
                     @Html.Action("CollapseList", "car", new { id = Model.transmissionTypeId, propertyName = "transmissionTypeId", modelType = typeof(TransmissionTypeVo) })
                 </div>
@@ -188,11 +205,9 @@
         </div>
         <div class="accordion-group">
             <div class="accordion-heading">
-                <label class="accordion-toggle" data-toggle="collapse" href="#collapse8">
-                    Fuel
-                </label>
+                <span class="accordion-toggle title" data-toggle="collapse" href="#collapseFuel">Fuel</span>
             </div>
-            <div id="collapse8" class="accordion-body collapse">
+            <div id="collapseFuel" class="accordion-body collapse">
                 <div class="accordion-inner" style="margin: 1px; padding: 1px;">
                     @Html.Action("CollapseList", "car", new { id = Model.fuelTypeId, propertyName = "fuelTypeId", modelType = typeof(CarFuelTypeVo) })
                 </div>
@@ -200,9 +215,7 @@
         </div>
         <div class="accordion-group">
             <div class="accordion-heading">
-                <label class="accordion-toggle" data-toggle="collapse" href="#collapseEngine">
-                    Engine
-                </label>
+                <span class="accordion-toggle title" data-toggle="collapse" href="#collapseEngine">Engine</span>
             </div>
             <div id="collapseEngine" class="accordion-body collapse">
                 <div class="accordion-inner" style="margin: 1px; padding: 1px;">
@@ -212,9 +225,7 @@
         </div>
         <div class="accordion-group">
             <div class="accordion-heading">
-                <label class="accordion-toggle" data-toggle="collapse" href="#collapseDrive">
-                    Drive Train
-                </label>
+                <span class="accordion-toggle title" data-toggle="collapse" href="#collapseDrive">Drive Train</span>
             </div>
             <div id="collapseDrive" class="accordion-body collapse">
                 <div class="accordion-inner" style="margin: 1px; padding: 1px;">
@@ -224,9 +235,7 @@
         </div>
         <div class="accordion-group">
             <div class="accordion-heading">
-                <label class="accordion-toggle" data-toggle="collapse" href="#collapseDoor">
-                    Doors
-                </label>
+                <span class="accordion-toggle title" data-toggle="collapse" href="#collapseDoor">Doors</span>
             </div>
             <div id="collapseDoor" class="accordion-body collapse">
                 <div class="accordion-inner" style="margin: 1px; padding: 1px;">
@@ -236,11 +245,9 @@
         </div>
         <div class="accordion-group">
             <div class="accordion-heading">
-                <label class="accordion-toggle" data-toggle="collapse" href="#collapse9">
-                    Listing Date
-                </label>
+                <span class="accordion-toggle title" data-toggle="collapse" href="#collapselistingdate">Listing Date</span>
             </div>
-            <div id="collapse9" class="accordion-body collapse">
+            <div id="collapselistingdate" class="accordion-body collapse">
                 <div class="accordion-inner" style="margin: 1px; padding: 1px;">
                     <ul class="nav nav-list" style="background-color: none; color: white; text-align: center">
                         @{
@@ -275,7 +282,6 @@
                 </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-success pull-right" style="margin-top: 4px">Search</button>
     </div>
 
 

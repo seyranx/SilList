@@ -40,38 +40,39 @@
 
         @if (count > 10)
         {
-            <a href="#seeMore" role="link" data-toggle="modal">See More</a>
+            <a href="#seeMore@(ViewBag.propertyName)" role="link" data-toggle="modal" class="pull-right">See More »</a>
         }
 
         <!-- Modal -->
-        <div id="seeMore" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div id="seeMore@(ViewBag.propertyName)" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="myModalLabel">Modal header</h3>
+                <h3 id="myModalLabel" style="color:black;">@ViewBag.titleName</h3>
             </div>
 
             <div class="modal-body">
-                <ul>
+                <br />
                     @foreach (var item in ViewBag.list)
                     {
-
+                        
                         id = item.GetType().GetProperty(ViewBag.propertyId).GetValue(item);
                         if (id == ViewBag.selectedId)
                         {
-                        <li style="background-color: blue;">
-                            <a href="#"  id="@item.name" onclick="selectAction(@id,'@ViewBag.propertyName')">@item.name </a></li>
+                        <div class="span4" style="margin:3px" >
+                            <a href="#"  id="@item.name" onclick="selectAction(@id,'@ViewBag.propertyName')">@item.name </a></div>
                         }
                         else
                         {
-                        <li><a href="#"  id="@item.name" onclick="selectAction(@id,'@ViewBag.propertyName')">@item.name </a></li>
+                            <div class="span4" style="margin:3px">
+                        <a href="#"  id="@item.name" onclick="selectAction(@id,'@ViewBag.propertyName')">@item.name </a></div>
                         }
+                            
                     }
-                </ul>
-                <p>One fine body…</p>
+                
+                
             </div>
             <div class="modal-footer">
                 <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-                <button class="btn btn-primary">Save changes</button>
             </div>
         </div>
 

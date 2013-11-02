@@ -25,12 +25,7 @@ namespace SO.SilList.Manager.Managers
             {
                 var result = db.countryType
 
-                            .Include(c => c.car)
-                            .Include(j => j.job)
-                            .Include(m => m.member)
-                            .Include(b => b.business)
-                            .Include(l => l.listing)
-                            .Include(r => r.rental)
+
 
                             .FirstOrDefault(r => r.countryTypeId == countryTypeId);
 
