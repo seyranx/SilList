@@ -25,12 +25,7 @@ namespace SO.SilList.Manager.Managers
             {
                 var result = db.cityType
 
-                            .Include(c => c.car)
-                            .Include(j => j.job)
-                            .Include(m => m.member)
-                            .Include(b => b.business)
-                            .Include(l => l.listing)
-                            .Include(r => r.rental)
+                           
 
                             .FirstOrDefault(r => r.cityTypeId == cityTypeId);
 
@@ -43,7 +38,7 @@ namespace SO.SilList.Manager.Managers
         {
             using (var db = new MainDb())
             {
-                var query = (from c in db.cityType
+                var query = (from c in db.cityType.Include(s=>s.stateType).Include(b=>b.countryType)
                             // join s in db.stateType on c.cityTypeId equals s.stateTypeId
                              where c.name.StartsWith(keywrod)
                              select c
@@ -82,12 +77,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var list = db.cityType
-                            .Include(c => c.car)
-                            .Include(j => j.job)
-                            .Include(m => m.member)
-                            .Include(b => b.business)
-                            .Include(l => l.listing)
-                            .Include(r => r.rental)
+                         
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
                 

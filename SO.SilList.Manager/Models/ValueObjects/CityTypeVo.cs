@@ -56,24 +56,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [ForeignKey("countryTypeId")]
         public virtual CountryTypeVo countryType { get; set; }
 
-        [Association("CityType_Car", "cityTypeId", "cityTypeId", IsForeignKey = true)]
-        public List<CarVo> car { get; set; }
-
-        [Association("CityType_Job", "cityTypeId", "cityTypeId", IsForeignKey = true)]
-        public List<JobVo> job { get; set; }
-
-        [Association("CityType_Business", "cityTypeId", "cityTypeId", IsForeignKey = true)]
-        public List<BusinessVo> business { get; set; }
-
-        [Association("CityType_Listing", "cityTypeId", "cityTypeId", IsForeignKey = true)]
-        public List<ListingVo> listing { get; set; }
-
-        [Association("CityType_Rental", "cityTypeId", "cityTypeId", IsForeignKey = true)]
-        public List<RentalVo> rental { get; set; }
-
-        [Association("CityType_Member", "cityTypeId", "cityTypeId", IsForeignKey = true)]
-        public List<MemberVo> member { get; set; }
-
+       
         public CityTypeVo(){
 
             this.isActive = true;
