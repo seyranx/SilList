@@ -23,6 +23,7 @@ namespace SO.SilList.Manager.Managers
             {
                 var result = db.modelType
                             .Include(m => m.makeType)
+                             .OrderBy(b => b.name)
                             .FirstOrDefault(r => r.modelTypeId == modelTypeId);
 
                 return result;
@@ -38,6 +39,7 @@ namespace SO.SilList.Manager.Managers
             {
                 var res = db.modelType
                             .Include(m => m.makeType)
+                             .OrderBy(b => b.name)
                             .FirstOrDefault();
 
                 return res;
@@ -72,6 +74,7 @@ namespace SO.SilList.Manager.Managers
             {
                 var list = db.modelType
                              .Include(m => m.makeType)
+                              .OrderBy(b => b.name)
                             .Where(e => isActive == null || e.isActive == isActive)
                              .Where(e => makeTypeId==null || e.makeTypeId == makeTypeId)
                              

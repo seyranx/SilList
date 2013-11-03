@@ -25,8 +25,8 @@ namespace SO.SilList.Manager.Managers
             {
                 var result = db.stateType
 
-                            
-
+                   
+                            .OrderBy(b => b.name)
                             .FirstOrDefault(r => r.stateTypeId == stateTypeId);
 
                 return result;
@@ -61,7 +61,8 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var list = db.stateType
-                             
+                    
+                            .OrderBy(b => b.name)
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
                 

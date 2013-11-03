@@ -25,7 +25,7 @@ namespace SO.SilList.Manager.Managers
             {
                 var result = db.countryType
 
-                            
+
 
                             .FirstOrDefault(r => r.countryTypeId == countryTypeId);
 

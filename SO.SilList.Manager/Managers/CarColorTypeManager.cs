@@ -39,6 +39,7 @@ namespace SO.SilList.Manager.Managers
             {
                 var list = db.carColorType
                           //  .Include(c => c.car)
+                            .OrderBy(n => n.name)
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
                 
