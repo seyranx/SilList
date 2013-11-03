@@ -60,6 +60,65 @@ namespace SO.SilList.Web.Controllers
         //   var json = Json(result, JsonRequestBehavior.AllowGet);
         //   return json;
         //}
+        public ActionResult DropDownList(int? id = null, string propertyName = null, Type modelType = null, string defaultValue = null,int? makeTypeId=null)
+        {
+          //var item = Activator.CreateInstance(modelType);
+            ViewBag.selectedItem = id;
+            if(modelType == typeof(CarDoorTypeVo))
+            {
+                ViewBag.items = carDoorTypeManager.getAll(true);
+                ViewBag.idName = "carDoorTypeId";
+            }
+            else if (modelType == typeof(CarBodyTypeVo))
+            {
+                ViewBag.items = carBodyTypeManager.getAll(true);
+                ViewBag.idName = "carBodyTypeId";
+            }
+            else if (modelType == typeof(CarColorTypeVo))
+            {
+                ViewBag.items = carColorTypeManager.getAll(true);
+                ViewBag.idName = "carColorTypeId";
+            }
+            else if (modelType == typeof(CarDriveTypeVo))
+            {
+                ViewBag.items = carDriveTypeManager.getAll(true);
+                ViewBag.idName = "carDriveTypeId";
+            }
+            else if (modelType == typeof(CarEngineTypeVo))
+            {
+                ViewBag.items = carEngineTypeManager.getAll(true);
+                ViewBag.idName = "carEngineTypeId";
+            }
+            else if (modelType == typeof(CarFuelTypeVo))
+            {
+                ViewBag.items = carFuelTypeManager.getAll(true);
+                ViewBag.idName = "carFuelTypeId";
+            }
+            else if (modelType == typeof(TransmissionTypeVo))
+            {
+                ViewBag.items = transmissionTypeManager.getAll(true);
+                ViewBag.idName = "trasmissionTypeId";
+            }
+            else if (modelType == typeof(MakeTypeVo))
+            {
+                ViewBag.items = makeTypeManager.getAll(true);
+                ViewBag.idName = "makeTypeId";
+            }
+            else if (modelType == typeof(ModelTypeVo))
+            {
+                if (makeTypeId == null)
+                    makeTypeId = -1;
+                ViewBag.items = modelTypeManager.getAll(true,makeTypeId);
+                ViewBag.idName = "modelTypeId";
+            }
+
+            ViewBag.propertyName = propertyName;
+            if (defaultValue == null)
+                defaultValue = "Select One";
+            ViewBag.defaultValue = defaultValue;
+            return PartialView("_DropDownList");
+        }
+
         public ActionResult CollapseListModel(int? id = null,int? makeId = null, string propertyName = null)
         {
             ViewBag.selectedId = id;
@@ -68,7 +127,8 @@ namespace SO.SilList.Web.Controllers
                 makeId = -1;
                 ViewBag.list = modelTypeManager.getAll(true,makeId);
                 ViewBag.propertyId = "modelTypeId";
- 
+            if (makeId>=0)
+                ViewBag.titleName = makeTypeManager.get((int)makeId).name + " Models";
             return PartialView("_CollapseList");
         }
 
@@ -115,42 +175,49 @@ namespace SO.SilList.Web.Controllers
                 ViewBag.list = makeTypeManager.getAll(true); 
                // var idList = list.Select(c => c.makeTypeId).ToList();
                 ViewBag.propertyId = "makeTypeId";
-                
+                ViewBag.titleName = "Make";
             }
             else if (modelType == typeof(CarBodyTypeVo))
             {
                 ViewBag.list = carBodyTypeManager.getAll(true);
                 ViewBag.propertyId = "carBodyTypeId";
+                ViewBag.titleName = "Body";
             }
             else if (modelType == typeof(TransmissionTypeVo))
             {
                 ViewBag.list = transmissionTypeManager.getAll(true);
                 ViewBag.propertyId = "transmissionTypeId";
+                ViewBag.titleName = "Transmission";
             }
             else if (modelType == typeof(CarColorTypeVo))
             {
                 ViewBag.list = carColorTypeManager.getAll(true);
                 ViewBag.propertyId = "carColorTypeId";
+                ViewBag.titleName = "Color";
             }
             else if (modelType == typeof(CarDoorTypeVo))
             {
                 ViewBag.list = carDoorTypeManager.getAll(true);
                 ViewBag.propertyId = "carDoorTypeId";
+                ViewBag.titleName = "Doors";
             }
             else if (modelType == typeof(CarDriveTypeVo))
             {
                 ViewBag.list = carDriveTypeManager.getAll(true);
                 ViewBag.propertyId = "carDriveTypeId";
+                ViewBag.titleName = "Drive Train";
             }
             else if (modelType == typeof(CarEngineTypeVo))
             {
                 ViewBag.list = carEngineTypeManager.getAll(true);
                 ViewBag.propertyId = "carEngineTypeId";
+                ViewBag.titleName = "Engine";
             }
             else if (modelType == typeof(CarFuelTypeVo))
             {
                 ViewBag.list = carFuelTypeManager.getAll(true);
                 ViewBag.propertyId = "carFuelTypeId";
+                ViewBag.titleName = "Fuel";
             }
 
             return PartialView("_CollapseList");

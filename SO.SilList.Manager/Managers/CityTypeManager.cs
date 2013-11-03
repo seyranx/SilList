@@ -24,8 +24,8 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var result = db.cityType
-
-                           
+                             .Include(c => c.countryType)
+                            .Include(s => s.stateType)
 
                             .FirstOrDefault(r => r.cityTypeId == cityTypeId);
 
@@ -39,11 +39,11 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var query = (from c in db.cityType.Include(s=>s.stateType).Include(b=>b.countryType)
-                            // join s in db.stateType on c.cityTypeId equals s.stateTypeId
+                             // join s in db.stateType on c.cityTypeId equals s.stateTypeId
                              where c.name.StartsWith(keywrod)
                              select c
                             );
-                 
+
 
                 return query.ToList();
             }
@@ -62,7 +62,7 @@ namespace SO.SilList.Manager.Managers
                                       && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                              );
                 input.paging.totalCount = query.Count();
-                input.result = query         
+                input.result = query
                              .Skip(input.paging.skip)
                              .Take(input.paging.rowCount)
 
@@ -77,10 +77,12 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var list = db.cityType
-                         
+                                                .Include(c => c.countryType)
+                            .Include(s => s.stateType)
+.OrderBy(n => n.name)
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
-                
+
 
                 return list;
             }
@@ -108,10 +110,10 @@ namespace SO.SilList.Manager.Managers
                 var res = db.cityType.FirstOrDefault(e => e.cityTypeId == cityTypeId);
 
                 if (res == null) return null;
-                
+
                 input.created = res.created;
                 input.createdBy = res.createdBy;
-               
+
                 db.Entry(res).CurrentValues.SetValues(input);
 
 
