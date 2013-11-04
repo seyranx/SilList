@@ -25,13 +25,8 @@ namespace SO.SilList.Manager.Managers
             {
                 var result = db.stateType
 
-                            .Include(c => c.car)
-                            .Include(j => j.job)
-                            .Include(m => m.member)
-                            .Include(b => b.business)
-                            .Include(l => l.listing)
-                            .Include(r => r.rental)
-
+                   
+                            .OrderBy(b => b.name)
                             .FirstOrDefault(r => r.stateTypeId == stateTypeId);
 
                 return result;
@@ -45,7 +40,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var query = db.stateType
-                            .Include(c => c.countryType)
+                            //.Include(c => c.countryType)
                             .OrderBy(b => b.name)
                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
@@ -66,12 +61,8 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var list = db.stateType
-                            .Include(c => c.car)
-                            .Include(j => j.job)
-                            .Include(m => m.member)
-                            .Include(b => b.business)
-                            .Include(l => l.listing)
-                            .Include(r => r.rental)
+                    
+                            .OrderBy(b => b.name)
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
                 

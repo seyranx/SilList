@@ -26,7 +26,8 @@
     <link href="~/Content/Site.css" rel="stylesheet" />
 
        @Scripts.Render("~/Scripts/jquery-1.9.1.min.js")
-   
+       <link href="~/Scripts/select2-3.4.4/select2.css" rel="stylesheet"/>
+    <script src="~/Scripts/select2-3.4.4/select2.js"></script>
       <script type="text/javascript">
 
 
@@ -36,6 +37,12 @@
               var height = $("#mainContent").height();
               $('#leftColumn').height(height);
               // alert(height);
+
+              $("SELECT").select2(
+             {
+                 dropdownAutoWidth: false,
+                 width: 'element'
+             });
           });
 
 
@@ -118,7 +125,7 @@
                           <li><a href="#">Search one</a></li>
                           <li><a href="#">Search two</a></li>
                           <li class="divider"></li>
-                          <li><a href="#">Submit a Listing</a></li>
+                          <li><a href="@Url.Action("Create","car")">Submit a Listing</a></li>
                         </ul>
              </li>
     </ul>

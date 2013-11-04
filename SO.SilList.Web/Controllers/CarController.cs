@@ -11,6 +11,7 @@ using System.Web.Mvc;
 
 namespace SO.SilList.Web.Controllers
 {
+
     public class CarController : Controller
     {
         private CarManager carManager = new CarManager();
@@ -59,151 +60,168 @@ namespace SO.SilList.Web.Controllers
         //   var json = Json(result, JsonRequestBehavior.AllowGet);
         //   return json;
         //}
-        public ActionResult CarColorDropDownList(int? id = null, string propertyName = null, string defaultValue = null)
+        public ActionResult DropDownList(int? id = null, string propertyName = null, Type modelType = null, string defaultValue = null,int? makeTypeId=null)
         {
-            ViewBag.colors = carColorTypeManager.getAll(null);
-            var color = new CarColorTypeVo();
-            if (id != null)
+          //var item = Activator.CreateInstance(modelType);
+            ViewBag.selectedItem = id;
+            if(modelType == typeof(CarDoorTypeVo))
             {
-                color = carColorTypeManager.get(id.Value);
+                ViewBag.items = carDoorTypeManager.getAll(true);
+                ViewBag.idName = "carDoorTypeId";
             }
-            if (propertyName == null)
-                propertyName = "carColorTypeId";
+            else if (modelType == typeof(CarBodyTypeVo))
+            {
+                ViewBag.items = carBodyTypeManager.getAll(true);
+                ViewBag.idName = "carBodyTypeId";
+            }
+            else if (modelType == typeof(CarColorTypeVo))
+            {
+                ViewBag.items = carColorTypeManager.getAll(true);
+                ViewBag.idName = "carColorTypeId";
+            }
+            else if (modelType == typeof(CarDriveTypeVo))
+            {
+                ViewBag.items = carDriveTypeManager.getAll(true);
+                ViewBag.idName = "carDriveTypeId";
+            }
+            else if (modelType == typeof(CarEngineTypeVo))
+            {
+                ViewBag.items = carEngineTypeManager.getAll(true);
+                ViewBag.idName = "carEngineTypeId";
+            }
+            else if (modelType == typeof(CarFuelTypeVo))
+            {
+                ViewBag.items = carFuelTypeManager.getAll(true);
+                ViewBag.idName = "carFuelTypeId";
+            }
+            else if (modelType == typeof(TransmissionTypeVo))
+            {
+                ViewBag.items = transmissionTypeManager.getAll(true);
+                ViewBag.idName = "trasmissionTypeId";
+            }
+            else if (modelType == typeof(MakeTypeVo))
+            {
+                ViewBag.items = makeTypeManager.getAll(true);
+                ViewBag.idName = "makeTypeId";
+            }
+            else if (modelType == typeof(ModelTypeVo))
+            {
+                if (makeTypeId == null)
+                    makeTypeId = -1;
+                ViewBag.items = modelTypeManager.getAll(true,makeTypeId);
+                ViewBag.idName = "modelTypeId";
+            }
+
             ViewBag.propertyName = propertyName;
             if (defaultValue == null)
                 defaultValue = "Select One";
             ViewBag.defaultValue = defaultValue;
-            return PartialView("_CarColorDropDownList", color);
-        }
-        public ActionResult CarBodyDropDownList(int? id = null, string propertyName = null, string defaultValue = null)
-        {
-            ViewBag.bodies = carBodyTypeManager.getAll(null);
-            var body = new CarBodyTypeVo();
-            if (id != null)
-            {
-                body = carBodyTypeManager.get(id.Value);
-            }
-            if (propertyName == null)
-                propertyName = "carBodyTypeId";
-            ViewBag.propertyName = propertyName;
-            if (defaultValue == null)
-                defaultValue = "Select One";
-            ViewBag.defaultValue = defaultValue;
-            return PartialView("_CarBodyDropDownList", body);
-        }
-        public ActionResult TransmissionDropDownList(int? id = null, string propertyName = null, string defaultValue = null)
-        {
-            ViewBag.transmissions = transmissionTypeManager.getAll(null);
-            var transmission = new TransmissionTypeVo();
-            if (id != null)
-            {
-                transmission = transmissionTypeManager.get(id.Value);
-            }
-            if (propertyName == null)
-                propertyName = "transmissionTypeId";
-            ViewBag.propertyName = propertyName;
-            if (defaultValue == null)
-                defaultValue = "Select One";
-            ViewBag.defaultValue = defaultValue;
-            return PartialView("_TransmissionDropDownList", transmission);
-        }
-        public ActionResult CarDoorDropDownList(int? id = null, string propertyName = null, string defaultValue = null)
-        {
-            ViewBag.doors = carDoorTypeManager.getAll(null);
-            var door = new CarDoorTypeVo();
-            if (id != null)
-            {
-                door = carDoorTypeManager.get(id.Value);
-            }
-            if (propertyName == null)
-                propertyName = "carDoorTypeId";
-            ViewBag.propertyName = propertyName;
-            if (defaultValue == null)
-                defaultValue = "Select One";
-            ViewBag.defaultValue = defaultValue;
-            return PartialView("_CarDoorDropDownList", door);
-        }
-        public ActionResult CarDriveDropDownList(int? id = null, string propertyName = null, string defaultValue = null)
-        {
-            ViewBag.drives = carDriveTypeManager.getAll(null);
-            var drive = new CarDriveTypeVo();
-            if (id != null)
-            {
-                drive = carDriveTypeManager.get(id.Value);
-            }
-            if (propertyName == null)
-                propertyName = "carDriveTypeId";
-            ViewBag.propertyName = propertyName;
-            if (defaultValue == null)
-                defaultValue = "Select One";
-            ViewBag.defaultValue = defaultValue;
-            return PartialView("_CarDriveDropDownList", drive);
-        }
-        public ActionResult CarEngineDropDownList(int? id = null, string propertyName = null, string defaultValue = null)
-        {
-            ViewBag.engines = carEngineTypeManager.getAll(null);
-            var engine = new CarEngineTypeVo();
-            if (id != null)
-            {
-                engine = carEngineTypeManager.get(id.Value);
-            }
-            if (propertyName == null)
-                propertyName = "carEngineTypeId";
-            ViewBag.propertyName = propertyName;
-            if (defaultValue == null)
-                defaultValue = "Select One";
-            ViewBag.defaultValue = defaultValue;
-            return PartialView("_CarEngineDropDownList", engine);
-        }
-        public ActionResult CarFuelDropDownList(int? id = null, string propertyName = null, string defaultValue = null)
-        {
-            ViewBag.Fuels = carFuelTypeManager.getAll(null);
-            var fuel = new CarFuelTypeVo();
-            if (id != null)
-            {
-                fuel = carFuelTypeManager.get(id.Value);
-            }
-            if (propertyName == null)
-                propertyName = "carFuelTypeId";
-            ViewBag.propertyName = propertyName;
-            if (defaultValue == null)
-                defaultValue = "Select One";
-            ViewBag.defaultValue = defaultValue;
-            return PartialView("_CarFuelDropDownList", fuel);
-        }
-        public ActionResult MakeDropDownList(int? id = null, string propertyName = null, string defaultValue = null)
-        {
-            ViewBag.makes = makeTypeManager.getAll(null);
-            var make = new MakeTypeVo();
-            if (id != null)
-            {
-                make = makeTypeManager.get(id.Value);
-            }
-            if (propertyName == null)
-                propertyName = "makeTypeId";
-            ViewBag.propertyName = propertyName;
-            if (defaultValue == null)
-                defaultValue = "Select One";
-            ViewBag.defaultValue = defaultValue;
-            return PartialView("_MAkeDropDownList", make);
-        }
-        public ActionResult ModelDropDownList(int? id = null, int? _makeTypeId = 0, string propertyName = null, string defaultValue = null)
-        {
-            ViewBag.models = modelTypeManager.getAll(null, _makeTypeId);
-            var model = new ModelTypeVo();
-            if (id != null)
-            {
-                model = modelTypeManager.get(id.Value);
-            }
-            if (propertyName == null)
-                propertyName = "modelTypeId";
-            ViewBag.propertyName = propertyName;
-            if (defaultValue == null)
-                defaultValue = "Select One";
-            ViewBag.defaultValue = defaultValue;
-            return PartialView("_ModelDropDownList", model);
+            return PartialView("_DropDownList");
         }
 
+        public ActionResult CollapseListModel(int? id = null,int? makeId = null, string propertyName = null)
+        {
+            ViewBag.selectedId = id;
+            ViewBag.propertyName = propertyName;
+            if (makeId == null)
+                makeId = -1;
+                ViewBag.list = modelTypeManager.getAll(true,makeId);
+                ViewBag.propertyId = "modelTypeId";
+            if (makeId>=0)
+                ViewBag.titleName = makeTypeManager.get((int)makeId).name + " Models";
+            return PartialView("_CollapseList");
+        }
+
+        public ActionResult Detail(Guid id )
+        {
+            var result = carManager.get(id);
+
+            // Images
+            ImageManager imageManager = new ImageManager();
+            ViewBag.Images = imageManager.getCarImages(id);
+
+            return View(result);
+        }
+        public ActionResult Create()
+        {
+            var vo = new CarVo();
+            return View(vo);
+        }
+        [HttpPost]
+        public ActionResult Create(CarVo input)
+        {
+
+            if (this.ModelState.IsValid)
+            {
+                var item = carManager.insert(input);
+
+                ImageManager imageManager = new ImageManager();
+                imageManager.InsertUploadImages(item.carId, Request.Files, Server, SO.SilList.Manager.Managers.ImageCategory.carImage);
+
+                return RedirectToAction("Index");
+            }
+
+
+            return View();
+
+        }
+        public ActionResult CollapseList(int? id = null, string propertyName = null, Type modelType = null)
+        {
+            ViewBag.selectedId = id;
+            ViewBag.propertyName = propertyName;
+      
+            if (modelType == typeof(MakeTypeVo))
+            {
+                ViewBag.list = makeTypeManager.getAll(true); 
+               // var idList = list.Select(c => c.makeTypeId).ToList();
+                ViewBag.propertyId = "makeTypeId";
+                ViewBag.titleName = "Make";
+            }
+            else if (modelType == typeof(CarBodyTypeVo))
+            {
+                ViewBag.list = carBodyTypeManager.getAll(true);
+                ViewBag.propertyId = "carBodyTypeId";
+                ViewBag.titleName = "Body";
+            }
+            else if (modelType == typeof(TransmissionTypeVo))
+            {
+                ViewBag.list = transmissionTypeManager.getAll(true);
+                ViewBag.propertyId = "transmissionTypeId";
+                ViewBag.titleName = "Transmission";
+            }
+            else if (modelType == typeof(CarColorTypeVo))
+            {
+                ViewBag.list = carColorTypeManager.getAll(true);
+                ViewBag.propertyId = "carColorTypeId";
+                ViewBag.titleName = "Color";
+            }
+            else if (modelType == typeof(CarDoorTypeVo))
+            {
+                ViewBag.list = carDoorTypeManager.getAll(true);
+                ViewBag.propertyId = "carDoorTypeId";
+                ViewBag.titleName = "Doors";
+            }
+            else if (modelType == typeof(CarDriveTypeVo))
+            {
+                ViewBag.list = carDriveTypeManager.getAll(true);
+                ViewBag.propertyId = "carDriveTypeId";
+                ViewBag.titleName = "Drive Train";
+            }
+            else if (modelType == typeof(CarEngineTypeVo))
+            {
+                ViewBag.list = carEngineTypeManager.getAll(true);
+                ViewBag.propertyId = "carEngineTypeId";
+                ViewBag.titleName = "Engine";
+            }
+            else if (modelType == typeof(CarFuelTypeVo))
+            {
+                ViewBag.list = carFuelTypeManager.getAll(true);
+                ViewBag.propertyId = "carFuelTypeId";
+                ViewBag.titleName = "Fuel";
+            }
+
+            return PartialView("_CollapseList");
+        }
 
     }
 }

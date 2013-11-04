@@ -67,6 +67,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var list = db.makeType
+                     .OrderBy(b => b.name)
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
 
