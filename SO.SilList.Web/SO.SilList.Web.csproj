@@ -315,6 +315,7 @@
     <Content Include="Views\ListingCategoryType\getTopCategories.cshtml" />
     <Content Include="Views\ListingType\getTopTypes.cshtml" />
     <Content Include="Views\Car\_DropDownList.cshtml" />
+    <Content Include="Views\Car\_MakeDropDownList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

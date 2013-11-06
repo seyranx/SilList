@@ -5,156 +5,248 @@
     Layout = "~/Views/Shared/_LayoutCar.cshtml";
 }
 <style>
-    .info {
+    .info Select, input {
         padding: 1px;
         border-radius: 6px;
+        width: 100%;
+    }
+
+    .labels {
+        text-align: center;
+        text-anchor: middle;
+        text-align-last: center;
+        padding-top: 3px;
+    }
+
+    .shortEditor {
+        width: 80px;
     }
 </style>
 
-<script>
-    function updateModelList(obj) {
-        if (document.getElementById("modelList")) {
-            $.post("/Car/DropDownList?_makeTypeId=" + obj.options[obj.selectedIndex].value + "&propertyName=makeTypeId",
-                function (data) {
+   
 
-                    $('#modelList').html(data);
+    <script>
+        var firstImage = true;
+        function removePic() {
+            var gallery = Galleria.get(0); // gallery is now the first galleria instance
 
+            if (firstImage == false) {
+                gallery.splice(gallery.getIndex(), 1);
+                if (gallery.getDataLength() <= 1) {
+                    gallery.push({ image: "/Images/dif-carImage.jpg" });
+                    firstImage = true;
+                    gallery.show(0);
+                    
                 }
-            );
+                gallery.show(0);
+                gallery.refreshImage();
+            }
         }
-    }
-</script>
+        function addPic2() {
 
-
-
-<div class="row" style="margin-left: 5px;">
-    <div class="span8">
-        <img class="media-object, thumbnail" data-src="holder.js/440x300">
-    </div>
-    <div class="span4" style="border: groove; border-color: #808080; border-radius: 6px; height: 300px; margin-top: 5px;">
-
-        <div class="span6" style="margin-left: 5px; margin-top: 4px">
-            <img class="media-object, thumbnail" data-src="holder.js/85x85">
-            <img class="media-object, thumbnail" data-src="holder.js/85x85">
-            <img class="media-object, thumbnail" data-src="holder.js/85x85">
-        </div>
-        <div class="span6" style="margin-top: 4px; margin-left: -2px">
-            <img class="media-object, thumbnail" data-src="holder.js/85x85">
-            <img class="media-object, thumbnail" data-src="holder.js/85x85">
-            <img class="media-object, thumbnail" data-src="holder.js/85x85">
-        </div>
-    </div>
-</div>
-<div class="row" style="margin: 5px;">
-    <div class="span8">
-           <div class="control-group">
-            <div class="control-label">
-                @Html.LabelFor(model => model.makeTypeId)
-            </div>
-            <div class="controls">
-                @Html.Action("DropDownList", "Car", new { id = Model.makeTypeId, propertyName="makeTypeId",modelType = typeof(MakeTypeVo) })
+            $("#loadFile").trigger('click');
+            var filename = $("#loadFile").val();
+            if (($("#addImage").val() != $("#loadFile").val()) && (filename.indexOf(".jpg", 0) > 0 || filename.indexOf(".bmp", 0) > 0 || filename.indexOf(".jpeg", 0) > 0 || filename.indexOf(".png", 0) > 0 || filename.indexOf(".gif", 0)>0)) {
+                
+                addPic($("#loadFile").val());
+                firstImage = false;
+            }
+            document.getElementById("addImage").setAttribute("value", $("#loadFile").val());
+            ($("#loadFile").val());
             
-                </div>
-        </div>
+            return false;
+        }
 
-        <div class="control-group">
-            <div class="control-label">
-                @Html.LabelFor(model => model.modelTypeId)
-            </div>
-            <div class="controls" id="modelList">
-                @Html.Action("DropDownList", "Car", new { id = Model.modelTypeId, propertyName="modelTypeId",modelType = typeof(ModelTypeVo), _makeTypeId = Model.makeTypeId })
-            </div>
+        function addPic(data) {
+            var gallery = Galleria.get(0); // gallery is now the first galleria instance
+            //gallery.play();
+            gallery.setOptions('dummy', '/Images/dif-carImage.jpg');
+            gallery.push({ image: data });
+            
+           // gallery.show(gallery.getDataLength()+1);
+            if (firstImage) {
+               gallery.splice(0, 1);
+                gallery.refreshImage();
+                gallery.show(gallery.getDataLength());
+            }
+            gallery.show(gallery.getDataLength());
+        }
+        // Load the classic theme
+        Galleria.loadTheme('/Scripts/galleria/galleria.classic.js');
+
+        // Initialize Galleria
+        Galleria.run('#galleria', {
+            
+            extend: function (options) {
+
+                Galleria.log(this) // the gallery instance
+                Galleria.log(options) // the gallery options
+
+                // listen to when an image is shown
+                this.bind('image', function (e) {
+
+                    Galleria.log(e) // the event object may contain custom objects, in this case the main image
+                    Galleria.log(e.imageTarget) // the current image
+
+                    // lets make galleria open a lightbox when clicking the main image:
+                    $(e.imageTarget).click(this.proxy(function () {
+                        this.openLightbox();
+                    }));
+                });
+            }
+        });
+
+    </script>
+
+
+
+
+@using (Html.BeginForm("Create", "Car", FormMethod.Post, new { @encType = "multipart/form-data" }))
+{
+
+
+
+
+
+    <input  hidden="hidden" id="loadFile" type="file"  />
+                 
+
+    
+    <div class="row" style="margin-left: 5px;">
+        
+        <div id="galleria" style="height:400px;width:100%">
+              <img src="~/Images/dif-carImage.jpg">
+                   
         </div>
-        <div class="control-group">
-            <div class="control-label">
-                @Html.LabelFor(model => model.year)
-            </div>
-            <div class="controls">
-                @{
-                    int currentYear = DateTime.Now.Year;
-                    var mylist = new string[31];
-                    for (int i = 0; i < 31; i++)
-                    {
-                        mylist.SetValue((currentYear - 30 + i).ToString(), 30 - i);
-                    }
-                    var selectlist = new SelectList(mylist);
-                }
-                @Html.DropDownListFor(model => model.year, selectlist)
-                @Html.ValidationMessageFor(model => model.year)
+    </div>
+    <div class="row">
+        <a value="" id="addImage" class="btn btn-primary pull-right" style="margin:3px;" onclick="addPic2()"  >Add Image</a>
+        <a value="" id="removeImage" class="btn btn-danger pull-right" style="margin:3px;" onclick="removePic()"  >Remove Image</a>
+    </div>
+    <div class="row" style="margin: 5px;">
+        <div class="span1 labels">
+            @Html.LabelFor(model => model.makeTypeId)
+        </div>
+        <div class="span5">
+            @Html.Action("DropDownList", "Car", new { id = Model.makeTypeId, propertyName = "makeTypeId", modelType = typeof(MakeTypeVo) })
+        </div>
+        <div class="span1 labels">
+            @Html.LabelFor(model => model.modelTypeId)
+        </div>
+        <div class="span5">
+            <div id="modelList">
+                @Html.Action("DropDownList", "Car", new { id = Model.modelTypeId, propertyName = "modelTypeId", modelType = typeof(ModelTypeVo), _makeTypeId = Model.makeTypeId })
             </div>
         </div>
     </div>
-    <div class="span4" style="text-align: center;">
-        Price: 
-        @Html.EditorFor(model => model.price)
-    </div>
-</div>
-<div class="row" style="height: 400px; margin: 5px;">
-    <div class="span8" style="height: 400px; border-radius: 6px;">
-        <div style="border: inset; border-color: #808080; height: 120px; border-radius: 6px; margin-bottom: 5px">
-            <b style="font-size: medium; font-style: italic; margin: 10px; padding: 5px; border-bottom: 1px solid #ccc;">Location</b>
+    <div class="row" style="margin: 5px;">
+        <div class="span1 labels">
+            @Html.LabelFor(model => model.year)
+        </div>
+        <div class="span2">
+            @{
+    int currentYear = DateTime.Now.Year;
+    var mylist = new string[31];
+    for (int i = 0; i < 31; i++)
+    {
+        mylist.SetValue((currentYear - 30 + i).ToString(), 30 - i);
+    }
+    var selectlist = new SelectList(mylist);
+            }
+            @Html.DropDownListFor(model => model.year, selectlist, new { @class = "shortEditor" })
+            @Html.ValidationMessageFor(model => model.year)
+        </div>
 
-            <div style="margin: 5px; height: 60px; margin-left: 30px">
-                <div style="height: 40px;">
+        <div class="span1 labels">
+            Price
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(model => model.price, new { @class = "shortEditor" })
+            @Html.ValidationMessageFor(model => model.price)
+        </div>
+
+        <div class="span1 labels">
+            Millage
+        </div>
+        <div class="span2">
+            @Html.TextBoxFor(model => model.millage, new { @class = "shortEditor" })
+
+            @Html.ValidationMessageFor(model => model.millage)
+        </div>
+
+        <div class="span2 labels">
+            Active
+        </div>
+
+        @Html.EditorFor(model => model.isActive)
+    </div>
+
+    <div class="row" style="height: 400px; margin: 5px;">
+        <div class="span8" style="height: 400px; border-radius: 6px;">
+            <div style="border: inset; border-color: #808080; height: 180px; border-radius: 6px; margin-bottom: 5px">
+                <b style="font-size: medium; font-style: italic; margin: 10px; padding: 5px; border-bottom: 1px solid #ccc;">Location & Contact Info</b>
+
+                <div style="margin: 5px; height: 60px; margin-left: 10px">
+
                     <b>Address:</b>
-                    @Html.EditorFor(model => model.address)
-                    @Html.EditorFor(model => model.cityType.name)
-                    @if (Model.cityType != null)
-                    { <b>,</b>}
-                    @Html.DisplayFor(model => model.stateType.stateCode)
+                    @Html.TextBoxFor(model => model.address, new { placeholder = "Address", style = "width:80%;margin-top:5px" })
+                    <div class="info">
+
+                        <div class="span6">
+                            @Html.Action("DropDownList", new { id = Model.countryTypeId, propertyName = "countryTypeId", modelType = typeof(CountryTypeVo), defaultValue = "Select Country" })
+                        </div>
+                        <div class="span6">
+                            @Html.Action("DropDownList", new { id = Model.stateTypeId, propertyName = "stateTypeId", modelType = typeof(StateTypeVo), defaultValue = "Select State" })
+                        </div>
+
+                    </div>
+                    <div class="span12" style="margin-left: -1px">
+                        <div class="span7" style="margin-top: 6px;">
+                            @Html.Action("DropDownList", new { id = Model.cityTypeId, propertyName = "cityTypeId", modelType = typeof(CityTypeVo), defaultValue = "Select City" })
+                        </div>
+                        @Html.TextBoxFor(model => model.zip, new { placeholder = "Zip Code", style = "width:90px;margin-top:5px" })
+                    </div>
+                    @Html.TextBoxFor(model => model.phone, new { placeholder = "Phone", style = "width:190px;margin-top:-2px" })
+
+                    @Html.TextBoxFor(model => model.fax, new { placeholder = "Fax", style = "width:190px;margin-top:-2px" })
+
                 </div>
-                <div>
-                    <b>Zip Code:</b>
-                    @Html.EditorFor(model => model.zip)
+
+
+            </div>
+            <div style="border: inset; border-color: #808080; height: 210px; border-radius: 6px; margin-bottom: 5px">
+                <b style="font-size: medium; font-style: italic; margin: 10px; padding: 5px; border-bottom: 1px solid #ccc;">Description</b>
+                <div style="margin: 5px; margin-left: 10px;">
+                    <p>
+                        @Html.TextAreaFor(model => model.description, new { rows = 10, style = "width:95%" })
+                    </p>
                 </div>
             </div>
-            <div>
-                <div class="span5" style="margin-left: 30px">
-                    <b>Phone:</b>
-                    @Html.EditorFor(model => model.phone)
-                </div>
-                <div class="span5">
-                    <b>Fax:</b>
-                    @Html.EditorFor(model => model.fax)
-                </div>
+            <div style="border: inset; border-color: #808080; height: 30px; border-radius: 6px; padding: 10px;">
+                <a  class="btn btn-info" href="@Url.Action("Index")">Back</a>
+                <input value="Submit" type="submit" class="btn btn-success pull-right" />
             </div>
+        </div>
+        <div class="span4" style="border: inset; border-color: #808080; height: 470px; border-radius: 6px; padding: 10px;">
+            <b>Body:</b>
+            <div class="info">@Html.Action("DropDownList", new { id = Model.carBodyTypeId, propertyName = "carBodyTypeId", modelType = typeof(CarBodyTypeVo) })</div>
+            <b>Trasmission:</b>
+            <div class="info">@Html.Action("DropDownList", new { id = Model.transmissionTypeId, propertyName = "transmissionTypeId", modelType = typeof(TransmissionTypeVo) })</div>
+            <b>Fuel:</b>
+            <div class="info">@Html.Action("DropDownList", new { id = Model.carFuelTypeId, propertyName = "carFuelTypeId", modelType = typeof(CarFuelTypeVo) })</div>
+            <b>Drive:</b>
+            <div class="info">@Html.Action("DropDownList", new { id = Model.carDriveTypeId, propertyName = "carDriveTypeId", modelType = typeof(CarDriveTypeVo) })</div>
+            <b>Engine:</b>
+            <div class="info">@Html.Action("DropDownList", new { id = Model.carEngineTypeId, propertyName = "carEngineTypeId", modelType = typeof(CarEngineTypeVo) })</div>
+            <b>Door:</b>
+            <div class="info">@Html.Action("DropDownList", new { id = Model.carDoorTypeId, propertyName = "carDoorTypeId", modelType = typeof(CarDoorTypeVo) })</div>
+            <b>Exterior Color:</b>
+            <div class="info">@Html.Action("DropDownList", new { id = Model.exteriorColorTypeId, propertyName = "exteriorColorTypeId", modelType = typeof(CarColorTypeVo) })</div>
+            <b>Interior Color:</b>
+            <div class="info">@Html.Action("DropDownList", new { id = Model.interiorColorTypeId, propertyName = "interiorColorTypeId", modelType = typeof(CarColorTypeVo) })</div>
+            <b>Vin:</b>
+            <div class="span11 info">@Html.EditorFor(model => model.vin)</div>
 
         </div>
-        <div style="border: inset; border-color: #808080; height: 270px; border-radius: 6px; margin-bottom: 5px">
-            <b style="font-size: medium; font-style: italic; margin: 10px; padding: 5px; border-bottom: 1px solid #ccc;">Description</b>
-            <div style="margin: 5px; margin-left: 10px">
-                <p>
-                    @Html.TextAreaFor(model => model.description)
-                </p>
-            </div>
-        </div>
-        <div style="border: inset; border-color: #808080; height: 30px; border-radius: 6px; padding: 10px;">
-            <input type="button" value="Back" class="btn btn-info" onclick="history.go(-1); return true;">
-            <a href="#" class="btn btn-primary pull-right" style="margin-left: 10px">Contact</a>
-            <a href="#" class="btn btn-warning pull-right">Save</a>
-        </div>
     </div>
-    <div class="span4" style="border: inset; border-color: #808080; height: 470px; border-radius: 6px; padding: 10px;">
-        <b>Millage:</b>
-        <div class="info">@Html.EditorFor(model => model.millage)</div>
-        <b>Body:</b>
-        <div class="info">@Html.EditorFor(model => model.carBodyType.name)</div>
-        <b>Trasmission:</b>
-        <div class="info">@Html.EditorFor(model => model.transmissionType.name)</div>
-        <b>Fuel:</b>
-        <div class="info">@Html.EditorFor(model => model.carFuelType.name)</div>
-        <b>Drive:</b>
-        <div class="info">@Html.EditorFor(model => model.carDriveType.name)</div>
-        <b>Engine:</b>
-        <div class="info">@Html.EditorFor(model => model.carEngineType.name)</div>
-        <b>Door:</b>
-        <div class="info">@Html.EditorFor(model => model.carDoorType.name)</div>
-        <b>Exterior Color:</b>
-        <div class="info">@Html.EditorFor(model => model.exteriorColorType.name)</div>
-        <b>Interior Color:</b>
-        <div class="info">@Html.EditorFor(model => model.interiorColorType.name)</div>
-        <b>Vin:</b>
-        <div class="info">@Html.EditorFor(model => model.vin)</div>
-
-    </div>
-</div>
+}
