@@ -180,8 +180,6 @@
     </Entities>
     <Relationships>
       <Relationship type="Association" first="0" second="2">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -192,14 +190,14 @@
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="1">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="3" second="1">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -210,6 +208,8 @@
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="5" second="4">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -220,6 +220,8 @@
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="5" second="3">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -234,6 +236,8 @@
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="8" second="6">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -244,6 +248,8 @@
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="8" second="7">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -254,6 +260,8 @@
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="9" second="1">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -264,6 +272,8 @@
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="11" second="9">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -278,12 +288,16 @@
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="11" second="10">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="12">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -294,6 +308,8 @@
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="6" second="1">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -304,12 +320,16 @@
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="6" second="12">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="3" second="12">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -324,6 +344,8 @@
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="9" second="12">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -334,8 +356,6 @@
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="16" second="15">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -346,8 +366,6 @@
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="14" second="15">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -358,8 +376,6 @@
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="14" second="17">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -374,8 +390,6 @@
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="14" second="1">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -386,8 +400,6 @@
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="14" second="12">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -451,7 +463,7 @@
       <Entity type="Class">
         <Name>BusinessCategories</Name>
         <Access>Public</Access>
-        <Location left="764" top="546" />
+        <Location left="720" top="533" />
         <Size width="178" height="111" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int businessCategoryTypeId</Member>
@@ -471,20 +483,6 @@
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
-        <Name>Site</Name>
-        <Access>Public</Access>
-        <Location left="892" top="35" />
-        <Size width="162" height="179" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">int siteId</Member>
-        <Member type="Field">string name</Member>
-        <Member type="Field">string domain</Member>
-        <Member type="Field">string description</Member>
-        <Member type="Field">string logo</Member>
-        <Member type="Field">string logoUrl</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
         <Name>BusinessImages</Name>
         <Access>Public</Access>
         <Location left="253" top="493" />
@@ -497,7 +495,7 @@
       <Entity type="Class">
         <Name>BusinessServices</Name>
         <Access>Public</Access>
-        <Location left="307" top="695" />
+        <Location left="400" top="790" />
         <Size width="178" height="111" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int serviceTypeId</Member>
@@ -507,7 +505,7 @@
       <Entity type="Class">
         <Name>ServiceType</Name>
         <Access>Public</Access>
-        <Location left="115" top="695" />
+        <Location left="136" top="790" />
         <Size width="162" height="145" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int serviceTypeId</Member>
@@ -519,7 +517,7 @@
       <Entity type="Class">
         <Name>BusinessRatings</Name>
         <Access>Public</Access>
-        <Location left="517" top="629" />
+        <Location left="1166" top="792" />
         <Size width="178" height="111" />
         <Collapsed>False</Collapsed>
         <Member type="Field">GUID ratingId</Member>
@@ -529,7 +527,7 @@
       <Entity type="Class">
         <Name>Rating</Name>
         <Access>Public</Access>
-        <Location left="751" top="709" />
+        <Location left="1352" top="710" />
         <Size width="178" height="145" />
         <Collapsed>False</Collapsed>
         <Member type="Field">GUID ratingId</Member>
@@ -558,7 +556,7 @@
       <Entity type="Class">
         <Name>CityType</Name>
         <Access>Public</Access>
-        <Location left="751" top="303" />
+        <Location left="1250" top="243" />
         <Size width="178" height="145" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int cityTypeId</Member>
@@ -570,7 +568,7 @@
       <Entity type="Class">
         <Name>StateType</Name>
         <Access>Public</Access>
-        <Location left="1331" top="260" />
+        <Location left="1279" top="56" />
         <Size width="178" height="128" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int stateid</Member>
@@ -581,7 +579,7 @@
       <Entity type="Class">
         <Name>CountryType</Name>
         <Access>Public</Access>
-        <Location left="1243" top="401" />
+        <Location left="1238" top="442" />
         <Size width="178" height="111" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int countryId</Member>
@@ -591,13 +589,11 @@
     </Entities>
     <Relationships>
       <Relationship type="Association" first="2" second="1">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>930</X>
-          <Y>518</Y>
+          <X>886</X>
+          <Y>505</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>658</X>
@@ -607,8 +603,6 @@
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="1" second="0">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -623,56 +617,12 @@
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="2" second="3">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="1" second="4">
-        <Label>
-        </Label>
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>723</X>
-          <Y>131</Y>
-        </BendPoint>
-        <BendPoint relativeToStartShape="False">
-          <X>866</X>
-          <Y>179</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Composition</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="0" second="4">
-        <Label>
-        </Label>
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <BendPoint relativeToStartShape="False">
-          <X>864</X>
-          <Y>111</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Composition</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="3" second="4">
-        <Label>
-        </Label>
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>1236</X>
-          <Y>611</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Composition</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="5" second="1">
-        <Label>
-        </Label>
+      <Relationship type="Association" first="4" second="1">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -682,7 +632,9 @@
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="6" second="1">
+      <Relationship type="Association" first="5" second="1">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -692,37 +644,49 @@
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="6" second="7">
+      <Relationship type="Association" first="5" second="6">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>251</X>
-          <Y>670</Y>
+          <X>272</X>
+          <Y>765</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="8" second="9">
+      <Relationship type="Association" first="7" second="8">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="8" second="1">
+      <Relationship type="Association" first="7" second="1">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>619</X>
-          <Y>604</Y>
+          <X>1268</X>
+          <Y>767</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>619</X>
-          <Y>496</Y>
+          <X>845</X>
+          <Y>767</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="5" second="10">
+      <Relationship type="Association" first="4" second="9">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="1" second="10">
         <Label>
         </Label>
         <StartOrientation>Horizontal</StartOrientation>
@@ -731,12 +695,8 @@
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="1" second="11">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Composition</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="1" second="12">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -746,35 +706,31 @@
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="1" second="13">
+      <Relationship type="Association" first="1" second="12">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>1218</X>
-          <Y>468</Y>
+          <X>1213</X>
+          <Y>509</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
+      <Relationship type="Association" first="10" second="11">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="10" second="12">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
       <Relationship type="Association" first="11" second="12">
-        <Label>
-        </Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Composition</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="11" second="13">
-        <Label>
-        </Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Composition</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="12" second="13">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -783,19 +739,19 @@
     </Relationships>
   </ProjectItem>
   <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
-    <Name>Rentals</Name>
+    <Name>Properties</Name>
     <Language>CSharp</Language>
     <Entities>
       <Entity type="Comment">
-        <Text>House/Apmt/Condo/Townhouse
+        <Text>House/Apmt/Condo/Townhouse/Office
 </Text>
-        <Location left="887" top="678" />
-        <Size width="160" height="75" />
+        <Location left="830" top="729" />
+        <Size width="270" height="75" />
       </Entity>
       <Entity type="Class">
         <Name>PropertyType</Name>
         <Access>Public</Access>
-        <Location left="751" top="521" />
+        <Location left="773" top="579" />
         <Size width="162" height="128" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int propertyTypeId</Member>
@@ -804,37 +760,26 @@
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
-        <Name>Rental</Name>
+        <Name>Property</Name>
         <Access>Public</Access>
         <Location left="523" top="220" />
-        <Size width="162" height="281" />
+        <Size width="191" height="332" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">GUID rentalId</Member>
+        <Member type="Field">GUID propertyId</Member>
         <Member type="Field">int propertyTypeId</Member>
         <Member type="Field">GUID listingDetailId</Member>
         <Member type="Field">int siteId</Member>
         <Member type="Field">int bedrooms</Member>
         <Member type="Field">int bathrooms</Member>
-        <Member type="Field">double rent</Member>
-        <Member type="Field">int leaseTermTypeId</Member>
+        <Member type="Field">double price</Member>
         <Member type="Field">int size</Member>
         <Member type="Field">int lotSize</Member>
         <Member type="Field">bool acceptsSection8</Member>
-        <Member type="Field">int rentTypeId</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>Site</Name>
-        <Access>Public</Access>
-        <Location left="912" top="55" />
-        <Size width="162" height="179" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">int siteId</Member>
-        <Member type="Field">string name</Member>
-        <Member type="Field">string domain</Member>
-        <Member type="Field">string description</Member>
-        <Member type="Field">string logo</Member>
-        <Member type="Field">string logoUrl</Member>
+        <Member type="Field">bool isPetAllowed</Member>
+        <Member type="Field">int propertyListingType</Member>
+        <Member type="Field">Date startDate</Member>
+        <Member type="Field">Date endDate</Member>
+        <Member type="Field">int statusTypeId</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -862,53 +807,36 @@
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
-        <Name>ListingDetail</Name>
+        <Name>StatusType</Name>
         <Access>Public</Access>
-        <Location left="776" top="309" />
+        <Location left="804" top="247" />
         <Size width="162" height="145" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">GUID listingDetailId</Member>
-        <Member type="Field">Date startDate</Member>
-        <Member type="Field">Date endDate</Member>
-        <Member type="Field">bool isApproved</Member>
+        <Member type="Field">int statusTypeId</Member>
+        <Member type="Field">string name</Member>
+        <Member type="Field">string description</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
-        <Name>LeaseTermType</Name>
+        <Name>PropertyListingType</Name>
         <Access>Public</Access>
-        <Location left="43" top="475" />
-        <Size width="162" height="128" />
+        <Location left="261" top="475" />
+        <Size width="226" height="128" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">int leaseTermTypeId</Member>
+        <Member type="Field">int propertyListingType</Member>
         <Member type="Field">string name</Member>
         <Member type="Field">string description</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Comment">
-        <Text>months/years</Text>
-        <Location left="10" top="354" />
-        <Size width="88" height="60" />
-      </Entity>
-      <Entity type="Class">
-        <Name>RentType</Name>
-        <Access>Public</Access>
-        <Location left="278" top="475" />
-        <Size width="162" height="128" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">int rentTypeId</Member>
-        <Member type="Field">string name</Member>
-        <Member type="Field">string description</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Comment">
-        <Text>monthly/annual</Text>
-        <Location left="476" top="532" />
-        <Size width="97" height="55" />
+        <Text>rental/for sale</Text>
+        <Location left="216" top="628" />
+        <Size width="132" height="50" />
       </Entity>
       <Entity type="Class">
         <Name>Image</Name>
         <Access>Public</Access>
-        <Location left="252" top="678" />
+        <Location left="248" top="714" />
         <Size width="162" height="230" />
         <Collapsed>False</Collapsed>
         <Member type="Field">GUID imageId</Member>
@@ -923,13 +851,14 @@
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
-        <Name>RentalImages</Name>
+        <Name>PropertyImages</Name>
         <Access>Public</Access>
-        <Location left="523" top="678" />
-        <Size width="217" height="111" />
+        <Location left="551" top="729" />
+        <Size width="217" height="128" />
         <Collapsed>False</Collapsed>
+        <Member type="Field">GUID propertyImageId</Member>
+        <Member type="Field">GUID propertyId</Member>
         <Member type="Field">GUID imageId</Member>
-        <Member type="Field">GUID rentalId</Member>
         <Modifier>None</Modifier>
       </Entity>
     </Entities>
@@ -938,41 +867,41 @@
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
-      <Relationship type="Association" first="4" second="3">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
+      <Relationship type="Association" first="2" second="1">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>661</X>
+          <Y>577</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>862</X>
+          <Y>554</Y>
+        </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="2" second="1">
+      <Relationship type="Comment" first="6" second="5">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>801</X>
-          <Y>483</Y>
+          <X>381</X>
+          <Y>645</Y>
         </BendPoint>
-        <BendPoint relativeToStartShape="False">
-          <X>840</X>
-          <Y>496</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Composition</AssociationType>
       </Relationship>
-      <Relationship type="Comment" first="9" second="8">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-      </Relationship>
-      <Relationship type="Comment" first="7" second="6">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-      </Relationship>
-      <Relationship type="Association" first="2" second="5">
+      <Relationship type="Association" first="2" second="4">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="2" second="8">
+      <Relationship type="Association" first="2" second="5">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -982,29 +911,25 @@
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="2" second="6">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <BendPoint relativeToStartShape="False">
-          <X>216</X>
-          <Y>446</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Composition</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="2" second="4">
+      <Relationship type="Association" first="2" second="3">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="11" second="10">
+      <Relationship type="Association" first="8" second="7">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="11" second="2">
+      <Relationship type="Association" first="8" second="2">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -1029,7 +954,7 @@
       <Entity type="Class">
         <Name>JobCategoryType</Name>
         <Access>Public</Access>
-        <Location left="993" top="655" />
+        <Location left="1167" top="520" />
         <Size width="176" height="128" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int jobCategoryTypeId</Member>
@@ -1040,8 +965,8 @@
       <Entity type="Class">
         <Name>Job</Name>
         <Access>Public</Access>
-        <Location left="665" top="228" />
-        <Size width="162" height="264" />
+        <Location left="665" top="96" />
+        <Size width="187" height="298" />
         <Collapsed>False</Collapsed>
         <Member type="Field">GUID jobId</Member>
         <Member type="Field">GUID listingDetailId</Member>
@@ -1049,11 +974,13 @@
         <Member type="Field">string title</Member>
         <Member type="Field">string description</Member>
         <Member type="Field">int jobTypeId</Member>
+        <Member type="Field">string companyName</Member>
+        <Member type="Field">string address</Member>
         <Member type="Field">string city</Member>
         <Member type="Field">string state</Member>
         <Member type="Field">bool isTravelRequired</Member>
         <Member type="Field">bool isTelecommute</Member>
-        <Member type="Field">GUID jobCompanyId</Member>
+        <Member type="Field">string website</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -1083,7 +1010,7 @@
       <Entity type="Class">
         <Name>ListingDetail</Name>
         <Access>Public</Access>
-        <Location left="961" top="307" />
+        <Location left="1019" top="196" />
         <Size width="162" height="145" />
         <Collapsed>False</Collapsed>
         <Member type="Field">GUID listingDetailId</Member>
@@ -1093,23 +1020,9 @@
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
-        <Name>Site</Name>
-        <Access>Public</Access>
-        <Location left="932" top="75" />
-        <Size width="162" height="179" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">int siteId</Member>
-        <Member type="Field">string name</Member>
-        <Member type="Field">string domain</Member>
-        <Member type="Field">string description</Member>
-        <Member type="Field">string logo</Member>
-        <Member type="Field">string logoUrl</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
         <Name>JobType</Name>
         <Access>Public</Access>
-        <Location left="665" top="696" />
+        <Location left="361" top="620" />
         <Size width="162" height="128" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int jobTypeId</Member>
@@ -1119,29 +1032,14 @@
       </Entity>
       <Entity type="Comment">
         <Text>Part Time/Full Time etc. </Text>
-        <Location left="893" top="795" />
-        <Size width="129" height="50" />
-      </Entity>
-      <Entity type="Class">
-        <Name>JobCompany</Name>
-        <Access>Public</Access>
-        <Location left="457" top="354" />
-        <Size width="162" height="230" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">GUID jobCompanyId</Member>
-        <Member type="Field">string name</Member>
-        <Member type="Field">string address</Member>
-        <Member type="Field">string city</Member>
-        <Member type="Field">string state</Member>
-        <Member type="Field">int zip</Member>
-        <Member type="Field">string website</Member>
-        <Member type="Field">string phone</Member>
-        <Member type="Field">int siteId</Member>
-        <Modifier>None</Modifier>
+        <Location left="347" top="850" />
+        <Size width="241" height="50" />
       </Entity>
     </Entities>
     <Relationships>
       <Relationship type="Association" first="2" second="3">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -1151,57 +1049,43 @@
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="3" second="5">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <BendPoint relativeToStartShape="False">
-          <X>907</X>
-          <Y>139</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Composition</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="2" second="5">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Composition</AssociationType>
-      </Relationship>
       <Relationship type="Association" first="0" second="1">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="2">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>790</X>
+          <Y>425</Y>
+        </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="2" second="4">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
-      <Relationship type="Comment" first="7" second="6">
+      <Relationship type="Comment" first="6" second="5">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
-      <Relationship type="Association" first="2" second="6">
+      <Relationship type="Association" first="2" second="5">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Composition</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="2" second="8">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>634</X>
-          <Y>400</Y>
-        </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
@@ -1352,32 +1236,24 @@
     </Entities>
     <Relationships>
       <Relationship type="Association" first="0" second="8">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="2">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="3">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="6" second="0">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -1388,24 +1264,18 @@
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="6" second="5">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="4">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="7">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -1420,16 +1290,12 @@
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="7" second="1">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="9">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -1579,18 +1445,24 @@
     </Entities>
     <Relationships>
       <Relationship type="Association" first="4" second="3">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="4" second="0">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="3">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -1605,6 +1477,8 @@
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="4" second="7">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -1615,12 +1489,16 @@
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="2" second="1">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="2" second="4">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -1635,12 +1513,16 @@
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="6" second="4">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="6" second="5">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -1651,6 +1533,8 @@
         <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
       <Relationship type="Association" first="4" second="8">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -1734,18 +1618,24 @@
     </Entities>
     <Relationships>
       <Relationship type="Association" first="3" second="1">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="3" second="2">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="1">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
