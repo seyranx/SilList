@@ -15,11 +15,12 @@
     <tr>
         <td>
             a a will be generic / now only Job  @*@Html.DisplayFor(modelItem => item.keyword)*@
+            item
         </td>
        
         <td>
-            @Html.ActionLink("Approve", "Approve", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Decline", "Decline", new { /* id=item.PrimaryKey */ }) |
+            <a href="@Url.Action("Approve",new { /* id=item.carId */ })" class="btn" title="Approve"><i class="icon-edit"></i></a>
+            <a href="@Url.Action("Decline",new { /* id=item.carId */ })" class="btn" title="Decline"><i class="icon-edit"></i></a>
         </td>
     </tr>
 }
