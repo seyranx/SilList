@@ -6,13 +6,13 @@
 }
 
 <h2>Edit</h2>
-
-@using (Html.BeginForm("Create", "Job", FormMethod.Post, new { @encType = "multipart/form-data" }))
+@* todo: don't need image (multipart/form-data) upload for Jobs *@
+@* @using (Html.BeginForm("Edit", "Job", FormMethod.Post, new { @encType = "multipart/form-data" })) *@
+@using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
     <fieldset class="form-horizontal">
         <legend></legend>
-
 
         @Html.HiddenFor(model => model.jobId)
 
