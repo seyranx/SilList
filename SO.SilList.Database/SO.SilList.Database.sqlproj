@@ -143,7 +143,7 @@
     </Build>
     <Build Include="data\Tables\Rating.sql" />
     <Build Include="data\Tables\Rental.sql">
-      <AnsiNulls>Off</AnsiNulls>
+      <AnsiNulls>On</AnsiNulls>
     </Build>
     <Build Include="data\Tables\BusinessImages.sql">
       <AnsiNulls>Off</AnsiNulls>
@@ -158,7 +158,9 @@
     <Build Include="app\Tables\PropertyType.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
-    <Build Include="app\Tables\LeaseTermType.sql" />
+    <Build Include="app\Tables\LeaseTermType.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
     <Build Include="app\Tables\RentType.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
@@ -227,6 +229,10 @@
     <Build Include="app\Tables\CarDoorType.sql" />
     <Build Include="app\Tables\EntryStatusType.sql" />
     <Build Include="appData\AppDataImport.sql" />
+    <Build Include="app\Tables\StatusType.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />
