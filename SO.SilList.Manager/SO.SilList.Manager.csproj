@@ -126,7 +126,6 @@
     <Compile Include="Managers\ImageManager.cs" />
     <Compile Include="Managers\JobCategoriesManager.cs" />
     <Compile Include="Managers\JobCategoryTypeManager.cs" />
-    <Compile Include="Managers\JobCompanyManager.cs" />
     <Compile Include="Managers\JobManager.cs" />
     <Compile Include="Managers\JobTypeManager.cs" />
     <Compile Include="Managers\ListingCategoriesManager.cs" />
@@ -183,7 +182,6 @@
     <Compile Include="Models\ValueObjects\EnvironmentTypeVo.cs" />
     <Compile Include="Models\ValueObjects\JobCategoriesVo.cs" />
     <Compile Include="Models\ValueObjects\JobCategoryTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\JobCompanyVo.cs" />
     <Compile Include="Models\ValueObjects\ImageVo.cs" />
     <Compile Include="Models\ValueObjects\JobTypeVo.cs" />
     <Compile Include="Models\ValueObjects\JobVo.cs" />
@@ -222,7 +220,6 @@
     <Compile Include="Models\ViewModels\EnvironmentTypeVm.cs" />
     <Compile Include="Models\ViewModels\JobCategoriesVm.cs" />
     <Compile Include="Models\ViewModels\JobCategoryTypeVm.cs" />
-    <Compile Include="Models\ViewModels\JobCompanyVm.cs" />
     <Compile Include="Models\ViewModels\JobTypeVm.cs" />
     <Compile Include="Models\ViewModels\JobVm.cs" />
     <Compile Include="Models\ViewModels\LeaseTermTypeVm.cs" />

@@ -28,17 +28,7 @@
     <script>
         var firstImage = true;
         var imageCount = 0;
-        function submitTheForm() {
-            $("#loadFile0").remove("");
-            //var gallery = Galleria.get(0);
-            //var imageData = "";
-       
-            //for (ni = 0; ni < gallery.getDataLength() ; ni++) {
-            //    imageData += "<input type='file' value='" + gallery.getData(ni).image + "' name='UploadImage"+(ni+1) +"' id='UploadImage"+(ni+1) +"'/>";          
-            //}
-            
-            //$("#listOfImages").html(imageData);
-        }
+
         function removePic() {
             var gallery = Galleria.get(0); // gallery is now the first galleria instance
 
@@ -68,8 +58,7 @@
                 $("#addNewImage").replaceWith(addImageData);
                 document.getElementById("addImage").setAttribute("value", filename);
             }
-            
-         //   ($("#loadFile" + imageCount).val());
+
             
             return false;
         }
@@ -90,7 +79,7 @@
         }
         // Load the classic theme
         
-        Galleria.loadTheme('@Url.Content("~")/Scripts/galleria/galleria.classic.js');
+        Galleria.loadTheme('@Url.Content("~")Scripts/galleria/galleria.classic.js');
 
         // Initialize Galleria
         Galleria.run('#galleria', {
