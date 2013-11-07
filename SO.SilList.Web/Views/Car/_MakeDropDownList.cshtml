@@ -4,7 +4,7 @@
         
         if (document.getElementById("modelList")) {
             
-            $.post("/car/DropDownList?id=&propertyName=makeTypeId&modelType=&makeTypeId=" + obj.options[obj.selectedIndex].value,
+            $.post("/car/DropDownList?id=&propertyName=modelTypeId&modelType=&makeTypeId=" + obj.options[obj.selectedIndex].value,
                 function (data) {
 
                     $('#modelList').html(data);

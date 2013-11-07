@@ -13,32 +13,66 @@
         background-color: #ccc;
     }
 </style>
+<script>
+    // Load the classic theme
+    Galleria.loadTheme('/Scripts/galleria/galleria.classic.js');
 
+    // Initialize Galleria
+    Galleria.run('#galleria', {
+
+        extend: function (options) {
+
+            Galleria.log(this) // the gallery instance
+            Galleria.log(options) // the gallery options
+            
+            // listen to when an image is shown
+            this.bind('image', function (e) {
+
+                Galleria.log(e) // the event object may contain custom objects, in this case the main image
+                Galleria.log(e.imageTarget) // the current image
+
+                // lets make galleria open a lightbox when clicking the main image:
+                $(e.imageTarget).click(this.proxy(function () {
+                    this.openLightbox();
+                }));
+            });
+            addImages();
+        }
+    });
+    
+    function addImages()
+    {
+        var list =  @Html.Raw(Json.Encode(ViewBag.ImagesURL))
+         n = list.length;
+        var gallery = Galleria.get(0);
+        if (n > 0)
+            gallery.splice(0, 1);
+        
+        for (var i = 0; i < n; i++) {
+            data = list[i]
+            gallery.push({ image: data });
+
+        }
+        gallery.show(1);
+        gallery.show(1);
+        gallery.play;
+        
+    }
+
+</script>
 
 <div class="row" style="margin: 5px;">
     <div class="span8">
-        <h2 style="color: #090f4a; text-shadow: 5px 3px 2px #a3a3a4">@Html.DisplayFor(model => model.year) @Html.DisplayFor(model => model.modelType.makeType.name) @Html.DisplayFor(model => model.modelType.name)</h2>
+        <h2  style="color: #090f4a; text-shadow: 5px 3px 2px #a3a3a4">@Html.DisplayFor(model => model.year) @Html.DisplayFor(model => model.modelType.makeType.name) @Html.DisplayFor(model => model.modelType.name)</h2>
     </div>
     <div class="span4" style="text-align: center;">
         <h3>$@Html.DisplayFor(model => model.price)<b style="font-size: small;">.00</b></h3>
     </div>
 </div>
 <div class="row" style="margin-left: 5px;">
-    <div class="span8">
-        <img class="media-object, thumbnail" data-src="holder.js/440x300">
-    </div>
-    <div class="span4" style="border: groove; border-color: #808080; border-radius: 6px; height: 300px; margin-top: 5px;">
 
-        <div class="span6" style="margin-left: 5px; margin-top: 4px">
-            <img class="media-object, thumbnail" data-src="holder.js/85x85">
-            <img class="media-object, thumbnail" data-src="holder.js/85x85">
-            <img class="media-object, thumbnail" data-src="holder.js/85x85">
-        </div>
-        <div class="span6" style="margin-top: 4px; margin-left: -2px">
-            <img class="media-object, thumbnail" data-src="holder.js/85x85">
-            <img class="media-object, thumbnail" data-src="holder.js/85x85">
-            <img class="media-object, thumbnail" data-src="holder.js/85x85">
-        </div>
+    <div id="galleria" style="height: 400px; width: 100%">
+        <img src="~/Images/dif-carImage.jpg">
     </div>
 </div>
 

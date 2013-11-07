@@ -27,32 +27,49 @@
 
     <script>
         var firstImage = true;
+        var imageCount = 0;
+        function submitTheForm() {
+            $("#loadFile0").remove("");
+            //var gallery = Galleria.get(0);
+            //var imageData = "";
+       
+            //for (ni = 0; ni < gallery.getDataLength() ; ni++) {
+            //    imageData += "<input type='file' value='" + gallery.getData(ni).image + "' name='UploadImage"+(ni+1) +"' id='UploadImage"+(ni+1) +"'/>";          
+            //}
+            
+            //$("#listOfImages").html(imageData);
+        }
         function removePic() {
             var gallery = Galleria.get(0); // gallery is now the first galleria instance
 
             if (firstImage == false) {
+                $(gallery.getData(gallery.getIndex()).link).remove("");
                 gallery.splice(gallery.getIndex(), 1);
                 if (gallery.getDataLength() <= 1) {
-                    gallery.push({ image: "/Images/dif-carImage.jpg" });
+                    gallery.push({ image: "/Images/dif-carImage.jpg"});
                     firstImage = true;
-                    gallery.show(0);
-                    
+                    gallery.show(0);       
                 }
                 gallery.show(0);
                 gallery.refreshImage();
             }
         }
         function addPic2() {
-
-            $("#loadFile").trigger('click');
-            var filename = $("#loadFile").val();
-            if (($("#addImage").val() != $("#loadFile").val()) && (filename.indexOf(".jpg", 0) > 0 || filename.indexOf(".bmp", 0) > 0 || filename.indexOf(".jpeg", 0) > 0 || filename.indexOf(".png", 0) > 0 || filename.indexOf(".gif", 0)>0)) {
+            var addImageData = "<div id='addNewImage'></div>";
+            addImageData += "<input hidden='hidden' id='loadFile" + (imageCount + 1) + "' type='file' name='UploadImage" + (imageCount + 1) + "' accept='image/*' />";
+            $("#loadFile" + imageCount).trigger('click');
+            
+            var filename = $("#loadFile" + imageCount).val();
+            if (($("#addImage").val() != filename) && (filename.indexOf(".jpg", 0) > 0 || filename.indexOf(".bmp", 0) > 0 || filename.indexOf(".jpeg", 0) > 0 || filename.indexOf(".png", 0) > 0 || filename.indexOf(".gif", 0) > 0)) {
                 
-                addPic($("#loadFile").val());
+                addPic(filename);
+                imageCount++;
                 firstImage = false;
+                $("#addNewImage").replaceWith(addImageData);
+                document.getElementById("addImage").setAttribute("value", filename);
             }
-            document.getElementById("addImage").setAttribute("value", $("#loadFile").val());
-            ($("#loadFile").val());
+            
+         //   ($("#loadFile" + imageCount).val());
             
             return false;
         }
@@ -61,7 +78,7 @@
             var gallery = Galleria.get(0); // gallery is now the first galleria instance
             //gallery.play();
             gallery.setOptions('dummy', '/Images/dif-carImage.jpg');
-            gallery.push({ image: data });
+            gallery.push({ image: data ,link: ("#loadFile"+imageCount)});
             
            // gallery.show(gallery.getDataLength()+1);
             if (firstImage) {
@@ -105,13 +122,11 @@
 {
 
 
-
-
-
-    <input  hidden="hidden" id="loadFile" type="file"  />
-                 
-
+    <div id="addNewImage"></div>
     
+    <input hidden="hidden" id="loadFile0" type="file" name="UploadImage" accept="image/*" />
+       
+             
     <div class="row" style="margin-left: 5px;">
         
         <div id="galleria" style="height:400px;width:100%">

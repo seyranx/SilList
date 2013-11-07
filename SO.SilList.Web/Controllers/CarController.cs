@@ -32,6 +32,7 @@ namespace SO.SilList.Web.Controllers
 
         public ActionResult Index(CarVm input = null, Paging paging = null)
         {
+            
 
             if (input == null) input = new CarVm();
             input.isActive = true;
@@ -157,8 +158,8 @@ namespace SO.SilList.Web.Controllers
 
             // Images
             ImageManager imageManager = new ImageManager();
-            ViewBag.Images = imageManager.getCarImages(id);
-
+           // ViewBag.Images = imageManager.getCarImages(id);
+            ViewBag.ImagesURL = imageManager.getCarImagesUrl(id);
             return View(result);
         }
         public ActionResult Create()
@@ -169,12 +170,14 @@ namespace SO.SilList.Web.Controllers
         [HttpPost]
         public ActionResult Create(CarVo input)
         {
+            
 
             if (this.ModelState.IsValid)
             {
                 var item = carManager.insert(input);
 
                 ImageManager imageManager = new ImageManager();
+                
                 imageManager.InsertUploadImages(item.carId, Request.Files, Server, SO.SilList.Manager.Managers.ImageCategory.carImage);
 
                 return RedirectToAction("Index");
