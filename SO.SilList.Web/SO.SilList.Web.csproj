@@ -142,6 +142,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LinkedController.cs" />
     <Compile Include="Controllers\ListingCategoryTypeController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\ListingsController.cs" />
     <Compile Include="Controllers\ListingTypeController.cs" />
     <Compile Include="Controllers\RentalController.cs" />
@@ -289,6 +290,10 @@
     <Content Include="Views\Shared\_LayoutListings.cshtml" />
     <Content Include="Views\Shared\_ListingsBox.cshtml" />
     <Content Include="Views\Listings\Index.cshtml" />
+    <Content Include="Views\Member\Login.cshtml" />
+    <Content Include="Views\Member\Register.cshtml" />
+    <Content Include="Views\Member\ConfirmEmail.cshtml" />
+    <Content Include="Views\Member\Manage.cshtml" />
     <Content Include="Views\Listings\_Filter.cshtml" />
     <Content Include="Views\Listings\_ListingItem.cshtml" />
     <Content Include="Views\Listings\_Menu.cshtml" />
@@ -303,8 +308,13 @@
     <Content Include="Views\Rental\_Filter.cshtml" />
     <Content Include="Views\Rental\_Menu.cshtml" />
     <Content Include="Views\Business\Categories.cshtml" />
+    <Content Include="Views\Shared\_LayoutCar.cshtml" />
     <Content Include="Views\ListingCategoryType\getTopCategories.cshtml" />
     <Content Include="Views\Car\_filter.cshtml" />
+    <Content Include="Views\Car\_CollapseList.cshtml" />
+    <Content Include="Views\Car\Detail.cshtml" />
+    <Content Include="Views\Car\Create.cshtml" />
+    <Content Include="Views\ListingCategoryType\getTopCategories.cshtml" />
     <Content Include="Views\Car\_CarColorDropDownList.cshtml" />
     <Content Include="Views\Car\_CarBodyDropDownList.cshtml" />
     <Content Include="Views\Car\_CarDoorDropDownList.cshtml" />
@@ -315,6 +325,8 @@
     <Content Include="Views\Car\_ModelDropDownList.cshtml" />
     <Content Include="Views\Car\_TransmissionDropDownList.cshtml" />
     <Content Include="Views\ListingType\getTopTypes.cshtml" />
+    <Content Include="Views\Car\_DropDownList.cshtml" />
+    <Content Include="Views\Car\_MakeDropDownList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

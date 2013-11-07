@@ -1,21 +1,23 @@
-﻿@model SO.SilList.Manager.Models.ValueObjects.MakeTypeVo
+﻿@using SO.SilList.Manager.Models.ValueObjects
 <script>
-    function updateModelList( obj) {
+    function updateModelList(obj) {
+        
         if (document.getElementById("modelList")) {
-            var propertyName = "model";
-            if ("@ViewBag.propertyName".indexOf("Type") > 0)
-                propertyName = "modelTypeId";
-            if ("@ViewBag.propertyName".indexOf(".")>0)
-                propertyName = "car." + propertyName;
-            $.post("Car/ModelDropDownList?_makeTypeId=" + obj.options[obj.selectedIndex].value + "&propertyName=" + propertyName + "&defaultValue=@ViewBag.defaultValue",
+            
+            $.post("/car/DropDownList?id=&propertyName=modelTypeId&modelType=&makeTypeId=" + obj.options[obj.selectedIndex].value,
                 function (data) {
 
                     $('#modelList').html(data);
-
+                    $('SELECT').select2({
+                        dropdownAutoWidth: false,
+                        width: 'element'
+                    });
                 }
             );
         }
+        
     }
 </script>
 
-@Html.DropDownList((string)ViewBag.propertyName, new SelectList(ViewBag.makes,"makeTypeId","name",Model.makeTypeId),(string)ViewBag.defaultValue, new { onChange = "updateModelList(this)" })
+@Html.DropDownList((string)ViewBag.propertyName, new SelectList(ViewBag.items, ViewBag.idName, "name", ViewBag.selectedItem), (string)ViewBag.defaultValue, new {onChange = "updateModelList(this)"})
+
