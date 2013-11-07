@@ -89,7 +89,8 @@
             gallery.show(gallery.getDataLength());
         }
         // Load the classic theme
-        Galleria.loadTheme('/Scripts/galleria/galleria.classic.js');
+        
+        Galleria.loadTheme('@Url.Content("~")/Scripts/galleria/galleria.classic.js');
 
         // Initialize Galleria
         Galleria.run('#galleria', {
@@ -123,8 +124,7 @@
 
 @using (Html.BeginForm("Create", "Car", FormMethod.Post, new { @encType = "multipart/form-data" }))
 {
-
-
+ 
     <div id="addNewImage"></div>
     
     <input hidden="hidden" id="loadFile0" type="file" name="UploadImage" accept="image/*" />
