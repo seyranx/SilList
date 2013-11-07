@@ -93,14 +93,21 @@ namespace SO.SilList.Admin.Web.Controllers
             leaseTermTypeManager.delete(id);
             return RedirectToAction("Index");
         }
-        public ActionResult DropDownList(int? id = null)
+        public ActionResult DropDownList(int? id = null, string propertyName = null, string defaultValue = null)
         {
-            ViewBag.leaseTermType = leaseTermTypeManager.getAll(null);
+            ViewBag.leaseTermTypes = leaseTermTypeManager.getAll(null);
             var leaseType = new LeaseTermTypeVo();
             if (id != null)
             {
                 leaseType = leaseTermTypeManager.get(id.Value);
             }
+
+            if (propertyName == null)
+                propertyName = "leaseTypeId";
+            ViewBag.propertyName = propertyName;
+            if (defaultValue == null)
+                defaultValue = "Select One";
+            ViewBag.defaultValue = defaultValue;
             return PartialView("_DropDownList", leaseType);
         }
         public ActionResult Filter(LeaseTermTypeVm Input)

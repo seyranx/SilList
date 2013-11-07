@@ -47,8 +47,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
 
 
-        [Association("CarDoorType_Car", "carDoorTypeId", "carDoorTypeId", IsForeignKey = true)]
-        public List<CarVo> car { get; set; }
+        //[Association("CarDoorType_Car", "carDoorTypeId", "carDoorTypeId", IsForeignKey = true)]
+        //public List<CarVo> car { get; set; }
 
     	public CarDoorTypeVo(){
             this.isActive = true;

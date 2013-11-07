@@ -10,12 +10,15 @@
 <fieldset>
     <legend></legend>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.title)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.title)
-    </div>
+        <div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.title)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.title)"readonly="true">
+            </div>
+        </div>
+
        <div class="control-group">
             <div class="control-label">
                 @Html.DisplayNameFor(model => model.address)
@@ -64,7 +67,7 @@
                 <input type="text" value="@Html.DisplayFor(model => model.phone)" readonly="true">
             </div>
         </div>
-                                <div class="control-group">
+       <div class="control-group">
             <div class="control-label">
                 @Html.DisplayNameFor(model => model.fax)
             </div>
@@ -72,128 +75,146 @@
                 <input type="text" value="@Html.DisplayFor(model => model.fax)" readonly="true">
             </div>
         </div>
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.description)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.description)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.propertyTypeId)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.propertyType.name)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.siteId)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.site.domain)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.bedrooms)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.bedrooms)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.bathrooms)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.bathrooms)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.price)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.price)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.leaseTermTypeId)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.leaseTermType.name)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.size)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.size)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.lotSize)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.lotSize)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.acceptsSection8)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.acceptsSection8)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.rentTypeId)
-    </div>
-    <div class="display-field">
-
-        @Html.DisplayFor(model => model.rentType.name)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.memberId)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.memberId)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.modifiedBy)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.modifiedBy)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.modified)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.modified)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.createdBy)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.createdBy)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.created)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.created)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.isActive)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.isActive)
-    </div>
+        <div class="control-group">
+            <label class="control-label">@Html.DisplayNameFor(model => model.description)</label>
+            <div class="controls">
+                    @Html.TextAreaFor(model => model.description,new {@rows = 5  ,@readonly=true}) 
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.propertyTypeId)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.propertyType.name)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.siteId)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.site.domain)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.bedrooms)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.bedrooms)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.bathrooms)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.bathrooms)" readonly="true">
+            </div>
+        </div><div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.price)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.price)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.leaseTermTypeId)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.leaseTermType.name)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.size)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.size)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.lotSize)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.lotSize)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label"> @Html.DisplayNameFor(model => model.acceptsSection8)</label>
+            <div class="controls">
+                @Html.DisplayFor(model => model.acceptsSection8)
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.rentTypeId)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.rentType.name)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.rentTypeId)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.rentType.name)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.memberId)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.memberId)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.modifiedBy)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.modifiedBy)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.modified)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.modified)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.createdBy)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.createdBy)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.created)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.created)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label"> @Html.DisplayNameFor(model => model.isApproved)</label>
+            <div class="controls">
+                @Html.DisplayFor(model => model.isApproved)
+            </div>
+        </div>
 </fieldset>
 <p>
-      <a href="@Url.Action("Index", new { id=Model.rentalId })" class="btn">Edit</a>
+      <a href="@Url.Action("Edit", new { id=Model.rentalId })" class="btn">Edit</a>
       <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
 </p>
 

@@ -25,7 +25,7 @@ namespace SO.SilList.Manager.Managers
             {
                 var result = db.carDoorType
 
-                            .Include(c => c.car)
+                            
 
                             .FirstOrDefault(r => r.carDoorTypeId == carDoorTypeId);
 
@@ -38,7 +38,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var list = db.carDoorType
-                            .Include(c => c.car)
+                            .OrderBy(n => n.name)
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
                 
@@ -52,7 +52,7 @@ namespace SO.SilList.Manager.Managers
              using (var db = new MainDb())
             {
                 var query = db.carDoorType
-                            .Include(c => c.car)
+                            
                             .OrderBy(b => b.name)
                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))

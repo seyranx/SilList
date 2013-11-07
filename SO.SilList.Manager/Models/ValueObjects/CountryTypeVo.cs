@@ -44,29 +44,14 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[Required]
         public bool isActive { get; set; }
 
-        [Association("CountryType_CityType", "countryTypeId", "countryTypeId", IsForeignKey = true)]
-        public List<CityTypeVo> city { get; set; }
+      //  [Association("CountryType_CityType", "countryTypeId", "countryTypeId", IsForeignKey = true)]
+      //  public List<CityTypeVo> city { get; set; }
 
-        [Association("CountryType_StateType", "countryTypeId", "countryTypeId", IsForeignKey = true)]
-        public List<StateTypeVo> state { get; set; }
+     //   [Association("CountryType_StateType", "countryTypeId", "countryTypeId", IsForeignKey = true)]
+      //  public List<StateTypeVo> state { get; set; }
 
-        [Association("CountryType_Car", "countryTypeId", "countryTypeId", IsForeignKey = true)]
-        public List<CarVo> car { get; set; }
-
-        [Association("CountryType_Job", "countryTypeId", "countryTypeId", IsForeignKey = true)]
-        public List<JobVo> job { get; set; }
-
-        [Association("CountryType_Business", "countryTypeId", "countryTypeId", IsForeignKey = true)]
-        public List<BusinessVo> business { get; set; }
-
-        [Association("CountryType_Listing", "countryTypeId", "countryTypeId", IsForeignKey = true)]
-        public List<ListingVo> listing { get; set; }
-
-        [Association("CountryType_Rental", "countryTypeId", "countryTypeId", IsForeignKey = true)]
-        public List<RentalVo> rental { get; set; }
-
-        [Association("CountryType_Member", "countryTypeId", "countryTypeId", IsForeignKey = true)]
-        public List<MemberVo> member { get; set; }
+        
+       
 
     	public CountryTypeVo(){
             this.isActive = true;

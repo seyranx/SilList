@@ -212,6 +212,9 @@
     <Compile Include="Models\ViewModels\AdminVm.cs" />
     <Compile Include="Models\ViewModels\CityTypeVm.cs" />
     <Compile Include="Models\ViewModels\CarColorTypeVm.cs" />
+    <Compile Include="Models\ViewModels\Member\MemberLoginVm.cs" />
+    <Compile Include="Models\ViewModels\Member\MemberManageVm.cs" />
+    <Compile Include="Models\ViewModels\Member\MemberRegisterVm.cs" />
     <Compile Include="Models\ViewModels\CarEngineTypeVm.cs" />
     <Compile Include="Models\ViewModels\CarDriveTypeVm.cs" />
     <Compile Include="Models\ViewModels\CarDoorTypeVm.cs" />

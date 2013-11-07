@@ -87,15 +87,24 @@ namespace SO.SilList.Admin.Web.Controllers
             return RedirectToAction("index");
         }
 
-        public ActionResult DropDownList(int? id = null)
+        public ActionResult DropDownList(int? id = null, string propertyName = null, string defaultValue = null)
         {
-            ViewBag.rentType = rentalTypeManager.getAll(null);
+            ViewBag.rentTypes = rentalTypeManager.getAll(null);
             var rentType = new RentTypeVo();
             if (id != null)
             {
                 rentType = rentalTypeManager.get(id.Value);
             }
+
+            if (propertyName == null)
+                propertyName = "rentTypeId";
+            ViewBag.propertyName = propertyName;
+            if (defaultValue == null)
+                defaultValue = "Select One";
+            ViewBag.defaultValue = defaultValue;
+
             return PartialView("_DropDownList", rentType);
+
         }
         public ActionResult Filter(RentTypeVm Input)
         {
