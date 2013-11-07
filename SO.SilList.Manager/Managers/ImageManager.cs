@@ -113,6 +113,7 @@ namespace SO.SilList.Manager.Managers
         // used to show given entity's images on Details and Edit pages
         public List<ImageVo> getCarImages(Guid carId)
         {
+
             using (var db = new MainDb())
             {
                 var list = (from i in db.images
@@ -124,7 +125,23 @@ namespace SO.SilList.Manager.Managers
                 return list;
             }
         }
-
+        public List<string> getCarImagesUrl(Guid carId)
+        {
+            List<string> list = new List<string>();
+            using (var db = new MainDb())
+            {
+                var imglist = (from i in db.images
+                            join c in db.carImages on i.imageId equals c.imageId
+                            where c.carId == carId
+                            select i
+                            ).ToList();
+                foreach(var img in imglist)
+                {
+                    list.Add(img.url);
+                }
+                return list;
+            }
+        }
         // used to show given entity's images on Details and Edit pages
         public List<ImageVo> getBusinessImages(Guid businessId)
         {
