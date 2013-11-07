@@ -24,7 +24,10 @@
 
             Galleria.log(this) // the gallery instance
             Galleria.log(options) // the gallery options
-            
+            Galleria.configure({
+                imageCrop: false,
+                transition: 'fade'
+            });
             // listen to when an image is shown
             this.bind('image', function (e) {
 
@@ -71,7 +74,7 @@
 </div>
 <div class="row" style="margin-left: 5px;">
 
-    <div id="galleria" style="height: 400px; width: 100%">
+    <div id="galleria" style="height: 400px; width: 100%; background-color:white; ">
         <img src="~/Images/dif-carImage.jpg">
     </div>
 </div>

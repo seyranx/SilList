@@ -98,7 +98,10 @@
 
                 Galleria.log(this) // the gallery instance
                 Galleria.log(options) // the gallery options
-
+                Galleria.configure({
+                    imageCrop: false,
+                    transition: 'fade'
+                });
                 // listen to when an image is shown
                 this.bind('image', function (e) {
 
