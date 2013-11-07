@@ -16,6 +16,8 @@ namespace SO.SilList.Web.Controllers
     {
         private CarManager carManager = new CarManager();
         private CityTypeManager cityTypeManager = new CityTypeManager();
+        private StateTypeManager stateTypeManager = new StateTypeManager();
+        private CountryTypeManager countryTypeManager = new CountryTypeManager();
         private CarColorTypeManager carColorTypeManager = new CarColorTypeManager();
         private CarBodyTypeManager carBodyTypeManager = new CarBodyTypeManager();
         private TransmissionTypeManager transmissionTypeManager = new TransmissionTypeManager();
@@ -30,6 +32,7 @@ namespace SO.SilList.Web.Controllers
 
         public ActionResult Index(CarVm input = null, Paging paging = null)
         {
+            
 
             if (input == null) input = new CarVm();
             input.isActive = true;
@@ -63,6 +66,11 @@ namespace SO.SilList.Web.Controllers
         public ActionResult DropDownList(int? id = null, string propertyName = null, Type modelType = null, string defaultValue = null,int? makeTypeId=null)
         {
           //var item = Activator.CreateInstance(modelType);
+            ViewBag.propertyName = propertyName;
+            if (defaultValue == null)
+                defaultValue = "Select One";
+            ViewBag.defaultValue = defaultValue;
+
             ViewBag.selectedItem = id;
             if(modelType == typeof(CarDoorTypeVo))
             {
@@ -97,25 +105,37 @@ namespace SO.SilList.Web.Controllers
             else if (modelType == typeof(TransmissionTypeVo))
             {
                 ViewBag.items = transmissionTypeManager.getAll(true);
-                ViewBag.idName = "trasmissionTypeId";
+                ViewBag.idName = "transmissionTypeId";
             }
             else if (modelType == typeof(MakeTypeVo))
             {
                 ViewBag.items = makeTypeManager.getAll(true);
                 ViewBag.idName = "makeTypeId";
+                return PartialView("_MakeDropDownList");
             }
-            else if (modelType == typeof(ModelTypeVo))
+            else if (modelType == typeof(ModelTypeVo) || makeTypeId != null)
             {
                 if (makeTypeId == null)
                     makeTypeId = -1;
                 ViewBag.items = modelTypeManager.getAll(true,makeTypeId);
                 ViewBag.idName = "modelTypeId";
             }
+            else if (modelType == typeof(CountryTypeVo))
+            {
+                ViewBag.items = countryTypeManager.getAll(true);
+                ViewBag.idName = "countryTypeId";
+            }
+            else if (modelType == typeof(StateTypeVo))
+            {
+                ViewBag.items = stateTypeManager.getAll(true);
+                ViewBag.idName = "stateTypeId";
+            }
+            else if (modelType == typeof(CityTypeVo))
+            {
+                ViewBag.items = cityTypeManager.getAll(true);
+                ViewBag.idName = "cityTypeId";
+            }
 
-            ViewBag.propertyName = propertyName;
-            if (defaultValue == null)
-                defaultValue = "Select One";
-            ViewBag.defaultValue = defaultValue;
             return PartialView("_DropDownList");
         }
 
@@ -138,8 +158,8 @@ namespace SO.SilList.Web.Controllers
 
             // Images
             ImageManager imageManager = new ImageManager();
-            ViewBag.Images = imageManager.getCarImages(id);
-
+           // ViewBag.Images = imageManager.getCarImages(id);
+            ViewBag.ImagesURL = imageManager.getCarImagesUrl(id);
             return View(result);
         }
         public ActionResult Create()
@@ -150,12 +170,14 @@ namespace SO.SilList.Web.Controllers
         [HttpPost]
         public ActionResult Create(CarVo input)
         {
+            
 
             if (this.ModelState.IsValid)
             {
                 var item = carManager.insert(input);
 
                 ImageManager imageManager = new ImageManager();
+                
                 imageManager.InsertUploadImages(item.carId, Request.Files, Server, SO.SilList.Manager.Managers.ImageCategory.carImage);
 
                 return RedirectToAction("Index");
