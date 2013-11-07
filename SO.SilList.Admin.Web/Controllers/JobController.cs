@@ -58,14 +58,15 @@ namespace SO.SilList.Admin.Web.Controllers
             JobVo vo = new JobVo();
             return View(vo);
         }
-        public ActionResult Edit()
+        public ActionResult Edit(Guid id)
         {
-            return View();
+            var result = jobManager.get(id);
+
+            return View(result);
         }
         [HttpPost]
         public ActionResult Edit(Guid id, JobVo input)
         {
-
             if (this.ModelState.IsValid)
             {
                 var res = jobManager.update(input, id);
