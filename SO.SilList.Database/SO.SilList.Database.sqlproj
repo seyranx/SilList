@@ -226,7 +226,7 @@
     <Build Include="app\Tables\CountryType.sql" />
     <Build Include="app\Tables\CarDoorType.sql" />
     <Build Include="app\Tables\EntryStatusType.sql" />
-    <Build Include="user-scripts\InsertToJobs.sql" />
+    <None Include="user-scripts\InsertToJobs.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />
