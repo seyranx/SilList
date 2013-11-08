@@ -1,0 +1,109 @@
+﻿@model SO.SilList.Manager.Models.ValueObjects.JobVo
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutJob.cshtml";
+}
+<style>
+    .info {
+        padding: 2px;
+        margin-bottom: 2px;
+    }
+</style>
+
+<div class="row" style="margin: 5px;">
+    <div class="span8">
+        <h2 style="color: #090f4a; text-shadow: 5px 3px 2px #a3a3a4">@Html.DisplayFor(model => model.title)</h2>
+    </div>
+    <div class="span4" style="text-align: center;">
+        <h3>@Html.DisplayFor(model => model.companyName)</h3>
+    </div>
+</div>
+
+<div class="span8" data-toggle="tooltip" data-placement="bottom" title="@Html.DisplayFor(model => model.jobType.description)"><b>Job Type: </b>@Html.DisplayFor(model => model.jobType.name)</div>
+<div class="span1"><a href="http://@Html.DisplayFor(model => model.website)" target="_blank">@Html.DisplayFor(model => model.website)</a></div>
+
+
+<div class="row" style="height: 460px; margin: 5px;">
+
+    <div class="span8" style="border: inset; border-color: #808080; height: 400px; border-radius: 6px; margin-bottom: 5px">
+        <b style="font-size: medium; font-style: italic; margin: 10px; padding: 10px; border-bottom: 1px solid #ccc;">Job Description</b>
+        <div style="margin: 10px;">
+            <p style="text-align: justify">
+                @Html.DisplayFor(model => model.description)
+            </p>
+        </div>
+    </div>
+
+    <div class="span4" style="border: inset; border-color: #808080; height: 400px; border-radius: 6px; margin-bottom: 5px; padding: 5px">
+        <b style="font-size: medium; font-style: italic; margin: 10px; padding: 10px; border-bottom: 1px solid #ccc;">Contact</b>
+        <div style="margin-top: 10px">
+            <div class="info">
+                <b>Contact Name:</b><br />
+                @Html.DisplayFor(model => model.contactName)
+            </div>
+            <div class="info">
+                <b>Location:</b><br />
+                @Html.DisplayFor(model => model.address)
+            </div>
+            <div class="info">
+                @Html.DisplayFor(model => model.cityType.name)
+                @if (Model.cityType != null)
+                { <b>,</b>}
+                @Html.DisplayFor(model => model.stateType.stateCode)
+
+                <div>
+                    <b>Zip Code:</b>
+                    @Html.DisplayFor(model => model.zip)
+                </div>
+            </div>
+
+            <div class="info">
+                <b>Phone:</b>
+                @Html.DisplayFor(model => model.phone)
+            </div>
+            <div class="info">
+                <b>Fax:</b>
+                @Html.DisplayFor(model => model.fax)
+            </div>
+            <div class="info">
+                <b>Telecomute:</b>
+                @{
+                    if (Model.isTelecomute)
+                    {
+                    <span>Yes</span>
+                    }
+                    else
+                    {
+                    <span>No</span>
+                    }
+                }
+            </div>
+            <div class="info">
+                <b>Travel Required:</b>
+                @{
+                    if (Model.isTravelRequired)
+                    {
+                    <span>Yes</span>
+                    }
+                    else
+                    {
+                    <span>No</span>
+                    }
+                }
+            </div>
+            <div class="info">
+                <b>Listing For:</b>
+                @((DateTime.Now - Model.startDate).Days) Day(s)
+            </div>
+        </div>
+    </div>
+    <div class="span12" style="border: inset; border-color: #808080; height: 55px; border-radius: 6px; padding: 10px; margin-left: -1px">
+        <input type="button" value="Back" class="btn btn-info " onclick="history.go(-1); return true;">
+        <a href="#" class="btn btn-primary pull-right" style="margin-left: 10px">Apply</a>
+        <a href="#" class="btn btn-warning pull-right" style="margin-left: 10px">Print</a>
+        <a href="#" class="btn  pull-right">E-Mail to</a>
+    </div>
+</div>
+
+

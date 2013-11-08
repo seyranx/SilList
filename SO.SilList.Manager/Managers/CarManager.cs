@@ -77,9 +77,9 @@ namespace SO.SilList.Manager.Managers
         {
              DateTime listingDate = new DateTime();
              listingDate = DateTime.Today.Date;
-             if (input.listigDate != null)
+             if (input.listingDate != null)
              {
-                 switch(input.listigDate)
+                 switch(input.listingDate)
                  {
                      case 0: //last 1 day
                          listingDate=listingDate.Subtract(new TimeSpan(1, 0, 0, 0, 0));
@@ -129,7 +129,7 @@ namespace SO.SilList.Manager.Managers
                                       && (input.fuelTypeId == null || e.carFuelTypeId == input.fuelTypeId)
                                       && (input.exColorTypeId == null || e.exteriorColorTypeId == input.exColorTypeId)
                                       && (input.inColorTypeId == null || e.interiorColorTypeId == input.inColorTypeId)
-                                      && (input.listigDate ==null || DateTime.Compare(e.startDate, listingDate) >= 0)
+                                      && (input.listingDate ==null || DateTime.Compare(e.startDate, listingDate) >= 0)
                                       && ((e.year >= input.year || input.year == null)
                                             && (e.year <= input.yearTo || input.yearTo == null))
                                       && ((e.price >= input.startingPrice || input.startingPrice == null)

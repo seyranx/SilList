@@ -1,8 +1,19 @@
-﻿@{
+﻿@model SO.SilList.Manager.Models.ViewModels.JobVm
+
+@{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutWith3Columns.cshtml";
+    Layout = "~/Views/Shared/_LayoutJob.cshtml";
 }
 
-<h2>Jobs Index</h2>
+<h2>Jobs</h2>
 
-some text here
+<div style="height:20px">
+    <div class="pull-right" >
+        @((Model.paging.pageNumber - 1) * Model.paging.rowCount + Model.result.Count) of @Model.paging.totalCount
+    </div>
+    </div>
+
+ @Html.Partial("_JobItem", Model.result)
+
+
+@Html.Action("Pagination", @Model.paging)
