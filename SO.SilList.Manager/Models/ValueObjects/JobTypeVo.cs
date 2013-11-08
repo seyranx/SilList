@@ -51,7 +51,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         public JobTypeVo()
         {
-           // this.jobTypeId = 1;
+
             this.isActive = true;
         }
     }

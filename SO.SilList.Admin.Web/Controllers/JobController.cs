@@ -59,9 +59,11 @@ namespace SO.SilList.Admin.Web.Controllers
             JobVo vo = new JobVo();
             return View(vo);
         }
-        public ActionResult Edit()
+        public ActionResult Edit(Guid id)
         {
-            return View();
+            JobVo vo = jobManager.get(id);
+
+            return View(vo);
         }
         [HttpPost]
         public ActionResult Edit(Guid id, JobVo input)
@@ -73,7 +75,7 @@ namespace SO.SilList.Admin.Web.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View();
+            return View(input);
         }
         public ActionResult Details(Guid id)
         {

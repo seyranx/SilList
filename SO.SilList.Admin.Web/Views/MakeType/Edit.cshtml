@@ -7,7 +7,7 @@
 
 <h2>Edit</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("Edit", "MakeType", FormMethod.Post, new { @encType = "multipart/form-data", id = "myForm" })) {
     @Html.ValidationSummary(true)
 
     <fieldset class="form-horizontal">

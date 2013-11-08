@@ -22,7 +22,6 @@ namespace SO.SilList.Manager.Managers
                 var result = db.jobs
                             .Include(s => s.site)
                             .Include(j => j.jobType)
-                            .Include(t => t.jobCompany)
                             .Include(i => i.cityType)
                             .Include(o => o.countryType)
                             .Include(u => u.stateType) 
@@ -50,12 +49,11 @@ namespace SO.SilList.Manager.Managers
                 var query = db.jobs
                              .Include(s => s.site)
                              .Include(j => j.jobType)
-                             .Include(t => t.jobCompany)
                             .Include(i => i.cityType)
                             .Include(o => o.countryType)
                             .Include(u => u.stateType) 
 
-                            .OrderBy(b => b.title)
+                            .OrderBy(b => b.startDate)
                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                              );
@@ -77,11 +75,10 @@ namespace SO.SilList.Manager.Managers
                 var list = db.jobs
                              .Include(s => s.site)
                              .Include(j => j.jobType)
-                             .Include(t => t.jobCompany)
                             .Include(i => i.cityType)
                             .Include(o => o.countryType)
-                            .Include(u => u.stateType) 
-
+                            .Include(u => u.stateType)
+                             .OrderBy(b => b.startDate)
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
 
