@@ -12,26 +12,26 @@ using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Manager.Managers
 {
-    public class RentTypeManager : IRentTypeManager
+    public class StatusTypeManager : IStatusTypeManager
     {
         public StatusTypeVo get(int rentTypeId)
         {
             using (var db = new MainDb())
             {
-                var res = db.rentTypes
+                var res = db.statusTypes
                     //.Include(s => s.image)
-                            .FirstOrDefault(p => p.rentTypeId == rentTypeId);
+                            .FirstOrDefault(p => p.statusTypeId == rentTypeId);
 
                 return res;
             }
         }
 
-        public RentTypeVm search(RentTypeVm input)
+        public StatusTypeVm search(StatusTypeVm input)
         {
 
             using (var db = new MainDb())
             {
-                var query = db.rentTypes
+                var query = db.statusTypes
                             .OrderBy(b => b.name)
                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
@@ -51,7 +51,7 @@ namespace SO.SilList.Manager.Managers
         {
             using (var db = new MainDb())
             {
-                var list = db.rentTypes
+                var list = db.statusTypes
                              //.Include(s => s.site)
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
@@ -64,8 +64,8 @@ namespace SO.SilList.Manager.Managers
         {
             using (var db = new MainDb())
             {
-                var res = db.rentTypes
-                     .Where(e => e.rentTypeId == rentTypeId)
+                var res = db.statusTypes
+                     .Where(e => e.statusTypeId == rentTypeId)
                      .Delete();
                 return true;
             }
@@ -77,9 +77,9 @@ namespace SO.SilList.Manager.Managers
             {
 
                 if (rentTypeId == null)
-                    rentTypeId = input.rentTypeId;
+                    rentTypeId = input.statusTypeId;
 
-                var res = db.rentTypes.FirstOrDefault(e => e.rentTypeId == rentTypeId);
+                var res = db.statusTypes.FirstOrDefault(e => e.statusTypeId == rentTypeId);
 
                 if (res == null) return null;
 
@@ -99,7 +99,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
 
-                db.rentTypes.Add(input);
+                db.statusTypes.Add(input);
                 db.SaveChanges();
 
                 return input;

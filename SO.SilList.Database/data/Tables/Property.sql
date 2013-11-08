@@ -1,4 +1,4 @@
-﻿CREATE TABLE [data].[Rental] (
+﻿CREATE TABLE [data].[Property] (
     [propertyId]            UNIQUEIDENTIFIER NOT NULL,
     [title]                 NVARCHAR (50)    NULL,
     [description]           NVARCHAR (MAX)   NULL,
@@ -35,20 +35,4 @@
     CONSTRAINT [FK_Rental_Site] FOREIGN KEY ([siteId]) REFERENCES [app].[Site] ([siteId]) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT [FK_Rental_StateType] FOREIGN KEY ([stateTypeId]) REFERENCES [app].[StateType] ([stateTypeId]) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

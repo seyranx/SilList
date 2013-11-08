@@ -14,11 +14,11 @@ namespace SO.SilList.Web.Controllers
         //
         // GET: /Rentals/
 
-        private RentalManager rentalManager = new RentalManager();
+        private PropertyManager rentalManager = new PropertyManager();
 
-        public ActionResult Index(RentalVm input = null)
+        public ActionResult Index(PropertyVm input = null)
         {
-            if (input == null) input = new RentalVm();
+            if (input == null) input = new PropertyVm();
 
             if (this.ModelState.IsValid)
             {
@@ -33,7 +33,7 @@ namespace SO.SilList.Web.Controllers
             return PartialView("_Menu");
         }
 
-        public ActionResult Filter(RentalVm input)
+        public ActionResult Filter(PropertyVm input)
         {
             return PartialView("_Filter", input);
         }

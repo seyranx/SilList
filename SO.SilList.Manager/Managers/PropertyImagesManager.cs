@@ -10,13 +10,13 @@ using EntityFramework.Extensions;
 
 namespace SO.SilList.Manager.Managers
 {
-    public class RentalImagesManager : IRentalImagesManager
+    public class PropertyImagesManager : IPropertyImagesManager
     {
         public PropertyImageVo get(Guid rentalImageId)
         {
             using (var db = new MainDb())
             {
-                var res = db.rentalImages
+                var res = db.propertyImages
                             //.Include(s => s.image)
                             .FirstOrDefault(p => p.propertyImageId == rentalImageId);
 
@@ -28,7 +28,7 @@ namespace SO.SilList.Manager.Managers
         {
             using (var db = new MainDb())
             {
-                var list = db.rentalImages
+                var list = db.propertyImages
                              //.Include(s => s.site)
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
@@ -41,7 +41,7 @@ namespace SO.SilList.Manager.Managers
         {
             using (var db = new MainDb())
             {
-                var res = db.rentalImages
+                var res = db.propertyImages
                      .Where(e => e.propertyImageId == rentalImageId)
                      .Delete();
                 return true;
@@ -56,7 +56,7 @@ namespace SO.SilList.Manager.Managers
                 if (rentalImageId == null)
                     rentalImageId = input.propertyImageId;
 
-                var res = db.rentalImages.FirstOrDefault(e => e.propertyImageId == rentalImageId);
+                var res = db.propertyImages.FirstOrDefault(e => e.propertyImageId == rentalImageId);
 
                 if (res == null) return null;
 
@@ -76,7 +76,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
 
-                db.rentalImages.Add(input);
+                db.propertyImages.Add(input);
                 db.SaveChanges();
 
                 return input;

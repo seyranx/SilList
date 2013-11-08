@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
-    public class LeaseTermTypeController : Controller
+    public class PropertyListingTypeController : Controller
     {
         //
         // GET: /LeaseTermType/

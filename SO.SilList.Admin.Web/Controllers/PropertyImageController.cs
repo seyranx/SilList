@@ -8,9 +8,9 @@ using SO.SilList.Manager.Models.ValueObjects;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
-    public class RentalImageController : Controller
+    public class PropertyImageController : Controller
     {
-        private RentalImagesManager rentalImagesManager = new RentalImagesManager();
+        private PropertyImagesManager rentalImagesManager = new PropertyImagesManager();
 
         public ActionResult Index()
         {

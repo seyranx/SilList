@@ -13,14 +13,14 @@ using System.Data.Entity;
 namespace SO.SilList.Manager.Models.ValueObjects
 {
 
-    [Table("RentType", Schema = "app")]
+    [Table("StatusType", Schema = "app")]
     [Serializable]
     public partial class StatusTypeVo
     {
 
         [DisplayName("rent Type Id")]
         [Key]
-        public int rentTypeId { get; set; }
+        public int statusTypeId { get; set; }
 
         [DisplayName("Name")]
         [StringLength(50)]
@@ -38,16 +38,16 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public System.DateTime modified { get; set; }
 
         [DisplayName("created By")]
-        public Nullable<int> createdBy { get; set; }
+        public int? createdBy { get; set; }
 
         [DisplayName("modified By")]
-        public Nullable<int> modifiedBy { get; set; }
+        public int? modifiedBy { get; set; }
 
         [DisplayName("Is Active")]
         public bool isActive { get; set; }
 
-        [Association("RentType_Rental", "rentTypeId", "rentTypeId", IsForeignKey = true)]
-        public List<PropertyVo> rental { get; set; }
+        [Association("StatusType_Rental", "statusTypeId", "statusTypeId", IsForeignKey = true)]
+        public List<PropertyVo> property { get; set; }
 
         public StatusTypeVo()
         {

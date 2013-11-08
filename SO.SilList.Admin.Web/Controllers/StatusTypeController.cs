@@ -10,16 +10,16 @@ using System.Web.Mvc;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
-    public class RentTypeController : Controller
+    public class StatusTypeController : Controller
     {
         //
         // GET: /RentType/
 
-        private RentTypeManager rentalTypeManager = new RentTypeManager();
+        private StatusTypeManager rentalTypeManager = new StatusTypeManager();
 
-        public ActionResult Index(RentTypeVm input = null, Paging paging = null)
+        public ActionResult Index(StatusTypeVm input = null, Paging paging = null)
         {
-            if (input == null) input = new RentTypeVm();
+            if (input == null) input = new StatusTypeVm();
             input.paging = paging;
             if (this.ModelState.IsValid)
             {
@@ -106,7 +106,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView("_DropDownList", rentType);
 
         }
-        public ActionResult Filter(RentTypeVm Input)
+        public ActionResult Filter(StatusTypeVm Input)
         {
             return PartialView("_Filter", Input);
         }

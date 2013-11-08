@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,7 +50,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public decimal? price { get; set; }
 
         [DisplayName("Lot Size")]
-        public int? lotSize { get; set; }
+        public int? size { get; set; }
 
         [DisplayName("Section8")]
         public bool? acceptsSection8 { get; set; }
@@ -113,16 +112,13 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public virtual PropertyListingTypeVo propertyListingType { get; set; }
 
         [ForeignKey("statusTypeId")]
-        public virtual StatusTypeVo rentType { get; set; }
+        public virtual StatusTypeVo statusType { get; set; }
 
         [ForeignKey("propertyTypeId")]
         public virtual PropertyTypeVo propertyType { get; set; }
 
         [ForeignKey("siteId")]
         public virtual SiteVo site { get; set; }
-
-        [ForeignKey("memberId")]
-        public virtual MemberVo member { get; set; }
 
         [ForeignKey("countryTypeId")]
         public virtual CountryTypeVo countryType { get; set; }
@@ -131,9 +127,12 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public virtual StateTypeVo stateType { get; set; }
 
         [ForeignKey("cityTypeId")]
-        public virtual CityTypeVo cityType { get; set; }
+        public virtual CityTypeVo cityType { get; set; } 
 
-        [Association("Rental_RentalImages", "propertyId", "propertyId", IsForeignKey = true)]
+        [ForeignKey("createdBy")]
+        public virtual MemberVo member { get; set; }  
+
+        [Association("Property_PropertyImages", "propertyId", "propertyId", IsForeignKey = true)]
         public List<PropertyImageVo> propertyImage { get; set; }
 
     	public PropertyVo()

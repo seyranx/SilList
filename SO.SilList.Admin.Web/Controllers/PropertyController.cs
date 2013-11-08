@@ -10,16 +10,16 @@ using System.Web.Mvc;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
-    public class RentalController : Controller
+    public class PropertyController : Controller
     {
         //
         // GET: /Rentals/
 
-        private RentalManager rentalManager = new RentalManager();
+        private PropertyManager rentalManager = new PropertyManager();
 
-        public ActionResult Index(RentalVm input = null,Paging paging = null)
+        public ActionResult Index(PropertyVm input = null,Paging paging = null)
         {
-            if (input == null) input = new RentalVm();
+            if (input == null) input = new PropertyVm();
             input.paging = paging;
             if (this.ModelState.IsValid)
             {
@@ -38,11 +38,11 @@ namespace SO.SilList.Admin.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Guid id, RentalVm input)
+        public ActionResult Edit(Guid id, PropertyVm input)
         {
             if (this.ModelState.IsValid)
             {
-                var result = rentalManager.update(input.rental, id);
+                var result = rentalManager.update(input.property, id);
 
                 // Rental Images stuff
                 ImageManager imageManager = new ImageManager();
@@ -63,7 +63,7 @@ namespace SO.SilList.Admin.Web.Controllers
             // Images
             ImageManager imageManager = new ImageManager();
             var rentalImages = imageManager.getRentalImages(id);
-            RentalVm rentalVm = new RentalVm(result);
+            PropertyVm rentalVm = new PropertyVm(result);
             rentalVm.imagesToRemove = imageManager.CreateOrAddToImageList(rentalImages, true);
 
             return View(rentalVm);
@@ -118,7 +118,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView("_Pagination", input);
         }
 
-        public ActionResult Filter(RentalVm input)
+        public ActionResult Filter(PropertyVm input)
         {
             return PartialView("_Filter", input);
         }

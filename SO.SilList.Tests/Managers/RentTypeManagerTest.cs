@@ -8,7 +8,7 @@ namespace SO.SilList.Tests.Managers
     [TestClass]
     public class RentTypeManagerTest
     {
-        private RentTypeManager rentTypeManager = new RentTypeManager();
+        private StatusTypeManager rentTypeManager = new StatusTypeManager();
 
         [TestMethod]
         public void getAllTest()
@@ -30,7 +30,7 @@ namespace SO.SilList.Tests.Managers
             {
                 var vo = new StatusTypeVo();
                 vo.name = i.ToString() + " Test RentType Name ";
-                vo.rentTypeId = i;
+                vo.statusTypeId = i;
                 var result = rentTypeManager.insert(vo);
                 //TEST CHANGES
                 if (result == null)
@@ -50,13 +50,13 @@ namespace SO.SilList.Tests.Managers
             vo.description = "Test Description";
 
             var result = rentTypeManager.insert(vo);
-            var result2 = rentTypeManager.get(result.rentTypeId);
+            var result2 = rentTypeManager.get(result.statusTypeId);
 
-            rentTypeManager.delete(result.rentTypeId);
+            rentTypeManager.delete(result.statusTypeId);
 
-            var result3 = rentTypeManager.get(result.rentTypeId);
+            var result3 = rentTypeManager.get(result.statusTypeId);
 
-            if (result != null && result2 != null && result3 == null && result2.rentTypeId != 0)
+            if (result != null && result2 != null && result3 == null && result2.statusTypeId != 0)
             {
                 Assert.IsTrue(true);
             }

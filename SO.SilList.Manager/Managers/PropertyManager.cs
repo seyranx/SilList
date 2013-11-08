@@ -12,22 +12,21 @@ using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Manager.Managers
 {
-    public class RentalManager: IRentalManager
+    public class PropertyManager: IPropertyManager
     {
-        public PropertyVo get(Guid rentalId)
+        public PropertyVo get(Guid propertyId)
         {
             using (var db = new MainDb())
             {
-                var result = db.rental
+                var result = db.properties
                             .Include(r => r.propertyType)
                             .Include(t => t.propertyListingType)
-                            .Include(c => c.rentType)
+                            .Include(c => c.statusType)
                             .Include(s => s.site)
-                            .Include(m => m.member)
                             .Include(i => i.cityType)
                             .Include(o => o.countryType)
                             .Include(u => u.stateType) 
-                            .FirstOrDefault(r => r.propertyId == rentalId);
+                            .FirstOrDefault(r => r.propertyId == propertyId);
 
                 return result;
             }
@@ -40,22 +39,22 @@ namespace SO.SilList.Manager.Managers
         {
             using (var db = new MainDb())
             {
-                var res = db.rental
+                var res = db.properties
                             .FirstOrDefault();
 
                 return res;
             }
         }
         
-        public RentalVm search(RentalVm input)
+        public PropertyVm search(PropertyVm input)
         {
 
             using (var db = new MainDb())
             {
-                var query = db.rental
+                var query = db.properties
                             .Include(r => r.propertyType)
                             .Include(t => t.propertyListingType)
-                            .Include(c => c.rentType)
+                            .Include(c => c.statusType)
                             .Include(s => s.site)
                             .Include(i => i.cityType)
                             .Include(o => o.countryType)
@@ -79,10 +78,10 @@ namespace SO.SilList.Manager.Managers
         {
             using (var db = new MainDb())
             {
-                var list = db.rental
+                var list = db.properties
                             .Include(r => r.propertyType)
                             .Include(t => t.propertyListingType)
-                            .Include(c => c.rentType)
+                            .Include(c => c.statusType)
                             .Include(s => s.site)
                             .Include(i => i.cityType)
                             .Include(o => o.countryType)
@@ -95,26 +94,26 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public bool delete(Guid rentalId)
+        public bool delete(Guid propertyId)
         {
             using (var db = new MainDb())
             {
-                var res = db.rental
-                     .Where(e => e.propertyId == rentalId)
+                var res = db.properties
+                     .Where(e => e.propertyId == propertyId)
                      .Delete();
                 return true;
             }
         }
 
-        public PropertyVo update(PropertyVo input, Guid? rentalId = null)
+        public PropertyVo update(PropertyVo input, Guid? propertyId = null)
         {
             using (var db = new MainDb())
             {
 
-                if (rentalId == null)
-                    rentalId = input.propertyId;
+                if (propertyId == null)
+                    propertyId = input.propertyId;
 
-                var res = db.rental.FirstOrDefault(e => e.propertyId == rentalId);
+                var res = db.properties.FirstOrDefault(e => e.propertyId == propertyId);
 
                 if (res == null) return null;
 
@@ -134,7 +133,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
 
-                db.rental.Add(input);
+                db.properties.Add(input);
                 db.SaveChanges();
 
                 return input;
@@ -145,31 +144,8 @@ namespace SO.SilList.Manager.Managers
         {
             using (var db = new MainDb())
             {
-                return db.rental.Count();
+                return db.properties.Count();
             }
-        }
-
-        /*
-        public List<RentalVo> search(RentalVm input)
-        {
-            using (var db = new MainDb())
-            {
-                var list = db.rental
-                    .Include(r => r.propertyType)
-                    .Include(t => t.leaseTermType)
-                    .Include(c => c.rentType)
-                    .Include(s => s.site)
-                    .Where(e => (input.isActive == null || e.isActive == input.isActive)
-                        && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword)))
-                    .OrderBy(o => o.title)
-                    .Skip(input.skip)
-                    .Take(input.rowCount)
-                    .ToList();
-
-                return list;
-            }
-        }
-         */
-         
+        }         
     }
 }

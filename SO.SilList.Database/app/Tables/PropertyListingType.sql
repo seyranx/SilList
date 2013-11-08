@@ -1,4 +1,4 @@
-﻿CREATE TABLE [app].[LeaseTermType] (
+﻿CREATE TABLE [app].[PropertyListingType] (
     [propertyListingTypeId] INT            IDENTITY (1, 1) NOT NULL,
     [name]                  NVARCHAR (50)  NULL,
     [description]           NVARCHAR (MAX) NULL,
@@ -9,8 +9,4 @@
     [isActive]              BIT            CONSTRAINT [DF_LeaseTermType_isActive] DEFAULT ((1)) NOT NULL,
     CONSTRAINT [PK__LeaseTer__AB7EA317CEFCE3EB] PRIMARY KEY CLUSTERED ([propertyListingTypeId] ASC)
 );
-
-
-
-
 

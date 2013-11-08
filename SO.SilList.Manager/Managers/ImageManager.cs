@@ -190,7 +190,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var list = (from i in db.images
-                            join m in db.rentalImages on i.imageId equals m.imageId
+                            join m in db.propertyImages on i.imageId equals m.imageId
                             select i
                             ).ToList();
 
@@ -204,7 +204,7 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var list = (from i in db.images
-                            join c in db.rentalImages on i.imageId equals c.imageId
+                            join c in db.propertyImages on i.imageId equals c.imageId
                             where c.propertyId == rentalId
                             select i
                             ).ToList();
@@ -457,7 +457,7 @@ namespace SO.SilList.Manager.Managers
                 PropertyImageVo rentalImageVo = new PropertyImageVo();
                 rentalImageVo.propertyId = imgInfo.id;
                 rentalImageVo.imageId = imgVo.imageId;
-                db.rentalImages.Add(rentalImageVo);
+                db.propertyImages.Add(rentalImageVo);
 
                 db.SaveChanges();
             }

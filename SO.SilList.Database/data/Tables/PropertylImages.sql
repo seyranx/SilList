@@ -1,4 +1,4 @@
-﻿CREATE TABLE [data].[RentalImages] (
+﻿CREATE TABLE [data].[PropertylImages] (
     [rentalImageId] UNIQUEIDENTIFIER NOT NULL,
     [imageId]       UNIQUEIDENTIFIER NULL,
     [propertyId]    UNIQUEIDENTIFIER NULL,
@@ -9,23 +9,6 @@
     [isActive]      BIT              CONSTRAINT [DF_RentalImages_isActive] DEFAULT ((1)) NOT NULL,
     CONSTRAINT [PK__RentalIm__336E9B55254858FA] PRIMARY KEY CLUSTERED ([rentalImageId] ASC),
     CONSTRAINT [FK_RentalImages_Image] FOREIGN KEY ([imageId]) REFERENCES [data].[Image] ([imageId]) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT [FK_RentalImages_Rental] FOREIGN KEY ([propertyId]) REFERENCES [data].[Rental] ([propertyId]) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT [FK_RentalImages_Rental] FOREIGN KEY ([propertyId]) REFERENCES [data].[Property] ([propertyId]) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

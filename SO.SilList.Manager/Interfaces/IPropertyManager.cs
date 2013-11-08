@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SO.SilList.Manager.Interfaces
 {
-    interface IRentalManager
+    interface IPropertyManager
     {
         PropertyVo get(Guid rentalId);
         List<PropertyVo> getAll(bool? isActive = true);

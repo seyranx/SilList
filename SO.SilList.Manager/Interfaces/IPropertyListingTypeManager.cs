@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SO.SilList.Manager.Interfaces
 {
-    interface ILeasingTermTypeManager
+    interface IPropertyListingTypeManager
     {
 
         PropertyListingTypeVo get(int leaseTermTypeId);

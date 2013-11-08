@@ -13,7 +13,7 @@ namespace SO.SilList.Tests.Managers
      [TestClass]
     public class RentalManagerTest
     {
-        private RentalManager rentalManager = new RentalManager();
+        private PropertyManager rentalManager = new PropertyManager();
 
         [TestMethod]
         public void getAllTest()
@@ -71,7 +71,7 @@ namespace SO.SilList.Tests.Managers
         [TestMethod]
         public void searchTest()
         {
-            var vo = new RentalVm();
+            var vo = new PropertyVm();
             vo.paging.pageNumber = 2;
             vo.keyword = "Some title";
             vo.isActive = true;

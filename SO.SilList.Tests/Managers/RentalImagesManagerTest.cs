@@ -9,7 +9,7 @@ namespace SO.SilList.Tests.Managers
     public class RentalImagesManagerTest
     {
 
-        private RentalImagesManager rentalImagesManager = new RentalImagesManager();
+        private PropertyImagesManager rentalImagesManager = new PropertyImagesManager();
 
         [TestMethod]
         public void getAllTest()

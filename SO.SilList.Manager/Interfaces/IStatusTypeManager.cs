@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SO.SilList.Manager.Interfaces
 {
-    interface IRentTypeManager
+    interface IStatusTypeManager
     {
         StatusTypeVo get(int rentTypeId);
         List<StatusTypeVo> getAll(bool? isActive = true);
