@@ -12,7 +12,7 @@ namespace SO.SilList.Manager.Models.ViewModels
 {
     public class LeaseTermTypeVm
     {
-        public List<LeaseTermTypeVo> result { get; set; }
+        public List<PropertyListingTypeVo> result { get; set; }
         public string keyword { get; set; }
 
          [DisplayName("isActive: ")]
@@ -22,7 +22,7 @@ namespace SO.SilList.Manager.Models.ViewModels
 
          public LeaseTermTypeVm()
         {
-            this.result = new List<LeaseTermTypeVo>();
+            this.result = new List<PropertyListingTypeVo>();
             if (paging == null)
                 paging = new Paging();
         }

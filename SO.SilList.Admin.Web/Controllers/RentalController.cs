@@ -70,7 +70,7 @@ namespace SO.SilList.Admin.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(RentalVo input)
+        public ActionResult Create(PropertyVo input)
         {
             if(this.ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
                 // Images
                 ImageManager imageManager = new ImageManager();
-                imageManager.InsertUploadImages(rentalItem.rentalId, Request.Files, Server, SO.SilList.Manager.Managers.ImageCategory.rentalImage);
+                imageManager.InsertUploadImages(rentalItem.propertyId, Request.Files, Server, SO.SilList.Manager.Managers.ImageCategory.rentalImage);
 
                 return RedirectToAction("Index");
             }
@@ -87,7 +87,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Create()
         {
-            var vo = new RentalVo();
+            var vo = new PropertyVo();
             return View(vo);
         }
 

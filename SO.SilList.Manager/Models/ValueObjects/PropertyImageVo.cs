@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,20 +12,20 @@ using System.Data.Entity;
 namespace SO.SilList.Manager.Models.ValueObjects
 {
      
-    [Table("RentalImages", Schema = "data" )]
+    [Table("PropertyImages", Schema = "data" )]
     [Serializable]
-    public partial class RentalImageVo
+    public partial class PropertyImageVo
     {
     		
-    	[DisplayName("renatal Image Id")]
+    	[DisplayName("property Image Id")]
     	[Key]
-        public System.Guid rentalImageId { get; set; }
+        public System.Guid propertyImageId { get; set; }
 
-        [DisplayName("image Id")]       // this was missing
-        public Nullable<System.Guid> imageId { get; set; }
+        [DisplayName("image Id")]      
+        public System.Guid? imageId { get; set; }
     		
-    	[DisplayName("rental Id")]
-        public Nullable<System.Guid> rentalId { get; set; }// It is the same public System.Guid? rentalId { get; set; }
+    	[DisplayName("property Id")]
+        public System.Guid? propertyId { get; set; }
     		
     	[DisplayName("created")]
     	[Required]
@@ -48,14 +47,13 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [ForeignKey("imageId")]
         public virtual ImageVo image { get; set; }
 
-        [ForeignKey("rentalId")]
-        public virtual RentalVo rental { get; set; }
+        [ForeignKey("propertyId")]
+        public virtual PropertyVo property { get; set; }
       
-    	public RentalImageVo(){
-    			
-    		this.rentalImageId = Guid.NewGuid();
-    	
-    	 this.isActive = true;
+    	public PropertyImageVo()
+        {
+    		this.propertyImageId = Guid.NewGuid();
+    	    this.isActive = true;
     	}
     }
 }

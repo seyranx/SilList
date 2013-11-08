@@ -38,7 +38,7 @@ namespace SO.SilList.Admin.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(int id, LeaseTermTypeVo input)
+        public ActionResult Edit(int id, PropertyListingTypeVo input)
         {
 
             if (this.ModelState.IsValid)
@@ -57,7 +57,7 @@ namespace SO.SilList.Admin.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(LeaseTermTypeVo input)
+        public ActionResult Create(PropertyListingTypeVo input)
         {
 
             if (this.ModelState.IsValid)
@@ -96,7 +96,7 @@ namespace SO.SilList.Admin.Web.Controllers
         public ActionResult DropDownList(int? id = null, string propertyName = null, string defaultValue = null)
         {
             ViewBag.leaseTermTypes = leaseTermTypeManager.getAll(null);
-            var leaseType = new LeaseTermTypeVo();
+            var leaseType = new PropertyListingTypeVo();
             if (id != null)
             {
                 leaseType = leaseTermTypeManager.get(id.Value);

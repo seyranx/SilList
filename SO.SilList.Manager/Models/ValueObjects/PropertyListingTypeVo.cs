@@ -13,14 +13,14 @@ using System.Data.Entity;
 namespace SO.SilList.Manager.Models.ValueObjects
 {
      
-    [Table("LeaseTermType", Schema = "app" )]
+    [Table("PropertyListingType", Schema = "app" )]
     [Serializable]
-    public partial class LeaseTermTypeVo
+    public partial class PropertyListingTypeVo
     {
     		
-    	[DisplayName("lease Term Type Id")]
+    	[DisplayName("Property Listing Type")]
     	[Key]
-        public int leaseTermTypeId { get; set; }
+        public int propertyListingTypeId { get; set; }
     		
     	[DisplayName("Name")]
     	[StringLength(50)]
@@ -29,28 +29,29 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Description")]
         public string description { get; set; }
     		
-    	[DisplayName("modified By")]
+    	[DisplayName("Modified By")]
         public Nullable<int> modifiedBy { get; set; }
     		
-    	[DisplayName("modified")]
+    	[DisplayName("Modified")]
     	[Required]
         public System.DateTime modified { get; set; }
     		
-    	[DisplayName("created By")]
+    	[DisplayName("Created By")]
         public Nullable<int> createdBy { get; set; }
     		
-    	[DisplayName("created")]
+    	[DisplayName("Created")]
     	[Required]
         public System.DateTime created { get; set; }
     		
-    	[DisplayName("Is Active")]
+    	[DisplayName("Active")]
     	[Required]
         public bool isActive { get; set; }
 
-        [Association("LeaseTermType_Rental", "leaseTermTypeId", "leaseTermTypeId", IsForeignKey = true)]
-        public List<RentalVo> rental { get; set; }
+        [Association("LeaseTermType_Property", "propertyListingTypeId", "propertyListingTypeId", IsForeignKey = true)]
+        public List<PropertyVo> property { get; set; }
       
-    	public LeaseTermTypeVo(){
+    	public PropertyListingTypeVo()
+        {
     			this.isActive = true;
     	}
     }

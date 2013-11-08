@@ -38,7 +38,7 @@ namespace SO.SilList.Admin.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(int id, RentTypeVo input)
+        public ActionResult Edit(int id, StatusTypeVo input)
         {
             if (this.ModelState.IsValid)
             {
@@ -55,7 +55,7 @@ namespace SO.SilList.Admin.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(RentTypeVo input)
+        public ActionResult Create(StatusTypeVo input)
         {
             if (this.ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace SO.SilList.Admin.Web.Controllers
         public ActionResult DropDownList(int? id = null, string propertyName = null, string defaultValue = null)
         {
             ViewBag.rentTypes = rentalTypeManager.getAll(null);
-            var rentType = new RentTypeVo();
+            var rentType = new StatusTypeVo();
             if (id != null)
             {
                 rentType = rentalTypeManager.get(id.Value);

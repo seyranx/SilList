@@ -13,15 +13,13 @@ using System.Data.Entity;
 namespace SO.SilList.Manager.Models.ValueObjects
 {
      
-    [Table("Rental", Schema = "data" )]
+    [Table("Property", Schema = "data" )]
     [Serializable]
-    public partial class RentalVo
+    public partial class PropertyVo
     {
-    		
-    	[DisplayName("Rental")]
+        [DisplayName("Property")]
     	[Key]
-        public System.Guid rentalId { get; set; }
-
+        public System.Guid propertyId { get; set; }
         
         [DisplayName("Title")]
         [StringLength(50)]
@@ -32,22 +30,31 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public string description { get; set; }
 
     	[DisplayName("Property Type")]
-        public Nullable<int> propertyTypeId { get; set; }
-    		
-    	[DisplayName("Site Id")]
-        public Nullable<int> siteId { get; set; }
+        public int? propertyTypeId { get; set; }
 
-        [DisplayName("Member Id")]
-        public Nullable<int> memberId { get; set; }
+        [DisplayName("Property Listing Type")]
+        public int? propertyListingTypeId { get; set; }
+
+        [DisplayName("Status Type")]
+        public int? statusTypeId { get; set; }
+    		
+    	[DisplayName("Site")]
+        public int? siteId { get; set; }
     		
     	[DisplayName("Bedrooms")]
-        public Nullable<int> bedrooms { get; set; }
+        public int? bedrooms { get; set; }
     		
     	[DisplayName("Bathrooms")]
-        public Nullable<int> bathrooms { get; set; }
+        public int? bathrooms { get; set; }
     		
     	[DisplayName("Price")]
-        public Nullable<decimal> price { get; set; }
+        public decimal? price { get; set; }
+
+        [DisplayName("Lot Size")]
+        public int? lotSize { get; set; }
+
+        [DisplayName("Section8")]
+        public bool? acceptsSection8 { get; set; }
 
         [DisplayName("Address")]
         [StringLength(50)]
@@ -58,35 +65,20 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public string phone { get; set; }
 
         [DisplayName("City")]
-        public Nullable<int> cityTypeId { get; set; }
+        public int? cityTypeId { get; set; }
 
         [DisplayName("State")]
-        public Nullable<int> stateTypeId { get; set; }
+        public int? stateTypeId { get; set; }
 
         [DisplayName("Country")]
-        public Nullable<int> countryTypeId { get; set; }
+        public int? countryTypeId { get; set; }
 
         [DisplayName("Zip")]
-        public Nullable<int> zip { get; set; }
+        public int? zip { get; set; }
 
         [DisplayName("Fax")]
         [StringLength(50)]
         public string fax { get; set; }
-
-    	[DisplayName("Lease Term")]
-        public Nullable<int> leaseTermTypeId { get; set; }
-    		
-    	[DisplayName("Size")]
-        public Nullable<int> size { get; set; }
-    		
-    	[DisplayName("Lot Size")]
-        public Nullable<int> lotSize { get; set; }
-    		
-    	[DisplayName("Accepts Section8")]
-        public Nullable<bool> acceptsSection8 { get; set; }
-    		
-    	[DisplayName("Rent Type")]
-        public Nullable<int> rentTypeId { get; set; }
 
         [DisplayName("Start Date")]
         [Required]
@@ -96,32 +88,32 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [Required]
         public System.DateTime endDate { get; set; }
 
-        [DisplayName("is Approved")]
+        [DisplayName("Approved")]
         public bool isApproved { get; set; }
     		
-    	[DisplayName("modified By")]
-        public Nullable<int> modifiedBy { get; set; }
+    	[DisplayName("Modified By")]
+        public int? modifiedBy { get; set; }
     		
-    	[DisplayName("modified")]
+    	[DisplayName("Modified")]
     	[Required]
         public System.DateTime modified { get; set; }
     		
-    	[DisplayName("created By")]
-        public Nullable<int> createdBy { get; set; }
+    	[DisplayName("Created By")]
+        public int? createdBy { get; set; }
     		
-    	[DisplayName("created")]
+    	[DisplayName("Created")]
     	[Required]
         public System.DateTime created { get; set; }
     		
-    	[DisplayName("Is Active")]
+    	[DisplayName("Active")]
     	[Required]
         public bool isActive { get; set; }
 
-        [ForeignKey("leaseTermTypeId")]
-        public virtual LeaseTermTypeVo leaseTermType { get; set; }
+        [ForeignKey("propertyListingTypeId")]
+        public virtual PropertyListingTypeVo propertyListingType { get; set; }
 
-        [ForeignKey("rentTypeId")]
-        public virtual RentTypeVo rentType { get; set; }
+        [ForeignKey("statusTypeId")]
+        public virtual StatusTypeVo rentType { get; set; }
 
         [ForeignKey("propertyTypeId")]
         public virtual PropertyTypeVo propertyType { get; set; }
@@ -141,12 +133,12 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [ForeignKey("cityTypeId")]
         public virtual CityTypeVo cityType { get; set; }
 
-        [Association("Rental_RentalImages", "rentalId", "rentalId", IsForeignKey = true)]
-        public List<RentalImageVo> rentalImage { get; set; }
+        [Association("Rental_RentalImages", "propertyId", "propertyId", IsForeignKey = true)]
+        public List<PropertyImageVo> propertyImage { get; set; }
 
-    	public RentalVo(){
-    			
-    		this.rentalId = Guid.NewGuid();
+    	public PropertyVo()
+        {
+    		this.propertyId = Guid.NewGuid();
     	    this.isActive = true;
             this.isApproved = false;
     	}

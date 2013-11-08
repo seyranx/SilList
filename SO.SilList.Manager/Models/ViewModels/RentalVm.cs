@@ -11,7 +11,7 @@ namespace SO.SilList.Manager.Models.ViewModels
 {
     public class RentalVm
     {
-        public List<RentalVo> result { get; set; }
+        public List<PropertyVo> result { get; set; }
         public string keyword { get; set; }
         public string location { get; set; }
 
@@ -20,21 +20,21 @@ namespace SO.SilList.Manager.Models.ViewModels
         public string submitButton { get; set; }
         public Paging paging;
 
-        public RentalVo rental { get; set; }
+        public PropertyVo rental { get; set; }
         public List<ImageCheckBoxInfo> imagesToRemove { get; set; }
 
         public RentalVm()
         {
-            rental = new RentalVo();
-            this.result = new List<RentalVo>();
+            rental = new PropertyVo();
+            this.result = new List<PropertyVo>();
             if (paging == null)
                 paging = new Paging();
         }
 
-        public RentalVm(RentalVo input)
+        public RentalVm(PropertyVo input)
         {
             rental = input;
-            this.result = new List<RentalVo>();
+            this.result = new List<PropertyVo>();
             if (paging == null)
                 paging = new Paging();
         }

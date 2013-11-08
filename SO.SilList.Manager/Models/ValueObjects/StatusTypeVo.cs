@@ -15,7 +15,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
     [Table("RentType", Schema = "app")]
     [Serializable]
-    public partial class RentTypeVo
+    public partial class StatusTypeVo
     {
 
         [DisplayName("rent Type Id")]
@@ -47,12 +47,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public bool isActive { get; set; }
 
         [Association("RentType_Rental", "rentTypeId", "rentTypeId", IsForeignKey = true)]
-        public List<RentalVo> rental { get; set; }
+        public List<PropertyVo> rental { get; set; }
 
-        public RentTypeVo()
+        public StatusTypeVo()
         {
-
-
             this.isActive = true;
         }
     }

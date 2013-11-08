@@ -12,7 +12,7 @@ namespace SO.SilList.Manager.Models.ViewModels
 {
     public class RentTypeVm
     {
-        public List<RentTypeVo> result { get; set; }
+        public List<StatusTypeVo> result { get; set; }
         public string keyword { get; set; }
 
          [DisplayName("isActive: ")]
@@ -22,7 +22,7 @@ namespace SO.SilList.Manager.Models.ViewModels
 
          public RentTypeVm()
         {
-            this.result = new List<RentTypeVo>();
+            this.result = new List<StatusTypeVo>();
             if (paging == null)
                 paging = new Paging();
         }

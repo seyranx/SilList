@@ -14,12 +14,12 @@ namespace SO.SilList.Manager.Managers
     public class LeaseTermTypeManager : ILeasingTermTypeManager
     {
 
-        public LeaseTermTypeVo get(int leaseTermTypeId)
+        public PropertyListingTypeVo get(int leaseTermTypeId)
         {
             using (var db = new MainDb())
             {
                 var result = db.leaseTermType
-                            .FirstOrDefault(L => L.leaseTermTypeId == leaseTermTypeId);
+                            .FirstOrDefault(L => L.propertyListingTypeId == leaseTermTypeId);
 
                 return result;
             }
@@ -28,7 +28,7 @@ namespace SO.SilList.Manager.Managers
         /// <summary>
         /// Get First Item
         /// </summary>
-        public LeaseTermTypeVo getFirst()
+        public PropertyListingTypeVo getFirst()
         {
             using (var db = new MainDb())
             {
@@ -62,7 +62,7 @@ namespace SO.SilList.Manager.Managers
         }
 
 
-        public List<LeaseTermTypeVo> getAll(bool? isActive = true)
+        public List<PropertyListingTypeVo> getAll(bool? isActive = true)
         {
             using (var db = new MainDb())
             {
@@ -79,21 +79,21 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.leaseTermType
-                     .Where(e => e.leaseTermTypeId == leaseTermTypeId)
+                     .Where(e => e.propertyListingTypeId == leaseTermTypeId)
                      .Delete();
                 return true;
             }
         }
 
-        public LeaseTermTypeVo update(LeaseTermTypeVo input, int? leaseTermTypeId = null)
+        public PropertyListingTypeVo update(PropertyListingTypeVo input, int? leaseTermTypeId = null)
         {
             using (var db = new MainDb())
             {
 
                 if (leaseTermTypeId == null)
-                    leaseTermTypeId = input.leaseTermTypeId;
+                    leaseTermTypeId = input.propertyListingTypeId;
 
-                var res = db.leaseTermType.FirstOrDefault(e => e.leaseTermTypeId == leaseTermTypeId);
+                var res = db.leaseTermType.FirstOrDefault(e => e.propertyListingTypeId == leaseTermTypeId);
 
                 if (res == null) return null;
 
@@ -108,7 +108,7 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public LeaseTermTypeVo insert(LeaseTermTypeVo input)
+        public PropertyListingTypeVo insert(PropertyListingTypeVo input)
         {
             using (var db = new MainDb())
             {

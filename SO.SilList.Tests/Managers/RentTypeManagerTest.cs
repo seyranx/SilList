@@ -28,7 +28,7 @@ namespace SO.SilList.Tests.Managers
         {
             for (int i = 1; i <= 10; i++)
             {
-                var vo = new RentTypeVo();
+                var vo = new StatusTypeVo();
                 vo.name = i.ToString() + " Test RentType Name ";
                 vo.rentTypeId = i;
                 var result = rentTypeManager.insert(vo);
@@ -45,7 +45,7 @@ namespace SO.SilList.Tests.Managers
         [TestMethod]
         public void insertDeleteTest()
         {
-            var vo = new RentTypeVo();
+            var vo = new StatusTypeVo();
             vo.name = "testName";
             vo.description = "Test Description";
 

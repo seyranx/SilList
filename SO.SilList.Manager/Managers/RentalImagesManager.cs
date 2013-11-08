@@ -12,19 +12,19 @@ namespace SO.SilList.Manager.Managers
 {
     public class RentalImagesManager : IRentalImagesManager
     {
-        public RentalImageVo get(Guid rentalImageId)
+        public PropertyImageVo get(Guid rentalImageId)
         {
             using (var db = new MainDb())
             {
                 var res = db.rentalImages
                             //.Include(s => s.image)
-                            .FirstOrDefault(p => p.rentalImageId == rentalImageId);
+                            .FirstOrDefault(p => p.propertyImageId == rentalImageId);
 
                 return res;
             }
         }
 
-        public List<RentalImageVo> getAll(bool? isActive = true)
+        public List<PropertyImageVo> getAll(bool? isActive = true)
         {
             using (var db = new MainDb())
             {
@@ -42,21 +42,21 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.rentalImages
-                     .Where(e => e.rentalImageId == rentalImageId)
+                     .Where(e => e.propertyImageId == rentalImageId)
                      .Delete();
                 return true;
             }
         }
 
-        public RentalImageVo update(RentalImageVo input, Guid? rentalImageId = null)
+        public PropertyImageVo update(PropertyImageVo input, Guid? rentalImageId = null)
         {
             using (var db = new MainDb())
             {
 
                 if (rentalImageId == null)
-                    rentalImageId = input.rentalImageId;
+                    rentalImageId = input.propertyImageId;
 
-                var res = db.rentalImages.FirstOrDefault(e => e.rentalImageId == rentalImageId);
+                var res = db.rentalImages.FirstOrDefault(e => e.propertyImageId == rentalImageId);
 
                 if (res == null) return null;
 
@@ -71,7 +71,7 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public RentalImageVo insert(RentalImageVo input)
+        public PropertyImageVo insert(PropertyImageVo input)
         {
             using (var db = new MainDb())
             {

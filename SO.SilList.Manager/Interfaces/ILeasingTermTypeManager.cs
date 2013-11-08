@@ -11,10 +11,10 @@ namespace SO.SilList.Manager.Interfaces
     interface ILeasingTermTypeManager
     {
 
-        LeaseTermTypeVo get(int leaseTermTypeId);
-        List<LeaseTermTypeVo> getAll(bool? isActive = true);
+        PropertyListingTypeVo get(int leaseTermTypeId);
+        List<PropertyListingTypeVo> getAll(bool? isActive = true);
         bool delete(int leaseTermTypeId);
-        LeaseTermTypeVo update(LeaseTermTypeVo input, int? leaseTermTypeId = null);
-         LeaseTermTypeVo insert(LeaseTermTypeVo input);
+        PropertyListingTypeVo update(PropertyListingTypeVo input, int? leaseTermTypeId = null);
+         PropertyListingTypeVo insert(PropertyListingTypeVo input);
     }
 }

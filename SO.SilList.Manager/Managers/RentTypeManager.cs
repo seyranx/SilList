@@ -14,7 +14,7 @@ namespace SO.SilList.Manager.Managers
 {
     public class RentTypeManager : IRentTypeManager
     {
-        public RentTypeVo get(int rentTypeId)
+        public StatusTypeVo get(int rentTypeId)
         {
             using (var db = new MainDb())
             {
@@ -47,7 +47,7 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public List<RentTypeVo> getAll(bool? isActive = true)
+        public List<StatusTypeVo> getAll(bool? isActive = true)
         {
             using (var db = new MainDb())
             {
@@ -71,7 +71,7 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public RentTypeVo update(RentTypeVo input, int? rentTypeId = null)
+        public StatusTypeVo update(StatusTypeVo input, int? rentTypeId = null)
         {
             using (var db = new MainDb())
             {
@@ -94,7 +94,7 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public RentTypeVo insert(RentTypeVo input)
+        public StatusTypeVo insert(StatusTypeVo input)
         {
             using (var db = new MainDb())
             {

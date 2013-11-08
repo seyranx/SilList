@@ -9,10 +9,10 @@ namespace SO.SilList.Manager.Interfaces
 {
     interface IRentTypeManager
     {
-        RentTypeVo get(int rentTypeId);
-        List<RentTypeVo> getAll(bool? isActive = true);
+        StatusTypeVo get(int rentTypeId);
+        List<StatusTypeVo> getAll(bool? isActive = true);
         bool delete(int rentTypeId);
-        RentTypeVo update(RentTypeVo input, int? rentTypeId = null);
-        RentTypeVo insert(RentTypeVo input);
+        StatusTypeVo update(StatusTypeVo input, int? rentTypeId = null);
+        StatusTypeVo insert(StatusTypeVo input);
     }
 }

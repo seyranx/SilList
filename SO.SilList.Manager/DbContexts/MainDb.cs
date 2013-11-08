@@ -35,13 +35,13 @@ namespace SO.SilList.Manager.DbContexts
         public DbSet<JobCompanyVo> jobCompanys { get; set; }
         public DbSet<JobTypeVo> jobTypes { get; set; }
 
-        public DbSet<RentalVo> rental { get; set; }
+        public DbSet<PropertyVo> rental { get; set; }
         public DbSet<BusinessCategoryTypeVo> businessCategoryType { get; set; }
-        public DbSet<LeaseTermTypeVo> leaseTermType { get; set; }
+        public DbSet<PropertyListingTypeVo> leaseTermType { get; set; }
         
         public DbSet<PropertyTypeVo> propertyTypes { get; set; }
-        public DbSet<RentalImageVo> rentalImages { get; set; }
-        public DbSet<RentTypeVo> rentTypes { get; set; }
+        public DbSet<PropertyImageVo> rentalImages { get; set; }
+        public DbSet<StatusTypeVo> rentTypes { get; set; }
 
         public DbSet<SettingTypeVo> settingTypes { get; set; }
         public DbSet<EnvironmentTypeVo> environmentTypes { get; set; }

@@ -205,7 +205,7 @@ namespace SO.SilList.Manager.Managers
             {
                 var list = (from i in db.images
                             join c in db.rentalImages on i.imageId equals c.imageId
-                            where c.rentalId == rentalId
+                            where c.propertyId == rentalId
                             select i
                             ).ToList();
 
@@ -454,8 +454,8 @@ namespace SO.SilList.Manager.Managers
                 //todo: need to use the other way LINQ ??
                 db.images.Add(imgVo);
 
-                RentalImageVo rentalImageVo = new RentalImageVo();
-                rentalImageVo.rentalId = imgInfo.id;
+                PropertyImageVo rentalImageVo = new PropertyImageVo();
+                rentalImageVo.propertyId = imgInfo.id;
                 rentalImageVo.imageId = imgVo.imageId;
                 db.rentalImages.Add(rentalImageVo);
 

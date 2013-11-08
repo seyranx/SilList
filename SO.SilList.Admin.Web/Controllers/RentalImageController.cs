@@ -29,7 +29,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView("../Rental/_Menu");
         }
         [HttpPost]
-        public ActionResult Edit(Guid id, RentalImageVo input)
+        public ActionResult Edit(Guid id, PropertyImageVo input)
         {
             if (this.ModelState.IsValid)
             {
@@ -47,12 +47,12 @@ namespace SO.SilList.Admin.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(RentalImageVo input)
+        public ActionResult Create(PropertyImageVo input)
         {
             if (this.ModelState.IsValid)
             {
                 var item = rentalImagesManager.insert(input);
-                RentalImageVo ri = new RentalImageVo();
+                PropertyImageVo ri = new PropertyImageVo();
                 ri.imageId = item.imageId;
                 rentalImagesManager.insert(ri);
                 return RedirectToAction("Index");
@@ -63,7 +63,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Create()
         {
-            RentalImageVo vo = new RentalImageVo();
+            PropertyImageVo vo = new PropertyImageVo();
             return View(vo);
         }
 

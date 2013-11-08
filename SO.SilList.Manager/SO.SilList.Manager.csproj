@@ -187,7 +187,7 @@
     <Compile Include="Models\ValueObjects\ImageVo.cs" />
     <Compile Include="Models\ValueObjects\JobTypeVo.cs" />
     <Compile Include="Models\ValueObjects\JobVo.cs" />
-    <Compile Include="Models\ValueObjects\LeaseTermTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\PropertyListingTypeVo.cs" />
     <Compile Include="Models\ValueObjects\ListingCategoriesVo.cs" />
     <Compile Include="Models\ValueObjects\ListingCategoryTypeVo.cs" />
     <Compile Include="Models\ValueObjects\ListingImagesVo.cs" />
@@ -197,10 +197,10 @@
     <Compile Include="Models\ValueObjects\MemberVo.cs" />
     <Compile Include="Models\ValueObjects\ModelTypeVo.cs" />
     <Compile Include="Models\ValueObjects\RatingVo.cs" />
-    <Compile Include="Models\ValueObjects\RentalImageVo.cs" />
-    <Compile Include="Models\ValueObjects\RentalVo.cs" />
+    <Compile Include="Models\ValueObjects\PropertyImageVo.cs" />
+    <Compile Include="Models\ValueObjects\PropertyVo.cs" />
     <Compile Include="Models\ValueObjects\PropertyTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\RentTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\StatusTypeVo.cs" />
     <Compile Include="Models\ValueObjects\ServiceTypeVo.cs" />
     <Compile Include="Models\ValueObjects\SettingTypeVo.cs" />
     <Compile Include="Models\ValueObjects\SiteVo.cs" />

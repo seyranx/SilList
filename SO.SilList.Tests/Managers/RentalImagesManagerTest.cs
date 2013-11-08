@@ -30,9 +30,9 @@ namespace SO.SilList.Tests.Managers
         {
             for (int i = 1; i <= 10; i++)
             {
-                var vo = new RentalImageVo();
+                var vo = new PropertyImageVo();
                 vo.createdBy = i;
-                vo.rentalImageId = Guid.NewGuid();
+                vo.propertyImageId = Guid.NewGuid();
                 var result = rentalImagesManager.insert(vo);
                 if (result == null)
                 {
@@ -46,18 +46,18 @@ namespace SO.SilList.Tests.Managers
         [TestMethod]
         public void insertDeleteTest()
         {
-            var vo = new RentalImageVo();
-            vo.rentalImageId = Guid.NewGuid();
+            var vo = new PropertyImageVo();
+            vo.propertyImageId = Guid.NewGuid();
             vo.createdBy = 123;
 
             var result = rentalImagesManager.insert(vo);
-            var result2 = rentalImagesManager.get(result.rentalImageId);
+            var result2 = rentalImagesManager.get(result.propertyImageId);
 
-            rentalImagesManager.delete(result.rentalImageId);
+            rentalImagesManager.delete(result.propertyImageId);
 
-            var result3 = rentalImagesManager.get(result.rentalImageId);
+            var result3 = rentalImagesManager.get(result.propertyImageId);
 
-            if (result != null && result2 != null && result3 == null && result2.rentalImageId != Guid.Empty)
+            if (result != null && result2 != null && result3 == null && result2.propertyImageId != Guid.Empty)
             {
                 Assert.IsTrue(true);
             }

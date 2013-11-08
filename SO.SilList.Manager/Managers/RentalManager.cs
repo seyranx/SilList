@@ -14,20 +14,20 @@ namespace SO.SilList.Manager.Managers
 {
     public class RentalManager: IRentalManager
     {
-        public RentalVo get(Guid rentalId)
+        public PropertyVo get(Guid rentalId)
         {
             using (var db = new MainDb())
             {
                 var result = db.rental
                             .Include(r => r.propertyType)
-                            .Include(t => t.leaseTermType)
+                            .Include(t => t.propertyListingType)
                             .Include(c => c.rentType)
                             .Include(s => s.site)
                             .Include(m => m.member)
                             .Include(i => i.cityType)
                             .Include(o => o.countryType)
                             .Include(u => u.stateType) 
-                            .FirstOrDefault(r => r.rentalId == rentalId);
+                            .FirstOrDefault(r => r.propertyId == rentalId);
 
                 return result;
             }
@@ -36,7 +36,7 @@ namespace SO.SilList.Manager.Managers
         /// <summary>
         /// Get First Item
         /// </summary>
-        public RentalVo getFirst()
+        public PropertyVo getFirst()
         {
             using (var db = new MainDb())
             {
@@ -54,7 +54,7 @@ namespace SO.SilList.Manager.Managers
             {
                 var query = db.rental
                             .Include(r => r.propertyType)
-                            .Include(t => t.leaseTermType)
+                            .Include(t => t.propertyListingType)
                             .Include(c => c.rentType)
                             .Include(s => s.site)
                             .Include(i => i.cityType)
@@ -75,13 +75,13 @@ namespace SO.SilList.Manager.Managers
             }
         }
          
-        public List<RentalVo> getAll(bool? isActive = true)
+        public List<PropertyVo> getAll(bool? isActive = true)
         {
             using (var db = new MainDb())
             {
                 var list = db.rental
                             .Include(r => r.propertyType)
-                            .Include(t => t.leaseTermType)
+                            .Include(t => t.propertyListingType)
                             .Include(c => c.rentType)
                             .Include(s => s.site)
                             .Include(i => i.cityType)
@@ -100,21 +100,21 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var res = db.rental
-                     .Where(e => e.rentalId == rentalId)
+                     .Where(e => e.propertyId == rentalId)
                      .Delete();
                 return true;
             }
         }
 
-        public RentalVo update(RentalVo input, Guid? rentalId = null)
+        public PropertyVo update(PropertyVo input, Guid? rentalId = null)
         {
             using (var db = new MainDb())
             {
 
                 if (rentalId == null)
-                    rentalId = input.rentalId;
+                    rentalId = input.propertyId;
 
-                var res = db.rental.FirstOrDefault(e => e.rentalId == rentalId);
+                var res = db.rental.FirstOrDefault(e => e.propertyId == rentalId);
 
                 if (res == null) return null;
 
@@ -129,7 +129,7 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public RentalVo insert(RentalVo input)
+        public PropertyVo insert(PropertyVo input)
         {
             using (var db = new MainDb())
             {

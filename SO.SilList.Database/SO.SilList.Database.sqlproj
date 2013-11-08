@@ -142,7 +142,7 @@
       <AnsiNulls>Off</AnsiNulls>
     </Build>
     <Build Include="data\Tables\Rating.sql" />
-    <Build Include="data\Tables\Rental.sql">
+    <Build Include="data\Tables\Property.sql">
       <AnsiNulls>On</AnsiNulls>
     </Build>
     <Build Include="data\Tables\BusinessImages.sql">
@@ -158,7 +158,7 @@
     <Build Include="app\Tables\PropertyType.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
-    <Build Include="app\Tables\LeaseTermType.sql">
+    <Build Include="app\Tables\PropertyListingType.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
     <Build Include="app\Tables\RentType.sql">
