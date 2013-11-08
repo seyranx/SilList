@@ -19,7 +19,7 @@
             @Html.DisplayNameFor(model => model.cityTypeId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.jobCompanyId)
+            @Html.DisplayNameFor(model => model.companyName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.created)
@@ -39,13 +39,13 @@
             @Html.DisplayFor(modelItem => item.description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.jobTypeId)
+            @Html.DisplayFor(modelItem => item.jobType.name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.cityTypeId)
+            @Html.DisplayFor(modelItem => item.cityType.name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.jobCompanyId)
+            @Html.DisplayFor(modelItem => item.companyName)
         </td>
         <td>
             <span>@String.Format("{0:MM/dd/yyy}", item.created)</span>

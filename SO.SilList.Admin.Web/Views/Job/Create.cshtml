@@ -25,33 +25,51 @@
 
         <div class="control-group">
             <div class="control-label">
-            @Html.LabelFor(model => model.title)
+                @Html.LabelFor(model => model.title)
             </div>
             <div class="controls">
-            @Html.EditorFor(model => model.title)
-            @Html.ValidationMessageFor(model => model.title)
-        </div>        
-        </div>
-        <div class="control-group">
-            <div class="control-label">
-            @Html.LabelFor(model => model.description)
+                @Html.EditorFor(model => model.title)
+                @Html.ValidationMessageFor(model => model.title)
             </div>
-            <div class="controls">
-            @Html.EditorFor(model => model.description)
-            @Html.ValidationMessageFor(model => model.description)
-        </div>
         </div>
 
         <div class="control-group">
             <div class="control-label">
-            @Html.LabelFor(model => model.jobTypeId)
+                @Html.LabelFor(model => model.description)
             </div>
             <div class="controls">
-            @Html.Action("DropDownList", "JobType", new { id = Model.jobTypeId })
+                @Html.TextAreaFor(model => model.description, new { rows=10})
+                @Html.ValidationMessageFor(model => model.description)
             </div>
         </div>
 
-       <div class="control-group">
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.jobTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "JobType", new { id = Model.jobTypeId })
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.companyName)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.companyName)
+                @Html.ValidationMessageFor(model => model.companyName)
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.contactName)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.contactName)
+                @Html.ValidationMessageFor(model => model.contactName)
+            </div>
+        </div>
+        <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.address)
             </div>
@@ -67,7 +85,7 @@
                 @Html.Action("DropDownList", "CityType", new { id = Model.cityTypeId })
             </div>
         </div>
-         <div class="control-group">
+        <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.stateTypeId)
             </div>
@@ -75,7 +93,7 @@
                 @Html.Action("DropDownList", "StateType", new { id = Model.stateTypeId })
             </div>
         </div>
-                <div class="control-group">
+        <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.countryTypeId)
             </div>
@@ -83,7 +101,7 @@
                 @Html.Action("DropDownList", "CountryType", new { id = Model.countryTypeId })
             </div>
         </div>
-                <div class="control-group">
+        <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.zip)
             </div>
@@ -92,7 +110,25 @@
                 @Html.ValidationMessageFor(model => model.zip)
             </div>
         </div>
-                        <div class="control-group">
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.email)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.email)
+                @Html.ValidationMessageFor(model => model.email)
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.website)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.website)
+                @Html.ValidationMessageFor(model => model.website)
+            </div>
+        </div>
+        <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.phone)
             </div>
@@ -100,7 +136,7 @@
                 @Html.EditorFor(model => model.phone)
             </div>
         </div>
-                                <div class="control-group">
+        <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.fax)
             </div>
@@ -111,31 +147,21 @@
 
         <div class="control-group">
             <div class="control-label">
-            @Html.LabelFor(model => model.isTravelRequired)
-        </div>
+                @Html.LabelFor(model => model.isTravelRequired)
+            </div>
             <div class="controls">
-            @Html.EditorFor(model => model.isTravelRequired)
-            @Html.ValidationMessageFor(model => model.isTravelRequired)
+                @Html.EditorFor(model => model.isTravelRequired)
+                @Html.ValidationMessageFor(model => model.isTravelRequired)
             </div>
         </div>
 
         <div class="control-group">
             <div class="control-label">
-            @Html.LabelFor(model => model.isTelecomute)
-        </div>
-            <div class="controls">
-            @Html.EditorFor(model => model.isTelecomute)
-            @Html.ValidationMessageFor(model => model.isTelecomute)
+                @Html.LabelFor(model => model.isTelecomute)
             </div>
-        </div>
-
-        <div class="control-group">
-            <div class="control-label">
-            @Html.LabelFor(model => model.jobCompanyId)
-        </div>
             <div class="controls">
-            @Html.EditorFor(model => model.jobCompanyId)
-            @Html.ValidationMessageFor(model => model.jobCompanyId)
+                @Html.EditorFor(model => model.isTelecomute)
+                @Html.ValidationMessageFor(model => model.isTelecomute)
             </div>
         </div>
 

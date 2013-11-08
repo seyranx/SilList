@@ -93,6 +93,7 @@ INSERT INTO [app].[MakeType] ([makeTypeId], [name], [description], [created], [m
 INSERT INTO [app].[MakeType] ([makeTypeId], [name], [description], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (91, N'MSV', NULL, N'2013-10-30 20:35:23', N'2013-10-30 20:35:23', NULL, NULL, 1)
 INSERT INTO [app].[MakeType] ([makeTypeId], [name], [description], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (92, N'Street Sweeper', NULL, N'2013-10-30 20:35:32', N'2013-10-30 20:35:32', NULL, NULL, 1)
 SET IDENTITY_INSERT [app].[MakeType] OFF
+GO
 SET IDENTITY_INSERT [app].[ModelType] ON
 Delete from [app].[ModelType]
 INSERT INTO [app].[ModelType] ([modelTypeId], [makeTypeId], [name], [description], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (2, 77, N'Laganza CDX', NULL, N'2013-08-15 22:02:23', N'2013-08-16 00:02:06', NULL, NULL, 0)
@@ -154,6 +155,7 @@ INSERT INTO [app].[ModelType] ([modelTypeId], [makeTypeId], [name], [description
 INSERT INTO [app].[ModelType] ([modelTypeId], [makeTypeId], [name], [description], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (58, 4, N'325xi', NULL, N'2013-10-30 21:08:42', N'2013-10-30 21:08:42', NULL, NULL, 1)
 INSERT INTO [app].[ModelType] ([modelTypeId], [makeTypeId], [name], [description], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (59, 4, N'335d', NULL, N'2013-10-30 21:09:14', N'2013-10-30 21:09:14', NULL, NULL, 1)
 SET IDENTITY_INSERT [app].[ModelType] OFF
+GO
 SET IDENTITY_INSERT [app].[TransmissionType] ON
 Delete from [app].[TransmissionType]
 INSERT INTO [app].[TransmissionType] ([transmissionTypeId], [name], [description], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (2, N'Manual', NULL, N'2013-08-21 19:49:41', N'2013-09-07 17:06:55', NULL, NULL, 1)
@@ -161,6 +163,7 @@ INSERT INTO [app].[TransmissionType] ([transmissionTypeId], [name], [description
 INSERT INTO [app].[TransmissionType] ([transmissionTypeId], [name], [description], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (4, N'Automanual', NULL, N'2013-10-30 19:53:11', N'2013-10-30 19:53:11', NULL, NULL, 1)
 INSERT INTO [app].[TransmissionType] ([transmissionTypeId], [name], [description], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (5, N'CVT', NULL, N'2013-10-30 19:53:22', N'2013-10-30 19:53:22', NULL, NULL, 1)
 SET IDENTITY_INSERT [app].[TransmissionType] OFF
+GO
 SET IDENTITY_INSERT [app].[CarFuelType] ON
 Delete from [app].[CarFuelType]
 INSERT INTO [app].[CarFuelType] ([carFuelTypeId], [name], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (1, N'Gasoline', N'2013-10-30 20:00:03', N'2013-10-30 20:00:03', NULL, NULL, 1)
@@ -170,6 +173,7 @@ INSERT INTO [app].[CarFuelType] ([carFuelTypeId], [name], [created], [modified],
 INSERT INTO [app].[CarFuelType] ([carFuelTypeId], [name], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (5, N'Electric', N'2013-10-30 20:01:07', N'2013-10-30 20:01:07', NULL, NULL, 1)
 INSERT INTO [app].[CarFuelType] ([carFuelTypeId], [name], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (6, N'Compressed Natural Gas', N'2013-10-30 20:01:31', N'2013-10-30 20:01:31', NULL, NULL, 1)
 SET IDENTITY_INSERT [app].[CarFuelType] OFF
+GO
 SET IDENTITY_INSERT [app].[CarEngineType] ON
 Delete from [app].[CarEngineType]
 INSERT INTO [app].[CarEngineType] ([carEngineTypeId], [name], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (2, N'Hybrid', N'2013-10-16 12:17:11', N'2013-10-16 12:17:11', NULL, NULL, 1)
@@ -182,6 +186,7 @@ INSERT INTO [app].[CarEngineType] ([carEngineTypeId], [name], [created], [modifi
 INSERT INTO [app].[CarEngineType] ([carEngineTypeId], [name], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (9, N'10 Cylinder', N'2013-10-30 20:13:01', N'2013-10-30 20:13:01', NULL, NULL, 1)
 INSERT INTO [app].[CarEngineType] ([carEngineTypeId], [name], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (10, N'12 Cylinder', N'2013-10-30 20:13:06', N'2013-10-30 20:13:06', NULL, NULL, 1)
 SET IDENTITY_INSERT [app].[CarEngineType] OFF
+GO
 SET IDENTITY_INSERT [app].[CarDriveType] ON
 Delete from [app].[CarDriveType] 
 INSERT INTO [app].[CarDriveType] ([carDriveTypeId], [name], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (3, N'AWD       ', N'2013-10-30 19:57:10', N'2013-10-30 19:57:10', NULL, NULL, 1)
@@ -190,6 +195,7 @@ INSERT INTO [app].[CarDriveType] ([carDriveTypeId], [name], [created], [modified
 INSERT INTO [app].[CarDriveType] ([carDriveTypeId], [name], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (6, N'4x2/2 WD  ', N'2013-10-30 19:58:01', N'2013-10-30 19:58:01', NULL, NULL, 1)
 INSERT INTO [app].[CarDriveType] ([carDriveTypeId], [name], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (7, N'4x2/4  WD ', N'2013-10-30 19:58:12', N'2013-10-30 19:58:12', NULL, NULL, 1)
 SET IDENTITY_INSERT [app].[CarDriveType] OFF
+GO
 SET IDENTITY_INSERT [app].[CarDoorType] ON
 Delete from [app].[CarDoorType]
 INSERT INTO [app].[CarDoorType] ([carDoorTypeId], [name], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (1, N'One Door', N'2013-10-30 20:09:39', N'2013-10-30 20:09:39', NULL, NULL, 1)
@@ -198,6 +204,7 @@ INSERT INTO [app].[CarDoorType] ([carDoorTypeId], [name], [created], [modified],
 INSERT INTO [app].[CarDoorType] ([carDoorTypeId], [name], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (4, N'Four Door', N'2013-10-30 20:09:58', N'2013-10-30 20:09:58', NULL, NULL, 1)
 INSERT INTO [app].[CarDoorType] ([carDoorTypeId], [name], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (5, N'Five Door', N'2013-10-30 20:10:04', N'2013-10-30 20:10:04', NULL, NULL, 1)
 SET IDENTITY_INSERT [app].[CarDoorType] OFF
+GO
 SET IDENTITY_INSERT [app].[CarColorType] ON
 Delete from [app].[CarColorType]
 INSERT INTO [app].[CarColorType] ([carColorTypeId], [name], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (2, N'White', N'2013-10-15 16:28:21', N'2013-10-15 16:28:21', NULL, NULL, 1)
@@ -219,6 +226,7 @@ INSERT INTO [app].[CarColorType] ([carColorTypeId], [name], [created], [modified
 INSERT INTO [app].[CarColorType] ([carColorTypeId], [name], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (18, N'Tan', N'2013-10-30 20:08:55', N'2013-10-30 20:08:55', NULL, NULL, 1)
 INSERT INTO [app].[CarColorType] ([carColorTypeId], [name], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (19, N'Turquoise', N'2013-10-30 20:09:11', N'2013-10-30 20:09:11', NULL, NULL, 1)
 SET IDENTITY_INSERT [app].[CarColorType] OFF
+GO
 SET IDENTITY_INSERT [app].[CarBodyType] ON
 Delete from [app].[CarBodyType]
 INSERT INTO [app].[CarBodyType] ([carBodyTypeId], [name], [description], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (1, N'Sedan', N'he;lo', N'2013-08-21 19:49:28', N'2013-08-21 19:49:28', NULL, NULL, 1)

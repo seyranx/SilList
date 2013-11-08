@@ -31,7 +31,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public string title { get; set; }
     		
     	[DisplayName("Description")]
-    	[StringLength(50)]
         public string description { get; set; }
     		
     	[DisplayName("Type")]
@@ -59,15 +58,29 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [DisplayName("Fax")]
         [StringLength(50)]
         public string fax { get; set; }
-    		
+
+        [DisplayName("E-mail")]
+        [StringLength(50)]
+        public string email { get; set; }
+
+        [DisplayName("Website")]
+        [StringLength(50)]
+        public string website { get; set; }
+
+        [DisplayName("Company")]
+        [StringLength(50)]
+        public string companyName { get; set; }
+
+        [DisplayName("Contact Person")]
+        [StringLength(50)]
+        public string contactName { get; set; }
+
     	[DisplayName("Travel Required")]
         public bool isTravelRequired { get; set; }
     		
     	[DisplayName("Telecomute")]
         public bool isTelecomute { get; set; }
     		
-    	[DisplayName("Company")]
-        public Nullable<System.Guid> jobCompanyId { get; set; }
 
         [DisplayName("Start Date")]
         [Required]
@@ -78,7 +91,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public System.DateTime endDate { get; set; }
 
         [DisplayName("Approved")]
-        public bool? isApproved { get; set; }
+        public bool isApproved { get; set; }
     		
         [DisplayName("Entry Status Type")]
         public Nullable<int> entryStatusTypeId { get; set; }
@@ -102,9 +115,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         [ForeignKey("jobTypeId")]
         public virtual JobTypeVo jobType { get; set; }
-
-        [ForeignKey("jobCompanyId")]
-        public virtual JobCompanyVo jobCompany { get; set; }
 
         [ForeignKey("countryTypeId")]
         public virtual CountryTypeVo countryType { get; set; }
