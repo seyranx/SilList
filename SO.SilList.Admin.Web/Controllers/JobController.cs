@@ -43,11 +43,23 @@ namespace SO.SilList.Admin.Web.Controllers
         [HttpPost]
         public ActionResult Create(JobVo input)
         {
+            JobCategoriesManager jobCategoriesManager = new JobCategoriesManager();
+            JobCategoriesVo categoryVo = new JobCategoriesVo();
 
             if (this.ModelState.IsValid)
             {
-
                 var item = jobManager.insert(input);
+                foreach(int categoryId in input.jobCategoryType)
+                {
+                    categoryVo.jobId = input.jobId;
+                    categoryVo.jobCategoryTypeId = categoryId;
+                    categoryVo.isActive = true;
+
+                    jobCategoriesManager.insert(categoryVo);
+                    categoryVo = new JobCategoriesVo();
+                }
+
+                
                 return RedirectToAction("Index");
             }
 
@@ -62,15 +74,48 @@ namespace SO.SilList.Admin.Web.Controllers
         public ActionResult Edit(Guid id)
         {
             JobVo vo = jobManager.get(id);
-
+            if(vo.jobCategories.Count>0)
+                vo.jobCategoryType = new List<int>();
+            foreach (var item in vo.jobCategories)
+            {
+                vo.jobCategoryType.Add((int)item.jobCategoryTypeId);
+            }
             return View(vo);
         }
         [HttpPost]
         public ActionResult Edit(Guid id, JobVo input)
         {
-
+            JobCategoriesManager jobCategoriesManager = new JobCategoriesManager();
+            bool foundTheMatch = false;
+            JobVo item = jobManager.get(input.jobId);
             if (this.ModelState.IsValid)
             {
+                foreach (JobCategoriesVo categoryVo in item.jobCategories)
+                {
+                    foundTheMatch = false;
+                    foreach (int categoryId in input.jobCategoryType)
+                    {
+                        if (categoryVo.jobCategoryTypeId == categoryId)
+                        {
+                            input.jobCategoryType.Remove(categoryId);
+                            foundTheMatch = true;
+                            break;
+                        }
+                    }
+                    if (!foundTheMatch)
+                        jobCategoriesManager.delete(categoryVo.jobCategoriesId);
+                }
+                JobCategoriesVo categoryVo2 = new JobCategoriesVo();
+                foreach (int categoryId in input.jobCategoryType)
+                {
+                    
+                    categoryVo2.jobId = input.jobId;
+                    categoryVo2.jobCategoryTypeId = categoryId;
+                    categoryVo2.isActive = true;
+
+                    jobCategoriesManager.insert(categoryVo2);
+                    categoryVo2 = new JobCategoriesVo();
+                }
                 var res = jobManager.update(input, id);
                 return RedirectToAction("Index");
             }

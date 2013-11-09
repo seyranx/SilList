@@ -125,12 +125,17 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [ForeignKey("cityTypeId")]
         public virtual CityTypeVo cityType { get; set; }
 
+        [DisplayName("Job Categories")]
         [Association("JobCategories_Job", "jobId", "jobId", IsForeignKey = true)]
         public List<JobCategoriesVo> jobCategories { get; set; }
 
         [ForeignKey("entryStatusTypeId")]
         public virtual EntryStatusTypeVo entryStatusType { get; set; }
 
+        [NotMapped]
+        [DisplayName("Categories")]
+        public List<int> jobCategoryType { get; set; }
+        
         public JobVo()
         {
     			
