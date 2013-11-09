@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,42 +8,63 @@ using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
-using System.Web;
 
 namespace SO.SilList.Manager.Models.ValueObjects
 {
      
-    [Table("Listing", Schema = "data" )]
+    [Table("Property", Schema = "data" )]
     [Serializable]
-    public partial class ListingVo
+    public partial class PropertyVo
     {
-    		
-    	[DisplayName("Listing")]
+        [DisplayName("Property")]
     	[Key]
-        public System.Guid listingId { get; set; }
-    		
-    	//[DisplayName("listing Detail Id")]
-        //public System.Guid? listingDetailId { get; set; }
-    		
-    	[DisplayName("Title")]
-    	[StringLength(50)]
+        public System.Guid propertyId { get; set; }
+        
+        [DisplayName("Title")]
+        [StringLength(50)]
         public string title { get; set; }
-    		
-    	[DisplayName("Description")]
-    	[StringLength(250)]
+
+        [DisplayName("Description")]
+        [StringLength(250)]
         public string description { get; set; }
+
+    	[DisplayName("Type")]
+        public int? propertyTypeId { get; set; }
+
+        [DisplayName("Listing Type")]
+        public int? propertyListingTypeId { get; set; }
+
+        [DisplayName("Status Type")]
+        public int? statusTypeId { get; set; }
     		
     	[DisplayName("Site")]
         public int? siteId { get; set; }
     		
-    	[DisplayName("Listing Type")]
-        public int? listingTypeId { get; set; }
-
-        [DisplayName("Price")]
+    	[DisplayName("Bed")]
+        public int? bedrooms { get; set; }
+    		
+    	[DisplayName("Bath")]
+        public int? bathrooms { get; set; }
+    		
+    	[DisplayName("Price")]
         public decimal? price { get; set; }
 
+        [DisplayName("Lot Size")]
+        public int? size { get; set; }
+
+        [DisplayName("Section8")]
+        public bool? acceptsSection8 { get; set; }
+
+        [DisplayName("Pet")]
+        public bool? isPetAllowed { get; set; }
+
         [DisplayName("Address")]
+        [StringLength(50)]
         public string address { get; set; }
+
+        [DisplayName("Phone")]
+        [StringLength(15)]
+        public string phone { get; set; }
 
         [DisplayName("City")]
         public int? cityTypeId { get; set; }
@@ -57,10 +77,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         [DisplayName("Zip")]
         public int? zip { get; set; }
-
-        [DisplayName("Phone")]
-        [StringLength(50)]
-        public string phone { get; set; }
 
         [DisplayName("Fax")]
         [StringLength(50)]
@@ -77,30 +93,32 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [DisplayName("Approved")]
         public bool isApproved { get; set; }
     		
-    	[DisplayName("Created By")]
-        public int? createdBy { get; set; }
-    		
     	[DisplayName("Modified By")]
         public int? modifiedBy { get; set; }
-   
-    	[DisplayName("Created")]
-    	[Required]
-        public System.DateTime created { get; set; }
     		
     	[DisplayName("Modified")]
     	[Required]
         public System.DateTime modified { get; set; }
     		
+    	[DisplayName("Created By")]
+        public int? createdBy { get; set; }
+    		
+    	[DisplayName("Created")]
+    	[Required]
+        public System.DateTime created { get; set; }
+    		
     	[DisplayName("Active")]
     	[Required]
         public bool isActive { get; set; }
 
-        //[ForeignKey("listingDetailId")]
-        //public virtual ListingDetailVo listingDetail { get; set; }
+        [ForeignKey("propertyListingTypeId")]
+        public virtual PropertyListingTypeVo propertyListingType { get; set; }
 
-        [DisplayName("Type")]
-        [ForeignKey("listingTypeId")]
-        public virtual ListingTypeVo listingType { get; set; }
+        [ForeignKey("statusTypeId")]
+        public virtual StatusTypeVo statusType { get; set; }
+
+        [ForeignKey("propertyTypeId")]
+        public virtual PropertyTypeVo propertyType { get; set; }
 
         [ForeignKey("siteId")]
         public virtual SiteVo site { get; set; }
@@ -112,17 +130,17 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public virtual StateTypeVo stateType { get; set; }
 
         [ForeignKey("cityTypeId")]
-        public virtual CityTypeVo cityType { get; set; }
+        public virtual CityTypeVo cityType { get; set; } 
 
-        [Association("ListingCategories_Listing", "listingId", "listingId", IsForeignKey = true)]
-        public List<ListingCategoriesVo> listingCategories { get; set; }
+        [ForeignKey("createdBy")]
+        public virtual MemberVo member { get; set; }  
 
-        [Association("ListingImages_Listing", "listingId", "listingId", IsForeignKey = true)]
-        public List<ListingImagesVo> listingImages { get; set; }
-      
-    	public ListingVo() 
-        { 			
-    		this.listingId = Guid.NewGuid();
+        [Association("Property_PropertyImages", "propertyId", "propertyId", IsForeignKey = true)]
+        public List<PropertyImageVo> propertyImage { get; set; }
+
+    	public PropertyVo()
+        {
+    		this.propertyId = Guid.NewGuid();
     	    this.isActive = true;
             this.isApproved = false;
     	}

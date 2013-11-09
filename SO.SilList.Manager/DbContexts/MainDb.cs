@@ -34,13 +34,13 @@ namespace SO.SilList.Manager.DbContexts
         public DbSet<SiteVo> sites { get; set; }
         public DbSet<JobTypeVo> jobTypes { get; set; }
 
-        public DbSet<RentalVo> rental { get; set; }
+        public DbSet<PropertyVo> properties { get; set; }
         public DbSet<BusinessCategoryTypeVo> businessCategoryType { get; set; }
-        public DbSet<LeaseTermTypeVo> leaseTermType { get; set; }
+        public DbSet<PropertyListingTypeVo> propertyListingTypes { get; set; }
         
         public DbSet<PropertyTypeVo> propertyTypes { get; set; }
-        public DbSet<RentalImageVo> rentalImages { get; set; }
-        public DbSet<RentTypeVo> rentTypes { get; set; }
+        public DbSet<PropertyImageVo> propertyImages { get; set; }
+        public DbSet<StatusTypeVo> statusTypes { get; set; }
 
         public DbSet<SettingTypeVo> settingTypes { get; set; }
         public DbSet<EnvironmentTypeVo> environmentTypes { get; set; }

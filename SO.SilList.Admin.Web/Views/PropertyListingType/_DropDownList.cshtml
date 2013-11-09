@@ -1,0 +1,4 @@
+﻿@model SO.SilList.Manager.Models.ValueObjects.PropertyListingTypeVo
+
+@Html.DropDownList((string)ViewBag.propertyName, new SelectList(ViewBag.leaseTermTypes,"propertyListingTypeId",
+                                                            "name",Model.propertyListingTypeId),(string)ViewBag.defaultValue)
