@@ -77,7 +77,7 @@
             @Html.LabelFor(model => model.property.propertyListingTypeId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList", "PropertyListingTypeIdType",new {id = Model.property.propertyListingTypeId, propertyName = "property.propertyListingTypeId"})
+            @Html.Action("DropDownList", "PropertyListingType",new {id = Model.property.propertyListingTypeId, propertyName = "property.propertyListingTypeId"})
         </div>
 
         <div class="editor-label">
@@ -129,7 +129,7 @@
         </div>
                 <div class="control-group">
             <div class="control-label">
-                @Html.LabelFor(model => model.rental.countryTypeId)
+                @Html.LabelFor(model => model.property.countryTypeId)
             </div>
             <div class="controls">
                 @Html.Action("DropDownList", "CountryType", new { id = Model.property.countryTypeId, propertyName = "listing.countryTypeId" })

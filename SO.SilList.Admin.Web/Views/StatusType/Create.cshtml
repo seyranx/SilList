@@ -1,19 +1,17 @@
-﻿@model SO.SilList.Manager.Models.ValueObjects.RentTypeVo
+﻿@model SO.SilList.Manager.Models.ValueObjects.StatusTypeVo
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 }
 
-<h2>Edit</h2>
+<h2>Create</h2>
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>RentTypeVo</legend>
-
-        @Html.HiddenFor(model => model.rentTypeId)
+        <legend>StatusTypeVo</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.name)
@@ -40,12 +38,12 @@
         </div>
 
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" value="Create" />
         </p>
     </fieldset>
 }
 
 <div>
-    <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
-</div>
+      <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
 
+</div>

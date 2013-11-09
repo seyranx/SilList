@@ -1,17 +1,19 @@
-﻿@model SO.SilList.Manager.Models.ValueObjects.RentTypeVo
+﻿@model SO.SilList.Manager.Models.ValueObjects.PropertyListingTypeVo
 
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 }
 
-<h2>Create</h2>
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>RentTypeVo</legend>
+        <legend>PropertyListingTypeVo</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.name)
@@ -29,6 +31,7 @@
             @Html.ValidationMessageFor(model => model.description)
         </div>
 
+
         <div class="editor-label">
             @Html.LabelFor(model => model.isActive)
         </div>
@@ -44,6 +47,5 @@
 }
 
 <div>
-      <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
-
+    <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
 </div>

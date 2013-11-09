@@ -1,4 +1,4 @@
-﻿@model SO.SilList.Manager.Models.ValueObjects.RentalVo
+﻿@model SO.SilList.Manager.Models.ValueObjects.PropertyVo
 
 @{
     ViewBag.Title = "Create";
@@ -6,12 +6,12 @@
 }
 
 
-@using (Html.BeginForm("Create", "Rental", FormMethod.Post, new { @encType = "multipart/form-data", id = "myForm" }))
+@using (Html.BeginForm("Create", "Property", FormMethod.Post, new { @encType = "multipart/form-data", id = "myForm" }))
 {
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>RentalVo</legend>
+        <legend>PropertyVo</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.title)
@@ -75,10 +75,10 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.leaseTermTypeId)
+            @Html.LabelFor(model => model.propertyListingTypeId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList", "LeaseTermType", new { id = Model.leaseTermTypeId })
+            @Html.Action("DropDownList", "PropertyListingType", new { id = Model.propertyListingTypeId })
         </div>
 
         <div class="editor-label">
@@ -90,14 +90,6 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.lotSize)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.lotSize)
-            @Html.ValidationMessageFor(model => model.lotSize)
-        </div>
-
-        <div class="editor-label">
             @Html.LabelFor(model => model.acceptsSection8)
         </div>
         <div class="editor-field">
@@ -106,18 +98,10 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.rentTypeId)
+            @Html.LabelFor(model => model.statusTypeId)
         </div>
         <div class="editor-field">
-            @Html.Action("DropDownList", "RentType", new { id = Model.rentTypeId })
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.memberId)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.memberId)
-            @Html.ValidationMessageFor(model => model.memberId)
+            @Html.Action("DropDownList", "PropertyType", new { id = Model.propertyTypeId })
         </div>
         <div class="control-group">
             <div class="control-label">
@@ -160,7 +144,7 @@
                 @Html.ValidationMessageFor(model => model.zip)
             </div>
         </div>
-                        <div class="control-group">
+                    <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.phone)
             </div>
@@ -168,7 +152,7 @@
                 @Html.EditorFor(model => model.phone)
             </div>
         </div>
-                                <div class="control-group">
+                    <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.fax)
             </div>

@@ -12,10 +12,7 @@ namespace SO.SilList.Admin.Web.Controllers
 {
     public class PropertyController : Controller
     {
-        //
-        // GET: /Rentals/
-
-        private PropertyManager rentalManager = new PropertyManager();
+        private PropertyManager propertyManager = new PropertyManager();
 
         public ActionResult Index(PropertyVm input = null,Paging paging = null)
         {
@@ -25,7 +22,7 @@ namespace SO.SilList.Admin.Web.Controllers
             {
                 if (input.submitButton != null)
                     input.paging.pageNumber = 1;
-                input = rentalManager.search(input);
+                input = propertyManager.search(input);
                 return View(input);
             }
             return View();
@@ -33,7 +30,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult List()
         {
-            var results = rentalManager.getAll(null);
+            var results = propertyManager.getAll(null);
             return PartialView("_List",results);
         }
 
@@ -42,14 +39,14 @@ namespace SO.SilList.Admin.Web.Controllers
         {
             if (this.ModelState.IsValid)
             {
-                var result = rentalManager.update(input.property, id);
+                var result = propertyManager.update(input.property, id);
 
-                // Rental Images stuff
+                // Property Images stuff
                 ImageManager imageManager = new ImageManager();
                 // removing unchecked images
-                imageManager.RemoveImages(id, input.imagesToRemove, ImageCategory.rentalImage);
+                imageManager.RemoveImages(id, input.imagesToRemove, ImageCategory.propertyImage);
                 // uploading new images from edit page
-                imageManager.InsertUploadImages(id, Request.Files, Server, ImageCategory.rentalImage);
+                imageManager.InsertUploadImages(id, Request.Files, Server, ImageCategory.propertyImage);
 
                 return RedirectToAction("Index");
             }
@@ -58,15 +55,15 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Edit(Guid id)
         {
-            var result = rentalManager.get(id);
+            var result = propertyManager.get(id);
 
             // Images
             ImageManager imageManager = new ImageManager();
-            var rentalImages = imageManager.getRentalImages(id);
-            PropertyVm rentalVm = new PropertyVm(result);
-            rentalVm.imagesToRemove = imageManager.CreateOrAddToImageList(rentalImages, true);
+            var propertyImages = imageManager.getPropertyImages(id);
+            PropertyVm propertyVm = new PropertyVm(result);
+            propertyVm.imagesToRemove = imageManager.CreateOrAddToImageList(propertyImages, true);
 
-            return View(rentalVm);
+            return View(propertyVm);
         }
 
         [HttpPost]
@@ -74,11 +71,11 @@ namespace SO.SilList.Admin.Web.Controllers
         {
             if(this.ModelState.IsValid)
             {
-                var rentalItem = rentalManager.insert(input);
+                var propertyItem = propertyManager.insert(input);
 
                 // Images
                 ImageManager imageManager = new ImageManager();
-                imageManager.InsertUploadImages(rentalItem.propertyId, Request.Files, Server, SO.SilList.Manager.Managers.ImageCategory.rentalImage);
+                imageManager.InsertUploadImages(propertyItem.propertyId, Request.Files, Server, SO.SilList.Manager.Managers.ImageCategory.propertyImage);
 
                 return RedirectToAction("Index");
             }
@@ -93,23 +90,23 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Details(Guid id)
         {
-            var result = rentalManager.get(id);
+            var result = propertyManager.get(id);
 
             // Images
             ImageManager imageManager = new ImageManager();
-            ViewBag.Images = imageManager.getRentalImages(id);
+            ViewBag.Images = imageManager.getPropertyImages(id);
 
             return View(result);
         }
 
         public ActionResult Menu()
         {
-            return PartialView("../Rental/_Menu");
+            return PartialView("../Property/_Menu");
         }
 
         public ActionResult Delete(Guid id)
         {
-            rentalManager.delete(id);
+            propertyManager.delete(id);
             return RedirectToAction("index");
         }
 

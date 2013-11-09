@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SO.SilList.Manager.Models.ViewModels
 {
-    public class LeaseTermTypeVm
+    public class PropertyListingTypeVm
     {
         public List<PropertyListingTypeVo> result { get; set; }
         public string keyword { get; set; }
@@ -20,7 +20,7 @@ namespace SO.SilList.Manager.Models.ViewModels
          public string submitButton { get; set; }
          public Paging paging;
 
-         public LeaseTermTypeVm()
+         public PropertyListingTypeVm()
         {
             this.result = new List<PropertyListingTypeVo>();
             if (paging == null)

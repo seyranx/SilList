@@ -1,4 +1,4 @@
-﻿@model SO.SilList.Manager.Models.ValueObjects.LeaseTermTypeVo
+﻿@model SO.SilList.Manager.Models.ValueObjects.StatusTypeVo
 
 @{
     ViewBag.Title = "Edit";
@@ -11,9 +11,9 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>LeaseTermTypeVo</legend>
+        <legend>RentTypeVo</legend>
 
-        @Html.HiddenFor(model => model.leaseTermTypeId)
+        @Html.HiddenFor(model => model.statusTypeId)
 
         <div class="editor-label">
             @Html.LabelFor(model => model.name)
@@ -48,5 +48,4 @@
 <div>
     <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
 </div>
-
 

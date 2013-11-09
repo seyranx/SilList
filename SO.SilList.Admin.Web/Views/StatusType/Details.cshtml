@@ -1,12 +1,14 @@
-﻿@model SO.SilList.Manager.Models.ValueObjects.LeaseTermTypeVo
+﻿@model SO.SilList.Manager.Models.ValueObjects.StatusTypeVo
 
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 }
 
+<h2>Details</h2>
+
 <fieldset>
-    <legend>LeaseTermTypeVo</legend>
+    <legend>StatusTypeVo</legend>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.name)
@@ -30,6 +32,7 @@
     </div>
 </fieldset>
 <p>
-    <a href="@Url.Action("Index", new { id=Model.leaseTermTypeId })" class="btn">Edit</a>
+    <a href="@Url.Action("Index", new { id=Model.statusTypeId })" class="btn">Edit</a>
+
     <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
 </p>

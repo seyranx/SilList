@@ -1,12 +1,12 @@
-﻿@model SO.SilList.Manager.Models.ViewModels.RentTypeVm
+﻿@model SO.SilList.Manager.Models.ViewModels.PropertyListingTypeVm
 @{
-    ViewBag.Title = "Rentals";
+    ViewBag.Title = "Listing Type";
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
     }
 
 <h2>@ViewBag.Title</h2>
 
-<form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index","RentType")">
+<form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index","PropertyListingType")">
     
     @Html.Action("Filter",@Model)
     <div class="pull-right">

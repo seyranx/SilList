@@ -17,9 +17,9 @@ namespace SO.SilList.Admin.Web.Controllers
 
         private LeaseTermTypeManager leaseTermTypeManager = new LeaseTermTypeManager();
 
-        public ActionResult Index(LeaseTermTypeVm input = null, Paging paging = null)
+        public ActionResult Index(PropertyListingTypeVm input = null, Paging paging = null)
         {
-            if (input == null) input = new LeaseTermTypeVm();
+            if (input == null) input = new PropertyListingTypeVm();
             input.paging = paging;
             if (this.ModelState.IsValid)
             {
@@ -110,7 +110,7 @@ namespace SO.SilList.Admin.Web.Controllers
             ViewBag.defaultValue = defaultValue;
             return PartialView("_DropDownList", leaseType);
         }
-        public ActionResult Filter(LeaseTermTypeVm Input)
+        public ActionResult Filter(PropertyListingTypeVm Input)
         {
             return PartialView("_Filter", Input);
         }

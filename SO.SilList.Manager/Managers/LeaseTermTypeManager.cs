@@ -39,7 +39,7 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public LeaseTermTypeVm search(LeaseTermTypeVm input)
+        public PropertyListingTypeVm search(PropertyListingTypeVm input)
         {
 
             using (var db = new MainDb())

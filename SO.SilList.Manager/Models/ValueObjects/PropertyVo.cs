@@ -28,10 +28,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [StringLength(250)]
         public string description { get; set; }
 
-    	[DisplayName("Property Type")]
+    	[DisplayName("Type")]
         public int? propertyTypeId { get; set; }
 
-        [DisplayName("Property Listing Type")]
+        [DisplayName("Listing Type")]
         public int? propertyListingTypeId { get; set; }
 
         [DisplayName("Status Type")]
@@ -40,10 +40,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Site")]
         public int? siteId { get; set; }
     		
-    	[DisplayName("Bedrooms")]
+    	[DisplayName("Bed")]
         public int? bedrooms { get; set; }
     		
-    	[DisplayName("Bathrooms")]
+    	[DisplayName("Bath")]
         public int? bathrooms { get; set; }
     		
     	[DisplayName("Price")]
@@ -54,6 +54,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         [DisplayName("Section8")]
         public bool? acceptsSection8 { get; set; }
+
+        [DisplayName("Pet")]
+        public bool? isPetAllowed { get; set; }
 
         [DisplayName("Address")]
         [StringLength(50)]

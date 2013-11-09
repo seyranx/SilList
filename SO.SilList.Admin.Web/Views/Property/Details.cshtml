@@ -1,4 +1,4 @@
-﻿@model SO.SilList.Manager.Models.ValueObjects.RentalVo
+﻿@model SO.SilList.Manager.Models.ValueObjects.PropertyVo
 
 @{
     ViewBag.Title = "Details";
@@ -122,10 +122,10 @@
         </div>
         <div class="control-group">
             <div class="display-label">
-                 @Html.DisplayNameFor(model => model.leaseTermTypeId)
+                 @Html.DisplayNameFor(model => model.propertyListingTypeId)
             </div>
             <div class="display-field">
-                <input type="text" value="@Html.DisplayFor(model => model.leaseTermType.name)" readonly="true">
+                <input type="text" value="@Html.DisplayFor(model => model.propertyListingType.name)" readonly="true">
             </div>
         </div>
         <div class="control-group">
@@ -136,13 +136,6 @@
                 <input type="text" value="@Html.DisplayFor(model => model.size)" readonly="true">
             </div>
         </div>
-        <div class="control-group">
-            <div class="display-label">
-                 @Html.DisplayNameFor(model => model.lotSize)
-            </div>
-            <div class="display-field">
-                <input type="text" value="@Html.DisplayFor(model => model.lotSize)" readonly="true">
-            </div>
         </div>
         <div class="control-group">
             <label class="control-label"> @Html.DisplayNameFor(model => model.acceptsSection8)</label>
@@ -152,26 +145,10 @@
         </div>
         <div class="control-group">
             <div class="display-label">
-                 @Html.DisplayNameFor(model => model.rentTypeId)
+                 @Html.DisplayNameFor(model => model.statusTypeId)
             </div>
             <div class="display-field">
-                <input type="text" value="@Html.DisplayFor(model => model.rentType.name)" readonly="true">
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="display-label">
-                 @Html.DisplayNameFor(model => model.rentTypeId)
-            </div>
-            <div class="display-field">
-                <input type="text" value="@Html.DisplayFor(model => model.rentType.name)" readonly="true">
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="display-label">
-                 @Html.DisplayNameFor(model => model.memberId)
-            </div>
-            <div class="display-field">
-                <input type="text" value="@Html.DisplayFor(model => model.memberId)" readonly="true">
+                <input type="text" value="@Html.DisplayFor(model => model.statusType.name)" readonly="true">
             </div>
         </div>
         <div class="control-group">
@@ -214,7 +191,7 @@
         </div>
 </fieldset>
 <p>
-      <a href="@Url.Action("Edit", new { id=Model.rentalId })" class="btn">Edit</a>
+      <a href="@Url.Action("Edit", new { id=Model.propertyId })" class="btn">Edit</a>
       <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
 </p>
 

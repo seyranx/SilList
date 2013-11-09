@@ -225,7 +225,7 @@
     <Compile Include="Models\ViewModels\JobCompanyVm.cs" />
     <Compile Include="Models\ViewModels\JobTypeVm.cs" />
     <Compile Include="Models\ViewModels\JobVm.cs" />
-    <Compile Include="Models\ViewModels\LeaseTermTypeVm.cs" />
+    <Compile Include="Models\ViewModels\PropertyListingTypeVm.cs" />
     <Compile Include="Models\ViewModels\ListingCategoriesVm.cs" />
     <Compile Include="Models\ViewModels\ListingCategoryTypeVm.cs" />
     <Compile Include="Models\ViewModels\ListingTypeVm.cs" />
