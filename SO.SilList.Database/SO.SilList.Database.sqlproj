@@ -215,7 +215,7 @@
     <Build Include="app\Tables\CountryType.sql" />
     <Build Include="app\Tables\CarDoorType.sql" />
     <Build Include="app\Tables\EntryStatusType.sql" />
-    <Build Include="appData\AppDataImport.sql" />
+    <None Include="appData\AppDataImport.sql" />
     <Build Include="app\Tables\StatusType.sql">
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
