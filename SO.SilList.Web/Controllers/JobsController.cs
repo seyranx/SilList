@@ -16,6 +16,7 @@ namespace SO.SilList.Web.Controllers
     {
         private JobManager jobManager = new JobManager();
         private JobTypeManager jobTypeManager = new JobTypeManager();
+        private CityTypeManager cityTypeManager = new CityTypeManager();
         private JobCategoryTypeManager jobCategoryTypeManager = new JobCategoryTypeManager();
 
         public ActionResult Index(JobVm input = null, Paging paging = null)
@@ -100,8 +101,18 @@ namespace SO.SilList.Web.Controllers
                 ViewBag.items = jobTypeManager.getAll(true);
                 ViewBag.idName = "jobTypeId";
             }
-
-
+            else if (modelType == typeof(CityTypeVo))
+            {
+                ViewBag.items = cityTypeManager.getAll(true);
+                ViewBag.idName = "cityTypeId";
+            }
+            else if (modelType == typeof(JobCategoryTypeVo))
+            {
+                ViewBag.items = jobCategoryTypeManager.getAll(true);
+                ViewBag.idName = "jobCategoryTypeId";
+                return PartialView("_CategoryTypeDropDownList");
+            }
+            
             return PartialView("_DropDownList");
         }
 

@@ -269,6 +269,7 @@
     <Content Include="Scripts\select2-3.4.4\select2.png" />
     <Content Include="Scripts\select2-3.4.4\select2x2.png" />
     <Content Include="Scripts\Site.js" />
+    <Content Include="Views\Car\_MakeDropDownList.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -344,10 +345,8 @@
     <Content Include="Views\Car\Detail.cshtml" />
     <Content Include="Views\Car\Create.cshtml" />
     <Content Include="Views\ListingCategoryType\getTopCategories.cshtml" />
-    <Content Include="Views\Car\_MakeDropDownList.cshtml" />
     <Content Include="Views\ListingType\getTopTypes.cshtml" />
     <Content Include="Views\Shared\_DropDownList.cshtml" />
-    <Content Include="Views\Car\_MakeDropDownList.cshtml" />
     <Content Include="Scripts\select2-3.4.4\bower.json" />
     <Content Include="Scripts\select2-3.4.4\LICENSE" />
     <Content Include="Scripts\select2-3.4.4\README.md" />
@@ -358,6 +357,8 @@
     <Content Include="Views\Jobs\_filter.cshtml" />
     <Content Include="Views\Jobs\_JobItem.cshtml" />
     <Content Include="Views\Jobs\Detail.cshtml" />
+    <Content Include="Views\Jobs\Create.cshtml" />
+    <Content Include="Views\Jobs\_CategoryTypeDropDownList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
