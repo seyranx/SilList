@@ -2,25 +2,25 @@
 @model IEnumerable<SO.SilList.Manager.Models.ValueObjects.JobVo>
 
 
-<table>
+<table class="table table-bordered table-hover">
     <tr>
         <th>
-            a job  @*@Html.DisplayNameFor(model => model.keyword)*@
+            Job title @*@Html.DisplayNameFor(model => model.keyword)*@
         </th>
-         <th></th>
+         <th><!-- buttons --></th>
     </tr>
 
 @foreach (var item in Model) 
 {
     <tr>
         <td>
-            a a will be generic / now only Job  @*@Html.DisplayFor(modelItem => item.keyword)*@
-            item
+            @if (item.is
+            @Html.DisplayFor(modelItem => item.title)
         </td>
        
         <td>
-            <a href="@Url.Action("Approve",new { /* id=item.carId */ })" class="btn" title="Approve"><i class="icon-edit"></i></a>
-            <a href="@Url.Action("Decline",new { /* id=item.carId */ })" class="btn" title="Decline"><i class="icon-edit"></i></a>
+            <a href="@Url.Action("Approve",new { /* id=item.carId */ })" class="btn" title="Approve">Approve</a> 
+            <a href="@Url.Action("Decline",new { /* id=item.carId */ })" class="btn" title="Decline">Decline</a>
         </td>
     </tr>
 }
