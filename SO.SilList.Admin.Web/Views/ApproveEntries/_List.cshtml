@@ -1,4 +1,4 @@
-﻿@* TODO. has to make it  @model IEnumerable<SO.SilList.Manager.Models.ViewModels.ApproveEntriesVm> *@
+﻿@* TODO. has to make it  @model IEnumerable<SO.SilList.Manager.Models.ViewModels.EntryStatusTypeVm> *@
 @model IEnumerable<SO.SilList.Manager.Models.ValueObjects.JobVo>
 
 
@@ -14,7 +14,7 @@
 {
     <tr>
         <td>
-            @if (item.is
+            @if ( item.entryStatusTypeId ==  
             @Html.DisplayFor(modelItem => item.title)
         </td>
        
