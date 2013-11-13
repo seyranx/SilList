@@ -13,7 +13,7 @@ using EntityFramework.Extensions;
 
 namespace SO.SilList.Manager.Managers
 {
-    public class ApproveEntriesManager
+    public class EntryStatusTypeManager
     {
        public Models.ValueObjects.JobVo get(Guid jobId)
         {
@@ -42,7 +42,7 @@ namespace SO.SilList.Manager.Managers
                 return result;
             }
         }
-        public ApproveEntriesVm search(ApproveEntriesVm input)
+        public EntryStatusTypeVm search(EntryStatusTypeVm input)
         {
 
             using (var db = new MainDb())

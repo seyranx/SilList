@@ -102,7 +102,7 @@
     <Compile Include="Interfaces\IJobCategoryTypeManager.cs" />
     <Compile Include="Interfaces\IVisitManager.cs" />
     <Compile Include="Managers\AdminManager.cs" />
-    <Compile Include="Managers\ApproveEntriesManager.cs" />
+    <Compile Include="Managers\EntryStatusTypeManager.cs" />
     <Compile Include="Managers\BusinessCategoriesManager.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -161,7 +161,7 @@
     <Compile Include="Models\ValueObjects\VisitVo.cs" />
     <Compile Include="Models\ViewModels\Admin\AccountLoginVm.cs" />
     <Compile Include="Models\ViewModels\Admin\AccountManageVm.cs" />
-    <Compile Include="Models\ViewModels\ApproveEntriesVm.cs" />
+    <Compile Include="Models\ViewModels\EntryStatusTypeVm.cs" />
     <Compile Include="Models\ViewModels\BusinessCategoriesVm.cs" />
     <Compile Include="Models\ViewModels\BusinessCategoryTypeVm.cs" />
     <Compile Include="Models\ViewModels\BusinessRatingsVm.cs" />

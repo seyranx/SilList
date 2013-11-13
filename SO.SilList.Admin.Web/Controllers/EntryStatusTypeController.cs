@@ -11,29 +11,28 @@ using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
-    public class ApproveEntriesController : Controller
+    public class EntryStatusTypeController : Controller
     {
-        private ApproveEntriesManager approveEntriesManager = new ApproveEntriesManager();
+        private EntryStatusTypeManager entryStatusTypeManager = new EntryStatusTypeManager();
 
-        public ActionResult Index(ApproveEntriesVm input = null, Paging paging = null)
+        public ActionResult Index(EntryStatusTypeVm input = null, Paging paging = null)
         {
             if (input == null)
-                input = new ApproveEntriesVm();
+                input = new EntryStatusTypeVm();
             input.paging = paging;
             if (this.ModelState.IsValid)
             {
                 if (input.submitButton != null)
                     input.paging.pageNumber = 1;
-                input = approveEntriesManager.search(input);
+                input = entryStatusTypeManager.search(input);
                 return View(input);
             }
             return View();
         }
 
-
         public ActionResult _List()
         {
-            var results = approveEntriesManager.getAll(null);
+            var results = entryStatusTypeManager.getAll(null);
             return PartialView(results);
             //return PartialView("_List", results);
         }
@@ -65,7 +64,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Details(Guid id)
         {
-            var result = approveEntriesManager.get(id);
+            var result = entryStatusTypeManager.get(id);
             return View(result);
         }
         [HttpPost]
@@ -73,7 +72,7 @@ namespace SO.SilList.Admin.Web.Controllers
         {
             if (this.ModelState.IsValid)
             {
-                var res = approveEntriesManager.update(input, id);
+                var res = entryStatusTypeManager.update(input, id);
                 return RedirectToAction("Index");
             }
 
@@ -82,13 +81,13 @@ namespace SO.SilList.Admin.Web.Controllers
         }
         public ActionResult Edit(Guid id)
         {
-            var result = approveEntriesManager.get(id);
+            var result = entryStatusTypeManager.get(id);
             return View(result);
         }
 
         public ActionResult Delete(Guid id)
         {
-            approveEntriesManager.delete(id);
+            entryStatusTypeManager.delete(id);
             return RedirectToAction("Index");
         }
 
@@ -97,7 +96,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView("_Pagination", input);
         }
 
-        public ActionResult Filter(ApproveEntriesVm input)
+        public ActionResult Filter(EntryStatusTypeVm input)
         {
             return PartialView("_Filter", input);
         }
