@@ -1,4 +1,5 @@
 ﻿@model SO.SilList.Manager.Models.ValueObjects.JobVo
+@using SO.SilList.Manager.Managers
 
 @{
     ViewBag.Title = "Detail";
@@ -16,7 +17,7 @@
         if ($("#emailToMe").val() == "me") {
         }
         if ($("#friendEmail").val() != null) {
-            @Html.Action("SendEmial")
+
         }
     }
 
@@ -138,7 +139,7 @@
     <div class=" modal-body form-horizontal">
         <div style="margin-left:78px;margin-bottom:10px">
             <input type="checkbox" id="emailToMe" value="me" style="margin-top: -2px"><b> Send to yourself : </b>
-            <input type="email" readonly />
+            <input type="email" value="@CurrentMember.member.email" readonly />
         </div>
         <div style="margin-left:100px;margin-bottom:10px">
             <b>Send to a friend : </b>
