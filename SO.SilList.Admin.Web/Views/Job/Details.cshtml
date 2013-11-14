@@ -157,12 +157,16 @@
         </div>
     </div>
 
-    <div class="control-group">
-        <label class="control-label"> @Html.DisplayNameFor(model => model.entryStatusType.name)</label>
+    @*
+     <div class="control-group">
+        <div class="control-label">
+            @Html.DisplayNameFor(model => model.entryStatusTypeId)
+        </div>
         <div class="controls">
-           @* @Html.DisplayFor(model => model.entryStatusType.name) *@
+            <input type="text" value="@Html.DisplayFor(model => model.entryStatusType.name)" readonly="true">
         </div>
     </div>
+    *@
 
     <div class="control-group">
         <label class="control-label"> @Html.DisplayNameFor(model => model.isActive)</label>
