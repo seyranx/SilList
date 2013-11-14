@@ -552,10 +552,10 @@
     <Content Include="Views\StateType\Details.cshtml" />
     <Content Include="Views\StateType\Edit.cshtml" />
     <Content Include="Views\StateType\Index.cshtml" />
-    <Content Include="Views\ApproveEntries\Index.cshtml" />
-    <Content Include="Views\ApproveEntries\_List.cshtml" />
-    <Content Include="Views\ApproveEntries\_Filter.cshtml" />
-    <Content Include="Views\ApproveEntries\_Menu.cshtml" />
+    <Content Include="Views\EntryStatusType\Index.cshtml" />
+    <Content Include="Views\EntryStatusType\_List.cshtml" />
+    <Content Include="Views\EntryStatusType\_Filter.cshtml" />
+    <Content Include="Views\EntryStatusType\_Menu.cshtml" />
     <Content Include="Scripts\select2-3.4.4\bower.json" />
     <Content Include="Scripts\select2-3.4.4\LICENSE" />
     <Content Include="Scripts\select2-3.4.4\README.md" />

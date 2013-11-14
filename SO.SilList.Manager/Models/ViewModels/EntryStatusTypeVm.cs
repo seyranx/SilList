@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SO.SilList.Manager.Classes;
 
 namespace SO.SilList.Manager.Models.ViewModels
 {
@@ -17,7 +18,7 @@ namespace SO.SilList.Manager.Models.ViewModels
         {
             entryStatusType = input;
         }
-        public List<JobVo> result { get; set; } // TODO: make it for Jobs for now. Will extend to other types or make generic later
+        public List<JobVo> result { get; set; } // todo: jobVo to be replace to be generic or something
         public string keyword { get; set; }
 
         [DisplayName("isActive: ")]

@@ -100,5 +100,18 @@ namespace SO.SilList.Admin.Web.Controllers
         {
             return PartialView("_Filter", input);
         }
-    }    
+
+
+        public ActionResult Approve(Guid id)
+        {
+            var result = entryStatusTypeManager.get(id);
+            entryStatusTypeManager.Approve(id);
+            return RedirectToAction("Index");
+        }
+        public ActionResult Decline(Guid id)
+        {
+            entryStatusTypeManager.Decline(id);
+            return RedirectToAction("Index");
+        }
+    }
 }

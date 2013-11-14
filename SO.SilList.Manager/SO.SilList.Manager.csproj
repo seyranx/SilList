@@ -56,6 +56,7 @@
     <Compile Include="Attributes\DontTrackVisitAttribute.cs" />
     <Compile Include="Attributes\TrackVisitAttribute.cs" />
     <Compile Include="Classes\Connection.cs" />
+    <Compile Include="Classes\EntryStatusTypeInfo.cs" />
     <Compile Include="DbContexts\MainDb.cs" />
     <Compile Include="Interfaces\ICarFuelTypeManager.cs" />
     <Compile Include="Interfaces\ICarDoorTypeManager.cs" />

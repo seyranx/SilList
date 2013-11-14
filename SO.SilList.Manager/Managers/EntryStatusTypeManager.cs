@@ -9,23 +9,28 @@ using SO.SilList.Manager.Models.ValueObjects;
 
 using System.Data.Entity;
 using EntityFramework.Extensions;
+using SO.SilList.Manager.Classes;
 
 
 namespace SO.SilList.Manager.Managers
 {
     public class EntryStatusTypeManager
     {
-       public Models.ValueObjects.JobVo get(Guid jobId)
+        public const String csPending = "Pending";
+        public const String csApprove = "Approve";
+        public const String csDecline = "Decline";
+
+        public Models.ValueObjects.JobVo get(Guid jobId)
         {
             using (var db = new MainDb())
             {
                 var result = db.jobs
-                            //.Include(s => s.site)
-                            //.Include(j => j.jobType)
-                            //.Include(t => t.jobCompany)
-                            //.Include(i => i.cityType)
-                            //.Include(o => o.countryType)
-                            //.Include(u => u.stateType) 
+                    //.Include(s => s.site)
+                    //.Include(j => j.jobType)
+                    //.Include(t => t.jobCompany)
+                    //.Include(i => i.cityType)
+                    //.Include(o => o.countryType)
+                    //.Include(u => u.stateType) 
 
                             .FirstOrDefault(s => s.jobId == jobId);
                 return result;
@@ -48,22 +53,23 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var query = db.jobs
-                            // .Include(s => s.site)
-                            // .Include(j => j.jobType)
-                            // .Include(t => t.jobCompany)
-                            //.Include(i => i.cityType)
-                            //.Include(o => o.countryType)
-                            //.Include(u => u.stateType) 
+                    // .Include(s => s.site)
+                    // .Include(j => j.jobType)
+                    // .Include(t => t.jobCompany)
+                    //.Include(i => i.cityType)
+                    //.Include(o => o.countryType)
+                    //.Include(u => u.stateType) 
 
                             .OrderBy(b => b.title)
                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
-                                      && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                      && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword)
+                                      && input.entryStatusType.Equals("Pending"))
                              );
                 input.paging.totalCount = query.Count();
+                List<JobVo> jobList = new List<JobVo>();
                 input.result = query
-                             .Skip(input.paging.skip)
-                             .Take(input.paging.rowCount)
-
+                              .Skip(input.paging.skip)
+                              .Take(input.paging.rowCount)
                              .ToList();
 
                 return input;
@@ -75,12 +81,12 @@ namespace SO.SilList.Manager.Managers
             using (var db = new MainDb())
             {
                 var list = db.jobs
-                            // .Include(s => s.site)
-                            // .Include(j => j.jobType)
-                            // .Include(t => t.jobCompany)
-                            //.Include(i => i.cityType)
-                            //.Include(o => o.countryType)
-                            //.Include(u => u.stateType) 
+                    // .Include(s => s.site)
+                    // .Include(j => j.jobType)
+                    // .Include(t => t.jobCompany)
+                    //.Include(i => i.cityType)
+                    //.Include(o => o.countryType)
+                    //.Include(u => u.stateType) 
 
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
@@ -138,6 +144,46 @@ namespace SO.SilList.Manager.Managers
                 return db.jobs.Count();
             }
         }
-    
+
+        public JobVo Approve(Guid jobId)
+        {
+            using (var db = new MainDb())
+            {
+                var result = db.jobs.FirstOrDefault(e => e.jobId == jobId);
+                var approveRec = db.entryStatusType.FirstOrDefault(f => f.name == csApprove);
+                
+                if (result == null) return null;
+
+                JobVo input = result;
+                //input.created = result.created;
+                //input.createdBy = result.createdBy;
+                input.entryStatusType = approveRec; 
+                db.Entry(result).CurrentValues.SetValues(input);
+
+                db.SaveChanges();
+                return result;
+
+
+            }
+        }
+        public JobVo Decline(Guid jobId)
+        {
+            using (var db = new MainDb())
+            {
+                var result = db.jobs.FirstOrDefault(e => e.jobId == jobId);
+                var declineRec = db.entryStatusType.FirstOrDefault(f => f.name == csDecline);
+
+                if (result == null) return null;
+
+                JobVo input = result;
+                //input.created = result.created;
+                //input.createdBy = result.createdBy;
+                input.entryStatusType = declineRec;
+                db.Entry(result).CurrentValues.SetValues(input);
+
+                db.SaveChanges();
+                return result;
+            }
+        }
     }
 }
