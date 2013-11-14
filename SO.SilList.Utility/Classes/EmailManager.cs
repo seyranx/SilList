@@ -10,6 +10,8 @@ namespace SO.SilList.Utility.Classes
     {
         public void sendMail(string from, string to, string subject, string body)
         {
+            if (from == null)
+                return;
             System.Net.Mail.MailMessage message = new System.Net.Mail.MailMessage();
             message.To.Add(to);
             message.Subject = subject;
