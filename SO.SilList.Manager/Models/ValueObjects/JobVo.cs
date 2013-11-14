@@ -41,7 +41,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public string address { get; set; }
 
         [DisplayName("City")]
-        [Required]
+      //  [Required]
         public Nullable<int> cityTypeId { get; set; }
 
         [DisplayName("State")]

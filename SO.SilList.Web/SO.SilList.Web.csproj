@@ -359,6 +359,7 @@
     <Content Include="Views\Jobs\Detail.cshtml" />
     <Content Include="Views\Jobs\Create.cshtml" />
     <Content Include="Views\Jobs\_CategoryTypeDropDownList.cshtml" />
+    <Content Include="Views\Jobs\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

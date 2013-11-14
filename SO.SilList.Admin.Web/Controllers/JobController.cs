@@ -64,7 +64,7 @@ namespace SO.SilList.Admin.Web.Controllers
             }
 
 
-            return View();
+            return View(input);
         }
         public ActionResult Create()
         {

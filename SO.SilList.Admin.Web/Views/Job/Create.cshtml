@@ -4,7 +4,12 @@
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 }
-
+        <script>
+            window.onload = function () {
+                var n = @Html.Raw(Json.Encode(Model.jobCategoryType))
+                $("#jobCategoryType").val(n).select2();
+            };
+        </script>
 <h2>Create</h2>
 
 @using (Html.BeginForm("Create", "Job", FormMethod.Post, new { @encType = "multipart/form-data" }))

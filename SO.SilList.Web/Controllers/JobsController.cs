@@ -1,4 +1,5 @@
-﻿using SO.SilList.Manager.Managers;
+﻿
+using SO.SilList.Manager.Managers;
 using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Models.ViewModels;
 using SO.SilList.Utility.Classes;
@@ -17,6 +18,7 @@ namespace SO.SilList.Web.Controllers
         private JobManager jobManager = new JobManager();
         private JobTypeManager jobTypeManager = new JobTypeManager();
         private CityTypeManager cityTypeManager = new CityTypeManager();
+        private JobCategoriesManager jobCategoriesManager = new JobCategoriesManager();
         private JobCategoryTypeManager jobCategoryTypeManager = new JobCategoryTypeManager();
 
         public ActionResult Index(JobVm input = null, Paging paging = null)
@@ -55,15 +57,79 @@ namespace SO.SilList.Web.Controllers
         [HttpPost]
         public ActionResult Create(JobVo input)
         {
-
+            
             if (this.ModelState.IsValid)
             {
+                JobCategoriesVo categoryVo = new JobCategoriesVo();
                 var item = jobManager.insert(input);
+                foreach (int categoryId in input.jobCategoryType)
+                {
+                    categoryVo.jobId = input.jobId;
+                    categoryVo.jobCategoryTypeId = categoryId;
+                    categoryVo.isActive = true;
+
+                    jobCategoriesManager.insert(categoryVo);
+                    categoryVo = new JobCategoriesVo();
+                }
+
 
                 return RedirectToAction("Index");
             }
-            return View();
 
+            return View(input);
+
+        }
+
+        public ActionResult Edit(Guid id)
+        {
+            JobVo vo = jobManager.get(id);
+            if (vo.jobCategories.Count > 0)
+                vo.jobCategoryType = new List<int>();
+            foreach (var item in vo.jobCategories)
+            {
+                vo.jobCategoryType.Add((int)item.jobCategoryTypeId);
+            }
+            return View(vo);
+        }
+        [HttpPost]
+        public ActionResult Edit(Guid id, JobVo input)
+        {
+            JobCategoriesManager jobCategoriesManager = new JobCategoriesManager();
+            bool foundTheMatch = false;
+            JobVo item = jobManager.get(input.jobId);
+            if (this.ModelState.IsValid)
+            {
+                foreach (JobCategoriesVo categoryVo in item.jobCategories)
+                {
+                    foundTheMatch = false;
+                    foreach (int categoryId in input.jobCategoryType)
+                    {
+                        if (categoryVo.jobCategoryTypeId == categoryId)
+                        {
+                            input.jobCategoryType.Remove(categoryId);
+                            foundTheMatch = true;
+                            break;
+                        }
+                    }
+                    if (!foundTheMatch)
+                        jobCategoriesManager.delete(categoryVo.jobCategoriesId);
+                }
+                JobCategoriesVo categoryVo2 = new JobCategoriesVo();
+                foreach (int categoryId in input.jobCategoryType)
+                {
+
+                    categoryVo2.jobId = input.jobId;
+                    categoryVo2.jobCategoryTypeId = categoryId;
+                    categoryVo2.isActive = true;
+
+                    jobCategoriesManager.insert(categoryVo2);
+                    categoryVo2 = new JobCategoriesVo();
+                }
+                var res = jobManager.update(input, id);
+                return RedirectToAction("Index");
+            }
+
+            return View(input);
         }
 
         public ActionResult CollapseList(int? id = null, string propertyName = null, Type modelType = null)
@@ -114,6 +180,12 @@ namespace SO.SilList.Web.Controllers
             }
             
             return PartialView("_DropDownList");
+        }
+
+        public void SendEmial(string email,string name,string message)
+        {
+            EmailManager emailManager = new EmailManager();
+            emailManager.sendMail(email, "vazricv@silverobject.com", name, message);
         }
 
     }

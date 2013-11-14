@@ -1,7 +1,7 @@
 ﻿@model SO.SilList.Manager.Models.ValueObjects.JobVo
 @using SO.SilList.Manager.Models.ValueObjects
 @{
-    ViewBag.Title = "Submit Job Listing";
+    ViewBag.Title = "Edit Job Listing";
     Layout = "~/Views/Shared/_LayoutJob.cshtml";
 }
 <style>
@@ -30,10 +30,9 @@
                     //dropdownAutoWidth: false,
                     width: '520',
                 });
-        
             };
 </script>
-@using (Html.BeginForm("Create", "Jobs", FormMethod.Post, new { @encType = "multipart/form-data" }))
+@using (Html.BeginForm("Edit", "Jobs", FormMethod.Post, new { @encType = "multipart/form-data" }))
 {
     <div class="span12">
         <span style="background-color:#fb7070; border-radius:6px; padding:5px">@Html.ValidationMessageFor(model => model.title)</span>
