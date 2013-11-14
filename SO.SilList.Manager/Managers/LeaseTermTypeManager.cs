@@ -11,15 +11,15 @@ using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Manager.Managers
 {
-    public class LeaseTermTypeManager : ILeasingTermTypeManager
+    public class LeaseTermTypeManager : IPropertyListingTypeManager
     {
 
-        public LeaseTermTypeVo get(int leaseTermTypeId)
+        public PropertyListingTypeVo get(int leaseTermTypeId)
         {
             using (var db = new MainDb())
             {
-                var result = db.leaseTermType
-                            .FirstOrDefault(L => L.leaseTermTypeId == leaseTermTypeId);
+                var result = db.propertyListingTypes
+                            .FirstOrDefault(L => L.propertyListingTypeId == leaseTermTypeId);
 
                 return result;
             }
@@ -28,23 +28,23 @@ namespace SO.SilList.Manager.Managers
         /// <summary>
         /// Get First Item
         /// </summary>
-        public LeaseTermTypeVo getFirst()
+        public PropertyListingTypeVo getFirst()
         {
             using (var db = new MainDb())
             {
-                var res = db.leaseTermType
+                var res = db.propertyListingTypes
                             .FirstOrDefault();
 
                 return res;
             }
         }
 
-        public LeaseTermTypeVm search(LeaseTermTypeVm input)
+        public PropertyListingTypeVm search(PropertyListingTypeVm input)
         {
 
             using (var db = new MainDb())
             {
-                var query = db.leaseTermType
+                var query = db.propertyListingTypes
     
                             .OrderBy(b => b.name)
                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
@@ -62,11 +62,11 @@ namespace SO.SilList.Manager.Managers
         }
 
 
-        public List<LeaseTermTypeVo> getAll(bool? isActive = true)
+        public List<PropertyListingTypeVo> getAll(bool? isActive = true)
         {
             using (var db = new MainDb())
             {
-                var list = db.leaseTermType
+                var list = db.propertyListingTypes
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
 
@@ -78,22 +78,22 @@ namespace SO.SilList.Manager.Managers
         {
             using (var db = new MainDb())
             {
-                var res = db.leaseTermType
-                     .Where(e => e.leaseTermTypeId == leaseTermTypeId)
+                var res = db.propertyListingTypes
+                     .Where(e => e.propertyListingTypeId == leaseTermTypeId)
                      .Delete();
                 return true;
             }
         }
 
-        public LeaseTermTypeVo update(LeaseTermTypeVo input, int? leaseTermTypeId = null)
+        public PropertyListingTypeVo update(PropertyListingTypeVo input, int? leaseTermTypeId = null)
         {
             using (var db = new MainDb())
             {
 
                 if (leaseTermTypeId == null)
-                    leaseTermTypeId = input.leaseTermTypeId;
+                    leaseTermTypeId = input.propertyListingTypeId;
 
-                var res = db.leaseTermType.FirstOrDefault(e => e.leaseTermTypeId == leaseTermTypeId);
+                var res = db.propertyListingTypes.FirstOrDefault(e => e.propertyListingTypeId == leaseTermTypeId);
 
                 if (res == null) return null;
 
@@ -108,12 +108,12 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public LeaseTermTypeVo insert(LeaseTermTypeVo input)
+        public PropertyListingTypeVo insert(PropertyListingTypeVo input)
         {
             using (var db = new MainDb())
             {
 
-                db.leaseTermType.Add(input);
+                db.propertyListingTypes.Add(input);
                 db.SaveChanges();
 
                 return input;
@@ -124,7 +124,7 @@ namespace SO.SilList.Manager.Managers
         {
             using (var db = new MainDb())
             {
-                return db.leaseTermType.Count();
+                return db.propertyListingTypes.Count();
             }
         }
     }

@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,8 +16,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
     [Serializable]
     public partial class PropertyTypeVo
     {
-    		
-    	[DisplayName("property Type Id")]
+  		
+    	[DisplayName("Property Type")]
     	[Key]
         public int propertyTypeId { get; set; }
     		
@@ -30,30 +29,29 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[StringLength(50)]
         public string description { get; set; }
     		
-    	[DisplayName("created")]
+    	[DisplayName("Created")]
     	[Required]
         public System.DateTime created { get; set; }
     		
-    	[DisplayName("modified")]
+    	[DisplayName("Modified")]
     	[Required]
         public System.DateTime modified { get; set; }
     		
-    	[DisplayName("created By")]
+    	[DisplayName("Created By")]
         public Nullable<int> createdBy { get; set; }
     		
-    	[DisplayName("modified By")]
+    	[DisplayName("Modified By")]
         public Nullable<int> modifiedBy { get; set; }
     		
-    	[DisplayName("Is Active")]
+    	[DisplayName("Active")]
         public bool isActive { get; set; }
 
-        [Association("PropertyType_Rental", "propertyTypeId", "propertyTypeId", IsForeignKey = true)]
-        public List<RentalVo> rental { get; set; }
+        [Association("PropertyType_Property", "propertyTypeId", "propertyTypeId", IsForeignKey = true)]
+        public List<PropertyVo> property { get; set; }
       
-    	public PropertyTypeVo(){
-    			
-    	
-    	 this.isActive = true;
+    	public PropertyTypeVo()
+        {
+            this.isActive = true;
     	}
     }
 }

@@ -4,6 +4,12 @@
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 }
+        <script>
+            window.onload = function () {
+                var n = @Html.Raw(Json.Encode(Model.jobCategoryType))
+                $("#jobCategoryType").val(n).select2();
+            };
+        </script>
 
 <h2>Edit</h2>
 
@@ -34,6 +40,16 @@
                 @Html.ValidationMessageFor(model => model.title)
             </div>
         </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.jobCategoryType)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "JobCategoryType", new { id = Model.jobCategoryType, propertyName = "jobCategoryType" })
+            </div>
+        </div>
+
         <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.description)

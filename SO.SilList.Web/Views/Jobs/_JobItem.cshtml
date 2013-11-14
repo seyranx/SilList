@@ -6,7 +6,7 @@
 
 @foreach (var item in Model)
 {
-    <div class="span12 businessInfo">
+    <div class="span12 businessInfo" style="height:140px; border-bottom:solid; border-bottom-width:1px; margin-left:-10px">
         <div class="media-body" style="padding: 5px;">
             <a href="@Url.Action("Detail",new { id = item.jobId })">
                 <h5 class="media-heading">@item.title</h5>
@@ -14,18 +14,20 @@
             <div class="businessAddressLine">
                 Category: 
                  @{ 
+                    SO.SilList.Manager.Managers.JobCategoriesManager jm = new SO.SilList.Manager.Managers.JobCategoriesManager();
                     if (item.jobCategories != null)
                     {
                         int size = item.jobCategories.Count;
-                        int index = 0;
+                        int index=0;
                         foreach (var category in item.jobCategories)
                         {
-                            index++;
-                                     <span><a data-toggle="tooltip" data-placement="bottom" title="@category.jobCategoryType.description" href="/">@category.jobCategoryType.name </a></span>          
+                            var categoryId = category.jobCategoriesId;
+                                     <span><a data-toggle="tooltip" data-placement="bottom" title="@jm.get(categoryId).jobCategoryType.description" href="#" onclick="selectAction(@jm.get(categoryId).jobCategoryTypeId,'jobCategoryId');">@jm.get(categoryId).jobCategoryType.name  </a></span>          
                             if (index != size)
                             {  
                                      <span>, </span>
                             }
+                            index++;
                         }
                     }   
                  }
@@ -40,17 +42,20 @@
             </div>
         </div>
 
-        <div style="margin-top: 5px; margin-bottom: 5px;">
+        <div style="margin-top: 5px; margin-bottom: 5px; text-align:justify">
             @{
-    var data = item.description;
-    if (data.Length > 200)
-    {
-                <div>@data.Substring(0, 200)...</div>
-    }
-    else
-    {
-                <div>@data</div>
-    }
+                if(item.description != null)
+                {
+                var data = item.description;
+                if (data.Length > 200)
+                {
+                            <div>@data.Substring(0, 200)...</div>
+                }
+                else
+                {
+                            <div>@data</div>
+                }
+                }
             }
         </div>
 

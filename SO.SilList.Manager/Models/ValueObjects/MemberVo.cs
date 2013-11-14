@@ -121,8 +121,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [ForeignKey("cityTypeId")]
         public virtual CityTypeVo cityType { get; set; }
 
-        [Association("Member_Rental", "memberId", "memberId", IsForeignKey = true)]
-        public List<RentalVo> rentalImage { get; set; }
+        [Association("Member_Property", "memberId", "memberId", IsForeignKey = true)]
+        public List<PropertyVo> property { get; set; }
 
 
     	public MemberVo(){

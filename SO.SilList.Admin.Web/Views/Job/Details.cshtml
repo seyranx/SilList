@@ -33,6 +33,22 @@
             <input type="text" value="@Html.DisplayFor(model => model.title)" readonly="true">
         </div>
     </div>
+        <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.jobCategories)</label>
+        <div class="controls" style="padding-bottom:10px">
+            
+             
+            @{
+                SO.SilList.Manager.Managers.JobCategoriesManager jm = new SO.SilList.Manager.Managers.JobCategoriesManager();
+                foreach(var item in Model.jobCategories)
+                {
+                    var categoryId = item.jobCategoriesId;
+                 <span style="border:1px solid #909090; background-color:#e0dfdf; border-radius:5px; padding:6px; margin:3px "> @jm.get(categoryId).jobCategoryType.name </span>
+                }
+            }
+        </div>
+    </div>
+
 
     <div class="control-group">
         <label class="control-label">@Html.DisplayNameFor(model => model.description)</label>

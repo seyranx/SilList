@@ -1,0 +1,205 @@
+﻿@model SO.SilList.Manager.Models.ValueObjects.PropertyVo
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend></legend>
+
+        <div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.title)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.title)"readonly="true">
+            </div>
+        </div>
+
+       <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.address)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.address)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.cityTypeId)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.cityType.name)" readonly="true">
+            </div>
+        </div>
+         <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.stateTypeId)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.stateType.name)" readonly="true">
+            </div>
+        </div>
+                <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.countryTypeId)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.countryType.name)" readonly="true">
+            </div>
+        </div>
+                <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.zip)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.zip)" readonly="true">
+            </div>
+        </div>
+                        <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.phone)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.phone)" readonly="true">
+            </div>
+        </div>
+       <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.fax)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.fax)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">@Html.DisplayNameFor(model => model.description)</label>
+            <div class="controls">
+                    @Html.TextAreaFor(model => model.description,new {@rows = 5  ,@readonly=true}) 
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.propertyTypeId)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.propertyType.name)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.siteId)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.site.domain)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.bedrooms)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.bedrooms)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.bathrooms)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.bathrooms)" readonly="true">
+            </div>
+        </div><div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.price)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.price)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.propertyListingTypeId)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.propertyListingType.name)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.size)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.size)" readonly="true">
+            </div>
+        </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label"> @Html.DisplayNameFor(model => model.acceptsSection8)</label>
+            <div class="controls">
+                @Html.DisplayFor(model => model.acceptsSection8)
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.statusTypeId)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.statusType.name)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.modifiedBy)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.modifiedBy)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.modified)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.modified)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.createdBy)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.createdBy)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="display-label">
+                 @Html.DisplayNameFor(model => model.created)
+            </div>
+            <div class="display-field">
+                <input type="text" value="@Html.DisplayFor(model => model.created)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label"> @Html.DisplayNameFor(model => model.isApproved)</label>
+            <div class="controls">
+                @Html.DisplayFor(model => model.isApproved)
+            </div>
+        </div>
+</fieldset>
+<p>
+      <a href="@Url.Action("Edit", new { id=Model.propertyId })" class="btn">Edit</a>
+      <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
+</p>
+
+@* Rental images stuff *@
+@{
+    foreach (SO.SilList.Manager.Models.ValueObjects.ImageVo img in ViewBag.Images)
+    { 
+        <hr />
+        <img src="@img.url" width="200px" /> 
+    }
+}

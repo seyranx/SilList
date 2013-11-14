@@ -1,0 +1,17 @@
+﻿@model SO.SilList.Manager.Models.ViewModels.PropertyListingTypeVm
+@{
+    ViewBag.Title = "Listing Type";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+    }
+
+<h2>@ViewBag.Title</h2>
+
+<form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index","PropertyListingType")">
+    
+    @Html.Action("Filter",@Model)
+    <div class="pull-right">
+        @((Model.paging.pageNumber-1) * Model.paging.rowCount + Model.result.Count) of @Model.paging.totalCount
+    </div>
+    @Html.Partial("_List", @Model.result)
+    @Html.Action("Pagination", @Model.paging)
+</form>
