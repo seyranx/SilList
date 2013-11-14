@@ -13,7 +13,7 @@ namespace SO.SilList.Tests.Managers
      [TestClass]
     public class RentalManagerTest
     {
-        private RentalManager rentalManager = new RentalManager();
+        private PropertyManager rentalManager = new PropertyManager();
 
         [TestMethod]
         public void getAllTest()
@@ -33,7 +33,7 @@ namespace SO.SilList.Tests.Managers
         {
             for (int i = 1; i <= 10; i++)
             {
-                var vo = new RentalVo();
+                var vo = new PropertyVo();
                 vo.price = i*1234;
                 //vo.name = i.ToString() + " Test BusinessCategoryType Name ";
                 var result = rentalManager.insert(vo);
@@ -49,18 +49,18 @@ namespace SO.SilList.Tests.Managers
         [TestMethod]
         public void insertDeleteTest()
         {
-            var vo = new RentalVo();
+            var vo = new PropertyVo();
             vo.price = (decimal)1500.99;
 
 
             var result = rentalManager.insert(vo);
-            var result2 = rentalManager.get(result.rentalId);
+            var result2 = rentalManager.get(result.propertyId);
 
-            rentalManager.delete(result.rentalId);
+            rentalManager.delete(result.propertyId);
 
-            var result3 = rentalManager.get(result.rentalId);
+            var result3 = rentalManager.get(result.propertyId);
 
-            if (result != null && result2 != null && result3 == null && result2.rentalId != Guid.Empty)
+            if (result != null && result2 != null && result3 == null && result2.propertyId != Guid.Empty)
             {
                 Assert.IsTrue(true);
             }
@@ -71,7 +71,7 @@ namespace SO.SilList.Tests.Managers
         [TestMethod]
         public void searchTest()
         {
-            var vo = new RentalVm();
+            var vo = new PropertyVm();
             vo.paging.pageNumber = 2;
             vo.keyword = "Some title";
             vo.isActive = true;

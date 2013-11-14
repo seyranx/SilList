@@ -1,51 +1,37 @@
 ﻿using SO.SilList.Manager.DbContexts;
 using SO.SilList.Manager.Interfaces;
 using SO.SilList.Manager.Models.ValueObjects;
-using EntityFramework.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EntityFramework.Extensions;
 using SO.SilList.Manager.Models.ViewModels;
+
 
 namespace SO.SilList.Manager.Managers
 {
-    public class LeaseTermTypeManager : IPropertyListingTypeManager
+    public class StatusTypeManager : IStatusTypeManager
     {
-
-        public PropertyListingTypeVo get(int leaseTermTypeId)
+        public StatusTypeVo get(int rentTypeId)
         {
             using (var db = new MainDb())
             {
-                var result = db.propertyListingTypes
-                            .FirstOrDefault(L => L.propertyListingTypeId == leaseTermTypeId);
-
-                return result;
-            }
-        }
-
-        /// <summary>
-        /// Get First Item
-        /// </summary>
-        public PropertyListingTypeVo getFirst()
-        {
-            using (var db = new MainDb())
-            {
-                var res = db.propertyListingTypes
-                            .FirstOrDefault();
+                var res = db.statusTypes
+                    //.Include(s => s.image)
+                            .FirstOrDefault(p => p.statusTypeId == rentTypeId);
 
                 return res;
             }
         }
 
-        public PropertyListingTypeVm search(PropertyListingTypeVm input)
+        public StatusTypeVm search(StatusTypeVm input)
         {
 
             using (var db = new MainDb())
             {
-                var query = db.propertyListingTypes
-    
+                var query = db.statusTypes
                             .OrderBy(b => b.name)
                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
@@ -61,12 +47,12 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-
-        public List<PropertyListingTypeVo> getAll(bool? isActive = true)
+        public List<StatusTypeVo> getAll(bool? isActive = true)
         {
             using (var db = new MainDb())
             {
-                var list = db.propertyListingTypes
+                var list = db.statusTypes
+                             //.Include(s => s.site)
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
 
@@ -74,26 +60,26 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public bool delete(int leaseTermTypeId)
+        public bool delete(int rentTypeId)
         {
             using (var db = new MainDb())
             {
-                var res = db.propertyListingTypes
-                     .Where(e => e.propertyListingTypeId == leaseTermTypeId)
+                var res = db.statusTypes
+                     .Where(e => e.statusTypeId == rentTypeId)
                      .Delete();
                 return true;
             }
         }
 
-        public PropertyListingTypeVo update(PropertyListingTypeVo input, int? leaseTermTypeId = null)
+        public StatusTypeVo update(StatusTypeVo input, int? rentTypeId = null)
         {
             using (var db = new MainDb())
             {
 
-                if (leaseTermTypeId == null)
-                    leaseTermTypeId = input.propertyListingTypeId;
+                if (rentTypeId == null)
+                    rentTypeId = input.statusTypeId;
 
-                var res = db.propertyListingTypes.FirstOrDefault(e => e.propertyListingTypeId == leaseTermTypeId);
+                var res = db.statusTypes.FirstOrDefault(e => e.statusTypeId == rentTypeId);
 
                 if (res == null) return null;
 
@@ -108,23 +94,15 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public PropertyListingTypeVo insert(PropertyListingTypeVo input)
+        public StatusTypeVo insert(StatusTypeVo input)
         {
             using (var db = new MainDb())
             {
 
-                db.propertyListingTypes.Add(input);
+                db.statusTypes.Add(input);
                 db.SaveChanges();
 
                 return input;
-            }
-        }
-
-        public int count()
-        {
-            using (var db = new MainDb())
-            {
-                return db.propertyListingTypes.Count();
             }
         }
     }
