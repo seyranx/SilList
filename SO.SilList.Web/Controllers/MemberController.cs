@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-using SO.EventCave.Manager.Managers;
 using SO.SilList.Manager.Managers;
 using SO.SilList.Manager.Models;
 using SO.SilList.Manager.Models.ValueObjects;
@@ -34,11 +33,11 @@ namespace SO.SilList.Web.Controllers
                 mem.firstName = input.firstName;
                 mem.lastName = input.lastName;
 
-                mem.address = input.address;
+               // mem.address = input.address;
                 // mem.city = input.city;
                 // mem.state = input.state;
-                mem.zip = Int32.Parse(input.zip);
-                mem.phone = input.phone;
+              //  mem.zip = Int32.Parse(input.zip);
+              //  mem.phone = input.phone;
 
                 mem.email = input.email;
                 mem.isEmailConfirmed = false;
