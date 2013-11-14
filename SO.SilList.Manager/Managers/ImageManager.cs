@@ -153,20 +153,6 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        // used to show given entity's images on Details and Edit pages
-        public List<ImageVo> getListingImages(Guid listingId)
-        {
-            using (var db = new MainDb())
-            {
-                var list = (from i in db.images
-                            join c in db.listingImages on i.imageId equals c.imageId
-                            where c.listingId == listingId
-                            select i
-                            ).ToList();
-
-                return list;
-            }
-        }
 
         public List<ImageVo> getRentalImages(bool? isActive = true)
         {
@@ -181,6 +167,20 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
+        // used to show given entity's images on Details and Edit pages
+        public List<ImageVo> getListingImages(Guid listingId)
+        {
+            using (var db = new MainDb())
+            {
+                var list = (from i in db.images
+                            join c in db.listingImages on i.imageId equals c.imageId
+                            where c.listingId == listingId
+                            select i
+                            ).ToList();
+
+                return list;
+            }
+        }
         // used to show given entity's images on Details and Edit pages
         public List<ImageVo> getRentalImages(Guid rentalId)
         {

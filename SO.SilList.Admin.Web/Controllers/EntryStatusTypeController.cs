@@ -40,11 +40,11 @@ namespace SO.SilList.Admin.Web.Controllers
         //[DontTrackVisit]
         //public ActionResult DropDownList(Guid? id = null,string propertyName = null,string defaultValue = null)
         //{
-        //    ViewBag.sites = approveEntriesManager.getAll(null);
+        //    ViewBag.sites = entryStatusTypeManager.getAll(null);
         //    //var site = new JobVo();
         //    //if (id != null)
         //    //{
-        //    //    job = approveEntriesManager.get(id.Value);
+        //    //    job = entryStatusTypeManager.get(id.Value);
         //    //}
         //    if (propertyName == null)
         //        propertyName = "siteId";
@@ -110,6 +110,7 @@ namespace SO.SilList.Admin.Web.Controllers
         }
         public ActionResult Decline(Guid id)
         {
+            var result = entryStatusTypeManager.get(id);
             entryStatusTypeManager.Decline(id);
             return RedirectToAction("Index");
         }

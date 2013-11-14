@@ -164,11 +164,11 @@
 
         <div class="control-group">
             <div class="control-label">
-                @Html.LabelFor(model => model.isApproved)
+                @Html.LabelFor(model => model.entryStatusType.name)
             </div>
             <div class="controls">
-                @Html.EditorFor(model => model.isApproved)
-                @Html.ValidationMessageFor(model => model.isApproved)
+                @*@Html.EditorFor(model => model.entryStatusType.name)*@
+                @*@Html.ValidationMessageFor(model => model.entryStatusType.name)*@
             </div>
         </div>
 

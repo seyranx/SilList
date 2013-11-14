@@ -17,8 +17,8 @@ namespace SO.SilList.Manager.Managers
     public class EntryStatusTypeManager
     {
         public const String csPending = "Pending";
-        public const String csApprove = "Approve";
-        public const String csDecline = "Decline";
+        public const String csApprove = "Approved";
+        public const String csDecline = "Declined";
 
         public Models.ValueObjects.JobVo get(Guid jobId)
         {
@@ -59,11 +59,11 @@ namespace SO.SilList.Manager.Managers
                     //.Include(i => i.cityType)
                     //.Include(o => o.countryType)
                     //.Include(u => u.stateType) 
-
+                    .Include(b => b.entryStatusType)
                             .OrderBy(b => b.title)
                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword)
-                                      && input.entryStatusType.Equals("Pending"))
+                                      && e.entryStatusType.name.Equals("Pending"))
                              );
                 input.paging.totalCount = query.Count();
                 List<JobVo> jobList = new List<JobVo>();
