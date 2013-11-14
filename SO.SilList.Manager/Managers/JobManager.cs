@@ -25,7 +25,8 @@ namespace SO.SilList.Manager.Managers
                             .Include(i => i.cityType)
                             .Include(o => o.countryType)
                             .Include(u => u.stateType) 
-
+                            .Include(c => c.jobCategories)
+                            
                             .FirstOrDefault(s => s.jobId == jobId);
                 return result;
             }
@@ -80,6 +81,7 @@ namespace SO.SilList.Manager.Managers
                             .Include(i => i.cityType)
                             .Include(o => o.countryType)
                             .Include(u => u.stateType)
+                            .Include(c => c.jobCategories)
                             .OrderByDescending(b => b.startDate)
                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                 && (input.jobTypeId == null || e.jobTypeId == input.jobTypeId)

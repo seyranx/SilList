@@ -184,7 +184,7 @@ namespace SO.SilList.Web.Controllers
             }
 
 
-            return View();
+            return View(input);
 
         }
         public ActionResult CollapseList(int? id = null, string propertyName = null, Type modelType = null)
