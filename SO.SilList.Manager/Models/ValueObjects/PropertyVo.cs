@@ -16,7 +16,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     [Serializable]
     public partial class PropertyVo
     {
-        [DisplayName("Property")]
+        [DisplayName("Property ID")]
     	[Key]
         public System.Guid propertyId { get; set; }
         
