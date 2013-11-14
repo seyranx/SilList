@@ -10,100 +10,162 @@
         margin-bottom: 2px;
     }
 </style>
+<script>
 
-<div class="row" style="margin: 5px;">
-    <div class="span8">
-        <h2 style="color: #090f4a; text-shadow: 5px 3px 2px #a3a3a4">@Html.DisplayFor(model => model.title)</h2>
-    </div>
-    <div class="span4" style="text-align: center;">
-        <h3>@Html.DisplayFor(model => model.companyName)</h3>
-    </div>
-</div>
+    function sendEmailToFriend() {
+        if ($("#emailToMe").val() == "me") {
+        }
+        if ($("#friendEmail").val() != null) {
+            @Html.Action("SendEmial")
+        }
+    }
 
-<div class="span8" data-toggle="tooltip" data-placement="bottom" title="@Html.DisplayFor(model => model.jobType.description)"><b>Job Type: </b>@Html.DisplayFor(model => model.jobType.name)</div>
-<div class="span1"><a href="http://@Html.DisplayFor(model => model.website)" target="_blank">@Html.DisplayFor(model => model.website)</a></div>
-
-
-<div class="row" style="height: 460px; margin: 5px;">
-
-    <div class="span8" style="border: inset; border-color: #808080; height: 400px; border-radius: 6px; margin-bottom: 5px">
-        <b style="font-size: medium; font-style: italic; margin: 10px; padding: 10px; border-bottom: 1px solid #ccc;">Job Description</b>
-        <div style="margin: 10px;">
-            <p style="text-align: justify">
-                @Html.DisplayFor(model => model.description)
-            </p>
+    function print() {
+        window.frames["print_frame"].document.body.innerHTML = document.getElementById('jobDetail').innerHTML
+        window.frames["print_frame"].window.focus()
+        window.frames["print_frame"].window.print()
+        return true;
+    }
+</script>
+<div id="jobDetail">
+    <div class="row" style="margin: 5px;">
+        <div class="span8">
+            <h2 style="color: #090f4a; text-shadow: 5px 3px 2px #a3a3a4">@Html.DisplayFor(model => model.title)</h2>
+        </div>
+        <div class="span4" style="text-align: center;">
+            <h3>@Html.DisplayFor(model => model.companyName)</h3>
         </div>
     </div>
 
-    <div class="span4" style="border: inset; border-color: #808080; height: 400px; border-radius: 6px; margin-bottom: 5px; padding: 5px">
-        <b style="font-size: medium; font-style: italic; margin: 10px; padding: 10px; border-bottom: 1px solid #ccc;">Contact</b>
-        <div style="margin-top: 10px">
-            <div class="info">
-                <b>Contact Name:</b><br />
-                @Html.DisplayFor(model => model.contactName)
-            </div>
-            <div class="info">
-                <b>Location:</b><br />
-                @Html.DisplayFor(model => model.address)
-            </div>
-            <div class="info">
-                @Html.DisplayFor(model => model.cityType.name)
-                @if (Model.cityType != null)
-                { <b>,</b>}
-                @Html.DisplayFor(model => model.stateType.stateCode)
+    <div class="span8" data-toggle="tooltip" data-placement="bottom" title="@Html.DisplayFor(model => model.jobType.description)"><b>Job Type: </b>@Html.DisplayFor(model => model.jobType.name)</div>
+    <div class="span1"><a href="http://@Html.DisplayFor(model => model.website)" target="_blank">@Html.DisplayFor(model => model.website)</a></div>
 
-                <div>
-                    <b>Zip Code:</b>
-                    @Html.DisplayFor(model => model.zip)
+
+    <div class="row" style="height: 460px; margin: 5px;">
+
+        <div class="span8" style="border: inset; border-color: #808080; height: 400px; border-radius: 6px; margin-bottom: 5px">
+            <b style="font-size: medium; font-style: italic; margin: 10px; padding: 10px; border-bottom: 1px solid #ccc;">Job Description</b>
+            <div style="margin: 10px;">
+                <p style="text-align: justify">
+                    @Html.DisplayFor(model => model.description)
+                </p>
+            </div>
+        </div>
+
+        <div class="span4" style="border: inset; border-color: #808080; height: 400px; border-radius: 6px; margin-bottom: 5px; padding: 5px">
+            <b style="font-size: medium; font-style: italic; margin: 10px; padding: 10px; border-bottom: 1px solid #ccc;">Contact</b>
+            <div style="margin-top: 10px">
+                <div class="info">
+                    <b>Contact Name:</b><br />
+                    @Html.DisplayFor(model => model.contactName)
+                </div>
+                <div class="info">
+                    <b>Location:</b><br />
+                    @Html.DisplayFor(model => model.address)
+                </div>
+                <div class="info">
+                    @Html.DisplayFor(model => model.cityType.name)
+                    @if (Model.cityType != null)
+                    { <b>,</b>}
+                    @Html.DisplayFor(model => model.stateType.stateCode)
+
+                    <div>
+                        <b>Zip Code:</b>
+                        @Html.DisplayFor(model => model.zip)
+                    </div>
+                </div>
+
+                <div class="info">
+                    <b>Phone:</b>
+                    @Html.DisplayFor(model => model.phone)
+                </div>
+                <div class="info">
+                    <b>Fax:</b>
+                    @Html.DisplayFor(model => model.fax)
+                </div>
+                <div class="info">
+                    <b>Telecomute:</b>
+                    @{
+                        if (Model.isTelecomute)
+                        {
+                        <span>Yes</span>
+                        }
+                        else
+                        {
+                        <span>No</span>
+                        }
+                    }
+                </div>
+                <div class="info">
+                    <b>Travel Required:</b>
+                    @{
+                        if (Model.isTravelRequired)
+                        {
+                        <span>Yes</span>
+                        }
+                        else
+                        {
+                        <span>No</span>
+                        }
+                    }
+                </div>
+                <div class="info">
+                    <b>Listing For:</b>
+                    @((DateTime.Now - Model.startDate).Days) Day(s)
                 </div>
             </div>
-
-            <div class="info">
-                <b>Phone:</b>
-                @Html.DisplayFor(model => model.phone)
-            </div>
-            <div class="info">
-                <b>Fax:</b>
-                @Html.DisplayFor(model => model.fax)
-            </div>
-            <div class="info">
-                <b>Telecomute:</b>
-                @{
-                    if (Model.isTelecomute)
-                    {
-                    <span>Yes</span>
-                    }
-                    else
-                    {
-                    <span>No</span>
-                    }
-                }
-            </div>
-            <div class="info">
-                <b>Travel Required:</b>
-                @{
-                    if (Model.isTravelRequired)
-                    {
-                    <span>Yes</span>
-                    }
-                    else
-                    {
-                    <span>No</span>
-                    }
-                }
-            </div>
-            <div class="info">
-                <b>Listing For:</b>
-                @((DateTime.Now - Model.startDate).Days) Day(s)
-            </div>
+        </div>
+        <div class="span12" style="border: inset; border-color: #808080; height: 55px; border-radius: 6px; padding: 10px; margin-left: -1px">
+            <a href="@Url.Action("Index")" class="btn btn-info " >Back</a>
+            <a href="#apply" role="link" data-toggle="modal" class="btn btn-primary pull-right" style="margin-left: 10px">Apply</a>
+            <a onclick="print();" class="btn btn-warning pull-right" style="margin-left: 10px">Print</a>
+            <a href="#emailto" role="link" data-toggle="modal" class="btn  pull-right">E-Mail to</a>
         </div>
     </div>
-    <div class="span12" style="border: inset; border-color: #808080; height: 55px; border-radius: 6px; padding: 10px; margin-left: -1px">
-        <input type="button" value="Back" class="btn btn-info " onclick="history.go(-1); return true;">
-        <a href="#" class="btn btn-primary pull-right" style="margin-left: 10px">Apply</a>
-        <a href="#" class="btn btn-warning pull-right" style="margin-left: 10px">Print</a>
-        <a href="#" class="btn  pull-right">E-Mail to</a>
+
+
+</div>
+
+<iframe name="print_frame" width="0" height="0" frameborder="0" seamless src="about:blank"></iframe>
+
+<!-- Modal  to send email-->
+<div id="emailto" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel" style="color: black;">E-Mail to</h3>
+    </div>
+
+    <div class=" modal-body form-horizontal">
+        <div style="margin-left:78px;margin-bottom:10px">
+            <input type="checkbox" id="emailToMe" value="me" style="margin-top: -2px"><b> Send to yourself : </b>
+            <input type="email" readonly />
+        </div>
+        <div style="margin-left:100px;margin-bottom:10px">
+            <b>Send to a friend : </b>
+            <input id="friendEmail" type="email" />
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn-primary btn-lg" aria-hidden="true" onclick="sendEmailToFriend()">Send</button>
     </div>
 </div>
 
+<!-- Modal  to apply -->
+<div id="apply" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel2" style="color: black;">Apply to "@Model.title"</h3>
+    </div>
 
+    <div class="modal-body">
+        <br />
+
+
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn btn-primary btn-lg" aria-hidden="true">Apply</button>
+    </div>
+</div>

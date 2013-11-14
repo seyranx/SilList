@@ -101,21 +101,21 @@ namespace SO.SilList.Admin.Web.Controllers
         {
             return PartialView("_Pagination", input);
         }
-        public ActionResult DropDownList(int? id = null, string propertyName = null, string defaultValue = null)
+
+        public ActionResult DropDownList(List<int> id = null, string propertyName = null)
         {
             ViewBag.bodies = jobCategoryTypeManager.getAll(null);
             var body = new JobCategoryTypeVo();
             if (id != null)
             {
-                body = jobCategoryTypeManager.get(id.Value);
+                ViewBag.jobCategoryTypeIds = id;
             }
+            
             if (propertyName == null)
                 propertyName = "jobCategoryTypeId";
             ViewBag.propertyName = propertyName;
-            if (defaultValue == null)
-                defaultValue = "Select One";
-            ViewBag.defaultValue = defaultValue;
-            return PartialView("_DropDownList", body);
+
+            return PartialView("_DropDownList");
         }
     }
 }
