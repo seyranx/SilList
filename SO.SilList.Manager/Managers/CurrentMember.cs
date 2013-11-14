@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Security;
 
-namespace SO.EventCave.Manager.Managers
+namespace SO.SilList.Manager.Managers
 {
     public class CurrentMember
     {
@@ -34,7 +34,8 @@ namespace SO.EventCave.Manager.Managers
             get
             {
                 try
-                { 
+                {
+                   
                     return HttpContext.Current.User.Identity;
                 }
                 catch 
