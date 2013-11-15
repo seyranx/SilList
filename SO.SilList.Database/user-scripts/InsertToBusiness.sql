@@ -1,7 +1,7 @@
 USE [SilList]
 GO
 
-DELETE FROM [data].[Job]
+DELETE FROM [data].[Business]
 GO
 
 DECLARE @date_now date
@@ -10,25 +10,56 @@ SET @date_now = GETDATE()
 -- Create new site and remember the id
 INSERT INTO [app].[Site]
            ([name] ,[domain] ,[description] ,[logo] ,[logoUrl] ,[created] ,[modified] ,[createdBy] ,[modifiedBy] ,[isActive])
-     VALUES (N'new_site' ,N'domain for new site',N'descr', '', '', @date_now, @date_now, NULL ,NULL ,1)
+     VALUES (N'new_site business' ,N'domain for new site',N'descr business', N'', N'', @date_now, @date_now, NULL ,NULL ,1)
 GO
+
 DECLARE @newly_added_site_id integer
 SET @newly_added_site_id = @@IDENTITY
 
 -- Insert some job listings
-INSERT INTO [data].[Job] ([jobId], [siteId], [title], [description], [jobTypeId], [address], [cityTypeId], [stateTypeId], [countryTypeId], [zip], [phone], [fax], [isTravelRequired], [isTelecomute], [jobCompanyId], [entryStatusTypeId], [startDate], [endDate], [created], [modified], [createdBy], [modifiedBy], [isActive]) 
-	VALUES (N'2e50d2a9-1af0-404b-a4b1-4861d681a68c', @newly_added_site_id, N'a', N'aa', NULL, N'aaa', NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, 1, N'0001-01-01', N'0001-01-01', N'2013-10-27', N'2013-10-27 12:36:34', NULL, NULL, 1)
-INSERT INTO [data].[Job] ([jobId], [siteId], [title], [description], [jobTypeId], [address], [cityTypeId], [stateTypeId], [countryTypeId], [zip], [phone], [fax], [isTravelRequired], [isTelecomute], [jobCompanyId], [entryStatusTypeId], [startDate], [endDate], [created], [modified], [createdBy], [modifiedBy], [isActive])
-	VALUES (NEWID(), @newly_added_site_id, N'b', N'bb', NULL, N'bbb', NULL, NULL, NULL, 2, NULL, NULL, 1, 1, NULL, 1, N'0001-01-01', N'0001-01-01', N'2013-10-30', N'2013-10-30 21:15:12', NULL, NULL, 1)
-INSERT INTO [data].[Job] ([jobId], [siteId], [title], [description], [jobTypeId], [address], [cityTypeId], [stateTypeId], [countryTypeId], [zip], [phone], [fax], [isTravelRequired], [isTelecomute], [jobCompanyId], [entryStatusTypeId], [startDate], [endDate], [created], [modified], [createdBy], [modifiedBy], [isActive])
-	VALUES (NEWID(), @newly_added_site_id, N'c', N'cc', NULL, N'ccc', NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, 1, N'0001-01-01', N'0001-01-01', N'2013-10-27', N'2013-10-27 12:36:34', NULL, NULL, 1)
-INSERT INTO [data].[Job] ([jobId], [siteId], [title], [description], [jobTypeId], [address], [cityTypeId], [stateTypeId], [countryTypeId], [zip], [phone], [fax], [isTravelRequired], [isTelecomute], [jobCompanyId], [entryStatusTypeId], [startDate], [endDate], [created], [modified], [createdBy], [modifiedBy], [isActive])
-	VALUES (NEWID(), @newly_added_site_id, N'd', N'dd', NULL, N'ddd', NULL, NULL, NULL, 2, NULL, NULL, 1, 1, NULL, 1, N'0001-01-01', N'0001-01-01', N'2013-10-30', N'2013-10-30 21:15:12', NULL, NULL, 1)
-INSERT INTO [data].[Job] ([jobId], [siteId], [title], [description], [jobTypeId], [address], [cityTypeId], [stateTypeId], [countryTypeId], [zip], [phone], [fax], [isTravelRequired], [isTelecomute], [jobCompanyId], [entryStatusTypeId], [startDate], [endDate], [created], [modified], [createdBy], [modifiedBy], [isActive])
-	VALUES (NEWID(), @newly_added_site_id, N'e', N'ee', NULL, N'eee', NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, 1, N'0001-01-01', N'0001-01-01', N'2013-10-27', N'2013-10-27 12:36:34', NULL, NULL, 1)
-INSERT INTO [data].[Job] ([jobId], [siteId], [title], [description], [jobTypeId], [address], [cityTypeId], [stateTypeId], [countryTypeId], [zip], [phone], [fax], [isTravelRequired], [isTelecomute], [jobCompanyId], [entryStatusTypeId], [startDate], [endDate], [created], [modified], [createdBy], [modifiedBy], [isActive])
-	VALUES (NEWID(), @newly_added_site_id, N'f', N'ff', NULL, N'fff', NULL, NULL, NULL, 2, NULL, NULL, 1, 1, NULL, 1, N'0001-01-01', N'0001-01-01', N'2013-10-30', N'2013-10-30 21:15:12', NULL, NULL, 1)
-INSERT INTO [data].[Job] ([jobId], [siteId], [title], [description], [jobTypeId], [address], [cityTypeId], [stateTypeId], [countryTypeId], [zip], [phone], [fax], [isTravelRequired], [isTelecomute], [jobCompanyId], [entryStatusTypeId], [startDate], [endDate], [created], [modified], [createdBy], [modifiedBy], [isActive])
-	VALUES (NEWID(), @newly_added_site_id, N'g', N'gg', NULL, N'ggg', NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, 1, N'0001-01-01', N'0001-01-01', N'2013-10-27', N'2013-10-27 12:36:34', NULL, NULL, 1)
-INSERT INTO [data].[Job] ([jobId], [siteId], [title], [description], [jobTypeId], [address], [cityTypeId], [stateTypeId], [countryTypeId], [zip], [phone], [fax], [isTravelRequired], [isTelecomute], [jobCompanyId], [entryStatusTypeId], [startDate], [endDate], [created], [modified], [createdBy], [modifiedBy], [isActive])
-	VALUES (NEWID(), @newly_added_site_id, N'h', N'hh', NULL, N'hhh', NULL, NULL, NULL, 2, NULL, NULL, 1, 1, NULL, 1, N'0001-01-01', N'0001-01-01', N'2013-10-30', N'2013-10-30 21:15:12', NULL, NULL, 1)
+DECLARE @date_now date
+SET @date_now = GETDATE()
+declare @date_ends date
+set @date_ends = getdate() + 100
+
+INSERT INTO [data].[Business] 
+		([businessId], [siteId], [name], [address], [cityTypeId], [stateTypeId], [countryTypeId], 
+		[zip], [phone], [fax], [startDate], [endDate], 
+		[entryStatusTypeId], [createdBy], 
+		[modifiedBy], [modified], [created], [isActive], [url]) 
+VALUES (NEWID(), @newly_added_site_id, N'business 1', N'zzz 1 str', NULL, NULL, NULL, 
+		91111, N'', NULL, @date_now, @date_ends, 
+		1, NULL, 
+		NULL, @date_now, @date_now, 1, N'zzz.c0m')
+
+INSERT INTO [data].[Business] 
+		([businessId] , [siteId], 
+		[name], [address], 
+		[phone], [startDate], [endDate], 
+		[entryStatusTypeId],  
+		 [url]) 
+VALUES ( NEWID(), @newly_added_site_id, 
+		N'business 2', N'zzz 2 str', N'5555555555',  @date_now, @date_ends, 
+		1, N'zzz.c0m 2')
+
+INSERT INTO [data].[Business] 
+		([businessId] , [siteId], 
+		[name], [address], 
+		[phone], [startDate], [endDate], 
+		[entryStatusTypeId],  
+		 [url]) 
+VALUES ( NEWID(), @newly_added_site_id, 
+		N'business 3', N'zzz 3 str', N'5555555555',  @date_now, @date_ends, 
+		1, N'zzz.c0m 3')
+	
+INSERT INTO [data].[Business] 
+		([businessId] , [siteId], 
+		[name], [address], 
+		[phone], [startDate], [endDate], 
+		[entryStatusTypeId],  
+		 [url]) 
+VALUES ( NEWID(), @newly_added_site_id, 
+		N'business 4', N'zzz 4 str', N'5555555555',  @date_now, @date_ends, 
+		1, N'zzz.c0m 4')
+		
+GO
