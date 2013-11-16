@@ -34,7 +34,7 @@
         <div class="editor-field">
             @Html.Action("DropDownList", "PropertyType", new { id = Model.propertyTypeId })
         </div>
-
+        <br />
         <div class="editor-label">
             @Html.LabelFor(model => model.siteId)
         </div>
@@ -42,7 +42,7 @@
             @Html.Action("DropDownList", "Site", new { id = Model.siteId })
             <a href="@Url.Action("Index", "Site", new { backUrl = @Url.RouteUrl(ViewContext.RouteData.Values), backName = @ViewContext.RouteData.Values["controller"].ToString() })" class="btn">Sites</a>
         </div>
-
+        <br />
         <div class="editor-label">
             @Html.LabelFor(model => model.bedrooms)
         </div>
@@ -73,7 +73,7 @@
         <div class="editor-field">
             @Html.Action("DropDownList", "PropertyListingType", new { id = Model.propertyListingTypeId })
         </div>
-
+        <br />
         <div class="editor-label">
             @Html.LabelFor(model => model.size)
         </div>
@@ -89,13 +89,14 @@
             @Html.EditorFor(model => model.acceptsSection8)
             @Html.ValidationMessageFor(model => model.acceptsSection8)
         </div>
-
+        <br />
         <div class="editor-label">
             @Html.LabelFor(model => model.statusTypeId)
         </div>
         <div class="editor-field">
             @Html.Action("DropDownList", "PropertyType", new { id = Model.propertyTypeId })
         </div>
+        <br />
         <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.address)
@@ -112,6 +113,7 @@
                 @Html.Action("DropDownList", "CityType", new { id = Model.cityTypeId })
             </div>
         </div>
+        <br />
          <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.stateTypeId)
@@ -120,7 +122,8 @@
                 @Html.Action("DropDownList", "StateType", new { id = Model.stateTypeId })
             </div>
         </div>
-                <div class="control-group">
+        <br />
+        <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.countryTypeId)
             </div>
@@ -128,7 +131,8 @@
                 @Html.Action("DropDownList", "CountryType", new { id = Model.countryTypeId })
             </div>
         </div>
-                <div class="control-group">
+        <br />
+        <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.zip)
             </div>
@@ -137,7 +141,7 @@
                 @Html.ValidationMessageFor(model => model.zip)
             </div>
         </div>
-                    <div class="control-group">
+        <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.phone)
             </div>
@@ -145,7 +149,7 @@
                 @Html.EditorFor(model => model.phone)
             </div>
         </div>
-                    <div class="control-group">
+        <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.fax)
             </div>
@@ -176,7 +180,7 @@
             @Html.EditorFor(model => model.isActive)
             @Html.ValidationMessageFor(model => model.isActive)
         </div>
-
+        <br />
         <p>
             <input type="submit" value="Create" />
         </p>

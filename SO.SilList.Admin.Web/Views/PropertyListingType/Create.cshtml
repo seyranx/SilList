@@ -5,10 +5,6 @@
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 }
 
-@*<script src="~/Scripts/jquery-1.7.1.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>*@
-
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
@@ -39,7 +35,7 @@
             @Html.EditorFor(model => model.isActive)
             @Html.ValidationMessageFor(model => model.isActive)
         </div>
-
+        <br />
         <p>
             <input type="submit" value="Create" />
         </p>

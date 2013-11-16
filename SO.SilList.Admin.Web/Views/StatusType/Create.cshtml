@@ -11,7 +11,7 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>StatusTypeVo</legend>
+        <legend></legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.name)
@@ -36,7 +36,7 @@
             @Html.EditorFor(model => model.isActive)
             @Html.ValidationMessageFor(model => model.isActive)
         </div>
-
+        <br />
         <p>
             <input type="submit" value="Create" />
         </p>

@@ -84,14 +84,6 @@
 
         <div class="control-group">
             <div class="control-label">
-                 @Html.DisplayNameFor(model => model.acceptsSection8)
-            </div>
-            <div class="controls">
-                <input type="text" value="@Html.DisplayFor(model => model.acceptsSection8)" readonly="true">
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="control-label">
                  @Html.DisplayNameFor(model => model.statusTypeId)
             </div>
             <div class="controls">
@@ -170,8 +162,6 @@
             </div>
         </div>
 
-
-
     <div class="control-group">
         <label class="control-label">@Html.DisplayNameFor(model => model.modified)</label>
         <div class="controls">
@@ -203,18 +193,22 @@
     <div class="control-group">
         <label class="control-label">@Html.DisplayNameFor(model => model.endDate)</label>
         <div class="controls">
-            <input type="text"  value="@String.Format("{0:MM/dd/yyy}", Model.endDate)" readonly="true">
-           
+            <input type="text"  value="@String.Format("{0:MM/dd/yyy}", Model.endDate)" readonly="true">    
         </div>
     </div>
 
+    <div class="control-group">
+        <label class="control-label"> @Html.DisplayNameFor(model => model.acceptsSection8)</label>
+        <div class="controls">
+            @Html.DisplayFor(model => model.acceptsSection8)
+        </div>
+    </div>
     <div class="control-group">
         <label class="control-label"> @Html.DisplayNameFor(model => model.isApproved)</label>
         <div class="controls">
             @Html.DisplayFor(model => model.isApproved)
         </div>
     </div>
-
     <div class="control-group">
         <label class="control-label"> @Html.DisplayNameFor(model => model.isActive)</label>
         <div class="controls">
@@ -222,48 +216,6 @@
         </div>
     </div> 
 
-
-
-
-
-        <div class="control-group">
-            <div class="display-label">
-                 @Html.DisplayNameFor(model => model.modifiedBy)
-            </div>
-            <div class="display-field">
-                <input type="text" value="@Html.DisplayFor(model => model.modifiedBy)" readonly="true">
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="display-label">
-                 @Html.DisplayNameFor(model => model.modified)
-            </div>
-            <div class="display-field">
-                <input type="text" value="@Html.DisplayFor(model => model.modified)" readonly="true">
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="display-label">
-                 @Html.DisplayNameFor(model => model.createdBy)
-            </div>
-            <div class="display-field">
-                <input type="text" value="@Html.DisplayFor(model => model.createdBy)" readonly="true">
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="display-label">
-                 @Html.DisplayNameFor(model => model.created)
-            </div>
-            <div class="display-field">
-                <input type="text" value="@Html.DisplayFor(model => model.created)" readonly="true">
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label"> @Html.DisplayNameFor(model => model.isApproved)</label>
-            <div class="controls">
-                @Html.DisplayFor(model => model.isApproved)
-            </div>
-        </div>
 </fieldset>
 <p>
       <a href="@Url.Action("Edit", new { id=Model.propertyId })" class="btn">Edit</a>

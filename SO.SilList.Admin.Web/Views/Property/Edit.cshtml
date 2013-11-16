@@ -13,7 +13,7 @@
     @Html.ValidationSummary(true)
 
     <fieldset class="form-horizontal">
-        <legend>PropertyVo</legend>
+        <legend></legend>
 
         @Html.HiddenFor(model => model.property.propertyId)
 
@@ -234,7 +234,7 @@
             @* end of Rental images stuff *@
 
             <p>
-                <input type="submit" value="Save" />
+                <input type="submit" class="btn" value="Save" />
                 <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
             </p>
     </fieldset>
