@@ -5,13 +5,14 @@
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 }
 
+<h2>@ViewBag.Title</h2>
 
 @using (Html.BeginForm("Create", "Property", FormMethod.Post, new { @encType = "multipart/form-data", id = "myForm" }))
 {
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>PropertyVo</legend>
+        <legend></legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.title)
