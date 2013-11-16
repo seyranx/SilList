@@ -230,6 +230,7 @@
     <None Include="user-scripts\InsertToJobs.sql" />
     <None Include="appData\AppDataImport.sql" />
     <None Include="user-scripts\InitEntryStatusType.sql" />
+    <None Include="user-scripts\InsertToBusiness.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />
