@@ -14,13 +14,13 @@ using SO.SilList.Manager.Classes;
 
 namespace SO.SilList.Manager.Managers
 {
-    public class EntryStatusTypeManager
+    public class EntryStatusTypeManager<T>
     {
         public const String csPending = "Pending";
         public const String csApprove = "Approved";
         public const String csDecline = "Declined";
 
-        public Models.ValueObjects.JobVo get(Guid jobId)
+        public T get(Guid jobId)
         {
             using (var db = new MainDb())
             {

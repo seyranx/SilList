@@ -13,6 +13,7 @@ namespace SO.SilList.Admin.Web.Controllers
     public class JobController : Controller
     {
         private JobManager jobManager = new JobManager();
+        private EntryStatusTypeManager<JobVo> entryStatusTypeManager = new EntryStatusTypeManager<JobVo>();
         //
         // GET: /Rentals/
 
@@ -92,6 +93,58 @@ namespace SO.SilList.Admin.Web.Controllers
         public ActionResult Pagination(Paging input)
         {
             return PartialView("_Pagination", input);
+        }
+
+
+
+
+        public ActionResult EntryStatusIndex(EntryStatusTypeVm<JobVo> input = null, Paging paging = null)
+        {
+            if (input == null)
+                input = new EntryStatusTypeVm<JobVo>();
+            input.paging = paging;
+            if (this.ModelState.IsValid)
+            {
+                if (input.submitButton != null)
+                    input.paging.pageNumber = 1;
+                input = entryStatusTypeManager.search(input);
+                return View(input);
+            }
+            return View();
+        }
+        public ActionResult _EntryStatusList()
+        {
+            var results = entryStatusTypeManager.getAll(null);
+            return PartialView(results);
+            //return PartialView("_List", results);
+        }
+        public ActionResult EntryStatusPagination(Paging input)
+        {
+            return PartialView("_Pagination", input);
+        }
+        public ActionResult _List()
+        {
+            var results = entryStatusTypeManager.getAll(null);
+            return PartialView(results);
+            //return PartialView("_List", results);
+        }
+        public ActionResult EntryStatusFilter(EntryStatusTypeVm<JobVo> input)
+        {
+            return PartialView("_Filter", input);
+        }
+
+
+        public ActionResult EntryStatusApprove(Guid id)
+        {
+            var result = entryStatusTypeManager.get(id);
+            entryStatusTypeManager.Approve(id);
+            return RedirectToAction("Index");
+        }
+        public ActionResult EntryStatusDecline(Guid id)
+        {
+            var result = entryStatusTypeManager.get(id);
+            entryStatusTypeManager.Decline(id);
+            return RedirectToAction("Index");
         }
     }
 }
