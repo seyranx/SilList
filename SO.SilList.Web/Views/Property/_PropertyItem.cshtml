@@ -1,4 +1,47 @@
-﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.PropertyVo>
+﻿@model SO.SilList.Manager.Models.ValueObjects.PropertyVo
+@{
+    ViewBag.Title = "_PropertyItem";
+}
+
+<div class="span12 businessInfo">
+    <a class="pull-left" href="@Url.Action("Detail", new { id = Model.propertyId })">
+        <img class="media-object, thumbnail" data-src="holder.js/60x60">
+    </a>
+    <div class="media-body" style="padding: 5px;">
+        <div class="pull-right" style="font-size: medium; color: #13033e">$@Model.price</div>
+        <a href="@Url.Action("Detail", new { id = Model.propertyId })">
+            <h5 class="media-heading">@Html.DisplayFor(modelItem => Model.size) @Html.DisplayFor(modelItem => Model.propertyType.name) @Html.DisplayFor(modelItem => Model.propertyListingType.name)</h5>
+        </a>
+        <div>
+            <div class="businessAddressLine">Lot Size: @Model.lotSize</div>
+
+        </div>
+        <div class="businessAddressLine">
+            Location: <a href="/">@Html.DisplayFor(model => model.cityType.name)
+                @if (Model.cityType != null)
+                { <b>,</b>}
+                @Html.DisplayFor(model => model.stateType.stateCode)</a>
+        </div>
+
+        <div style="margin-left: 70%; margin-top: -20px;">
+            Address
+            <div class="businessAddressLine">@Model.address</div>
+            <div class="businessAddressLine">@Html.DisplayFor(model => model.cityType.name)
+                @if (Model.cityType != null)
+                { <b>,</b>}
+                @Html.DisplayFor(model => model.stateType.stateCode) @Model.zip
+            </div>
+            
+
+        </div>
+    </div>
+
+    <div style="margin-top: 10px; min-height: 10px; margin-bottom: 5px;">@Model.description</div>
+
+</div>
+
+@*
+@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.PropertyVo>
 
 @foreach (var item in Model) {
     
@@ -28,4 +71,5 @@
     <hr />
     
 </div>
-}   
+}  
+*@ 

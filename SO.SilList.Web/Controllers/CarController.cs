@@ -159,7 +159,7 @@ namespace SO.SilList.Web.Controllers
             // Images
             ImageManager imageManager = new ImageManager();
            // ViewBag.Images = imageManager.getCarImages(id);
-            ViewBag.ImagesURL = imageManager.getCarImagesUrl(id);
+            ViewBag.ImagesURL = imageManager.getPropertyImagesUrl(id);
             return View(result);
         }
         public ActionResult Create()

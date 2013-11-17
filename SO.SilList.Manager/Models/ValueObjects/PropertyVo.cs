@@ -53,7 +53,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public int? size { get; set; }
 
         [DisplayName("Lot Size")]
-        public int? lotsize { get; set; }
+        public int? lotSize { get; set; }
 
         [DisplayName("Section8")]
         public bool? acceptsSection8 { get; set; }

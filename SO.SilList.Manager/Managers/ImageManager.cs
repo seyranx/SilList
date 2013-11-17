@@ -213,7 +213,23 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-
+        public List<string> getPropertyImagesUrl(Guid propertyId)
+        {
+            List<string> list = new List<string>();
+            using (var db = new MainDb())
+            {
+                var imglist = (from i in db.images
+                               join c in db.propertyImages on i.imageId equals c.imageId
+                               where c.propertyId == propertyId
+                               select i
+                            ).ToList();
+                foreach (var img in imglist)
+                {
+                    list.Add(img.url);
+                }
+                return list;
+            }
+        }
 
         public List<ImageVo> getBusinessImages(bool? isActive = true)
         {
