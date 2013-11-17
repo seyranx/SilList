@@ -1,0 +1,104 @@
+﻿@model SO.SilList.Manager.Models.ViewModels.EmailVm
+
+@using (Html.BeginForm("SendEmail", "Email", FormMethod.Post, new { @encType = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.sender)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.sender)
+            @Html.ValidationMessageFor(model => model.sender)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.sendTo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.sendTo)
+            @Html.ValidationMessageFor(model => model.sendTo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.cc)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.cc)
+            @Html.ValidationMessageFor(model => model.cc)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.subject)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.subject)
+            @Html.ValidationMessageFor(model => model.subject)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.header)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.header)
+            @Html.ValidationMessageFor(model => model.header)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.body)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.body)
+            @Html.ValidationMessageFor(model => model.body)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.footer)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.footer)
+            @Html.ValidationMessageFor(model => model.footer)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.attachment)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.attachment)
+            @Html.ValidationMessageFor(model => model.attachment)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.confirmation)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.confirmation)
+            @Html.ValidationMessageFor(model => model.confirmation)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.thankYouNote)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.thankYouNote)
+            @Html.ValidationMessageFor(model => model.thankYouNote)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.redirectTo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.redirectTo)
+            @Html.ValidationMessageFor(model => model.redirectTo)
+        </div>
+
+        <p>
+            <input type="submit" value="SendEmail" />
+        </p>
+    </fieldset>
+}
+

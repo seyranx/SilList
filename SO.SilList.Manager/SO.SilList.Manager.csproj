@@ -118,6 +118,7 @@
     <Compile Include="Managers\CarFuelTypeManager.cs" />
     <Compile Include="Managers\CarDriveTypeManager.cs" />
     <Compile Include="Managers\CarDoorTypeManager.cs" />
+    <Compile Include="Managers\EmailManager.cs" />
     <Compile Include="Managers\StateTypeManager.cs" />
     <Compile Include="Managers\CountryTypeManager.cs" />
     <Compile Include="Managers\CurrentMember.cs" />
@@ -207,6 +208,7 @@
     <Compile Include="Models\ViewModels\AdminVm.cs" />
     <Compile Include="Models\ViewModels\CityTypeVm.cs" />
     <Compile Include="Models\ViewModels\CarColorTypeVm.cs" />
+    <Compile Include="Models\ViewModels\EmailVm.cs" />
     <Compile Include="Models\ViewModels\Member\MemberLoginVm.cs" />
     <Compile Include="Models\ViewModels\Member\MemberManageVm.cs" />
     <Compile Include="Models\ViewModels\Member\MemberRegisterVm.cs" />

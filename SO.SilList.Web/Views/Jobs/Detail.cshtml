@@ -12,22 +12,31 @@
     }
 </style>
 <script>
-
-    function sendEmailToFriend() {
-        if ($("#emailToMe").val() == "me") {
-        }
-        if ($("#friendEmail").val() != null) {
-
-        }
+    function share()
+    {
+        window.location.href = '@Url.Action("ShareLink","Email")' + "?shareEmail=" + $('#friendEmail').val() + "&toMyself=" + document.getElementById("emailToMe").checked + "&link=@Request.Url.AbsoluteUri";
+        return true;
     }
-
     function print() {
         window.frames["print_frame"].document.body.innerHTML = document.getElementById('jobDetail').innerHTML
         window.frames["print_frame"].window.focus()
         window.frames["print_frame"].window.print()
+        
         return true;
     }
 </script>
+@{
+if(ViewBag.applied == true)
+{
+<div>
+    <p style="border:solid; border-radius:3px; background-color:#739bfc">
+        Thank you for applying for this position.
+        <br />
+        Your Application has been sent succefsuly.
+    </p>
+</div>
+}
+}
 <div id="jobDetail">
     <div class="row" style="margin: 5px;">
         <div class="span8">
@@ -120,7 +129,7 @@
             <a href="@Url.Action("Index")" class="btn btn-info " >Back</a>
             <a href="#apply" role="link" data-toggle="modal" class="btn btn-primary pull-right" style="margin-left: 10px">Apply</a>
             <a onclick="print();" class="btn btn-warning pull-right" style="margin-left: 10px">Print</a>
-            <a href="#emailto" role="link" data-toggle="modal" class="btn  pull-right">E-Mail to</a>
+            <a href="#emailto" role="link" data-toggle="modal" class="btn  pull-right">Share</a>
         </div>
     </div>
 
@@ -133,22 +142,28 @@
 <div id="emailto" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel" style="color: black;">E-Mail to</h3>
+        <h3 id="myModalLabel" style="color: black;">Share</h3>
     </div>
 
     <div class=" modal-body form-horizontal">
-        <div style="margin-left:78px;margin-bottom:10px">
-            <input type="checkbox" id="emailToMe" value="me" style="margin-top: -2px"><b> Send to yourself : </b>
-            <input type="email" value="@CurrentMember.member.email" readonly />
+        <div style="margin-left: 78px; margin-bottom: 10px">
+            @{
+                if(ViewBag.logedin){
+                <input type="checkbox" id="emailToMe" value="me" style="margin-top: -2px"><b> Send to yourself : </b>
+           
+                <input type="email" value="@CurrentMember.member.email" readonly />
+            }
+            }
         </div>
-        <div style="margin-left:100px;margin-bottom:10px">
+        <div style="margin-left: 100px; margin-bottom: 10px">
             <b>Send to a friend : </b>
-            <input id="friendEmail" type="email" />
+            <input id="friendEmail" type="email" value=""/>
         </div>
     </div>
     <div class="modal-footer">
         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-        <button class="btn-primary btn-lg" aria-hidden="true" onclick="sendEmailToFriend()">Send</button>
+         
+        <button class="btn-primary btn-lg" aria-hidden="true" onclick="share()">Share</button>
     </div>
 </div>
 
@@ -160,13 +175,13 @@
     </div>
 
     <div class="modal-body">
-        <br />
 
 
+        @Html.Action("applyToJob", "Email", new { jobId = Model.jobId})
 
     </div>
     <div class="modal-footer">
         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-        <button class="btn btn-primary btn-lg" aria-hidden="true">Apply</button>
+        <button onclick="$('#applyForm').submit();" value="applyToJob" type="submit" class="btn btn-primary btn-lg" aria-hidden="true">Apply</button>
     </div>
 </div>
