@@ -138,6 +138,7 @@
     <Compile Include="Controllers\CarController.cs" />
     <Compile Include="Controllers\ConfigurationController.cs" />
     <Compile Include="Controllers\CityController.cs" />
+    <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LinkedController.cs" />
@@ -360,6 +361,8 @@
     <Content Include="Views\Jobs\Create.cshtml" />
     <Content Include="Views\Jobs\_CategoryTypeDropDownList.cshtml" />
     <Content Include="Views\Jobs\Edit.cshtml" />
+    <Content Include="Views\Email\SendEmail.cshtml" />
+    <Content Include="Views\Email\applyToJob.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

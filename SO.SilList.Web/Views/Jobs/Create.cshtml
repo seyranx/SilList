@@ -1,5 +1,7 @@
 ﻿@model SO.SilList.Manager.Models.ValueObjects.JobVo
 @using SO.SilList.Manager.Models.ValueObjects
+@using SO.SilList.Manager.Managers
+
 @{
     ViewBag.Title = "Submit Job Listing";
     Layout = "~/Views/Shared/_LayoutJob.cshtml";
@@ -105,8 +107,8 @@
             </div>
         </div>
         <div class="span12" style="border: inset; border-color: #808080; height: 55px; border-radius: 6px; padding: 10px; margin-left: -1px">
-            <b>Primary Email:</b>
-            <b>Alternate Email:</b>@Html.TextBoxFor(model => model.email)
+            <b>Primary Email:</b><input type="email" readonly style="width:160px" value="@CurrentMember.member.email" />
+            <b style="margin-left:30px">Alternate Email:</b>@Html.TextBoxFor(model => model.email)
         </div>
         <div class="span12" style="margin-top: 5px; border: inset; border-color: #808080; height: 55px; border-radius: 6px; padding: 10px; margin-left: -1px">
             <a type="button"  class="btn btn-info " href="@Url.Action("Index")">Cancel</a>
