@@ -1,0 +1,21 @@
+﻿@model SO.SilList.Manager.Models.ViewModels.PropertyVm
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutProperty.cshtml";
+}
+
+<h2>Properties</h2>
+
+<ul class="media-list" >
+
+
+
+  <li class="row, media" style="border-bottom:1px solid #ccc;" >
+   
+     @Html.Partial("_PropertyItem", Model.result)
+
+  </li>
+     
+ 
+</ul>

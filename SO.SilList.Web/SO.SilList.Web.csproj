@@ -146,7 +146,7 @@
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\ListingsController.cs" />
     <Compile Include="Controllers\ListingTypeController.cs" />
-    <Compile Include="Controllers\RentalController.cs" />
+    <Compile Include="Controllers\PropertyController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -312,7 +312,7 @@
     <Content Include="Views\Shared\_LayoutBusiness.cshtml" />
     <Content Include="Views\Business\Index.cshtml" />
     <Content Include="Views\Jobs\Index.cshtml" />
-    <Content Include="Views\Shared\_LayoutRental.cshtml" />
+    <Content Include="Views\Shared\_LayoutProperty.cshtml" />
     <Content Include="Views\Linked\ShowNew.cshtml" />
     <Content Include="Views\Business\_BusinessItem.cshtml">
       <SubType>Code</SubType>
@@ -334,10 +334,10 @@
     <Content Include="Views\Listings\_Details.cshtml" />
     <Content Include="Views\Shared\_LayoutDetail.cshtml" />
     <Content Include="Views\Business\_Filter.cshtml" />
-    <Content Include="Views\Rental\Index.cshtml" />
-    <Content Include="Views\Rental\_RentalItem.cshtml" />
-    <Content Include="Views\Rental\_Filter.cshtml" />
-    <Content Include="Views\Rental\_Menu.cshtml" />
+    <Content Include="Views\Property\Index.cshtml" />
+    <Content Include="Views\Property\_PropertyItem.cshtml" />
+    <Content Include="Views\Property\_Filter.cshtml" />
+    <Content Include="Views\Property\_Menu.cshtml" />
     <Content Include="Views\Business\Categories.cshtml" />
     <Content Include="Views\Shared\_LayoutCar.cshtml" />
     <Content Include="Views\ListingCategoryType\getTopCategories.cshtml" />

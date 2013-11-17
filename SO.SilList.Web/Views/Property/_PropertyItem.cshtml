@@ -1,9 +1,9 @@
-﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.RentalVo>
+﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.PropertyVo>
 
 @foreach (var item in Model) {
     
 
-<div class="span12 businessInfo" id="mainContent" style="background-color:lavender">
+<div class="span12 businessInfo" id="mainContent">
       <a class="pull-left" href="#" >
       <img class="media-object, thumbnail" data-src="holder.js/60x60">
     </a>
@@ -13,7 +13,7 @@
          </a>
 
           <div class="businessAddressLine">Category: Renting</div> 
-          <div class="businessAddressLine">Type: @Html.DisplayFor(modelItem => item.rentType.name) </div>
+          <div class="businessAddressLine">Type: @Html.DisplayFor(modelItem => item.propertyType.name) </div>
           <div class="businessAddressLine">Price: @Html.DisplayFor(modelItem => item.price) </div>  
         
         <div style="margin-left:70%; margin-top:-40px; ">

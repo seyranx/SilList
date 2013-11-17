@@ -5,107 +5,120 @@
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 }
 
-<h2>Edit</h2>
+<h2>@ViewBag.Title</h2>
 
 @using (Html.BeginForm("Edit", "Property", FormMethod.Post, new { @encType = "multipart/form-data", id = "myForm" }))
 {
     
     @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>PropertyVo</legend>
+    <fieldset class="form-horizontal">
+        <legend></legend>
 
         @Html.HiddenFor(model => model.property.propertyId)
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.property.title)
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.property.propertyId)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.property.propertyId)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.property.title)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.property.title)
+            </div>
+        </div>
+         <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.property.description)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.property.description)
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.property.propertyTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "PropertyType", new { id = Model.property.propertyTypeId , propertyName = "property.propertyTypeId"})
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.property.siteId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "Site", new { id = Model.property.siteId })
+                <a href="@Url.Action("Index", "Site", new { backUrl = @Url.RouteUrl(ViewContext.RouteData.Values), backName = @ViewContext.RouteData.Values["controller"].ToString() })" class="btn">Sites</a>
+            </div>
+        </div>
+         <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.property.bedrooms)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.property.bedrooms)
+            </div>
+        </div>
+         <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.property.bathrooms)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.property.bathrooms)
+            </div>
+        </div>
+         <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.property.price)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.property.price)
+            </div>
+        </div>
+         <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.property.propertyListingTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "PropertyListingType",new {id = Model.property.propertyListingTypeId, propertyName = "property.propertyListingTypeId"})
+            </div>
+        </div>
+         <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.property.size)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.property.size)
+            </div>
+        </div>
+         <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.property.acceptsSection8)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.property.acceptsSection8)
+            </div>
         </div>
 
-        <div class="editor-field">
-            @Html.EditorFor(model => model.property.title)
-            @Html.ValidationMessageFor(model => model.property.title)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.property.description)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.property.description)
-            @Html.ValidationMessageFor(model => model.property.description)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.property.propertyTypeId)
-        </div>
-        <div class="editor-field">
-         @Html.Action("DropDownList", "PropertyType", new { id = Model.property.propertyTypeId, propertyName = "property.propertyTypeId" })
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.property.siteId)
-        </div>
-        <div class="editor-field">
-            @Html.Action("DropDownList", "Site", new { id = Model.property.siteId })
-            <a href="@Url.Action("Index", "Site", new { backUrl = @Url.RouteUrl(ViewContext.RouteData.Values), backName = @ViewContext.RouteData.Values["controller"].ToString() })" class="btn">Sites</a>
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.property.bedrooms)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.property.bedrooms)
-            @Html.ValidationMessageFor(model => model.property.bedrooms)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.property.bathrooms)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.property.bathrooms)
-            @Html.ValidationMessageFor(model => model.property.bathrooms)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.property.price)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.property.price)
-            @Html.ValidationMessageFor(model => model.property.price)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.property.propertyListingTypeId)
-        </div>
-        <div class="editor-field">
-            @Html.Action("DropDownList", "PropertyListingType",new {id = Model.property.propertyListingTypeId, propertyName = "property.propertyListingTypeId"})
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.property.size)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.property.size)
-            @Html.ValidationMessageFor(model => model.property.size)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.property.acceptsSection8)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.property.acceptsSection8)
-            @Html.ValidationMessageFor(model => model.property.acceptsSection8)
-        </div>
-
+        @*
         <div class="editor-label">
             @Html.LabelFor(model => model.property.statusTypeId)
         </div>
         <div class="editor-field">
            @Html.Action("DropDownList", "StatusType", new { id = Model.property.statusTypeId, propertyName = "property.statusTypeId" })
-
         </div>
+        *@
+
          <div class="control-group">
             <div class="control-label">
-                @Html.LabelFor(model => model.property.address)
+                @Html.DisplayNameFor(model => model.property.address)
             </div>
             <div class="controls">
                 @Html.EditorFor(model => model.property.address)
@@ -127,7 +140,7 @@
                 @Html.Action("DropDownList", "StateType", new { id = Model.property.stateTypeId, propertyName = "listing.stateTypeId" })
             </div>
         </div>
-                <div class="control-group">
+        <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.property.countryTypeId)
             </div>
@@ -135,7 +148,7 @@
                 @Html.Action("DropDownList", "CountryType", new { id = Model.property.countryTypeId, propertyName = "listing.countryTypeId" })
             </div>
         </div>
-                <div class="control-group">
+        <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.property.zip)
             </div>
@@ -144,44 +157,59 @@
                 @Html.ValidationMessageFor(model => model.property.zip)
             </div>
         </div>
-                        <div class="control-group">
+        <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.property.phone)
             </div>
             <div class="controls">
                 @Html.EditorFor(model => model.property.phone)
+                @Html.ValidationMessageFor(model => model.property.zip)
             </div>
         </div>
-                                <div class="control-group">
+        <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.property.fax)
             </div>
             <div class="controls">
                 @Html.EditorFor(model => model.property.fax)
+                @Html.ValidationMessageFor(model => model.property.zip)
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.property.startDate)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.property.startDate)
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.property.endDate)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.property.endDate)
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.property.isApproved)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.property.isApproved)
+                @Html.ValidationMessageFor(model => model.property.isApproved)
             </div>
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.property.startDate)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.property.startDate)
-            @Html.ValidationMessageFor(model => model.property.startDate)
-        </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.property.endDate)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.property.endDate)
-            @Html.ValidationMessageFor(model => model.property.endDate)
-            <div class="editor-label">
+        <div class="control-group">
+            <div class="control-label">
                 @Html.LabelFor(model => model.property.isActive)
             </div>
-            <div class="editor-field">
+            <div class="controls">
                 @Html.EditorFor(model => model.property.isActive)
                 @Html.ValidationMessageFor(model => model.property.isActive)
             </div>
-
+        </div>
 
             @* Rental image stuff below *@
             @{
@@ -206,11 +234,8 @@
             @* end of Rental images stuff *@
 
             <p>
-                <input type="submit" value="Save" />
+                <input type="submit" class="btn" value="Save" />
+                <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
             </p>
     </fieldset>
 }
-
-<div>
-    <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
-</div>

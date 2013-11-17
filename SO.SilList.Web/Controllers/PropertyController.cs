@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace SO.SilList.Web.Controllers
 {
-    public class RentalController : Controller
+    public class PropertyController : Controller
     {
         //
         // GET: /Rentals/

@@ -85,7 +85,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Menu()
         {
-            return PartialView("../Rental/_Menu");
+            return PartialView("../Property/_Menu");
         }
 
         public ActionResult Delete(int id)
