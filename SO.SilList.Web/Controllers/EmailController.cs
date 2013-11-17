@@ -35,7 +35,11 @@ namespace SO.SilList.Web.Controllers
             EmailVm email = new EmailVm();
             JobVo job = jobManager.get(jobId);
             email.sendTo = job.email;
-            MemberVo submitedBy = memberManager.get((int)job.createdBy);
+            MemberVo submitedBy = null;
+
+            if(job.createdBy != null)
+                submitedBy = memberManager.get((int)job.createdBy);
+            
             if (submitedBy != null)
             {
                 email.sendTo = submitedBy.email;
