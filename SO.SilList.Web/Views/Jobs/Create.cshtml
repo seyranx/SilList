@@ -36,9 +36,9 @@
 @using (Html.BeginForm("Create", "Jobs", FormMethod.Post, new { @encType = "multipart/form-data" }))
 {
     <div class="span12">
-        <span style="background-color:#fb7070; border-radius:6px; padding:5px">@Html.ValidationMessageFor(model => model.title)</span>
-        <span style="background-color:#fb7070; border-radius:6px; padding:5px">@Html.ValidationMessageFor(model => model.companyName)</span>
-        <span style="background-color:#fb7070; border-radius:6px; padding:5px">@Html.ValidationMessageFor(model => model.cityTypeId)</span>
+      
+            @Html.ValidationSummary()
+      
     </div>
     <div class="row" style="margin: 5px;">
         <div class="span12" style="margin-left: 45px">

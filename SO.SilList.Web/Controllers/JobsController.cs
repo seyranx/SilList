@@ -60,16 +60,20 @@ namespace SO.SilList.Web.Controllers
             
             if (this.ModelState.IsValid)
             {
-                JobCategoriesVo categoryVo = new JobCategoriesVo();
-                var item = jobManager.insert(input);
-                foreach (int categoryId in input.jobCategoryType)
-                {
-                    categoryVo.jobId = input.jobId;
-                    categoryVo.jobCategoryTypeId = categoryId;
-                    categoryVo.isActive = true;
+                 var item = jobManager.insert(input);
 
-                    jobCategoriesManager.insert(categoryVo);
-                    categoryVo = new JobCategoriesVo();
+                if (input.jobCategoryType != null)
+                {
+                    foreach (int categoryId in input.jobCategoryType)
+                    {
+                        var categoryVo = new JobCategoriesVo();
+                        categoryVo.jobId = input.jobId;
+                        categoryVo.jobCategoryTypeId = categoryId;
+                        categoryVo.isActive = true;
+
+                        jobCategoriesManager.insert(categoryVo);
+                       
+                    }
                 }
 
 
@@ -151,6 +155,7 @@ namespace SO.SilList.Web.Controllers
                 ViewBag.titleName = "Job Categories";
             }
             return PartialView("_CollapseList");
+ 
         }
 
         public ActionResult DropDownList(int? id = null, string propertyName = null, Type modelType = null, string defaultValue = null)
