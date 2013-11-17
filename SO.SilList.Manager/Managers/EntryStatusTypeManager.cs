@@ -20,7 +20,11 @@ namespace SO.SilList.Manager.Managers
         public const String csApprove = "Approved";
         public const String csDecline = "Declined";
 
-        public T get(Guid jobId)
+        //public T get<T>(Guid jobId)
+        //{
+        //   return default(T);
+        //}
+        public JobVo get(Guid jobId)
         {
             using (var db = new MainDb())
             {
@@ -47,7 +51,7 @@ namespace SO.SilList.Manager.Managers
                 return result;
             }
         }
-        public EntryStatusTypeVm search(EntryStatusTypeVm input)
+        public EntryStatusTypeVm<JobVo> search(EntryStatusTypeVm<JobVo> input)
         {
 
             using (var db = new MainDb())

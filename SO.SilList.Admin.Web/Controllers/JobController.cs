@@ -96,7 +96,7 @@ namespace SO.SilList.Admin.Web.Controllers
         }
 
 
-
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         public ActionResult EntryStatusIndex(EntryStatusTypeVm<JobVo> input = null, Paging paging = null)
         {
@@ -116,21 +116,15 @@ namespace SO.SilList.Admin.Web.Controllers
         {
             var results = entryStatusTypeManager.getAll(null);
             return PartialView(results);
-            //return PartialView("_List", results);
+            //return PartialView("_EntryStatusList", results);
         }
         public ActionResult EntryStatusPagination(Paging input)
         {
             return PartialView("_Pagination", input);
         }
-        public ActionResult _List()
+        public ActionResult EntryStatusFilter(EntryStatusTypeVm<SO.SilList.Manager.Models.ValueObjects.JobVo> input)
         {
-            var results = entryStatusTypeManager.getAll(null);
-            return PartialView(results);
-            //return PartialView("_List", results);
-        }
-        public ActionResult EntryStatusFilter(EntryStatusTypeVm<JobVo> input)
-        {
-            return PartialView("_Filter", input);
+            return PartialView("_EntryStatusFilter", input);
         }
 
 
@@ -138,13 +132,13 @@ namespace SO.SilList.Admin.Web.Controllers
         {
             var result = entryStatusTypeManager.get(id);
             entryStatusTypeManager.Approve(id);
-            return RedirectToAction("Index");
+            return RedirectToAction("EntryStatusIndex");
         }
         public ActionResult EntryStatusDecline(Guid id)
         {
             var result = entryStatusTypeManager.get(id);
             entryStatusTypeManager.Decline(id);
-            return RedirectToAction("Index");
+            return RedirectToAction("EntryStatusIndex");
         }
     }
 }
