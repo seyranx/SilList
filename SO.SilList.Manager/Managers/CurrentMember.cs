@@ -25,7 +25,7 @@ namespace SO.SilList.Manager.Managers
             MemberVo user = memberManager.getByUsernameAndPassword(username, password);
             if (user == null)
                 return false;
-
+            
             return true;
         }
 

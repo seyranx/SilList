@@ -44,9 +44,14 @@ namespace SO.SilList.Web.Controllers
         {
             return PartialView("_Filter", input);
         }
-        public ActionResult Detail(Guid id)
+        public ActionResult Detail(Guid id, bool applyied = false)
         {
+            
+            ViewBag.applied = applyied;
+            ViewBag.logedin = false;
             var result = jobManager.get(id);
+            if (CurrentMember.isAuthenticated)
+                ViewBag.logedin = true;
             return View(result);
         }
         public ActionResult Create()
@@ -180,12 +185,6 @@ namespace SO.SilList.Web.Controllers
             }
             
             return PartialView("_DropDownList");
-        }
-
-        public void SendEmial(string email,string name,string message)
-        {
-            EmailManager emailManager = new EmailManager();
-            emailManager.sendMail(email, "vazricv@silverobject.com", name, message);
         }
 
     }

@@ -1,0 +1,27 @@
+﻿@model SO.SilList.Manager.Models.ViewModels.EmailVm
+
+@using (Html.BeginForm("applyToJob","Email",FormMethod.Post,new{id="applyForm"})) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+        @Html.HiddenFor(model => model.sender)
+        @Html.HiddenFor(model => model.sendTo)
+        @Html.HiddenFor(model => model.cc)
+        @Html.HiddenFor(model => model.subject)
+        @Html.HiddenFor(model => model.header)
+        @Html.HiddenFor(model => model.confirmation)
+        @Html.HiddenFor(model => model.thankYouNote)
+        @Html.HiddenFor(model => model.redirectTo)
+
+        <div> <b>Cover Letter</b></div>
+        <div class="span12">
+        @Html.TextAreaFor(model => model.body, new { rows=12, style="width:490px"})
+        </div>
+        <div> <b>Resume</b></div>
+        <div class="span12" >
+        <input type="file" style="width:500px" id="attachment" name="attachment" value="@Model.attachment" />
+        </div>
+    </fieldset>
+}

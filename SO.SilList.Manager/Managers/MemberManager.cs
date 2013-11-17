@@ -62,6 +62,9 @@ namespace SO.SilList.Manager.Managers
                 {
                     mem = db.members
                             .Include(s => s.site)
+                            .Include(i => i.cityType)
+                            .Include(o => o.countryType)
+                            .Include(u => u.stateType) 
                             .FirstOrDefault(p => (p.email == username || p.username == username) && p.password == password);
                 }
                 catch (Exception ex)
@@ -79,6 +82,9 @@ namespace SO.SilList.Manager.Managers
             {
                 var mem = db.members
                             .Include(s => s.site)
+                            .Include(i => i.cityType)
+                            .Include(o => o.countryType)
+                            .Include(u => u.stateType) 
                             .FirstOrDefault(p => p.email == usernameOrEmail || p.username == usernameOrEmail);
 
                 return mem;
