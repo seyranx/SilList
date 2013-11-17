@@ -12,9 +12,6 @@ namespace SO.SilList.Admin.Web.Controllers
 {
     public class PropertyTypeController : Controller
     {
-        //
-        // GET: /PropertyType/
-
 
         private PropertyTypeManager propertyTypeManager = new PropertyTypeManager();
 
@@ -88,23 +85,28 @@ namespace SO.SilList.Admin.Web.Controllers
             return RedirectToAction("index");
         }
 
-        public ActionResult DropDownList(int? id = null, string propertyName = null)
+        public ActionResult DropDownList(int? id = null, string propertyName = null, string defaultValue = null)
         {
-            ViewBag.propertyType = propertyTypeManager.getAll(null);
+            ViewBag.propertyTypes = propertyTypeManager.getAll(null);
             var propertyType = new PropertyTypeVo();
             if (id != null)
             {
                 propertyType = propertyTypeManager.get(id.Value);
             }
             if (propertyName == null)
-                propertyName = "modelTypeId";
+                propertyName = "propertyTypeId";
             ViewBag.propertyName = propertyName;
+            if (defaultValue == null)
+                defaultValue = "Select One";
+            ViewBag.defaultValue = defaultValue;
             return PartialView("_DropDownList", propertyType);
         }
+
         public ActionResult Filter(PropertyTypeVm Input)
         {
             return PartialView("_Filter", Input);
         }
+
         public ActionResult Pagination(Paging input)
         {
             return PartialView("_Pagination", input);

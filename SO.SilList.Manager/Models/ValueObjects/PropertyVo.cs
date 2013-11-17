@@ -49,8 +49,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Price")]
         public decimal? price { get; set; }
 
-        [DisplayName("Lot Size")]
+        [DisplayName("Size")]
         public int? size { get; set; }
+
+        [DisplayName("Lot Size")]
+        public int? lotsize { get; set; }
 
         [DisplayName("Section8")]
         public bool? acceptsSection8 { get; set; }
