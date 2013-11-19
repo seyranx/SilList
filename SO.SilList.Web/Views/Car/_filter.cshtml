@@ -26,9 +26,8 @@
     @Html.HiddenFor(model => model.paging.pageNumber)
 
     <label>Keyword:</label>
-    <input type="text" style="width: 90%;">
-
-
+    @Html.TextBoxFor(model => model.keyword, new { style="width:90%"})
+    
     <label>City, State or Zip:</label>
     <input type="text" style="width: 90%;">
 
@@ -44,7 +43,7 @@
         @Html.HiddenFor(model => model.inColorTypeId)
         @Html.HiddenFor(model => model.transmissionTypeId)
         @Html.HiddenFor(model => model.fuelTypeId)
-        @Html.HiddenFor(model => model.listigDate)
+        @Html.HiddenFor(model => model.listingDate)
         <div class="accordion-group">
             <div class="accordion-heading">
                 <span class="accordion-toggle title" data-toggle="collapse" href="#collapseMake">Make</span>
@@ -254,26 +253,30 @@
                             string[] list = { "Any Date", "Last 1 Day", "Last 3 Days", "Last 7 Days", "Last 2 Weeks", "Last Month", "Last 2 Months" };
                             for (int i = 0; i < 7; i++)
                             {
-                                if (Model.listigDate == null)
+                                if (Model.listingDate == null)
                                 {
                                     if (i == 0)
                                     {
-                            <li style="background-color: blue;"><a href="#" onclick="selectAction(null,'listigDate');">@list[i] </a></li>
+                                        <li style="background-color: blue;"><a href="#" onclick="selectAction(null,'listingDate');">@list[i] </a></li>
                                     }
                                     else
                                     {
-                            <li><a href="#" onclick="selectAction(null,'listigDate');">@list[i] </a></li>
+                                        <li><a href="#" onclick="selectAction(@(i - 1),'listingDate');">@list[i] </a></li>
                                     }
                                 }
                                 else
                                 {
-                                    if (i - 1 == Model.listigDate)
+                                    if (i - 1 == Model.listingDate)
                                     {
-                            <li style="background-color: blue;"><a href="#"  onclick="selectAction(@(i - 1),'listigDate');">@list[i] </a></li>
+                                        
+                                        <li style="background-color: blue;"><a href="#"  onclick="selectAction(@(i - 1),'listingDate');">@list[i] </a></li>
                                     }
                                     else
                                     {
-                            <li><a href="#"  onclick="selectAction(@(i - 1),'listigDate');">@list[i] </a></li>
+                                        if (i == 0)
+                                        {<li><a href="#"  onclick="selectAction(null,'listingDate');">@list[i] </a></li>}
+                                        else
+                                        {<li><a href="#"  onclick="selectAction(@(i - 1),'listingDate');">@list[i] </a></li>}
                                     }
                                 }
                             }

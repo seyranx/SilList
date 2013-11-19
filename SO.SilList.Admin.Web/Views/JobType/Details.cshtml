@@ -7,59 +7,73 @@
 
 <h2>Details</h2>
 
-<fieldset>
+<fieldset class="form-horizontal">
     <legend>JobTypeVo</legend>
 
-    <div class="display-label">
+    <div class="control-group">
+            <div class="control-label">
          @Html.DisplayNameFor(model => model.name)
     </div>
-    <div class="display-field">
+    <div class="controls">
         @Html.DisplayFor(model => model.name)
     </div>
+        </div>
 
-    <div class="display-label">
+   <div class="control-group">
+            <div class="control-label">
          @Html.DisplayNameFor(model => model.description)
     </div>
-    <div class="display-field">
+    <div class="controls">
         @Html.DisplayFor(model => model.description)
     </div>
+       </div>
 
-    <div class="display-label">
+    <div class="control-group">
+            <div class="control-label">
          @Html.DisplayNameFor(model => model.created)
     </div>
-    <div class="display-field">
+    <div class="controls">
         @Html.DisplayFor(model => model.created)
     </div>
+        </div>
 
-    <div class="display-label">
+    <div class="control-group">
+            <div class="control-label">
          @Html.DisplayNameFor(model => model.modified)
     </div>
-    <div class="display-field">
+    <div class="controls">
         @Html.DisplayFor(model => model.modified)
     </div>
+        </div>
 
-    <div class="display-label">
+    <div class="control-group">
+            <div class="control-label">
          @Html.DisplayNameFor(model => model.createdBy)
     </div>
-    <div class="display-field">
+    <div class="controls">
         @Html.DisplayFor(model => model.createdBy)
     </div>
+        </div>
 
-    <div class="display-label">
+    <div class="control-group">
+            <div class="control-label">
          @Html.DisplayNameFor(model => model.modifiedBy)
     </div>
-    <div class="display-field">
+    <div class="controls">
         @Html.DisplayFor(model => model.modifiedBy)
     </div>
+        </div>
 
-    <div class="display-label">
+    <div class="control-group">
+            <div class="control-label">
          @Html.DisplayNameFor(model => model.isActive)
     </div>
-    <div class="display-field">
+    <div class="controls">
         @Html.DisplayFor(model => model.isActive)
     </div>
-</fieldset>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.jobTypeId }) |
-    @Html.ActionLink("Back to List", "Index")
+        </div>
+             <p class="controls">
+    <a href="@Url.Action("Edit", new { id=Model.jobTypeId })" class="btn">Edit</a>
+    <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
 </p>
+</fieldset>

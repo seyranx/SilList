@@ -4,6 +4,12 @@
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 }
+        <script>
+            window.onload = function () {
+                var n = @Html.Raw(Json.Encode(Model.jobCategoryType))
+                $("#jobCategoryType").val(n).select2();
+            };
+        </script>
 
 <h2>Edit</h2>
 @* todo: don't need image (multipart/form-data) upload for Jobs *@
@@ -25,35 +31,60 @@
                 <a href="@Url.Action("Index", "Site", new { backUrl = @Url.RouteUrl(ViewContext.RouteData.Values), backName = @ViewContext.RouteData.Values["controller"].ToString() })" class="btn">Sites</a>
             </div>
         </div>
- <div class="control-group">
-            <div class="control-label">
-            @Html.LabelFor(model => model.title)
-            </div>
-            <div class="controls">
-            @Html.EditorFor(model => model.title)
-            @Html.ValidationMessageFor(model => model.title)
-        </div>        
-        </div>
         <div class="control-group">
             <div class="control-label">
-            @Html.LabelFor(model => model.description)
+                @Html.LabelFor(model => model.title)
             </div>
             <div class="controls">
-            @Html.EditorFor(model => model.description)
-            @Html.ValidationMessageFor(model => model.description)
-        </div>
+                @Html.EditorFor(model => model.title)
+                @Html.ValidationMessageFor(model => model.title)
+            </div>
         </div>
 
         <div class="control-group">
             <div class="control-label">
-            @Html.LabelFor(model => model.jobTypeId)
+                @Html.LabelFor(model => model.jobCategoryType)
             </div>
             <div class="controls">
-            @Html.Action("DropDownList", "JobType", new { id = Model.jobTypeId })
+                @Html.Action("DropDownList", "JobCategoryType", new { id = Model.jobCategoryType, propertyName = "jobCategoryType" })
             </div>
         </div>
 
-       <div class="control-group">
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.description)
+            </div>
+            <div class="controls">
+                @Html.TextAreaFor(model => model.description, new { rows = 10 })
+                @Html.ValidationMessageFor(model => model.description)
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.jobTypeId)
+            </div>
+            <div class="controls">
+                @Html.Action("DropDownList", "JobType", new { id = Model.jobTypeId })
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.companyName)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.companyName)
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.contactName)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.contactName)
+            </div>
+        </div>
+        <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.address)
             </div>
@@ -69,7 +100,7 @@
                 @Html.Action("DropDownList", "CityType", new { id = Model.cityTypeId })
             </div>
         </div>
-         <div class="control-group">
+        <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.stateTypeId)
             </div>
@@ -77,7 +108,7 @@
                 @Html.Action("DropDownList", "StateType", new { id = Model.stateTypeId })
             </div>
         </div>
-                <div class="control-group">
+        <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.countryTypeId)
             </div>
@@ -85,7 +116,7 @@
                 @Html.Action("DropDownList", "CountryType", new { id = Model.countryTypeId })
             </div>
         </div>
-                <div class="control-group">
+        <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.zip)
             </div>
@@ -94,7 +125,23 @@
                 @Html.ValidationMessageFor(model => model.zip)
             </div>
         </div>
-                        <div class="control-group">
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.email)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.email)
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.website)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.website)
+            </div>
+        </div>
+        <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.phone)
             </div>
@@ -102,7 +149,7 @@
                 @Html.EditorFor(model => model.phone)
             </div>
         </div>
-                                <div class="control-group">
+        <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.fax)
             </div>
@@ -113,31 +160,21 @@
 
         <div class="control-group">
             <div class="control-label">
-            @Html.LabelFor(model => model.isTravelRequired)
-        </div>
+                @Html.LabelFor(model => model.isTravelRequired)
+            </div>
             <div class="controls">
-            @Html.EditorFor(model => model.isTravelRequired)
-            @Html.ValidationMessageFor(model => model.isTravelRequired)
+                @Html.EditorFor(model => model.isTravelRequired)
+                @Html.ValidationMessageFor(model => model.isTravelRequired)
             </div>
         </div>
 
         <div class="control-group">
             <div class="control-label">
-            @Html.LabelFor(model => model.isTelecomute)
-        </div>
-            <div class="controls">
-            @Html.EditorFor(model => model.isTelecomute)
-            @Html.ValidationMessageFor(model => model.isTelecomute)
+                @Html.LabelFor(model => model.isTelecomute)
             </div>
-        </div>
-
-        <div class="control-group">
-            <div class="control-label">
-            @Html.LabelFor(model => model.jobCompanyId)
-        </div>
             <div class="controls">
-            @Html.EditorFor(model => model.jobCompanyId)
-            @Html.ValidationMessageFor(model => model.jobCompanyId)
+                @Html.EditorFor(model => model.isTelecomute)
+                @Html.ValidationMessageFor(model => model.isTelecomute)
             </div>
         </div>
 
@@ -172,7 +209,7 @@
             </div>
         </div>
 
-           <p>
+        <p class="controls">
             <input type="submit" value="Save" />
             <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
         </p>

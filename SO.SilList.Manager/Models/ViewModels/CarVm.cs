@@ -50,10 +50,10 @@ namespace SO.SilList.Manager.Models.ViewModels
         public int? endingPrice { get; set; }
         public int? startingMillage {get; set; }
         public int? endingMillage { get; set; }
-        public string cityTypeId { get; set; }
-        public string stateTypeId { get; set; }
+        public int? cityTypeId { get; set; }
+        public int? stateTypeId { get; set; }
         public int? zip { get; set; }
-        public int? listigDate { get; set; }
+        public int? listingDate { get; set; }
         //*****
         public string submitButton { get; set; }
         public Paging paging;

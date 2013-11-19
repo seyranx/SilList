@@ -21,7 +21,7 @@
 
           <div class="businessAddressLine">Category: 
               
-              
+@*              
               @{
                   int count = 1;
               foreach (var category in Model.businessCategories)
@@ -34,14 +34,14 @@
                    count++;
               }
               }
-
+*@
 
           </div> 
-          <div class="businessAddressLine">Location: <a href="/">@Html.DisplayFor(model => model.city), @Html.DisplayFor(model => model.state)</a> </div>  
+          <div class="businessAddressLine">Location: <a href="/">@Html.DisplayFor(model => model.cityType), @Html.DisplayFor(model => model.stateType)</a> </div>  
         
         <div style="margin-left:70%; margin-top:-40px; ">
           <div class="businessAddressLine">@Html.DisplayFor(model => model.address)</div>
-          <div class="businessAddressLine">@Html.DisplayFor(model => model.city), @Html.DisplayFor(model => model.state) @Html.DisplayFor(model => model.zip)</div> 
+          <div class="businessAddressLine">@Html.DisplayFor(model => model.cityType), @Html.DisplayFor(model => model.stateType) @Html.DisplayFor(model => model.zip)</div> 
           <div class="businessAddressLine">Ph: @Html.DisplayFor(model => model.phone)</div>  
           <div class="businessAddressLine"><a href="/">Website: @Html.DisplayFor(model => model.url)</a></div>  
         </div>

@@ -121,12 +121,12 @@ namespace SO.SilList.Manager.Managers
 
                //
                var deleteSiteReferences_InRental =
-                    from x in db.rental
+                    from x in db.properties
                     where x.siteId == siteId
                     select x;
                foreach (var x in deleteSiteReferences_InRental)
                {
-                  db.rental.Remove(x);
+                  db.properties.Remove(x);
                }
 
                //

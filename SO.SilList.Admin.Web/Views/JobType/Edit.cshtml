@@ -7,44 +7,48 @@
 
 <h2>Edit</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("Edit", "JobType", FormMethod.Post, new { @encType = "multipart/form-data", id = "myForm" })) {
     @Html.ValidationSummary(true)
 
-    <fieldset>
+    <fieldset class="form-horizontal">
         <legend>JobTypeVo</legend>
 
         @Html.HiddenFor(model => model.jobTypeId)
 
-        <div class="editor-label">
+        <div class="control-group">
+            <div class="control-label">
             @Html.LabelFor(model => model.name)
         </div>
-        <div class="editor-field">
+        <div class="controls">
             @Html.EditorFor(model => model.name)
             @Html.ValidationMessageFor(model => model.name)
         </div>
+            </div>
 
-        <div class="editor-label">
+       <div class="control-group">
+            <div class="control-label">
             @Html.LabelFor(model => model.description)
         </div>
-        <div class="editor-field">
+        <div class="controls">
             @Html.EditorFor(model => model.description)
             @Html.ValidationMessageFor(model => model.description)
         </div>
+           </div>
 
-        <div class="editor-label">
+        <div class="control-group">
+            <div class="control-label">
             @Html.LabelFor(model => model.isActive)
         </div>
-        <div class="editor-field">
+        <div class="controls">
             @Html.EditorFor(model => model.isActive)
             @Html.ValidationMessageFor(model => model.isActive)
         </div>
+            </div>
 
-        <p>
+        <p class="controls">
             <input type="submit" value="Save" />
+            <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
         </p>
     </fieldset>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

@@ -34,6 +34,20 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
+        public JobCategoriesVo get(int jobCategoryTypeId,Guid jobId)
+        {
+            using (var db = new MainDb())
+            {
+                var res = db.jobCategories
+                            .Include(j => j.job)
+                            .Include(s => s.jobCategoryType)
+                            .FirstOrDefault(e => (e.jobCategoryTypeId == jobCategoryTypeId) && (e.jobId == jobId));
+
+                return res;
+            }
+        }
+
+
         public JobCategoriesVm search(JobCategoriesVm input)
         {
 

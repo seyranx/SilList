@@ -1,0 +1,118 @@
+﻿@model SO.SilList.Manager.Models.ViewModels.JobVm
+@using SO.SilList.Manager.Models.ValueObjects
+
+<style>
+    #detailSearch input {
+        width: 144px;
+        margin: 1px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+    }
+
+    #detailSearch select {
+        width: 158px;
+        margin: 1px;
+        margin-top: 5px;
+        border-radius: 5px;
+    }
+
+    .title {
+        margin: -5px;
+    }
+</style>
+<form id="filterForm">
+
+    @Html.HiddenFor(model => model.paging.pageNumber)
+
+    <label>Keyword:</label>
+     @Html.TextBoxFor(model => model.keyword, new { style="width:90%"})
+
+
+    <label>City, State or Zip:</label>
+    <input type="text" style="width: 90%;">
+
+    <div style="height: 40px;">
+        <button type="submit" class="btn btn-success pull-right">Search</button>
+    </div>
+
+    <div id="detailSearch">
+       @Html.HiddenFor(model => model.jobCategoryId)
+        @Html.HiddenFor(model => model.jobTypeId)
+        @Html.HiddenFor(model => model.listingDate)
+        
+       <div class="accordion-group">
+            <div class="accordion-heading">
+                <span class="accordion-toggle title" data-toggle="collapse" href="#collapseCategory">Categories</span>
+            </div>
+            <div id="collapseCategory" class="accordion-body collapse">
+                <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                    @Html.Action("CollapseList", "jobs", new { id = Model.jobCategoryId, propertyName = "jobCategoryId", modelType = typeof(JobCategoryTypeVo) })
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <span class="accordion-toggle title" data-toggle="collapse" href="#collapseMake">Job Type</span>
+            </div>
+            <div id="collapseMake" class="accordion-body collapse">
+                <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                    @Html.Action("CollapseList", "jobs", new { id = Model.jobTypeId, propertyName = "jobTypeId", modelType = typeof(JobTypeVo) })
+                </div>
+            </div>
+        </div>
+     
+
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <span class="accordion-toggle title" data-toggle="collapse" href="#collapselistingdate">Listing Date</span>
+            </div>
+            <div id="collapselistingdate" class="accordion-body collapse">
+                <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                    <ul class="nav nav-list" style="background-color: none; color: white; text-align: center">
+                        @{
+                            string[] list = { "Any Date", "Last 1 Day", "Last 3 Days", "Last 7 Days", "Last 2 Weeks", "Last Month", "Last 2 Months" };
+                            for (int i = 0; i < 7; i++)
+                            {
+                                if (Model.listingDate == null)
+                                {
+                                    if (i == 0)
+                                    {
+                                        <li style="background-color: blue;"><a href="#" onclick="selectAction(null,'listingDate');">@list[i] </a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="#" onclick="selectAction(@(i - 1),'listingDate');">@list[i] </a></li>
+                                    }
+                                }
+                                else
+                                {
+                                    if (i - 1 == Model.listingDate)
+                                    {
+                                        
+                                        <li style="background-color: blue;"><a href="#"  onclick="selectAction(@(i - 1),'listingDate');">@list[i] </a></li>
+                                    }
+                                    else
+                                    {
+                                        if (i == 0)
+                                        {<li><a href="#"  onclick="selectAction(null,'listingDate');">@list[i] </a></li>}
+                                        else{<li><a href="#"  onclick="selectAction(@(i - 1),'listingDate');">@list[i] </a></li>}
+                                    }
+                                }
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</form>
+              <script>
+                  function selectAction(value, idName) {
+                      $("#" + idName).val(value);
+                      $("#filterForm").submit();
+                  }
+        </script>

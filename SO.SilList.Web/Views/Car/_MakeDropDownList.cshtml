@@ -1,0 +1,23 @@
+﻿@using SO.SilList.Manager.Models.ValueObjects
+<script>
+    function updateModelList(obj) {
+        
+        if (document.getElementById("modelList")) {
+            
+            $.post("/car/DropDownList?id=&propertyName=modelTypeId&modelType=&makeTypeId=" + obj.options[obj.selectedIndex].value,
+                function (data) {
+
+                    $('#modelList').html(data);
+                    $('SELECT').select2({
+                        dropdownAutoWidth: false,
+                        width: 'element'
+                    });
+                }
+            );
+        }
+        
+    }
+</script>
+
+@Html.DropDownList((string)ViewBag.propertyName, new SelectList(ViewBag.items, ViewBag.idName, "name", ViewBag.selectedItem), (string)ViewBag.defaultValue, new {onChange = "updateModelList(this)"})
+

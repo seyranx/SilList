@@ -19,7 +19,16 @@ namespace SO.SilList.Manager.Models.ViewModels
         public bool? isActive { get; set; }
         public string submitButton { get; set; }
         public Paging paging;
-
+       
+        public int? jobCategoryId { get; set; }
+        public int? cityTypeId { get; set; }
+        public int? stateTypeId { get; set; }
+        public int? countryTypeId {get;set;}
+        public int? listingDate { get; set; }
+        public int? zip { get; set; }
+        public int? jobTypeId { get; set; }
+       
+ 
         public JobVm()
         {
             //pageNumber = 1;

@@ -10,8 +10,8 @@
 <fieldset class="form-horizontal">
     <legend></legend>
 
-    
-     <div class="control-group">
+
+    <div class="control-group">
         <div class="control-label">
             @Html.LabelFor(model => model.jobId)
         </div>
@@ -33,11 +33,27 @@
             <input type="text" value="@Html.DisplayFor(model => model.title)" readonly="true">
         </div>
     </div>
+        <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.jobCategories)</label>
+        <div class="controls" style="padding-bottom:10px">
+            
+             
+            @{
+                SO.SilList.Manager.Managers.JobCategoriesManager jm = new SO.SilList.Manager.Managers.JobCategoriesManager();
+                foreach(var item in Model.jobCategories)
+                {
+                    var categoryId = item.jobCategoriesId;
+                 <span style="border:1px solid #909090; background-color:#e0dfdf; border-radius:5px; padding:6px; margin:3px "> @jm.get(categoryId).jobCategoryType.name </span>
+                }
+            }
+        </div>
+    </div>
+
 
     <div class="control-group">
         <label class="control-label">@Html.DisplayNameFor(model => model.description)</label>
         <div class="controls">
-            <input type="text" value="@Html.DisplayFor(model => model.description)" readonly="true">
+            <textarea readonly="true" rows="10">@Html.DisplayFor(model => model.description)</textarea>
         </div>
     </div>
 
@@ -48,7 +64,20 @@
         </div>
     </div>
 
-        <div class="control-group">
+    <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.companyName)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.companyName)" readonly="true">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.contactName)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.contactName)" readonly="true">
+        </div>
+    </div>
+    <div class="control-group">
         <label class="control-label">@Html.DisplayNameFor(model => model.address)</label>
         <div class="controls">
             <input type="text" value="@Html.DisplayFor(model => model.address)" readonly="true">
@@ -69,27 +98,40 @@
         </div>
     </div>
 
-        <div class="control-group">
+    <div class="control-group">
         <label class="control-label">@Html.DisplayNameFor(model => model.countryTypeId)</label>
         <div class="controls">
             <input type="text" value="@Html.DisplayFor(model => model.countryType.name)" readonly="true">
         </div>
     </div>
 
-            <div class="control-group">
+    <div class="control-group">
         <label class="control-label">@Html.DisplayNameFor(model => model.zip)</label>
         <div class="controls">
             <input type="text" value="@Html.DisplayFor(model => model.zip)" readonly="true">
         </div>
     </div>
-            <div class="control-group">
+    <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.email)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.email)" readonly="true">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.website)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.website)" readonly="true">
+        </div>
+    </div>
+    <div class="control-group">
         <label class="control-label">@Html.DisplayNameFor(model => model.phone)</label>
         <div class="controls">
             <input type="text" value="@Html.DisplayFor(model => model.phone)" readonly="true">
         </div>
     </div>
 
-                <div class="control-group">
+    <div class="control-group">
         <label class="control-label">@Html.DisplayNameFor(model => model.fax)</label>
         <div class="controls">
             <input type="text" value="@Html.DisplayFor(model => model.fax)" readonly="true">
@@ -98,45 +140,38 @@
     <div class="control-group">
         <label class="control-label">@Html.DisplayNameFor(model => model.isTravelRequired)</label>
         <div class="controls">
-                @Html.DisplayFor(model => model.isTravelRequired)
+            @Html.DisplayFor(model => model.isTravelRequired)
         </div>
     </div>
-    
-     <div class="control-group">
+
+    <div class="control-group">
         <label class="control-label">@Html.DisplayNameFor(model => model.isTelecomute)</label>
         <div class="controls">
-                @Html.DisplayFor(model => model.isTelecomute)
+            @Html.DisplayFor(model => model.isTelecomute)
         </div>
     </div>
 
-     <div class="control-group">
-        <label class="control-label">@Html.DisplayNameFor(model => model.jobCompanyId)</label>
-        <div class="controls">
-            <input type="text" value="@Html.DisplayFor(model => model.jobCompany.name)" readonly="true">
-        </div>
-    </div>
-
-     <div class="control-group">
+    <div class="control-group">
         <label class="control-label">@Html.DisplayNameFor(model => model.created)</label>
         <div class="controls">
             <input type="text" value="@Html.DisplayFor(model => model.created)" readonly="true">
         </div>
     </div>
 
-            <div class="control-group">
+    <div class="control-group">
         <label class="control-label">@Html.DisplayNameFor(model => model.startDate)</label>
         <div class="controls">
             <input type="text" value="@Html.DisplayFor(model => model.startDate)" readonly="true">
         </div>
     </div>
-            <div class="control-group">
+    <div class="control-group">
         <label class="control-label">@Html.DisplayNameFor(model => model.startDate)</label>
         <div class="controls">
             <input type="text" value="@Html.DisplayFor(model => model.startDate)" readonly="true">
         </div>
     </div>
 
-        <div class="control-group">
+    <div class="control-group">
         <label class="control-label">@Html.DisplayNameFor(model => model.modified)</label>
         <div class="controls">
             <input type="text" value="@Html.DisplayFor(model => model.modified)" readonly="true">
@@ -169,13 +204,13 @@
     *@
 
     <div class="control-group">
-        <label class="control-label"> @Html.DisplayNameFor(model => model.isActive)</label>
+        <label class="control-label">@Html.DisplayNameFor(model => model.isActive)</label>
         <div class="controls">
             @Html.DisplayFor(model => model.isActive)
         </div>
     </div>
-</fieldset>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.jobId }) |
-    @Html.ActionLink("Back to List", "Index")
+     <p class="controls">
+    <a href="@Url.Action("Edit", new { id=Model.jobId })" class="btn">Edit</a>
+    <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
 </p>
+</fieldset>

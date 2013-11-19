@@ -32,7 +32,7 @@ namespace SO.SilList.Tests.Managers
         {
             for (int i = 1; i <= 10; i++)
             {
-                var vo = new LeaseTermTypeVo();
+                var vo = new PropertyListingTypeVo();
                 vo.name = i.ToString() + " Test BusinessCategoryType Name ";
                 var result = leaseTermType.insert(vo);
                 if (result == null)
@@ -47,18 +47,18 @@ namespace SO.SilList.Tests.Managers
         [TestMethod]
         public void insertDeleteTest()
         {
-            var vo = new LeaseTermTypeVo();
+            var vo = new PropertyListingTypeVo();
             vo.name = "testName";
             
 
             var result = leaseTermType.insert(vo);
-            var result2 = leaseTermType.get(result.leaseTermTypeId);
+            var result2 = leaseTermType.get(result.propertyListingTypeId);
 
-            leaseTermType.delete(result.leaseTermTypeId);
+            leaseTermType.delete(result.propertyListingTypeId);
 
-            var result3 = leaseTermType.get(result.leaseTermTypeId);
+            var result3 = leaseTermType.get(result.propertyListingTypeId);
 
-            if (result != null && result2 != null && result3 == null && result2.leaseTermTypeId != 0)
+            if (result != null && result2 != null && result3 == null && result2.propertyListingTypeId != 0)
             {
                 Assert.IsTrue(true);
             }

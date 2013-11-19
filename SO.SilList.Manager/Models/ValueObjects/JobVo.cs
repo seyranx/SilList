@@ -28,10 +28,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
     		
     	[DisplayName("Title")]
     	[StringLength(50)]
+        [Required]
         public string title { get; set; }
     		
     	[DisplayName("Description")]
-    	[StringLength(50)]
         public string description { get; set; }
     		
     	[DisplayName("Type")]
@@ -41,6 +41,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public string address { get; set; }
 
         [DisplayName("City")]
+      //  [Required]
         public Nullable<int> cityTypeId { get; set; }
 
         [DisplayName("State")]
@@ -59,15 +60,30 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [DisplayName("Fax")]
         [StringLength(50)]
         public string fax { get; set; }
-    		
+
+        [DisplayName("E-mail")]
+        [StringLength(50)]
+        public string email { get; set; }
+
+        [DisplayName("Website")]
+        [StringLength(50)]
+        public string website { get; set; }
+
+        [DisplayName("Company")]
+        [StringLength(50)]
+        [Required]
+        public string companyName { get; set; }
+
+        [DisplayName("Contact Person")]
+        [StringLength(50)]
+        public string contactName { get; set; }
+
     	[DisplayName("Travel Required")]
         public bool isTravelRequired { get; set; }
     		
     	[DisplayName("Telecomute")]
         public bool isTelecomute { get; set; }
     		
-    	[DisplayName("Company")]
-        public Nullable<System.Guid> jobCompanyId { get; set; }
 
         [DisplayName("Start Date")]
         [Required]
@@ -100,9 +116,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [ForeignKey("jobTypeId")]
         public virtual JobTypeVo jobType { get; set; }
 
-        [ForeignKey("jobCompanyId")]
-        public virtual JobCompanyVo jobCompany { get; set; }
-
         [ForeignKey("countryTypeId")]
         public virtual CountryTypeVo countryType { get; set; }
 
@@ -112,12 +125,17 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [ForeignKey("cityTypeId")]
         public virtual CityTypeVo cityType { get; set; }
 
+        [DisplayName("Job Categories")]
         [Association("JobCategories_Job", "jobId", "jobId", IsForeignKey = true)]
         public List<JobCategoriesVo> jobCategories { get; set; }
 
         [ForeignKey("entryStatusTypeId")]
         public virtual EntryStatusTypeVo entryStatusType { get; set; }
 
+        [NotMapped]
+        [DisplayName("Categories")]
+        public List<int> jobCategoryType { get; set; }
+        
         public JobVo()
         {
     			

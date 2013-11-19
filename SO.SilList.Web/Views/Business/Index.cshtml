@@ -12,9 +12,19 @@
  @for(int i=0; i<10; i++){
   <li class="row, media" style="border-bottom:1px solid #ccc;" >
    
-     @Html.Partial("_BusinessItem",Model.result);
+     @Html.Partial("_BusinessItem",Model.business);
 
   </li>
      
  }
 </ul>
+
+<form id="filterForm" class="form-inline" method="get" action="@Url.Action("Filter","Business")">
+    
+    @Html.Action("Filter",@Model)
+    <div class="pull-right">
+        @((Model.paging.pageNumber-1) * Model.paging.rowCount + Model.result.Count) of @Model.paging.totalCount
+    </div>
+    
+   
+</form>

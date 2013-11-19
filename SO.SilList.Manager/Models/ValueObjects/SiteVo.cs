@@ -73,7 +73,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public List<JobVo> job { get; set; }
 
         [Association("Site_Rental", "siteId", "siteId", IsForeignKey = true)]
-        public List<RentalVo> rental { get; set; }
+        public List<PropertyVo> rental { get; set; }
 
         [Association("Site_Member", "siteId", "siteId", IsForeignKey = true)]
         public List<MemberVo> member { get; set; }

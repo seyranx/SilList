@@ -120,7 +120,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [Association("ListingImages_Listing", "listingId", "listingId", IsForeignKey = true)]
         public List<ListingImagesVo> listingImages { get; set; }
       
-    	public ListingVo()
+    	public ListingVo() 
         { 			
     		this.listingId = Guid.NewGuid();
     	    this.isActive = true;

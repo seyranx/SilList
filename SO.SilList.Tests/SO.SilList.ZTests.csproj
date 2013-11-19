@@ -116,7 +116,6 @@
     <Compile Include="Managers\SiteManagerTest.cs" />
     <Compile Include="Managers\JobCategoriesManagerTest.cs" />
     <Compile Include="Managers\JobCategoryTypeManagerTest.cs" />
-    <Compile Include="Managers\JobCompanyManagerTest.cs" />
     <Compile Include="Managers\JobManagerTest.cs" />
     <Compile Include="Managers\JobTypeManagerTest.cs" />
     <Compile Include="Managers\LeaseTermTypeManagerTest.cs" />

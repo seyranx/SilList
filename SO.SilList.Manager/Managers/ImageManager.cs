@@ -32,7 +32,7 @@ namespace SO.SilList.Manager.Managers
         public string uploadImageAbsFilePath { get; set; }
     }
 
-    public enum ImageCategory { carImage, businessImage, listingImage, rentalImage };
+    public enum ImageCategory { carImage, businessImage, listingImage, propertyImage };
 
     public class ImageManager : IImageManager
     {
@@ -81,14 +81,14 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        //Seyran Note: RentalImages misses the imageId field
+        //Seyran Note: PropertyImages misses the imageId field
         //
-        //public List<ImageVo> getRentalImages(bool? isActive = true)
+        //public List<ImageVo> getPropertyImages(bool? isActive = true)
         //{
         //    using (var db = new MainDb())
         //    {
         //        var list = (from i in db.images
-        //                    join r in db.rentalImages on i.imageId equals r.image
+        //                    join r in db.propertyImages on i.imageId equals r.image
         //                    select i
         //                    ).ToList();
 
@@ -113,6 +113,7 @@ namespace SO.SilList.Manager.Managers
         // used to show given entity's images on Details and Edit pages
         public List<ImageVo> getCarImages(Guid carId)
         {
+
             using (var db = new MainDb())
             {
                 var list = (from i in db.images
@@ -124,7 +125,23 @@ namespace SO.SilList.Manager.Managers
                 return list;
             }
         }
-
+        public List<string> getCarImagesUrl(Guid carId)
+        {
+            List<string> list = new List<string>();
+            using (var db = new MainDb())
+            {
+                var imglist = (from i in db.images
+                            join c in db.carImages on i.imageId equals c.imageId
+                            where c.carId == carId
+                            select i
+                            ).ToList();
+                foreach(var img in imglist)
+                {
+                    list.Add(img.url);
+                }
+                return list;
+            }
+        }
         // used to show given entity's images on Details and Edit pages
         public List<ImageVo> getBusinessImages(Guid businessId)
         {
@@ -167,14 +184,13 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        // used to show given entity's images on Details and Edit pages
-        public List<ImageVo> getListingImages(Guid listingId)
+        public List<ImageVo> getPropertyImages((Guid propertyId)
         {
             using (var db = new MainDb())
             {
                 var list = (from i in db.images
-                            join c in db.listingImages on i.imageId equals c.imageId
-                            where c.listingId == listingId
+                            join m in db.propertyImages on i.imageId equals m.imageId
+		 	    where c.propertyId == propertyId
                             select i
                             ).ToList();
 
@@ -182,13 +198,13 @@ namespace SO.SilList.Manager.Managers
             }
         }
         // used to show given entity's images on Details and Edit pages
-        public List<ImageVo> getRentalImages(Guid rentalId)
+        public List<ImageVo> getPropertyImages(Guid propertyId)
         {
             using (var db = new MainDb())
             {
                 var list = (from i in db.images
-                            join c in db.rentalImages on i.imageId equals c.imageId
-                            where c.rentalId == rentalId
+                            join c in db.propertyImages on i.imageId equals c.imageId
+                            where c.propertyId == propertyId
                             select i
                             ).ToList();
 
@@ -348,8 +364,8 @@ namespace SO.SilList.Manager.Managers
                         case ImageCategory.listingImage:
                             InsertImageAndListingImageIntoDb(imgInfo);
                             break;
-                        case ImageCategory.rentalImage:
-                            InsertImageAndRentalImageIntoDb(imgInfo);
+                        case ImageCategory.propertyImage:
+                            InsertImageAndPropertyImageIntoDb(imgInfo);
                             break;
                         default:
                             Debug.Assert(false, "Unknown catogory for image");
@@ -426,7 +442,7 @@ namespace SO.SilList.Manager.Managers
 
         //
         // for Edit pages (upload and insert image right away)
-        public void InsertImageAndRentalImageIntoDb(ImageInsertIntoDbInfo imgInfo)
+        public void InsertImageAndPropertyImageIntoDb(ImageInsertIntoDbInfo imgInfo)
         {
             ImageVo imgVo = new ImageVo();
             imgVo.name = imgInfo.fileName; // use file name as image name field in database
@@ -437,10 +453,10 @@ namespace SO.SilList.Manager.Managers
                 //todo: need to use the other way LINQ ??
                 db.images.Add(imgVo);
 
-                RentalImageVo rentalImageVo = new RentalImageVo();
-                rentalImageVo.rentalId = imgInfo.id;
-                rentalImageVo.imageId = imgVo.imageId;
-                db.rentalImages.Add(rentalImageVo);
+                PropertyImageVo propertyImageVo = new PropertyImageVo();
+                propertyImageVo.propertyId = imgInfo.id;
+                propertyImageVo.imageId = imgVo.imageId;
+                db.propertyImages.Add(propertyImageVo);
 
                 db.SaveChanges();
             }
