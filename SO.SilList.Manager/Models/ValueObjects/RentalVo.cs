@@ -96,9 +96,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [Required]
         public System.DateTime endDate { get; set; }
 
-        [DisplayName("is Approved")]
-        public bool isApproved { get; set; }
-    		
     	[DisplayName("modified By")]
         public Nullable<int> modifiedBy { get; set; }
     		
@@ -117,6 +114,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[Required]
         public bool isActive { get; set; }
 
+        [DisplayName("Entry Status Type")]
+        public Nullable<int> entryStatusTypeId { get; set; }
+    		
         [ForeignKey("leaseTermTypeId")]
         public virtual LeaseTermTypeVo leaseTermType { get; set; }
 
@@ -141,6 +141,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [ForeignKey("cityTypeId")]
         public virtual CityTypeVo cityType { get; set; }
 
+        [ForeignKey("entryStatusTypeId")]
+        public virtual EntryStatusTypeVo entryStatusType { get; set; }
+        
         [Association("Rental_RentalImages", "rentalId", "rentalId", IsForeignKey = true)]
         public List<RentalImageVo> rentalImage { get; set; }
 
@@ -148,7 +151,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
     			
     		this.rentalId = Guid.NewGuid();
     	    this.isActive = true;
-            this.isApproved = false;
     	}
     }
 }
