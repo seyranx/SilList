@@ -170,27 +170,12 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-
-        public List<ImageVo> getRentalImages(bool? isActive = true)
-        {
-            using (var db = new MainDb())
-            {
-                var list = (from i in db.images
-                            join m in db.rentalImages on i.imageId equals m.imageId
-                            select i
-                            ).ToList();
-
-                return list;
-            }
-        }
-
-        public List<ImageVo> getPropertyImages((Guid propertyId)
+        public List<ImageVo> getPropertyImages(bool? isActive = true)
         {
             using (var db = new MainDb())
             {
                 var list = (from i in db.images
                             join m in db.propertyImages on i.imageId equals m.imageId
-		 	    where c.propertyId == propertyId
                             select i
                             ).ToList();
 
