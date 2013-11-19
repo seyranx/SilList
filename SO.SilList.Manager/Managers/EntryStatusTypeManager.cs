@@ -79,7 +79,30 @@ namespace SO.SilList.Manager.Managers
                 return input;
             }
         }
+        public EntryStatusTypeVm<BusinessVo> search(EntryStatusTypeVm<BusinessVo> input)
+        {
+            using (var db = new MainDb())
+            {
 
+                var query = db.businesses
+                             .Include(s => s.site)
+                            .Include(i => i.cityType)
+                            .Include(o => o.countryType)
+                            .Include(u => u.stateType)
+
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                    )
+                             .OrderBy(b => b.name);
+                input.paging.totalCount = query.Count();
+                input.result = query
+                             .Skip(input.paging.skip)
+                             .Take(input.paging.rowCount)
+                             .ToList();
+
+                return input;
+            }
+        }
         public List<JobVo> getAll(bool? isActive = true)
         {
             using (var db = new MainDb())

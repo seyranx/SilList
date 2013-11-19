@@ -97,7 +97,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+        // Entry Status Type stuff
         public ActionResult EntryStatusIndex(EntryStatusTypeVm<JobVo> input = null, Paging paging = null)
         {
             if (input == null)

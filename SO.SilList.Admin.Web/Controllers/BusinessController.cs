@@ -14,7 +14,7 @@ namespace SO.SilList.Admin.Web.Controllers
     public class BusinessController : Controller
     {
         private BusinessManager businessManager = new BusinessManager();
-
+        private EntryStatusTypeManager<BusinessVo> entryStatusTypeManager = new EntryStatusTypeManager<BusinessVo>();
           
         public ActionResult Index(BusinessVm input=null,Paging paging = null)
         {
@@ -118,6 +118,53 @@ namespace SO.SilList.Admin.Web.Controllers
             return RedirectToAction("Index");
         }
 
-      
+
+
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Entry Status Type stuff
+        public ActionResult EntryStatusIndex(EntryStatusTypeVm<BusinessVo> input = null, Paging paging = null)
+        {
+            if (input == null)
+                input = new EntryStatusTypeVm<BusinessVo>();
+            input.paging = paging;
+            if (this.ModelState.IsValid)
+            {
+                if (input.submitButton != null)
+                    input.paging.pageNumber = 1;
+                input = entryStatusTypeManager.search(input);
+                return View(input);
+            }
+            return View();
+        }
+        public ActionResult _EntryStatusList()
+        {
+            var results = entryStatusTypeManager.getAll(null);
+            return PartialView(results);
+            //return PartialView("_EntryStatusList", results);
+        }
+        public ActionResult EntryStatusPagination(Paging input)
+        {
+            return PartialView("_Pagination", input);
+        }
+        public ActionResult EntryStatusFilter(EntryStatusTypeVm<SO.SilList.Manager.Models.ValueObjects.BusinessVo> input)
+        {
+            return PartialView("_EntryStatusFilter", input);
+        }
+
+
+        public ActionResult EntryStatusApprove(Guid id)
+        {
+            var result = entryStatusTypeManager.get(id);
+            entryStatusTypeManager.Approve(id);
+            return RedirectToAction("EntryStatusIndex");
+        }
+        public ActionResult EntryStatusDecline(Guid id)
+        {
+            var result = entryStatusTypeManager.get(id);
+            entryStatusTypeManager.Decline(id);
+            return RedirectToAction("EntryStatusIndex");
+        }
+
     }
 }

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.BusinessVo>
+
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Business name 
+        </th>
+        <th>
+            <!-- buttons -->
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+
+            <td>
+                <a href="@Url.Action("EntryStatusApprove", new { id = item.businessId })" class="btn" title="Approve">Approve</a>
+                <a href="@Url.Action("EntryStatusDecline", new { id = item.businessId })" class="btn" title="Decline">Decline</a>
+            </td>
+        </tr>
+    }
+
+</table>
