@@ -157,12 +157,15 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public List<ImageVo> getListingImages(bool? isActive = true)
+        // Seyran: changed this method to take Guid instead of bool isActive (and added "where" clause to SQL) after merging my local working branch with the main (11/19/2013) to fix the compile error
+        //         But Listing is probably depricated. Property table is used now instead
+        public List<ImageVo> getListingImages(Guid listingId)
         {
             using (var db = new MainDb())
             {
                 var list = (from i in db.images
                             join m in db.listingImages on i.imageId equals m.imageId
+                            where m.listingId == listingId
                             select i
                             ).ToList();
 
