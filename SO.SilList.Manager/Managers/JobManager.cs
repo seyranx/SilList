@@ -138,5 +138,46 @@ namespace SO.SilList.Manager.Managers
                 return db.jobs.Count();
             }
         }
+
+        public JobVo Approve(Guid jobId)
+        {
+            using (var db = new MainDb())
+            {
+                var result = db.jobs.FirstOrDefault(e => e.jobId == jobId);
+                var approveRec = db.entryStatusType.FirstOrDefault(f => f.name == EntryStatusTypeStrings.csApprove);
+
+                if (result == null) return null;
+
+                JobVo input = result;
+                //input.created = result.created;
+                //input.createdBy = result.createdBy;
+                input.entryStatusType = approveRec;
+                db.Entry(result).CurrentValues.SetValues(input);
+
+                db.SaveChanges();
+                return result;
+
+
+            }
+        }
+        public JobVo Decline(Guid jobId)
+        {
+            using (var db = new MainDb())
+            {
+                var result = db.jobs.FirstOrDefault(e => e.jobId == jobId);
+                var declineRec = db.entryStatusType.FirstOrDefault(f => f.name == EntryStatusTypeStrings.csDecline);
+
+                if (result == null) return null;
+
+                JobVo input = result;
+                //input.created = result.created;
+                //input.createdBy = result.createdBy;
+                input.entryStatusType = declineRec;
+                db.Entry(result).CurrentValues.SetValues(input);
+
+                db.SaveChanges();
+                return result;
+            }
+        }
     }
 }

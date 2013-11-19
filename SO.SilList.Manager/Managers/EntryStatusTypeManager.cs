@@ -14,32 +14,39 @@ using SO.SilList.Manager.Classes;
 
 namespace SO.SilList.Manager.Managers
 {
-    public class EntryStatusTypeManager<T>
+    public class EntryStatusTypeStrings
     {
         public const String csPending = "Pending";
         public const String csApprove = "Approved";
         public const String csDecline = "Declined";
+    }
 
-        //public T get<T>(Guid jobId)
+    public class EntryStatusTypeManager<T>
+    {
+        //public T get<T>(Guid id)
         //{
-        //   return default(T);
+        //    return default(T);
         //}
-        public JobVo get(Guid jobId)
-        {
-            using (var db = new MainDb())
-            {
-                var result = db.jobs
-                    //.Include(s => s.site)
-                    //.Include(j => j.jobType)
-                    //.Include(t => t.jobCompany)
-                    //.Include(i => i.cityType)
-                    //.Include(o => o.countryType)
-                    //.Include(u => u.stateType) 
 
-                            .FirstOrDefault(s => s.jobId == jobId);
-                return result;
-            }
-        }
+        ///// <summary>
+        ///// Find Businesses matching the businessId (primary key)
+        ///// </summary>
+        //public BusinessVo get(Guid businessId)
+        //{
+        //    using (var db = new MainDb())
+        //    {
+        //        var res = db.businesses
+        //                    .Include(s => s.site)
+        //                    .Include(i => i.cityType)
+        //                    .Include(o => o.countryType)
+        //                    .Include(u => u.stateType)
+
+        //                    .FirstOrDefault(p => p.businessId == businessId);
+
+        //        return res;
+        //    }
+        //}
+
         public JobVo getFirst()
         {
             using (var db = new MainDb())
@@ -67,7 +74,8 @@ namespace SO.SilList.Manager.Managers
                             .OrderBy(b => b.title)
                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword)
-                                      && e.entryStatusType.name.Equals("Pending"))
+                                      && e.entryStatusType.name.Equals("Pending")
+                                   )
                              );
                 input.paging.totalCount = query.Count();
                 List<JobVo> jobList = new List<JobVo>();
@@ -85,13 +93,15 @@ namespace SO.SilList.Manager.Managers
             {
 
                 var query = db.businesses
-                             .Include(s => s.site)
-                            .Include(i => i.cityType)
-                            .Include(o => o.countryType)
-                            .Include(u => u.stateType)
+                    // .Include(s => s.site)
+                    //.Include(i => i.cityType)
+                    //.Include(o => o.countryType)
+                    //.Include(u => u.stateType)
+                    .Include(b => b.entryStatusType)
 
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                      && e.entryStatusType.name.Equals("Pending")
                                     )
                              .OrderBy(b => b.name);
                 input.paging.totalCount = query.Count();
@@ -172,45 +182,5 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public JobVo Approve(Guid jobId)
-        {
-            using (var db = new MainDb())
-            {
-                var result = db.jobs.FirstOrDefault(e => e.jobId == jobId);
-                var approveRec = db.entryStatusType.FirstOrDefault(f => f.name == csApprove);
-                
-                if (result == null) return null;
-
-                JobVo input = result;
-                //input.created = result.created;
-                //input.createdBy = result.createdBy;
-                input.entryStatusType = approveRec; 
-                db.Entry(result).CurrentValues.SetValues(input);
-
-                db.SaveChanges();
-                return result;
-
-
-            }
-        }
-        public JobVo Decline(Guid jobId)
-        {
-            using (var db = new MainDb())
-            {
-                var result = db.jobs.FirstOrDefault(e => e.jobId == jobId);
-                var declineRec = db.entryStatusType.FirstOrDefault(f => f.name == csDecline);
-
-                if (result == null) return null;
-
-                JobVo input = result;
-                //input.created = result.created;
-                //input.createdBy = result.createdBy;
-                input.entryStatusType = declineRec;
-                db.Entry(result).CurrentValues.SetValues(input);
-
-                db.SaveChanges();
-                return result;
-            }
-        }
     }
 }
