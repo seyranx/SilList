@@ -220,6 +220,9 @@
     <None Include="appData\AppDataImport.sql" />
     <None Include="user-scripts\InitEntryStatusType.sql" />
     <None Include="user-scripts\InsertToBusiness.sql" />
+    <None Include="user-scripts\InsertToListing.sql">
+      <AnsiNulls>ProjectDefault</AnsiNulls>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />

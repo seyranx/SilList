@@ -24,15 +24,15 @@ SET IDENTITY_INSERT [app].[CountryType] OFF
 GO
 
 SET IDENTITY_INSERT [app].[StateType] ON
-INSERT INTO [app].[StateType] ([stateTypeId], [stateCode], [countryTypeId], [name], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (2, N'CA', 1, N'California', N'2013-11-20 19:28:16', N'2013-11-20 19:28:16', NULL, NULL, 1)
-INSERT INTO [app].[StateType] ([stateTypeId], [stateCode], [countryTypeId], [name], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (3, N'NV', 1, N'Nevada', N'2013-11-20 19:28:35', N'2013-11-20 19:28:35', NULL, NULL, 1)
-INSERT INTO [app].[StateType] ([stateTypeId], [stateCode], [countryTypeId], [name], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (4, N'FL', 1, N'Florida', N'2013-11-20 19:30:24', N'2013-11-20 19:30:24', NULL, NULL, 1)
+INSERT INTO [app].[StateType] ([stateTypeId], [stateCode], [countryTypeId], [name], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (1, N'CA', 1, N'California', N'2013-11-20 19:28:16', N'2013-11-20 19:28:16', NULL, NULL, 1)
+INSERT INTO [app].[StateType] ([stateTypeId], [stateCode], [countryTypeId], [name], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (2, N'NV', 1, N'Nevada', N'2013-11-20 19:28:35', N'2013-11-20 19:28:35', NULL, NULL, 1)
+INSERT INTO [app].[StateType] ([stateTypeId], [stateCode], [countryTypeId], [name], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (3, N'FL', 1, N'Florida', N'2013-11-20 19:30:24', N'2013-11-20 19:30:24', NULL, NULL, 1)
 SET IDENTITY_INSERT [app].[StateType] OFF
 GO
 
 SET IDENTITY_INSERT [app].[CityType] ON
-INSERT INTO [app].[CityType] ([cityTypeId], [stateTypeId], [countryTypeId], [name], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (2, 2, 2, N'Los Angeles', N'2013-11-20 19:28:57', N'2013-11-20 19:28:57', NULL, NULL, 1)
-INSERT INTO [app].[CityType] ([cityTypeId], [stateTypeId], [countryTypeId], [name], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (4, 2, 1, N'San Francisco', N'2013-11-20 19:32:51', N'2013-11-20 19:32:51', NULL, NULL, 1)
-INSERT INTO [app].[CityType] ([cityTypeId], [stateTypeId], [countryTypeId], [name], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (6, 8, 4, N'Yerevan', N'2013-11-20 19:33:16', N'2013-11-20 19:33:16', NULL, NULL, 1)
+INSERT INTO [app].[CityType] ([cityTypeId], [stateTypeId], [countryTypeId], [name], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (1, 1, 1, N'Los Angeles', N'2013-11-20 19:28:57', N'2013-11-20 19:28:57', NULL, NULL, 1)
+INSERT INTO [app].[CityType] ([cityTypeId], [stateTypeId], [countryTypeId], [name], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (2, 1, 1, N'San Francisco', N'2013-11-20 19:32:51', N'2013-11-20 19:32:51', NULL, NULL, 1)
+INSERT INTO [app].[CityType] ([cityTypeId], [stateTypeId], [countryTypeId], [name], [created], [modified], [createdBy], [modifiedBy], [isActive]) VALUES (3, 4, 4, N'Yerevan', N'2013-11-20 19:33:16', N'2013-11-20 19:33:16', NULL, NULL, 1)
 SET IDENTITY_INSERT [app].[CityType] OFF
 GO
