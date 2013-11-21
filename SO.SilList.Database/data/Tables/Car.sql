@@ -24,7 +24,7 @@
     [interiorColorTypeId] INT              NULL,
     [startDate]           DATE             NOT NULL,
     [endDate]             DATE             NOT NULL,
-    [isApproved]          BIT              DEFAULT ((0)) NOT NULL,
+    [entryStatusTypeId]          INT              DEFAULT ((1)) NOT NULL,
     [created]             DATETIME         CONSTRAINT [DF__Car__created__19AACF41] DEFAULT (getdate()) NOT NULL,
     [modified]            DATETIME         CONSTRAINT [DF__Car__modified__1A9EF37A] DEFAULT (getdate()) NOT NULL,
     [createdBy]           INT              NULL,
@@ -43,7 +43,8 @@
     CONSTRAINT [FK_Car_StateType] FOREIGN KEY ([stateTypeId]) REFERENCES [app].[StateType] ([stateTypeId]) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT [FK_Car_TransmissionType] FOREIGN KEY ([transmissionTypeId]) REFERENCES [app].[TransmissionType] ([transmissionTypeId]) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT [FK_CarExt_CarColorType] FOREIGN KEY ([exteriorColorTypeId]) REFERENCES [app].[CarColorType] ([carColorTypeId]) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT [FK_CarInt_CarColorType] FOREIGN KEY ([interiorColorTypeId]) REFERENCES [app].[CarColorType] ([carColorTypeId])
+    CONSTRAINT [FK_CarInt_CarColorType] FOREIGN KEY ([interiorColorTypeId]) REFERENCES [app].[CarColorType] ([carColorTypeId]), 
+    CONSTRAINT [FK_Car_EntryStatusType] FOREIGN KEY ([entryStatusTypeId]) REFERENCES [app].[EntryStatusType] ([entryStatusTypeId]) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 

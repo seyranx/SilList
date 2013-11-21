@@ -17,7 +17,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
     [Serializable]
     public partial class CarVo
     {
-    		
     	[DisplayName("Car")]
     	[Key]
         public System.Guid carId { get; set; }
@@ -101,8 +100,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [Required]
         public System.DateTime endDate { get; set; }
 
-        [DisplayName("Approved")]
-        public bool isApproved { get; set; }
+        [DisplayName("Entry Status Type")]
+        public Nullable<int> entryStatusTypeId { get; set; }
 
     	[DisplayName("Created")]
     	[Required]
@@ -160,6 +159,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [ForeignKey("cityTypeId")]
         public virtual CityTypeVo cityType { get; set; }
 
+        [ForeignKey("entryStatusTypeId")]
+        public virtual EntryStatusTypeVo entryStatusType { get; set; }
+
         [Association("Car_CarImages", "carId", "carId", IsForeignKey = true)]
         public List<CarImagesVo> carImages { get; set; }
 
@@ -167,12 +169,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [DisplayName("Make")]
         public int? makeTypeId { get; set; }
 
-
-    	public CarVo(){
-    			
+    	public CarVo()
+        {
     		this.carId = Guid.NewGuid();
-
-            this.isApproved = false;    	
     	    this.isActive = true;
     	}
     }
