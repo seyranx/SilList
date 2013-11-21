@@ -224,6 +224,7 @@
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />
     <None Include="Compare_Update_Server.scmp" />
+    <None Include="user-scripts\InsertSomeCountryStateCity.data.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="app\Script.SuperAdmin.sql" />
