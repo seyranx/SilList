@@ -50,6 +50,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [Association("EntryStatusType_Business", "entryStatusTypeId", "entryStatusTypeId", IsForeignKey = true)]
         public List<BusinessVo> businesses { get; set; }
 
+        [Association("EntryStatusType_Listing", "entryStatusTypeId", "entryStatusTypeId", IsForeignKey = true)]
+        public List<ListingVo> listing { get; set; }
+        
         public EntryStatusTypeVo()
         {
             this.isActive = true;

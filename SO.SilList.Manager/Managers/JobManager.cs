@@ -178,6 +178,7 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
+        // Entry Status Type stuff
         public JobVo Approve(Guid jobId)
         {
             using (var db = new MainDb())

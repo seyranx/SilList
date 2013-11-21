@@ -139,7 +139,7 @@ namespace SO.SilList.Admin.Web.Controllers
         }
         public ActionResult _EntryStatusList()
         {
-            var results = entryStatusTypeManager.getAll(null);
+            var results = businessManager.getAll(null);
             return PartialView(results);
             //return PartialView("_EntryStatusList", results);
         }

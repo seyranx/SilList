@@ -709,6 +709,9 @@
     <Content Include="Views\JobType\_DropDownList.cshtml" />
     <Content Include="Views\Job\Create.cshtml" />
     <Content Include="Views\Job\EntryStatusIndex.cshtml" />
+    <Content Include="Views\Listing\EntryStatusIndex.cshtml" />
+    <Content Include="Views\Listing\_EntryStatusFilter.cshtml" />
+    <Content Include="Views\Listing\_EntryStatusList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

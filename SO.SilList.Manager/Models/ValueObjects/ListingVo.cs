@@ -114,6 +114,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [ForeignKey("cityTypeId")]
         public virtual CityTypeVo cityType { get; set; }
 
+        [ForeignKey("entryStatusTypeId")]
+        public virtual EntryStatusTypeVo entryStatusType { get; set; }
+
         [Association("ListingCategories_Listing", "listingId", "listingId", IsForeignKey = true)]
         public List<ListingCategoriesVo> listingCategories { get; set; }
 

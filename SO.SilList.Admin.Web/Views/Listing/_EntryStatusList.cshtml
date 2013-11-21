@@ -1,0 +1,26 @@
+﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.ListingVo>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Listing title 
+        </th>
+        <th>
+            <!-- buttons -->
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+
+            <td>
+                <a href="@Url.Action("EntryStatusApprove", new { id = item.listingId })" class="btn" title="Approve">Approve</a>
+                <a href="@Url.Action("EntryStatusDecline", new { id = item.listingId })" class="btn" title="Decline">Decline</a>
+            </td>
+        </tr>
+    }
+
+</table>

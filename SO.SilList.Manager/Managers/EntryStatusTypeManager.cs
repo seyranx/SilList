@@ -47,17 +47,17 @@ namespace SO.SilList.Manager.Managers
         //    }
         //}
 
-        public JobVo getFirst()
-        {
-            using (var db = new MainDb())
-            {
-                var result = db.jobs
-                    /// .Include(s => s.site)
-                            .FirstOrDefault();
+        //public JobVo getFirst()
+        //{
+        //    using (var db = new MainDb())
+        //    {
+        //        var result = db.jobs
+        //            /// .Include(s => s.site)
+        //                    .FirstOrDefault();
 
-                return result;
-            }
-        }
+        //        return result;
+        //    }
+        //}
         public EntryStatusTypeVm<JobVo> search(EntryStatusTypeVm<JobVo> input)
         {
 
@@ -113,74 +113,104 @@ namespace SO.SilList.Manager.Managers
                 return input;
             }
         }
-        public List<JobVo> getAll(bool? isActive = true)
+        public EntryStatusTypeVm<ListingVo> search(EntryStatusTypeVm<ListingVo> input)
         {
             using (var db = new MainDb())
             {
-                var list = db.jobs
-                    // .Include(s => s.site)
-                    // .Include(j => j.jobType)
-                    // .Include(t => t.jobCompany)
+                var query = db.listing
+                    //.Include(s => s.site)
+                    //.Include(t => t.listingType)
                     //.Include(i => i.cityType)
                     //.Include(o => o.countryType)
-                    //.Include(u => u.stateType) 
+                    //.Include(t => t.listingCategories) //
+                    //.Include(t => t.listingCategories.Select(c => c.listingCategoryType))
+                    //.Include(u => u.stateType)
+                    .Include(b => b.entryStatusType)
 
-                             .Where(e => isActive == null || e.isActive == isActive)
+                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
+                                      && (e.title.Contains(input.keyword) || e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                      && e.entryStatusType.name.Equals("Pending")
+                                    );
+                input.paging.totalCount = query.Count();
+                input.result = query
+                             .OrderBy(b => b.title)
+                             .Skip(input.paging.skip)
+                             .Take(input.paging.rowCount)
                              .ToList();
-
-                return list;
-            }
-        }
-
-        public bool delete(Guid jobId)
-        {
-            using (var db = new MainDb())
-            {
-                var res = db.jobs
-                     .Where(e => e.jobId == jobId)
-                     .Delete();
-                return true;
-            }
-        }
-
-        public JobVo update(JobVo input, Guid? jobId = null)
-        {
-            using (var db = new MainDb())
-            {
-                if (jobId == null)
-                    jobId = input.jobId;
-
-                var result = db.jobs.FirstOrDefault(e => e.jobId == jobId);
-
-                if (result == null) return null;
-
-                input.created = result.created;
-                input.createdBy = result.createdBy;
-                db.Entry(result).CurrentValues.SetValues(input);
-
-                db.SaveChanges();
-                return result;
-
-            }
-        }
-
-        public JobVo insert(JobVo input)
-        {
-            using (var db = new MainDb())
-            {
-                db.jobs.Add(input);
-                db.SaveChanges();
-
                 return input;
             }
         }
-        public int count()
-        {
-            using (var db = new MainDb())
-            {
-                return db.jobs.Count();
-            }
-        }
+
+
+
+        //public List<JobVo> getAll(bool? isActive = true)
+        //{
+        //    using (var db = new MainDb())
+        //    {
+        //        var list = db.jobs
+        //            // .Include(s => s.site)
+        //            // .Include(j => j.jobType)
+        //            // .Include(t => t.jobCompany)
+        //            //.Include(i => i.cityType)
+        //            //.Include(o => o.countryType)
+        //            //.Include(u => u.stateType) 
+
+        //                     .Where(e => isActive == null || e.isActive == isActive)
+        //                     .ToList();
+
+        //        return list;
+        //    }
+        //}
+
+        //public bool delete(Guid jobId)
+        //{
+        //    using (var db = new MainDb())
+        //    {
+        //        var res = db.jobs
+        //             .Where(e => e.jobId == jobId)
+        //             .Delete();
+        //        return true;
+        //    }
+        //}
+
+        //public JobVo update(JobVo input, Guid? jobId = null)
+        //{
+        //    using (var db = new MainDb())
+        //    {
+        //        if (jobId == null)
+        //            jobId = input.jobId;
+
+        //        var result = db.jobs.FirstOrDefault(e => e.jobId == jobId);
+
+        //        if (result == null) return null;
+
+        //        input.created = result.created;
+        //        input.createdBy = result.createdBy;
+        //        db.Entry(result).CurrentValues.SetValues(input);
+
+        //        db.SaveChanges();
+        //        return result;
+
+        //    }
+        //}
+
+        //public JobVo insert(JobVo input)
+        //{
+        //    using (var db = new MainDb())
+        //    {
+        //        db.jobs.Add(input);
+        //        db.SaveChanges();
+
+        //        return input;
+        //    }
+        //}
+        //public int count()
+        //{
+        //    using (var db = new MainDb())
+        //    {
+        //        return db.jobs.Count();
+        //    }
+        //}
 
     }
 }

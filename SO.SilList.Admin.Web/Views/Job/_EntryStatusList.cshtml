@@ -4,24 +4,25 @@
 
 <table class="table table-bordered table-hover">
     <tr>
-        <th>
-            Job title @*@Html.DisplayNameFor(model => model.keyword)*@
+        <th>Job title @*@Html.DisplayNameFor(model => model.keyword)*@
         </th>
-         <th><!-- buttons --></th>
+        <th>
+            <!-- buttons -->
+        </th>
     </tr>
 
-@foreach (var item in Model) 
-{
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.title)
-        </td>
-       
-        <td>
-            <a href="@Url.Action("EntryStatusApprove",new { id=item.jobId })" class="btn" title="Approve">Approve</a> 
-            <a href="@Url.Action("EntryStatusDecline",new { id=item.jobId })" class="btn" title="Decline">Decline</a>
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+
+            <td>
+                <a href="@Url.Action("EntryStatusApprove", new { id = item.jobId })" class="btn" title="Approve">Approve</a>
+                <a href="@Url.Action("EntryStatusDecline", new { id = item.jobId })" class="btn" title="Decline">Decline</a>
+            </td>
+        </tr>
+    }
 
 </table>
