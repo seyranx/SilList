@@ -13,6 +13,8 @@ namespace SO.SilList.Admin.Web.Controllers
     public class CarController : Controller
     {
         private CarManager carManager = new CarManager();
+        private EntryStatusTypeManager<CarVo> entryStatusTypeManager = new EntryStatusTypeManager<CarVo>();
+
         //
         // GET: /Car/
 
@@ -141,5 +143,71 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView("_Filter", input);
         }
 
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Entry Status Type stuff
+/*        public ActionResult EntryStatusIndex(EntryStatusTypeVm<CarVo> input = null, Paging paging = null)
+        {
+            if (input == null)
+                input = new EntryStatusTypeVm<CarVo>();
+            input.paging = paging;
+            if (this.ModelState.IsValid)
+            {
+                if (input.submitButton != null)
+                    input.paging.pageNumber = 1;
+                input = entryStatusTypeManager.search(input);
+
+                
+                return View(input);
+            }
+            return View();
+        }
+*/
+        public ActionResult EntryStatusIndex(CarVm input = null, Paging paging = null)
+        {
+            if (input == null)
+                input = new CarVm();
+            input.paging = paging;
+            if (this.ModelState.IsValid)
+            {
+                if (input.submitButton != null)
+                    input.paging.pageNumber = 1;
+                input = carManager.search(input);
+               
+                return View(input);
+            }
+            return View();
+        }
+
+
+        public ActionResult _EntryStatusList()
+        {
+            var results = carManager.getAll(null);
+            return PartialView(results);
+        }
+        public ActionResult EntryStatusPagination(Paging input)
+        {
+            return PartialView("_Pagination", input);
+        }
+        public ActionResult EntryStatusFilter(EntryStatusTypeVm<SO.SilList.Manager.Models.ValueObjects.CarVo> input)
+        {
+            return PartialView("_EntryStatusFilter", input);
+        }
+
+
+        public ActionResult EntryStatusApprove(Guid id)
+        {
+            var result = carManager.get(id);
+            if (result != null)
+                carManager.Approve(id);
+            return RedirectToAction("EntryStatusIndex");
+        }
+        public ActionResult EntryStatusDecline(Guid id)
+        {
+            var result = carManager.get(id);
+            if (result != null)
+                carManager.Decline(id);
+            return RedirectToAction("EntryStatusIndex");
+        }
+        // End of Entry Status Type stuff
     }
 }
