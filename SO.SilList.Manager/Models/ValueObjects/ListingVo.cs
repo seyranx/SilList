@@ -74,8 +74,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [Required]
         public System.DateTime endDate { get; set; }
 
-        [DisplayName("Approved")]
-        public bool isApproved { get; set; }
+        [DisplayName("Entry Status Type")]
+        public Nullable<int> entryStatusTypeId { get; set; }
     		
     	[DisplayName("Created By")]
         public int? createdBy { get; set; }
@@ -127,7 +127,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
         { 			
     		this.listingId = Guid.NewGuid();
     	    this.isActive = true;
-            this.isApproved = false;
     	}
     }
 }
