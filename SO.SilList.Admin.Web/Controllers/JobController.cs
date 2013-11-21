@@ -177,13 +177,15 @@ namespace SO.SilList.Admin.Web.Controllers
         public ActionResult EntryStatusApprove(Guid id)
         {
             var result = jobManager.get(id);
-            jobManager.Approve(id);
+            if (result != null)
+                jobManager.Approve(id);
             return RedirectToAction("EntryStatusIndex");
         }
         public ActionResult EntryStatusDecline(Guid id)
         {
             var result = jobManager.get(id);
-            jobManager.Decline(id);
+            if (result != null)
+                jobManager.Decline(id);
             return RedirectToAction("EntryStatusIndex");
         }
     }

@@ -161,13 +161,15 @@ namespace SO.SilList.Admin.Web.Controllers
         public ActionResult EntryStatusApprove(Guid id)
         {
             var result = listingManager.get(id);
-            listingManager.Approve(id);
+            if (result != null)
+                listingManager.Approve(id);
             return RedirectToAction("EntryStatusIndex");
         }
         public ActionResult EntryStatusDecline(Guid id)
         {
             var result = listingManager.get(id);
-            listingManager.Decline(id);
+            if (result != null)
+                listingManager.Decline(id);
             return RedirectToAction("EntryStatusIndex");
         }
 

@@ -156,13 +156,15 @@ namespace SO.SilList.Admin.Web.Controllers
         public ActionResult EntryStatusApprove(Guid id)
         {
             var result = businessManager.get(id);
-            businessManager.Approve(id);
+            if (result != null)
+                businessManager.Approve(id);
             return RedirectToAction("EntryStatusIndex");
         }
         public ActionResult EntryStatusDecline(Guid id)
         {
             var result = businessManager.get(id);
-            businessManager.Decline(id);
+            if (result != null)
+                businessManager.Decline(id);
             return RedirectToAction("EntryStatusIndex");
         }
 
