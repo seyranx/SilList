@@ -204,5 +204,48 @@ namespace SO.SilList.Manager.Managers
             throw new NotImplementedException();
         }
 
+
+        // Entry Status Type stuff
+        public ListingVo Approve(Guid listingId)
+        {
+            using (var db = new MainDb())
+            {
+                var result = db.listing.FirstOrDefault(e => e.listingId == listingId);
+                var approveRec = db.entryStatusType.FirstOrDefault(f => f.name == EntryStatusTypeStrings.csApprove);
+
+                if (result == null) return null;
+
+                ListingVo input = result;
+                //input.created = result.created;
+                //input.createdBy = result.createdBy;
+                input.entryStatusType = approveRec;
+                db.Entry(result).CurrentValues.SetValues(input);
+
+                db.SaveChanges();
+                return result;
+
+
+            }
+        }
+        public ListingVo Decline(Guid listingId)
+        {
+            using (var db = new MainDb())
+            {
+                var result = db.listing.FirstOrDefault(e => e.listingId == listingId);
+                var declineRec = db.entryStatusType.FirstOrDefault(f => f.name == EntryStatusTypeStrings.csDecline);
+
+                if (result == null) return null;
+
+                ListingVo input = result;
+                //input.created = result.created;
+                //input.createdBy = result.createdBy;
+                input.entryStatusType = declineRec;
+                db.Entry(result).CurrentValues.SetValues(input);
+
+                db.SaveChanges();
+                return result;
+            }
+        }
+
     }
 }

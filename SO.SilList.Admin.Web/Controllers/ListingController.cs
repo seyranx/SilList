@@ -13,10 +13,11 @@ namespace SO.SilList.Admin.Web.Controllers
     public class ListingController : Controller
     {
         private ListingManager listingManager = new ListingManager();
+        private EntryStatusTypeManager<ListingVo> entryStatusTypeManager = new EntryStatusTypeManager<ListingVo>();
 
         public ActionResult Index(ListingVm input = null, Paging paging = null)
         {
-            if (input == null) 
+            if (input == null)
                 input = new ListingVm();
             input.listing = new ListingVo();
             input.paging = paging;
@@ -94,7 +95,7 @@ namespace SO.SilList.Admin.Web.Controllers
         public ActionResult Edit(Guid id)
         {
             var result = listingManager.get(id);
-            
+
             // Images
             ImageManager imageManager = new ImageManager();
             var listingImages = imageManager.getListingImages(id);
@@ -124,5 +125,51 @@ namespace SO.SilList.Admin.Web.Controllers
             listingManager.delete(id);
             return RedirectToAction("Index");
         }
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Entry Status Type stuff
+        public ActionResult EntryStatusIndex(EntryStatusTypeVm<ListingVo> input = null, Paging paging = null)
+        {
+            if (input == null)
+                input = new EntryStatusTypeVm<ListingVo>();
+            input.paging = paging;
+            if (this.ModelState.IsValid)
+            {
+                if (input.submitButton != null)
+                    input.paging.pageNumber = 1;
+                input = entryStatusTypeManager.search(input);
+                return View(input);
+            }
+            return View();
+        }
+        public ActionResult _EntryStatusList()
+        {
+            var results = listingManager.getAll(null);
+            return PartialView(results);
+            //return PartialView("_EntryStatusList", results);
+        }
+        public ActionResult EntryStatusPagination(Paging input)
+        {
+            return PartialView("_Pagination", input);
+        }
+        public ActionResult EntryStatusFilter(EntryStatusTypeVm<SO.SilList.Manager.Models.ValueObjects.ListingVo> input)
+        {
+            return PartialView("_EntryStatusFilter", input);
+        }
+
+
+        public ActionResult EntryStatusApprove(Guid id)
+        {
+            var result = listingManager.get(id);
+            listingManager.Approve(id);
+            return RedirectToAction("EntryStatusIndex");
+        }
+        public ActionResult EntryStatusDecline(Guid id)
+        {
+            var result = listingManager.get(id);
+            listingManager.Decline(id);
+            return RedirectToAction("EntryStatusIndex");
+        }
+
     }
 }

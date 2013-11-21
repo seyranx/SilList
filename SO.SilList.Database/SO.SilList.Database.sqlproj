@@ -113,6 +113,7 @@
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
     <Folder Include="appData" />
+    <Folder Include="user-scripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="data\Tables\Business.sql">
@@ -215,17 +216,23 @@
     <Build Include="app\Tables\CountryType.sql" />
     <Build Include="app\Tables\CarDoorType.sql" />
     <Build Include="app\Tables\EntryStatusType.sql" />
+    <None Include="user-scripts\InsertToJobs.sql" />
     <None Include="appData\AppDataImport.sql" />
-    <Build Include="app\Tables\StatusType.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
+    <None Include="user-scripts\InitEntryStatusType.sql" />
+    <None Include="user-scripts\InsertToBusiness.sql" />
+    <None Include="user-scripts\InsertToListing.sql">
+      <AnsiNulls>ProjectDefault</AnsiNulls>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />
     <None Include="Compare_Update_Server.scmp" />
+    <None Include="user-scripts\InsertSomeCountryStateCity.data.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="app\Script.SuperAdmin.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="SO.SilList.Database.refactorlog" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,19 @@
+﻿@model SO.SilList.Manager.Models.ViewModels.EntryStatusTypeVm<SO.SilList.Manager.Models.ValueObjects.BusinessVo>
+
+@{
+    ViewBag.Title = "Approve User Entries";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<form id="filterForm" class="form-inline" method="get" action="@Url.Action("EntryStatusIndex","Business")" style="min-width:800px">
+    
+    @Html.Action("EntryStatusFilter",@Model)
+     <div class="pull-right">
+        @((Model.paging.pageNumber-1) * Model.paging.rowCount + Model.result.Count) of @Model.paging.totalCount
+    </div>
+    @Html.Partial("_EntryStatusList", @Model.result)
+
+    @Html.Action("EntryStatusPagination", @Model.paging)
+</form>

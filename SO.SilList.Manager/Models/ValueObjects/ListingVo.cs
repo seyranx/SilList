@@ -74,8 +74,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [Required]
         public System.DateTime endDate { get; set; }
 
-        [DisplayName("Approved")]
-        public bool isApproved { get; set; }
+        [DisplayName("Entry Status Type")]
+        public Nullable<int> entryStatusTypeId { get; set; }
     		
     	[DisplayName("Created By")]
         public int? createdBy { get; set; }
@@ -114,6 +114,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [ForeignKey("cityTypeId")]
         public virtual CityTypeVo cityType { get; set; }
 
+        [ForeignKey("entryStatusTypeId")]
+        public virtual EntryStatusTypeVo entryStatusType { get; set; }
+
         [Association("ListingCategories_Listing", "listingId", "listingId", IsForeignKey = true)]
         public List<ListingCategoriesVo> listingCategories { get; set; }
 
@@ -124,7 +127,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
         { 			
     		this.listingId = Guid.NewGuid();
     	    this.isActive = true;
-            this.isApproved = false;
     	}
     }
 }

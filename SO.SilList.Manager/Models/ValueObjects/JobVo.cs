@@ -93,9 +93,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [Required]
         public System.DateTime endDate { get; set; }
 
-        [DisplayName("Approved")]
-        public bool isApproved { get; set; }
-    		
         [DisplayName("Entry Status Type")]
         public Nullable<int> entryStatusTypeId { get; set; }
 
@@ -143,7 +140,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         {
     			
     		this.jobId = Guid.NewGuid();
-            this.isApproved = false;
+            // this.isApproved = false;
     	    this.isActive = true;
     	}
     }

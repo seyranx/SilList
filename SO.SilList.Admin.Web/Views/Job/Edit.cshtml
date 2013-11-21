@@ -12,13 +12,13 @@
         </script>
 
 <h2>Edit</h2>
-
-@using (Html.BeginForm("Edit", "Job", FormMethod.Post, new { @encType = "multipart/form-data" }))
+@* todo: don't need image (multipart/form-data) upload for Jobs *@
+@* @using (Html.BeginForm("Edit", "Job", FormMethod.Post, new { @encType = "multipart/form-data" })) *@
+@using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
     <fieldset class="form-horizontal">
         <legend></legend>
-
 
         @Html.HiddenFor(model => model.jobId)
 
@@ -196,16 +196,6 @@
                 <!-- <input type="text" value="@Html.DisplayFor(model => model.endDate)" id="endDate" /> -->
                 @Html.EditorFor(model => model.endDate)
                 @Html.ValidationMessageFor(model => model.endDate)
-            </div>
-        </div>
-
-        <div class="control-group">
-            <div class="control-label">
-                @Html.LabelFor(model => model.isApproved)
-            </div>
-            <div class="controls">
-                @Html.EditorFor(model => model.isApproved)
-                @Html.ValidationMessageFor(model => model.isApproved)
             </div>
         </div>
 

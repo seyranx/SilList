@@ -178,6 +178,46 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        
+
+        public BusinessVo Approve(Guid businessId)
+        {
+            using (var db = new MainDb())
+            {
+                var result = db.businesses.FirstOrDefault(e => e.businessId == businessId);
+                var approveRec = db.entryStatusType.FirstOrDefault(f => f.name == EntryStatusTypeStrings.csApprove);
+
+                if (result == null) return null;
+
+                BusinessVo input = result;
+                //input.created = result.created;
+                //input.createdBy = result.createdBy;
+                input.entryStatusType = approveRec;
+                db.Entry(result).CurrentValues.SetValues(input);
+
+                db.SaveChanges();
+                return result;
+
+
+            }
+        }
+        public BusinessVo Decline(Guid businessId)
+        {
+            using (var db = new MainDb())
+            {
+                var res = db.businesses.FirstOrDefault(e => e.businessId == businessId);
+                var declineRec = db.entryStatusType.FirstOrDefault(f => f.name == EntryStatusTypeStrings.csDecline);
+
+                if (res == null) return null;
+
+                BusinessVo input = res;
+                //input.created = result.created;
+                //input.createdBy = result.createdBy;
+                input.entryStatusType = declineRec;
+                db.Entry(res).CurrentValues.SetValues(input);
+
+                db.SaveChanges();
+                return res;
+            }
+        }        
     }
 }
