@@ -1,0 +1,26 @@
+﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.PropertyVo>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Property title 
+        </th>
+        <th>
+            <!-- buttons -->
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+
+            <td>
+                <a href="@Url.Action("EntryStatusApprove", new { id = item.propertyId })" class="btn" title="Approve">Approve</a>
+                <a href="@Url.Action("EntryStatusDecline", new { id = item.propertyId })" class="btn" title="Decline">Decline</a>
+            </td>
+        </tr>
+    }
+
+</table>

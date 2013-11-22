@@ -14,7 +14,7 @@ namespace SO.SilList.Admin.Web.Controllers
     public class BusinessController : Controller
     {
         private BusinessManager businessManager = new BusinessManager();
-        private EntryStatusTypeManager<BusinessVo> entryStatusTypeManager = new EntryStatusTypeManager<BusinessVo>();
+        // private EntryStatusTypeManager<BusinessVo> entryStatusTypeManager = new EntryStatusTypeManager<BusinessVo>();
           
         public ActionResult Index(BusinessVm input=null,Paging paging = null)
         {
@@ -123,35 +123,13 @@ namespace SO.SilList.Admin.Web.Controllers
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Entry Status Type stuff
-        public ActionResult EntryStatusIndex(EntryStatusTypeVm<BusinessVo> input = null, Paging paging = null)
+        public ActionResult EntryStatusIndex(BusinessVm input = null, Paging paging = null)
         {
             if (input == null)
-                input = new EntryStatusTypeVm<BusinessVo>();
-            input.paging = paging;
-            if (this.ModelState.IsValid)
-            {
-                if (input.submitButton != null)
-                    input.paging.pageNumber = 1;
-                input = entryStatusTypeManager.search(input);
-                return View(input);
-            }
-            return View();
+                input = new BusinessVm();
+            input.showPendingOnly = true;
+            return Index(input, paging);
         }
-        public ActionResult _EntryStatusList()
-        {
-            var results = businessManager.getAll(null);
-            return PartialView(results);
-            //return PartialView("_EntryStatusList", results);
-        }
-        public ActionResult EntryStatusPagination(Paging input)
-        {
-            return PartialView("_Pagination", input);
-        }
-        public ActionResult EntryStatusFilter(EntryStatusTypeVm<SO.SilList.Manager.Models.ValueObjects.BusinessVo> input)
-        {
-            return PartialView("_EntryStatusFilter", input);
-        }
-
 
         public ActionResult EntryStatusApprove(Guid id)
         {

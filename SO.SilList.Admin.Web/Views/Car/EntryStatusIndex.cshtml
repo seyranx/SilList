@@ -1,4 +1,4 @@
-﻿@model SO.SilList.Manager.Models.ViewModels.EntryStatusTypeVm<SO.SilList.Manager.Models.ValueObjects.CarVo>
+﻿@model SO.SilList.Manager.Models.ViewModels.CarVm
 
 @{
     ViewBag.Title = "Approve User Entries";
@@ -9,11 +9,11 @@
 
 <form id="filterForm" class="form-inline" method="get" action="@Url.Action("EntryStatusIndex","Car")" style="min-width:800px">
     
-    @Html.Action("EntryStatusFilter",@Model)
+    @Html.Action("Filter",@Model)
      <div class="pull-right">
         @((Model.paging.pageNumber-1) * Model.paging.rowCount + Model.result.Count) of @Model.paging.totalCount
     </div>
     @Html.Partial("_EntryStatusList", @Model.result)
 
-    @Html.Action("EntryStatusPagination", @Model.paging)
+    @Html.Action("Pagination", @Model.paging)
 </form>

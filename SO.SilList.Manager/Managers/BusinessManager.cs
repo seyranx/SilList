@@ -91,6 +91,7 @@ namespace SO.SilList.Manager.Managers
 
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                      && (input.showPendingOnly == null || input.showPendingOnly == false || e.entryStatusType.name.Equals(EntryStatusTypeStrings.csPending)) 
                                     )
                              .OrderBy(b => b.name);
                            input.paging.totalCount = query.Count();

@@ -54,7 +54,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         [Association("EntryStatusType_Car", "entryStatusTypeId", "entryStatusTypeId", IsForeignKey = true)]
         public List<CarVo> car { get; set; }
-        
+
+        [Association("EntryStatusType_Property", "entryStatusTypeId", "entryStatusTypeId", IsForeignKey = true)]
+        public List<PropertyVo> property { get; set; }
+
         public EntryStatusTypeVo()
         {
             this.isActive = true;

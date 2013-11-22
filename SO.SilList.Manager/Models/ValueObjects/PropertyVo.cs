@@ -34,9 +34,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [DisplayName("Listing Type")]
         public int? propertyListingTypeId { get; set; }
 
-        [DisplayName("Status Type")]
-        public int? statusTypeId { get; set; }
-    		
     	[DisplayName("Site")]
         public int? siteId { get; set; }
     		
@@ -90,8 +87,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [Required]
         public System.DateTime endDate { get; set; }
 
-        [DisplayName("Approved")]
-        public bool isApproved { get; set; }
+        [DisplayName("Entry Status Type")]
+        public Nullable<int> entryStatusTypeId { get; set; }
     		
     	[DisplayName("Modified By")]
         public int? modifiedBy { get; set; }
@@ -114,9 +111,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [ForeignKey("propertyListingTypeId")]
         public virtual PropertyListingTypeVo propertyListingType { get; set; }
 
-        [ForeignKey("statusTypeId")]
-        public virtual StatusTypeVo statusType { get; set; }
-
         [ForeignKey("propertyTypeId")]
         public virtual PropertyTypeVo propertyType { get; set; }
 
@@ -133,7 +127,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public virtual CityTypeVo cityType { get; set; } 
 
         [ForeignKey("createdBy")]
-        public virtual MemberVo member { get; set; }  
+        public virtual MemberVo member { get; set; }
+
+        [ForeignKey("entryStatusTypeId")]
+        public virtual EntryStatusTypeVo entryStatusType { get; set; }
 
         [Association("Property_PropertyImages", "propertyId", "propertyId", IsForeignKey = true)]
         public List<PropertyImageVo> propertyImage { get; set; }
@@ -142,7 +139,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
         {
     		this.propertyId = Guid.NewGuid();
     	    this.isActive = true;
-            this.isApproved = false;
     	}
     }
 }

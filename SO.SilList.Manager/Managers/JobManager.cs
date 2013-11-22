@@ -98,6 +98,7 @@ namespace SO.SilList.Manager.Managers
                                 || e.website.Contains(input.keyword)
                                 || e.jobType.name.Contains(input.keyword)
                                 || System.Data.Objects.SqlClient.SqlFunctions.StringConvert((double)e.zip).Contains(input.keyword))
+                                && (input.showPendingOnly == null || input.showPendingOnly == false || e.entryStatusType.name.Equals(EntryStatusTypeStrings.csPending)) 
                              );
                 input.paging.totalCount = query.Count();
                 input.result = query

@@ -223,6 +223,7 @@
     <None Include="user-scripts\InsertToListing.sql">
       <AnsiNulls>ProjectDefault</AnsiNulls>
     </None>
+    <None Include="user-scripts\InsertToCar.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />

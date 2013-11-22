@@ -1,4 +1,4 @@
-﻿@model SO.SilList.Manager.Models.ValueObjects.StatusTypeVo
+﻿@model SO.SilList.Manager.Models.ValueObjects.EntryStatusTypeVo
 
 @{
     ViewBag.Title = "Edit";
@@ -13,7 +13,7 @@
     <fieldset>
         <legend>RentTypeVo</legend>
 
-        @Html.HiddenFor(model => model.statusTypeId)
+        @Html.HiddenFor(model => model.entryStatusTypeId)
 
         <div class="editor-label">
             @Html.LabelFor(model => model.name)

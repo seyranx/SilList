@@ -11,7 +11,7 @@
     [fax]               NVARCHAR (50)    NULL,
     [startDate]         DATE             NOT NULL,
     [endDate]           DATE             NOT NULL,
-    [entryStatusTypeId] INT              CONSTRAINT [DF__tmp_ms_xx__isApp__436BFEE3] DEFAULT ((1)) NOT NULL,
+    [entryStatusTypeId] INT              CONSTRAINT [DF__tmp_ms_xx__isApp__436BFEE3] DEFAULT ((1)) NULL,
     [createdBy]         INT              NULL,
     [modifiedBy]        INT              NULL,
     [modified]          DATETIME         CONSTRAINT [DF_Business_modified] DEFAULT (getdate()) NOT NULL,

@@ -24,7 +24,7 @@
     [interiorColorTypeId] INT              NULL,
     [startDate]           DATE             NOT NULL,
     [endDate]             DATE             NOT NULL,
-    [entryStatusTypeId]          INT              DEFAULT ((1)) NOT NULL,
+    [entryStatusTypeId]          INT              DEFAULT ((1)) NULL,
     [created]             DATETIME         CONSTRAINT [DF__Car__created__19AACF41] DEFAULT (getdate()) NOT NULL,
     [modified]            DATETIME         CONSTRAINT [DF__Car__modified__1A9EF37A] DEFAULT (getdate()) NOT NULL,
     [createdBy]           INT              NULL,

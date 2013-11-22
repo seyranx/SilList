@@ -547,17 +547,14 @@
     <Content Include="Views\StateType\Edit.cshtml" />
     <Content Include="Views\StateType\Index.cshtml" />
     <Content Include="Views\Job\_EntryStatusList.cshtml" />
-    <Content Include="Views\Job\_EntryStatusFilter.cshtml" />
     <Content Include="Scripts\select2-3.4.4\bower.json" />
     <Content Include="Scripts\select2-3.4.4\LICENSE" />
     <Content Include="Scripts\select2-3.4.4\README.md" />
     <Content Include="Scripts\select2-3.4.4\release.sh" />
     <Content Include="Scripts\select2-3.4.4\select2.jquery.json" />
     <Content Include="Scripts\select2-3.4.4\select2_locale_en.js.template" />
-    <Content Include="Views\Business\_EntryStatusFilter.cshtml" />
     <Content Include="Views\Business\_EntryStatusList.cshtml" />
     <Content Include="Views\Business\EntryStatusIndex.cshtml" />
-    <Content Include="Views\Car\_EntryStatusFilter.cshtml" />
     <Content Include="Views\Car\_EntryStatusList.cshtml" />
     <Content Include="Views\Car\EntryStatusIndex.cshtml" />
     <None Include="Views\Image\CarImages.cshtml" />
@@ -713,8 +710,9 @@
     <Content Include="Views\Job\Create.cshtml" />
     <Content Include="Views\Job\EntryStatusIndex.cshtml" />
     <Content Include="Views\Listing\EntryStatusIndex.cshtml" />
-    <Content Include="Views\Listing\_EntryStatusFilter.cshtml" />
     <Content Include="Views\Listing\_EntryStatusList.cshtml" />
+    <Content Include="Views\Property\_EntryStatusList.cshtml" />
+    <Content Include="Views\Property\EntryStatusIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

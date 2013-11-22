@@ -40,7 +40,6 @@ namespace SO.SilList.Manager.DbContexts
         
         public DbSet<PropertyTypeVo> propertyTypes { get; set; }
         public DbSet<PropertyImageVo> propertyImages { get; set; }
-        public DbSet<StatusTypeVo> statusTypes { get; set; }
 
         public DbSet<SettingTypeVo> settingTypes { get; set; }
         public DbSet<EnvironmentTypeVo> environmentTypes { get; set; }

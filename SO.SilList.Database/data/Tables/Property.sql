@@ -26,7 +26,7 @@
     [createdBy]             INT              NULL,
     [created]               DATETIME         CONSTRAINT [DF_Rental_created] DEFAULT (getdate()) NOT NULL,
     [isActive]              BIT              CONSTRAINT [DF_Rental_isActive] DEFAULT ((1)) NOT NULL,
-    [statusTypeId]          INT              NULL,
+    [entryStatusTypeId]          INT              NULL DEFAULT ((1)),
     [isPetAllowed]          BIT              NULL,
     CONSTRAINT [PK__tmp_ms_x__0164732E4C94D603] PRIMARY KEY CLUSTERED ([propertyId] ASC),
     CONSTRAINT [FK_Rental_CityType] FOREIGN KEY ([cityTypeId]) REFERENCES [app].[CityType] ([cityTypeId]) ON DELETE CASCADE ON UPDATE CASCADE,

@@ -17,6 +17,7 @@ DECLARE @newly_added_site_id integer
 SET @newly_added_site_id = @@IDENTITY
 
 -- Insert some job listings
+
 DECLARE @date_now date
 SET @date_now = GETDATE()
 declare @date_ends date

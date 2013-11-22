@@ -21,7 +21,7 @@ namespace SO.SilList.Manager.Managers
                 var result = db.properties
                             .Include(r => r.propertyType)
                             .Include(t => t.propertyListingType)
-                            .Include(c => c.statusType)
+                            .Include(c => c.entryStatusType)
                             .Include(s => s.site)
                             .Include(i => i.cityType)
                             .Include(o => o.countryType)
@@ -54,14 +54,15 @@ namespace SO.SilList.Manager.Managers
                 var query = db.properties
                             .Include(r => r.propertyType)
                             .Include(t => t.propertyListingType)
-                            .Include(c => c.statusType)
                             .Include(s => s.site)
                             .Include(i => i.cityType)
                             .Include(o => o.countryType)
                             .Include(u => u.stateType) 
+                            .Include(w => w.entryStatusType)
                             .OrderBy(b => b.description)
                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                      && (input.showPendingOnly == null || input.showPendingOnly == false || e.entryStatusType.name.Equals(EntryStatusTypeStrings.csPending)) 
                              );
                 input.paging.totalCount = query.Count();
                 input.result = query
@@ -81,7 +82,7 @@ namespace SO.SilList.Manager.Managers
                 var list = db.properties
                             .Include(r => r.propertyType)
                             .Include(t => t.propertyListingType)
-                            .Include(c => c.statusType)
+                            .Include(c => c.entryStatusType)
                             .Include(s => s.site)
                             .Include(i => i.cityType)
                             .Include(o => o.countryType)
@@ -146,6 +147,50 @@ namespace SO.SilList.Manager.Managers
             {
                 return db.properties.Count();
             }
-        }         
+        }
+
+        ////////////////////////////////////////////////
+        // Entry Status Type stuff
+        public PropertyVo Approve(Guid propertyId)
+        {
+            using (var db = new MainDb())
+            {
+                var result = db.properties.FirstOrDefault(e => e.propertyId == propertyId);
+                var approveRec = db.entryStatusType.FirstOrDefault(f => f.name == EntryStatusTypeStrings.csApprove);
+
+                if (result == null) return null;
+
+                PropertyVo input = result;
+                //input.created = result.created;
+                //input.createdBy = result.createdBy;
+                input.entryStatusType = approveRec;
+                db.Entry(result).CurrentValues.SetValues(input);
+
+                db.SaveChanges();
+                return result;
+
+
+            }
+        }
+        public PropertyVo Decline(Guid propertyId)
+        {
+            using (var db = new MainDb())
+            {
+                var result = db.properties.FirstOrDefault(e => e.propertyId == propertyId);
+                var declineRec = db.entryStatusType.FirstOrDefault(f => f.name == EntryStatusTypeStrings.csDecline);
+
+                if (result == null) return null;
+
+                PropertyVo input = result;
+                //input.created = result.created;
+                //input.createdBy = result.createdBy;
+                input.entryStatusType = declineRec;
+                db.Entry(result).CurrentValues.SetValues(input);
+
+                db.SaveChanges();
+                return result;
+            }
+        }
+
     }
 }

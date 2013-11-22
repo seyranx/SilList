@@ -13,7 +13,8 @@ namespace SO.SilList.Admin.Web.Controllers
     public class JobController : Controller
     {
         private JobManager jobManager = new JobManager();
-        private EntryStatusTypeManager<JobVo> entryStatusTypeManager = new EntryStatusTypeManager<JobVo>();
+        // private EntryStatusTypeManager<JobVo> entryStatusTypeManager = new EntryStatusTypeManager<JobVo>();
+
         //
         // GET: /Rentals/
 
@@ -141,38 +142,15 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView("_Pagination", input);
         }
 
-
         /////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Entry Status Type stuff
-        public ActionResult EntryStatusIndex(EntryStatusTypeVm<JobVo> input = null, Paging paging = null)
+        public ActionResult EntryStatusIndex(JobVm input = null, Paging paging = null)
         {
             if (input == null)
-                input = new EntryStatusTypeVm<JobVo>();
-            input.paging = paging;
-            if (this.ModelState.IsValid)
-            {
-                if (input.submitButton != null)
-                    input.paging.pageNumber = 1;
-                input = entryStatusTypeManager.search(input);
-                return View(input);
-            }
-            return View();
+                input = new JobVm();
+            input.showPendingOnly = true;
+            return Index(input, paging);
         }
-        public ActionResult _EntryStatusList()
-        {
-            var results = jobManager.getAll(null);
-            return PartialView(results);
-            //return PartialView("_EntryStatusList", results);
-        }
-        public ActionResult EntryStatusPagination(Paging input)
-        {
-            return PartialView("_Pagination", input);
-        }
-        public ActionResult EntryStatusFilter(EntryStatusTypeVm<SO.SilList.Manager.Models.ValueObjects.JobVo> input)
-        {
-            return PartialView("_EntryStatusFilter", input);
-        }
-
 
         public ActionResult EntryStatusApprove(Guid id)
         {
