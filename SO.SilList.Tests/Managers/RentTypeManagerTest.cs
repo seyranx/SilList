@@ -28,9 +28,9 @@ namespace SO.SilList.Tests.Managers
         {
             for (int i = 1; i <= 10; i++)
             {
-                var vo = new StatusTypeVo();
+                var vo = new EntryStatusTypeVo();
                 vo.name = i.ToString() + " Test RentType Name ";
-                vo.statusTypeId = i;
+                vo.entryStatusTypeId = i;
                 var result = rentTypeManager.insert(vo);
                 //TEST CHANGES
                 if (result == null)
@@ -45,18 +45,17 @@ namespace SO.SilList.Tests.Managers
         [TestMethod]
         public void insertDeleteTest()
         {
-            var vo = new StatusTypeVo();
+            var vo = new EntryStatusTypeVo();
             vo.name = "testName";
-            vo.description = "Test Description";
 
             var result = rentTypeManager.insert(vo);
-            var result2 = rentTypeManager.get(result.statusTypeId);
+            var result2 = rentTypeManager.get(result.entryStatusTypeId);
 
-            rentTypeManager.delete(result.statusTypeId);
+            rentTypeManager.delete(result.entryStatusTypeId);
 
-            var result3 = rentTypeManager.get(result.statusTypeId);
+            var result3 = rentTypeManager.get(result.entryStatusTypeId);
 
-            if (result != null && result2 != null && result3 == null && result2.statusTypeId != 0)
+            if (result != null && result2 != null && result3 == null && result2.entryStatusTypeId != 0)
             {
                 Assert.IsTrue(true);
             }

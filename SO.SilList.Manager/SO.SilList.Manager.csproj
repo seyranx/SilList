@@ -201,7 +201,6 @@
     <Compile Include="Models\ValueObjects\PropertyImageVo.cs" />
     <Compile Include="Models\ValueObjects\PropertyVo.cs" />
     <Compile Include="Models\ValueObjects\PropertyTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\StatusTypeVo.cs" />
     <Compile Include="Models\ValueObjects\ServiceTypeVo.cs" />
     <Compile Include="Models\ValueObjects\SettingTypeVo.cs" />
     <Compile Include="Models\ValueObjects\SiteVo.cs" />

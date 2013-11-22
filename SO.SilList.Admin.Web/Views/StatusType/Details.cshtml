@@ -1,4 +1,4 @@
-﻿@model SO.SilList.Manager.Models.ValueObjects.StatusTypeVo
+﻿@model SO.SilList.Manager.Models.ValueObjects.EntryStatusTypeVo
 
 @{
     ViewBag.Title = "Details";
@@ -8,7 +8,7 @@
 <h2>Details</h2>
 
 <fieldset>
-    <legend>StatusTypeVo</legend>
+    <legend>EntryStatusTypeVo</legend>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.name)
@@ -32,7 +32,7 @@
     </div>
 </fieldset>
 <p>
-    <a href="@Url.Action("Index", new { id=Model.statusTypeId })" class="btn">Edit</a>
+    <a href="@Url.Action("Index", new { id=Model.entryStatusTypeId })" class="btn">Edit</a>
 
     <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
 </p>

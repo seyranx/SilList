@@ -22,6 +22,9 @@ namespace SO.SilList.Manager.Models.ViewModels
         public List<ImageCheckBoxInfo> imagesToRemove { get; set; }
         public BusinessVo business { get; set; }
 
+        //*****
+        public bool? showPendingOnly { get; set; } // for Entry Status Type 
+
         public BusinessVm()
         {
             this.result = new List<BusinessVo>();

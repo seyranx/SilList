@@ -32,10 +32,12 @@ namespace SO.SilList.Manager.Managers
                              .Include(o => o.countryType)
                              .Include(t => t.listingCategories) //
                              .Include(t => t.listingCategories.Select(c=>c.listingCategoryType)) 
-                             .Include(u => u.stateType) 
+                             .Include(u => u.stateType)
+                             //.Include(w => w.entryStatusType)
 
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.title.Contains(input.keyword) || e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                      && (input.showPendingOnly == null || input.showPendingOnly == false || e.entryStatusType.name.Equals(EntryStatusTypeStrings.csPending)) 
                                     );
                 input.paging.totalCount = query.Count();
                 input.result = query
@@ -204,7 +206,7 @@ namespace SO.SilList.Manager.Managers
             throw new NotImplementedException();
         }
 
-
+        ////////////////////////////////////////////////
         // Entry Status Type stuff
         public ListingVo Approve(Guid listingId)
         {

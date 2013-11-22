@@ -119,5 +119,31 @@ namespace SO.SilList.Admin.Web.Controllers
         {
             return PartialView("_Filter", input);
         }
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Entry Status Type stuff
+        public ActionResult EntryStatusIndex(PropertyVm input = null, Paging paging = null)
+        {
+            if (input == null)
+                input = new PropertyVm();
+            input.showPendingOnly = true;
+            return Index(input, paging);
+        }
+
+        public ActionResult EntryStatusApprove(Guid id)
+        {
+            var result = propertyManager.get(id);
+            if (result != null)
+                propertyManager.Approve(id);
+            return RedirectToAction("EntryStatusIndex");
+        }
+        public ActionResult EntryStatusDecline(Guid id)
+        {
+            var result = propertyManager.get(id);
+            if (result != null)
+                propertyManager.Decline(id);
+            return RedirectToAction("EntryStatusIndex");
+        }
+
     }
 }

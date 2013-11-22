@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace SO.SilList.Manager.Interfaces
 {
-    interface IStatusTypeManager
+    interface IEntryStatusTypeManager
     {
-        StatusTypeVo get(int rentTypeId);
-        List<StatusTypeVo> getAll(bool? isActive = true);
-        bool delete(int rentTypeId);
-        StatusTypeVo update(StatusTypeVo input, int? rentTypeId = null);
-        StatusTypeVo insert(StatusTypeVo input);
+        EntryStatusTypeVo get(int EntryStatusTypeVo);
+        List<EntryStatusTypeVo> getAll(bool? isActive = true);
+        bool delete(int EntryStatusTypeVo);
+        EntryStatusTypeVo update(EntryStatusTypeVo input, int? EntryStatusTypeVo = null);
+        EntryStatusTypeVo insert(EntryStatusTypeVo input);
     }
 }
