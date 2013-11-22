@@ -1,5 +1,5 @@
-﻿@model SO.SilList.Manager.Models.ValueObjects.StatusTypeVo 
+﻿@model SO.SilList.Manager.Models.ValueObjects.EntryStatusTypeVo 
 
-@Html.DropDownList((string)ViewBag.propertyName, new SelectList(ViewBag.statusTypes,"statusTypeId",
-                                                            "name",Model.statusTypeId),(string)ViewBag.defaultValue)
+@Html.DropDownList((string)ViewBag.propertyName, new SelectList(ViewBag.entryStatusTypes,"entryStatusTypeId",
+                                                            "name",Model.entryStatusTypeId),(string)ViewBag.defaultValue)
 

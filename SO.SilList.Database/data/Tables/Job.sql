@@ -15,7 +15,7 @@
     [contactName] NVARCHAR(50) NULL, 
     [companyName] NVARCHAR(50) NULL, 
     [email] NVARCHAR(50) NULL, 
-    [entryStatusTypeId] INT              CONSTRAINT [DF__tmp_ms_xx__isApp__3B0BC30C] DEFAULT ((1)) NOT NULL,
+    [entryStatusTypeId] INT              CONSTRAINT [DF__tmp_ms_xx__isApp__3B0BC30C] DEFAULT ((1)) NULL,
     [startDate]         DATE             NOT NULL,
     [endDate]           DATE             NOT NULL,
     [created]           DATE             CONSTRAINT [DF__tmp_ms_xx__creat__3BFFE745] DEFAULT (getdate()) NOT NULL,

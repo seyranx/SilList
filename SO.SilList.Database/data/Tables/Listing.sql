@@ -14,7 +14,7 @@
     [fax]           NVARCHAR (50)    NULL,
     [startDate]     DATE             NOT NULL,
     [endDate]       DATE             NOT NULL,
-    [entryStatusTypeid]    INT              CONSTRAINT [DF__Listing__isAppro__7F80E8EA] DEFAULT ((1)) NOT NULL,
+    [entryStatusTypeId]    INT              CONSTRAINT [DF__Listing__isAppro__7F80E8EA] DEFAULT ((1)) NULL,
     [createdBy ]    INT              NULL,
     [modifiedBy]    INT              NULL,
     [created]       DATETIME         CONSTRAINT [DF__Listing__created__589C25F3] DEFAULT (getdate()) NOT NULL,

@@ -17,7 +17,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
     [Serializable]
     public partial class EntryStatusTypeVo
     {
-    		
     	[DisplayName("entry Status Type Id")]
         [Key]
         public int entryStatusTypeId { get; set; }
@@ -52,7 +51,13 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         [Association("EntryStatusType_Listing", "entryStatusTypeId", "entryStatusTypeId", IsForeignKey = true)]
         public List<ListingVo> listing { get; set; }
-        
+
+        [Association("EntryStatusType_Car", "entryStatusTypeId", "entryStatusTypeId", IsForeignKey = true)]
+        public List<CarVo> car { get; set; }
+
+        [Association("EntryStatusType_Property", "entryStatusTypeId", "entryStatusTypeId", IsForeignKey = true)]
+        public List<PropertyVo> property { get; set; }
+
         public EntryStatusTypeVo()
         {
             this.isActive = true;

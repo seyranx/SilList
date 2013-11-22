@@ -30,6 +30,9 @@ namespace SO.SilList.Manager.Models.ViewModels
         public string submitButton { get; set; }
         public Paging paging;
 
+        //*****
+        public bool? showPendingOnly { get; set; } // for Entry Status Type 
+
         public ListingVo listing { get; set; }
 
         public ListingVm()

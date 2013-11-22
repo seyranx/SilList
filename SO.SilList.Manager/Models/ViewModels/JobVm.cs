@@ -27,7 +27,9 @@ namespace SO.SilList.Manager.Models.ViewModels
         public int? listingDate { get; set; }
         public int? zip { get; set; }
         public int? jobTypeId { get; set; }
-       
+
+        //*****
+        public bool? showPendingOnly { get; set; } // for Entry Status Type 
  
         public JobVm()
         {

@@ -12,26 +12,26 @@ using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Manager.Managers
 {
-    public class StatusTypeManager : IStatusTypeManager
+    public class StatusTypeManager : IEntryStatusTypeManager
     {
-        public StatusTypeVo get(int rentTypeId)
+        public EntryStatusTypeVo get(int rentTypeId)
         {
             using (var db = new MainDb())
             {
-                var res = db.statusTypes
+                var res = db.entryStatusType
                     //.Include(s => s.image)
-                            .FirstOrDefault(p => p.statusTypeId == rentTypeId);
+                            .FirstOrDefault(p => p.entryStatusTypeId == rentTypeId);
 
                 return res;
             }
         }
 
-        public StatusTypeVm search(StatusTypeVm input)
+        public EntryStatusTypeVm search(EntryStatusTypeVm input)
         {
 
             using (var db = new MainDb())
             {
-                var query = db.statusTypes
+                var query = db.entryStatusType
                             .OrderBy(b => b.name)
                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (e.name.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
@@ -47,11 +47,11 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public List<StatusTypeVo> getAll(bool? isActive = true)
+        public List<EntryStatusTypeVo> getAll(bool? isActive = true)
         {
             using (var db = new MainDb())
             {
-                var list = db.statusTypes
+                var list = db.entryStatusType
                              //.Include(s => s.site)
                              .Where(e => isActive == null || e.isActive == isActive)
                              .ToList();
@@ -64,22 +64,22 @@ namespace SO.SilList.Manager.Managers
         {
             using (var db = new MainDb())
             {
-                var res = db.statusTypes
-                     .Where(e => e.statusTypeId == rentTypeId)
+                var res = db.entryStatusType
+                     .Where(e => e.entryStatusTypeId == rentTypeId)
                      .Delete();
                 return true;
             }
         }
 
-        public StatusTypeVo update(StatusTypeVo input, int? rentTypeId = null)
+        public EntryStatusTypeVo update(EntryStatusTypeVo input, int? rentTypeId = null)
         {
             using (var db = new MainDb())
             {
 
                 if (rentTypeId == null)
-                    rentTypeId = input.statusTypeId;
+                    rentTypeId = input.entryStatusTypeId;
 
-                var res = db.statusTypes.FirstOrDefault(e => e.statusTypeId == rentTypeId);
+                var res = db.entryStatusType.FirstOrDefault(e => e.entryStatusTypeId == rentTypeId);
 
                 if (res == null) return null;
 
@@ -94,12 +94,12 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public StatusTypeVo insert(StatusTypeVo input)
+        public EntryStatusTypeVo insert(EntryStatusTypeVo input)
         {
             using (var db = new MainDb())
             {
 
-                db.statusTypes.Add(input);
+                db.entryStatusType.Add(input);
                 db.SaveChanges();
 
                 return input;

@@ -97,10 +97,10 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.property.statusTypeId)
+            @Html.LabelFor(model => model.property.entryStatusTypeId)
         </div>
         <div class="editor-field">
-           @Html.Action("DropDownList", "StatusType", new { id = Model.property.statusTypeId, propertyName = "property.statusTypeId" })
+           @Html.Action("DropDownList", "StatusType", new { id = Model.property.entryStatusTypeId, propertyName = "property.entryStatusTypeId" })
 
         </div>
          <div class="control-group">

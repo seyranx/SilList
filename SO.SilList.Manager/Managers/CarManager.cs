@@ -156,6 +156,8 @@ namespace SO.SilList.Manager.Managers
                                       || System.Data.Objects.SqlClient.SqlFunctions.StringConvert((double)e.price).Contains(input.keyword)
                                       || System.Data.Objects.SqlClient.SqlFunctions.StringConvert((double)e.year).Contains(input.keyword)
                                       )
+                                      && (input.showPendingOnly == null || input.showPendingOnly == false  || e.entryStatusType.name.Equals(EntryStatusTypeStrings.csPending)) 
+                                      
                              );
                 input.paging.totalCount = query.Count();
                 input.result = query         
@@ -249,5 +251,46 @@ namespace SO.SilList.Manager.Managers
                 return db.car.Count();
             }
         }
+
+        // Entry Status Type stuff
+        public CarVo Approve(Guid carId)
+        {
+            using (var db = new MainDb())
+            {
+                var result = db.car.FirstOrDefault(e => e.carId == carId);
+                var approveRec = db.entryStatusType.FirstOrDefault(f => f.name == EntryStatusTypeStrings.csApprove);
+
+                if (result == null) return null;
+
+                CarVo input = result;
+                //input.created = result.created;
+                //input.createdBy = result.createdBy;
+                input.entryStatusType = approveRec;
+                db.Entry(result).CurrentValues.SetValues(input);
+
+                db.SaveChanges();
+                return result;
+            }
+        }
+        public CarVo Decline(Guid carId)
+        {
+            using (var db = new MainDb())
+            {
+                var result = db.car.FirstOrDefault(e => e.carId == carId);
+                var declineRec = db.entryStatusType.FirstOrDefault(f => f.name == EntryStatusTypeStrings.csDecline);
+
+                if (result == null) return null;
+
+                CarVo input = result;
+                //input.created = result.created;
+                //input.createdBy = result.createdBy;
+                input.entryStatusType = declineRec;
+                db.Entry(result).CurrentValues.SetValues(input);
+
+                db.SaveChanges();
+                return result;
+            }
+        }
+
     }
 }

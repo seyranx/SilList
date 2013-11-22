@@ -17,9 +17,9 @@ namespace SO.SilList.Admin.Web.Controllers
 
         private StatusTypeManager rentalTypeManager = new StatusTypeManager();
 
-        public ActionResult Index(StatusTypeVm input = null, Paging paging = null)
+        public ActionResult Index(EntryStatusTypeVm input = null, Paging paging = null)
         {
-            if (input == null) input = new StatusTypeVm();
+            if (input == null) input = new EntryStatusTypeVm();
             input.paging = paging;
             if (this.ModelState.IsValid)
             {
@@ -38,7 +38,7 @@ namespace SO.SilList.Admin.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(int id, StatusTypeVo input)
+        public ActionResult Edit(int id, EntryStatusTypeVo input)
         {
             if (this.ModelState.IsValid)
             {
@@ -55,7 +55,7 @@ namespace SO.SilList.Admin.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(StatusTypeVo input)
+        public ActionResult Create(EntryStatusTypeVo input)
         {
             if (this.ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace SO.SilList.Admin.Web.Controllers
         public ActionResult DropDownList(int? id = null, string propertyName = null, string defaultValue = null)
         {
             ViewBag.rentTypes = rentalTypeManager.getAll(null);
-            var rentType = new StatusTypeVo();
+            var rentType = new EntryStatusTypeVo();
             if (id != null)
             {
                 rentType = rentalTypeManager.get(id.Value);
@@ -106,7 +106,7 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView("_DropDownList", rentType);
 
         }
-        public ActionResult Filter(StatusTypeVm Input)
+        public ActionResult Filter(EntryStatusTypeVm Input)
         {
             return PartialView("_Filter", Input);
         }

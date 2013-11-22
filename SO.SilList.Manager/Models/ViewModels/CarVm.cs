@@ -57,6 +57,8 @@ namespace SO.SilList.Manager.Models.ViewModels
         //*****
         public string submitButton { get; set; }
         public Paging paging;
+        //*****
+        public bool? showPendingOnly { get; set; } // for Entry Status Type 
 
         public CarVo car { get; set; }
         public List<ImageCheckBoxInfo> imagesToRemove { get; set; }

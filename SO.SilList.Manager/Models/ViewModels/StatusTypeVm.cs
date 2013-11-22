@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace SO.SilList.Manager.Models.ViewModels
 {
-    public class StatusTypeVm
+    public class EntryStatusTypeVm
     {
-        public List<StatusTypeVo> result { get; set; }
+        public List<EntryStatusTypeVo> result { get; set; }
         public string keyword { get; set; }
 
          [DisplayName("isActive: ")]
@@ -20,9 +20,9 @@ namespace SO.SilList.Manager.Models.ViewModels
          public string submitButton { get; set; }
          public Paging paging;
 
-         public StatusTypeVm()
+         public EntryStatusTypeVm()
         {
-            this.result = new List<StatusTypeVo>();
+            this.result = new List<EntryStatusTypeVo>();
             if (paging == null)
                 paging = new Paging();
         }
