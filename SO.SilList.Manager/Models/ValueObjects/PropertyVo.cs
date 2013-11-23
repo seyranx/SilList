@@ -91,7 +91,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public System.DateTime endDate { get; set; }
 
         [DisplayName("Entry Status Type")]
-        public Nullable<int> entryStatusTypeId { get; set; }
+        public int? entryStatusTypeId { get; set; }
     		
     	[DisplayName("Modified By")]
         public int? modifiedBy { get; set; }

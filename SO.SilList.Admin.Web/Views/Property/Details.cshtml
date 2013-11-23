@@ -83,18 +83,10 @@
         </div>
         <div class="control-group">
             <div class="control-label">
-                 @Html.DisplayNameFor(model => model.lotsize)
+                 @Html.DisplayNameFor(model => model.lotSize)
             </div>
             <div class="controls">
-                <input type="text" value="@Html.DisplayFor(model => model.lotsize)" readonly="true">
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="control-label">
-                 @Html.DisplayNameFor(model => model.statusTypeId)
-            </div>
-            <div class="controls">
-                <input type="text" value="@Html.DisplayFor(model => model.statusType.name)" readonly="true">
+                <input type="text" value="@Html.DisplayFor(model => model.lotSize)" readonly="true">
             </div>
         </div>
 
@@ -219,12 +211,7 @@
             @Html.DisplayFor(model => model.acceptsSection8)
         </div>
     </div>
-    <div class="control-group">
-            <label class="control-label"> @Html.DisplayNameFor(model => model.entryStatusTypeId)</label>
-        <div class="controls">
-                @Html.DisplayFor(model => model.entryStatusType.name)
-        </div>
-    </div>
+
     <div class="control-group">
         <label class="control-label"> @Html.DisplayNameFor(model => model.isActive)</label>
         <div class="controls">

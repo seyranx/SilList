@@ -224,6 +224,10 @@
       <AnsiNulls>ProjectDefault</AnsiNulls>
     </None>
     <None Include="user-scripts\InsertToCar.sql" />
+    <Build Include="data\Tables\PropertyImages.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />

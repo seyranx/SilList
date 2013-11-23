@@ -100,10 +100,10 @@
         </div>
          <div class="control-group">
             <div class="control-label">
-                @Html.DisplayNameFor(model => model.property.lotsize)
+                @Html.DisplayNameFor(model => model.property.lotSize)
             </div>
             <div class="controls">
-                @Html.EditorFor(model => model.property.lotsize)
+                @Html.EditorFor(model => model.property.lotSize)
             </div>
         </div>
          <div class="control-group">
@@ -115,15 +115,13 @@
             </div>
         </div>
 
-        @*
         <div class="editor-label">
             @Html.LabelFor(model => model.property.entryStatusTypeId)
         </div>
         <div class="editor-field">
-           @Html.Action("DropDownList", "StatusType", new { id = Model.property.entryStatusTypeId, propertyName = "property.entryStatusTypeId" })
+           @Html.Action("DropDownList", "EntryStatusType", new { id = Model.property.entryStatusTypeId, propertyName = "property.entryStatusTypeId" })
         </div>
-        *@
-
+        
          <div class="control-group">
             <div class="control-label">
                 @Html.DisplayNameFor(model => model.property.address)
@@ -197,15 +195,6 @@
             </div>
             <div class="controls">
                 @Html.EditorFor(model => model.property.endDate)
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="control-label">
-                @Html.LabelFor(model => model.property.isApproved)
-            </div>
-            <div class="controls">
-                @Html.EditorFor(model => model.property.isApproved)
-                @Html.ValidationMessageFor(model => model.property.isApproved)
             </div>
         </div>
 

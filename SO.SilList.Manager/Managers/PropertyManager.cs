@@ -91,7 +91,7 @@ namespace SO.SilList.Manager.Managers
                                       && (string.IsNullOrEmpty(input.keyword) || e.description.Contains(input.keyword))
                                       && (input.showPendingOnly == null || input.showPendingOnly == false || e.entryStatusType.name.Equals(EntryStatusTypeStrings.csPending)) 
                                       && (input.siteId == null || e.siteId == input.siteId)
-                                      && (input.statusTypeId == null || e.statusTypeId == input.statusTypeId)
+                                      //&& (input.entryStatusTypeId == null || e.entryStatusType.entryStatusTypeId == input.entryStatusTypeId)
                                       && (input.propertyTypeId == null || e.propertyTypeId == input.propertyTypeId)
                                       && (input.propertyListingTypeId == null || e.propertyListingTypeId == input.propertyListingTypeId)
                                       && (input.listingDate ==null || DateTime.Compare(e.startDate, listingDate) >= 0)
