@@ -16,7 +16,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     [Serializable]
     public partial class PropertyVo
     {
-        [DisplayName("Property")]
+        [DisplayName("Property ID")]
     	[Key]
         public System.Guid propertyId { get; set; }
         
@@ -46,8 +46,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Price")]
         public decimal? price { get; set; }
 
-        [DisplayName("Lot Size")]
+        [DisplayName("Size")]
         public int? size { get; set; }
+
+        [DisplayName("Lot Size")]
+        public int? lotSize { get; set; }
 
         [DisplayName("Section8")]
         public bool? acceptsSection8 { get; set; }

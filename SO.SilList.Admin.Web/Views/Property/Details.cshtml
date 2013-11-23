@@ -5,17 +5,96 @@
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>@ViewBag.Title</h2>
 
-<fieldset>
+<fieldset class="form-horizontal">
     <legend></legend>
-
+    
         <div class="control-group">
-            <div class="display-label">
+            <div class="control-label">
+                @Html.LabelFor(model => model.propertyId)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.propertyId)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
                  @Html.DisplayNameFor(model => model.title)
             </div>
-            <div class="display-field">
+            <div class="controls">
                 <input type="text" value="@Html.DisplayFor(model => model.title)"readonly="true">
+            </div>
+        </div>
+       <div class="control-group">
+            <div class="control-label">
+                 @Html.DisplayNameFor(model => model.propertyTypeId)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.propertyType.name)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                 @Html.DisplayNameFor(model => model.siteId)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.site.domain)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                 @Html.DisplayNameFor(model => model.bedrooms)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.bedrooms)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                 @Html.DisplayNameFor(model => model.bathrooms)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.bathrooms)" readonly="true">
+            </div>
+        </div><div class="control-group">
+            <div class="control-label">
+                 @Html.DisplayNameFor(model => model.price)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.price)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                 @Html.DisplayNameFor(model => model.propertyListingTypeId)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.propertyListingType.name)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                 @Html.DisplayNameFor(model => model.size)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.size)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                 @Html.DisplayNameFor(model => model.lotsize)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.lotsize)" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                 @Html.DisplayNameFor(model => model.statusTypeId)
+            </div>
+            <div class="controls">
+                <input type="text" value="@Html.DisplayFor(model => model.statusType.name)" readonly="true">
             </div>
         </div>
 
@@ -43,7 +122,7 @@
                 <input type="text" value="@Html.DisplayFor(model => model.stateType.name)" readonly="true">
             </div>
         </div>
-                <div class="control-group">
+        <div class="control-group">
             <div class="control-label">
                 @Html.DisplayNameFor(model => model.countryTypeId)
             </div>
@@ -51,7 +130,7 @@
                 <input type="text" value="@Html.DisplayFor(model => model.countryType.name)" readonly="true">
             </div>
         </div>
-                <div class="control-group">
+        <div class="control-group">
             <div class="control-label">
                 @Html.DisplayNameFor(model => model.zip)
             </div>
@@ -82,113 +161,77 @@
             </div>
         </div>
         <div class="control-group">
-            <div class="display-label">
-                 @Html.DisplayNameFor(model => model.propertyTypeId)
-            </div>
-            <div class="display-field">
-                <input type="text" value="@Html.DisplayFor(model => model.propertyType.name)" readonly="true">
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="display-label">
-                 @Html.DisplayNameFor(model => model.siteId)
-            </div>
-            <div class="display-field">
-                <input type="text" value="@Html.DisplayFor(model => model.site.domain)" readonly="true">
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="display-label">
-                 @Html.DisplayNameFor(model => model.bedrooms)
-            </div>
-            <div class="display-field">
-                <input type="text" value="@Html.DisplayFor(model => model.bedrooms)" readonly="true">
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="display-label">
-                 @Html.DisplayNameFor(model => model.bathrooms)
-            </div>
-            <div class="display-field">
-                <input type="text" value="@Html.DisplayFor(model => model.bathrooms)" readonly="true">
-            </div>
-        </div><div class="control-group">
-            <div class="display-label">
-                 @Html.DisplayNameFor(model => model.price)
-            </div>
-            <div class="display-field">
-                <input type="text" value="@Html.DisplayFor(model => model.price)" readonly="true">
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="display-label">
-                 @Html.DisplayNameFor(model => model.propertyListingTypeId)
-            </div>
-            <div class="display-field">
-                <input type="text" value="@Html.DisplayFor(model => model.propertyListingType.name)" readonly="true">
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="display-label">
-                 @Html.DisplayNameFor(model => model.size)
-            </div>
-            <div class="display-field">
-                <input type="text" value="@Html.DisplayFor(model => model.size)" readonly="true">
-            </div>
-        </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label"> @Html.DisplayNameFor(model => model.acceptsSection8)</label>
-            <div class="controls">
-                @Html.DisplayFor(model => model.acceptsSection8)
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="display-label">
+            <div class="control-label">
                  @Html.DisplayNameFor(model => model.entryStatusTypeId)
             </div>
-            <div class="display-field">
+            <div class="controls">
                 <input type="text" value="@Html.DisplayFor(model => model.entryStatusType.name)" readonly="true">
             </div>
         </div>
+
         <div class="control-group">
-            <div class="display-label">
-                 @Html.DisplayNameFor(model => model.modifiedBy)
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.created)
             </div>
-            <div class="display-field">
-                <input type="text" value="@Html.DisplayFor(model => model.modifiedBy)" readonly="true">
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="display-label">
-                 @Html.DisplayNameFor(model => model.modified)
-            </div>
-            <div class="display-field">
-                <input type="text" value="@Html.DisplayFor(model => model.modified)" readonly="true">
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="display-label">
-                 @Html.DisplayNameFor(model => model.createdBy)
-            </div>
-            <div class="display-field">
-                <input type="text" value="@Html.DisplayFor(model => model.createdBy)" readonly="true">
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="display-label">
-                 @Html.DisplayNameFor(model => model.created)
-            </div>
-            <div class="display-field">
+            <div class="controls">
                 <input type="text" value="@Html.DisplayFor(model => model.created)" readonly="true">
             </div>
         </div>
-        <div class="control-group">
-            <label class="control-label"> @Html.DisplayNameFor(model => model.entryStatusTypeId)</label>
-            <div class="controls">
-                @Html.DisplayFor(model => model.entryStatusType.name)
-            </div>
+        
+    <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.modified)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.modified)" readonly="true">
         </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.createdBy)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.createdBy)" readonly="true">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.modifiedBy)</label>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.modifiedBy)" readonly="true">
+        </div>
+    </div>
+    
+    <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.startDate)</label>
+        <div class="controls">
+            <input type="text" value="@String.Format("{0:MM/dd/yyy}", Model.startDate)"" readonly="true">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">@Html.DisplayNameFor(model => model.endDate)</label>
+        <div class="controls">
+            <input type="text"  value="@String.Format("{0:MM/dd/yyy}", Model.endDate)" readonly="true">    
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label"> @Html.DisplayNameFor(model => model.acceptsSection8)</label>
+        <div class="controls">
+            @Html.DisplayFor(model => model.acceptsSection8)
+        </div>
+    </div>
+    <div class="control-group">
+            <label class="control-label"> @Html.DisplayNameFor(model => model.entryStatusTypeId)</label>
+        <div class="controls">
+                @Html.DisplayFor(model => model.entryStatusType.name)
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label"> @Html.DisplayNameFor(model => model.isActive)</label>
+        <div class="controls">
+            @Html.DisplayFor(model => model.isActive)
+        </div>
+    </div> 
+
 </fieldset>
 <p>
       <a href="@Url.Action("Edit", new { id=Model.propertyId })" class="btn">Edit</a>

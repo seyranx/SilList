@@ -5,29 +5,43 @@
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 }
 
-<fieldset>
-    <legend>PropertyListingTypeVo</legend>
+<h2>@ViewBag.Title</h2>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.name)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.name)
-    </div>
+<fieldset class="form-horizontal">
+    <legend></legend>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.description)
+    <div class="control-group">
+        <div class="control-label">
+             @Html.LabelFor(model => model.propertyListingTypeId)
+        </div>
+        <div class="controls">
+              <input type="text" value="@Html.DisplayFor(model => model.propertyListingTypeId)" readonly="true">
+        </div>
     </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.description)
+    <div class="control-group">
+        <div class="control-label">
+             @Html.LabelFor(model => model.name)
+        </div>
+        <div class="controls">
+              <input type="text" value="@Html.DisplayFor(model => model.name)" readonly="true">
+        </div>
     </div>
+    <div class="control-group">
+        <div class="control-label">
+             @Html.LabelFor(model => model.description)
+        </div>
+        <div class="controls">
+              <input type="text" value="@Html.DisplayFor(model => model.description)" readonly="true">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label"> @Html.DisplayNameFor(model => model.isActive)</label>
+        <div class="controls">
+            @Html.DisplayFor(model => model.isActive)
+        </div>
+    </div>
+    <br />
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.isActive)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.isActive)
-    </div>
 </fieldset>
 <p>
     <a href="@Url.Action("Index", new { id=Model.propertyListingTypeId })" class="btn">Edit</a>

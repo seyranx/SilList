@@ -1,0 +1,27 @@
+﻿@model SO.SilList.Manager.Models.ViewModels.PropertyVm
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutProperty.cshtml";
+}
+
+<h2>Properties</h2>
+
+<div style="height:20px">
+    <div class="pull-right" >
+        @((Model.paging.pageNumber - 1) * Model.paging.rowCount + Model.result.Count) of @Model.paging.totalCount
+    </div>
+    </div>
+
+
+<ul class="media-list">
+    @foreach (var item in Model.result)
+    {
+        <li class="row, media" style="border-bottom: 1px solid #ccc;">
+
+            @Html.Partial("_PropertyItem", item)
+
+        </li>  
+    }
+</ul>
+@Html.Action("Pagination", @Model.paging)
+

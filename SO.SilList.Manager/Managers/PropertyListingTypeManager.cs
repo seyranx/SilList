@@ -11,15 +11,15 @@ using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Manager.Managers
 {
-    public class LeaseTermTypeManager : IPropertyListingTypeManager
+    public class PropertyListingTypeManager : IPropertyListingTypeManager
     {
 
-        public PropertyListingTypeVo get(int leaseTermTypeId)
+        public PropertyListingTypeVo get(int propertyListingTypeId)
         {
             using (var db = new MainDb())
             {
                 var result = db.propertyListingTypes
-                            .FirstOrDefault(L => L.propertyListingTypeId == leaseTermTypeId);
+                            .FirstOrDefault(L => L.propertyListingTypeId == propertyListingTypeId);
 
                 return result;
             }
@@ -74,26 +74,26 @@ namespace SO.SilList.Manager.Managers
             }
         }
 
-        public bool delete(int leaseTermTypeId)
+        public bool delete(int propertyListingTypeId)
         {
             using (var db = new MainDb())
             {
                 var res = db.propertyListingTypes
-                     .Where(e => e.propertyListingTypeId == leaseTermTypeId)
+                     .Where(e => e.propertyListingTypeId == propertyListingTypeId)
                      .Delete();
                 return true;
             }
         }
 
-        public PropertyListingTypeVo update(PropertyListingTypeVo input, int? leaseTermTypeId = null)
+        public PropertyListingTypeVo update(PropertyListingTypeVo input, int? propertyListingTypeId = null)
         {
             using (var db = new MainDb())
             {
 
-                if (leaseTermTypeId == null)
-                    leaseTermTypeId = input.propertyListingTypeId;
+                if (propertyListingTypeId == null)
+                    propertyListingTypeId = input.propertyListingTypeId;
 
-                var res = db.propertyListingTypes.FirstOrDefault(e => e.propertyListingTypeId == leaseTermTypeId);
+                var res = db.propertyListingTypes.FirstOrDefault(e => e.propertyListingTypeId == propertyListingTypeId);
 
                 if (res == null) return null;
 

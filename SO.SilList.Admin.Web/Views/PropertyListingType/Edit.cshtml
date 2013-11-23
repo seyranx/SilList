@@ -5,48 +5,48 @@
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 }
 
-<h2>Edit</h2>
+<h2>@ViewBag.Title</h2>
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>PropertyListingTypeVo</legend>
+    <fieldset class="form-horizontal">
+        <legend></legend>
 
         @Html.HiddenFor(model => model.propertyListingTypeId)
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.name)
+        <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.name)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.name)
+            </div>
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.name)
-            @Html.ValidationMessageFor(model => model.name)
+        <div class="control-group">
+            <div class="control-label">
+                @Html.DisplayNameFor(model => model.description)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.description)
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.isActive)
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.isActive)
+                @Html.ValidationMessageFor(model => model.isActive)
+            </div>
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.description)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.description)
-            @Html.ValidationMessageFor(model => model.description)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.isActive)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.isActive)
-            @Html.ValidationMessageFor(model => model.isActive)
-        </div>
-
+        <br />
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" class="btn" value="Save" />
+            <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
         </p>
     </fieldset>
 }
-
-<div>
-    <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
-</div>
 
 

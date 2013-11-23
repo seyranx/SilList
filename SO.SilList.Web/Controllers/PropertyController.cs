@@ -12,125 +12,78 @@ using System.Web.Mvc;
 namespace SO.SilList.Web.Controllers
 {
 
-    public class CarController : Controller
+    public class PropertyController : Controller
     {
-        private CarManager carManager = new CarManager();
+        private PropertyManager propertyManager = new PropertyManager();
         private CityTypeManager cityTypeManager = new CityTypeManager();
         private StateTypeManager stateTypeManager = new StateTypeManager();
         private CountryTypeManager countryTypeManager = new CountryTypeManager();
-        private CarColorTypeManager carColorTypeManager = new CarColorTypeManager();
-        private CarBodyTypeManager carBodyTypeManager = new CarBodyTypeManager();
-        private TransmissionTypeManager transmissionTypeManager = new TransmissionTypeManager();
-        private CarDoorTypeManager carDoorTypeManager = new CarDoorTypeManager();
-        private CarDriveTypeManager carDriveTypeManager = new CarDriveTypeManager();
-        private CarEngineTypeManager carEngineTypeManager = new CarEngineTypeManager();
-        private CarFuelTypeManager carFuelTypeManager = new CarFuelTypeManager();
-        private MakeTypeManager makeTypeManager = new MakeTypeManager();
-        private ModelTypeManager modelTypeManager = new ModelTypeManager();
-        //
-        // GET: /Car/
+        private PropertyTypeManager propertyTypeManager = new PropertyTypeManager();
+        private PropertyListingTypeManager propertyLitingTypeManager = new PropertyListingTypeManager();
 
-        public ActionResult Index(CarVm input = null, Paging paging = null)
+
+        public ActionResult Index(PropertyVm input = null, Paging paging = null)
         {
-            
-
-            if (input == null) input = new CarVm();
+            if (input == null) input = new PropertyVm();
             input.isActive = true;
             input.paging = paging;
             if (this.ModelState.IsValid)
             {
                 if (input.submitButton != null)
                     input.paging.pageNumber = 1;
-                input = carManager.search(input);
+                input = propertyManager.search(input);
                 return View(input);
             }
             return View();
         }
-        
+
         public ActionResult Pagination(Paging input)
         {
             return PartialView("_Pagination", input);
         }
 
-        public ActionResult Filter(CarVm input)
+        public ActionResult Filter(PropertyVm input)
         {
             return PartialView("_Filter", input);
         }
         //public JsonResult Search(string keyword)
         //{
         //    var result = cityTypeManager.search(keyword);
-             
+
         //   var json = Json(result, JsonRequestBehavior.AllowGet);
         //   return json;
         //}
-        public ActionResult DropDownList(int? id = null, string propertyName = null, Type modelType = null, string defaultValue = null,int? makeTypeId=null)
+
+        public ActionResult DropDownList(int? id = null, string propertyName = null, Type propertyType = null, string defaultValue = null, int? propertyTypeId = null)
         {
-          //var item = Activator.CreateInstance(modelType);
+            //var item = Activator.CreateInstance(modelType);
             ViewBag.propertyName = propertyName;
             if (defaultValue == null)
                 defaultValue = "Select One";
             ViewBag.defaultValue = defaultValue;
 
             ViewBag.selectedItem = id;
-            if(modelType == typeof(CarDoorTypeVo))
+            if (propertyType == typeof(PropertyTypeVo))
             {
-                ViewBag.items = carDoorTypeManager.getAll(true);
-                ViewBag.idName = "carDoorTypeId";
+                ViewBag.items = propertyTypeManager.getAll(true);
+                ViewBag.idName = "propertyTypeTypeId";
             }
-            else if (modelType == typeof(CarBodyTypeVo))
+            else if (propertyType == typeof(PropertyListingTypeVo))
             {
-                ViewBag.items = carBodyTypeManager.getAll(true);
-                ViewBag.idName = "carBodyTypeId";
+                ViewBag.items = propertyLitingTypeManager.getAll(true);
+                ViewBag.idName = "propertyTypeTypeId";
             }
-            else if (modelType == typeof(CarColorTypeVo))
-            {
-                ViewBag.items = carColorTypeManager.getAll(true);
-                ViewBag.idName = "carColorTypeId";
-            }
-            else if (modelType == typeof(CarDriveTypeVo))
-            {
-                ViewBag.items = carDriveTypeManager.getAll(true);
-                ViewBag.idName = "carDriveTypeId";
-            }
-            else if (modelType == typeof(CarEngineTypeVo))
-            {
-                ViewBag.items = carEngineTypeManager.getAll(true);
-                ViewBag.idName = "carEngineTypeId";
-            }
-            else if (modelType == typeof(CarFuelTypeVo))
-            {
-                ViewBag.items = carFuelTypeManager.getAll(true);
-                ViewBag.idName = "carFuelTypeId";
-            }
-            else if (modelType == typeof(TransmissionTypeVo))
-            {
-                ViewBag.items = transmissionTypeManager.getAll(true);
-                ViewBag.idName = "transmissionTypeId";
-            }
-            else if (modelType == typeof(MakeTypeVo))
-            {
-                ViewBag.items = makeTypeManager.getAll(true);
-                ViewBag.idName = "makeTypeId";
-                return PartialView("_MakeDropDownList");
-            }
-            else if (modelType == typeof(ModelTypeVo) || makeTypeId != null)
-            {
-                if (makeTypeId == null)
-                    makeTypeId = -1;
-                ViewBag.items = modelTypeManager.getAll(true,makeTypeId);
-                ViewBag.idName = "modelTypeId";
-            }
-            else if (modelType == typeof(CountryTypeVo))
+            else if (propertyType == typeof(CountryTypeVo))
             {
                 ViewBag.items = countryTypeManager.getAll(true);
                 ViewBag.idName = "countryTypeId";
             }
-            else if (modelType == typeof(StateTypeVo))
+            else if (propertyType == typeof(StateTypeVo))
             {
                 ViewBag.items = stateTypeManager.getAll(true);
                 ViewBag.idName = "stateTypeId";
             }
-            else if (modelType == typeof(CityTypeVo))
+            else if (propertyType == typeof(CityTypeVo))
             {
                 ViewBag.items = cityTypeManager.getAll(true);
                 ViewBag.idName = "cityTypeId";
@@ -139,69 +92,64 @@ namespace SO.SilList.Web.Controllers
             return PartialView("_DropDownList");
         }
 
-        public ActionResult CollapseListModel(int? id = null,int? makeId = null, string propertyName = null)
+        public ActionResult CollapseListType(int? id = null, string propertyName = null)
         {
             ViewBag.selectedId = id;
             ViewBag.propertyName = propertyName;
-            if (makeId == null)
-                makeId = -1;
-                ViewBag.list = modelTypeManager.getAll(true,makeId);
-                ViewBag.propertyId = "modelTypeId";
-            if (makeId>=0)
-                ViewBag.titleName = makeTypeManager.get((int)makeId).name + " Models";
+            ViewBag.list = propertyTypeManager.getAll(true);
+            ViewBag.propertyTypeId = "propertyTypeId";
+            //ViewBag.titleName = propertyTypeManager.get((int)propertyTypeId).name;
             return PartialView("_CollapseList");
         }
 
-        public ActionResult Detail(Guid id )
+        public ActionResult Detail(Guid id)
         {
-            var result = carManager.get(id);
+            var result = propertyManager.get(id);
 
             // Images
             ImageManager imageManager = new ImageManager();
-           // ViewBag.Images = imageManager.getCarImages(id);
+            // ViewBag.Images = imageManager.getCarImages(id);
             ViewBag.ImagesURL = imageManager.getPropertyImagesUrl(id);
             return View(result);
         }
         public ActionResult Create()
         {
-            var vo = new CarVo();
+            var vo = new PropertyVo();
             return View(vo);
         }
-        [HttpPost]
-        public ActionResult Create(CarVo input)
-        {
-            
 
+        [HttpPost]
+        public ActionResult Create(PropertyVo input)
+        {
             if (this.ModelState.IsValid)
             {
-                var item = carManager.insert(input);
+                var item = propertyManager.insert(input);
 
                 ImageManager imageManager = new ImageManager();
-                
-                imageManager.InsertUploadImages(item.carId, Request.Files, Server, SO.SilList.Manager.Managers.ImageCategory.carImage);
+
+                imageManager.InsertUploadImages(item.propertyId, Request.Files, Server, SO.SilList.Manager.Managers.ImageCategory.propertyImage);
 
                 return RedirectToAction("Index");
             }
 
-
             return View(input);
-
         }
+/*
         public ActionResult CollapseList(int? id = null, string propertyName = null, Type modelType = null)
         {
             ViewBag.selectedId = id;
             ViewBag.propertyName = propertyName;
-      
+
             if (modelType == typeof(MakeTypeVo))
             {
-                ViewBag.list = makeTypeManager.getAll(true); 
-               // var idList = list.Select(c => c.makeTypeId).ToList();
+                ViewBag.list = makeTypeManager.getAll(true);
+                // var idList = list.Select(c => c.makeTypeId).ToList();
                 ViewBag.propertyId = "makeTypeId";
                 ViewBag.titleName = "Make";
             }
             else if (modelType == typeof(CarBodyTypeVo))
             {
-                ViewBag.list = carBodyTypeManager.getAll(true);
+                ViewBag.list = propertyLitingTypeManager.getAll(true);
                 ViewBag.propertyId = "carBodyTypeId";
                 ViewBag.titleName = "Body";
             }
@@ -213,7 +161,7 @@ namespace SO.SilList.Web.Controllers
             }
             else if (modelType == typeof(CarColorTypeVo))
             {
-                ViewBag.list = carColorTypeManager.getAll(true);
+                ViewBag.list = propertyTypeManager.getAll(true);
                 ViewBag.propertyId = "carColorTypeId";
                 ViewBag.titleName = "Color";
             }
@@ -244,6 +192,51 @@ namespace SO.SilList.Web.Controllers
 
             return PartialView("_CollapseList");
         }
-
+*/
     }
 }
+
+
+
+
+
+/*
+namespace SO.SilList.Web.Controllers
+{
+    public class PropertyController : Controller
+    {
+        //
+        // GET: /Rentals/
+
+        private PropertyManager rentalManager = new PropertyManager();
+
+        public ActionResult Index(PropertyVm input = null)
+        {
+            if (input == null) input = new PropertyVm();
+
+            if (this.ModelState.IsValid)
+            {
+                input = rentalManager.search(input);
+                return View(input);
+            }
+            return View();
+        }
+
+        public ActionResult Menu()
+        {
+            return PartialView("_Menu");
+        }
+
+        public ActionResult Filter(PropertyVm input)
+        {
+            return PartialView("_Filter", input);
+        }
+
+        public ActionResult Pagination(Paging input)
+        {
+            return PartialView("_Pagination", input);
+        }
+    }
+}
+
+*/
