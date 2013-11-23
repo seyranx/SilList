@@ -28,7 +28,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [StringLength(250)]
         public string description { get; set; }
 
-    	[DisplayName("Type")]
+    	[DisplayName("Property Type")]
         public int? propertyTypeId { get; set; }
 
         [DisplayName("Listing Type")]
@@ -37,10 +37,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Site")]
         public int? siteId { get; set; }
     		
-    	[DisplayName("Bed")]
+    	[DisplayName("Bedroom")]
         public int? bedrooms { get; set; }
     		
-    	[DisplayName("Bath")]
+    	[DisplayName("Bathroom")]
         public int? bathrooms { get; set; }
     		
     	[DisplayName("Price")]

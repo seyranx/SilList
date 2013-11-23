@@ -152,6 +152,7 @@
                     @Html.TextAreaFor(model => model.description,new {@rows = 5  ,@readonly=true}) 
             </div>
         </div>
+    @*
         <div class="control-group">
             <div class="control-label">
                  @Html.DisplayNameFor(model => model.entryStatusTypeId)
@@ -160,7 +161,7 @@
                 <input type="text" value="@Html.DisplayFor(model => model.entryStatusType.name)" readonly="true">
             </div>
         </div>
-
+    *@
         <div class="control-group">
             <div class="control-label">
                 @Html.DisplayNameFor(model => model.created)

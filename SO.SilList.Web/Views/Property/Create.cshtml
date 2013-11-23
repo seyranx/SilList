@@ -66,7 +66,7 @@
         function addPic(data) {
             var gallery = Galleria.get(0); // gallery is now the first galleria instance
             //gallery.play();
-            gallery.setOptions('dummy', '/Images/dif-carImage.jpg');
+            gallery.setOptions('dummy', '/Images/houseImage.jpg');
             gallery.push({ image: data ,link: ("#loadFile"+imageCount)});
             
            // gallery.show(gallery.getDataLength()+1);
@@ -122,7 +122,7 @@
     <div class="row" style="margin-left: 5px;">
         
         <div id="galleria" style="height:400px;width:100%">
-              <img src="~/Images/dif-carImage.jpg">
+              <img src="~/Images/houseImage.jpg">
                    
         </div>
     </div>
@@ -130,16 +130,78 @@
         <a value="" id="addImage" class="btn btn-primary pull-right" style="margin:3px;" onclick="addPic2()"  >Add Image</a>
         <a value="" id="removeImage" class="btn btn-danger pull-right" style="margin:3px;" onclick="removePic()"  >Remove Image</a>
     </div>
+    <br />
     <div class="row" style="margin: 5px;">
         <div class="span1 labels">
             @Html.LabelFor(model => model.title)
         </div>
-        <div class="span5">
-            @Html.TextBoxFor(model => model.title,new { Class = "input-large", placeholder =  "Title"})
+        <div class="span7">
+            @Html.TextBoxFor(model => model.title, new { Class = "input-xxlarge", placeholder = "Title" })
         </div>
-
     </div>
-    <div class="row" style="margin: 5px;">
+    <br />
+    
+    <br />
+    
+     <div class="row" style="margin: 5px;">
+         <div class="span6 form-horizontal" style="align-content:center;">
+             <div class="control-group">
+                <div class="control-label">
+                     @Html.LabelFor(model => model.bathrooms)
+                </div>
+                <div class="controls">
+                     @Html.TextBoxFor(model => model.bedrooms, new { Class = "input-small" })
+                </div>
+            </div>   
+             <div class="control-group">
+                <div class="control-label">
+                     @Html.LabelFor(model => model.bedrooms)
+                </div>
+                <div class="controls">
+                     @Html.TextBoxFor(model => model.bedrooms, new { Class = "input-small" })
+                </div>
+            </div> 
+             <div class="control-group">
+                <div class="control-label">
+                     @Html.LabelFor(model => model.price)
+                </div>
+                <div class="controls">
+                     @Html.TextBoxFor(model => model.price, new { Class = "input-small" })
+                </div>
+            </div>  
+         </div>
+         <div class="span6 form-horizontal" style="align-content:center;">
+             <div class="control-group">
+                <div class="control-label">
+                     @Html.LabelFor(model => model.bathrooms)
+                </div>
+                <div class="controls">
+                     @Html.TextBoxFor(model => model.bedrooms, new { Class = "input-small" })
+                </div>
+            </div>   
+             <div class="control-group">
+                <div class="control-label">
+                     @Html.LabelFor(model => model.bedrooms)
+                </div>
+                <div class="controls">
+                     @Html.TextBoxFor(model => model.bedrooms, new { Class = "input-small" })
+                </div>
+            </div> 
+             <div class="control-group">
+                <div class="control-label">
+                     @Html.LabelFor(model => model.price)
+                </div>
+                <div class="controls">
+                     @Html.TextBoxFor(model => model.price, new { Class = "input-small" })
+                </div>
+            </div>
+         </div>
+    </div> 
+           <br />
+
+    
+    
+    <div class="row" style="margin: 5px;">  
         <div class="span1 labels">
             @Html.LabelFor(model => model.bathrooms)
         </div>
@@ -228,8 +290,10 @@
             </div>
         </div>
         <div class="span4" style="border: inset; border-color: #808080; height: 470px; border-radius: 6px; padding: 10px;">
-            <b>Bedroom:</b>
-            <div class="info">@Model.bedrooms</div>
+            <b> Property Type: </b>
+            <div class="info" style="align-content:center"> @Html.TextBoxFor(model => model.propertyType, new {  Class = "input-medium", id = Model.propertyType })</div>
+            <b> Listing Type: </b>
+            <div class="info" style="align-content:center"> @Html.TextBoxFor(model => model.propertyListingTypeId, new {  Class = "input-medium", id = Model.propertyListingTypeId })</div>
 
         </div>
     </div>

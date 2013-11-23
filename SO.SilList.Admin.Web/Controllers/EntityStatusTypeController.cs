@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
-    public class StatusTypeController : Controller
+    public class EntityStatusTypeController : Controller
     {
         //
         // GET: /RentType/
