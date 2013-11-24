@@ -16,7 +16,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     [Serializable]
     public partial class PropertyVo
     {
-        [DisplayName("Property")]
+        [DisplayName("Property ID")]
     	[Key]
         public System.Guid propertyId { get; set; }
         
@@ -28,7 +28,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [StringLength(250)]
         public string description { get; set; }
 
-    	[DisplayName("Type")]
+    	[DisplayName("Property Type")]
         public int? propertyTypeId { get; set; }
 
         [DisplayName("Listing Type")]
@@ -37,17 +37,20 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Site")]
         public int? siteId { get; set; }
     		
-    	[DisplayName("Bed")]
+    	[DisplayName("Bedroom")]
         public int? bedrooms { get; set; }
     		
-    	[DisplayName("Bath")]
+    	[DisplayName("Bathroom")]
         public int? bathrooms { get; set; }
     		
     	[DisplayName("Price")]
         public decimal? price { get; set; }
 
-        [DisplayName("Lot Size")]
+        [DisplayName("Size")]
         public int? size { get; set; }
+
+        [DisplayName("Lot Size")]
+        public int? lotSize { get; set; }
 
         [DisplayName("Section8")]
         public bool? acceptsSection8 { get; set; }
@@ -88,7 +91,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public System.DateTime endDate { get; set; }
 
         [DisplayName("Entry Status Type")]
-        public Nullable<int> entryStatusTypeId { get; set; }
+        public int? entryStatusTypeId { get; set; }
     		
     	[DisplayName("Modified By")]
         public int? modifiedBy { get; set; }

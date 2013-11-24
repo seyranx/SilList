@@ -121,6 +121,7 @@
     <Compile Include="Managers\CarDriveTypeManager.cs" />
     <Compile Include="Managers\CarDoorTypeManager.cs" />
     <Compile Include="Managers\EmailManager.cs" />
+    <Compile Include="Managers\PropertyListingTypeManager.cs" />
     <Compile Include="Managers\StateTypeManager.cs" />
     <Compile Include="Managers\CountryTypeManager.cs" />
     <Compile Include="Managers\CurrentMember.cs" />
@@ -142,7 +143,6 @@
     <Compile Include="Managers\RatingManager.cs" />
     <Compile Include="Managers\PropertyImagesManager.cs" />
     <Compile Include="Managers\StatusTypeManager.cs" />
-    <Compile Include="Managers\LeaseTermTypeManager.cs" />
     <Compile Include="Managers\ServiceTypeManager.cs" />
     <Compile Include="Managers\SettingTypeManager.cs" />
     <Compile Include="Managers\SiteManager.cs" />

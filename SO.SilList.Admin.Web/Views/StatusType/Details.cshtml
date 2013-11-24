@@ -5,31 +5,42 @@
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>@ViewBag.Title</h2>
 
-<fieldset>
-    <legend>EntryStatusTypeVo</legend>
+<fieldset class="form-horizontal">
+    <legend></legend>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.name)
+    <div class="control-group">
+        <div class="control-label">
+             @Html.LabelFor(model => model.statusTypeId)
+        </div>
+        <div class="controls">
+              <input type="text" value="@Html.DisplayFor(model => model.statusTypeId)" readonly="true">
+        </div>
     </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.name)
+    <div class="control-group">
+        <div class="control-label">
+             @Html.LabelFor(model => model.name)
+        </div>
+        <div class="controls">
+              <input type="text" value="@Html.DisplayFor(model => model.name)" readonly="true">
+        </div>
     </div>
+    <div class="control-group">
+        <div class="control-label">
+             @Html.LabelFor(model => model.description)
+        </div>
+        <div class="controls">
+              <input type="text" value="@Html.DisplayFor(model => model.description)" readonly="true">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label"> @Html.DisplayNameFor(model => model.isActive)</label>
+        <div class="controls">
+            @Html.DisplayFor(model => model.isActive)
+        </div>
+    </div> 
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.description)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.description)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.isActive)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.isActive)
-    </div>
 </fieldset>
 <p>
     <a href="@Url.Action("Index", new { id=Model.entryStatusTypeId })" class="btn">Edit</a>

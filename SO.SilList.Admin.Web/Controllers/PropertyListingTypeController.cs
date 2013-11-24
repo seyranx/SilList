@@ -15,7 +15,7 @@ namespace SO.SilList.Admin.Web.Controllers
         //
         // GET: /LeaseTermType/
 
-        private LeaseTermTypeManager leaseTermTypeManager = new LeaseTermTypeManager();
+        private PropertyListingTypeManager propertyListingTypeManager = new PropertyListingTypeManager();
 
         public ActionResult Index(PropertyListingTypeVm input = null, Paging paging = null)
         {
@@ -25,7 +25,7 @@ namespace SO.SilList.Admin.Web.Controllers
             {
                 if (input.submitButton != null)
                     input.paging.pageNumber = 1;
-                input = leaseTermTypeManager.search(input);
+                input = propertyListingTypeManager.search(input);
                 return View(input);
             }
             return View();
@@ -33,43 +33,38 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult List()
         {
-            var results = leaseTermTypeManager.getAll(null);
+            var results = propertyListingTypeManager.getAll(null);
             return PartialView(results);
         }
 
         [HttpPost]
         public ActionResult Edit(int id, PropertyListingTypeVo input)
         {
-
             if (this.ModelState.IsValid)
             {
-                var res = leaseTermTypeManager.update(input, id);
+                var res = propertyListingTypeManager.update(input, id);
                 return RedirectToAction("Index");
             }
-
             return View();
-
         }
+
         public ActionResult Edit(int id)
         {
-            var result = leaseTermTypeManager.get(id);
+            var result = propertyListingTypeManager.get(id);
             return View(result);
         }
 
         [HttpPost]
         public ActionResult Create(PropertyListingTypeVo input)
         {
-
             if (this.ModelState.IsValid)
             {
 
-                var item = leaseTermTypeManager.insert(input);
+                var item = propertyListingTypeManager.insert(input);
                 return RedirectToAction("Index");
             }
 
-
             return View();
-
         }
 
         public ActionResult Create()
@@ -79,41 +74,44 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Details(int id)
         {
-            var result = leaseTermTypeManager.get(id);
+            var result = propertyListingTypeManager.get(id);
             return View(result);
         }
 
         public ActionResult Menu()
         {
-            return PartialView("../Rental/_Menu");
+            return PartialView("../Property/_Menu");
         }
 
         public ActionResult Delete(int id)
         {
-            leaseTermTypeManager.delete(id);
+            propertyListingTypeManager.delete(id);
             return RedirectToAction("Index");
         }
+
         public ActionResult DropDownList(int? id = null, string propertyName = null, string defaultValue = null)
         {
-            ViewBag.leaseTermTypes = leaseTermTypeManager.getAll(null);
+            ViewBag.propertyListingTypes = propertyListingTypeManager.getAll(null);
             var leaseType = new PropertyListingTypeVo();
             if (id != null)
             {
-                leaseType = leaseTermTypeManager.get(id.Value);
+                leaseType = propertyListingTypeManager.get(id.Value);
             }
 
             if (propertyName == null)
-                propertyName = "leaseTypeId";
+                propertyName = "propertyListingTypeId";
             ViewBag.propertyName = propertyName;
             if (defaultValue == null)
                 defaultValue = "Select One";
             ViewBag.defaultValue = defaultValue;
             return PartialView("_DropDownList", leaseType);
         }
+
         public ActionResult Filter(PropertyListingTypeVm Input)
         {
             return PartialView("_Filter", Input);
         }
+
         public ActionResult Pagination(Paging input)
         {
             return PartialView("_Pagination", input);

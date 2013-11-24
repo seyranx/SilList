@@ -167,7 +167,7 @@
     <Compile Include="Controllers\PropertyImageController.cs" />
     <Compile Include="Controllers\ServiceTypeController.cs" />
     <Compile Include="Controllers\PropertyTypeController.cs" />
-    <Compile Include="Controllers\StatusTypeController.cs" />
+    <Compile Include="Controllers\EntityStatusTypeController.cs" />
     <Compile Include="Controllers\TransmissionTypeController.cs" />
     <Compile Include="Controllers\MakeTypeController.cs" />
     <Compile Include="Controllers\ModelTypeController.cs" />

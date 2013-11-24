@@ -48,27 +48,65 @@ namespace SO.SilList.Manager.Managers
         
         public PropertyVm search(PropertyVm input)
         {
+            DateTime listingDate = new DateTime();
+            listingDate = DateTime.Today.Date;
+            if (input.listingDate != null)
+            {
+                switch (input.listingDate)
+                {
+                    case 0: //last 1 day
+                        listingDate = listingDate.Subtract(new TimeSpan(1, 0, 0, 0, 0));
+                        break;
+                    case 1: //last 3 days
+                        listingDate = listingDate.Subtract(new TimeSpan(3, 0, 0, 0, 0));
+                        break;
+                    case 2: //last 7 days
+                        listingDate = listingDate.Subtract(new TimeSpan(7, 0, 0, 0, 0));
+                        break;
+                    case 3: //2 weeks
+                        listingDate = listingDate.Subtract(new TimeSpan(14, 0, 0, 0, 0));
+                        break;
+                    case 4: // last month
+                        listingDate = listingDate.Subtract(new TimeSpan(31, 0, 0, 0, 0));
+                        break;
+                    case 5: // last Two month
+                        listingDate = listingDate.Subtract(new TimeSpan(62, 0, 0, 0, 0));
+                        break;
+                }
+            }
 
             using (var db = new MainDb())
             {
                 var query = db.properties
                             .Include(r => r.propertyType)
-                            .Include(t => t.propertyListingType)
+                            .Include(t => t.propertyListingType)  
                             .Include(s => s.site)
                             .Include(i => i.cityType)
                             .Include(o => o.countryType)
-                            .Include(u => u.stateType) 
+                            .Include(u => u.stateType)
                             .Include(w => w.entryStatusType)
-                            .OrderBy(b => b.description)
+                            .OrderByDescending(b => b.created)
                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
-                                      && (e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                      && (string.IsNullOrEmpty(input.keyword) || e.title.Contains(input.keyword))
+                                      && (string.IsNullOrEmpty(input.keyword) || e.description.Contains(input.keyword))
                                       && (input.showPendingOnly == null || input.showPendingOnly == false || e.entryStatusType.name.Equals(EntryStatusTypeStrings.csPending)) 
+                                      && (input.siteId == null || e.siteId == input.siteId)
+                                      //&& (input.entryStatusTypeId == null || e.entryStatusType.entryStatusTypeId == input.entryStatusTypeId)
+                                      && (input.propertyTypeId == null || e.propertyTypeId == input.propertyTypeId)
+                                      && (input.propertyListingTypeId == null || e.propertyListingTypeId == input.propertyListingTypeId)
+                                      && (input.listingDate ==null || DateTime.Compare(e.startDate, listingDate) >= 0)
+                                      && (e.bedrooms >= input.bedrooms || input.bedrooms == null)
+                                      && (e.bathrooms >= input.bathrooms || input.bathrooms == null)  
+                                      && ((e.price >= input.startingPrice || input.startingPrice == null)
+                                            && (e.price <= input.endingPrice || input.endingPrice == null))
+                                      && (input.acceptsSection8 == null || e.acceptsSection8 == input.acceptsSection8)
+                                      && (input.isPetAllowed == null || e.isPetAllowed == input.isPetAllowed)
                              );
+
                 input.paging.totalCount = query.Count();
                 input.result = query
                              .Skip(input.paging.skip)
                              .Take(input.paging.rowCount)
-
                              .ToList();
 
                 return input;

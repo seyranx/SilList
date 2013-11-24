@@ -1,16 +1,16 @@
-﻿@model SO.SilList.Manager.Models.ViewModels.RentalVm
- 
+﻿@model SO.SilList.Manager.Models.ViewModels.PropertyVm
+@using SO.SilList.Manager.Models.ValueObjects
 
-<form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Rental")">
+<form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Property")">
 
 <label>Keyword:</label>
 @Html.ValidationSummary(true)
-@Html.TextBoxFor(model => model.keyword,new { Class = "input-large", placeholder =  "Keyword" })
+@Html.TextBoxFor(model => model.keyword,new { style="width:90%", placeholder =  "Keyword" })
 @Html.ValidationMessageFor(model => model.keyword)
 
-<label>Location:</label>
+<label>City, State or Zip:</label>
 @Html.ValidationSummary(true)
-@Html.TextBoxFor(model => model.location,new { Class = "input-large", placeholder =  "Location" })
+@Html.TextBoxFor(model => model.location,new { style="width:90%", placeholder =  "Location" })
 @Html.ValidationMessageFor(model => model.location)
 
 <br /><br />

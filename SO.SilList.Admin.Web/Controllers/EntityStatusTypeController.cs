@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace SO.SilList.Admin.Web.Controllers
 {
-    public class StatusTypeController : Controller
+    public class EntityStatusTypeController : Controller
     {
         //
         // GET: /RentType/
@@ -78,7 +78,7 @@ namespace SO.SilList.Admin.Web.Controllers
 
         public ActionResult Menu()
         {
-            return PartialView("../Rental/_Menu");
+            return PartialView("../Property/_Menu");
         }
 
         public ActionResult Delete(int id)

@@ -12,7 +12,7 @@ namespace SO.SilList.Tests.Managers
      [TestClass]
     public class LeaseTermTypeManagerTest
     {
-        private LeaseTermTypeManager leaseTermType = new LeaseTermTypeManager();
+        private PropertyListingTypeManager leaseTermType = new PropertyListingTypeManager();
 
         [TestMethod]
         public void getAllTest()
