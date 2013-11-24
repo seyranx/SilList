@@ -85,7 +85,7 @@
                     @Html.TextBoxFor(model => model.address, new { placeholder = "Address" })
                 </div>
                 <div class="info">
-                    @Html.Action("DropDownList", new { id = Model.cityTypeId, propertyName = "cityTypeId", defaultValue = "City, State", modelType = typeof(CityTypeVo) })
+                    <input id="cityTypeId" name="cityTypeId"/>
 
                     <b>Zip Code:</b>
                     @Html.TextBoxFor(model => model.zip, new { placeholder = "Zip Code" })
