@@ -27,6 +27,9 @@ namespace SO.SilList.Web.Controllers
             if (input == null) input = new PropertyVm();
             input.isActive = true;
             input.paging = paging;
+            //if (input.property.bedrooms.ToString() == "Single")
+                  //  input.property.bedrooms = 0; 
+
             if (this.ModelState.IsValid)
             {
                 if (input.submitButton != null)
