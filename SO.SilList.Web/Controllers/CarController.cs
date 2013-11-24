@@ -56,13 +56,7 @@ namespace SO.SilList.Web.Controllers
         {
             return PartialView("_Filter", input);
         }
-        //public JsonResult Search(string keyword)
-        //{
-        //    var result = cityTypeManager.search(keyword);
-             
-        //   var json = Json(result, JsonRequestBehavior.AllowGet);
-        //   return json;
-        //}
+
         public ActionResult DropDownList(int? id = null, string propertyName = null, Type modelType = null, string defaultValue = null,int? makeTypeId=null)
         {
           //var item = Activator.CreateInstance(modelType);

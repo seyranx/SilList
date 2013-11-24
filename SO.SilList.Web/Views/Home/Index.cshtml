@@ -9,20 +9,17 @@
       <div class="hero-unit span5 blackbox">
 
 
-      <h2>Rental:</h2> 
+      <h2>Homes:</h2> 
            
 
                <hr />
 <form >
-    <label>Label name: ABC 
+    <label>Keyword:
          <br />
   
     </label>
     <input type="text" placeholder="Type something…" style="width:95%;">
-    <span class="help-block">Example block-level help text here.</span>
-    <label class="checkbox">
-      <input type="checkbox"> Check me out
-    </label>
+
     <button type="submit" class="btn btn-success btn-large pull-right">Search</button>
 </form>
 
@@ -36,15 +33,13 @@
     
       <h2>Jobs:</h2> 
                <hr />
-<form >
-    <label>Label name</label>
-    <input type="text" placeholder="Type something…" style="width:95%;">
-    <span class="help-block">Example block-level help text here.</span>
-    <label class="checkbox">
-      <input type="checkbox"> Check me out
-    </label>
+@using (Html.BeginForm("index", "Jobs"))
+{
+    <label>Keyword:</label>
+    <input id="keyword" name="keyword" type="text" placeholder="Type something…" style="width:95%;">
+    @*<span class="help-block">Example block-level help text here.</span>*@
     <button type="submit" class="btn btn-success btn-large pull-right">Search</button>
-</form>
+}
 
 
             
@@ -63,12 +58,8 @@
       <h2>Business Directory:</h2> 
                <hr />
 <form >
-    <label>Label name</label>
+    <label>Keyword:</label>
     <input type="text" placeholder="Type something…" style="width:95%;">
-    <span class="help-block">Example block-level help text here.</span>
-    <label class="checkbox">
-      <input type="checkbox"> Check me out
-    </label>
     <button type="submit" class="btn btn-success btn-large pull-right">Search</button>
 </form>
 
