@@ -1,8 +1,8 @@
-﻿@model SO.SilList.Manager.Models.ValueObjects.CarVo
+﻿@model SO.SilList.Manager.Models.ValueObjects.PropertyVo
 @using SO.SilList.Manager.Models.ValueObjects
 @{
-    ViewBag.Title = "Submit Car Listing";
-    Layout = "~/Views/Shared/_LayoutCar.cshtml";
+    ViewBag.Title = "Submit Property Listing";
+    Layout = "~/Views/Shared/_LayoutProperty.cshtml";
 }
 <style>
     .info Select, input {
@@ -36,7 +36,7 @@
                 $(gallery.getData(gallery.getIndex()).link).remove("");
                 gallery.splice(gallery.getIndex(), 1);
                 if (gallery.getDataLength() <= 1) {
-                    gallery.push({ image: "/Images/dif-carImage.jpg"});
+                    gallery.push({ image: "/Images/houseImage.jpg" });
                     firstImage = true;
                     gallery.show(0);       
                 }
@@ -66,7 +66,7 @@
         function addPic(data) {
             var gallery = Galleria.get(0); // gallery is now the first galleria instance
             //gallery.play();
-            gallery.setOptions('dummy', '/Images/dif-carImage.jpg');
+            gallery.setOptions('dummy', '/Images/houseImage.jpg');
             gallery.push({ image: data ,link: ("#loadFile"+imageCount)});
             
            // gallery.show(gallery.getDataLength()+1);
@@ -111,7 +111,7 @@
 
 
 
-@using (Html.BeginForm("Create", "Car", FormMethod.Post, new { @encType = "multipart/form-data" }))
+@using (Html.BeginForm("Create", "Property", FormMethod.Post, new { @encType = "multipart/form-data" }))
 {
  
     <div id="addNewImage"></div>
@@ -122,7 +122,7 @@
     <div class="row" style="margin-left: 5px;">
         
         <div id="galleria" style="height:400px;width:100%">
-              <img src="~/Images/dif-carImage.jpg">
+              <img src="~/Images/houseImage.jpg">
                    
         </div>
     </div>
@@ -130,25 +130,80 @@
         <a value="" id="addImage" class="btn btn-primary pull-right" style="margin:3px;" onclick="addPic2()"  >Add Image</a>
         <a value="" id="removeImage" class="btn btn-danger pull-right" style="margin:3px;" onclick="removePic()"  >Remove Image</a>
     </div>
+    <br />
     <div class="row" style="margin: 5px;">
         <div class="span1 labels">
-            @Html.LabelFor(model => model.makeTypeId)
+            @Html.LabelFor(model => model.title)
         </div>
-        <div class="span5">
-            @Html.Action("DropDownList", "Car", new { id = Model.makeTypeId, propertyName = "makeTypeId", modelType = typeof(MakeTypeVo) })
-        </div>
-        <div class="span1 labels">
-            @Html.LabelFor(model => model.modelTypeId)
-        </div>
-        <div class="span5">
-            <div id="modelList">
-                @Html.Action("DropDownList", "Car", new { id = Model.modelTypeId, propertyName = "modelTypeId", modelType = typeof(ModelTypeVo), _makeTypeId = Model.makeTypeId })
-            </div>
+        <div class="span7">
+            @Html.TextBoxFor(model => model.title, new { Class = "input-xxlarge", placeholder = "Title" })
         </div>
     </div>
-    <div class="row" style="margin: 5px;">
+    <br />
+    
+    <br />
+    
+     <div class="row" style="margin: 5px;">
+         <div class="span6 form-horizontal" style="align-content:center;">
+             <div class="control-group">
+                <div class="control-label">
+                     @Html.LabelFor(model => model.bathrooms)
+                </div>
+                <div class="controls">
+                     @Html.TextBoxFor(model => model.bedrooms, new { Class = "input-small" })
+                </div>
+            </div>   
+             <div class="control-group">
+                <div class="control-label">
+                     @Html.LabelFor(model => model.bedrooms)
+                </div>
+                <div class="controls">
+                     @Html.TextBoxFor(model => model.bedrooms, new { Class = "input-small" })
+                </div>
+            </div> 
+             <div class="control-group">
+                <div class="control-label">
+                     @Html.LabelFor(model => model.price)
+                </div>
+                <div class="controls">
+                     @Html.TextBoxFor(model => model.price, new { Class = "input-small" })
+                </div>
+            </div>  
+         </div>
+         <div class="span6 form-horizontal" style="align-content:center;">
+             <div class="control-group">
+                <div class="control-label">
+                     @Html.LabelFor(model => model.bathrooms)
+                </div>
+                <div class="controls">
+                     @Html.TextBoxFor(model => model.bedrooms, new { Class = "input-small" })
+                </div>
+            </div>   
+             <div class="control-group">
+                <div class="control-label">
+                     @Html.LabelFor(model => model.bedrooms)
+                </div>
+                <div class="controls">
+                     @Html.TextBoxFor(model => model.bedrooms, new { Class = "input-small" })
+                </div>
+            </div> 
+             <div class="control-group">
+                <div class="control-label">
+                     @Html.LabelFor(model => model.price)
+                </div>
+                <div class="controls">
+                     @Html.TextBoxFor(model => model.price, new { Class = "input-small" })
+                </div>
+            </div>
+         </div>
+    </div> 
+           <br />
+
+    
+    
+    <div class="row" style="margin: 5px;">  
         <div class="span1 labels">
-            @Html.LabelFor(model => model.year)
+            @Html.LabelFor(model => model.bathrooms)
         </div>
         <div class="span2">
             @{
@@ -160,8 +215,8 @@
     }
     var selectlist = new SelectList(mylist);
             }
-            @Html.DropDownListFor(model => model.year, selectlist, new { @class = "shortEditor" })
-            @Html.ValidationMessageFor(model => model.year)
+            @Html.DropDownListFor(model => model.bathrooms, selectlist, new { @class = "shortEditor" })
+            @Html.ValidationMessageFor(model => model.bathrooms)
         </div>
 
         <div class="span1 labels">
@@ -176,9 +231,9 @@
             Millage
         </div>
         <div class="span2">
-            @Html.TextBoxFor(model => model.millage, new { @class = "shortEditor" })
+            @Html.TextBoxFor(model => model.bedrooms, new { @class = "shortEditor" })
 
-            @Html.ValidationMessageFor(model => model.millage)
+            @Html.ValidationMessageFor(model => model.bedrooms)
         </div>
 
         <div class="span2 labels">
@@ -200,16 +255,16 @@
                     <div class="info">
 
                         <div class="span6">
-                            @Html.Action("DropDownList", new { id = Model.countryTypeId, propertyName = "countryTypeId", modelType = typeof(CountryTypeVo), defaultValue = "Select Country" })
+                            @Html.Action("DropDownList", new { id = Model.countryTypeId, propertyName = "countryTypeId", propertyType = typeof(CountryTypeVo), defaultValue = "Select Country" })
                         </div>
                         <div class="span6">
-                            @Html.Action("DropDownList", new { id = Model.stateTypeId, propertyName = "stateTypeId", modelType = typeof(StateTypeVo), defaultValue = "Select State" })
+                            @Html.Action("DropDownList", new { id = Model.stateTypeId, propertyName = "stateTypeId", propertyType = typeof(StateTypeVo), defaultValue = "Select State" })
                         </div>
 
                     </div>
                     <div class="span12" style="margin-left: -1px">
                         <div class="span7" style="margin-top: 6px;">
-                            @Html.Action("DropDownList", new { id = Model.cityTypeId, propertyName = "cityTypeId", modelType = typeof(CityTypeVo), defaultValue = "Select City" })
+                            @Html.Action("DropDownList", new { id = Model.cityTypeId, propertyName = "cityTypeId", propertyType = typeof(CityTypeVo), defaultValue = "Select City" })
                         </div>
                         @Html.TextBoxFor(model => model.zip, new { placeholder = "Zip Code", style = "width:90px;margin-top:5px" })
                     </div>
@@ -235,24 +290,10 @@
             </div>
         </div>
         <div class="span4" style="border: inset; border-color: #808080; height: 470px; border-radius: 6px; padding: 10px;">
-            <b>Body:</b>
-            <div class="info">@Html.Action("DropDownList", new { id = Model.carBodyTypeId, propertyName = "carBodyTypeId", modelType = typeof(CarBodyTypeVo) })</div>
-            <b>Trasmission:</b>
-            <div class="info">@Html.Action("DropDownList", new { id = Model.transmissionTypeId, propertyName = "transmissionTypeId", modelType = typeof(TransmissionTypeVo) })</div>
-            <b>Fuel:</b>
-            <div class="info">@Html.Action("DropDownList", new { id = Model.carFuelTypeId, propertyName = "carFuelTypeId", modelType = typeof(CarFuelTypeVo) })</div>
-            <b>Drive:</b>
-            <div class="info">@Html.Action("DropDownList", new { id = Model.carDriveTypeId, propertyName = "carDriveTypeId", modelType = typeof(CarDriveTypeVo) })</div>
-            <b>Engine:</b>
-            <div class="info">@Html.Action("DropDownList", new { id = Model.carEngineTypeId, propertyName = "carEngineTypeId", modelType = typeof(CarEngineTypeVo) })</div>
-            <b>Door:</b>
-            <div class="info">@Html.Action("DropDownList", new { id = Model.carDoorTypeId, propertyName = "carDoorTypeId", modelType = typeof(CarDoorTypeVo) })</div>
-            <b>Exterior Color:</b>
-            <div class="info">@Html.Action("DropDownList", new { id = Model.exteriorColorTypeId, propertyName = "exteriorColorTypeId", modelType = typeof(CarColorTypeVo) })</div>
-            <b>Interior Color:</b>
-            <div class="info">@Html.Action("DropDownList", new { id = Model.interiorColorTypeId, propertyName = "interiorColorTypeId", modelType = typeof(CarColorTypeVo) })</div>
-            <b>Vin:</b>
-            <div class="span11 info">@Html.EditorFor(model => model.vin)</div>
+            <b> Property Type: </b>
+            <div class="info" style="align-content:center"> @Html.TextBoxFor(model => model.propertyType, new {  Class = "input-medium", id = Model.propertyType })</div>
+            <b> Listing Type: </b>
+            <div class="info" style="align-content:center"> @Html.TextBoxFor(model => model.propertyListingTypeId, new {  Class = "input-medium", id = Model.propertyListingTypeId })</div>
 
         </div>
     </div>

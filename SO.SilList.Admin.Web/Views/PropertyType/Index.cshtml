@@ -4,9 +4,9 @@
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
     }
 
-<h2>@ViewBag.Title</h2>
+<h2>Property Types</h2>
 
-<form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index","ProPertyType")">
+<form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index","PropertyType")">
     
     @Html.Action("Filter",@Model)
     <div class="pull-right">

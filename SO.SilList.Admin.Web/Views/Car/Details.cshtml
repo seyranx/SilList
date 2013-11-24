@@ -11,14 +11,14 @@
 <fieldset class="form-horizontal">
     <legend></legend>
 
-            <div class="control-group">
-            <div class="control-label">
-                @Html.LabelFor(model => model.carId)
-            </div>
-            <div class="controls">
-                <input type="text" value="@Html.DisplayFor(model => model.carId)" readonly="true">
-            </div>
+     <div class="control-group">
+        <div class="control-label">
+             @Html.LabelFor(model => model.carId)
         </div>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.carId)" readonly="true">
+        </div>
+    </div>
 
     <div class="control-group">
         <label class="control-label">@Html.DisplayNameFor(model => model.siteId)</label>
