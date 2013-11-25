@@ -1,8 +1,8 @@
-﻿@model SO.SilList.Manager.Models.ValueObjects.CarVo
+﻿@model SO.SilList.Manager.Models.ValueObjects.BusinessVo
 @using SO.SilList.Manager.Models.ValueObjects
 @{
-    ViewBag.Title = "Submit Car Listing";
-    Layout = "~/Views/Shared/_LayoutCar.cshtml";
+    ViewBag.Title = "Submit Business Listing";
+    Layout = "~/Views/Shared/_LayoutBusiness.cshtml";
 }
 <style>
     .info Select, input {
@@ -32,7 +32,8 @@
         function removePic() {
             var gallery = Galleria.get(0); // gallery is now the first galleria instance
 
-            if (firstImage == false) {
+            if (firstImage == false)
+            {
                 $(gallery.getData(gallery.getIndex()).link).remove("");
                 gallery.splice(gallery.getIndex(), 1);
                 if (gallery.getDataLength() <= 1) {
@@ -111,7 +112,7 @@
 
 
 
-@using (Html.BeginForm("Create", "Car", FormMethod.Post, new { @encType = "multipart/form-data" }))
+@using (Html.BeginForm("Create", "Business", FormMethod.Post, new { @encType = "multipart/form-data" }))
 {
  
     <div id="addNewImage"></div>
@@ -130,63 +131,7 @@
         <a value="" id="addImage" class="btn btn-primary pull-right" style="margin:3px;" onclick="addPic2()"  >Add Image</a>
         <a value="" id="removeImage" class="btn btn-danger pull-right" style="margin:3px;" onclick="removePic()"  >Remove Image</a>
     </div>
-    <div class="row" style="margin: 5px;">
-        <div class="span1 labels">
-            @Html.LabelFor(model => model.makeTypeId)
-        </div>
-        <div class="span5">
-            @Html.Action("DropDownList", "Car", new { id = Model.makeTypeId, propertyName = "makeTypeId", modelType = typeof(MakeTypeVo) })
-        </div>
-        <div class="span1 labels">
-            @Html.LabelFor(model => model.modelTypeId)
-        </div>
-        <div class="span5">
-            <div id="modelList">
-                @Html.Action("DropDownList", "Car", new { id = Model.modelTypeId, propertyName = "modelTypeId", modelType = typeof(ModelTypeVo), _makeTypeId = Model.makeTypeId })
-            </div>
-        </div>
-    </div>
-    <div class="row" style="margin: 5px;">
-        <div class="span1 labels">
-            @Html.LabelFor(model => model.year)
-        </div>
-        <div class="span2">
-            @{
-    int currentYear = DateTime.Now.Year;
-    var mylist = new string[31];
-    for (int i = 0; i < 31; i++)
-    {
-        mylist.SetValue((currentYear - 30 + i).ToString(), 30 - i);
-    }
-    var selectlist = new SelectList(mylist);
-            }
-            @Html.DropDownListFor(model => model.year, selectlist, new { @class = "shortEditor" })
-            @Html.ValidationMessageFor(model => model.year)
-        </div>
 
-        <div class="span1 labels">
-            Price
-        </div>
-        <div class="span2">
-            @Html.TextBoxFor(model => model.price, new { @class = "shortEditor" })
-            @Html.ValidationMessageFor(model => model.price)
-        </div>
-
-        <div class="span1 labels">
-            Millage
-        </div>
-        <div class="span2">
-            @Html.TextBoxFor(model => model.millage, new { @class = "shortEditor" })
-
-            @Html.ValidationMessageFor(model => model.millage)
-        </div>
-
-        <div class="span2 labels">
-            Active
-        </div>
-
-        @Html.EditorFor(model => model.isActive)
-    </div>
 
     <div class="row" style="height: 400px; margin: 5px;">
         <div class="span8" style="height: 400px; border-radius: 6px;">
@@ -221,39 +166,21 @@
 
 
             </div>
-            <div style="border: inset; border-color: #808080; height: 210px; border-radius: 6px; margin-bottom: 5px">
+
+
+@*
+                <div style="border: inset; border-color: #808080; height: 210px; border-radius: 6px; margin-bottom: 5px">
                 <b style="font-size: medium; font-style: italic; margin: 10px; padding: 5px; border-bottom: 1px solid #ccc;">Description</b>
                 <div style="margin: 5px; margin-left: 10px;">
                     <p>
                         @Html.TextAreaFor(model => model.description, new { rows = 7, style = "width:95%" })
                     </p>
                 </div>
-            </div>
+            </div>*@
             <div style="border: inset; border-color: #808080; height: 30px; border-radius: 6px; padding: 10px;">
                 <a  class="btn btn-info" href="@Url.Action("Index")">Back</a>
                 <input value="Submit" type="submit" class="btn btn-success pull-right" />
             </div>
-        </div>
-        <div class="span4" style="border: inset; border-color: #808080; height: 470px; border-radius: 6px; padding: 10px;">
-            <b>Body:</b>
-            <div class="info">@Html.Action("DropDownList", new { id = Model.carBodyTypeId, propertyName = "carBodyTypeId", modelType = typeof(CarBodyTypeVo) })</div>
-            <b>Trasmission:</b>
-            <div class="info">@Html.Action("DropDownList", new { id = Model.transmissionTypeId, propertyName = "transmissionTypeId", modelType = typeof(TransmissionTypeVo) })</div>
-            <b>Fuel:</b>
-            <div class="info">@Html.Action("DropDownList", new { id = Model.carFuelTypeId, propertyName = "carFuelTypeId", modelType = typeof(CarFuelTypeVo) })</div>
-            <b>Drive:</b>
-            <div class="info">@Html.Action("DropDownList", new { id = Model.carDriveTypeId, propertyName = "carDriveTypeId", modelType = typeof(CarDriveTypeVo) })</div>
-            <b>Engine:</b>
-            <div class="info">@Html.Action("DropDownList", new { id = Model.carEngineTypeId, propertyName = "carEngineTypeId", modelType = typeof(CarEngineTypeVo) })</div>
-            <b>Door:</b>
-            <div class="info">@Html.Action("DropDownList", new { id = Model.carDoorTypeId, propertyName = "carDoorTypeId", modelType = typeof(CarDoorTypeVo) })</div>
-            <b>Exterior Color:</b>
-            <div class="info">@Html.Action("DropDownList", new { id = Model.exteriorColorTypeId, propertyName = "exteriorColorTypeId", modelType = typeof(CarColorTypeVo) })</div>
-            <b>Interior Color:</b>
-            <div class="info">@Html.Action("DropDownList", new { id = Model.interiorColorTypeId, propertyName = "interiorColorTypeId", modelType = typeof(CarColorTypeVo) })</div>
-            <b>Vin:</b>
-            <div class="span11 info">@Html.EditorFor(model => model.vin)</div>
-
         </div>
     </div>
 }
