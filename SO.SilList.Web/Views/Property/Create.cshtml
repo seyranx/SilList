@@ -264,7 +264,7 @@
                     </div>
                     <div class="span12" style="margin-left: -1px">
                         <div class="span7" style="margin-top: 6px;">
-                            @Html.Action("DropDownList", new { id = Model.cityTypeId, propertyName = "cityTypeId", propertyType = typeof(CityTypeVo), defaultValue = "Select City" })
+                            <input id="cityTypeId" name="cityTypeId"/>
                         </div>
                         @Html.TextBoxFor(model => model.zip, new { placeholder = "Zip Code", style = "width:90px;margin-top:5px" })
                     </div>
