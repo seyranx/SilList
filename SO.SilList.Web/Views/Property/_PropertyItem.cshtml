@@ -10,7 +10,7 @@
     <div class="media-body" style="padding: 5px;">
         <div class="pull-right" style="font-size: medium; color: #13033e">$@Model.price</div>
         <a href="@Url.Action("Detail", new { id = Model.propertyId })">
-            <h5 class="media-heading">@Html.DisplayFor(modelItem => Model.size) @Html.DisplayFor(modelItem => Model.propertyType.name) @Html.DisplayFor(modelItem => Model.propertyListingType.name)</h5>
+            <h5 class="media-heading">@Model.title</h5>
         </a>
         <div>
             <div class="businessAddressLine">Lot Size: @Model.lotSize</div>

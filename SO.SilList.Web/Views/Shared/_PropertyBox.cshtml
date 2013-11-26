@@ -1,9 +1,9 @@
-﻿@model SO.SilList.Manager.Models.ViewModels.ListingVm
+﻿@model SO.SilList.Manager.Models.ViewModels.PropertyVm
 
-<h2>Listings:</h2> 
+<h2>Homes:</h2> 
 <hr />
 
-<form name="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Listings")">
+<form name="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Property")">
 
     <label>Keyword:</label>
     <br />
@@ -12,6 +12,6 @@
     @Html.ValidationMessageFor(model => model.keyword)
 
     @*<input type="text" placeholder="Type something…" style="width:95%;"> *@
-    <br /> <br /> <br />
+    <br /> <br /><br />
     <button type="submit" class="btn btn-success btn-large pull-right">Search</button>
 </form>
