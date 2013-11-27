@@ -13,8 +13,27 @@
             <h5 class="media-heading">@Model.title</h5>
         </a>
         <div>
-            <div class="businessAddressLine">Lot Size: @Model.lotSize</div>
-
+            
+        @{
+            if (Model.propertyListingTypeId != null)
+            {
+                <div class="businessAddressLine"> For @Model.propertyListingType.name </div>
+            }
+            else 
+            {
+                <div class="businessAddressLine"> <br /> </div>
+            }
+            
+            if (Model.propertyTypeId != null)
+            {
+                <div class="businessAddressLine"> Type: @Model.propertyType.name </div>
+            }
+            else 
+            {
+                <div class="businessAddressLine"> <br /> </div>
+            }
+         }
+            
         </div>
         <div class="businessAddressLine">
             Location: <a href="/">@Html.DisplayFor(model => model.cityType.name)
@@ -29,7 +48,7 @@
             <div class="businessAddressLine">@Html.DisplayFor(model => model.cityType.name)
                 @if (Model.cityType != null)
                 { <b>,</b>}
-                @Html.DisplayFor(model => model.stateType.stateCode) @Model.zip
+                @Html.DisplayFor(model => model.stateType.name) @Model.zip
             </div>
             
 

@@ -89,6 +89,7 @@ namespace SO.SilList.Manager.Managers
                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && ((e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                                             || (e.title.Contains(input.keyword) || e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword)))
+                     
                                       /*
                                       && (input.showPendingOnly == null || input.showPendingOnly == false || e.entryStatusType.name.Equals(EntryStatusTypeStrings.csPending)) 
                                       && (input.siteId == null || e.siteId == input.siteId)
@@ -107,6 +108,7 @@ namespace SO.SilList.Manager.Managers
 
                 input.paging.totalCount = query.Count();
                 input.result = query
+                             .OrderBy(b => b.title)
                              .Skip(input.paging.skip)
                              .Take(input.paging.rowCount)
                              .ToList();
