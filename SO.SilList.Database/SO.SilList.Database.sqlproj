@@ -237,7 +237,4 @@
   <ItemGroup>
     <PostDeploy Include="app\Script.SuperAdmin.sql" />
   </ItemGroup>
-  <ItemGroup>
-    <RefactorLog Include="SO.SilList.Database.refactorlog" />
-  </ItemGroup>
 </Project>
