@@ -52,7 +52,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         [DisplayName("Zip")]
         public Nullable<int> zip { get; set; }
-
+        
         [DisplayName("Phone")]
         [StringLength(50)]
         public string phone { get; set; }
@@ -138,7 +138,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         
         public JobVo()
         {
-    			
+
     		this.jobId = Guid.NewGuid();
             // this.isApproved = false;
     	    this.isActive = true;

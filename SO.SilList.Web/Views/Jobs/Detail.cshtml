@@ -127,7 +127,11 @@ if(ViewBag.applied == true)
         </div>
         <div class="span12" style="border: inset; border-color: #808080; height: 55px; border-radius: 6px; padding: 10px; margin-left: -1px">
             <a href="@Url.Action("Index")" class="btn btn-info " >Back</a>
+            @{
+            if(ViewBag.logedin){
             <a href="#apply" role="link" data-toggle="modal" class="btn btn-primary pull-right" style="margin-left: 10px">Apply</a>
+            }
+            }
             <a onclick="print();" class="btn btn-warning pull-right" style="margin-left: 10px">Print</a>
             <a href="#emailto" role="link" data-toggle="modal" class="btn  pull-right">Share</a>
         </div>
