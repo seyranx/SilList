@@ -27,7 +27,7 @@
     [created]               DATETIME         CONSTRAINT [DF_Property_created] DEFAULT (getdate()) NOT NULL,
     [isActive]              BIT              CONSTRAINT [DF_Property_isActive] DEFAULT ((1)) NOT NULL,
     [entryStatusTypeId]          INT              NULL DEFAULT ((1)),
-    [isPetAllowed]          BIT              NOT NULL,
+    [isPetAllowed]          BIT              NULL,
     CONSTRAINT [PK__tmp_ms_x__0164732E4C94D603] PRIMARY KEY CLUSTERED ([propertyId] ASC),
     CONSTRAINT [FK_Property_CityType] FOREIGN KEY ([cityTypeId]) REFERENCES [app].[CityType] ([cityTypeId]) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT [FK_Property_CountryType] FOREIGN KEY ([countryTypeId]) REFERENCES [app].[CountryType] ([countryTypeId]) ON DELETE CASCADE ON UPDATE CASCADE,

@@ -37,7 +37,7 @@ namespace SO.SilList.Web.Controllers
                 input = propertyManager.search(input);
                 return View(input);
             }
-            return View();
+            return View(input);
         }
 
         public ActionResult Pagination(Paging input)

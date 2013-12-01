@@ -20,6 +20,13 @@
     .title {
         margin: -5px;
     }
+
+    #acceptsSection8 {
+        width:200px;
+        padding:0;
+        margin:0;
+    }
+
 </style>
 
 <form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Property")">
@@ -48,8 +55,10 @@
     @Html.HiddenFor(model => model.bedrooms)
     @Html.HiddenFor(model => model.bathrooms)
     @Html.HiddenFor(model => model.isPetAllowed)
+    @*
     @Html.HiddenFor(model => model.startingPrice)
     @Html.HiddenFor(model => model.endingPrice)
+    *@
     @Html.HiddenFor(model => model.size)
     @Html.HiddenFor(model => model.lotSize)
     @Html.HiddenFor(model=> model.paging.pageNumber)
@@ -116,10 +125,36 @@
         </div>
     </div>
 
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <span class="accordion-toggle title" data-toggle="collapse" href="#collapsePrice">Price Range</span>
+        </div>
+        <div id="collapsePrice" class="accordion-body collapse">
+            <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                <br />
+                @*
+                <input type="text" value="@Model.startingPrice" style="width:54px;"  placeholder="$ Min" id="startingPrice" name="startingPrice"/>
+                -
+                <input type="text" value="@Model.endingPrice" style="width:54px;" placeholder="$ Max" id="endingPrice" name="endingPrice"/>
+                *@
+                @Html.TextBoxFor(model => model.startingPrice, new { style="width:54px;" , placeholder="$ Min" })
+                -
+                @Html.TextBoxFor(model => model.endingPrice, new { style="width:54px;" , placeholder="$ Max" })
+            </div>
+        </div>
+    </div>
+    <div>
+         @Html.ValidationMessageFor(model => model.startingPrice)
+         @Html.ValidationMessageFor(model => model.endingPrice)
+    </div>
+    <div class="form-horizontal" >
+            <div class="control-group" >
+            <div class="control-label">Section 8 Only -</div>
+            <div class="controls">@Html.CheckBoxFor(model => model.acceptsSection8)</div>   
+        </div>
+    </div>
+
 </div>
- @*
-<button type="submit" class="btn btn-success pull-right">Search</button> 
- *@
 
  </form>
 
@@ -131,20 +166,10 @@
         }
         else if (item == "bathroom") {
             $('#bathrooms').val(id);
-            $('#filterForm').submit();
+            $('#filterForm').submit(); 
         }
 
         return false;
     };
-    
-    // change the color for the selected category
-    @*
-    var listingCategoryTypeId = '@Request["listingCategoryTypeId"]';
-    if (listingCategoryTypeId != '') {
-        $('#category_' + listingCategoryTypeId).css('background-color', 'DarkSlateGray');
-    }
-    else {
-        $('#showAllCategory').css('background-color', 'DarkSlateGray');
-    }
-    *@
+
 </script>
