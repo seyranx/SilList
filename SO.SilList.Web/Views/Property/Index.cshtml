@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_LayoutProperty.cshtml";
 }
 
-<h2>Properties</h2>
+<h3>Your Search Result</h3>
 
 <div style="height:20px">  
     <div class="pull-right" >
@@ -14,13 +14,23 @@
 <hr />
 
 <ul class="media-list">
-    @foreach (var item in Model.result)
+    @{
+        
+    if (Model.result.Count == 0)
     {
-        <li class="row, media" style="border-bottom: 1px solid #ccc;">
+        <div class="businessAddressLine"> <b><i>No Match was Found</i></b></div>
+    }
+    else
+    {
+        foreach (var item in Model.result)
+        {
+            <li class="row, media" style="border-bottom: 1px solid #ccc;">
 
-            @Html.Partial("_PropertyItem", item)
+                @Html.Partial("_PropertyItem", item)
 
-        </li>  
+            </li>  
+        }
+        }
     }
 </ul>
 @Html.Action("Pagination", @Model.paging)

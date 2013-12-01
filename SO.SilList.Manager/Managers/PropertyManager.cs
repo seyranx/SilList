@@ -89,16 +89,17 @@ namespace SO.SilList.Manager.Managers
                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && ((e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                                             || (e.title.Contains(input.keyword) || e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword)))
-                     
+                                      && (input.propertyTypeId == null || e.propertyTypeId == input.propertyTypeId)
+                                      && (input.propertyListingTypeId == null || e.propertyListingTypeId == input.propertyListingTypeId)
+                                      && (e.bedrooms >= input.bedrooms || input.bedrooms == null)
+                                      && (e.bathrooms >= input.bathrooms || input.bathrooms == null) 
+
                                       /*
                                       && (input.showPendingOnly == null || input.showPendingOnly == false || e.entryStatusType.name.Equals(EntryStatusTypeStrings.csPending)) 
                                       && (input.siteId == null || e.siteId == input.siteId)
                                       //&& (input.entryStatusTypeId == null || e.entryStatusType.entryStatusTypeId == input.entryStatusTypeId)
-                                      && (input.propertyTypeId == null || e.propertyTypeId == input.propertyTypeId)
-                                      && (input.propertyListingTypeId == null || e.propertyListingTypeId == input.propertyListingTypeId)
                                       && (input.listingDate ==null || DateTime.Compare(e.startDate, listingDate) >= 0)
-                                      && (e.bedrooms >= input.bedrooms || input.bedrooms == null)
-                                      && (e.bathrooms >= input.bathrooms || input.bathrooms == null)  
+
                                       && ((e.price >= input.startingPrice || input.startingPrice == null)
                                             && (e.price <= input.endingPrice || input.endingPrice == null))
                                       && (input.acceptsSection8 == null || e.acceptsSection8 == input.acceptsSection8)
