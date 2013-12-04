@@ -27,8 +27,8 @@ namespace SO.SilList.Manager.Models.ViewModels
         public int? lotSize { get; set; }
         public int? startingPrice { get; set; }
         public int? endingPrice { get; set; }
-        public bool acceptsSection8 { get; set; }
-        public bool isPetAllowed { get; set; }
+        public bool? acceptsSection8 { get; set; }
+        public bool? isPetAllowed { get; set; }
         //public bool? entryStatusTypeId { get; set; }
 
         [DisplayName("isActive: ")]

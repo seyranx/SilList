@@ -56,7 +56,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public bool? acceptsSection8 { get; set; }
 
         [DisplayName("Pet Allowed")]
-        public bool isPetAllowed { get; set; }
+        public bool? isPetAllowed { get; set; }
 
         [DisplayName("Address")]
         [StringLength(50)]
