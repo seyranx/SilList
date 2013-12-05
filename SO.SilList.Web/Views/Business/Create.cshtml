@@ -1,5 +1,4 @@
-﻿@*@model SO.SilList.Manager.Models.ValueObjects.BusinessVo*@
-@model SO.SilList.Manager.Models.ViewModels.BusinessVm
+﻿@model SO.SilList.Manager.Models.ValueObjects.BusinessVo
 @using SO.SilList.Manager.Models.ValueObjects
 @{
     ViewBag.Title = "Submit Business Listing";
@@ -167,27 +166,27 @@
                 <div style="margin: 5px; height: 60px; margin-left: 10px">
 
                     <b>Address:</b>
-                    @Html.TextBoxFor(model => model.business.address, new { placeholder = "Address", style = "width:80%;margin-top:5px" })
+                    @Html.TextBoxFor(model => model.address, new { placeholder = "Address", style = "width:80%;margin-top:5px" })
                     <div class="info">
 
                         <div class="span6">
-                            @Html.Action("DropDownList", new { id = Model.business.countryTypeId, propertyName = "countryTypeId", modelType = typeof(CountryTypeVo), defaultValue = "Select Country" })
+                            @Html.Action("DropDownList", new { id = Model.countryTypeId, propertyName = "countryTypeId", modelType = typeof(CountryTypeVo), defaultValue = "Select Country" })
                         </div>
                         <div class="span6">
-                            @Html.Action("DropDownList", new { id = Model.business.stateTypeId, propertyName = "stateTypeId", modelType = typeof(StateTypeVo), defaultValue = "Select State" })
+                            @Html.Action("DropDownList", new { id = Model.stateTypeId, propertyName = "stateTypeId", modelType = typeof(StateTypeVo), defaultValue = "Select State" })
                         </div>
 
                     </div>
 
                        <div class="span12" style="margin-left: -1px">
                         <div class="span7" style="margin-top: 6px;">
-                            @Html.Action("DropDownList", new { id = Model.business.cityTypeId, propertyName = "cityTypeId", modelType = typeof(CityTypeVo), defaultValue = "Select City" })
+                            @Html.Action("DropDownList", new { id = Model.cityTypeId, propertyName = "cityTypeId", modelType = typeof(CityTypeVo), defaultValue = "Select City" })
                         </div>
-                        @Html.TextBoxFor(model => model.business.zip, new { placeholder = "Zip Code", style = "width:90px;margin-top:5px" })
+                        @Html.TextBoxFor(model => model.zip, new { placeholder = "Zip Code", style = "width:90px;margin-top:5px" })
                     </div>
-                    @Html.TextBoxFor(model => model.business.phone, new { placeholder = "Phone", style = "width:190px;margin-top:-2px" })
+                    @Html.TextBoxFor(model => model.phone, new { placeholder = "Phone", style = "width:190px;margin-top:-2px" })
 
-                    @Html.TextBoxFor(model => model.business.fax, new { placeholder = "Fax", style = "width:190px;margin-top:-2px" })
+                    @Html.TextBoxFor(model => model.fax, new { placeholder = "Fax", style = "width:190px;margin-top:-2px" })
 
 
 

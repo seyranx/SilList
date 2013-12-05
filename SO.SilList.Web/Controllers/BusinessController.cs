@@ -58,15 +58,15 @@ namespace SO.SilList.Web.Controllers
 
         public ActionResult Create()
         {
-            var vo = new BusinessVm();
+            var vo = new BusinessVo();
             return View(vo);
         }
         [HttpPost]
-        public ActionResult Create(BusinessVm input)
+        public ActionResult Create(BusinessVo input)
         {
             if (this.ModelState.IsValid)
             {
-                var item = businessManager.insert(input.business);
+                var item = businessManager.insert(input);
 
                 ImageManager imageManager = new ImageManager();
 
