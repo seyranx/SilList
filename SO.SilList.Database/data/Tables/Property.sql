@@ -5,8 +5,8 @@
     [propertyTypeId]        INT              NULL,
     [propertyListingTypeId] INT              NULL,
     [siteId]                INT              NULL,
-    [bedrooms]              INT              NULL,
-    [bathrooms]             INT              NULL,
+    [bedroomTypeId]         INT              NULL,
+    [bathroomTypeId]        INT              NULL,
     [price]                 DECIMAL (18)     NULL,
     [size]                  INT              NULL,
     [lotSize]               INT              NULL,
@@ -18,7 +18,7 @@
     [zip]                   INT              NULL,
     [phone]                 NVARCHAR (50)    NULL,
     [fax]                   NVARCHAR (50)    NULL,
-    [startDate]             DATE             NOT NULL,
+	[startDate]             DATE             NOT NULL,
     [endDate]               DATE             NOT NULL,
     [isApproved]            BIT              CONSTRAINT [DF__tmp_ms_xx__isApp__75586032] DEFAULT ((0)) NOT NULL,
     [modifiedBy]            INT              NULL,
@@ -33,6 +33,9 @@
     CONSTRAINT [FK_Property_CountryType] FOREIGN KEY ([countryTypeId]) REFERENCES [app].[CountryType] ([countryTypeId]) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT [FK_Property_PropertyType] FOREIGN KEY ([propertyTypeId]) REFERENCES [app].[PropertyType] ([propertyTypeId]) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT [FK_Property_Site] FOREIGN KEY ([siteId]) REFERENCES [app].[Site] ([siteId]) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT [FK_Property_StateType] FOREIGN KEY ([stateTypeId]) REFERENCES [app].[StateType] ([stateTypeId]) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT [FK_Property_StateType] FOREIGN KEY ([stateTypeId]) REFERENCES [app].[StateType] ([stateTypeId]) ON DELETE CASCADE ON UPDATE CASCADE,
+	CONSTRAINT [FK_Property_BedroomType] FOREIGN KEY ([bedroomTypeId]) REFERENCES [app].[BedroomType] ([bedroomTypeId]) ON DELETE CASCADE ON UPDATE CASCADE,
+	CONSTRAINT [FK_Property_BathroomType] FOREIGN KEY ([bathroomTypeId]) REFERENCES [app].[BathroomType] ([bathroomTypeId]) ON DELETE CASCADE ON UPDATE CASCADE,
+
 );
 

@@ -1,0 +1,3 @@
+﻿@model SO.SilList.Manager.Models.ValueObjects.BathroomTypeVo
+
+@Html.DropDownList((string)ViewBag.propertyName, new SelectList(ViewBag.Engines,"bathroomTypeId","name",Model.bathroomTypeId),(string)ViewBag.defaultValue)

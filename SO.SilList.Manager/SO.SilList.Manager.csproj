@@ -58,6 +58,8 @@
     <Compile Include="Classes\Connection.cs" />
     <Compile Include="Classes\EntryStatusTypeInfo.cs" />
     <Compile Include="DbContexts\MainDb.cs" />
+    <Compile Include="Interfaces\IBathroomTypeManager.cs" />
+    <Compile Include="Interfaces\IBedroomTypeManager.cs" />
     <Compile Include="Interfaces\ICarFuelTypeManager.cs" />
     <Compile Include="Interfaces\ICarDoorTypeManager.cs" />
     <Compile Include="Interfaces\ICarDriveTypeManager.cs" />
@@ -102,6 +104,8 @@
     <Compile Include="Interfaces\IJobCategoryTypeManager.cs" />
     <Compile Include="Interfaces\IVisitManager.cs" />
     <Compile Include="Managers\AdminManager.cs" />
+    <Compile Include="Managers\BedroomTypeManager.cs" />
+    <Compile Include="Managers\BathroomTypeManager.cs" />
     <Compile Include="Managers\EntryStatusTypeManager.cs" />
     <Compile Include="Managers\BusinessCategoriesManager.cs">
       <SubType>Code</SubType>
@@ -149,18 +153,22 @@
     <Compile Include="Managers\PropertyManager.cs" />
     <Compile Include="Managers\TransmissionTypeManager.cs" />
     <Compile Include="Managers\VisitManager.cs" />
+    <Compile Include="Models\ValueObjects\BedroomTypeVo.cs" />
     <Compile Include="Models\ValueObjects\CarColorTypeVo.cs" />
     <Compile Include="Models\ValueObjects\CarDoorTypeVo.cs" />
     <Compile Include="Models\ValueObjects\CarDriveTypeVo.cs" />
     <Compile Include="Models\ValueObjects\CarEngineTypeVo.cs" />
     <Compile Include="Models\ValueObjects\CarFuelTypeVo.cs" />
     <Compile Include="Models\ValueObjects\CityTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\BathroomTypeVo.cs" />
     <Compile Include="Models\ValueObjects\CountryTypeVo.cs" />
     <Compile Include="Models\ValueObjects\EntryStatusTypeVo.cs" />
     <Compile Include="Models\ValueObjects\StateTypeVo.cs" />
     <Compile Include="Models\ValueObjects\VisitVo.cs" />
     <Compile Include="Models\ViewModels\Admin\AccountLoginVm.cs" />
     <Compile Include="Models\ViewModels\Admin\AccountManageVm.cs" />
+    <Compile Include="Models\ViewModels\BedroomTypeVm.cs" />
+    <Compile Include="Models\ViewModels\BathroomTypeVm.cs" />
     <Compile Include="Models\ViewModels\EntryStatusTypeVm.cs" />
     <Compile Include="Models\ViewModels\BusinessCategoriesVm.cs" />
     <Compile Include="Models\ViewModels\BusinessCategoryTypeVm.cs" />

@@ -20,6 +20,8 @@ namespace SO.SilList.Web.Controllers
         private CountryTypeManager countryTypeManager = new CountryTypeManager();
         private PropertyTypeManager propertyTypeManager = new PropertyTypeManager();
         private PropertyListingTypeManager propertyListingTypeManager = new PropertyListingTypeManager();
+        private BedroomTypeManager bedroomTypeManager = new BedroomTypeManager();
+        private BathroomTypeManager bathroomTypeManager = new BathroomTypeManager();
 
 
         public ActionResult Index(PropertyVm input = null, Paging paging = null)
@@ -27,8 +29,8 @@ namespace SO.SilList.Web.Controllers
             if (input == null) input = new PropertyVm();
             input.isActive = true;
             input.paging = paging;
-            //if (input.property.bedrooms.ToString() == "Single")
-                  //  input.property.bedrooms = 0; 
+            //if (input.property.bedroomTypeId.ToString() == "Single")
+                  //  input.property.bedroomTypeId = 0; 
 
             if (this.ModelState.IsValid)
             {
@@ -75,6 +77,16 @@ namespace SO.SilList.Web.Controllers
             {
                 ViewBag.items = propertyListingTypeManager.getAll(true);
                 ViewBag.idName = "propertyTypeTypeId";
+            }
+            else if (propertyType == typeof(BedroomTypeVo))
+            {
+                ViewBag.items = bedroomTypeManager.getAll(true);
+                ViewBag.idName = "bedroomTypeId";
+            }
+            else if (propertyType == typeof(BathroomTypeVo))
+            {
+                ViewBag.items = bathroomTypeManager.getAll(true);
+                ViewBag.idName = "bathroomTypeId";
             }
             else if (propertyType == typeof(CountryTypeVo))
             {

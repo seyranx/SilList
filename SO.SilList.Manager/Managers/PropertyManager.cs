@@ -91,8 +91,8 @@ namespace SO.SilList.Manager.Managers
                                             || (e.title.Contains(input.keyword) || e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword)))
                                       && (input.propertyTypeId == null || e.propertyTypeId == input.propertyTypeId)
                                       && (input.propertyListingTypeId == null || e.propertyListingTypeId == input.propertyListingTypeId)
-                                      && (e.bedrooms >= input.bedrooms || input.bedrooms == null)
-                                      && (e.bathrooms >= input.bathrooms || input.bathrooms == null) 
+                                      && (e.bedroomTypeId >= input.bedroomTypeId || input.bedroomTypeId == null)
+                                      && (e.bathroomTypeId >= input.bathroomTypeId || input.bathroomTypeId == null) 
 
                                       /*
                                       && (input.showPendingOnly == null || input.showPendingOnly == false || e.entryStatusType.name.Equals(EntryStatusTypeStrings.csPending)) 

@@ -450,8 +450,8 @@
           <Property Name="propertyTypeId" Type="int" />
           <Property Name="listingDetailId" Type="uniqueidentifier" />
           <Property Name="siteId" Type="int" />
-          <Property Name="bedrooms" Type="int" />
-          <Property Name="bathrooms" Type="int" />
+          <Property Name="bedroomTypeId" Type="int" />
+          <Property Name="bathroomTypeId" Type="int" />
           <Property Name="rent" Type="float" />
           <Property Name="leaseTermTypeId" Type="int" />
           <Property Name="size" Type="int" />
@@ -1195,8 +1195,8 @@
           <Property Name="propertyTypeId" Type="Int32" />
           <Property Name="listingDetailId" Type="Guid" />
           <Property Name="siteId" Type="Int32" />
-          <Property Name="bedrooms" Type="Int32" />
-          <Property Name="bathrooms" Type="Int32" />
+          <Property Name="bedroomTypeId" Type="Int32" />
+          <Property Name="bathroomTypeId" Type="Int32" />
           <Property Name="rent" Type="Double" />
           <Property Name="leaseTermTypeId" Type="Int32" />
           <Property Name="size" Type="Int32" />
@@ -1821,8 +1821,8 @@
                 <ScalarProperty Name="propertyTypeId" ColumnName="propertyTypeId" />
                 <ScalarProperty Name="listingDetailId" ColumnName="listingDetailId" />
                 <ScalarProperty Name="siteId" ColumnName="siteId" />
-                <ScalarProperty Name="bedrooms" ColumnName="bedrooms" />
-                <ScalarProperty Name="bathrooms" ColumnName="bathrooms" />
+                <ScalarProperty Name="bedroomTypeId" ColumnName="bedroomTypeId" />
+                <ScalarProperty Name="bathroomTypeId" ColumnName="bathroomTypeId" />
                 <ScalarProperty Name="rent" ColumnName="rent" />
                 <ScalarProperty Name="leaseTermTypeId" ColumnName="leaseTermTypeId" />
                 <ScalarProperty Name="size" ColumnName="size" />
