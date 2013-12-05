@@ -228,6 +228,8 @@
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
+    <Build Include="app\Tables\BedroomType.sql" />
+    <Build Include="app\Tables\BathroomType.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />
@@ -236,5 +238,8 @@
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="app\Script.SuperAdmin.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="SO.SilList.Database.refactorlog" />
   </ItemGroup>
 </Project>

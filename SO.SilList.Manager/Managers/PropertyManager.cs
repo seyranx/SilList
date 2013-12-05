@@ -87,24 +87,29 @@ namespace SO.SilList.Manager.Managers
                             .Include(w => w.entryStatusType)
                             .OrderByDescending(b => b.created)
                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
-                                      && (string.IsNullOrEmpty(input.keyword) || e.title.Contains(input.keyword))
-                                      && (string.IsNullOrEmpty(input.keyword) || e.description.Contains(input.keyword))
+                                      && ((e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                            || (e.title.Contains(input.keyword) || e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword)))
+                                      && (input.propertyTypeId == null || e.propertyTypeId == input.propertyTypeId)
+                                      && (input.propertyListingTypeId == null || e.propertyListingTypeId == input.propertyListingTypeId)
+                                      && (e.bedroomTypeId >= input.bedroomTypeId || input.bedroomTypeId == null)
+                                      && (e.bathroomTypeId >= input.bathroomTypeId || input.bathroomTypeId == null) 
+
+                                      /*
                                       && (input.showPendingOnly == null || input.showPendingOnly == false || e.entryStatusType.name.Equals(EntryStatusTypeStrings.csPending)) 
                                       && (input.siteId == null || e.siteId == input.siteId)
                                       //&& (input.entryStatusTypeId == null || e.entryStatusType.entryStatusTypeId == input.entryStatusTypeId)
-                                      && (input.propertyTypeId == null || e.propertyTypeId == input.propertyTypeId)
-                                      && (input.propertyListingTypeId == null || e.propertyListingTypeId == input.propertyListingTypeId)
                                       && (input.listingDate ==null || DateTime.Compare(e.startDate, listingDate) >= 0)
-                                      && (e.bedrooms >= input.bedrooms || input.bedrooms == null)
-                                      && (e.bathrooms >= input.bathrooms || input.bathrooms == null)  
+
                                       && ((e.price >= input.startingPrice || input.startingPrice == null)
                                             && (e.price <= input.endingPrice || input.endingPrice == null))
                                       && (input.acceptsSection8 == null || e.acceptsSection8 == input.acceptsSection8)
                                       && (input.isPetAllowed == null || e.isPetAllowed == input.isPetAllowed)
+                                       */
                              );
 
                 input.paging.totalCount = query.Count();
                 input.result = query
+                             .OrderBy(b => b.title)
                              .Skip(input.paging.skip)
                              .Take(input.paging.rowCount)
                              .ToList();

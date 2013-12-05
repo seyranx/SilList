@@ -50,20 +50,18 @@
         </div>
         <div class="control-group">
             <div class="control-label">
-                @Html.LabelFor(model => model.bedrooms)
+                @Html.LabelFor(model => model.bedroomTypeId)
             </div>
             <div class="controls">
-                @Html.EditorFor(model => model.bedrooms)
-                @Html.ValidationMessageFor(model => model.bedrooms)
+                @Html.Action("DropDownList", "BedroomType", new { id = Model.bedroomTypeId, propertyName="bedroomTypeId" })
             </div>
         </div>
         <div class="control-group">
             <div class="control-label">
-                @Html.LabelFor(model => model.bathrooms)
+                @Html.LabelFor(model => model.bathroomTypeId)
             </div>
             <div class="controls">
-                @Html.EditorFor(model => model.bathrooms)
-                @Html.ValidationMessageFor(model => model.bathrooms)
+                @Html.Action("DropDownList", "BathroomType", new { id = Model.bathroomTypeId, propertyName="bathroomTypeId" })
             </div>
         </div>
         <div class="control-group">
@@ -110,14 +108,14 @@
                 @Html.ValidationMessageFor(model => model.acceptsSection8)
             </div>
         </div>
-        
+        @*
         <div class="editor-label">
             @Html.LabelFor(model => model.entryStatusTypeId)
         </div>
         <div class="editor-field">
             @Html.Action("DropDownList", "EntryStatusType", new { id = Model.entryStatusTypeId })
         </div>
-        
+        *@
         <div class="control-group">
             <div class="control-label">
                 @Html.LabelFor(model => model.address)

@@ -7,8 +7,8 @@
   <!-- Main hero unit for a primary marketing message or call to action -->
 
       <div class="hero-unit span5 blackbox">
-
-
+          @Html.Partial("_PropertyBox")
+@*
       <h2>Homes:</h2> 
       <hr />
 <form >
@@ -20,9 +20,7 @@
 
     <button type="submit" class="btn btn-success btn-large pull-right">Search</button>
 </form>
-
-
-            
+*@     
      </div>
 
 
@@ -36,6 +34,7 @@
     <label>Keyword:</label>
     <input id="keyword" name="keyword" type="text" placeholder="Type something…" style="width:95%;">
     @*<span class="help-block">Example block-level help text here.</span>*@
+    <br /><br />
     <button type="submit" class="btn btn-success btn-large pull-right">Search</button>
 }
 
@@ -58,6 +57,7 @@
 <form >
     <label>Keyword:</label>
     <input type="text" placeholder="Type something…" style="width:95%;">
+    <br /><br />
     <button type="submit" class="btn btn-success btn-large pull-right">Search</button>
 </form>
 

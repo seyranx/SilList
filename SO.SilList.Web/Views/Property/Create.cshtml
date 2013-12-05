@@ -132,116 +132,96 @@
     </div>
     <br />
     <div class="row" style="margin: 5px;">
-        <div class="span1 labels">
+        <div class="span10 form-horizontal-left" >
             @Html.LabelFor(model => model.title)
-        </div>
-        <div class="span7">
             @Html.TextBoxFor(model => model.title, new { Class = "input-xxlarge", placeholder = "Title" })
         </div>
+
     </div>
-    <br />
-    
-    <br />
     
      <div class="row" style="margin: 5px;">
-         <div class="span6 form-horizontal" style="align-content:center;">
+         <div class="span6 form-horizontal-left" >
+
+              <div class="control-group">
+                  <div class="control-label">
+                       @Html.LabelFor(model => model.bedroomTypeId)
+                  </div>
+                  <div class="controls">
+                       @{
+                              var bedList = new string[16];
+                              //bedList.SetValue("Single", 0);
+                              for (int i = 0; i < 16; i++)
+                              {
+                                  bedList.SetValue(i.ToString(), i);
+                              }
+                              var bedselectlist = new SelectList(bedList);
+                        }
+                        @Html.DropDownListFor(model => model.bedroomTypeId, bedselectlist, new { @class = "shortEditor" })
+                        @Html.ValidationMessageFor(model => model.bedroomTypeId)
+                 </div>
+             </div>
+
              <div class="control-group">
-                <div class="control-label">
-                     @Html.LabelFor(model => model.bathrooms)
-                </div>
-                <div class="controls">
-                     @Html.TextBoxFor(model => model.bedrooms, new { Class = "input-small" })
-                </div>
-            </div>   
+                 <div class="control-label">
+                      @Html.LabelFor(model => model.bathroomTypeId)
+                 </div>
+                 <div class="controls">
+                      @{
+                            var bathList = new string[16];
+   
+                            for (int i = 0; i < 16; i++)
+                            {
+                                bathList.SetValue(i.ToString(), i);
+                            }
+                            var batselectlist = new SelectList(bathList);
+                      }
+                      @Html.DropDownListFor(model => model.bathroomTypeId, batselectlist, new { @class = "shortEditor" })
+                      @Html.ValidationMessageFor(model => model.bathroomTypeId)
+                 </div>
+             </div> 
+                    
              <div class="control-group">
-                <div class="control-label">
-                     @Html.LabelFor(model => model.bedrooms)
-                </div>
-                <div class="controls">
-                     @Html.TextBoxFor(model => model.bedrooms, new { Class = "input-small" })
-                </div>
-            </div> 
-             <div class="control-group">
-                <div class="control-label">
-                     @Html.LabelFor(model => model.price)
-                </div>
-                <div class="controls">
-                     @Html.TextBoxFor(model => model.price, new { Class = "input-small" })
-                </div>
-            </div>  
+                  <div class="control-label">
+                      @Html.LabelFor(model => model.price)
+                  </div>
+                  <div class="controls">
+                      @Html.TextBoxFor(model => model.price, new { Class = "input-small", placeholder = " $" })
+                      @Html.ValidationMessageFor(model => model.price)
+                  </div>
+             </div>  
          </div>
-         <div class="span6 form-horizontal" style="align-content:center;">
+
+         <div class="span6 form-horizontal-left" >
              <div class="control-group">
                 <div class="control-label">
-                     @Html.LabelFor(model => model.bathrooms)
+                     @Html.LabelFor(model => model.size)
                 </div>
                 <div class="controls">
-                     @Html.TextBoxFor(model => model.bedrooms, new { Class = "input-small" })
+                    @Html.TextBoxFor(model => model.size, new { Class = "input-small", placeholder = " sq ft" })
+                    @Html.ValidationMessageFor(model => model.size)
                 </div>
             </div>   
              <div class="control-group">
                 <div class="control-label">
-                     @Html.LabelFor(model => model.bedrooms)
+                    @Html.LabelFor(model => model.lotSize)
                 </div>
                 <div class="controls">
-                     @Html.TextBoxFor(model => model.bedrooms, new { Class = "input-small" })
+                    @Html.TextBoxFor(model => model.lotSize, new { Class = "input-small", placeholder = " sq ft" }) 
+                    @Html.ValidationMessageFor(model => model.lotSize)
                 </div>
             </div> 
              <div class="control-group">
                 <div class="control-label">
-                     @Html.LabelFor(model => model.price)
+                     @Html.LabelFor(model => model.isPetAllowed)
                 </div>
                 <div class="controls">
-                     @Html.TextBoxFor(model => model.price, new { Class = "input-small" })
+                     @Html.CheckBoxFor(model => model.isPetAllowed)
                 </div>
             </div>
          </div>
+    
     </div> 
-           <br />
-
-    
-    
-    <div class="row" style="margin: 5px;">  
-        <div class="span1 labels">
-            @Html.LabelFor(model => model.bathrooms)
-        </div>
-        <div class="span2">
-            @{
-    int currentYear = DateTime.Now.Year;
-    var mylist = new string[31];
-    for (int i = 0; i < 31; i++)
-    {
-        mylist.SetValue((currentYear - 30 + i).ToString(), 30 - i);
-    }
-    var selectlist = new SelectList(mylist);
-            }
-            @Html.DropDownListFor(model => model.bathrooms, selectlist, new { @class = "shortEditor" })
-            @Html.ValidationMessageFor(model => model.bathrooms)
-        </div>
-
-        <div class="span1 labels">
-            Price
-        </div>
-        <div class="span2">
-            @Html.TextBoxFor(model => model.price, new { @class = "shortEditor" })
-            @Html.ValidationMessageFor(model => model.price)
-        </div>
-
-        <div class="span1 labels">
-            Millage
-        </div>
-        <div class="span2">
-            @Html.TextBoxFor(model => model.bedrooms, new { @class = "shortEditor" })
-
-            @Html.ValidationMessageFor(model => model.bedrooms)
-        </div>
-
-        <div class="span2 labels">
-            Active
-        </div>
-
-        @Html.EditorFor(model => model.isActive)
-    </div>
+    <br />
 
     <div class="row" style="height: 400px; margin: 5px;">
         <div class="span8" style="height: 400px; border-radius: 6px;">
@@ -266,11 +246,11 @@
                         <div class="span7" style="margin-top: 6px;">
                             <input id="cityTypeId" name="cityTypeId"/>
                         </div>
-                        @Html.TextBoxFor(model => model.zip, new { placeholder = "Zip Code", style = "width:90px;margin-top:5px" })
+                        @Html.TextBoxFor(model => model.zip, new { placeholder = "Zip 99999", style = "width:90px;margin-top:5px" })
                     </div>
-                    @Html.TextBoxFor(model => model.phone, new { placeholder = "Phone", style = "width:190px;margin-top:-2px" })
+                        @Html.TextBoxFor(model => model.phone, new { placeholder = "Phone (999) 999-9999", style = "width:190px;margin-top:-2px" })
 
-                    @Html.TextBoxFor(model => model.fax, new { placeholder = "Fax", style = "width:190px;margin-top:-2px" })
+                        @Html.TextBoxFor(model => model.fax, new { placeholder = "Fax (999) 999-9999 ", style = "width:190px;margin-top:-2px" })
 
                 </div>
 
@@ -295,6 +275,9 @@
             <b> Listing Type: </b>
             <div class="info" style="align-content:center"> @Html.TextBoxFor(model => model.propertyListingTypeId, new {  Class = "input-medium", id = Model.propertyListingTypeId })</div>
 
+        </div>
+        <div class="span12">
+           @Html.ValidationSummary(true, "***Error: Please make sure Zip Code, Phone Number or Fax number format are correct!")
         </div>
     </div>
 }
