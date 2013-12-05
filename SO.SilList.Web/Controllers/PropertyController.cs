@@ -19,7 +19,7 @@ namespace SO.SilList.Web.Controllers
         private StateTypeManager stateTypeManager = new StateTypeManager();
         private CountryTypeManager countryTypeManager = new CountryTypeManager();
         private PropertyTypeManager propertyTypeManager = new PropertyTypeManager();
-        private PropertyListingTypeManager propertyLitingTypeManager = new PropertyListingTypeManager();
+        private PropertyListingTypeManager propertyListingTypeManager = new PropertyListingTypeManager();
 
 
         public ActionResult Index(PropertyVm input = null, Paging paging = null)
@@ -27,6 +27,9 @@ namespace SO.SilList.Web.Controllers
             if (input == null) input = new PropertyVm();
             input.isActive = true;
             input.paging = paging;
+            //if (input.property.bedrooms.ToString() == "Single")
+                  //  input.property.bedrooms = 0; 
+
             if (this.ModelState.IsValid)
             {
                 if (input.submitButton != null)
@@ -34,7 +37,7 @@ namespace SO.SilList.Web.Controllers
                 input = propertyManager.search(input);
                 return View(input);
             }
-            return View();
+            return View(input);
         }
 
         public ActionResult Pagination(Paging input)
@@ -70,7 +73,7 @@ namespace SO.SilList.Web.Controllers
             }
             else if (propertyType == typeof(PropertyListingTypeVo))
             {
-                ViewBag.items = propertyLitingTypeManager.getAll(true);
+                ViewBag.items = propertyListingTypeManager.getAll(true);
                 ViewBag.idName = "propertyTypeTypeId";
             }
             else if (propertyType == typeof(CountryTypeVo))
@@ -134,65 +137,28 @@ namespace SO.SilList.Web.Controllers
 
             return View(input);
         }
-/*
-        public ActionResult CollapseList(int? id = null, string propertyName = null, Type modelType = null)
+
+        public ActionResult CollapseList(int? id = null, string propertyName = null, Type propertyType = null)
         {
             ViewBag.selectedId = id;
             ViewBag.propertyName = propertyName;
 
-            if (modelType == typeof(MakeTypeVo))
-            {
-                ViewBag.list = makeTypeManager.getAll(true);
-                // var idList = list.Select(c => c.makeTypeId).ToList();
-                ViewBag.propertyId = "makeTypeId";
-                ViewBag.titleName = "Make";
-            }
-            else if (modelType == typeof(CarBodyTypeVo))
-            {
-                ViewBag.list = propertyLitingTypeManager.getAll(true);
-                ViewBag.propertyId = "carBodyTypeId";
-                ViewBag.titleName = "Body";
-            }
-            else if (modelType == typeof(TransmissionTypeVo))
-            {
-                ViewBag.list = transmissionTypeManager.getAll(true);
-                ViewBag.propertyId = "transmissionTypeId";
-                ViewBag.titleName = "Transmission";
-            }
-            else if (modelType == typeof(CarColorTypeVo))
+            if (propertyType == typeof(PropertyTypeVo))
             {
                 ViewBag.list = propertyTypeManager.getAll(true);
-                ViewBag.propertyId = "carColorTypeId";
-                ViewBag.titleName = "Color";
+                ViewBag.propertyId = "propertyTypeId";
+                ViewBag.titleName = "Property Type";
             }
-            else if (modelType == typeof(CarDoorTypeVo))
+            else if (propertyType == typeof(PropertyListingTypeVo))
             {
-                ViewBag.list = carDoorTypeManager.getAll(true);
-                ViewBag.propertyId = "carDoorTypeId";
-                ViewBag.titleName = "Doors";
-            }
-            else if (modelType == typeof(CarDriveTypeVo))
-            {
-                ViewBag.list = carDriveTypeManager.getAll(true);
-                ViewBag.propertyId = "carDriveTypeId";
-                ViewBag.titleName = "Drive Train";
-            }
-            else if (modelType == typeof(CarEngineTypeVo))
-            {
-                ViewBag.list = carEngineTypeManager.getAll(true);
-                ViewBag.propertyId = "carEngineTypeId";
-                ViewBag.titleName = "Engine";
-            }
-            else if (modelType == typeof(CarFuelTypeVo))
-            {
-                ViewBag.list = carFuelTypeManager.getAll(true);
-                ViewBag.propertyId = "carFuelTypeId";
-                ViewBag.titleName = "Fuel";
+                ViewBag.list = propertyListingTypeManager.getAll(true);
+                ViewBag.propertyId = "propertyListingTypeId";
+                ViewBag.titleName = "Listing Type";
             }
 
             return PartialView("_CollapseList");
         }
-*/
+
     }
 }
 

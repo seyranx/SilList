@@ -1,6 +1,55 @@
 ﻿@model SO.SilList.Manager.Models.ViewModels.PropertyVm
 @using SO.SilList.Manager.Models.ValueObjects
 
+<style>
+    #detailSearch input {
+        width: 144px;
+        margin: 1px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+    }
+
+    #detailSearch select {
+        width: 158px;
+        margin: 1px;
+        margin-top: 5px;
+        border-radius: 5px;
+    }
+
+    .title {
+        margin: -5px;
+    }
+
+    #acceptsSection8 {
+        width:200px;
+        padding:0;
+        margin:0;
+    }
+
+   
+.form-horizontal .control-group2 {
+  margin-bottom: 20px;
+  *zoom: 1;
+}
+
+
+.form-horizontal .control-label2 {
+  float: left;
+  width: 120px;
+  padding-top: 5px;
+  text-align: left;
+}
+
+.form-horizontal .controls2 {
+  *display: inline-block;
+  *padding-left: 20px;
+  margin-left: 180px;
+  *margin-left: 0;
+}
+
+</style>
+
 <form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Property")">
 
 <label>Keyword:</label>
@@ -15,12 +64,167 @@
 
 <br /><br />
 
- @Html.HiddenFor(model=> model.paging.pageNumber)
-
+ 
+<div>
 <button name="submitButton" value="Search" type="submit" class="btn btn-success pull-right">Search</button>
+</div>
+<br /><br /><br />
 
- @*
-<button type="submit" class="btn btn-success pull-right">Search</button> 
- *@
+<div id="detailSearch">
+    @Html.HiddenFor(model => model.propertyTypeId)
+    @Html.HiddenFor(model => model.propertyListingTypeId)
+    @Html.HiddenFor(model => model.bedrooms)
+    @Html.HiddenFor(model => model.bathrooms)
+    @Html.HiddenFor(model => model.isPetAllowed)
+    @*
+    @Html.HiddenFor(model => model.startingPrice)
+    @Html.HiddenFor(model => model.endingPrice)
+    *@
+    @Html.HiddenFor(model => model.size)
+    @Html.HiddenFor(model => model.lotSize)
+    @Html.HiddenFor(model=> model.paging.pageNumber)
+
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <span class="accordion-toggle title" data-toggle="collapse" href="#collapsePropertyType">Property Type</span>
+        </div>
+        <div id="collapsePropertyType" class="accordion-body collapse">
+            <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                @Html.Action("CollapseList", "Property", new { id = Model.propertyTypeId, propertyName = "propertyTypeId", propertyType = typeof(PropertyTypeVo) })
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <span class="accordion-toggle title" data-toggle="collapse" href="#collapseListingType">Listing Type</span>
+        </div>
+        <div id="collapseListingType" class="accordion-body collapse">
+            <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                @Html.Action("CollapseList", "Property", new { id = Model.propertyListingTypeId, propertyName = "propertyListingTypeId", propertyType = typeof(PropertyListingTypeVo) })
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <span class="accordion-toggle title" data-toggle="collapse" href="#collapseBedrooms">Bedrooms</span>
+        </div>
+        <div id="collapseBedrooms" class="accordion-body collapse">
+            <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                <ul class="nav nav-list" style="background-color: none; color: white; text-align: center;">
+                    <li><a href="#" onclick="selectAction(null,'bedroom')">Any </a></li>
+                    <li><a href="#" onclick="selectAction(-1,'bedroom')">Studio </a></li>
+                    <li><a href="#" onclick="selectAction(0,'bedroom')">Single </a></li>
+                    @{
+                        for (int i = 1; i < 15; i ++)
+                        {
+                        <li><a href="#"  onclick="selectAction2(@i,'bedroom')">@i+ </a></li>
+                        } 
+                    }
+                </ul>
+           </div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <span class="accordion-toggle title" data-toggle="collapse" href="#collapseBathrooms">Bathrooms</span>
+        </div>
+        <div id="collapseBathrooms" class="accordion-body collapse">
+            <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                <ul class="nav nav-list" style="background-color: none; color: white; text-align: center;">
+                    <li><a href="#" onclick="selectAction2(null,'bathroom')">Any </a></li>
+                    @{
+                        for (int i = 1; i < 15; i ++)
+                        {
+                        <li><a href="#"  onclick="selectAction(@i,'bathroom')">@i+ </a></li>
+                        } 
+                    }
+                </ul>
+           </div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <span class="accordion-toggle title" data-toggle="collapse" href="#collapsePrice">Price Range</span>
+        </div>
+        <div id="collapsePrice" class="accordion-body collapse">
+            <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                <br />
+                @*
+                <input type="text" value="@Model.startingPrice" style="width:54px;"  placeholder="$ Min" id="startingPrice" name="startingPrice"/>
+                -
+                <input type="text" value="@Model.endingPrice" style="width:54px;" placeholder="$ Max" id="endingPrice" name="endingPrice"/>
+                *@
+                @Html.TextBoxFor(model => model.startingPrice, new { style="width:54px;" , placeholder="$ Min" })
+                -
+                @Html.TextBoxFor(model => model.endingPrice, new { style="width:54px;" , placeholder="$ Max" })
+            </div>
+        </div>
+    </div>
+    <div>
+         @Html.ValidationMessageFor(model => model.startingPrice)
+         @Html.ValidationMessageFor(model => model.endingPrice)
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <span class="accordion-toggle title" data-toggle="collapse" href="#collapseSection8">Section 8 Only</span>
+        </div>
+        <div id="collapseSection8" class="accordion-body collapse">
+            <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                @Html.EditorFor(model => model.acceptsSection8)
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <span class="accordion-toggle title" data-toggle="collapse" href="#collapsePetAllowed">Pets Allowed Only</span>
+        </div>
+        <div id="collapsePetAllowed" class="accordion-body collapse">
+            <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                @Html.EditorFor(model => model.isPetAllowed)
+            </div>
+        </div>
+    </div>
+
+</div>
 
  </form>
+
+<script>
+
+    function selectAction2(id, item) {
+        if (item == "bedroom") {
+            $('#bedrooms').val(id);
+            $('#filterForm').submit();
+        }
+        else if (item == "bathroom") {
+            $('#bathrooms').val(id);
+            $('#filterForm').submit(); 
+        }
+
+        return false;
+    };
+
+    $(document).change(function () {
+        //alert("value is changed");
+        $('#filterForm').submit();
+    });
+
+    /*
+    function OnChangeEvent()
+    {
+        //alert("value is changed");
+        $('#filterForm').submit();
+    }
+
+    $('#acceptsSection8').change(function () { //collapseSection8  s2id_acceptsSection8   acceptsSection8
+        $('#filterForm').submit();
+    });
+    */
+
+</script>

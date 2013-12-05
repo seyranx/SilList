@@ -64,7 +64,6 @@ namespace SO.SilList.Manager.Managers
                              .Include(t => t.listingCategories) //
                              .Include(k => k.listingCategories.Select(c => c.listingCategoryType))
                              .Include(u => u.stateType) 
-
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && (((input.titleOnly == true) && (e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword)))
                                             || ((input.titleOnly == false)  && (e.title.Contains(input.keyword) || e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))))

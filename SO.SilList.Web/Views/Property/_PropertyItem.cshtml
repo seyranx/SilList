@@ -3,73 +3,97 @@
     ViewBag.Title = "_PropertyItem";
 }
 
-<div class="span12 businessInfo">
+
+<div class="span6" style="text-align:left">
     <a class="pull-left" href="@Url.Action("Detail", new { id = Model.propertyId })">
         <img class="media-object, thumbnail" data-src="holder.js/60x60">
     </a>
     <div class="media-body" style="padding: 5px;">
-        <div class="pull-right" style="font-size: medium; color: #13033e">$@Model.price</div>
-        <a href="@Url.Action("Detail", new { id = Model.propertyId })">
-            <h5 class="media-heading">@Html.DisplayFor(modelItem => Model.size) @Html.DisplayFor(modelItem => Model.propertyType.name) @Html.DisplayFor(modelItem => Model.propertyListingType.name)</h5>
-        </a>
-        <div>
-            <div class="businessAddressLine">Lot Size: @Model.lotSize</div>
 
+            <a href="@Url.Action("Detail", new { id = Model.propertyId })">
+                <h5 class="media-heading">@Model.title</h5>
+            </a>
+        <div>
+            
+        @{
+            if (Model.propertyListingTypeId != null) {
+                <div class="businessAddressLine"> For @Model.propertyListingType.name </div>
+            }
+            else {
+                <div class="businessAddressLine"> <br /> </div>
+            }
+            
+            if (Model.propertyTypeId != null) {
+                <div class="businessAddressLine"> Type: @Model.propertyType.name </div>
+            }
+            else {
+                <div class="businessAddressLine"> <br /> </div>
+            }
+            
+            if (Model.bedrooms != null) {
+                <div class="businessAddressLine"> Bedrooms: @Model.bedrooms </div>
+            }
+            else {
+                <div class="businessAddressLine"> <br /> </div>
+            }
+ 
+            if (Model.bathrooms != null) {
+                <div class="businessAddressLine"> Bathrooms: @Model.bathrooms </div>
+            }
+            else {
+                <div class="businessAddressLine"> <br /> </div>
+            }                       
+            
+         }
+            
         </div>
         <div class="businessAddressLine">
+             @if (Model.phone != null)
+             {
+                 Write(Model.phone);
+             }
+             else
+             {
+                <br />
+             }
+
+            @*
             Location: <a href="/">@Html.DisplayFor(model => model.cityType.name)
-                @if (Model.cityType != null)
-                { <b>,</b>}
-                @Html.DisplayFor(model => model.stateType.name)</a>
-        </div>
-
-        <div style="margin-left: 70%; margin-top: -20px;">
-            Address
-            <div class="businessAddressLine">@Model.address</div>
-            <div class="businessAddressLine">@Html.DisplayFor(model => model.cityType.name)
-                @if (Model.cityType != null)
-                { <b>,</b>}
-                @Html.DisplayFor(model => model.stateType.stateCode) @Model.zip
-            </div>
-            
-
+            @if (Model.cityType != null)
+            { <b>,</b>}
+            @Html.DisplayFor(model => model.stateType.name)</a>
+            *@
         </div>
     </div>
-
-    <div style="margin-top: 10px; min-height: 10px; margin-bottom: 5px;">@Model.description</div>
-
+    <br />
 </div>
 
-@*
-@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.PropertyVo>
+<div class="span6" style="text-align:right">
+    <div class="pull-right" style=" color: #13033e">
+        $@Model.price
+    </div>
+    <br /><br /><br />
 
-@foreach (var item in Model) {
-    
+    <div class="media-body" style=" margin-top: -20px;">
+        <div class="businessAddressLine">
+             @if (Model.address != null) 
+             {
+                 Write(Model.address);
+             }
+        </div>
+        <div class="businessAddressLine">
+            @Html.DisplayFor(model => model.cityType.name)
 
-<div class="span12 businessInfo" id="mainContent">
-      <a class="pull-left" href="#" >
-      <img class="media-object, thumbnail" data-src="holder.js/60x60">
-    </a>
-    <div class="media-body" style="padding:5px;">
-         <a href="#">
-         <h5 class="media-heading"> @Html.DisplayFor(modelItem => item.title)</h5>
-         </a>
+            @if (Model.cityType != null)
+            { <b>,</b>}
 
-          <div class="businessAddressLine">Category: Renting</div> 
-          <div class="businessAddressLine">Type: @Html.DisplayFor(modelItem => item.propertyType.name) </div>
-          <div class="businessAddressLine">Price: @Html.DisplayFor(modelItem => item.price) </div>  
-        
-        <div style="margin-left:70%; margin-top:-40px; ">
-          <div class="businessAddressLine">Address: @Html.DisplayFor(modelItem => item.address) </div>
-          <div class="businessAddressLine">Los Angeles, CA 92222</div> 
-          <div class="businessAddressLine">Phone Number: @Html.DisplayFor(modelItem =>item.phone) </div>  
-          <div class="businessAddressLine">Website<a href="/">  @Html.DisplayFor(modelItem =>item.site.domain)</a></div>
+            @Html.DisplayFor(model => model.stateType.name) 
+            <br />
+            @if (Model.zip != null)
+            {
+                Write("Zip:" + Model.zip);                                                                                        
+            }
         </div>
     </div>
-
-         <div style="margin-top:10px; margin-bottom:5px;" > @Html.DisplayFor(modelItem => item.description): </div> 
-    <hr />
-    
 </div>
-}  
-*@ 
+<br />

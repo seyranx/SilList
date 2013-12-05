@@ -55,7 +55,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [DisplayName("Section8")]
         public bool? acceptsSection8 { get; set; }
 
-        [DisplayName("Pet")]
+        [DisplayName("Pet Allowed")]
         public bool? isPetAllowed { get; set; }
 
         [DisplayName("Address")]
@@ -63,7 +63,8 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public string address { get; set; }
 
         [DisplayName("Phone")]
-        [StringLength(15)]
+        [StringLength(15)]  
+        [RegularExpression("^[01]?[- .]?(\\([2-9]\\d{2}\\)|[2-9]\\d{2})[- .]?\\d{3}[- .]?\\d{4}$")]
         public string phone { get; set; }
 
         [DisplayName("City")]
@@ -76,10 +77,13 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public int? countryTypeId { get; set; }
 
         [DisplayName("Zip")]
+        [StringLength(10)] 
+        [RegularExpression("^(\\d{5}-\\d{4}|\\d{5}|\\d{9})$|^([a-zA-Z]\\d[a-zA-Z] \\d[a-zA-Z]\\d)$")]
         public int? zip { get; set; }
 
         [DisplayName("Fax")]
         [StringLength(50)]
+        [RegularExpression("^[01]?[- .]?(\\([2-9]\\d{2}\\)|[2-9]\\d{2})[- .]?\\d{3}[- .]?\\d{4}$")]
         public string fax { get; set; }
 
         [DisplayName("Start Date")]
