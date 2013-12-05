@@ -106,5 +106,10 @@ namespace SO.SilList.Web.Controllers
             return PartialView("_DropDownList");
         }
 
+        public ActionResult Pagination(Paging input)
+        {
+            return PartialView("_Pagination", input);
+        }
+
     }
 }
