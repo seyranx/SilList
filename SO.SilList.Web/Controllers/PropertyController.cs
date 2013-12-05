@@ -146,7 +146,6 @@ namespace SO.SilList.Web.Controllers
             if (propertyType == typeof(PropertyTypeVo))
             {
                 ViewBag.list = propertyTypeManager.getAll(true);
-                // var idList = list.Select(c => c.propertyTypeId).ToList();
                 ViewBag.propertyId = "propertyTypeId";
                 ViewBag.titleName = "Property Type";
             }
