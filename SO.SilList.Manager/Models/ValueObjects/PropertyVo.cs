@@ -38,10 +38,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public int? siteId { get; set; }
     		
     	[DisplayName("Bedroom")]
-        public int? bedrooms { get; set; }
+        public int? bedroomTypeId { get; set; }
     		
     	[DisplayName("Bathroom")]
-        public int? bathrooms { get; set; }
+        public int? bathroomTypeId { get; set; }
     		
     	[DisplayName("Price")]
         public decimal? price { get; set; }

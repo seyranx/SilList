@@ -23,8 +23,8 @@ namespace SO.SilList.CodeGeneration.DbContexts.SilList
         public Nullable<int> propertyTypeId { get; set; }
         public Nullable<System.Guid> listingDetailId { get; set; }
         public Nullable<int> siteId { get; set; }
-        public Nullable<int> bedrooms { get; set; }
-        public Nullable<int> bathrooms { get; set; }
+        public Nullable<int> bedroomTypeId { get; set; }
+        public Nullable<int> bathroomTypeId { get; set; }
         public Nullable<double> rent { get; set; }
         public Nullable<int> leaseTermTypeId { get; set; }
         public Nullable<int> size { get; set; }

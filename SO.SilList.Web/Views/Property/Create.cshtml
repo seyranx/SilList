@@ -144,7 +144,7 @@
 
               <div class="control-group">
                   <div class="control-label">
-                       @Html.LabelFor(model => model.bedrooms)
+                       @Html.LabelFor(model => model.bedroomTypeId)
                   </div>
                   <div class="controls">
                        @{
@@ -156,14 +156,14 @@
                               }
                               var bedselectlist = new SelectList(bedList);
                         }
-                        @Html.DropDownListFor(model => model.bedrooms, bedselectlist, new { @class = "shortEditor" })
-                        @Html.ValidationMessageFor(model => model.bedrooms)
+                        @Html.DropDownListFor(model => model.bedroomTypeId, bedselectlist, new { @class = "shortEditor" })
+                        @Html.ValidationMessageFor(model => model.bedroomTypeId)
                  </div>
              </div>
 
              <div class="control-group">
                  <div class="control-label">
-                      @Html.LabelFor(model => model.bathrooms)
+                      @Html.LabelFor(model => model.bathroomTypeId)
                  </div>
                  <div class="controls">
                       @{
@@ -175,8 +175,8 @@
                             }
                             var batselectlist = new SelectList(bathList);
                       }
-                      @Html.DropDownListFor(model => model.bathrooms, batselectlist, new { @class = "shortEditor" })
-                      @Html.ValidationMessageFor(model => model.bathrooms)
+                      @Html.DropDownListFor(model => model.bathroomTypeId, batselectlist, new { @class = "shortEditor" })
+                      @Html.ValidationMessageFor(model => model.bathroomTypeId)
                  </div>
              </div> 
                     

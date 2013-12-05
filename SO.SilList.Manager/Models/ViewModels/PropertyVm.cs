@@ -20,9 +20,9 @@ namespace SO.SilList.Manager.Models.ViewModels
         public int? listingDate { get; set; } 
         public int? propertyTypeId { get; set; }
         public int? propertyListingTypeId { get; set; }
-        public int? entryStatusTypeId { get; set; }  
-        public int? bedrooms { get; set; }
-        public int? bathrooms { get; set; }
+        public int? entryStatusTypeId { get; set; }
+        public int? bedroomTypeId { get; set; }
+        public int? bathroomTypeId { get; set; }
         public int? size { get; set; }
         public int? lotSize { get; set; }
         public int? startingPrice { get; set; }
