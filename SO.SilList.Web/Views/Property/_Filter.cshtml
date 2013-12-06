@@ -112,18 +112,8 @@
         </div>
         <div id="collapseBedrooms" class="accordion-body collapse">
             <div class="accordion-inner" style="margin: 1px; padding: 1px;">
-                <ul class="nav nav-list" style="background-color: none; color: white; text-align: center;">
-                    <li><a href="#" onclick="selectAction(null,'bedroom')">Any </a></li>
-                    <li><a href="#" onclick="selectAction(-1,'bedroom')">Studio </a></li>
-                    <li><a href="#" onclick="selectAction(0,'bedroom')">Single </a></li>
-                    @{
-                        for (int i = 1; i < 15; i ++)
-                        {
-                        <li><a href="#"  onclick="selectAction2(@i,'bedroom')">@i+ </a></li>
-                        } 
-                    }
-                </ul>
-           </div>
+                @Html.Action("CollapseList", "Property", new { id = Model.bedroomTypeId, propertyName = "bedroomTypeId", propertyType = typeof(BedroomTypeVo) })
+            </div>
         </div>
     </div>
 
@@ -133,16 +123,8 @@
         </div>
         <div id="collapseBathrooms" class="accordion-body collapse">
             <div class="accordion-inner" style="margin: 1px; padding: 1px;">
-                <ul class="nav nav-list" style="background-color: none; color: white; text-align: center;">
-                    <li><a href="#" onclick="selectAction2(null,'bathroom')">Any </a></li>
-                    @{
-                        for (int i = 1; i < 15; i ++)
-                        {
-                        <li><a href="#"  onclick="selectAction(@i,'bathroom')">@i+ </a></li>
-                        } 
-                    }
-                </ul>
-           </div>
+                @Html.Action("CollapseList", "Property", new { id = Model.bathroomTypeId, propertyName = "bathroomTypeId", propertyType = typeof(BathroomTypeVo) })
+            </div>
         </div>
     </div>
 
@@ -153,11 +135,6 @@
         <div id="collapsePrice" class="accordion-body collapse">
             <div class="accordion-inner" style="margin: 1px; padding: 1px;">
                 <br />
-                @*
-                <input type="text" value="@Model.startingPrice" style="width:54px;"  placeholder="$ Min" id="startingPrice" name="startingPrice"/>
-                -
-                <input type="text" value="@Model.endingPrice" style="width:54px;" placeholder="$ Max" id="endingPrice" name="endingPrice"/>
-                *@
                 @Html.TextBoxFor(model => model.startingPrice, new { style="width:54px;" , placeholder="$ Min" })
                 -
                 @Html.TextBoxFor(model => model.endingPrice, new { style="width:54px;" , placeholder="$ Max" })
@@ -175,7 +152,7 @@
         </div>
         <div id="collapseSection8" class="accordion-body collapse">
             <div class="accordion-inner" style="margin: 1px; padding: 1px;">
-                @Html.EditorFor(model => model.acceptsSection8)
+                @Html.EditorFor(model => model.acceptsSection8, new { onchange = "$('#filterForm').submit();" })
             </div>
         </div>
     </div>
@@ -186,7 +163,7 @@
         </div>
         <div id="collapsePetAllowed" class="accordion-body collapse">
             <div class="accordion-inner" style="margin: 1px; padding: 1px;">
-                @Html.EditorFor(model => model.isPetAllowed)
+                @Html.EditorFor(model => model.isPetAllowed, new { id = "filter_isPetAllowed" })
             </div>
         </div>
     </div>
@@ -210,6 +187,10 @@
         return false;
     };
 
+    $('#acceptsSection8').change(function () { //collapseSection8  s2id_acceptsSection8   acceptsSection8
+        $('#filterForm').submit();
+    });
+
     /*
     $(document).change(function () {
         //alert("value is changed");
@@ -224,7 +205,7 @@
         $('#filterForm').submit();
     }
 
-    $('#acceptsSection8').change(function () { //collapseSection8  s2id_acceptsSection8   acceptsSection8
+    $('#filter_acceptsSection8').change(function () { //collapseSection8  s2id_acceptsSection8   acceptsSection8
         $('#filterForm').submit();
     });
     */

@@ -167,6 +167,18 @@ namespace SO.SilList.Web.Controllers
                 ViewBag.propertyId = "propertyListingTypeId";
                 ViewBag.titleName = "Listing Type";
             }
+            else if (propertyType == typeof(BedroomTypeVo))
+            {
+                ViewBag.list = bedroomTypeManager.getAll(true);
+                ViewBag.propertyId = "bedroomTypeId";
+                ViewBag.titleName = "Bedroom";
+            }
+            else if (propertyType == typeof(BathroomTypeVo))
+            {
+                ViewBag.list = bathroomTypeManager.getAll(true);
+                ViewBag.propertyId = "bathroomTypeId";
+                ViewBag.titleName = "Bathroom";
+            }
 
             return PartialView("_CollapseList");
         }
