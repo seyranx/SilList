@@ -365,6 +365,7 @@
     <Content Include="Views\Email\applyToJob.cshtml" />
     <Content Include="Views\Property\Detail.cshtml" />
     <Content Include="Views\Property\Create.cshtml" />
+    <Content Include="Views\Business\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
