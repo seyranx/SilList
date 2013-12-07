@@ -27,39 +27,22 @@
         margin:0;
     }
 
-   
-.form-horizontal .control-group2 {
-  margin-bottom: 20px;
-  *zoom: 1;
-}
-
-
-.form-horizontal .control-label2 {
-  float: left;
-  width: 120px;
-  padding-top: 5px;
-  text-align: left;
-}
-
-.form-horizontal .controls2 {
-  *display: inline-block;
-  *padding-left: 20px;
-  margin-left: 180px;
-  *margin-left: 0;
-}
+    .selected {
+        background-color: blue;
+    }
 
 </style>
 
-<form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Property")">
+<form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index", "Property")">
 
 <label>Keyword:</label>
 @Html.ValidationSummary(true)
-@Html.TextBoxFor(model => model.keyword,new { style="width:90%", placeholder =  "Keyword" })
+@Html.TextBoxFor(model => model.keyword, new { style = "width:90%", placeholder = "Keyword" })
 @Html.ValidationMessageFor(model => model.keyword)
 
 <label>City, State or Zip:</label>
 @Html.ValidationSummary(true)
-@Html.TextBoxFor(model => model.location,new { style="width:90%", placeholder =  "Location" })
+@Html.TextBoxFor(model => model.location, new { style = "width:90%", placeholder = "Location" })
 @Html.ValidationMessageFor(model => model.location)
 
 <br /><br />
@@ -75,25 +58,26 @@
     @Html.HiddenFor(model => model.propertyListingTypeId)
     @Html.HiddenFor(model => model.bedroomTypeId)
     @Html.HiddenFor(model => model.bathroomTypeId)
+    @Html.HiddenFor(model => model.acceptsSection8)
     @Html.HiddenFor(model => model.isPetAllowed)
+    @Html.HiddenFor(model => model.paging.pageNumber)
     @*
     @Html.HiddenFor(model => model.startingPrice)
     @Html.HiddenFor(model => model.endingPrice)
+    @Html.HiddenFor(model => model.size, new {id = "filter_propertyTypeId" })
+    @Html.HiddenFor(model => model.lotSize, new {id = "filter_propertyTypeId" })
     *@
-    @Html.HiddenFor(model => model.size)
-    @Html.HiddenFor(model => model.lotSize)
-    @Html.HiddenFor(model=> model.paging.pageNumber)
 
     <div class="accordion-group">
         <div class="accordion-heading">
             <span class="accordion-toggle title" data-toggle="collapse" href="#collapsePropertyType">Property Type</span>
         </div>
-        <div id="collapsePropertyType" class="accordion-body collapse">
-            <div class="accordion-inner" style="margin: 1px; padding: 1px;">
-                @Html.Action("CollapseList", "Property", new { id = Model.propertyTypeId, propertyName = "propertyTypeId", propertyType = typeof(PropertyTypeVo) })
-            </div>
+            <div id="collapsePropertyType" class="accordion-body collapse">
+                <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                    @Html.Action("CollapseList", "Property", new { id = Model.propertyTypeId, propertyName = "propertyTypeId", propertyType = typeof(PropertyTypeVo) })
+                </div>
+             </div>                 
         </div>
-    </div>
 
     <div class="accordion-group">
         <div class="accordion-heading">
@@ -129,15 +113,15 @@
     </div>
 
     <div class="accordion-group">
-        <div class="accordion-heading">
+        <div class="accordion-heading">   
             <span class="accordion-toggle title" data-toggle="collapse" href="#collapsePrice">Price Range</span>
         </div>
         <div id="collapsePrice" class="accordion-body collapse">
             <div class="accordion-inner" style="margin: 1px; padding: 1px;">
                 <br />
-                @Html.TextBoxFor(model => model.startingPrice, new { style="width:54px;" , placeholder="$ Min" })
+                @Html.TextBoxFor(model => model.startingPrice, new { style = "width:54px;", placeholder = "$ Min" })
                 -
-                @Html.TextBoxFor(model => model.endingPrice, new { style="width:54px;" , placeholder="$ Max" })
+                @Html.TextBoxFor(model => model.endingPrice, new { style = "width:54px;", placeholder = "$ Max" })
             </div>
         </div>
     </div>
@@ -146,68 +130,112 @@
          @Html.ValidationMessageFor(model => model.endingPrice)
     </div>
 
-    <div class="accordion-group">
+    <div class="accordion-group"> 
         <div class="accordion-heading">
-            <span class="accordion-toggle title" data-toggle="collapse" href="#collapseSection8">Section 8 Only</span>
+            <span class="accordion-toggle title" data-toggle="collapse" href="#collapseSection8">Accepts Section 8</span>
         </div>
         <div id="collapseSection8" class="accordion-body collapse">
             <div class="accordion-inner" style="margin: 1px; padding: 1px;">
-                @Html.EditorFor(model => model.acceptsSection8, new { onchange = "$('#filterForm').submit();" })
+                <ul class="nav nav-list" style="background-color: none; color: white; text-align: center;">
+                    @{
+                        if (Model.acceptsSection8 == null)
+                        {   <li style="background-color: blue;"><a href="#" onclick="mySelectAction(null,'acceptsSection8');"> Any </a></li>
+                        }
+                        else
+                        {<li><a href="#" onclick="mySelectAction(null,'acceptsSection8');"> Any </a></li>}
+                        if (Model.acceptsSection8 == 1)
+                        {   <li style="background-color: blue;"><a href="#" onclick="mySelectAction(1,'acceptsSection8');"> Yes </a></li>
+                        }
+                        else
+                        {<li><a href="#" onclick="mySelectAction(1,'acceptsSection8');"> Yes </a></li>}
+                        if (Model.acceptsSection8 == 0)
+                        {   <li style="background-color: blue;"><a href="#" onclick="mySelectAction(0,'acceptsSection8');"> No </a></li>
+                        }
+                        else
+                        {<li><a href="#" onclick="mySelectAction(0,'acceptsSection8');"> No </a></li>}                                                                                                                  
+                    }  
+                </ul>
             </div>
         </div>
     </div>
 
-    <div class="accordion-group">
+    <div class="accordion-group"> 
         <div class="accordion-heading">
-            <span class="accordion-toggle title" data-toggle="collapse" href="#collapsePetAllowed">Pets Allowed Only</span>
+            <span class="accordion-toggle title" data-toggle="collapse" href="#collapsePetAllowed">Pets Allowed</span>
         </div>
         <div id="collapsePetAllowed" class="accordion-body collapse">
             <div class="accordion-inner" style="margin: 1px; padding: 1px;">
-                @Html.EditorFor(model => model.isPetAllowed, new { id = "filter_isPetAllowed" })
+                <ul class="nav nav-list" style="background-color: none; color: white; text-align: center;">
+                    @{
+                        if (Model.isPetAllowed == null)
+                        {   <li style="background-color: blue;"><a href="#" onclick="mySelectAction(null,'isPetAllowed');"> Any </a></li>
+                        }
+                        else
+                        {<li><a href="#" onclick="mySelectAction(null,'isPetAllowed');"> Any </a></li>}
+                        if (Model.isPetAllowed == 1)
+                        {   <li style="background-color: blue;"><a href="#" onclick="mySelectAction(1,'isPetAllowed');"> Yes </a></li>
+                        }
+                        else
+                        {<li><a href="#" onclick="mySelectAction(1,'isPetAllowed');"> Yes </a></li>}
+                        if (Model.isPetAllowed == 0)
+                        {   <li style="background-color: blue;"><a href="#" onclick="mySelectAction(0,'isPetAllowed');"> No </a></li>
+                        }
+                        else
+                        {<li><a href="#" onclick="mySelectAction(0,'isPetAllowed');"> No </a></li>}                                                                                                                  
+                    }
+
+                </ul>
             </div>
         </div>
     </div>
-
 </div>
 
  </form>
 
 <script>
 
-    function selectAction2(id, item) {
-        if (item == "bedroom") {
-            $('#bedroomTypeId').val(id);
-            $('#filterForm').submit();
-        }
-        else if (item == "bathroom") {
-            $('#bathroomTypeId').val(id);
-            $('#filterForm').submit(); 
-        }
+    function mySelectAction(value,idName,liID) {
+        $("#" + idName).val(value);
+        $("#filterForm").submit();       
+    }
+    
+    window.onload = function () {
 
-        return false;
-    };
+        if ($("#propertyTypeId").val() != '') {
+            $("#collapsePropertyType").removeClass("collapse");
+        }
+        if ($("#propertyListingTypeId").val() != '') {
+            $("#collapseBedrooms").removeClass("collapse");
+        }
+        if ($("#bedroomTypeId").val() != '') {
+            $("#collapseBedrooms").removeClass("collapse");
+        }
+        if ($("#bathroomTypeId").val() != '') {
+            $("#collapseBathrooms").removeClass("collapse");
+        }
+        
+        if ($("#startingPrice").val() != '' || $("#endingPrice").val() != '') {
+            $("#collapsePrice").removeClass("collapse");
+        }
+        
+        if ($("#acceptsSection8").val() != '') {
+            $("#collapseSection8").removeClass("collapse");
+        }
+        if ($("#isPetAllowed").val() != '') {
+            $("#collapsePetAllowed").removeClass("collapse");
+        }
+    }
 
-    $('#acceptsSection8').change(function () { //collapseSection8  s2id_acceptsSection8   acceptsSection8
+/*
+    $('#s2id_acceptsSection8').change(function () { //collapseSection8  s2id_acceptsSection8   acceptsSection8
         $('#filterForm').submit();
     });
 
-    /*
     $(document).change(function () {
         //alert("value is changed");
         $('#filterForm').submit();
     });
-    */
 
-    /*
-    function OnChangeEvent()
-    {
-        //alert("value is changed");
-        $('#filterForm').submit();
-    }
-
-    $('#filter_acceptsSection8').change(function () { //collapseSection8  s2id_acceptsSection8   acceptsSection8
-        $('#filterForm').submit();
-    });
-    */
+*/
 
 </script>
