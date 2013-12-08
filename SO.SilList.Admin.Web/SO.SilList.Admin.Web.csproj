@@ -139,6 +139,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BedroomTypeController.cs" />
     <Compile Include="Controllers\BusinessCategoryTypeController.cs" />
     <Compile Include="Controllers\BusinessController.cs" />
     <Compile Include="Controllers\BusinessImagesController.cs" />
@@ -150,6 +151,7 @@
     <Compile Include="Controllers\CarDriveTypeController.cs" />
     <Compile Include="Controllers\CarDoorTypeController.cs" />
     <Compile Include="Controllers\CityTypeController.cs" />
+    <Compile Include="Controllers\BathroomTypeController.cs" />
     <Compile Include="Controllers\StateTypeController.cs" />
     <Compile Include="Controllers\CountryTypeController.cs" />
     <Compile Include="Controllers\EnvironmentTypeController.cs" />
@@ -557,6 +559,20 @@
     <Content Include="Views\Business\EntryStatusIndex.cshtml" />
     <Content Include="Views\Car\_EntryStatusList.cshtml" />
     <Content Include="Views\Car\EntryStatusIndex.cshtml" />
+    <Content Include="Views\BedroomType\_DropDownList.cshtml" />
+    <Content Include="Views\BedroomType\_Filter.cshtml" />
+    <Content Include="Views\BedroomType\_List.cshtml" />
+    <Content Include="Views\BedroomType\Create.cshtml" />
+    <Content Include="Views\BedroomType\Edit.cshtml" />
+    <Content Include="Views\BedroomType\Details.cshtml" />
+    <Content Include="Views\BedroomType\Index.cshtml" />
+    <Content Include="Views\BathroomType\_DropDownList.cshtml" />
+    <Content Include="Views\BathroomType\_Filter.cshtml" />
+    <Content Include="Views\BathroomType\_List.cshtml" />
+    <Content Include="Views\BathroomType\Create.cshtml" />
+    <Content Include="Views\BathroomType\Details.cshtml" />
+    <Content Include="Views\BathroomType\Edit.cshtml" />
+    <Content Include="Views\BathroomType\Index.cshtml" />
     <None Include="Views\Image\CarImages.cshtml" />
     <Content Include="Views\Image\ListingImages.cshtml" />
     <Content Include="Views\Image\RentalImages.cshtml" />

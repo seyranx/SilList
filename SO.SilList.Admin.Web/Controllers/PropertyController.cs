@@ -120,6 +120,17 @@ namespace SO.SilList.Admin.Web.Controllers
             return PartialView("_Filter", input);
         }
 
+        public ActionResult DropDownList(Guid? id = null)
+        {
+            ViewBag.properties = propertyManager.getAll(null);
+            var property = new PropertyVo();
+            if (id != null)
+            {
+                property = propertyManager.get(id.Value);
+            }
+            return PartialView("_DropDownList", property);
+        }
+
         /////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Entry Status Type stuff
         public ActionResult EntryStatusIndex(PropertyVm input = null, Paging paging = null)

@@ -7,6 +7,7 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Utility.Base;
+using SO.SilList.Manager.Models;
 
 
 namespace SO.SilList.Manager.DbContexts
@@ -35,6 +36,8 @@ namespace SO.SilList.Manager.DbContexts
         public DbSet<JobTypeVo> jobTypes { get; set; }
 
         public DbSet<PropertyVo> properties { get; set; }
+        public DbSet<BedroomTypeVo> bedroomType { get; set; }
+        public DbSet<BathroomTypeVo> bathroomType { get; set; }
         public DbSet<BusinessCategoryTypeVo> businessCategoryType { get; set; }
         public DbSet<PropertyListingTypeVo> propertyListingTypes { get; set; }
         

@@ -38,10 +38,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public int? siteId { get; set; }
     		
     	[DisplayName("Bedroom")]
-        public int? bedrooms { get; set; }
+        public int? bedroomTypeId { get; set; }
     		
     	[DisplayName("Bathroom")]
-        public int? bathrooms { get; set; }
+        public int? bathroomTypeId { get; set; }
     		
     	[DisplayName("Price")]
         public decimal? price { get; set; }
@@ -53,17 +53,18 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public int? lotSize { get; set; }
 
         [DisplayName("Section8")]
-        public bool? acceptsSection8 { get; set; }
+        public int? acceptsSection8 { get; set; }
 
-        [DisplayName("Pet")]
-        public bool? isPetAllowed { get; set; }
+        [DisplayName("Pet Allowed")]
+        public int? isPetAllowed { get; set; }
 
         [DisplayName("Address")]
         [StringLength(50)]
         public string address { get; set; }
 
         [DisplayName("Phone")]
-        [StringLength(15)]
+        [StringLength(15)]  
+        [RegularExpression("^[01]?[- .]?(\\([2-9]\\d{2}\\)|[2-9]\\d{2})[- .]?\\d{3}[- .]?\\d{4}$")]
         public string phone { get; set; }
 
         [DisplayName("City")]
@@ -76,10 +77,13 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public int? countryTypeId { get; set; }
 
         [DisplayName("Zip")]
+        [StringLength(10)] 
+        [RegularExpression("^(\\d{5}-\\d{4}|\\d{5}|\\d{9})$|^([a-zA-Z]\\d[a-zA-Z] \\d[a-zA-Z]\\d)$")]
         public int? zip { get; set; }
 
         [DisplayName("Fax")]
         [StringLength(50)]
+        [RegularExpression("^[01]?[- .]?(\\([2-9]\\d{2}\\)|[2-9]\\d{2})[- .]?\\d{3}[- .]?\\d{4}$")]
         public string fax { get; set; }
 
         [DisplayName("Start Date")]
