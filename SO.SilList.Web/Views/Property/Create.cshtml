@@ -147,17 +147,7 @@
                        @Html.LabelFor(model => model.bedroomTypeId)
                   </div>
                   <div class="controls">
-                       @{
-                              var bedList = new string[16];
-                              //bedList.SetValue("Single", 0);
-                              for (int i = 0; i < 16; i++)
-                              {
-                                  bedList.SetValue(i.ToString(), i);
-                              }
-                              var bedselectlist = new SelectList(bedList);
-                        }
-                        @Html.DropDownListFor(model => model.bedroomTypeId, bedselectlist, new { @class = "shortEditor" })
-                        @Html.ValidationMessageFor(model => model.bedroomTypeId)
+                      @Html.Action("DropDownList", "Property", new { id = Model.bedroomTypeId, propertyName = "bedroomTypeId", propertyType = typeof(BedroomTypeVo) })
                  </div>
              </div>
 
@@ -166,17 +156,7 @@
                       @Html.LabelFor(model => model.bathroomTypeId)
                  </div>
                  <div class="controls">
-                      @{
-                            var bathList = new string[16];
-   
-                            for (int i = 0; i < 16; i++)
-                            {
-                                bathList.SetValue(i.ToString(), i);
-                            }
-                            var batselectlist = new SelectList(bathList);
-                      }
-                      @Html.DropDownListFor(model => model.bathroomTypeId, batselectlist, new { @class = "shortEditor" })
-                      @Html.ValidationMessageFor(model => model.bathroomTypeId)
+                     @Html.Action("DropDownList", "Property", new { id = Model.bathroomTypeId, propertyName = "bathroomTypeId", propertyType = typeof(BathroomTypeVo) })
                  </div>
              </div> 
                     
@@ -215,7 +195,24 @@
                      @Html.LabelFor(model => model.isPetAllowed)
                 </div>
                 <div class="controls">
-                     @Html.EditorFor(model => model.isPetAllowed)
+                    @Html.HiddenFor(model => model.isPetAllowed)
+                    @{
+                        var mylist = new string[3];
+                        mylist.SetValue("N/A", 0);
+                        mylist.SetValue("Yes", 1);
+                        mylist.SetValue("No", 2);
+
+                        var selectlist = new SelectList(mylist);
+                        
+                        var mylist2 = new List<Object>
+                        { new { value = '0' , text = "N/A"  },
+                          new { value = '1' , text = "Yes" },
+                          new { value = '2' , text = "No"}
+                        };
+                        var selectlist2 = new SelectList(mylist2, "value", "text");
+                        
+                    }
+                    @Html.DropDownListFor(model => model.isPetAllowed, selectlist2)
                 </div>
             </div>
          </div>
