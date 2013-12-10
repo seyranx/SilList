@@ -37,6 +37,8 @@ namespace SO.SilList.Manager.DbContexts
 
         public DbSet<PropertyVo> properties { get; set; }
         public DbSet<BedroomTypeVo> bedroomType { get; set; }
+        public DbSet<AcceptsSection8TypeVo> acceptsSection8Type { get; set; }
+        public DbSet<IsPetAllowedTypeVo> isPetAllowedType { get; set; }
         public DbSet<BathroomTypeVo> bathroomType { get; set; }
         public DbSet<BusinessCategoryTypeVo> businessCategoryType { get; set; }
         public DbSet<PropertyListingTypeVo> propertyListingTypes { get; set; }
