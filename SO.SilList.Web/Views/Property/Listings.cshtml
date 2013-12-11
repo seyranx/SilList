@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.PropertyVo>
-
 @{
     ViewBag.Title = "Listings";
     Layout = "~/Views/Shared/_LayoutMember.cshtml";
@@ -9,7 +8,6 @@
        return confirm("Are you sure you want to delete this Job listing?");
     }
 </script>
-
 <p style="margin-top:10px; margin-bottom:10px;">
    <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
 </p>
@@ -23,10 +21,10 @@
             @Html.DisplayNameFor(model => model.propertyTypeId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.bedrooms)
+            Bed  @* @Html.DisplayNameFor(model => model.bedroomTypeId) *@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.bathrooms)
+            Bath  @* @Html.DisplayNameFor(model => model.bathroomTypeId) *@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.endDate)
@@ -46,10 +44,10 @@
             @Html.DisplayFor(modelItem => item.propertyTypeId)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.bedrooms)
+            @Html.DisplayFor(modelItem => item.bedroomTypeId)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.bathrooms)
+            @Html.DisplayFor(modelItem => item.bathroomTypeId)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.endDate)
@@ -61,7 +59,7 @@
         <td>
             <a href="@Url.Action("Edit",new { id=item.propertyId })" class="btn" title="Edit"><i class="icon-edit"></i></a>
             <a href="@Url.Action("Details",new { id=item.propertyId })" class="btn" title="Detail"><i class="icon-list"></i></a>
-            <a href="@Url.Action("Delete",new { id=item.propertyId })" onclick="return deleteConfirm()"  class="btn" title="Delete"><i class="icon-trash"></i></a>
+            <a href="@Url.Action("Delete",new { id=item.propertyId })" onclick="return deleteConfirm()" class="btn" title="Delete"><i class="icon-trash"></i></a>
         </td>
     </tr>
 }
