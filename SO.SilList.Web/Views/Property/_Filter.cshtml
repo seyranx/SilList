@@ -58,8 +58,8 @@
     @Html.HiddenFor(model => model.propertyListingTypeId)
     @Html.HiddenFor(model => model.bedroomTypeId)
     @Html.HiddenFor(model => model.bathroomTypeId)
-    @Html.HiddenFor(model => model.acceptsSection8)
-    @Html.HiddenFor(model => model.isPetAllowed)
+    @Html.HiddenFor(model => model.acceptsSection8TypeId)
+    @Html.HiddenFor(model => model.isPetAllowedTypeId)
     @Html.HiddenFor(model => model.paging.pageNumber)
     @*
     @Html.HiddenFor(model => model.startingPrice)
@@ -137,23 +137,26 @@
         <div id="collapseSection8" class="accordion-body collapse">
             <div class="accordion-inner" style="margin: 1px; padding: 1px;">
                 <ul class="nav nav-list" style="background-color: none; color: white; text-align: center;">
+                     @Html.Action("CollapseList", "Property", new { id = Model.acceptsSection8TypeId, propertyName = "acceptsSection8TypeId", propertyType = typeof(AcceptsSection8TypeVo) })
+@*
                     @{
-                        if (Model.acceptsSection8 == null)
+                        if (Model.acceptsSection8TypeId == null)
                         {   <li style="background-color: blue;"><a href="#" onclick="mySelectAction(null,'acceptsSection8');"> Any </a></li>
                         }
                         else
                         {<li><a href="#" onclick="mySelectAction(null,'acceptsSection8');"> Any </a></li>}
-                        if (Model.acceptsSection8 == 1)
+                        if (Model.acceptsSection8TypeId == 1)
                         {   <li style="background-color: blue;"><a href="#" onclick="mySelectAction(1,'acceptsSection8');"> Yes </a></li>
                         }
                         else
                         {<li><a href="#" onclick="mySelectAction(1,'acceptsSection8');"> Yes </a></li>}
-                        if (Model.acceptsSection8 == 0)
+                        if (Model.acceptsSection8TypeId == 0)
                         {   <li style="background-color: blue;"><a href="#" onclick="mySelectAction(0,'acceptsSection8');"> No </a></li>
                         }
                         else
                         {<li><a href="#" onclick="mySelectAction(0,'acceptsSection8');"> No </a></li>}                                                                                                                  
-                    }  
+                    }
+*@  
                 </ul>
             </div>
         </div>
@@ -167,17 +170,17 @@
             <div class="accordion-inner" style="margin: 1px; padding: 1px;">
                 <ul class="nav nav-list" style="background-color: none; color: white; text-align: center;">
                     @{
-                        if (Model.isPetAllowed == null)
+                        if (Model.isPetAllowedTypeId == null)
                         {   <li style="background-color: blue;"><a href="#" onclick="mySelectAction(null,'isPetAllowed');"> Any </a></li>
                         }
                         else
                         {<li><a href="#" onclick="mySelectAction(null,'isPetAllowed');"> Any </a></li>}
-                        if (Model.isPetAllowed == 1)
+                        if (Model.isPetAllowedTypeId == 1)
                         {   <li style="background-color: blue;"><a href="#" onclick="mySelectAction(1,'isPetAllowed');"> Yes </a></li>
                         }
                         else
                         {<li><a href="#" onclick="mySelectAction(1,'isPetAllowed');"> Yes </a></li>}
-                        if (Model.isPetAllowed == 0)
+                        if (Model.isPetAllowedTypeId == 0)
                         {   <li style="background-color: blue;"><a href="#" onclick="mySelectAction(0,'isPetAllowed');"> No </a></li>
                         }
                         else

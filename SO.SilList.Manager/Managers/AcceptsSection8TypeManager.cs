@@ -16,7 +16,7 @@ using SO.SilList.Manager.Models.ValueObjects;
 
 namespace SO.SilList.Manager.Managers
 {
-    class AcceptsSection8TypeManager : IAcceptsSection8TypeManager
+    public class AcceptsSection8TypeManager : IAcceptsSection8TypeManager
     {
         public AcceptsSection8TypeVo get(int acceptsSection8TypeId)
         {
