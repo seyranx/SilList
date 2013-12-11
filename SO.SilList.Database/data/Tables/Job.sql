@@ -23,6 +23,8 @@
     [createdBy]         INT              NULL,
     [modifiedBy]        INT              NULL,
     [isActive]          BIT              CONSTRAINT [DF__tmp_ms_xx__isAct__3DE82FB7] DEFAULT ((1)) NOT NULL,
+    [isTravelRequired] BIT NOT NULL DEFAULT (0), 
+    [isTelecomute] BIT NOT NULL DEFAULT (0), 
     CONSTRAINT [PK__tmp_ms_x__164AA1A8BD5F9C61] PRIMARY KEY CLUSTERED ([jobId] ASC),
     CONSTRAINT [FK_Job_CityType] FOREIGN KEY ([cityTypeId]) REFERENCES [app].[CityType] ([cityTypeId]) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT [FK_Job_CountryType] FOREIGN KEY ([countryTypeId]) REFERENCES [app].[CountryType] ([countryTypeId]) ON DELETE CASCADE ON UPDATE CASCADE,
