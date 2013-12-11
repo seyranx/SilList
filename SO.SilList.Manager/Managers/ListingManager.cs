@@ -140,7 +140,24 @@ namespace SO.SilList.Manager.Managers
                 return list;
             }
         }
+        public List<ListingVo> getAll(int memberId, bool? isActive = null)
+        {
+            using (var db = new MainDb())
+            {
+                var list = db.listing
+                             .Include(s => s.site)
+                             .Include(t => t.listingType)
+                            .Include(i => i.cityType)
+                            .Include(o => o.countryType)
+                            .Include(u => u.stateType) 
 
+                             .Where(e => (isActive==null || e.isActive == isActive )
+                             && (e.createdBy == memberId))
+                             .ToList();
+
+                return list;
+            }
+        }
         // Delete single Item matching listingId
         public bool delete(Guid listingId)
         {

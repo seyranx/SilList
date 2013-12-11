@@ -128,6 +128,25 @@ namespace SO.SilList.Manager.Managers
                 return list;
             }
         }
+        public List<JobVo> getAll(int memberId,bool? isActive = null)
+        {
+            using (var db = new MainDb())
+            {
+                var list = db.jobs
+                             .Include(s => s.site)
+                             .Include(j => j.jobType)
+                            .Include(i => i.cityType)
+                            .Include(o => o.countryType)
+                            .Include(u => u.stateType)
+                             .OrderBy(b => b.startDate)
+                             .Where(e => (isActive == null || e.isActive == isActive) 
+                             && (e.createdBy == memberId))
+                             .ToList();
+
+                return list;
+            }
+        }
+
 
         public bool delete(Guid jobId)
         {
@@ -146,6 +165,7 @@ namespace SO.SilList.Manager.Managers
             {
                 if (jobId == null)
                     jobId = input.jobId;
+                else input.jobId = jobId.Value;
 
                 var result = db.jobs.FirstOrDefault(e => e.jobId == jobId);
 

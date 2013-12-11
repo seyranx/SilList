@@ -196,7 +196,32 @@ namespace SO.SilList.Manager.Managers
                 return list;
             }
         }
+        public List<CarVo> getAll(int memberId, bool? isActive = null)
+        {
+            using (var db = new MainDb())
+            {
+                var list = db.car
+                           .Include(s => s.site)
+                           .Include(m => m.modelType)
+                           .Include(l => l.modelType.makeType)
+                           .Include(b => b.carBodyType)
+                           .Include(t => t.transmissionType)
+                           .Include(e => e.carEngineType)
+                           .Include(d => d.carDoorType)
+                           .Include(r => r.carDriveType)
+                           .Include(f => f.carFuelType)
+                           .Include(c => c.exteriorColorType)
+                           .Include(c => c.interiorColorType)
+                           .Include(i => i.cityType)
+                           .Include(o => o.countryType)
+                           .Include(u => u.stateType) 
+                             .Where(e => (isActive == null || e.isActive == isActive)
+                             && (e.createdBy == memberId))
+                             .ToList();
 
+                return list;
+            }
+        }
         public bool delete(Guid carId)
         {
             using (var db = new MainDb())

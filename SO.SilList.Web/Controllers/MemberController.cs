@@ -50,6 +50,14 @@ namespace SO.SilList.Web.Controllers
             return View();
         }
 
+        public ActionResult Profile(int id)
+        {
+            if (!CurrentMember.isAuthenticated)
+                return this.Login();
+            var member = memberManager.get(id);
+            return View(member);
+        }
+
         public ActionResult Manage(int id)
         {
             var member = memberManager.get(id);

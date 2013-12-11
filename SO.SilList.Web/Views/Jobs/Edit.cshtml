@@ -1,8 +1,9 @@
 ﻿@model SO.SilList.Manager.Models.ValueObjects.JobVo
 @using SO.SilList.Manager.Models.ValueObjects
+@using SO.SilList.Manager.Managers
 @{
     ViewBag.Title = "Edit Job Listing";
-    Layout = "~/Views/Shared/_LayoutJob.cshtml";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml";
 }
 <style>
     .info {
@@ -34,10 +35,11 @@
 </script>
 @using (Html.BeginForm("Edit", "Jobs", FormMethod.Post, new { @encType = "multipart/form-data" }))
 {
+    @Html.HiddenFor(model=>model.jobId)
     <div class="span12">
-        <span style="background-color:#fb7070; border-radius:6px; padding:5px">@Html.ValidationMessageFor(model => model.title)</span>
-        <span style="background-color:#fb7070; border-radius:6px; padding:5px">@Html.ValidationMessageFor(model => model.companyName)</span>
-        <span style="background-color:#fb7070; border-radius:6px; padding:5px">@Html.ValidationMessageFor(model => model.cityTypeId)</span>
+      
+            @Html.ValidationSummary()
+      
     </div>
     <div class="row" style="margin: 5px;">
         <div class="span12" style="margin-left: 45px">
@@ -104,11 +106,11 @@
             </div>
         </div>
         <div class="span12" style="border: inset; border-color: #808080; height: 55px; border-radius: 6px; padding: 10px; margin-left: -1px">
-            <b>Primary Email:</b>
+            <b>Primary Email:</b><input type="email" readonly style="width:160px" value="@CurrentMember.member.email" />
             <b>Alternate Email:</b>@Html.TextBoxFor(model => model.email)
         </div>
         <div class="span12" style="margin-top: 5px; border: inset; border-color: #808080; height: 55px; border-radius: 6px; padding: 10px; margin-left: -1px">
-            <a type="button"  class="btn btn-info " href="@Url.Action("Index")">Cancel</a>
+            <a type="button"  class="btn btn-info " href="@Url.Action("Listings", new {memberId= @CurrentMember.member.memberId })">Cancel</a>
             <button type="submit" class="btn btn-primary pull-right" style="margin-left: 10px">Save</button>
 
         </div>

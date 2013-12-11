@@ -69,6 +69,7 @@ namespace SO.SilList.Web.Controllers
             
             if (this.ModelState.IsValid)
             {
+                input.createdBy = CurrentMember.member.memberId;
                  var item = jobManager.insert(input);
 
                 if (input.jobCategoryType != null)
@@ -157,6 +158,13 @@ namespace SO.SilList.Web.Controllers
             return View(input);
         }
 
+        [Authorize]
+        public ActionResult Delete(Guid id)
+        {
+            jobManager.delete(id);
+            return View(Listings(CurrentMember.member.memberId));
+        }
+
         public ActionResult CollapseList(int? id = null, string propertyName = null, Type modelType = null)
         {
             ViewBag.selectedId = id;
@@ -208,5 +216,10 @@ namespace SO.SilList.Web.Controllers
             return PartialView("_DropDownList");
         }
 
+        public ActionResult Listings(int memberId)
+        {
+            var jobs = jobManager.getAll(memberId);
+            return View(jobs);
+        }
     }
 }

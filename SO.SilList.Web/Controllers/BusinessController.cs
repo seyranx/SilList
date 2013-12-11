@@ -49,6 +49,11 @@ namespace SO.SilList.Web.Controllers
             return PartialView(result);
         }
 
+        public ActionResult Listings(int memberId)
+        {
+            var jobs = businessManager.getAll(memberId);
+            return View(jobs);
+        }
 
     }
 }

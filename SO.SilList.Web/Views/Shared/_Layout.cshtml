@@ -45,7 +45,7 @@
                width: 'element'
            });
 
-            $("#cityTypeId1").select2({
+            $("#cityTypeId").select2({
                 placeholder: "City, State",
                 width: 'element',
                 minimumInputLength: 2,
@@ -80,61 +80,6 @@
         }
 
     </script>
-
-
-
-    <script id="script_e7">
-        $(document).ready(function () {
-            $("#cityTypeId").select2({
-                placeholder: "Search for a movie",
-                minimumInputLength: 3,
-                ajax: {
-                    url: "http://api.rottentomatoes.com/api/public/v1.0/movies.json",
-                    //url: "/City/Search",
-                    dataType: 'jsonp',
-                    quietMillis: 100,
-                    data: function (term, page) { // page is the one-based page number tracked by Select2
-                        return {
-                            q: term, //search term
-                            page_limit: 10, // page size
-                            page: page, // page number
-                            apikey: "ju6z9mjyajq2djue3gbvv26t" // please do not use so this example keeps working
-                        };
-                    },
-                    results: function (data, page) {
-                        var more = (page * 10) < data.total; // whether or not there are more results available
-
-                        // notice we return the value of more so Select2 knows if more results can be loaded
-                        return { results: data.movies, more: more };
-                    }
-                },
-                formatResult: movieFormatResult, // omitted for brevity, see the source of this page
-                formatSelection: movieFormatSelection, // omitted for brevity, see the source of this page
-                dropdownCssClass: "bigdrop", // apply css that makes the dropdown taller
-                escapeMarkup: function (m) { return m; } // we do not want to escape markup since we are displaying html in results
-            });
-        });
-
-
-        function movieFormatResult(movie) {
-
-
-            
-            var markup = "<table class='movie-result'><tr>";
-
-            markup += "<td class='movie-image'>" + movie.title + "</td>";
-
-            return markup;
-
-        }
-
-        function movieFormatSelection(movie) {
-            return movie.title;
-        }
-</script>
-
-
-
 
 </head>
 
@@ -206,9 +151,6 @@
                             <a href="@Url.Action("Index", "Car")" class="dropdown-toggle">Cars<b class="caret white-caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="@Url.Action("Index", "Car")">Search</a></li>
-                                <li class="nav-header">Saved Searches:</li>
-                                <li><a href="#">Search one</a></li>
-                                <li><a href="#">Search two</a></li>
                                 <li class="divider"></li>
                                 <li><a href="@Url.Action("Create", "car")">Submit a Listing</a></li>
                             </ul>

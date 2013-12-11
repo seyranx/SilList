@@ -132,7 +132,26 @@ namespace SO.SilList.Manager.Managers
                 return list;
             }
         }
+        public List<PropertyVo> getAll(int memberId, bool? isActive = null)
+        {
+            using (var db = new MainDb())
+            {
+                var list = db.properties
+                            .Include(r => r.propertyType)
+                            .Include(t => t.propertyListingType)
+                            .Include(c => c.entryStatusType)
+                            .Include(s => s.site)
+                            .Include(i => i.cityType)
+                            .Include(o => o.countryType)
+                            .Include(u => u.stateType) 
 
+                            .Where(e => (isActive == null || e.isActive == isActive)
+                             && (e.createdBy == memberId))
+                             .ToList();
+
+                return list;
+            }
+        }
         public bool delete(Guid propertyId)
         {
             using (var db = new MainDb())

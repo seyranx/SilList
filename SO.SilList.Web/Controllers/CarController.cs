@@ -239,5 +239,10 @@ namespace SO.SilList.Web.Controllers
             return PartialView("_CollapseList");
         }
 
+        public ActionResult Listings(int memberId)
+        {
+            var jobs = carManager.getAll(memberId);
+            return View(jobs);
+        }
     }
 }
