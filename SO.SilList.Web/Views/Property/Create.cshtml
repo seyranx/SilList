@@ -146,9 +146,11 @@
                   <div class="control-label">
                        @Html.LabelFor(model => model.bedroomTypeId)
                   </div>
-                  <div class="controls">
+                  <div class="span5">
                       @Html.Action("DropDownList", "Property", new { id = Model.bedroomTypeId, propertyName = "bedroomTypeId", propertyType = typeof(BedroomTypeVo) })
-                 </div>
+                  </div>
+                  @*<div class="controls">
+                 </div>*@
              </div>
 
              <div class="control-group">

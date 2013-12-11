@@ -230,6 +230,8 @@
     </Build>
     <Build Include="app\Tables\BedroomType.sql" />
     <Build Include="app\Tables\BathroomType.sql" />
+    <Build Include="app\Tables\IsPetAllowedType.sql" />
+    <Build Include="app\Tables\AcceptsSection8Type.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />
