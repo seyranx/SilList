@@ -150,7 +150,13 @@ namespace SO.SilList.Web.Controllers
             return View(input);
         }
 
-        public ActionResult CollapseList(int? id = null, string propertyName = null, Type propertyType = null)
+        public ActionResult Listings(int memberId)
+        {
+            var jobs = propertyManager.getAll(memberId);
+            return View(jobs);
+        }
+
+       public ActionResult CollapseList(int? id = null, string propertyName = null, Type propertyType = null)
         {
             ViewBag.selectedId = id;
             ViewBag.propertyName = propertyName;

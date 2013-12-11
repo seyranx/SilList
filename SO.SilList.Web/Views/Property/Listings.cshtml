@@ -1,0 +1,69 @@
+﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.PropertyVo>
+
+@{
+    ViewBag.Title = "Listings";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml";
+}
+<script>
+    function deleteConfirm() {
+       return confirm("Are you sure you want to delete this Job listing?");
+    }
+</script>
+
+<p style="margin-top:10px; margin-bottom:10px;">
+   <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
+</p>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.propertyTypeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bedrooms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bathrooms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.endDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isActive)
+        </th>     
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.propertyTypeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bedrooms)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bathrooms)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.endDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isActive)
+        </td>
+
+        <td>
+            <a href="@Url.Action("Edit",new { id=item.propertyId })" class="btn" title="Edit"><i class="icon-edit"></i></a>
+            <a href="@Url.Action("Details",new { id=item.propertyId })" class="btn" title="Detail"><i class="icon-list"></i></a>
+            <a href="@Url.Action("Delete",new { id=item.propertyId })" onclick="return deleteConfirm()"  class="btn" title="Delete"><i class="icon-trash"></i></a>
+        </td>
+    </tr>
+}
+
+</table>

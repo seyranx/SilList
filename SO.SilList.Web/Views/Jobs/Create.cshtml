@@ -33,7 +33,8 @@
                     width: '520',
                 });
         
-            };
+    };
+    
 </script>
 @using (Html.BeginForm("Create", "Jobs", FormMethod.Post, new { @encType = "multipart/form-data" }))
 {
@@ -88,7 +89,7 @@
                     @Html.TextBoxFor(model => model.address, new { placeholder = "Address" })
                 </div>
                 <div class="info">
-                    <input id="cityTypeId" name="cityTypeId"/>
+                    <input type="text" id="cityTypeId" name="cityTypeId"/>
 
                     <b>Zip Code:</b>
                     @Html.TextBoxFor(model => model.zip, new { placeholder = "Zip Code" })
@@ -97,7 +98,7 @@
 
                 <div class="info">
                     <b>Phone:</b>
-                    @Html.TextBoxFor(model => model.phone, new { placeholder = "(777) 777-7777" })
+                    @Html.TextBoxFor(model => model.phone, new {placeholder = "(777) 777-7777" })
                 </div>
                 <div class="info">
                     <b>Fax:</b>
@@ -108,7 +109,7 @@
         </div>
         <div class="span12" style="border: inset; border-color: #808080; height: 55px; border-radius: 6px; padding: 10px; margin-left: -1px">
             <b>Primary Email:</b><input type="email" readonly style="width:160px" value="@CurrentMember.member.email" />
-            <b style="margin-left:30px">Alternate Email:</b>@Html.TextBoxFor(model => model.email)
+            <b style="margin-left:30px">Alternate Email:</b>@Html.TextBoxFor(model => model.email, new { type="email"})
         </div>
         <div class="span12" style="margin-top: 5px; border: inset; border-color: #808080; height: 55px; border-radius: 6px; padding: 10px; margin-left: -1px">
             <a type="button"  class="btn btn-info " href="@Url.Action("Index")">Cancel</a>

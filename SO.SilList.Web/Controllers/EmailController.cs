@@ -30,8 +30,11 @@ namespace SO.SilList.Web.Controllers
             return Redirect(input.redirectTo);
         }
 
+        
         public ActionResult applyToJob(Guid jobId)
         {
+            
+
             EmailVm email = new EmailVm();
             JobVo job = jobManager.get(jobId);
             email.sendTo = job.email;
@@ -45,6 +48,8 @@ namespace SO.SilList.Web.Controllers
                 email.sendTo = submitedBy.email;
                 email.cc = job.email;
             }
+            if (!CurrentMember.isAuthenticated)
+                return PartialView(email);
             email.sender = CurrentMember.member.email;
             email.subject = "Applying to " + job.title;
             email.header = "job Id: " + job.jobId + System.Environment.NewLine;
