@@ -1,0 +1,61 @@
+﻿@model SO.SilList.Manager.Models.ValueObjects.MemberVo
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml";
+}
+
+<style>
+    .info {
+        border: 1px solid #808080;
+        padding: 3px;
+        border-radius: 6px;
+        height: 20px;
+        background-color: #ccc;
+        
+    }
+
+    .info2 {
+        padding: 3px;
+    }
+</style>
+
+<h2>Profile</h2>
+<div>
+    <div class="row" style="margin:10px">
+        <div class="span2 info2">Username : </div>
+        <div class="span4 info" style="width: 30%">@Model.email</div>
+    </div>
+    <div class="row" style="margin:10px">
+        <div class="span2 info2">Name : </div>
+        <div class="span4 info" style="width: 30%">@Model.fullName</div>
+    </div>
+    <div class="row" style="margin:10px">
+        <div class="span2 info2">Address : </div>
+        <textarea readonly class="span4 info" style="margin-left:17px; width: 30%; height:60px">
+            @Model.address
+            @Html.DisplayFor(model => model.cityType.name) , @Html.DisplayFor(model => model.stateType.stateCode) @(Model.zip)
+            @Html.DisplayFor(model => model.countryType.name)</textarea>
+    </div>
+    <div class="row" style="margin:10px">
+        <div class="span2 info2">Phone :</div>
+        <div class="span2 info" style="width: 30%">@Model.phone</div>
+    </div>
+    <div class="row" style="margin:10px">
+        <div class="span2 info2">Fax :</div>
+        <div class="span2 info" style="width: 30%">@Model.fax</div>
+    </div>
+    <div class="row" style="margin:10px">
+        <div class="span2 info2">Last login :</div>
+        <div class="span2 info" style="width: 30%">@Model.lastLogin</div>
+    </div>
+        <div class="row" style="margin:10px">
+        <div class="span2 info2">Email is Confirmed :</div>
+        <div class="span2 info" style="width: 30%">@Model.isEmailConfirmed</div>
+    </div>
+      </div>
+        <div class="row" style="margin:10px">
+        <div class="span2 info2">Email is Subscribed :</div>
+        <div class="span2 info" style="width: 30%">@Model.isEmailSubscribed</div>
+    </div>
+</div>

@@ -58,6 +58,11 @@ namespace SO.SilList.Web.Controllers
         {
             return PartialView("_Pagination", input);
         }
+        public ActionResult Listings(int memberId)
+        {
+            var jobs = listingManager.getAll(memberId);
+            return View(jobs);
+        }
 /*
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]

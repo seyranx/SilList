@@ -366,6 +366,13 @@
     <Content Include="Views\Property\Detail.cshtml" />
     <Content Include="Views\Property\Create.cshtml" />
     <Content Include="Views\Shared\_PropertyBox.cshtml" />
+    <Content Include="Views\Property\Listings.cshtml" />
+    <Content Include="Views\Listings\Listings.cshtml" />
+    <Content Include="Views\Jobs\Listings.cshtml" />
+    <Content Include="Views\Car\Listings.cshtml" />
+    <Content Include="Views\Business\Listings.cshtml" />
+    <Content Include="Views\Member\Profile.cshtml" />
+    <Content Include="Views\Shared\_LayoutMember.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

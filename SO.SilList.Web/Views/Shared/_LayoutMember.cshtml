@@ -1,29 +1,40 @@
-﻿@model SO.SilList.Manager.Models.ViewModels.JobVm
+﻿@using SO.SilList.Manager.Managers;
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="row-fluid">
 
-<div id="leftColumn" class="span1 searchPageLeftColumn" style="min-height:1100px; width:178px " >
-        
-<div style="font-size:17px; font-weight:bold; text-align:center; padding-top:20px;">JOBs Search:</div>
-<hr />
-@*@Html.Action("Filter", "jobs")*@
+    <div id="leftColumn" class="span1 searchPageLeftColumn" style="min-height: 1100px; width: 178px">
+
+        <div style="text-align: left">
+            <ul class="nav nav-list" style="background-color: none; color: white; margin-top: 10px; font-weight: bold; ">
+                <li class="nav-header" style="background-color: DimGray; font-size: 14px;">Manage Profile</li>
+                <li><a href='@Url.Action("Profile", "Member", new { id = CurrentMember.member.memberId })'>My Profile</a></li>
+                <li><a href='@Url.Action("Manage", "Member", new { id = CurrentMember.member.memberId })'>Edit Profile</a></li>
+                <li><a>Change Email & Password</a></li>
+            </ul>
+            <ul class="nav nav-list" style="background-color: none; color: white; margin-top: 10px; font-weight: bold; ">
+                <li class="nav-header" style="background-color: DimGray; font-size: 14px;">Manage Listings</li>
+                <li><a href='@Url.Action("Listings","Jobs",new {memberId = CurrentMember.member.memberId})'>Jobs</a></li>
+                <li><a href='@Url.Action("Listings","Property",new {memberId = CurrentMember.member.memberId})'>Homes</a></li>
+                <li><a href='@Url.Action("Listings","Business",new {memberId = CurrentMember.member.memberId})'>Businesses</a></li>
+                <li><a href='@Url.Action("Listings","Car",new {memberId = CurrentMember.member.memberId})'>Car</a></li>
+                <li><a href='@Url.Action("Listings","Listings",new {memberId = CurrentMember.member.memberId})'>Other Listings</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="mainContent" class="span7" style="padding-left: 0px; padding-right: 0px; background-color: white;">
+
+        @RenderBody()
 
     </div>
 
-     <div id="mainContent" class="span7" style="padding-left:0px; padding-right:0px; background-color:white;">
-        
-         @RenderBody()
-
-    </div>
-
-      <div class="span3" style="background-color:black; margin-left:-5px">
-          right
+    <div class="span3" style="background-color: black; margin-left: -5px">
+        right
 
     </div>
 
 </div>
-
-@*@Html.Action("Pagination",@Model.paging)*@

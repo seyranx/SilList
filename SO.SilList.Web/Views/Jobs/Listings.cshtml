@@ -1,0 +1,76 @@
+﻿@model IEnumerable<SO.SilList.Manager.Models.ValueObjects.JobVo>
+
+@{
+    ViewBag.Title = "Listings";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml";
+}
+<script>
+    function deleteConfirm() {
+       return confirm("Are you sure you want to delete this Job listing?");
+    }
+</script>
+
+
+<p style="margin-top: 10px; margin-bottom: 10px;">
+    <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
+
+</p>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.jobTypeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cityTypeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.companyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.created)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isActive)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.jobType.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cityType.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.companyName)
+            </td>
+            <td>
+                <span>@String.Format("{0:MM/dd/yyy}", item.created)</span>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isActive)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", new { id = item.jobId })" class="btn" title="Edit"><i class="icon-edit"></i></a>
+                <a href="@Url.Action("Detail", new { id = item.jobId })" class="btn" title="Detail"><i class="icon-list"></i></a>
+                <a href="@Url.Action("Delete", new { id = item.jobId })" onclick="return deleteConfirm()"  class="btn" title="Delete"><i class="icon-trash"></i></a>
+            </td>
+        </tr>
+    }
+
+</table>

@@ -62,10 +62,17 @@
                         return { results: data };
                     }
                 },
+
                 formatResult: cityFormatResult, // omitted for brevity, see the source of this page
+                formatSelection: cityFormatSelection,
+                dropdownCssClass: "bigdrop", //
                 escapeMarkup: function (m) { return m; } // we do not want to escape markup since we are displaying html in results
             });
         });
+        function cityFormatSelection(city) {
+            
+            return city.name +", "+city.stateType.stateCode;
+        }
         function cityFormatResult(city) {
             var markup = "<table class='movie-result'><tr>";
             markup += "<td class='movie-image'>" + city.name + "," + city.stateType.stateCode + "</td>";
@@ -142,9 +149,6 @@
                             <a href="@Url.Action("Index", "Car")" class="dropdown-toggle">Cars<b class="caret white-caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="@Url.Action("Index", "Car")">Search</a></li>
-                                <li class="nav-header">Saved Searches:</li>
-                                <li><a href="#">Search one</a></li>
-                                <li><a href="#">Search two</a></li>
                                 <li class="divider"></li>
                                 <li><a href="@Url.Action("Create", "car")">Submit a Listing</a></li>
                             </ul>

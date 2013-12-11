@@ -7,70 +7,68 @@
 
 <h2>Manage</h2>
 
-@using (Html.BeginForm()) {
-    
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>MemberVo</legend>
+        <legend></legend>
 
         @Html.HiddenFor(model => model.memberId)
+        @Html.HiddenFor(model => model.email)
+        @Html.HiddenFor(model => model.username)
+        @Html.HiddenFor(model => model.isEmailSubscribed)
+        @Html.HiddenFor(model=>model.isEmailConfirmed)
+        <div class="row" style="margin: 10px">
+            <div class="span2 info2">User ID : </div>
+            <div class="span4 info" style="width: 30%">@Model.memberId</div>
+        </div>
+        <div class="row" style="margin: 10px">
+            <div class="span2 info2">Email : </div>
+            <div class="span4 info" style="width: 30%">@Model.email</div>
+        </div>
+        <div>
+            <div class="row" style="margin: 10px">
+                <div class="span2 info2">First Name : </div>
+                <div class="span4" style="width: 30%">@Html.EditorFor(model => model.firstName)</div>
+            </div>
+            <div class="row" style="margin: 10px">
+                <div class="span2 info2">last Name : </div>
+                <div class="span4" style="width: 30%">@Html.EditorFor(model => model.lastName)</div>
+            </div>
+            <div class="row" style="margin: 10px">
+                <div class="span2 info2">Address : </div>
+                <div class="span4" style="width: 30%">@Html.EditorFor(model => model.address)</div>
+            </div>
+            <div class="row" style="margin: 10px">
+                <div class="span2 info2">City , State: </div>
+                <div class="span4" style="width: 30%">@Html.EditorFor(model => model.cityTypeId)</div>
+            </div>
+            <div class="row" style="margin: 10px">
+                <div class="span2 info2">Country: </div>
+                <div class="span4" style="width: 30%">@Html.EditorFor(model => model.countryTypeId)</div>
+            </div>
+            <div class="row" style="margin: 10px">
+                <div class="span2 info2">Zip: </div>
+                <div class="span4" style="width: 30%">@Html.EditorFor(model => model.zip)</div>
+            </div>
+            <div class="row" style="margin: 10px">
+                <div class="span2 info2">Phone :</div>
+                <div class="span2" style="width: 30%">@Html.EditorFor(model => model.phone)</div>
+            </div>
+            <div class="row" style="margin: 10px">
+                <div class="span2 info2">Fax :</div>
+                <div class="span2" style="width: 30%">@Html.EditorFor(model => model.fax)</div>
+            </div>
+                        <div class="row" style="margin: 10px">
+                <div class="span2 info2">Email Subscribtion :</div>
+                <div class="span2" style="width: 30%">@Html.EditorFor(model => model.isEmailSubscribed)</div>
+            </div>
+        </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.firstName)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.firstName)
-            @Html.ValidationMessageFor(model => model.firstName)
-        </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.lastName)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.lastName)
-            @Html.ValidationMessageFor(model => model.lastName)
-        </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.address)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.address)
-            @Html.ValidationMessageFor(model => model.address)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.cityTypeId)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.cityTypeId)
-            @Html.ValidationMessageFor(model => model.cityTypeId)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.stateTypeId)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.stateTypeId)
-            @Html.ValidationMessageFor(model => model.stateTypeId)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.zip)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.zip)
-            @Html.ValidationMessageFor(model => model.zip)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.email)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.email)
-            @Html.ValidationMessageFor(model => model.email)
-        </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.username)
@@ -88,30 +86,12 @@
             @Html.ValidationMessageFor(model => model.password)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.phone)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.phone)
-            @Html.ValidationMessageFor(model => model.phone)
-        </div>
 
-
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.isEmailSubscribed)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.isEmailSubscribed)
-            @Html.ValidationMessageFor(model => model.isEmailSubscribed)
-        </div>
 
         <p>
             <input type="submit" value="Save" />
+            <a href='@Html.Action("Profile","Member",new{id = Model.memberId })' class="btn" >Cancel</a>
         </p>
     </fieldset>
 }
 
-<div>
-    @Html.ActionLink("Cancel", "Index", "Home")
-</div>
