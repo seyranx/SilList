@@ -16,7 +16,7 @@ using SO.SilList.Manager.Models.ValueObjects;
 
 namespace SO.SilList.Manager.Managers
 {
-    class IsPetAllowedManager : IIsPetAllowedManager
+    public class IsPetAllowedTypeManager : IIsPetAllowedManager
     {
         public IsPetAllowedTypeVo get(int isPetAllowedTypeId)
         {
