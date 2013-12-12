@@ -58,6 +58,7 @@
     <Compile Include="Classes\Connection.cs" />
     <Compile Include="Classes\EntryStatusTypeInfo.cs" />
     <Compile Include="DbContexts\MainDb.cs" />
+    <Compile Include="Interfaces\IAcceptsSection8TypeManager.cs" />
     <Compile Include="Interfaces\IBathroomTypeManager.cs" />
     <Compile Include="Interfaces\IBedroomTypeManager.cs" />
     <Compile Include="Interfaces\ICarFuelTypeManager.cs" />
@@ -65,6 +66,8 @@
     <Compile Include="Interfaces\ICarDriveTypeManager.cs" />
     <Compile Include="Interfaces\ICarEngineTypeManager.cs" />
     <Compile Include="Interfaces\ICarColorTypeManager.cs" />
+    <Compile Include="Interfaces\IIsPetAllowedManager.cs" />
+    <Compile Include="Interfaces\IIsPetAllowedType.cs" />
     <Compile Include="Interfaces\IStateTypeManager.cs" />
     <Compile Include="Interfaces\ICountryTypeManager.cs" />
     <Compile Include="Interfaces\ICityTypeManager.cs" />
@@ -103,6 +106,7 @@
     <Compile Include="Interfaces\IStatusTypeManager.cs" />
     <Compile Include="Interfaces\IJobCategoryTypeManager.cs" />
     <Compile Include="Interfaces\IVisitManager.cs" />
+    <Compile Include="Managers\AcceptsSection8TypeManager.cs" />
     <Compile Include="Managers\AdminManager.cs" />
     <Compile Include="Managers\BedroomTypeManager.cs" />
     <Compile Include="Managers\BathroomTypeManager.cs" />
@@ -125,6 +129,7 @@
     <Compile Include="Managers\CarDriveTypeManager.cs" />
     <Compile Include="Managers\CarDoorTypeManager.cs" />
     <Compile Include="Managers\EmailManager.cs" />
+    <Compile Include="Managers\IsPetAllowedTypeManager.cs" />
     <Compile Include="Managers\PropertyListingTypeManager.cs" />
     <Compile Include="Managers\StateTypeManager.cs" />
     <Compile Include="Managers\CountryTypeManager.cs" />
@@ -153,6 +158,7 @@
     <Compile Include="Managers\PropertyManager.cs" />
     <Compile Include="Managers\TransmissionTypeManager.cs" />
     <Compile Include="Managers\VisitManager.cs" />
+    <Compile Include="Models\ValueObjects\AcceptsSection8TypeVo.cs" />
     <Compile Include="Models\ValueObjects\BedroomTypeVo.cs" />
     <Compile Include="Models\ValueObjects\CarColorTypeVo.cs" />
     <Compile Include="Models\ValueObjects\CarDoorTypeVo.cs" />
@@ -163,8 +169,10 @@
     <Compile Include="Models\ValueObjects\BathroomTypeVo.cs" />
     <Compile Include="Models\ValueObjects\CountryTypeVo.cs" />
     <Compile Include="Models\ValueObjects\EntryStatusTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\IsPetAllowedTypeVo.cs" />
     <Compile Include="Models\ValueObjects\StateTypeVo.cs" />
     <Compile Include="Models\ValueObjects\VisitVo.cs" />
+    <Compile Include="Models\ViewModels\AcceptsSection8TypeVm.cs" />
     <Compile Include="Models\ViewModels\Admin\AccountLoginVm.cs" />
     <Compile Include="Models\ViewModels\Admin\AccountManageVm.cs" />
     <Compile Include="Models\ViewModels\BedroomTypeVm.cs" />
@@ -219,6 +227,7 @@
     <Compile Include="Models\ViewModels\CityTypeVm.cs" />
     <Compile Include="Models\ViewModels\CarColorTypeVm.cs" />
     <Compile Include="Models\ViewModels\EmailVm.cs" />
+    <Compile Include="Models\ViewModels\IsPetAllowedTypeVm.cs" />
     <Compile Include="Models\ViewModels\Member\MemberLoginVm.cs" />
     <Compile Include="Models\ViewModels\Member\MemberManageVm.cs" />
     <Compile Include="Models\ViewModels\Member\MemberRegisterVm.cs" />

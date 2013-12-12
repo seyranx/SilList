@@ -1,4 +1,4 @@
-﻿@model SO.SilList.Manager.Models.ValueObjects.BathroomTypeVo
+﻿@model SO.SilList.Manager.Models.ValueObjects.IsPetAllowedTypeVo
 
 @{
     ViewBag.Title = "Details";
@@ -12,10 +12,10 @@
 
     <div class="control-group">
         <div class="control-label">
-            @Html.LabelFor(model => model.bathroomTypeId)
+            @Html.LabelFor(model => model.isPetAllowedTypeId)
         </div>
         <div class="controls">
-            <input type="text" value="@Html.DisplayFor(model => model.bathroomTypeId)" readonly="true">
+            <input type="text" value="@Html.DisplayFor(model => model.isPetAllowedTypeId)" readonly="true">
         </div>
     </div>
 
@@ -74,6 +74,6 @@
     </div>
 </fieldset>
 <p>
-    <a href="@Url.Action("Edit", new { id=Model.bathroomTypeId })" class="btn">Edit</a>
+    <a href="@Url.Action("Edit", new { id=Model.isPetAllowedTypeId })" class="btn">Edit</a>
     <a href="@Url.Action("Index")" class="btn btn-info">Back to List</a>
 </p>

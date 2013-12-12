@@ -53,10 +53,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public int? lotSize { get; set; }
 
         [DisplayName("Section8")]
-        public int? acceptsSection8 { get; set; }
+        public int? acceptsSection8TypeId { get; set; }
 
         [DisplayName("Pet Allowed")]
-        public int? isPetAllowed { get; set; }
+        public int? isPetAllowedTypeId { get; set; }
 
         [DisplayName("Address")]
         [StringLength(50)]

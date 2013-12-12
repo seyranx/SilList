@@ -22,6 +22,8 @@ namespace SO.SilList.Web.Controllers
         private PropertyListingTypeManager propertyListingTypeManager = new PropertyListingTypeManager();
         private BedroomTypeManager bedroomTypeManager = new BedroomTypeManager();
         private BathroomTypeManager bathroomTypeManager = new BathroomTypeManager();
+        private AcceptsSection8TypeManager acceptsSection8TypeManager = new AcceptsSection8TypeManager();
+        private IsPetAllowedTypeManager isPetAllowedTypeManager = new IsPetAllowedTypeManager();
 
 
         public ActionResult Index(PropertyVm input = null, Paging paging = null)
@@ -87,6 +89,16 @@ namespace SO.SilList.Web.Controllers
             {
                 ViewBag.items = bathroomTypeManager.getAll(true);
                 ViewBag.idName = "bathroomTypeId";
+            }
+            else if (propertyType == typeof(AcceptsSection8TypeVo))
+            {
+                ViewBag.items = acceptsSection8TypeManager.getAll(true);
+                ViewBag.idName = "acceptsSection8TypeId";
+            }
+            else if (propertyType == typeof(IsPetAllowedTypeVo))
+            {
+                ViewBag.items = isPetAllowedTypeManager.getAll(true);
+                ViewBag.idName = "isPetAllowedTypeId";
             }
             else if (propertyType == typeof(CountryTypeVo))
             {
