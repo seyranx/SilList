@@ -1,58 +1,15 @@
-﻿@model SO.SilList.Manager.Models.ViewModels.BusinessVm
+﻿
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="row-fluid">
 
-<div id="leftColumn" class="span2 searchPageLeftColumn"  >
+<div id="leftColumn" class="span1 searchPageLeftColumn" style="min-height:1100px; width:178px " >
         
 <div style="font-size:17px; font-weight:bold; text-align:center; padding-top:20px;">Business Search:</div>
 <hr />
-<form id="filterForm" class="form-inline" method="get" action="@Url.Action("Filter","Business")">
-
-    <label>Keyword:</label>
-@Html.ValidationSummary(true)
-@Html.TextBoxFor(model => model.keyword,new { Class = "input-large", placeholder =  "Keyword" })
-@Html.ValidationMessageFor(model => model.keyword)
-
-<label>Location:</label>
-
-
-    <label>Name:</label>
-    @*<input type="text" style="width:90%;">*@
-@Html.ValidationSummary(true)
-@Html.TextBoxFor(model => model.business,new { Class = "input-large", placeholder =  "Location" })
-@Html.ValidationMessageFor(model => model.business)
-
-   
-     <label>City, State or Zip:</label>
-    @*<input type="text" style="width:90%;">*@
-@Html.ValidationSummary(true)
-@Html.TextBoxFor(model => model.keyword,new { Class = "input-large", placeholder =  "Location" })
-@Html.ValidationMessageFor(model => model.result)
-
-     <label>Category:</label>
-     <input type="text" style="width:90%;" placeholder="Filter">
-
-        <button type="submit" class="btn btn-success pull-right">Search</button>
-        @*@Html.Partial("_Filter",@Model)*@
-        @*@Html.Action("Filter",@Model.result)*@
-       
-</form>
- <br />
-  <ul class="nav nav-list" style="background-color:none; color:white; margin-top:10px; " >
-        <li class="nav-header">Top Categories:</li>
-
-  <li ><a href="@Url.Action("Index")">Web Design</a></li>
-  <li ><a href="/Clubs/Los-Angeles-CA/Art/">Contractors</a></li>
-  <li ><a href="/Clubs/Los-Angeles-CA/Business/">Plumbers</a></li>
- 
-
-</ul>
-  
-
-
+@Html.Action("Filter", "Business")
 
     </div>
 
@@ -62,7 +19,7 @@
 
     </div>
 
-      <div class="span3" style="background-color:black;">
+      <div class="span2" style="background-color:black;">
           right
 
     </div>
