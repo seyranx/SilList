@@ -1,17 +1,19 @@
 ﻿@model SO.SilList.Manager.Models.ViewModels.BusinessVm
  
 
-<form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Business")">
+<form id="filterForm">
 
-<label>Keyword:</label>
-@Html.ValidationSummary(true)
-@Html.TextBoxFor(model => model.keyword,new { Class = "input-large", placeholder =  "Keyword" })
-@Html.ValidationMessageFor(model => model.keyword)
+    @Html.HiddenFor(model => model.paging.pageNumber)
 
-<label>Location:</label>
-@Html.ValidationSummary(true)
-@Html.TextBoxFor(model => model.result,new { Class = "input-large", placeholder =  "Location" })
-@Html.ValidationMessageFor(model => model.result)
+    <label>Keyword:</label>
+    @Html.ValidationSummary(true)
+    @Html.TextBoxFor(model => model.keyword,new { Class = "input-large", placeholder =  "Keyword", style="width:90%"})
+    @Html.ValidationMessageFor(model => model.keyword)
+
+    <label>City, State or Zip:</label>
+    @Html.ValidationSummary(true)
+    <input type="text" style="width: 90%;" class="input-large" placeholder="Location">
+    @Html.ValidationMessageFor(model => model.result)
 
 <br /><br />
 
