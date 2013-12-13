@@ -366,6 +366,7 @@
     <Content Include="Views\Email\applyToJob.cshtml" />
     <Content Include="Views\Property\Detail.cshtml" />
     <Content Include="Views\Property\Create.cshtml" />
+    <Content Include="Views\Business\Create.cshtml" />
     <Content Include="Views\Shared\_PropertyBox.cshtml" />
     <Content Include="Views\Property\Listings.cshtml" />
     <Content Include="Views\Listings\Listings.cshtml" />

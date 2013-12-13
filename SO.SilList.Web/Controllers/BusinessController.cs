@@ -1,4 +1,5 @@
 ﻿using SO.SilList.Manager.Managers;
+using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Models.ViewModels;
 using SO.SilList.Utility.Classes;
 using System;
@@ -13,6 +14,9 @@ namespace SO.SilList.Web.Controllers
     {
         private BusinessManager businessManager = new BusinessManager();
         private BusinessCategoriesManager businessCategoryManager = new BusinessCategoriesManager();
+        private CityTypeManager cityTypeManager = new CityTypeManager();
+        private StateTypeManager stateTypeManager = new StateTypeManager();
+        private CountryTypeManager countryTypeManager = new CountryTypeManager();
         //
         // GET: /Rentals/
 
@@ -20,9 +24,12 @@ namespace SO.SilList.Web.Controllers
         {
             if (input == null)
                 input = new BusinessVm();
-            
+            input.isActive = true;
+            input.paging = paging;
             if (this.ModelState.IsValid)
             {
+                if (input.submitButton != null)
+                    input.paging.pageNumber = 1;
                 input = businessManager.search(input);
                 return View(input);
             }
@@ -49,10 +56,59 @@ namespace SO.SilList.Web.Controllers
             return PartialView(result);
         }
 
-        public ActionResult Listings(int memberId)
+        public ActionResult Create()
         {
-            var jobs = businessManager.getAll(memberId);
-            return View(jobs);
+            var vo = new BusinessVo();
+            return View(vo);
+        }
+        [HttpPost]
+        public ActionResult Create(BusinessVo input)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var item = businessManager.insert(input);
+
+                ImageManager imageManager = new ImageManager();
+
+                imageManager.InsertUploadImages(item.businessId, Request.Files, Server, SO.SilList.Manager.Managers.ImageCategory.businessImage);
+
+                return RedirectToAction("Index");
+            }
+
+            return View(input);
+
+        }
+        public ActionResult DropDownList(int? id = null, string propertyName = null, Type modelType = null, string defaultValue = null)
+        {
+            //var item = Activator.CreateInstance(modelType);
+            ViewBag.propertyName = propertyName;
+            if (defaultValue == null)
+                defaultValue = "Select One";
+            ViewBag.defaultValue = defaultValue;
+
+            ViewBag.selectedItem = id;
+            if (modelType == typeof(CountryTypeVo))
+            {
+                ViewBag.items = countryTypeManager.getAll(true);
+                ViewBag.idName = "countryTypeId";
+            }
+            else if (modelType == typeof(StateTypeVo))
+            {
+                ViewBag.items = stateTypeManager.getAll(true);
+                ViewBag.idName = "stateTypeId";
+            }
+            else if (modelType == typeof(CityTypeVo))
+            {
+                ViewBag.items = cityTypeManager.getAll(true);
+                ViewBag.idName = "cityTypeId";
+            }
+
+            return PartialView("_DropDownList");
+        }
+
+        public ActionResult Pagination(Paging input)
+        {
+            return PartialView("_Pagination", input);
         }
 
     }
