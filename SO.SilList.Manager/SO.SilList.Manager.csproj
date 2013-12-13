@@ -66,8 +66,7 @@
     <Compile Include="Interfaces\ICarDriveTypeManager.cs" />
     <Compile Include="Interfaces\ICarEngineTypeManager.cs" />
     <Compile Include="Interfaces\ICarColorTypeManager.cs" />
-    <Compile Include="Interfaces\IIsPetAllowedManager.cs" />
-    <Compile Include="Interfaces\IIsPetAllowedType.cs" />
+    <Compile Include="Interfaces\IIsPetAllowedTypeManager.cs" />
     <Compile Include="Interfaces\IStateTypeManager.cs" />
     <Compile Include="Interfaces\ICountryTypeManager.cs" />
     <Compile Include="Interfaces\ICityTypeManager.cs" />

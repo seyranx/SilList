@@ -169,6 +169,8 @@
         <div id="collapsePetAllowedTypeId" class="accordion-body collapse">
             <div class="accordion-inner" style="margin: 1px; padding: 1px;">
                 <ul class="nav nav-list" style="background-color: none; color: white; text-align: center;">
+                    @Html.Action("CollapseList", "Property", new { id = Model.isPetAllowedTypeId, propertyName = "isPetAllowedTypeId", propertyType = typeof(IsPetAllowedTypeVo) })
+@*
                     @{
                         if (Model.isPetAllowedTypeId == null)
                         {   <li style="background-color: blue;"><a href="#" onclick="mySelectAction(null,'isPetAllowedTypeId');"> Any </a></li>
@@ -180,13 +182,13 @@
                         }
                         else
                         {<li><a href="#" onclick="mySelectAction(1,'isPetAllowedTypeId');"> Yes </a></li>}
-                        if (Model.isPetAllowedTypeId == 0)
-                        {   <li style="background-color: blue;"><a href="#" onclick="mySelectAction(0,'isPetAllowedTypeId');"> No </a></li>
+                        if (Model.isPetAllowedTypeId == 2)
+                        {   <li style="background-color: blue;"><a href="#" onclick="mySelectAction(2,'isPetAllowedTypeId');"> No </a></li>
                         }
                         else
                         {<li><a href="#" onclick="mySelectAction(0,'isPetAllowedTypeId');"> No </a></li>}                                                                                                                  
                     }
-
+*@
                 </ul>
             </div>
         </div>
@@ -220,7 +222,7 @@
         if ($("#startingPrice").val() != '' || $("#endingPrice").val() != '') {
             $("#collapsePrice").removeClass("collapse");
         }
-        
+
         if ($("#acceptsSection8TypeId").val() != '') {
             $("#collapseSection8TypeId").removeClass("collapse");
         }

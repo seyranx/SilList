@@ -139,7 +139,6 @@
     <Compile Include="Controllers\ConfigurationController.cs" />
     <Compile Include="Controllers\CityController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
-    <Compile Include="Controllers\IsPetAllowedTypeManager.cs" />
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LinkedController.cs" />
@@ -379,6 +378,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\BuySell\" />
+    <Folder Include="Views\CityType\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
