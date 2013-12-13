@@ -21,7 +21,7 @@
         margin: -5px;
     }
 
-    #acceptsSection8 {
+    #acceptsSection8TypeId {
         width:200px;
         padding:0;
         margin:0;
@@ -132,29 +132,29 @@
 
     <div class="accordion-group"> 
         <div class="accordion-heading">
-            <span class="accordion-toggle title" data-toggle="collapse" href="#collapseSection8">Accepts Section 8</span>
+            <span class="accordion-toggle title" data-toggle="collapse" href="#collapseSection8TypeId">Accepts Section 8</span>
         </div>
-        <div id="collapseSection8" class="accordion-body collapse">
+        <div id="collapseSection8TypeId" class="accordion-body collapse">
             <div class="accordion-inner" style="margin: 1px; padding: 1px;">
                 <ul class="nav nav-list" style="background-color: none; color: white; text-align: center;">
                      @Html.Action("CollapseList", "Property", new { id = Model.acceptsSection8TypeId, propertyName = "acceptsSection8TypeId", propertyType = typeof(AcceptsSection8TypeVo) })
 @*
                     @{
                         if (Model.acceptsSection8TypeId == null)
-                        {   <li style="background-color: blue;"><a href="#" onclick="mySelectAction(null,'acceptsSection8');"> Any </a></li>
+                        {   <li style="background-color: blue;"><a href="#" onclick="mySelectAction(null,'acceptsSection8TypeId');"> Any </a></li>
                         }
                         else
-                        {<li><a href="#" onclick="mySelectAction(null,'acceptsSection8');"> Any </a></li>}
+                        {<li><a href="#" onclick="mySelectAction(null,'acceptsSection8TypeId');"> Any </a></li>}
                         if (Model.acceptsSection8TypeId == 1)
-                        {   <li style="background-color: blue;"><a href="#" onclick="mySelectAction(1,'acceptsSection8');"> Yes </a></li>
+                        {   <li style="background-color: blue;"><a href="#" onclick="mySelectAction(1,'acceptsSection8TypeId');"> Yes </a></li>
                         }
                         else
-                        {<li><a href="#" onclick="mySelectAction(1,'acceptsSection8');"> Yes </a></li>}
+                        {<li><a href="#" onclick="mySelectAction(1,'acceptsSection8TypeId');"> Yes </a></li>}
                         if (Model.acceptsSection8TypeId == 0)
-                        {   <li style="background-color: blue;"><a href="#" onclick="mySelectAction(0,'acceptsSection8');"> No </a></li>
+                        {   <li style="background-color: blue;"><a href="#" onclick="mySelectAction(0,'acceptsSection8TypeId');"> No </a></li>
                         }
                         else
-                        {<li><a href="#" onclick="mySelectAction(0,'acceptsSection8');"> No </a></li>}                                                                                                                  
+                        {<li><a href="#" onclick="mySelectAction(0,'acceptsSection8TypeId');"> No </a></li>}                                                                                                                  
                     }
 *@  
                 </ul>
@@ -164,27 +164,27 @@
 
     <div class="accordion-group"> 
         <div class="accordion-heading">
-            <span class="accordion-toggle title" data-toggle="collapse" href="#collapsePetAllowed">Pets Allowed</span>
+            <span class="accordion-toggle title" data-toggle="collapse" href="#collapsePetAllowedTypeId">Pets Allowed</span>
         </div>
-        <div id="collapsePetAllowed" class="accordion-body collapse">
+        <div id="collapsePetAllowedTypeId" class="accordion-body collapse">
             <div class="accordion-inner" style="margin: 1px; padding: 1px;">
                 <ul class="nav nav-list" style="background-color: none; color: white; text-align: center;">
                     @{
                         if (Model.isPetAllowedTypeId == null)
-                        {   <li style="background-color: blue;"><a href="#" onclick="mySelectAction(null,'isPetAllowed');"> Any </a></li>
+                        {   <li style="background-color: blue;"><a href="#" onclick="mySelectAction(null,'isPetAllowedTypeId');"> Any </a></li>
                         }
                         else
-                        {<li><a href="#" onclick="mySelectAction(null,'isPetAllowed');"> Any </a></li>}
+                        {<li><a href="#" onclick="mySelectAction(null,'isPetAllowedTypeId');"> Any </a></li>}
                         if (Model.isPetAllowedTypeId == 1)
-                        {   <li style="background-color: blue;"><a href="#" onclick="mySelectAction(1,'isPetAllowed');"> Yes </a></li>
+                        {   <li style="background-color: blue;"><a href="#" onclick="mySelectAction(1,'isPetAllowedTypeId');"> Yes </a></li>
                         }
                         else
-                        {<li><a href="#" onclick="mySelectAction(1,'isPetAllowed');"> Yes </a></li>}
+                        {<li><a href="#" onclick="mySelectAction(1,'isPetAllowedTypeId');"> Yes </a></li>}
                         if (Model.isPetAllowedTypeId == 0)
-                        {   <li style="background-color: blue;"><a href="#" onclick="mySelectAction(0,'isPetAllowed');"> No </a></li>
+                        {   <li style="background-color: blue;"><a href="#" onclick="mySelectAction(0,'isPetAllowedTypeId');"> No </a></li>
                         }
                         else
-                        {<li><a href="#" onclick="mySelectAction(0,'isPetAllowed');"> No </a></li>}                                                                                                                  
+                        {<li><a href="#" onclick="mySelectAction(0,'isPetAllowedTypeId');"> No </a></li>}                                                                                                                  
                     }
 
                 </ul>
@@ -221,11 +221,11 @@
             $("#collapsePrice").removeClass("collapse");
         }
         
-        if ($("#acceptsSection8").val() != '') {
-            $("#collapseSection8").removeClass("collapse");
+        if ($("#acceptsSection8TypeId").val() != '') {
+            $("#collapseSection8TypeId").removeClass("collapse");
         }
-        if ($("#isPetAllowed").val() != '') {
-            $("#collapsePetAllowed").removeClass("collapse");
+        if ($("#isPetAllowedTypeId").val() != '') {
+            $("#collapsePetAllowedTypeId").removeClass("collapse");
         }
     }
 

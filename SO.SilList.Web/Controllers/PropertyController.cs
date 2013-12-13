@@ -23,7 +23,7 @@ namespace SO.SilList.Web.Controllers
         private BedroomTypeManager bedroomTypeManager = new BedroomTypeManager();
         private BathroomTypeManager bathroomTypeManager = new BathroomTypeManager();
         private AcceptsSection8TypeManager acceptsSection8TypeManager = new AcceptsSection8TypeManager();
-        private IsPetAllowedManager isPetAllowedTypeManager = new IsPetAllowedManager();
+        private IsPetAllowedTypeManager isPetAllowedTypeManager = new IsPetAllowedTypeManager();
 
 
         public ActionResult Index(PropertyVm input = null, Paging paging = null)
@@ -82,13 +82,23 @@ namespace SO.SilList.Web.Controllers
             }
             else if (propertyType == typeof(BedroomTypeVo))
             {
-                ViewBag.items = acceptsSection8TypeManager.getAll(true);
+                ViewBag.items = bedroomTypeManager.getAll(true);
                 ViewBag.idName = "bedroomTypeId";
             }
             else if (propertyType == typeof(BathroomTypeVo))
             {
-                ViewBag.items = isPetAllowedTypeManager.getAll(true);
+                ViewBag.items = bathroomTypeManager.getAll(true);
                 ViewBag.idName = "bathroomTypeId";
+            }
+            else if (propertyType == typeof(AcceptsSection8TypeVo))
+            {
+                ViewBag.items = acceptsSection8TypeManager.getAll(true);
+                ViewBag.idName = "acceptsSection8TypeId";
+            }
+            else if (propertyType == typeof(IsPetAllowedTypeVo))
+            {
+                ViewBag.items = isPetAllowedTypeManager.getAll(true);
+                ViewBag.idName = "isPetAllowedTypeId";
             }
             else if (propertyType == typeof(CountryTypeVo))
             {
@@ -177,13 +187,13 @@ namespace SO.SilList.Web.Controllers
             }
             else if (propertyType == typeof(BedroomTypeVo))
             {
-                ViewBag.list = acceptsSection8TypeManager.getAll(true);
+                ViewBag.list = bedroomTypeManager.getAll(true);
                 ViewBag.propertyId = "bedroomTypeId";
                 ViewBag.titleName = "Bedroom";
             }
             else if (propertyType == typeof(BathroomTypeVo))
             {
-                ViewBag.list = isPetAllowedTypeManager.getAll(true);
+                ViewBag.list = bathroomTypeManager.getAll(true);
                 ViewBag.propertyId = "bathroomTypeId";
                 ViewBag.titleName = "Bathroom";
             }
