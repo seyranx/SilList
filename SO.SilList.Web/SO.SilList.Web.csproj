@@ -378,6 +378,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\BuySell\" />
+    <Folder Include="Views\CityType\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

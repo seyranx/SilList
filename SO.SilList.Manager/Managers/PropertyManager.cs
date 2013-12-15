@@ -26,6 +26,7 @@ namespace SO.SilList.Manager.Managers
                             .Include(i => i.cityType)
                             .Include(o => o.countryType)
                             .Include(u => u.stateType) 
+                            .Include(a => a.acceptsSection8Type)
                             .FirstOrDefault(r => r.propertyId == propertyId);
 
                 return result;
@@ -94,9 +95,9 @@ namespace SO.SilList.Manager.Managers
                                       && (e.bedroomTypeId >= input.bedroomTypeId || input.bedroomTypeId == null)
                                       && (e.bathroomTypeId >= input.bathroomTypeId || input.bathroomTypeId == null) 
                                       && ((e.price >= input.startingPrice || input.startingPrice == null)
-                                            && (e.price <= input.endingPrice || input.endingPrice == null))
-                                      && (input.acceptsSection8 == null || e.acceptsSection8 == input.acceptsSection8)
-                                      && (input.isPetAllowed == null || e.isPetAllowed == input.isPetAllowed)
+                                      && (e.price <= input.endingPrice || input.endingPrice == null))
+                                      && (input.acceptsSection8TypeId == null || e.acceptsSection8TypeId == input.acceptsSection8TypeId)
+                                      && (input.isPetAllowedTypeId == null || e.isPetAllowedTypeId == input.isPetAllowedTypeId)
 
                                       /*
                                       && (input.showPendingOnly == null || input.showPendingOnly == false || e.entryStatusType.name.Equals(EntryStatusTypeStrings.csPending)) 

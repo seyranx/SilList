@@ -34,13 +34,13 @@ namespace SO.SilList.Manager.Managers
         }
 
 
-        public List<CityTypeVo> search(string keywrod)
+        public List<CityTypeVo> search(string keyword)
         {
             using (var db = new MainDb())
             {
                 var query = (from c in db.cityType.Include(s=>s.stateType).Include(b=>b.countryType)
                              // join s in db.stateType on c.cityTypeId equals s.stateTypeId
-                             where c.name.StartsWith(keywrod)
+                             where c.name.StartsWith(keyword)
                              select c
                             );
 
