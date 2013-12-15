@@ -53,10 +53,10 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public int? lotSize { get; set; }
 
         [DisplayName("Section8")]
-        public int? acceptsSection8 { get; set; }
+        public int? acceptsSection8TypeId { get; set; }
 
         [DisplayName("Pet Allowed")]
-        public int? isPetAllowed { get; set; }
+        public int? isPetAllowedTypeId { get; set; }
 
         [DisplayName("Address")]
         [StringLength(50)]
@@ -114,6 +114,18 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("Active")]
     	[Required]
         public bool isActive { get; set; }
+
+        [ForeignKey("bedroomTypeId")]
+        public virtual BedroomTypeVo bedroomType { get; set; }
+
+        [ForeignKey("bathroomTypeId")]
+        public virtual BathroomTypeVo bathroomType { get; set; }
+
+        [ForeignKey("acceptsSection8TypeId")]
+        public virtual AcceptsSection8TypeVo acceptsSection8Type { get; set; }
+
+        [ForeignKey("isPetAllowedTypeId")]
+        public virtual IsPetAllowedTypeVo isPetAllowedType { get; set; }
 
         [ForeignKey("propertyListingTypeId")]
         public virtual PropertyListingTypeVo propertyListingType { get; set; }

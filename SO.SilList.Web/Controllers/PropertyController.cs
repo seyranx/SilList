@@ -22,6 +22,8 @@ namespace SO.SilList.Web.Controllers
         private PropertyListingTypeManager propertyListingTypeManager = new PropertyListingTypeManager();
         private BedroomTypeManager bedroomTypeManager = new BedroomTypeManager();
         private BathroomTypeManager bathroomTypeManager = new BathroomTypeManager();
+        private AcceptsSection8TypeManager acceptsSection8TypeManager = new AcceptsSection8TypeManager();
+        private IsPetAllowedTypeManager isPetAllowedTypeManager = new IsPetAllowedTypeManager();
 
 
         public ActionResult Index(PropertyVm input = null, Paging paging = null)
@@ -71,12 +73,12 @@ namespace SO.SilList.Web.Controllers
             if (propertyType == typeof(PropertyTypeVo))
             {
                 ViewBag.items = propertyTypeManager.getAll(true);
-                ViewBag.idName = "propertyTypeTypeId";
+                ViewBag.idName = "propertyTypeId";
             }
             else if (propertyType == typeof(PropertyListingTypeVo))
             {
                 ViewBag.items = propertyListingTypeManager.getAll(true);
-                ViewBag.idName = "propertyTypeTypeId";
+                ViewBag.idName = "propertyListingTypeId";
             }
             else if (propertyType == typeof(BedroomTypeVo))
             {
@@ -87,6 +89,16 @@ namespace SO.SilList.Web.Controllers
             {
                 ViewBag.items = bathroomTypeManager.getAll(true);
                 ViewBag.idName = "bathroomTypeId";
+            }
+            else if (propertyType == typeof(AcceptsSection8TypeVo))
+            {
+                ViewBag.items = acceptsSection8TypeManager.getAll(true);
+                ViewBag.idName = "acceptsSection8TypeId";
+            }
+            else if (propertyType == typeof(IsPetAllowedTypeVo))
+            {
+                ViewBag.items = isPetAllowedTypeManager.getAll(true);
+                ViewBag.idName = "isPetAllowedTypeId";
             }
             else if (propertyType == typeof(CountryTypeVo))
             {
@@ -185,15 +197,24 @@ namespace SO.SilList.Web.Controllers
                 ViewBag.propertyId = "bathroomTypeId";
                 ViewBag.titleName = "Bathroom";
             }
+            else if (propertyType == typeof(AcceptsSection8TypeVo))
+            {
+                ViewBag.list = acceptsSection8TypeManager.getAll(true);
+                ViewBag.propertyId = "acceptsSection8TypeId";
+                ViewBag.titleName = "Accepts Section 8";
+            }
+            else if (propertyType == typeof(IsPetAllowedTypeVo))
+            {
+                ViewBag.list = isPetAllowedTypeManager.getAll(true);
+                ViewBag.propertyId = "isPetAllowedTypeId";
+                ViewBag.titleName = "Is Pet Allowed";
+            }
 
             return PartialView("_CollapseList");
         }
 
     }
 }
-
-
-
 
 
 /*

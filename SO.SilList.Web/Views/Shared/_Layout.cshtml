@@ -47,6 +47,7 @@
 
             $("#cityTypeId").select2({
                 placeholder: "City, State",
+                id: function (data) { return data.cityTypeId; },
                 width: 'element',
                 minimumInputLength: 2,
                 ajax: {
@@ -64,19 +65,14 @@
                 },
 
                 formatResult: cityFormatResult, // omitted for brevity, see the source of this page
-                formatSelection: cityFormatSelection,
-                dropdownCssClass: "bigdrop", //
-                escapeMarkup: function (m) { return m; } // we do not want to escape markup since we are displaying html in results
+                formatSelection: cityFormatResult,
+                //dropdownCssClass: "bigdrop", //
+                //escapeMarkup: function (m) { return m; } // we do not want to escape markup since we are displaying html in results
             });
         });
-        function cityFormatSelection(city) {
-            
-            return city.name +", "+city.stateType.stateCode;
-        }
+
         function cityFormatResult(city) {
-            var markup = "<table class='movie-result'><tr>";
-            markup += "<td class='movie-image'>" + city.name + "," + city.stateType.stateCode + "</td>";
-            return markup;
+            return (city.name + "," + city.stateType.stateCode);
         }
 
     </script>

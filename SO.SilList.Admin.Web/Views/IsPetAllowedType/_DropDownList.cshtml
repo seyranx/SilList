@@ -1,0 +1,3 @@
+﻿@model SO.SilList.Manager.Models.ValueObjects.IsPetAllowedTypeVo
+
+@Html.DropDownList((string)ViewBag.propertyName, new SelectList(ViewBag.Engines,"isPetAllowedTypeId","name",Model.isPetAllowedTypeId),(string)ViewBag.defaultValue)
