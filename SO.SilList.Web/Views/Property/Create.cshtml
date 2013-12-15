@@ -229,15 +229,17 @@
                     <b>Address:</b>
                     @Html.TextBoxFor(model => model.address, new { placeholder = "Address", style = "width:80%;margin-top:5px" })
                     <div class="info">
-
-                        <div class="span6">
+                        <div class="span2">
+                            <b>Country:</b>
+                        </div>                                            
+                        <div class="span10">
                             @Html.Action("DropDownList", new { id = Model.countryTypeId, propertyName = "countryTypeId", propertyType = typeof(CountryTypeVo), defaultValue = "Select Country" })
                         </div>
-                        <div class="span6">
+                        @*<div class="span6">
                             @Html.Action("DropDownList", new { id = Model.stateTypeId, propertyName = "stateTypeId", propertyType = typeof(StateTypeVo), defaultValue = "Select State" })
-                        </div>
-
-                    </div>
+                        </div>*@
+                     
+                    </div> 
                     <div class="span12" style="margin-left: -1px">
                         <div class="span7" style="margin-top: 6px">
                             <input id="cityTypeId" name="cityTypeId"/>
@@ -287,9 +289,15 @@
         </div>
         <div class="span4" style="border: inset; border-color: #808080; height: 150px; border-radius: 6px; padding: 10px;">
             <b> Property Type: </b>
-            <div class="info" style="align-content:center"> @Html.TextBoxFor(model => model.propertyType, new {  Class = "input-medium", id = Model.propertyType })</div>
+            <div class="info" style="align-content:center"> 
+               @* @Html.TextBoxFor(model => model.propertyType, new {  Class = "input-medium", id = Model.propertyType })*@
+                @Html.Action("DropDownList", new { id = Model.propertyTypeId, propertyName = "propertyTypeId", propertyType = typeof(PropertyTypeVo) })
+            </div>
             <b> Listing Type: </b>
-            <div class="info" style="align-content:center"> @Html.TextBoxFor(model => model.propertyListingTypeId, new {  Class = "input-medium", id = Model.propertyListingTypeId })</div>
+            <div class="info" style="align-content:center">
+               @*  @Html.TextBoxFor(model => model.propertyListingTypeId, new {  Class = "input-medium", id = Model.propertyListingTypeId })*@
+                @Html.Action("DropDownList", new { id = Model.propertyListingTypeId, propertyName = "propertyListingTypeId", propertyType = typeof(PropertyListingTypeVo) })
+            </div>
 
         </div>
        

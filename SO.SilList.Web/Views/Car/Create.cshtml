@@ -50,8 +50,8 @@
             $("#loadFile" + imageCount).trigger('click');
 
             var filename = $("#loadFile" + imageCount).val();
-            if (($("#addImage").val() != filename) && (filename.indexOf(".jpg", 0) > 0 || filename.indexOf(".bmp", 0) > 0 || filename.indexOf(".jpeg", 0) > 0 || filename.indexOf(".png", 0) > 0 || filename.indexOf(".gif", 0) > 0)) {
-
+            //if (($("#addImage").val() != filename) && (filename.indexOf(".jpg", 0) > 0 || filename.indexOf(".bmp", 0) > 0 || filename.indexOf(".jpeg", 0) > 0 || filename.indexOf(".png", 0) > 0 || filename.indexOf(".gif", 0) > 0)) {
+            {
                 addPic(filename);
                 imageCount++;
                 firstImage = false;
@@ -116,7 +116,7 @@
  
     <div id="addNewImage"></div>
     
-    <input hidden="hidden" id="loadFile0" type="file" name="UploadImage" accept="image/*" />
+    <input  id="loadFile0" type="file" name="UploadImage" accept="image/*" />
        
              
     <div class="row" style="margin-left: 5px;">

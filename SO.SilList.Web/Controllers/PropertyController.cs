@@ -73,12 +73,12 @@ namespace SO.SilList.Web.Controllers
             if (propertyType == typeof(PropertyTypeVo))
             {
                 ViewBag.items = propertyTypeManager.getAll(true);
-                ViewBag.idName = "propertyTypeTypeId";
+                ViewBag.idName = "propertyTypeId";
             }
             else if (propertyType == typeof(PropertyListingTypeVo))
             {
                 ViewBag.items = propertyListingTypeManager.getAll(true);
-                ViewBag.idName = "propertyTypeTypeId";
+                ViewBag.idName = "propertyListingTypeId";
             }
             else if (propertyType == typeof(BedroomTypeVo))
             {
