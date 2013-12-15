@@ -120,23 +120,7 @@
             </b>         
         </div>
     
-    <div id="addNewImage"></div>
     
-    <input hidden="hidden" id="loadFile0" type="file" name="UploadImage" accept="image/*" />
-       
-             
-    <div class="row" style="margin-left: 5px;">
-        
-        <div id="galleria" style="height:400px;width:100%">
-              <img src="~/Images/houseImage.jpg">
-                   
-        </div>
-    </div>
-    <div class="row">
-        <a value="" id="addImage" class="btn btn-primary pull-right" style="margin:3px;" onclick="addPic2()"  >Add Image</a>
-        <a value="" id="removeImage" class="btn btn-danger pull-right" style="margin:3px;" onclick="removePic()"  >Remove Image</a>
-    </div>
-    <br />
     <div class="row" style="margin: 5px;">
         <div class="span10 form-horizontal-left" >
             @Html.LabelFor(model => model.title)
@@ -188,8 +172,7 @@
                     @Html.TextBoxFor(model => model.size, new { Class = "input-small", placeholder = " sq ft" })
                     @Html.ValidationMessageFor(model => model.size)
                 </div>
-            </div>   
-             <div class="control-group">
+            
                 <div class="control-label">
                     @Html.LabelFor(model => model.lotSize)
                 </div>
@@ -197,13 +180,18 @@
                     @Html.TextBoxFor(model => model.lotSize, new { Class = "input-small", placeholder = " sq ft" }) 
                     @Html.ValidationMessageFor(model => model.lotSize)
                 </div>
-            </div> 
-             <div class="control-group">
+            
                 <div class="control-label">
                      @Html.LabelFor(model => model.isPetAllowedTypeId)
                 </div>
                  <div class="controls">
                      @Html.Action("DropDownList", new { id = Model.isPetAllowedTypeId, propertyName = "isPetAllowedTypeId", propertyType = typeof(IsPetAllowedTypeVo) })
+                 </div>
+                 <div class="control-label">
+                     @Html.LabelFor(model => model.acceptsSection8TypeId)
+                </div>
+                 <div class="controls">
+                     @Html.Action("DropDownList", new { id = Model.acceptsSection8TypeId, propertyName = "acceptsSection8TypeId", propertyType = typeof(AcceptsSection8TypeVo) })
                  </div>
                 @*<div class="controls">
                     @Html.HiddenFor(model => model.isPetAllowedTypeId)
@@ -266,6 +254,24 @@
 
 
             </div>
+            <div id="addNewImage"></div>
+    
+    <input hidden="hidden" id="loadFile0" type="file" name="UploadImage" accept="image/*" />
+       
+             
+    <div class="row" style="margin-left: 5px;">
+        
+        <div id="galleria" style="height:225px;width:65%">
+              <img src="~/Images/houseImage.jpg">
+                   
+        </div>
+        <br />
+    </div>
+    <div class="row pull-left" style="margin-left: 5px;">
+        <a value="" id="addImage" class="btn btn-primary pull-right" style="margin:3px;" onclick="addPic2()"  >Add Image</a>
+        <a value="" id="removeImage" class="btn btn-danger pull-right" style="margin:3px;" onclick="removePic()"  >Remove Image</a>
+    </div>
+    <br /><br />
             <div style="border: inset; border-color: #808080; height: 210px; border-radius: 6px; margin-bottom: 5px">
                 <b style="font-size: medium; font-style: italic; margin: 10px; padding: 5px; border-bottom: 1px solid #ccc;">Description</b>
                 <div style="margin: 5px; margin-left: 10px;">
@@ -279,7 +285,7 @@
                 <input value="Submit" type="submit" class="btn btn-success pull-right" />
             </div>
         </div>
-        <div class="span4" style="border: inset; border-color: #808080; height: 470px; border-radius: 6px; padding: 10px;">
+        <div class="span4" style="border: inset; border-color: #808080; height: 150px; border-radius: 6px; padding: 10px;">
             <b> Property Type: </b>
             <div class="info" style="align-content:center"> @Html.TextBoxFor(model => model.propertyType, new {  Class = "input-medium", id = Model.propertyType })</div>
             <b> Listing Type: </b>
