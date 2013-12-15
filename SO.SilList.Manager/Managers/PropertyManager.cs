@@ -26,6 +26,7 @@ namespace SO.SilList.Manager.Managers
                             .Include(i => i.cityType)
                             .Include(o => o.countryType)
                             .Include(u => u.stateType) 
+                            .Include(a => a.acceptsSection8Type)
                             .FirstOrDefault(r => r.propertyId == propertyId);
 
                 return result;

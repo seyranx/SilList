@@ -115,6 +115,18 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[Required]
         public bool isActive { get; set; }
 
+        [ForeignKey("bedroomTypeId")]
+        public virtual BedroomTypeVo bedroomType { get; set; }
+
+        [ForeignKey("bathroomTypeId")]
+        public virtual BathroomTypeVo bathroomType { get; set; }
+
+        [ForeignKey("acceptsSection8TypeId")]
+        public virtual AcceptsSection8TypeVo acceptsSection8Type { get; set; }
+
+        [ForeignKey("isPetAllowedTypeId")]
+        public virtual IsPetAllowedTypeVo isPetAllowedType { get; set; }
+
         [ForeignKey("propertyListingTypeId")]
         public virtual PropertyListingTypeVo propertyListingType { get; set; }
 
