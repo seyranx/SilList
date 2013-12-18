@@ -90,6 +90,8 @@ namespace SO.SilList.Manager.Managers
                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && ((e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                                             || (e.title.Contains(input.keyword) || e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword)))
+                                      && (input.zip == null || e.zip == input.zip)
+                                      && (input.filter_cityTypeId == null || e.cityTypeId == input.filter_cityTypeId)
                                       && (input.propertyTypeId == null || e.propertyTypeId == input.propertyTypeId)
                                       && (input.propertyListingTypeId == null || e.propertyListingTypeId == input.propertyListingTypeId)
                                       && (e.bedroomTypeId >= input.bedroomTypeId || input.bedroomTypeId == null)
