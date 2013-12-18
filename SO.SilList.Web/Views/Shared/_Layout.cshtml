@@ -69,6 +69,30 @@
                 //dropdownCssClass: "bigdrop", //
                 //escapeMarkup: function (m) { return m; } // we do not want to escape markup since we are displaying html in results
             });
+
+            $("#filter_cityTypeId").select2({
+                placeholder: "City, State",
+                id: function (data) { return data.cityTypeId; },
+                width: '100%',
+                minimumInputLength: 2,
+                ajax: {
+                    url: "/City/Search",
+                    dataType: 'json',
+                    quietMillis: 100,
+                    data: function (term) {
+                        return {
+                            id: term, //search term
+                        };
+                    },
+                    results: function (data, page) {
+                        return { results: data };
+                    }
+                },
+
+                formatResult: cityFormatResult, // omitted for brevity, see the source of this page
+                formatSelection: cityFormatResult,
+            });
+
         });
 
         function cityFormatResult(city) {

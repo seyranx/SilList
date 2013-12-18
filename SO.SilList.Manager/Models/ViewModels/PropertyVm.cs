@@ -14,7 +14,9 @@ namespace SO.SilList.Manager.Models.ViewModels
     {
         public List<PropertyVo> result { get; set; }
         public string keyword { get; set; }
-        public string location { get; set; }
+        //public string location { get; set; }
+        public int? filter_cityTypeId { get; set; } 
+        public int? zip { get; set; }
 
         public int? siteId { get; set; }
         public int? listingDate { get; set; } 
