@@ -75,7 +75,7 @@ namespace SO.SilList.Manager.Managers
             {
                 try
                 {
-                    if (!isAuthenticated)
+                    if (!currentUser.IsAuthenticated)
                     {
                       
                         HttpContext.Current.Session[sessionKey] = null;

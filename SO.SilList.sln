@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2012 for Web
+# Visual Studio Express 2013 for Web
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SO.SilList.Manager", "SO.SilList.Manager\SO.SilList.Manager.csproj", "{B224CD00-0EC0-43FC-B90B-F1F05F760ABF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SO.SilList.Web", "SO.SilList.Web\SO.SilList.Web.csproj", "{77E8C0FF-44CB-44FE-957F-364F8B5D0E55}"
@@ -12,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SO.SilList.Utility", "SO.SilList.Utility\SO.SilList.Utility.csproj", "{6FE90691-F7DA-42A0-B3A9-3B822CF0E713}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SO.SilList.Admin.Web", "SO.SilList.Admin.Web\SO.SilList.Admin.Web.csproj", "{11AA7DBA-A360-482C-9F01-A47D26F0BDD0}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SO.SilList.Database", "SO.SilList.Database\SO.SilList.Database.sqlproj", "{68778B0F-63BA-4D6F-B227-6E69B8B97688}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +47,12 @@ Global
 		{11AA7DBA-A360-482C-9F01-A47D26F0BDD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11AA7DBA-A360-482C-9F01-A47D26F0BDD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11AA7DBA-A360-482C-9F01-A47D26F0BDD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68778B0F-63BA-4D6F-B227-6E69B8B97688}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68778B0F-63BA-4D6F-B227-6E69B8B97688}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68778B0F-63BA-4D6F-B227-6E69B8B97688}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{68778B0F-63BA-4D6F-B227-6E69B8B97688}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68778B0F-63BA-4D6F-B227-6E69B8B97688}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68778B0F-63BA-4D6F-B227-6E69B8B97688}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
