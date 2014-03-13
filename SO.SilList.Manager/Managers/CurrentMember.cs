@@ -50,7 +50,14 @@ namespace SO.SilList.Manager.Managers
             get
             {
                 try { 
-                    return currentUser.IsAuthenticated; 
+
+
+                    var res =  true; 
+
+                    if(member==null || !currentUser.IsAuthenticated)
+                        res = false;
+
+                    return res;
                 }
                 catch 
                 { 
