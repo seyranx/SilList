@@ -73,7 +73,7 @@ namespace SO.SilList.Web.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            return View();
+            return View(input);
         }
 
 
