@@ -1,66 +1,31 @@
-﻿
-
-@{
+﻿@{
     ViewBag.Title = "Home Page";
 }
 
-  <!-- Main hero unit for a primary marketing message or call to action -->
-
-      <div class="hero-unit span5 blackbox">
-          @Html.Partial("_PropertyBox")
-@*
-      <h2>Homes:</h2> 
-      <hr />
-<form >
-    <label>Keyword:
-         <br />
-  
-    </label>
-    <input type="text" placeholder="Type something…" style="width:95%;">
-
-    <button type="submit" class="btn btn-success btn-large pull-right">Search</button>
-</form>
-*@     
-     </div>
-
-
- <div class="hero-unit span5 blackbox">
-
-    
-      <h2>Jobs:</h2> 
-               <hr />
-@using (Html.BeginForm("index", "Jobs"))
-{
-    <label>Keyword:</label>
-    <input id="keyword" name="keyword" type="text" placeholder="Type something…" style="width:95%;">
-    @*<span class="help-block">Example block-level help text here.</span>*@
-    <br /><br />
-    <button type="submit" class="btn btn-success btn-large pull-right">Search</button>
-}
-
-
-            
-     </div>
-
-<div class="hero-unit span5 blackbox">
-
-@Html.Partial("_ListingsBox")
-            
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
 </div>
 
-
-<div class="hero-unit span5 blackbox">
-
-
-      <h2>Business Directory:</h2> 
-               <hr />
-<form >
-    <label>Keyword:</label>
-    <input type="text" placeholder="Type something…" style="width:95%;">
-    <br /><br />
-    <button type="submit" class="btn btn-success btn-large pull-right">Search</button>
-</form>
-
-
-            
-     </div>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+            enables a clean separation of concerns and gives you full control over markup
+            for enjoyable, agile development.
+        </p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Get more libraries</h2>
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+</div>
