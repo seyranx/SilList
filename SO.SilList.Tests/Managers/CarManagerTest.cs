@@ -2,7 +2,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Managers;
-using SO.SilList.Manager.Models.ViewModels;
 
 
 namespace SO.SilList.Tests.Managers
@@ -12,23 +11,7 @@ namespace SO.SilList.Tests.Managers
     {
         private CarManager carManager = new CarManager();
 
-        [TestMethod]
-        public void searchTest()
-        {
-            var vo = new CarVm();
-            vo.paging.pageNumber = 2;
-            vo.keyword = "aa";
-            vo.isActive = true;
-
-            var res = carManager.search(vo);
-
-            if (res != null)
-            {
-                Assert.IsTrue(true);
-            }
-            else Assert.IsTrue(false);
-        }
-
+     
 
         [TestMethod]
         public void getAllTest()

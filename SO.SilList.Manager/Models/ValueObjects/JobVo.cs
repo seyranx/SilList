@@ -73,9 +73,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[DisplayName("email")]
     	[StringLength(50)]
         public string email { get; set; }
-    
-    	[DisplayName("entry Status Type Id")]
-        public Nullable<int> entryStatusTypeId { get; set; }
+
+        [DisplayName("listingStatusTypeId")]
+        public Nullable<int> listingStatusTypeId { get; set; }
     
     	[DisplayName("start Date")]
     	[Required]

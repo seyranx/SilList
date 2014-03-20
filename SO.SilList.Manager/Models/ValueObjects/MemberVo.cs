@@ -43,7 +43,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public Nullable<int> stateTypeId { get; set; }
     
     	[DisplayName("Country Type Id")]
-        public Nullable<int> CountryTypeId { get; set; }
+        public Nullable<int> countryTypeId { get; set; }
     
     	[DisplayName("zip")]
         public Nullable<int> zip { get; set; }

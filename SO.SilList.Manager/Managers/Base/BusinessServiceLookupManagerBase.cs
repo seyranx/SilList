@@ -64,7 +64,7 @@ namespace  SO.SilList.Manager.Managers.Base
                 var query = db.businessServiceLookups
                              .OrderByDescending(b => b.created)
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
-                                      && (e.serviceTypeId.ToString().Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                      && (e.businessServiceTypeId.ToString().Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                                     );
              
 			  if (input.paging != null) { 

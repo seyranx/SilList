@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Data.Entity;
 using SO.SilList.Manager.Models.ValueObjects;
-using SO.SilList.Manager.Models.ViewModels;
+using SO.Utility.Models.ViewModels;
 
 namespace SO.SilList.Tests.Managers
 {
@@ -16,18 +16,17 @@ namespace SO.SilList.Tests.Managers
         private BusinessManager businessManager = new BusinessManager();
 
 
+
+
         [TestMethod]
         public void searchTest()
         {
-            var vo = new BusinessVm();
-            //vo.pageNumber = 2;
-            //vo.keyword = "aa";
-            vo.isActive = true;
-
+            var vo = new SearchFilterVm();
+            vo.keyword = "one";
             var res = businessManager.search(vo);
 
-            if (res.result != null)
-            {
+            if (res != null)
+           { 
                 Assert.IsTrue(true);
             }
             else Assert.IsTrue(false);

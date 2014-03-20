@@ -23,7 +23,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
         public Guid businessServiceLookupId { get; set; }
     
     	[DisplayName("service Type Id")]
-        public Nullable<int> serviceTypeId { get; set; }
+        public Nullable<int> businessServiceTypeId { get; set; }
     
     	[DisplayName("business Id")]
         public Nullable<Guid> businessId { get; set; }

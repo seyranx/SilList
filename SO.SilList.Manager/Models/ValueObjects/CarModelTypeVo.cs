@@ -11,57 +11,57 @@ using System.Data.Entity;
 
 namespace SO.SilList.Manager.Models.ValueObjects
 {
-    [Table("CarModelType", Schema = "app" )]
+    [Table("CarModelType", Schema = "app")]
     [Serializable]
-    public  class CarModelTypeVo
+    public class CarModelTypeVo
     {
-    
-          
-    	[DisplayName("car Model Type Id")]
-    	[Required]
-    	[Key]
+
+
+        [DisplayName("car Model Type Id")]
+        [Required]
+        [Key]
         public int carModelTypeId { get; set; }
-    
-    	[DisplayName("make Type Id")]
-        public Nullable<int> makeTypeId { get; set; }
-    
-    	[DisplayName("name")]
-    	[StringLength(50)]
+
+        [DisplayName("car make Type Id")]
+        public Nullable<int> carMakeTypeId { get; set; }
+
+        [DisplayName("name")]
+        [StringLength(50)]
         public string name { get; set; }
-    
-    	[DisplayName("description")]
+
+        [DisplayName("description")]
         public string description { get; set; }
-    
-    	[DisplayName("created")]
-    	[Required]
+
+        [DisplayName("created")]
+        [Required]
         public DateTime created { get; set; }
-    
-    	[DisplayName("modified")]
-    	[Required]
+
+        [DisplayName("modified")]
+        [Required]
         public DateTime modified { get; set; }
-    
-    	[DisplayName("created By")]
+
+        [DisplayName("created By")]
         public Nullable<int> createdBy { get; set; }
-    
-    	[DisplayName("modified By")]
+
+        [DisplayName("modified By")]
         public Nullable<int> modifiedBy { get; set; }
-    
-    	[DisplayName("is Active")]
-    	[Required]
+
+        [DisplayName("is Active")]
+        [Required]
         public bool isActive { get; set; }
-    
-    
+
+
         [ForeignKey("carMakeTypeId")]
         public CarMakeTypeVo carMakeType { get; set; }
-       
+
         [Association("CarModelType_Car", "carModelTypeId", "carModelTypeId")]
         public List<CarVo> carses { get; set; }
-       
-      public CarModelTypeVo()
-            {
-    				this.isActive = true;
-            }
-    
+
+        public CarModelTypeVo()
+        {
+            this.isActive = true;
+        }
+
     }
-    
+
 }
