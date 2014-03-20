@@ -1,8 +1,9 @@
 ﻿CREATE TABLE [data].[Image] (
     [imageId]    UNIQUEIDENTIFIER CONSTRAINT [DF__Image__imageId__403A8C7D] DEFAULT (newid()) NOT NULL,
+    [recordId]   UNIQUEIDENTIFIER NULL,
     [name]       NVARCHAR (50)    NULL,
     [url]        NVARCHAR (250)   NULL,
-    [path]       NVARCHAR (250)    NULL,
+    [path]       NVARCHAR (250)   NULL,
     [fileType]   NVARCHAR (50)    NULL,
     [siteId]     INT              NULL,
     [height]     INT              NULL,
@@ -12,11 +13,11 @@
     [modified]   DATETIME         CONSTRAINT [DF__Image__modified__4222D4EF] DEFAULT (getdate()) NOT NULL,
     [createdBy]  INT              NULL,
     [modifiedBy] INT              NULL,
-    [isActive]   BIT              DEFAULT ((1)) NOT NULL,
-    CONSTRAINT [PK_Image] PRIMARY KEY CLUSTERED ([imageId] ASC),
-	CONSTRAINT [FK_Image_Site] FOREIGN KEY ([siteId]) REFERENCES [app].[Site] ([siteId])
-
+    [isActive]   BIT              CONSTRAINT [DF__Image__isActive__473C8FC7] DEFAULT ((1)) NOT NULL,
+    CONSTRAINT [PK_Image] PRIMARY KEY CLUSTERED ([imageId] ASC)
 );
+
+
 
 
 

@@ -123,18 +123,11 @@
     <Build Include="Security\dev.sql" />
     <Build Include="Security\data.sql" />
     <Build Include="Security\app.sql" />
-    <Build Include="app\Tables\Site.sql">
-      <AnsiNulls>Off</AnsiNulls>
-    </Build>
-    <Build Include="app\Tables\BusinessCategoryType.sql" />
-    <Build Include="data\Tables\BusinessCategories.sql">
-      <AnsiNulls>Off</AnsiNulls>
-    </Build>
-    <Build Include="data\Tables\BusinessServices.sql">
+    <Build Include="app\Tables\BusinessCategoryType.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
     <Build Include="data\Tables\Image.sql">
-      <AnsiNulls>Off</AnsiNulls>
+      <AnsiNulls>On</AnsiNulls>
     </Build>
     <Build Include="data\Tables\Job.sql">
       <AnsiNulls>On</AnsiNulls>
@@ -146,13 +139,6 @@
     <Build Include="data\Tables\Property.sql">
       <AnsiNulls>On</AnsiNulls>
     </Build>
-    <Build Include="data\Tables\BusinessImages.sql">
-      <AnsiNulls>Off</AnsiNulls>
-    </Build>
-    <Build Include="data\Tables\BusinessRatings.sql">
-      <AnsiNulls>On</AnsiNulls>
-    </Build>
-    <Build Include="app\Tables\ServiceType.sql" />
     <Build Include="app\Tables\PropertyType.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
@@ -171,25 +157,8 @@
     <Build Include="data\Tables\Listing.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
-    <Build Include="data\Tables\ListingImages.sql">
-      <AnsiNulls>Off</AnsiNulls>
-    </Build>
-    <Build Include="data\Tables\ListingCategories.sql">
-      <AnsiNulls>Off</AnsiNulls>
-    </Build>
     <Build Include="data\Tables\Car.sql">
       <AnsiNulls>Off</AnsiNulls>
-    </Build>
-    <Build Include="data\Tables\CarImages.sql">
-      <AnsiNulls>Off</AnsiNulls>
-    </Build>
-    <Build Include="app\Tables\CarBodyType.sql" />
-    <Build Include="app\Tables\ModelType.sql" />
-    <Build Include="app\Tables\TransmissionType.sql" />
-    <Build Include="app\Tables\MakeType.sql" />
-    <Build Include="data\Tables\JobCategories.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
     <Build Include="app\Tables\ListingCategoryType.sql">
       <AnsiNulls>Off</AnsiNulls>
@@ -197,16 +166,13 @@
     <Build Include="app\Tables\ListingType.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
-    <Build Include="app\Tables\EnvironmentType.sql" />
-    <Build Include="app\Tables\SettingType.sql" />
-    <Build Include="app\Tables\Admin.sql" />
-    <Build Include="data\Tables\Visit.sql">
-      <QuotedIdentifier>On</QuotedIdentifier>
+    <Build Include="app\Tables\SettingType.sql">
+      <AnsiNulls>Off</AnsiNulls>
     </Build>
-    <Build Include="app\Tables\CarColorType.sql" />
-    <Build Include="app\Tables\CarEngineType.sql" />
-    <Build Include="app\Tables\CarFuelType.sql" />
-    <Build Include="app\Tables\CarDriveType.sql" />
+    <Build Include="app\Tables\Admin.sql">
+      <AnsiNulls>Off</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
+    </Build>
     <Build Include="app\Tables\CityType.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
@@ -214,8 +180,6 @@
       <AnsiNulls>Off</AnsiNulls>
     </Build>
     <Build Include="app\Tables\CountryType.sql" />
-    <Build Include="app\Tables\CarDoorType.sql" />
-    <Build Include="app\Tables\EntryStatusType.sql" />
     <None Include="user-scripts\InsertToJobs.sql" />
     <None Include="appData\AppDataImport.sql" />
     <None Include="user-scripts\InitEntryStatusType.sql" />
@@ -224,14 +188,46 @@
       <AnsiNulls>ProjectDefault</AnsiNulls>
     </None>
     <None Include="user-scripts\InsertToCar.sql" />
-    <Build Include="data\Tables\PropertyImages.sql">
+    <Build Include="data\Tables\MemberRoleLookup.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="data\Tables\ListingCategoryLookup.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="data\Tables\JobCategoryLookup.sql">
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
-    <Build Include="app\Tables\BedroomType.sql" />
-    <Build Include="app\Tables\BathroomType.sql" />
-    <Build Include="app\Tables\IsPetAllowedType.sql" />
-    <Build Include="app\Tables\AcceptsSection8Type.sql" />
+    <Build Include="data\Tables\BusinessServiceLookup.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="data\Tables\BusinessCategoryLookup.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="app\Tables\OptionType.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="app\Tables\MemberRoleType.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="app\Tables\ListingStatusType.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="app\Tables\CarModelType.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="app\Tables\CarMakeType.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="app\Tables\BusinessServiceType.sql">
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Security\propapp.sql" />
+    <Build Include="Security\bizdata.sql" />
+    <Build Include="Security\bizapp.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Compare_Update_Code.scmp" />
