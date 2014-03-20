@@ -5,15 +5,20 @@ using System.Text;
 using System.Threading.Tasks; 
 using System.Data.Entity;
 using EntityFramework.Extensions;
-using SO.SilList.Models.ValueObjects; 
-using SO.SilList.DbContexts;
+using SO.SilList.Manager.Models.ValueObjects; 
+using SO.SilList.Manager.DbContexts;
+
+using SO.Utility.Classes; 
 using SO.Utility.Models.ViewModels;
 using SO.Utility;
 using SO.Utility.Helpers;
 using SO.Utility.Extensions;
+
+
+
  
 
-namespace  SO.SilList.Managers.Base
+namespace  SO.SilList.Manager.Managers.Base
 {
     public class BusinessServiceLookupManagerBase
     {
@@ -59,7 +64,7 @@ namespace  SO.SilList.Managers.Base
                 var query = db.businessServiceLookups
                              .OrderByDescending(b => b.created)
                              .Where(e => (input.isActive == null || e.isActive == input.isActive)
-                                      && (e.serviceTypeId.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
+                                      && (e.serviceTypeId.ToString().Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                                     );
              
 			  if (input.paging != null) { 

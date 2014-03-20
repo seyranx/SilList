@@ -147,10 +147,6 @@
       <Project>{b224cd00-0ec0-43fc-b90b-f1f05f760abf}</Project>
       <Name>SO.SilList.Manager</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SO.SilList.Utility\SO.SilList.Utility.csproj">
-      <Project>{6fe90691-f7da-42a0-b3a9-3b822cf0e713}</Project>
-      <Name>SO.SilList.Utility</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

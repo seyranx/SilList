@@ -30,17 +30,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework.Extended">
-      <HintPath>..\packages\EntityFramework.Extended.5.0.0.73\lib\net45\EntityFramework.Extended.dll</HintPath>
+    <Reference Include="EntityFramework.Extended, Version=6.0.0.0, Culture=neutral, PublicKeyToken=05b7e29bdd433584, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.Extended.6.0.0.86\lib\net45\EntityFramework.Extended.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -53,227 +57,220 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\DontTrackVisitAttribute.cs" />
-    <Compile Include="Attributes\TrackVisitAttribute.cs" />
-    <Compile Include="Classes\Connection.cs" />
-    <Compile Include="Classes\EntryStatusTypeInfo.cs" />
-    <Compile Include="DbContexts\MainDb.cs" />
-    <Compile Include="Interfaces\IAcceptsSection8TypeManager.cs" />
-    <Compile Include="Interfaces\IBathroomTypeManager.cs" />
-    <Compile Include="Interfaces\IBedroomTypeManager.cs" />
-    <Compile Include="Interfaces\ICarFuelTypeManager.cs" />
-    <Compile Include="Interfaces\ICarDoorTypeManager.cs" />
-    <Compile Include="Interfaces\ICarDriveTypeManager.cs" />
-    <Compile Include="Interfaces\ICarEngineTypeManager.cs" />
-    <Compile Include="Interfaces\ICarColorTypeManager.cs" />
-    <Compile Include="Interfaces\IIsPetAllowedTypeManager.cs" />
-    <Compile Include="Interfaces\IStateTypeManager.cs" />
-    <Compile Include="Interfaces\ICountryTypeManager.cs" />
-    <Compile Include="Interfaces\ICityTypeManager.cs" />
-    <Compile Include="Interfaces\IAdminManager.cs" />
-    <Compile Include="Interfaces\IEnvironmentTypeManager.cs" />
-    <Compile Include="Interfaces\IPropertyManager.cs" />
-    <Compile Include="Interfaces\ISettingTypeManager.cs" />
-    <Compile Include="Interfaces\ITransmissionTypeManager.cs" />
-    <Compile Include="Interfaces\IMakeTypeManager.cs" />
-    <Compile Include="Interfaces\IModelTypeManager.cs" />
-    <Compile Include="Interfaces\ICarImagesManager.cs" />
-    <Compile Include="Interfaces\ICarBodyTypeManager.cs" />
-    <Compile Include="Interfaces\ICarManager.cs" />
-    <Compile Include="Interfaces\IBusinessImagesManager.cs" />
-    <Compile Include="Interfaces\IBusinessServicesManager.cs" />
-    <Compile Include="Interfaces\IJobCategoriesManager.cs" />
-    <Compile Include="Interfaces\IJobManager.cs" />
-    <Compile Include="Interfaces\IListingCategoriesManager.cs" />
-    <Compile Include="Interfaces\IListingCategoryTypeManager.cs" />
-    <Compile Include="Interfaces\IImageManager.cs" />
-    <Compile Include="Interfaces\IListingImagesManager.cs" />
-    <Compile Include="Interfaces\IListingManager.cs" />
-    <Compile Include="Interfaces\IListingTypeManager.cs" />
-    <Compile Include="Interfaces\IMemberManager.cs" />
-    <Compile Include="Interfaces\IBusinessCategoriesManager.cs" />
-    <Compile Include="Interfaces\IBusinessRatingsManager.cs" />
-    <Compile Include="Interfaces\IJobTypeManager.cs" />
-    <Compile Include="Interfaces\IPropertyTypeManager.cs" />
-    <Compile Include="Interfaces\IRatingManager.cs" />
-    <Compile Include="Interfaces\IPropertyListingTypeManager.cs" />
-    <Compile Include="Interfaces\IPropertyImagesManager.cs" />
-    <Compile Include="Interfaces\IServiceTypeManager.cs" />
-    <Compile Include="Interfaces\ISiteManager.cs" />
-    <Compile Include="Interfaces\IBusinessCategoryTypeManager.cs" />
-    <Compile Include="Interfaces\IBusinessManager.cs" />
-    <Compile Include="Interfaces\IStatusTypeManager.cs" />
-    <Compile Include="Interfaces\IJobCategoryTypeManager.cs" />
-    <Compile Include="Interfaces\IVisitManager.cs" />
-    <Compile Include="Managers\Base\BusinessCategoryLookupManagerBase.cs" />
-    <Compile Include="Managers\Base\BusinessCategoryTypeManagerBase.cs" />
-    <Compile Include="Managers\Base\BusinessManagerBase.cs" />
-    <Compile Include="Managers\Base\BusinessServiceLookupManagerBase.cs" />
-    <Compile Include="Managers\Base\BusinessServiceTypeManagerBase.cs" />
-    <Compile Include="Managers\Base\CarMakeTypeManagerBase.cs" />
-    <Compile Include="Managers\Base\CarManagerBase.cs" />
-    <Compile Include="Managers\Base\CarModelTypeManagerBase.cs" />
-    <Compile Include="Managers\Base\CityTypeManagerBase.cs" />
-    <Compile Include="Managers\Base\CountryTypeManagerBase.cs" />
-    <Compile Include="Managers\Base\ImageManagerBase.cs" />
-    <Compile Include="Managers\Base\JobCategoryLookupManagerBase.cs" />
-    <Compile Include="Managers\Base\JobCategoryTypeManagerBase.cs" />
-    <Compile Include="Managers\Base\JobManagerBase.cs" />
-    <Compile Include="Managers\Base\JobTypeManagerBase.cs" />
-    <Compile Include="Managers\Base\ListingCategoryLookupManagerBase.cs" />
-    <Compile Include="Managers\Base\ListingCategoryTypeManagerBase.cs" />
-    <Compile Include="Managers\Base\ListingManagerBase.cs" />
-    <Compile Include="Managers\Base\ListingStatusTypeManagerBase.cs" />
-    <Compile Include="Managers\Base\ListingTypeManagerBase.cs" />
-    <Compile Include="Managers\Base\MemberManagerBase.cs" />
-    <Compile Include="Managers\Base\MemberRoleLookupManagerBase.cs" />
-    <Compile Include="Managers\Base\MemberRoleTypeManagerBase.cs" />
-    <Compile Include="Managers\Base\OptionTypeManagerBase.cs" />
-    <Compile Include="Managers\Base\PropertyListingTypeManagerBase.cs" />
-    <Compile Include="Managers\Base\PropertyManagerBase.cs" />
-    <Compile Include="Managers\Base\PropertyTypeManagerBase.cs" />
-    <Compile Include="Managers\Base\RatingManagerBase.cs" />
-    <Compile Include="Managers\Base\SettingTypeManagerBase.cs" />
-    <Compile Include="Managers\Base\StateTypeManagerBase.cs" />
-    <Compile Include="Managers\BusinessCategoryLookupManager.cs" />
-    <Compile Include="Managers\BusinessCategoryTypeManager.cs" />
-    <Compile Include="Managers\BusinessManager.cs" />
-    <Compile Include="Managers\BusinessServiceLookupManager.cs" />
-    <Compile Include="Managers\BusinessServiceTypeManager.cs" />
-    <Compile Include="Managers\CarMakeTypeManager.cs" />
-    <Compile Include="Managers\CarManager.cs" />
-    <Compile Include="Managers\CarModelTypeManager.cs" />
-    <Compile Include="Managers\CityTypeManager.cs" />
-    <Compile Include="Managers\JobCategoryLookupManager.cs" />
-    <Compile Include="Managers\ListingCategoryLookupManager.cs" />
-    <Compile Include="Managers\ListingStatusTypeManager.cs" />
-    <Compile Include="Managers\MemberRoleLookupManager.cs" />
-    <Compile Include="Managers\MemberRoleTypeManager.cs" />
-    <Compile Include="Managers\OptionTypeManager.cs" />
-    <Compile Include="Managers\PropertyListingTypeManager.cs" />
-    <Compile Include="Managers\StateTypeManager.cs" />
-    <Compile Include="Managers\CountryTypeManager.cs" />
-    <Compile Include="Managers\ImageManager.cs" />
-    <Compile Include="Managers\JobCategoryTypeManager.cs" />
-    <Compile Include="Managers\JobManager.cs" />
-    <Compile Include="Managers\JobTypeManager.cs" />
-    <Compile Include="Managers\ListingCategoryTypeManager.cs" />
-    <Compile Include="Managers\ListingManager.cs" />
-    <Compile Include="Managers\ListingTypeManager.cs" />
-    <Compile Include="Managers\MemberManager.cs" />
-    <Compile Include="Managers\PropertyTypeManager.cs" />
-    <Compile Include="Managers\RatingManager.cs" />
-    <Compile Include="Managers\SettingTypeManager.cs" />
-    <Compile Include="Managers\PropertyManager.cs" />
-    <Compile Include="Models\ValueObjects\AcceptsSection8TypeVo.cs" />
-    <Compile Include="Models\ValueObjects\BedroomTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\CarColorTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\CarDoorTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\CarDriveTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\CarEngineTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\CarFuelTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\CityTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\BathroomTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\CountryTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\EntryStatusTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\IsPetAllowedTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\StateTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\VisitVo.cs" />
-    <Compile Include="Models\ViewModels\AcceptsSection8TypeVm.cs" />
-    <Compile Include="Models\ViewModels\Admin\AccountLoginVm.cs" />
-    <Compile Include="Models\ViewModels\Admin\AccountManageVm.cs" />
-    <Compile Include="Models\ViewModels\BedroomTypeVm.cs" />
-    <Compile Include="Models\ViewModels\BathroomTypeVm.cs" />
-    <Compile Include="Models\ViewModels\EntryStatusTypeVm.cs" />
-    <Compile Include="Models\ViewModels\BusinessCategoriesVm.cs" />
-    <Compile Include="Models\ViewModels\BusinessCategoryTypeVm.cs" />
-    <Compile Include="Models\ViewModels\BusinessRatingsVm.cs" />
-    <Compile Include="Models\ViewModels\BusinessServicesVm.cs" />
-    <Compile Include="Models\ViewModels\BusinessVm.cs" />
-    <Compile Include="Models\ViewModels\CarVm.cs" />
-    <Compile Include="Models\ValueObjects\AdminVo.cs" />
+    <Compile Include="DbContexts\MainDb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\BusinessCategoryLookupManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\BusinessCategoryTypeManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\BusinessManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\BusinessServiceLookupManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\BusinessServiceTypeManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\CarMakeTypeManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\CarManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\CarModelTypeManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\CityTypeManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\CountryTypeManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\ImageManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\JobCategoryLookupManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\JobCategoryTypeManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\JobManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\JobTypeManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\ListingCategoryLookupManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\ListingCategoryTypeManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\ListingManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\ListingStatusTypeManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\ListingTypeManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\MemberManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\MemberRoleLookupManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\MemberRoleTypeManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\OptionTypeManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\PropertyListingTypeManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\PropertyManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\PropertyTypeManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\RatingManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\SettingTypeManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\Base\StateTypeManagerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\BusinessCategoryLookupManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\BusinessCategoryTypeManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\BusinessManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\BusinessServiceLookupManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\BusinessServiceTypeManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\CarMakeTypeManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\CarManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\CarModelTypeManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\CityTypeManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\CountryTypeManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\ImageManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\JobCategoryLookupManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\JobCategoryTypeManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\JobManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\JobTypeManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\ListingCategoryLookupManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\ListingCategoryTypeManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\ListingManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\ListingStatusTypeManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\ListingTypeManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\MemberManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\MemberRoleLookupManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\MemberRoleTypeManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\OptionTypeManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\PropertyListingTypeManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\PropertyManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\PropertyTypeManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\RatingManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\SettingTypeManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\StateTypeManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\ValueObjects\BusinessCategoryLookupVo.cs" />
     <Compile Include="Models\ValueObjects\BusinessCategoryTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\BusinessCategoriesVo.cs" />
-    <Compile Include="Models\ValueObjects\BusinessImagesVo.cs" />
-    <Compile Include="Models\ValueObjects\BusinessRatingsVo.cs" />
-    <Compile Include="Models\ValueObjects\BusinessServicesVo.cs" />
-    <Compile Include="Models\ValueObjects\BusinessVo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Models\ValueObjects\CarBodyTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\CarImagesVo.cs" />
-    <Compile Include="Models\ValueObjects\CarVo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Models\ValueObjects\EnvironmentTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\JobCategoriesVo.cs" />
-    <Compile Include="Models\ValueObjects\JobCategoryTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\BusinessServiceLookupVo.cs" />
+    <Compile Include="Models\ValueObjects\BusinessServiceTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\BusinessVo.cs" />
+    <Compile Include="Models\ValueObjects\CarMakeTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\CarModelTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\CarVo.cs" />
+    <Compile Include="Models\ValueObjects\CityTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\CountryTypeVo.cs" />
     <Compile Include="Models\ValueObjects\ImageVo.cs" />
+    <Compile Include="Models\ValueObjects\JobCategoryLookupVo.cs" />
+    <Compile Include="Models\ValueObjects\JobCategoryTypeVo.cs" />
     <Compile Include="Models\ValueObjects\JobTypeVo.cs" />
     <Compile Include="Models\ValueObjects\JobVo.cs" />
-    <Compile Include="Models\ValueObjects\PropertyListingTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\ListingCategoriesVo.cs" />
+    <Compile Include="Models\ValueObjects\ListingCategoryLookupVo.cs" />
     <Compile Include="Models\ValueObjects\ListingCategoryTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\ListingImagesVo.cs" />
+    <Compile Include="Models\ValueObjects\ListingStatusTypeVo.cs" />
     <Compile Include="Models\ValueObjects\ListingTypeVo.cs" />
     <Compile Include="Models\ValueObjects\ListingVo.cs" />
-    <Compile Include="Models\ValueObjects\MakeTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\MemberRoleLookupVo.cs" />
+    <Compile Include="Models\ValueObjects\MemberRoleTypeVo.cs" />
     <Compile Include="Models\ValueObjects\MemberVo.cs" />
-    <Compile Include="Models\ValueObjects\ModelTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\RatingVo.cs" />
-    <Compile Include="Models\ValueObjects\PropertyImageVo.cs" />
-    <Compile Include="Models\ValueObjects\PropertyVo.cs" />
+    <Compile Include="Models\ValueObjects\OptionTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\PropertyListingTypeVo.cs" />
     <Compile Include="Models\ValueObjects\PropertyTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\ServiceTypeVo.cs" />
+    <Compile Include="Models\ValueObjects\PropertyVo.cs" />
+    <Compile Include="Models\ValueObjects\RatingVo.cs" />
     <Compile Include="Models\ValueObjects\SettingTypeVo.cs" />
-    <Compile Include="Models\ValueObjects\SiteVo.cs" />
-    <Compile Include="Models\ValueObjects\TransmissionTypeVo.cs" />
-    <Compile Include="Models\ViewModels\CarBodyTypeVm.cs" />
-    <Compile Include="Models\ViewModels\CarImagesVm.cs" />
-    <Compile Include="Models\ViewModels\AdminVm.cs" />
-    <Compile Include="Models\ViewModels\CityTypeVm.cs" />
-    <Compile Include="Models\ViewModels\CarColorTypeVm.cs" />
-    <Compile Include="Models\ViewModels\EmailVm.cs" />
-    <Compile Include="Models\ViewModels\IsPetAllowedTypeVm.cs" />
-    <Compile Include="Models\ViewModels\Member\MemberLoginVm.cs" />
-    <Compile Include="Models\ViewModels\Member\MemberManageVm.cs" />
-    <Compile Include="Models\ViewModels\Member\MemberRegisterVm.cs" />
-    <Compile Include="Models\ViewModels\CarEngineTypeVm.cs" />
-    <Compile Include="Models\ViewModels\CarDriveTypeVm.cs" />
-    <Compile Include="Models\ViewModels\CarDoorTypeVm.cs" />
-    <Compile Include="Models\ViewModels\CarFuelTypeVm.cs" />
-    <Compile Include="Models\ViewModels\StateTypeVm.cs" />
-    <Compile Include="Models\ViewModels\CountryTypeVm.cs" />
-    <Compile Include="Models\ViewModels\EnvironmentTypeVm.cs" />
-    <Compile Include="Models\ViewModels\JobCategoriesVm.cs" />
-    <Compile Include="Models\ViewModels\JobCategoryTypeVm.cs" />
-    <Compile Include="Models\ViewModels\JobTypeVm.cs" />
-    <Compile Include="Models\ViewModels\JobVm.cs" />
-    <Compile Include="Models\ViewModels\PropertyListingTypeVm.cs" />
-    <Compile Include="Models\ViewModels\ListingCategoriesVm.cs" />
-    <Compile Include="Models\ViewModels\ListingCategoryTypeVm.cs" />
-    <Compile Include="Models\ViewModels\ListingTypeVm.cs" />
-    <Compile Include="Models\ViewModels\MemberVm.cs" />
-    <Compile Include="Models\ViewModels\PropertyTypeVm.cs" />
-    <Compile Include="Models\ViewModels\RatingVm.cs" />
-    <Compile Include="Models\ViewModels\StatusTypeVm.cs" />
-    <Compile Include="Models\ViewModels\SettingTypeVm.cs" />
-    <Compile Include="Models\ViewModels\SiteVm.cs" />
-    <Compile Include="Models\ViewModels\TransmissionTypeVm.cs" />
-    <Compile Include="Models\ViewModels\MakeTypeVm.cs" />
-    <Compile Include="Models\ViewModels\CarImageVm.cs" />
-    <Compile Include="Models\ViewModels\ModelTypeVm.cs" />
-    <Compile Include="Models\ViewModels\PropertyVm.cs" />
-    <Compile Include="Models\ViewModels\ServiceTypeVm.cs" />
-    <Compile Include="Models\ViewModels\VisitVm.cs" />
-    <Compile Include="Models\ViewModels\ListingVm.cs" />
+    <Compile Include="Models\ValueObjects\StateTypeVo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SO.SilList.Utility\SO.SilList.Utility.csproj">
-      <Project>{6fe90691-f7da-42a0-b3a9-3b822cf0e713}</Project>
-      <Name>SO.SilList.Utility</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -281,6 +278,17 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Attributes\" />
+    <Folder Include="Classes\" />
+    <Folder Include="Models\ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SO.Utility\SO.Utility.csproj">
+      <Project>{10588f53-7ea3-4b69-9a8d-ce147a2a85b1}</Project>
+      <Name>SO.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
