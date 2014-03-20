@@ -16,10 +16,10 @@ using SO.Utility.Extensions;
 
 namespace  SO.SilList.Managers 
 { 
-    public class StateTypeManager : StateTypeManagerBase
+    public class BusinessServiceLookupManager : BusinessServiceLookupManagerBase
     {
 	 
-        public StateTypeManager()
+        public BusinessServiceLookupManager()
         {
 		 
         }
