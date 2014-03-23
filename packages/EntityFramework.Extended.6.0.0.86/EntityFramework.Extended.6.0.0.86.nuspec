@@ -3,7 +3,6 @@
   <metadata>
     <id>EntityFramework.Extended</id>
     <version>6.0.0.86</version>
-    <title>EntityFramework.Extended</title>
     <authors>LoreSoft</authors>
     <owners>LoreSoft</owners>
     <licenseUrl>https://github.com/loresoft/EntityFramework.Extended</licenseUrl>
@@ -11,7 +10,6 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A library that extends the functionality of Entity Framework by adding batch update, future queries and audit logs.</description>
     <summary>Entity Framework extensions library.</summary>
-    <releaseNotes />
     <copyright>Copyright (c) 2013, LoreSoft</copyright>
     <language>en-US</language>
     <tags>EntityFramework</tags>
