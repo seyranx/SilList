@@ -41,6 +41,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -198,6 +201,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SO.SilList.Manager\SO.SilList.Manager.csproj">
+      <Project>{b224cd00-0ec0-43fc-b90b-f1f05f760abf}</Project>
+      <Name>SO.SilList.Manager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SO.Utility\SO.Utility.csproj">
+      <Project>{10588f53-7ea3-4b69-9a8d-ce147a2a85b1}</Project>
+      <Name>SO.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
