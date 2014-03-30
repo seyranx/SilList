@@ -55,6 +55,38 @@ namespace SO.Urba.Web.Controllers
             return RedirectToAction("Login", "Account");
         }
 
+
+        public ActionResult Register()
+        {
+            return View(new RegisterVm());
+        }
+
+        [HttpPost]
+        public ActionResult Register(RegisterVm input)
+        {
+            if (this.ModelState.IsValid)
+            {
+                MemberVo mem = new MemberVo();
+
+                mem.username = input.username;
+                mem.password = input.password;
+                mem.isActive = false;
+
+                mem.firstName = input.firstName;
+                mem.lastName = input.lastName;
+
+              
+                mem.email = input.email;
+                mem.isEmailConfirmed = false;
+                mem.isEmailSubscribed = false;
+
+                memberManager.insert(mem);
+                return RedirectToAction("ConfirmEmail", "Member");
+            }
+
+            return View();
+        }
+
       
 	}
 }
