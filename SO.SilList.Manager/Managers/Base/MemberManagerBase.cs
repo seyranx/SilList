@@ -123,10 +123,8 @@ namespace  SO.SilList.Manager.Managers.Base
                // input.createdBy = res.createdBy;
                 db.Entry(res).CurrentValues.SetValues(input);
 
-                 
                 db.SaveChanges();
                 return res;
-
             }
         }
 
@@ -134,13 +132,11 @@ namespace  SO.SilList.Manager.Managers.Base
         {
             using (var db = new MainDb())
             {
-                
                 db.members.Add(input);
                 db.SaveChanges();
 
                 return input;
             }
-
         }
 
         public int count()
@@ -150,8 +146,6 @@ namespace  SO.SilList.Manager.Managers.Base
                 return db.members.Count();
             }
         }
-		 
-        
     }
 }
 

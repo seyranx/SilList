@@ -7,6 +7,8 @@ using System.Security.Principal;
 using System.Web;
 using System.Web.Security;
 using SO.SilList.Manager.Models.ValueObjects;
+using SO.SilList.Manager.Managers;
+using SO.SilList;
 
 namespace SO.SilList.Manager.Managers
 {
@@ -18,23 +20,23 @@ namespace SO.SilList.Manager.Managers
 
         public CurrentMember()
         {
-            
+
         }
 
         public static List<string> getRoleNames()
         {
-            var list  = member.memberRoleLookupses.Select(c=>c.memberRoleType.name).ToList();
+            var list = member.memberRoleLookupses.Select(c => c.memberRoleType.name).ToList();
             return list;
         }
         public static bool hasRole(string roleName)
         {
 
-            if (!string.IsNullOrEmpty(roleName)  && member != null)
+            if (!string.IsNullOrEmpty(roleName) && member != null)
             {
 
                 var exists = member.memberRoleLookupses
                                 .Any(c => c.memberRoleType.name.Equals(roleName, StringComparison.CurrentCultureIgnoreCase));
-                 
+
                 return exists;
             }
             return false;
@@ -56,13 +58,13 @@ namespace SO.SilList.Manager.Managers
         {
             member = memberManager.get(member.memberId);
         }
-        public static  bool validateUser(string username, string password)
+        public static bool validateUser(string username, string password)
         {
             string hashedPassword = HashWord(password);
             MemberVo user = memberManager.getByUsernameAndPassword(username, hashedPassword);
             if (user == null)
                 return false;
-            
+
             return true;
         }
 
@@ -72,12 +74,12 @@ namespace SO.SilList.Manager.Managers
             {
                 try
                 {
-                   
+
                     return HttpContext.Current.User.Identity;
                 }
-                catch 
-                { 
-                    return null; 
+                catch
+                {
+                    return null;
                 }
             }
         }
@@ -86,12 +88,13 @@ namespace SO.SilList.Manager.Managers
         {
             get
             {
-                try { 
-                    return currentUser.IsAuthenticated; 
+                try
+                {
+                    return currentUser.IsAuthenticated;
                 }
-                catch 
-                { 
-                    return false; 
+                catch
+                {
+                    return false;
                 }
             }
         }
@@ -107,7 +110,7 @@ namespace SO.SilList.Manager.Managers
                 {
                     if (!isAuthenticated)
                     {
-                      
+
                         HttpContext.Current.Session[sessionKey] = null;
                         return null;
                     }
@@ -136,15 +139,17 @@ namespace SO.SilList.Manager.Managers
                     HttpContext.Current.Session[sessionKey] = value;
                 }
                 catch (Exception /*ex*/)
-                { 
-                    return; 
+                {
+                    return;
                 }
             }
         }
 
         public static string HashWord(string WordToHash)
         {
-            return FormsAuthentication.HashPasswordForStoringInConfigFile(WordToHash, "sha1");
+            //todo: uncomment to Hash it when closer to the completion
+            //return FormsAuthentication.HashPasswordForStoringInConfigFile(WordToHash, "sha1");
+            return WordToHash;
         }
 
         #endregion
