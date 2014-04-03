@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using SO.SilList.Manager.Models.ValueObjects;
+using SO.Utility.Base;
 
 namespace SO.SilList.Manager.DbContexts
 {
-    public partial class MainDb : DbContext
+    public partial class MainDb : BaseDbContext
     {
         public MainDb()
             : base("name=MainDb")

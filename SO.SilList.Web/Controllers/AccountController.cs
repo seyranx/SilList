@@ -12,7 +12,7 @@ using SO.SilList.Manager.Managers;
 using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Models.ViewModels;
 
-namespace SO.Urba.Web.Controllers
+namespace SO.SilList.Web.Controllers
 {
     [AllowAnonymous]
     public class AccountController : Controller
@@ -34,6 +34,7 @@ namespace SO.Urba.Web.Controllers
                 }
                 else
                 {
+                    ViewBag.uname = input.email;
                     this.ModelState.AddModelError("", "Please check Username and Password, and try again.");
                 }
             }
@@ -75,18 +76,45 @@ namespace SO.Urba.Web.Controllers
                 mem.firstName = input.firstName;
                 mem.lastName = input.lastName;
 
-              
+
                 mem.email = input.email;
                 mem.isEmailConfirmed = false;
                 mem.isEmailSubscribed = false;
+                mem.lastLogin = DateTime.Now;
+
+                // Add USER role type to the newly registered member
+                if (mem.memberRoleTypes == null)
+                    mem.memberRoleTypes = new List<int>();
+                int? userRoleTypeId = memberRoleTypeManager.get_USER_RoleTypeId();
+                if (userRoleTypeId != null)
+                {
+                    if (!mem.memberRoleTypes.Contains(userRoleTypeId.Value))
+                        mem.memberRoleTypes.Add(userRoleTypeId.Value);
+                }
 
                 memberManager.insert(mem);
+
+                // Init the Lookup 
+                if (mem.memberRoleTypes != null)
+                {
+                    foreach (int roleId in mem.memberRoleTypes)
+                    {
+                        var memberRoleLookupVo = new MemberRoleLookupVo();
+                        memberRoleLookupVo.memberId = mem.memberId;
+                        memberRoleLookupVo.memberRoleTypeId = roleId;
+                        memberRoleLookupVo.isActive = true;
+
+                        memberRoleLookupManager.insert(memberRoleLookupVo);
+
+                    }
+                }
+
                 return RedirectToAction("ConfirmEmail", "Member");
             }
 
             return View();
         }
 
-      
-	}
+
+    }
 }
