@@ -14,7 +14,6 @@ using SO.SilList.Manager.Models.ViewModels;
 
 namespace SO.SilList.Web.Controllers
 {
-    [AllowAnonymous]
     public class AccountController : Controller
     {
         MemberManager memberManager = new MemberManager();
@@ -22,6 +21,8 @@ namespace SO.SilList.Web.Controllers
         MemberRoleTypeManager memberRoleTypeManager = new MemberRoleTypeManager();
 
         [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public ActionResult Login(LoginVm input)
         {
 
@@ -42,6 +43,7 @@ namespace SO.SilList.Web.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         public ActionResult Login()
         {
             var login = new LoginVm();
@@ -56,13 +58,14 @@ namespace SO.SilList.Web.Controllers
             return RedirectToAction("Login", "Account");
         }
 
-
+        [AllowAnonymous]
         public ActionResult Register()
         {
             return View(new RegisterVm());
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult Register(RegisterVm input)
         {
             if (this.ModelState.IsValid)
@@ -115,6 +118,10 @@ namespace SO.SilList.Web.Controllers
             return View();
         }
 
+        public ActionResult Details()
+        {
+            return View();
+        }
 
     }
 }

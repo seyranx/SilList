@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace SO.SilList.Web.Controllers
 {
+    [Authorize]
     public class MemberController : Controller
     {
         private MemberManager memberManager = new MemberManager();
@@ -52,6 +53,12 @@ namespace SO.SilList.Web.Controllers
         public ActionResult ConfirmEmail()
         {
             return View();
+        }
+        [Authorize]
+        public ActionResult Details()
+        {
+            var result = CurrentMember.member;
+            return View("Details", result);
         }
 	}
 }

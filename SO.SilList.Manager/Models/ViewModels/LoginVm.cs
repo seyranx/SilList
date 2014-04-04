@@ -16,6 +16,7 @@ namespace SO.SilList.Manager.Models.ViewModels
 
         [DisplayName("Password")]
         [Required]
+        [DataType(DataType.Password)]
         public string password { get; set; }
 
         [DisplayName("Remember Me")]
