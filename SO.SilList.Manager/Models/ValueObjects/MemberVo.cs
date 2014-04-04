@@ -117,7 +117,14 @@ namespace SO.SilList.Manager.Models.ValueObjects
 
         [NotMapped]
         public List<int> memberRoleTypes { get; set; }
-        
+
+        [NotMapped]
+        public string fullname { get { return this.firstName + ((firstName != null ? " " : "") + this.lastName); } }
+
+        [NotMapped]
+        public string fullAddress { get { return address + (cityType != null ? " " + cityType.name + ", " : " ") + (stateType != null ? stateType.name : "") + (zip != null ? " " + zip : ""); } }
+
+
         public MemberVo()
         {
             this.isActive = true;

@@ -1,0 +1,130 @@
+﻿@using SO.SilList.Manager.Models.ValueObjects
+@model SO.SilList.Manager.Models.ValueObjects.MemberVo
+@using Microsoft.AspNet.Identity
+@*@if (Request.IsAuthenticated)*@
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Manage</h2>
+
+@Html.ActionLink("Managing " + User.Identity.GetUserName() + "!", "Details", "Member", routeValues: null, htmlAttributes: new { title = "Manage" })
+
+
+
+<script>
+    window.onload = function () {
+        var n = @Html.Raw(Json.Encode(Model.memberRoleTypes))
+                $("#memberRoleTypes").val(n).select2({
+                    width: '100%',
+                });
+            };
+</script>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.memberId)
+    @Html.HiddenFor(model => model.password)
+    <div class="">
+        <hr /><div class="span12" style="color: red">
+            <br />
+            <b>
+                @Html.ValidationSummary()
+            </b>
+        </div>
+
+
+        <div class="row">
+            <div class="span3">
+                User Name
+                @Html.EditorFor(model => model.username)
+            </div>
+
+            <div class="span3">
+                Password Reset
+                @*@Html.PasswordFor(model => model.passwordReset)*@
+            </div>
+            <div class="span2">
+                Member ID
+                <input id="memberId" name="memberId" type="text" class="form-control" style="width:97%" value="@Html.DisplayFor(model => model.memberId)" readonly="true">
+            </div>
+            <div class="span1">
+                Active
+                <div>
+                    @Html.EditorFor(model => model.isActive)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="span3">
+                First Name
+                @Html.EditorFor(model => model.firstName)
+            </div>
+            <div class="span3">
+                Last Name
+                @Html.EditorFor(model => model.lastName)
+            </div>
+            <div class="span3">
+                E-Mail
+                @Html.EditorFor(model => model.email)
+            </div>
+        </div>
+        <div class="row">
+            <div class="span9">
+                Member Roles
+                @Html.Action("DropDownList", new { id = Model.memberRoleTypes, propertyName = "memberRoleTypes", modelType = typeof(MemberRoleTypeVo) })
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span3">
+                Address
+                @Html.EditorFor(model => model.address)
+            </div>
+            <div class="span3">
+                City
+                @Html.TextBoxFor(model => model.cityType, new { style = "width:97%" })
+            </div>
+            <div class="span1" title="State abbreviation must contain 2 characters.">
+                State
+                @Html.TextBoxFor(model => model.stateType, new { style = "width:50px" })
+            </div>
+            <div class="span2" title="Zip code should be in '99999' or '99999-1234' format.">
+                Zip
+                @Html.TextBoxFor(model => model.zip, new { style = "width:97%" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">
+                Fax
+                @Html.TextBoxFor(model => model.fax, new { style = "width:98%" })
+            </div>
+            <div class="span2">
+                Cell Phone
+                @Html.TextBoxFor(model => model.phone, new { style = "width:98%" })
+            </div>
+            <div class="span2">
+                Home Phone
+                @Html.TextBoxFor(model => model.phone, new { style = "width:98%" })
+            </div>
+            <div class="span3">
+                Work Phone
+                @Html.TextBoxFor(model => model.phone, new { style = "width:98%" })
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="span9">
+            <br />
+            <a href="@Url.Action("Index")" class="btn">Back to List</a>
+            <input type="submit" value="Update" class="btn pull-right btn-info" />
+        </div>
+    </div>
+
+}
