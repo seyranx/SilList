@@ -17,90 +17,90 @@ namespace SO.SilList.Manager.Models.ValueObjects
     {
     
           
-    	[DisplayName("property Id")]
+    	[DisplayName("Property Id")]
     	[Required]
     	[Key]
         public Guid propertyId { get; set; }
     
-    	[DisplayName("title")]
+    	[DisplayName("Title")]
     	[Required]
     	[StringLength(50)]
         public string title { get; set; }
     
-    	[DisplayName("description")]
+    	[DisplayName("Description")]
         public string description { get; set; }
     
-    	[DisplayName("property Type Id")]
+    	[DisplayName("Property Type Id")]
         public Nullable<int> propertyTypeId { get; set; }
     
-    	[DisplayName("property Listing Type Id")]
+    	[DisplayName("Property Listing Type Id")]
         public Nullable<int> propertyListingTypeId { get; set; }
     
-    	[DisplayName("room Count")]
+    	[DisplayName("Room Count")]
         public Nullable<int> roomCount { get; set; }
     
-    	[DisplayName("bathroom Count")]
+    	[DisplayName("Bathroom Count")]
         public Nullable<int> bathroomCount { get; set; }
     
-    	[DisplayName("price")]
+    	[DisplayName("Price")]
         public Nullable<decimal> price { get; set; }
     
-    	[DisplayName("size")]
+    	[DisplayName("Size")]
         public Nullable<int> size { get; set; }
     
-    	[DisplayName("lot Size")]
+    	[DisplayName("Lot Size")]
         public Nullable<int> lotSize { get; set; }
     
-    	[DisplayName("has Section8")]
+    	[DisplayName("Has Section8")]
         public Nullable<int> hasSection8 { get; set; }
     
-    	[DisplayName("is Pet Allowed")]
+    	[DisplayName("Is Pet Allowed")]
         public Nullable<int> isPetAllowed { get; set; }
     
-    	[DisplayName("address")]
+    	[DisplayName("Address")]
         public string address { get; set; }
     
-    	[DisplayName("city Type Id")]
+    	[DisplayName("City Type Id")]
         public Nullable<int> cityTypeId { get; set; }
     
-    	[DisplayName("state Type Id")]
+    	[DisplayName("State Type Id")]
         public Nullable<int> stateTypeId { get; set; }
     
-    	[DisplayName("country Type Id")]
+    	[DisplayName("Country Type Id")]
         public Nullable<int> countryTypeId { get; set; }
     
     	[DisplayName("zip")]
         public Nullable<int> zip { get; set; }
     
-    	[DisplayName("start Date")]
+    	[DisplayName("Start Date")]
     	[Required]
         public DateTime startDate { get; set; }
     
-    	[DisplayName("end Date")]
+    	[DisplayName("End Date")]
     	[Required]
         public DateTime endDate { get; set; }
     
-    	[DisplayName("listing Status Type Id")]
+    	[DisplayName("Listing Status Type Id")]
         public Nullable<int> listingStatusTypeId { get; set; }
     
-    	[DisplayName("modified By")]
+    	[DisplayName("Modified By")]
         public Nullable<int> modifiedBy { get; set; }
     
-    	[DisplayName("modified")]
+    	[DisplayName("Modified")]
     	[Required]
         public DateTime modified { get; set; }
     
-    	[DisplayName("created By")]
+    	[DisplayName("Created By")]
         public Nullable<int> createdBy { get; set; }
     
-    	[DisplayName("created")]
+    	[DisplayName("Created")]
     	[Required]
         public DateTime created { get; set; }
     
-    	[DisplayName("is Active")]
+    	[DisplayName("Is Active")]
     	[Required]
         public bool isActive { get; set; }
-    
+  
     
         [ForeignKey("cityTypeId")]
         public CityTypeVo cityType { get; set; }
@@ -120,11 +120,11 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [ForeignKey("stateTypeId")]
         public StateTypeVo stateType { get; set; }
        
-      public PropertyVo()
-            {
-    				this.propertyId = Guid.NewGuid();
-    				this.isActive = true;
-            }
+        public PropertyVo()
+        {
+    		this.propertyId = Guid.NewGuid();
+    		this.isActive = true;
+        }
     
     }
     
