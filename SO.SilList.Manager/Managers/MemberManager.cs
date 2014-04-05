@@ -38,7 +38,8 @@ namespace  SO.SilList.Manager.Managers
                 {
                     mem = db.members
                            .Include(a => a.memberRoleLookupses.Select(c => c.memberRoleType))
-                            .FirstOrDefault(p => p.username == username && p.password == hashedPassword);
+                            .FirstOrDefault(p => (p.username == username || p.email == username) && p.password == hashedPassword);
+
                 }
                 catch (Exception ex)
                 {
@@ -55,7 +56,7 @@ namespace  SO.SilList.Manager.Managers
             {
                 var mem = db.members
                             .Include(a => a.memberRoleLookupses.Select(c => c.memberRoleType))
-                            .FirstOrDefault(p => p.username == usernameOrEmail);
+                            .FirstOrDefault(p => (p.username == usernameOrEmail || p.email == usernameOrEmail));
 
                 return mem;
             }
