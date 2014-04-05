@@ -44,7 +44,6 @@ input[type="checkbox"].input-validation-error {
 .navbar-inner {
     background: url('themes/base/images/topBack.jpg') repeat scroll 0% 0% transparent;
     filter: none;
-    padding-top: 5px;
     border-bottom: 0px none;
     color: #ffffff;
     
@@ -53,3 +52,4 @@ input[type="checkbox"].input-validation-error {
 .white {
     color: #ffffff;  
 }
+

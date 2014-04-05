@@ -1,0 +1,78 @@
+﻿@model object
+@using SO.Utility.Models.ViewModels
+@using SO.SilList.Manager.Models.ValueObjects
+@using SO.SilList.Manager.Models.ViewModels
+@using SO.Utility.Extensions;
+@{
+    //ViewBag.Title = ViewContext.RouteData.Values["controller"].ToString();
+
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+
+    var filter = (SearchFilterVm)Model;
+}
+
+<h3>@ViewBag.Title</h3>
+
+@if (Model != null)
+{
+    <form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index","Property")">
+
+        <div>
+            @Html.Partial("_SearchFilter", @Model)
+        
+            @filter.paging.showingFrom to @filter.paging.showingTo of @filter.paging.totalCount
+
+            <a href="@Url.Action("Create")" class="btn" title="Create New"><i class="icon-plus"></i></a>
+            <button id="btnExport" class="btn" title="Export"><i class="icon-download"></i></button>
+            <hr />
+        </div>
+        <div>
+            @*<table>
+                <tr>
+                    <td>AA</td>
+                    <td>BB</td>
+                </tr>
+                <tr>
+                    <td>CC</td>
+                    <td>DD</td>
+                </tr>
+            </table>*@
+            @Html.Partial("_List", @filter.result)
+            @Html.Partial("_Pagination", @filter.paging)
+        </div>
+
+    @*<form id="filterForm" class="span11 form-inline" method="get">
+        <hr />
+        @Html.Partial("_SearchFilter", @Model)
+        <div class="pull-right" style="padding-right:30px;">
+            @filter.paging.showingFrom to @filter.paging.showingTo of @filter.paging.totalCount
+        </div>*@
+
+
+        @*<div class="span9" style="padding: 10px; margin-left: -10px; text-align: right; ">
+
+                <a href="@Url.Action("Create")" class="btn" title="Create New"><i class="icon-plus"></i></a>
+
+                <button id="btnExport" class="btn" title="Export"><i class="icon-download"></i></button>
+
+            </div>*@
+
+        @*@Html.Partial("_List", @filter.result)
+            @Html.Partial("_Pagination", @filter.paging)*@
+    </form>
+
+}
+
+<script type="text/javascript">
+
+    $("#btnSearch").click(function () {
+        var form = $("form#filterForm");
+        form.attr("action", "@Url.Action("Index", ViewContext.RouteData.Values["controller"].ToString())");
+    });
+
+    $("#btnExport").click(function () {
+        var form = $("form#filterForm");
+        form.attr("action", "@Url.Action("Export", ViewContext.RouteData.Values["controller"].ToString())");
+    });
+
+</script>

@@ -3,29 +3,42 @@
 
 }
 
-<div class="row" style="min-height:450PX;">
+<div style="min-height:450px; padding-top:10px">
 
-    <div id="leftColumn" class="span2 leftColumn">
-
-
-        <div style="font-size:17px; font-weight:bold; text-align:center; padding-top:20px;"></div>
-        <br />
+    <div class="leftColumn">
         @Html.Partial("_Menu")
-
     </div>
 
-    <div id="mainContent" class="span9" style="padding-left: 5px; padding-right: 0px; background-color: white; min-height: 400px;">
-
+    <div class="mainContent">
         @RenderBody()
-
     </div>
 
-    <script>
-        //var result = $("#leftColumn").height();
-        //var result2 = $("#mainContent").height();
-        //var x = result + " - " + result2;
-        //alert(x);
-    </script>
+</div> 
 
+@*
+    <div class="row1" style="min-height:450px;">
+
+        <div>
+            sdfsdf
+        </div>
+        <div>
+            @RenderBody()
+        </div>
+        <div id="leftColumn" class="span2 leftColumn">
+            <div style="font-size: 17px; font-weight: bold; text-align: center; padding-top: 20px; min-height: 400px;">
+                @Html.Partial("_Menu")
+            </div>
+        </div>
+
+        <div id="middleColumn" class="span12" style="padding-left: 5px; padding-right: 0px; background-color: white; min-height: 400px; display: inline-block;" >
+            @RenderBody()
+        </div>
+
+        <script>
+            //var result = $("#leftColumn").height();
+            //var result2 = $("#mainContent").height();
+            //var x = result + " - " + result2;
+            //alert(x);
+        </script>*@
 
 </div>

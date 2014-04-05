@@ -16,7 +16,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
+                </button><br />
                 @Html.ActionLink("SilList", "Index", "Home", null, new { @class = "navbar-brand white" })
             </div>
             <div class="navbar-collapse collapse">
@@ -30,18 +30,19 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <center>
-                <p>&copy; @DateTime.Now.Year - SilList</p>
-            </center>
-        </footer>
-    </div>
+    <div class="container body-content"> 
+    @RenderBody()
+    <hr />
+    <footer>
+        <center>
+            <p>&copy; @DateTime.Now.Year - SilList</p>
+        </center>
+    </footer>
+</div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
 </body>
 </html>
