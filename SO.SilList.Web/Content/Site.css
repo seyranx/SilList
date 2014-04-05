@@ -47,4 +47,9 @@ input[type="checkbox"].input-validation-error {
     padding-top: 5px;
     border-bottom: 0px none;
     color: #ffffff;
+    
+}
+
+.white {
+    color: #ffffff;  
 }
