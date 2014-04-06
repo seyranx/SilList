@@ -1,16 +1,30 @@
 ﻿@using SO.SilList.Manager.Managers
 
-<ul class="nav nav-pills pull-left nav-list-menu">
+<div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        @Html.ActionLink("SilList Admin", "Index", "Home", null, new { @class = "navbar-brand white" })
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Home", "Index", "Home", new { @class = "white" })</li>
+            <li>@Html.ActionLink("Members", "Index", "Member", new { @class = "white" })</li>
+            <li>@Html.ActionLink("Properties", "Index", "Property", new { @class = "white" })</li>
+        </ul>
+        @Html.Partial("_LoginPartial")
+    </div>
+</div>
 
 
-
+@*<ul class="nav nav-pills pull-left nav-list-menu">
     @if (CurrentMember.isAuthenticated)
     {
-
-
         if (CurrentMember.hasRoleOf("admin"))
         {
-
             <li class="dropdown">
                 <a href="@Url.Action("Index", "Member", new { isActive = true })" class="dropdown-toggle">Users<b class="caret white-caret"></b></a>
                 <ul class="dropdown-menu">
@@ -92,4 +106,4 @@
         </ul>
     </li>
 
-</ul>
+</ul>*@
