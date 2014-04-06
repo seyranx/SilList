@@ -92,9 +92,10 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 }
 .navbar-brand, .navbar-brand:link, .navbar-brand:active, .navbar-brand:visited {
     color:white;
-    padding-top:5px;
+    padding-top:8px;
     font-weight:bold;
-    height:30px;
+    height:40px;
+    font-size:140%;
 }
 
 
@@ -191,6 +192,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
     width:15%;
     font-size:170%;
     min-width:150px;
+    border: 1px solid #808080;
 }
 
 
