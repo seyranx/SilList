@@ -40,3 +40,16 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+
+.navbar-inner {
+    background: url('themes/base/images/topBack.jpg') repeat scroll 0% 0% transparent;
+    filter: none;
+    border-bottom: 0px none;
+    color: #ffffff;
+    
+}
+
+.white {
+    color: #ffffff;  
+}
+
