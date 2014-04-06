@@ -11,7 +11,8 @@
     var filter = (SearchFilterVm)Model;
 }
 
-<h3>@ViewBag.Title</h3>
+<h3><b>@ViewBag.Title</b></h3>
+<hr />
 
 @if (Model != null)
 {
@@ -19,24 +20,17 @@
 
         <div>
             @Html.Partial("_SearchFilter", @Model)
-        
-            @filter.paging.showingFrom to @filter.paging.showingTo of @filter.paging.totalCount
-
-            <a href="@Url.Action("Create")" class="btn" title="Create New"><i class="icon-plus"></i></a>
-            <button id="btnExport" class="btn" title="Export"><i class="icon-download"></i></button>
-            <hr />
+            <span class="pull-right">
+                @filter.paging.showingFrom to @filter.paging.showingTo of @filter.paging.totalCount
+            </span>
+            <br /> <br />
+            <a href="@Url.Action("Create")" class="btn btn-default pull-right" title="Create New"><i class="icon-plus"></i></a>
+            <button id="btnExport" class="btn btn-default pull-right" title="Export"><i class="icon-download"></i></button>
+ 
+            <br /><br />
         </div>
         <div>
-            @*<table>
-                <tr>
-                    <td>AA</td>
-                    <td>BB</td>
-                </tr>
-                <tr>
-                    <td>CC</td>
-                    <td>DD</td>
-                </tr>
-            </table>*@
+
             @Html.Partial("_List", @filter.result)
             @Html.Partial("_Pagination", @filter.paging)
         </div>
@@ -48,14 +42,10 @@
             @filter.paging.showingFrom to @filter.paging.showingTo of @filter.paging.totalCount
         </div>*@
 
-
         @*<div class="span9" style="padding: 10px; margin-left: -10px; text-align: right; ">
-
                 <a href="@Url.Action("Create")" class="btn" title="Create New"><i class="icon-plus"></i></a>
-
                 <button id="btnExport" class="btn" title="Export"><i class="icon-download"></i></button>
-
-            </div>*@
+         </div>*@
 
         @*@Html.Partial("_List", @filter.result)
             @Html.Partial("_Pagination", @filter.paging)*@

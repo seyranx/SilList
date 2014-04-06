@@ -1,56 +1,72 @@
 ﻿@model List<object>
 @using SO.SilList.Manager.Models.ValueObjects
-@using SO.Utility.Extensions
-@using SO.Utility.Helpers
+@using SO.Utility.Extensions;
+@using SO.SilList.Manager;
 @{
-    
-    var properties = ClassHelper.getProperties(Model);
+    ViewBag.Title = "_List";
 
-    string idKey = null;
+    var result = Model.convertTo<PropertyVo>();
 }
 
-<table class="table listTable" >
-  
-      @if (properties != null)
-      {
-          properties = properties.Take(5).ToList();
-        <tr>
+<table class="table table-bordered table-hover listTable">
+    <tr style="font-weight: bold; background-color: #F0F0F0;">
+        <td>
+            Name
+        </td>
+        <td>
+            Type
+        </td>
+        <td>
+            Listing Type
+        </td>
+        <td>
+            Price
+        </td>
+        <td>
+            Location
+        </td>
+        <td>
+            Action
+        </td>
+    </tr>
 
-            @foreach (var prop in properties)
-            {
-                if (idKey == null) { 
-                    idKey = prop;
-                 }
-                
-                 <td style="font-weight:bold;width:100%">@prop</td>
-            }
-
-            <td></td>
-        </tr>
-    }
-    @foreach (var row in Model)
+    @foreach (var item in result)
     {
-        var values = ClassHelper.getPropertiesWithValues(row);
-        
         <tr>
-            @if (values != null)
-            {
-                foreach (var key in properties)
-                    {
-                        <td>@values.getValue(key)</td>
-                    }
-            }
-          
-
-            <td style="width:150px;">
-                <a href="@Url.Action("Edit", new { id = @values.getValue(idKey) })" class="btn" title="Edit"><i class="icon-edit"></i></a>
-                <a href="@Url.Action("Details", new { id = @values.getValue(idKey) })" class="btn" title="Details"><i class="icon-list"></i></a>
-                <a href="@Url.Action("Delete", new { id = @values.getValue(idKey) })" class="btn" title="Delete"><i class="icon-trash"></i></a>
-
-
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.propertyType.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.propertyListingType.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td> 
+                @Html.DisplayFor(modelItem => item.cityType.name) , @Html.DisplayFor(modelItem => item.stateType.name)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit",new { id=item.propertyId })" class="btn btn-default" title="Edit"><i class="icon-edit"></i></a>
+                <a href="@Url.Action("Details",new { id=item.propertyId })" class="btn btn-default" title="Detail"><i class="icon-list"></i></a>
+                <a href="@Url.Action("Delete",new { id=item.propertyId })" class="btn btn-default" title="Delete"><i class="icon-trash"></i></a>
+            </td>
+            @*<td style="width:150px;">
+                    @if (CurrentMember.hasRoleOf("admin"))
+                    {
+                        <a href="@Url.Action("Edit", new { id = item.companyId })" class="btn" title="Edit"><i class="icon-edit"></i></a>
+                    }
+                    <a href="@Url.Action("Details", new { id = item.companyId })" class="btn" title="Details"><i class="icon-list"></i></a>
+                    @if (CurrentMember.hasRoleOf("admin"))
+                    {
+                        <a href="@Url.Action("Delete", new { id = item.companyId })" class="btn" title="Delete"><i class="icon-trash"></i></a>
+                    }
+            </td>*@
         </tr>
     }
 
 </table>
+
 

@@ -3,7 +3,7 @@
 
 }
 
-<div style="min-height:450px; padding-top:10px">
+<div style="min-height: 450px; padding-top: 10px;">
 
     <div class="leftColumn">
         @Html.Partial("_Menu")
@@ -14,6 +14,20 @@
     </div>
 
 </div> 
+
+<script>
+
+    $(document).ready(function () {
+
+        var maxHeight = Math.max( $(".leftColumn").height(), $(".mainContent").height());
+
+        $(".leftColumn").css("min-height", maxHeight);
+        $(".mainContent").css("min-height", maxHeight);
+    });
+
+</script>
+
+
 
 @*
     <div class="row1" style="min-height:450px;">
@@ -35,6 +49,9 @@
         </div>
 
         <script>
+            $(document).ready(function () {
+            $(".leftColumn").css("min-height", $(".mainContent").height());
+        });
             //var result = $("#leftColumn").height();
             //var result2 = $("#mainContent").height();
             //var x = result + " - " + result2;

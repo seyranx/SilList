@@ -97,7 +97,7 @@ namespace SO.SilList.Manager.Models.ValueObjects
     	[Required]
         public DateTime created { get; set; }
     
-    	[DisplayName("Is Active")]
+    	[DisplayName("Active")]
     	[Required]
         public bool isActive { get; set; }
   

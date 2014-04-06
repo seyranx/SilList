@@ -2,7 +2,7 @@
 
 <input data-val="true" data-val-number="The field pageNumber must be a number." data-val-required="The pageNumber field is required." id="paging_pageNumber" name="paging.pageNumber" type="hidden" value="@Model.pageNumber" />
 
-<div class="pagination pull-right" style="padding-right:20px;">
+<div class="pagination pull-right">
         
     
     
@@ -35,7 +35,7 @@
           if (Model.pageNumber >= Model.totalPages)
           {
               <li class="disabled"><a >Next</a></li>
-              <li class="disabled"><a ><i class="icon-large icon-forward"></i></a></li>
+              <li class="disabled"><a ><i class="icon-large icon-forward btn"></i></a></li>
           }
           else
           {

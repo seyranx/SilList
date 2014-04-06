@@ -30,7 +30,8 @@ namespace  SO.SilList.Admin.Web.Controllers
             input.paging = paging;
 
             if (this.ModelState.IsValid)
-            { 
+            {
+                ViewBag.Title = "Properties";
                 if (input.submitButton != null)
                     input.paging.pageNumber = 1;
                 input = propertyManager.search(input);
