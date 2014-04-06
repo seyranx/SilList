@@ -242,6 +242,17 @@
     <Content Include="Views\Account\Logout.cshtml" />
     <Content Include="Views\Member\Edit.cshtml" />
     <Content Include="Views\Member\Details.cshtml" />
+    <Content Include="Views\Shared\_TopMenu.cshtml" />
+    <Content Include="Views\Property\_List.cshtml" />
+    <Content Include="Views\Shared\_InnerLayout.cshtml" />
+    <Content Include="Views\Shared\_Menu.cshtml" />
+    <Content Include="Views\Property\_Filter.cshtml" />
+    <Content Include="Views\Property\_Menu.cshtml" />
+    <Content Include="Views\Property\_PropertyItem.cshtml" />
+    <Content Include="Views\Property\Create.cshtml" />
+    <Content Include="Views\Property\Detail.cshtml" />
+    <Content Include="Views\Property\Listings.cshtml" />
+    <Content Include="Views\Shared\_SearchFilter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -15,8 +15,6 @@ namespace SO.SilList.Manager.Models.ValueObjects
     [Serializable]
     public  class PropertyVo
     {
-    
-          
     	[DisplayName("Property Id")]
     	[Required]
     	[Key]

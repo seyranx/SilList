@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<div class="col-md-12" style="min-height: 450px;">
+
+    <div class="col-md-2 leftColumn">
+        @Html.Partial("_Menu")
+    </div>
+
+    <div class="col-md-10 mainContent">
+        @RenderBody()
+    </div>
+
+</div> 
+
+<script>
+
+    $(document).ready(function () {
+
+        var maxHeight = Math.max( $(".leftColumn").height(), $(".mainContent").height());
+
+        $(".leftColumn").css("min-height", maxHeight);
+        $(".mainContent").css("min-height", maxHeight);
+    });
+
+</script>
+
+</div>
