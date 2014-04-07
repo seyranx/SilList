@@ -124,12 +124,15 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [NotMapped]
         public string fullAddress { get { return address + (cityType != null ? " " + cityType.name + ", " : " ") + (stateType != null ? stateType.name : "") + (zip != null ? " " + zip : ""); } }
 
+        [NotMapped]
+        public string passwordReset { get; set; }
 
         public MemberVo()
         {
             this.isActive = true;
             this.created = DateTime.Now;
             this.modified = this.created;
+            memberRoleTypes = new List<int>();
         }
     }
 }

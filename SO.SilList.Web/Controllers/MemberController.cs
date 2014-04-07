@@ -60,5 +60,59 @@ namespace SO.SilList.Web.Controllers
             var result = CurrentMember.member;
             return View("Details", result);
         }
+        //[Authorize]
+        //public ActionResult EditProfile(int id)
+        //{
+        //    var result = CurrentMember.member;
+        //    return View("EditProfile", result);
+        //}
+        //[Authorize]
+        //[HttpPost]
+        //public ActionResult EditProfile(int id, MemberVo input)
+        //{
+        //    bool foundTheMatch = false;
+        //    MemberVo item = memberManager.get(id);
+        //    if (this.ModelState.IsValid)
+        //    {
+        //        if (item.memberRoleTypes != null)
+        //        {
+        //            foreach (MemberRoleLookupVo roleLookupVo in item.memberRoleLookupses)
+        //            {
+        //                foundTheMatch = false;
+        //                foreach (int memberRoleId in input.memberRoleTypes)
+        //                {
+        //                    if (roleLookupVo.memberRoleTypeId == memberRoleId)
+        //                    {
+        //                        input.memberRoleTypes.Remove(memberRoleId);
+        //                        foundTheMatch = true;
+        //                        break;
+        //                    }
+        //                }
+        //                if (!foundTheMatch)
+        //                    memberRoleLookupManager.delete(roleLookupVo.memberRoleLookupId);
+        //            }
+        //        }
+        //        if (input.memberRoleTypes != null)
+        //        {
+
+        //            foreach (int roleId in input.memberRoleTypes)
+        //            {
+        //                var memberRoleLookupVo = new MemberRoleLookupVo();
+        //                memberRoleLookupVo.memberId = input.memberId;
+        //                memberRoleLookupVo.memberRoleTypeId = roleId;
+        //                memberRoleLookupVo.isActive = true;
+
+        //                memberRoleLookupManager.insert(memberRoleLookupVo);
+
+        //            }
+
+        //        }
+        //        contactInfoManager.update(input, input..contactInfoId);
+        //        var res = memberManager.update(input, id);
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    return View(input);
+        //}
 	}
 }

@@ -31,6 +31,7 @@ namespace SO.SilList.Web.Controllers
                 // validate user
                 if (CurrentMember.validateUser(input.email, input.password))
                 {
+                    memberManager.updateLastLoginForMember(input.email, input.password);
                     FormsAuthentication.RedirectFromLoginPage(input.email, input.rememberMe);
                 }
                 else
@@ -118,10 +119,79 @@ namespace SO.SilList.Web.Controllers
             return View();
         }
 
-        public ActionResult Details()
+        public ActionResult Profile()
         {
-            return View();
+            var result = CurrentMember.member;
+            return View("Details", result);
+        }
+        [Authorize]
+        public ActionResult EditProfile()
+        {
+            var result = CurrentMember.member;
+            if (result.memberRoleTypes.Count > 0)
+                result.memberRoleTypes = new List<int>();
+            if (result.memberRoleLookupses != null)
+            {
+                foreach (var item in result.memberRoleLookupses)
+                {
+                    result.memberRoleTypes.Add((int)item.memberRoleTypeId);
+                }
+            }
+            return View("Edit", result);
+        }
+        [HttpPost]
+        public ActionResult EditProfile(MemberVo input)
+        {
+            Edit(input);
+            if (!this.ModelState.IsValid)
+                return View("Edit", input);
+            CurrentMember.reload();
+            return View("Details", CurrentMember.member);
         }
 
+        [Authorize]
+        public ActionResult Edit(MemberVo input)
+        {
+            var id = CurrentMember.member.memberId;
+            bool foundTheMatch = false;
+            MemberVo item = memberManager.get(id);
+            if (this.ModelState.IsValid)
+            {
+                if (item.memberRoleTypes != null)
+                {
+                    foreach (MemberRoleLookupVo roleLookupVo in item.memberRoleLookupses)
+                    {
+                        foundTheMatch = false;
+                        foreach (int memberRoleId in input.memberRoleTypes)
+                        {
+                            if (roleLookupVo.memberRoleTypeId == memberRoleId)
+                            {
+                                input.memberRoleTypes.Remove(memberRoleId);
+                                foundTheMatch = true;
+                                break;
+                            }
+                        }
+                        if (!foundTheMatch)
+                            memberRoleLookupManager.delete(roleLookupVo.memberRoleLookupId);
+                    }
+                }
+                if (input.memberRoleTypes != null)
+                {
+                    foreach (int roleId in input.memberRoleTypes)
+                    {
+                        var memberRoleLookupVo = new MemberRoleLookupVo();
+                        memberRoleLookupVo.memberId = input.memberId;
+                        memberRoleLookupVo.memberRoleTypeId = roleId;
+                        memberRoleLookupVo.isActive = true;
+
+                        memberRoleLookupManager.insert(memberRoleLookupVo);
+                    }
+                }
+                var res = memberManager.update(input, id);
+                return RedirectToAction("Index");
+            }
+
+            return View(input);
+        }
     }
 }
