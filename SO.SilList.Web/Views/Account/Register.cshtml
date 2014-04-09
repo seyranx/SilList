@@ -7,13 +7,22 @@
 
 <h2>Member Registration</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>---</legend>
-
+        <div style="color:red">
+            @if (ViewBag.NameExistMsg != null)
+            {
+                @ViewBag.NameExistMsg;
+            }
+            else
+            {
+                <br />
+            }
+        </div>
         <div class="editor-label">
             @Html.LabelFor(model => model.firstName)
         </div>
@@ -37,7 +46,7 @@
             @Html.EditorFor(model => model.email)
             @Html.ValidationMessageFor(model => model.email)
         </div>
-         
+
         <div class="editor-label">
             @Html.LabelFor(model => model.password)
         </div>
@@ -45,8 +54,8 @@
             @Html.PasswordFor(model => model.password)
             @Html.ValidationMessageFor(model => model.password)
         </div>
-  
-   
+
+
         <p>
             <input type="submit" value="Submit" />
         </p>

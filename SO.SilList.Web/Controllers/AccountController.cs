@@ -71,6 +71,14 @@ namespace SO.SilList.Web.Controllers
         {
             if (this.ModelState.IsValid)
             {
+                MemberVo mem_check = memberManager.getByUsername(input.username);
+                if (mem_check != null)
+                {
+                    ViewBag.NameExistMsg = "User with this name already exist. Please choose another name.";
+                    return View(input);
+                }
+
+
                 MemberVo mem = new MemberVo();
 
                 mem.username = input.username;
@@ -79,7 +87,6 @@ namespace SO.SilList.Web.Controllers
 
                 mem.firstName = input.firstName;
                 mem.lastName = input.lastName;
-
 
                 mem.email = input.email;
                 mem.isEmailConfirmed = false;
