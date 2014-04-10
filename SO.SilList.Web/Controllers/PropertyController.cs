@@ -1,5 +1,8 @@
 ﻿using SO.SilList.Manager.Managers;
+using SO.SilList.Manager.Models.ViewModels;
 using SO.SilList.Manager.Models.ValueObjects;
+using SO.Utility.Classes;
+using SO.Utility.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +15,26 @@ namespace SO.SilList.Web.Controllers
     {
         private PropertyManager propertyManager = new PropertyManager();
 
-        //
-        // GET: /Property/
-        public ActionResult Index()
+        public ActionResult Index(SearchFilterVm input = null, Paging paging = null)
         {
-            return View();
+            if (input == null) input = new SearchFilterVm();
+            input.paging = paging;
+
+            if (this.ModelState.IsValid)
+            {
+                ViewBag.Title = "Properties";
+                if (input.submitButton != null)
+                    input.paging.pageNumber = 1;
+                input = propertyManager.search(input);
+                return View(input);
+            }
+            return View(input);
+        }
+
+
+        public ActionResult Filter(SearchFilterVm input = null, Paging paging = null)
+        {
+            return PartialView("_SearchFilter", input);
         }
 
         /// <summary>

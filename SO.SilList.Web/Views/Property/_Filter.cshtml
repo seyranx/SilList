@@ -1,0 +1,220 @@
+﻿@model SO.SilList.Manager.Models.ViewModels.PropertyVm
+@using SO.SilList.Manager.Models.ValueObjects
+
+<style>
+    #detailSearch input {
+        width: 144px;
+        margin: 1px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+    }
+
+    #detailSearch select {
+        width: 158px;
+        margin: 1px;
+        margin-top: 5px;
+        border-radius: 5px;
+    }
+
+    .title {
+        margin: -5px;
+    }
+
+    #acceptsSection8TypeId {
+        width:200px;
+        padding:0;
+        margin:0;
+    }
+
+    .selected {
+        background-color: blue;
+    }
+
+</style>
+
+<form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index", "Property")">
+
+<label>Keyword:</label>
+@Html.ValidationSummary(true)
+@Html.TextBoxFor(model => model.keyword, new { style = "width:82%; margin-left:5px; height:18px; margin-bottom:5px;", placeholder = "Keyword" })
+@Html.ValidationMessageFor(model => model.keyword)
+<br />
+<label>City, State:</label>
+<br />
+<div class="span11">
+   <input id="filter_cityTypeId" name="filter_cityTypeId"/>
+</div>
+<br /><br />
+
+@*
+@Html.ValidationSummary(true)
+@Html.TextBoxFor(model => model.location, new { style = "width:90%", placeholder = "Location" })
+@Html.ValidationMessageFor(model => model.location)  
+*@
+
+<label>Zip Code:</label>
+@Html.ValidationSummary(true)
+@Html.TextBoxFor(model => model.zip , new { style = "width:82%; margin-left:5px; height:18px; margin-bottom:5px;", placeholder = "Zip Code" })
+@Html.ValidationMessageFor(model => model.zip) 
+
+<br /><br />
+
+<div>
+<button name="submitButton" value="Search" type="submit" class="btn btn-success pull-right">Search</button>
+</div>
+<br /><br /><br />
+
+<div id="detailSearch">
+    @Html.HiddenFor(model => model.propertyTypeId)
+    @Html.HiddenFor(model => model.propertyListingTypeId)
+    @Html.HiddenFor(model => model.bedroomTypeId)
+    @Html.HiddenFor(model => model.bathroomTypeId)
+    @Html.HiddenFor(model => model.acceptsSection8TypeId)
+    @Html.HiddenFor(model => model.isPetAllowedTypeId)
+    @Html.HiddenFor(model => model.paging.pageNumber)
+    @*
+    @Html.HiddenFor(model => model.startingPrice)
+    @Html.HiddenFor(model => model.endingPrice)
+    @Html.HiddenFor(model => model.size, new {id = "filter_propertyTypeId" })
+    @Html.HiddenFor(model => model.lotSize, new {id = "filter_propertyTypeId" })
+    *@
+
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <span class="accordion-toggle title" data-toggle="collapse" href="#collapsePropertyType">Property Type</span>
+        </div>
+            <div id="collapsePropertyType" class="accordion-body collapse">
+                <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                    @Html.Action("CollapseList", "Property", new { id = Model.propertyTypeId, propertyName = "propertyTypeId", propertyType = typeof(PropertyTypeVo) })
+                </div>
+             </div>                 
+        </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <span class="accordion-toggle title" data-toggle="collapse" href="#collapseListingType">Listing Type</span>
+        </div>
+        <div id="collapseListingType" class="accordion-body collapse">
+            <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                @Html.Action("CollapseList", "Property", new { id = Model.propertyListingTypeId, propertyName = "propertyListingTypeId", propertyType = typeof(PropertyListingTypeVo) })
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <span class="accordion-toggle title" data-toggle="collapse" href="#collapseBedrooms">Bedrooms</span>
+        </div>
+        <div id="collapseBedrooms" class="accordion-body collapse">
+            <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                @Html.Action("CollapseList", "Property", new { id = Model.bedroomTypeId, propertyName = "bedroomTypeId", propertyType = typeof(BedroomTypeVo) })
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <span class="accordion-toggle title" data-toggle="collapse" href="#collapseBathrooms">Bathrooms</span>
+        </div>
+        <div id="collapseBathrooms" class="accordion-body collapse">
+            <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                @Html.Action("CollapseList", "Property", new { id = Model.bathroomTypeId, propertyName = "bathroomTypeId", propertyType = typeof(BathroomTypeVo) })
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">   
+            <span class="accordion-toggle title" data-toggle="collapse" href="#collapsePrice">Price Range</span>
+        </div>
+        <div id="collapsePrice" class="accordion-body collapse">
+            <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                <br />
+                @Html.TextBoxFor(model => model.startingPrice, new { style = "width:54px;", placeholder = "$ Min" })
+                -
+                @Html.TextBoxFor(model => model.endingPrice, new { style = "width:54px;", placeholder = "$ Max" })
+            </div>
+        </div>
+    </div>
+    <div>
+         @Html.ValidationMessageFor(model => model.startingPrice)
+         @Html.ValidationMessageFor(model => model.endingPrice)
+    </div>
+
+    <div class="accordion-group"> 
+        <div class="accordion-heading">
+            <span class="accordion-toggle title" data-toggle="collapse" href="#collapseSection8TypeId">Accepts Section 8</span>
+        </div>
+        <div id="collapseSection8TypeId" class="accordion-body collapse">
+            <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                <ul class="nav nav-list" style="background-color: none; color: white; text-align: center;">
+                     @Html.Action("CollapseList", "Property", new { id = Model.acceptsSection8TypeId, propertyName = "acceptsSection8TypeId", propertyType = typeof(AcceptsSection8TypeVo) })  
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-group"> 
+        <div class="accordion-heading">
+            <span class="accordion-toggle title" data-toggle="collapse" href="#collapsePetAllowedTypeId">Pets Allowed</span>
+        </div>
+        <div id="collapsePetAllowedTypeId" class="accordion-body collapse">
+            <div class="accordion-inner" style="margin: 1px; padding: 1px;">
+                <ul class="nav nav-list" style="background-color: none; color: white; text-align: center;">
+                    @Html.Action("CollapseList", "Property", new { id = Model.isPetAllowedTypeId, propertyName = "isPetAllowedTypeId", propertyType = typeof(IsPetAllowedTypeVo) })
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+ </form>
+
+<script>
+
+    function mySelectAction(value,idName,liID) {
+        $("#" + idName).val(value);
+        $("#filterForm").submit();       
+    }
+    
+    window.onload = function () {
+
+        if ($("#propertyTypeId").val() != '') {
+            $("#collapsePropertyType").removeClass("collapse");
+        }
+        if ($("#propertyListingTypeId").val() != '') {
+            $("#collapseListingType").removeClass("collapse");
+        }
+        if ($("#bedroomTypeId").val() != '') {
+            $("#collapseBedrooms").removeClass("collapse");
+        }
+        if ($("#bathroomTypeId").val() != '') {
+            $("#collapseBathrooms").removeClass("collapse");
+        }
+        
+        if ($("#startingPrice").val() != '' || $("#endingPrice").val() != '') {
+            $("#collapsePrice").removeClass("collapse");
+        }
+
+        if ($("#acceptsSection8TypeId").val() != '') {
+            $("#collapseSection8TypeId").removeClass("collapse");
+        }
+        if ($("#isPetAllowedTypeId").val() != '') {
+            $("#collapsePetAllowedTypeId").removeClass("collapse");
+        }
+    }
+
+/*
+    $('#s2id_acceptsSection8').change(function () { //collapseSection8  s2id_acceptsSection8   acceptsSection8
+        $('#filterForm').submit();
+    });
+
+    $(document).change(function () {
+        //alert("value is changed");
+        $('#filterForm').submit();
+    });
+
+*/
+
+</script>

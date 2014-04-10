@@ -1,10 +1,46 @@
-﻿
+﻿@*@model SO.SilList.Manager.Models.ViewModels.PropertyVm*@
+@using SO.SilList.Manager.Models.ValueObjects
+@using SO.Utility.Extensions;
+@using SO.SilList.Manager;
+
+@model SO.Utility.Models.ViewModels.SearchFilterVm
 @{
     ViewBag.Title = "Index";
+    //Layout = "~/Views/Shared/_LayoutProperty.cshtml";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+
+    var result = Model.result.convertTo<PropertyVo>();
 }
 
-<h2>Index</h2>
+<h4>Your Search Result</h4>
 
-<a href="@Url.Action("Create", "Property")" class="btn btn-info">Create New</a>
+<div style="height:20px">
+    <div class="pull-right">
+        @*@((Model.paging.pageNumber - 1) * Model.paging.rowCount + Model.result.Count) of @Model.paging.totalCount*@
+    </div>
+</div>
+<hr />
 
-TODO: implement Property page
+<ul class="media-list">
+    @{
+
+        if (result.Count == 0)
+        {
+            <div class="businessAddressLine"> <b><i>No Match was Found</i></b></div>
+        }
+        else
+        {
+            foreach (var item in result)
+            {
+
+                <li class="row, media" style="border-bottom: 1px solid #ccc;">
+
+                    @Html.Partial("_PropertyItem", item)
+
+                </li>
+            }
+        }
+    }
+</ul>
+@*@Html.Action("Pagination", @Model.paging)*@
+

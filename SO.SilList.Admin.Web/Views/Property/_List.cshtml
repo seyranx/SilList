@@ -6,6 +6,8 @@
     ViewBag.Title = "_List";
 
     var result = Model.convertTo<PropertyVo>();
+    
+    var comma = "";
 }
 
 <table class="table table-bordered table-hover listTable">
@@ -46,7 +48,9 @@
                 @Html.DisplayFor(modelItem => item.price)
             </td>
             <td> 
-                @Html.DisplayFor(modelItem => item.cityType.name) , @Html.DisplayFor(modelItem => item.stateType.name)
+                @if (item.cityType != null && item.stateType != null) { comma = ", "; }
+                        
+                @Html.DisplayFor(modelItem => item.cityType.name)  @comma  @Html.DisplayFor(modelItem => item.stateType.name)
             </td>
             <td>
                 <a href="@Url.Action("Edit",new { id=item.propertyId })" class="btn btn-default" title="Edit"><i class="icon-edit"></i></a>
