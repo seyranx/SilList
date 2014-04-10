@@ -1,5 +1,6 @@
 ﻿using SO.SilList.Manager.Managers;
 using SO.SilList.Manager.Models.ViewModels;
+using SO.SilList.Manager.Models.ValueObjects;
 using SO.Utility.Classes;
 using SO.Utility.Models.ViewModels;
 using System;
@@ -30,9 +31,36 @@ namespace SO.SilList.Web.Controllers
             return View(input);
         }
 
+
         public ActionResult Filter(SearchFilterVm input = null, Paging paging = null)
         {
             return PartialView("_SearchFilter", input);
+        }
+
+        /// <summary>
+        /// Create new Property 
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult Create(PropertyVo input)
+        {
+            ViewBag.Title = "Add New Property";
+
+            if (this.ModelState.IsValid)
+            {
+                var item = propertyManager.insert(input);
+                
+                return RedirectToAction("Index");
+            }
+
+            return View(input);
+        }
+        
+        public ActionResult Create()
+        {
+            var vo = new PropertyVo();
+            return View(vo);
         }
 
 	}

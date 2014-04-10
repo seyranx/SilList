@@ -1,15 +1,15 @@
-using System; 
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;  
+using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
-using EntityFramework.Extensions; 
+using EntityFramework.Extensions;
 using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.DbContexts;
 using SO.SilList.Manager.Managers.Base;
 
-using SO.Utility.Classes; 
+using SO.Utility.Classes;
 using SO.Utility.Models.ViewModels;
 using SO.Utility;
 using SO.Utility.Helpers;
@@ -18,14 +18,14 @@ using SO.Utility.Extensions;
 
 
 
-namespace  SO.SilList.Manager.Managers 
-{ 
+namespace SO.SilList.Manager.Managers
+{
     public class MemberManager : MemberManagerBase
     {
-	 
+
         public MemberManager()
         {
-		 
+
         }
 
         public MemberVo getByUsernameAndPassword(string username, string hashedPassword)
@@ -62,8 +62,14 @@ namespace  SO.SilList.Manager.Managers
             }
         }
 
-
-        
+        public MemberVo updateLastLoginForMember(string usernameOrEmail, string hashedPassword)
+        {
+            MemberVo member = getByUsernameAndPassword(usernameOrEmail, hashedPassword);
+            if (member == null)
+                return null;
+            member.lastLogin = DateTime.Now;
+            return update(member);
+        }
     }
 }
 

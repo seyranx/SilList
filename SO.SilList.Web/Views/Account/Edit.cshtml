@@ -1,0 +1,121 @@
+﻿@model SO.SilList.Manager.Models.ValueObjects.MemberVo
+@using SO.SilList.Manager.Managers
+@using SO.SilList.Manager.Models.ValueObjects
+
+@{
+    ViewBag.Title = "Edit User";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>@ViewBag.Title</h3>
+
+
+<script>
+    window.onload = function () {
+        var n = @Html.Raw(Json.Encode(Model.memberRoleTypes))
+                $("#memberRoleTypes").val(n).select2({
+                    width: '100%',
+                });
+    };
+</script>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.memberId)
+    @Html.HiddenFor(model => model.lastLogin)
+    @Html.HiddenFor(model => model.password)
+    <div class="">
+        <hr /><div class="col-md-12" style="color: red">
+            <br />
+            <b>
+                @Html.ValidationSummary()
+            </b>
+        </div>
+                    <div class=" row">
+                <div class="col-md-3">
+                    Member ID
+                    <input id="memberId" name="memberId" type="text" class="form-control" value="@Html.DisplayFor(model => model.memberId)" readonly="true">
+                </div>
+                <div class="col-md-3">
+                    User Name
+                    @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+
+                <div class="col-md-3">
+                    Password Reset
+                    @Html.PasswordFor(model => model.passwordReset, new { @class = "form-control"  })
+                </div>
+            </div>
+        
+       
+            <div class="row">
+
+                <div class="col-md-3">
+                    First Name
+                    @Html.EditorFor(model => model.firstName, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+    
+            <div class="col-md-3">
+                Last Name
+                @Html.EditorFor(model => model.lastName, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <div class="col-md-3">
+                E-Mail
+                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        @*<div class="row">
+                <div class="col-md-9">
+                    Member Roles
+                    @Html.Action("DropDownList", new { id = Model.memberRoleTypes, propertyName = "memberRoleTypes", modelType = typeof(MemberRoleTypeVo) })
+
+                </div>
+            </div>*@
+
+        <div class="row">
+            <div class="col-md-3">
+                Address
+                @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <div class="col-md-3">
+                City
+                @Html.TextBoxFor(model => model.cityType, new { style = "width:97%", @class = "form-control" })
+            </div>
+            <div class="col-md-1">
+                State
+                @Html.TextBoxFor(model => model.stateType, new { style = "width:50px", @class = "form-control" })
+            </div>
+            <div class="col-md-2">
+                Zip
+                @Html.TextBoxFor(model => model.zip, new { style = "width:97%", @class = "form-control" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                Fax
+                @Html.TextBoxFor(model => model.fax, new { style = "width:98%", @class = "form-control" })
+            </div>
+            <div class="col-md-2">
+                Cell Phone
+                @Html.TextBoxFor(model => model.phone, new { style = "width:98%", @class = "form-control" })
+            </div>
+            <div class="col-md-2">
+                Home Phone
+                @Html.TextBoxFor(model => model.phone, new { style = "width:98%", @class = "form-control" })
+            </div>
+            <div class="col-md-3">
+                Work Phone
+                @Html.TextBoxFor(model => model.phone, new { style = "width:98%", @class = "form-control" })
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <br />
+            <input type="submit" value="Update" class="btn pull-right btn-info" />
+        </div>
+    </div>
+
+}

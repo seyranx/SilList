@@ -26,7 +26,13 @@ obj/
 [Rr]elease*/
 _ReSharper*/
 [Tt]est[Rr]esult*
-*.dll
+#*.dll
+SO.SilList.Manager.dll
+SO.SilList.Web.dll
+SO.Utility.dll
+SO.SilList.Admin.Web.dll
+SO.SilList.Admin.Web.Tests.dll
+SO.SilList.Database.dll
 *.ldf
 *.mdf
 *.dbmdl
