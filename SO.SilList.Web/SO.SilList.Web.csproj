@@ -179,6 +179,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DropDownController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\PropertyController.cs" />
@@ -244,13 +245,16 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Property\Index.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Shared\_DropDown.cshtml" />
     <Content Include="Views\Account\Logout.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
     <Content Include="Views\Account\Details.cshtml" />
+    <Content Include="Views\Property\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\CityType\" />
+    <Folder Include="Views\DropDown\" />
     <Folder Include="Views\Member\" />
   </ItemGroup>
   <ItemGroup>
