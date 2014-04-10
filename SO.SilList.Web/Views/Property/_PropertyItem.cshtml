@@ -1,7 +1,6 @@
 ﻿@model SO.SilList.Manager.Models.ValueObjects.PropertyVo
 @{
-    ViewBag.Title = "_PropertyItem";
-    
+    ViewBag.Title = "_PropertyItem";    
 }
 
 
@@ -18,14 +17,14 @@
             
         @{
             if (Model.propertyListingTypeId != null) {
-                <div class="businessAddressLine"> For @Model.propertyListingType.name </div>
+                <div class="businessAddressLine"> @*For @Model.propertyListingType.name*@ </div>
             }
             else {
                 <div class="businessAddressLine"> <br /> </div>
             }
             
             if (Model.propertyTypeId != null) {
-                <div class="businessAddressLine"> Type: @Model.propertyType.name </div>
+                <div class="businessAddressLine"> @*Type: @Model.propertyType.name*@ </div>
             }
             else {
                 <div class="businessAddressLine"> <br /> </div>
@@ -49,14 +48,14 @@
             
         </div>
         <div class="businessAddressLine">
-             @if (Model.phone != null)
+             @*@if (Model.phone != null)
              {
                  Write(Model.phone);
              }
              else
              {
                 <br />
-             }
+             }*@
 
             @*
             Location: <a href="/">@Html.DisplayFor(model => model.cityType.name)

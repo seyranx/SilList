@@ -1,4 +1,5 @@
 ﻿using SO.SilList.Manager.Managers;
+using SO.SilList.Manager.Models.ViewModels;
 using SO.Utility.Classes;
 using SO.Utility.Models.ViewModels;
 using System;
@@ -27,6 +28,11 @@ namespace SO.SilList.Web.Controllers
                 return View(input);
             }
             return View(input);
+        }
+
+        public ActionResult Filter(SearchFilterVm input = null, Paging paging = null)
+        {
+            return PartialView("_SearchFilter", input);
         }
 
 	}

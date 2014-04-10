@@ -5,12 +5,16 @@
 
 <div class="col-md-12" style="min-height: 450px;">
 
-    <div class="col-md-2 leftColumn">
+    <div class="col-md-2 leftColumn" style="background-color: #101010;">
         @Html.Partial("_Menu")
     </div>
 
-    <div class="col-md-10 mainContent">
+    <div class="col-md-7 mainContent">
         @RenderBody()
+    </div>
+
+    <div class="col-md-3" style="background-color: #E8E8EC;">
+        blank
     </div>
 
 </div> 

@@ -6,12 +6,13 @@
 @model SO.Utility.Models.ViewModels.SearchFilterVm
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutProperty.cshtml";
+    //Layout = "~/Views/Shared/_LayoutProperty.cshtml";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
 
     var result = Model.result.convertTo<PropertyVo>();
 }
 
-<h3>Your Search Result</h3>
+<h4>Your Search Result</h4>
 
 <div style="height:20px">  
     <div class="pull-right" >
@@ -41,5 +42,5 @@
         }
     }
 </ul>
-@Html.Action("Pagination", @Model.paging)
+@*@Html.Action("Pagination", @Model.paging)*@
 
