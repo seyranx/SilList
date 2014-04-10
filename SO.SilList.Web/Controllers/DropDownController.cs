@@ -6,26 +6,15 @@ using System.Web.Mvc;
 using SO.Utility.Models.ViewModels;
 using SO.SilList.Manager.Managers;
 
-namespace SO.SilList.Web.Controllers
-{
-    public class DropDownController : Controller
-    {
-        //
-        // GET: /DropDown/
-        public ActionResult Index()
-        {
-            return View();
-        }
-    }
-}
 
-namespace SO.Urba.Web.Controllers
+namespace SO.SilList.Web.Controllers
 {
     [Authorize]
     public class DropDownController : Controller
     {
         private PropertyTypeManager propertyTypeManager = new PropertyTypeManager();
         private PropertyManager propertyManager = new PropertyManager();
+        private BusinessCategoryTypeManager businessCategoryTypeManager = new BusinessCategoryTypeManager();
 
         /// <summary>
         /// /DropDown/propertyTypes
@@ -42,11 +31,11 @@ namespace SO.Urba.Web.Controllers
             vo.optionLabel = "Property Types";
             vo.items = propertyTypeManager.getAll(true);
 
-            return View("_DropDownList", vo);
+            return View("_DropDown", vo);
         }
 
         /// <summary>
-        /// /DropDown/companies
+        /// /DropDown/properties
         /// 
         ///   @Html.Action("properties", "DropDown", new { id = Model.companyId })
         /// </summary>
@@ -60,28 +49,27 @@ namespace SO.Urba.Web.Controllers
             vo.optionLabel = "Properties";
             vo.items = propertyManager.getAll(true);
 
-            return View("_DropDownList", vo);
+            return View("_DropDown", vo);
         }
 
 
-        ///// <summary>
-        /////  /DropDown/companyCategoryTypes2
-        /////  
-        ///// </summary>
-        ///// <param name="id"></param>
-        ///// <returns></returns>
-        //public ActionResult companyCategoryTypes2(int? id = null)
-        //{
-        //    var vo = new DropDownVm();
-        //    vo.propertyName = "companyCategoryTypeId";
-        //    vo.dataValueField = "companyCategoryTypeId";
-        //    vo.dataTextField = "name";
-        //    vo.selectedValue = id;
-        //    vo.optionLabel = "All Providers";
-        //    vo.items = companyCategoryTypeManager.getCompanyCategories(true); // CompanyCategoryClass
+        /// <summary>
+        /// /DropDown/businessCategoryTypes
+        /// 
+        ///   @Html.Action("propertyTypes", "DropDown", new { id = Model.businessCategoryTypeId })
+        /// </summary>
+        public ActionResult businessCategoryTypes(int? id = null)
+        {
+            var vo = new DropDownVm();
+            vo.propertyName = "businessCategoryTypeId";
+            vo.dataValueField = "businessCategoryTypeId";
+            vo.dataTextField = "name";
+            vo.selectedValue = id;
+            vo.optionLabel = "All Categoies";
+            vo.items = businessCategoryTypeManager.getAll(true); 
 
-        //    return View("_DropDownList", vo);
-        //}
+            return View("_DropDownList", vo);
+        }
 
         
         ///// <summary>
