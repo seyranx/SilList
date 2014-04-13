@@ -258,13 +258,12 @@
     <Content Include="Views\Shared\_InnerLayout.cshtml" />
     <Content Include="Views\Shared\_Menu.cshtml" />
     <Content Include="Views\Property\_Filter.cshtml" />
-    <Content Include="Views\Property\_Menu.cshtml" />
     <Content Include="Views\Property\_PropertyItem.cshtml" />
-    <Content Include="Views\Property\Create.cshtml" />
     <Content Include="Views\Property\Detail.cshtml" />
     <Content Include="Views\Property\Listings.cshtml" />
     <Content Include="Views\Shared\_SearchFilter.cshtml" />
     <Content Include="Views\Property\_SearchFilter.cshtml" />
+    <Content Include="Views\Shared\_Pagination.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

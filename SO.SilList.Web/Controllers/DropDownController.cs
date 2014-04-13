@@ -47,7 +47,7 @@ namespace SO.SilList.Web.Controllers
             vo.dataValueField = "propertyListingTypeId";
             vo.dataTextField = "name";
             vo.selectedValue = id;
-            vo.optionLabel = "Property Listing Types";
+            vo.optionLabel = "Select Type";
             vo.items = propertyListingTypeManager.getAll(true);
 
             return View("_DropDown", vo);

@@ -1,6 +1,26 @@
 ﻿@model SO.Utility.Models.ViewModels.SearchFilterVm
  
-<style>
+
+    @Html.ValidationSummary(true)
+    @Html.ValidationMessageFor(model => model.keyword)
+
+    <div class="search-title">
+        Search Listings
+    </div>
+    <br />
+    <hr />
+    <div>
+        @Html.TextBoxFor(model => model.keyword, new { Class = "input-medium pull-left", placeholder = "Keyword" })
+        <br /><br />
+    </div>
+    <div>
+        @Html.TextBoxFor(model => model.filter_cityTypeId, new { Class = "input-medium pull-left", placeholder = "City, State" })
+        <br /><br />
+        @Html.TextBoxFor(model => model.filter_zip, new { Class = "input-medium pull-left", placeholder = "Zip Code" })
+        <br /><br />
+    </div>
+
+@*<style>
     #isActive {
         width:90px;
     }
@@ -16,5 +36,5 @@
          @Html.EditorFor(model => model.isActive)
      </label>
 
-     <button id="btnSearch" name="submitButton" value="Search" class="btn btn-default" style="margin-left:10px;">Search</button>
+     <button id="btnSearch" name="submitButton" value="Search" class="btn btn-default" style="margin-left:10px;">Search</button>*@
 

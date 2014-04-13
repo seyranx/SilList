@@ -4,14 +4,34 @@
 @using SO.Utility.Extensions;
 @using SO.SilList.Manager;
 @{
-    var result = Model.result.convertTo<PropertyVm>();            
+    var result = Model.result.convertTo<PropertyVo>();            
 }
-           
- 
+         
 
 <form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index", "Property")">
 
     @Html.ValidationSummary(true)
+    @Html.ValidationMessageFor(model => model.keyword)
+
+    <div class="search-title">
+        Search Listings
+    </div> 
+    <br /><hr />
+    <div>
+        @Html.TextBoxFor(model => model.keyword, new { Class = "input-medium pull-left", placeholder = "Keyword" })
+        <br /><br />
+        @Html.TextBoxFor(model => model.filter_cityTypeId, new { Class = "input-medium pull-left", placeholder = "City, State" })
+        <br /><br />
+        @Html.TextBoxFor(model => model.filter_zip, new { Class = "input-medium pull-left", placeholder = "Zip Code" })
+        <br /><br />
+    </div>
+
+    <div>
+        <button id="btnSearch" name="submitButton" value="Search" class="btn btn-default pull-right"><i class="icon-search"></i></button>
+        <br /><br />
+    </div>
+
+    @*@Html.ValidationSummary(true)
     @Html.ValidationMessageFor(model => model.keyword)
 
     <div class="search-title">
@@ -23,13 +43,18 @@
         @Html.TextBoxFor(model => model.keyword, new { Class = "input-medium pull-left", placeholder = "Search" })
         <br /><br />
         <button id="btnSearch" name="submitButton" value="Search" class="btn btn-default pull-right"><i class="icon-search"></i></button>
-        <br /><br /><br /><br />
+        <br /><br />
     </div>
-
     <div>
-        <div class="pull-left">     @* new { id = Model.result.propertyListingTypeId } *@
-            @Html.Action("propertyListingTypes", "DropDown", new { id = 1 })
-        </div>
-    </div>
+        @Html.TextBoxFor(model => model.keyword, new { Class = "input-medium pull-left", placeholder = "Search" })
+        <br /><br />
+    </div>*@
+    <hr />
+    <ul class="nav nav-pills nav-stacked">
+        <li><a href="#">Sell</a></li>
+        <li><a href="#">Buy</a></li>
+        <li><a href="#">Rent</a></li>
+    </ul>
+    <hr />
 
 </form>

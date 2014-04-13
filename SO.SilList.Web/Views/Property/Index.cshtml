@@ -5,22 +5,23 @@
 
 @model SO.Utility.Models.ViewModels.SearchFilterVm
 @{
-    ViewBag.Title = "Index";
-    //Layout = "~/Views/Shared/_LayoutProperty.cshtml";
     Layout = "~/Views/Shared/_InnerLayout.cshtml";
 
     var result = Model.result.convertTo<PropertyVo>();
 }
 
-<h4>Your Search Result</h4>
+@*<h3>@ViewBag.Title</h3>*@
 
-<div style="height:20px">
+<div style="height:20px;padding:10px;">
     <div class="pull-right">
-        @*@((Model.paging.pageNumber - 1) * Model.paging.rowCount + Model.result.Count) of @Model.paging.totalCount*@
+        <i>
+              Showing @((Model.paging.pageNumber - 1) * Model.paging.rowCount + 1)
+                      - @((Model.paging.pageNumber - 1) * Model.paging.rowCount + Model.result.Count) 
+              of @Model.paging.totalCount
+        </i>
     </div>
 </div>
-<hr />
-
+<br />
 <ul class="media-list">
     @{
 
@@ -33,7 +34,7 @@
             foreach (var item in result)
             {
 
-                <li class="row, media" style="border-bottom: 1px solid #ccc;">
+                <li class="row, media" style="border-bottom: 1px solid #ccc; border-top: 1px solid #ccc;">
 
                     @Html.Partial("_PropertyItem", item)
 
@@ -42,5 +43,6 @@
         }
     }
 </ul>
-@*@Html.Action("Pagination", @Model.paging)*@
+@*@Html.Partial("_List", @filter.result)*@
+@Html.Partial("_Pagination", @Model.paging)
 

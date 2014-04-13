@@ -31,11 +31,10 @@ namespace SO.SilList.Web.Controllers
             return View(input);
         }
 
-
-        public ActionResult Filter(SearchFilterVm input = null, Paging paging = null)
-        {
-            return PartialView("_SearchFilter", input);
-        }
+        //public ActionResult Filter(SearchFilterVm input = null, Paging paging = null)
+        //{
+        //    return PartialView("_SearchFilter", input);
+        //}
 
         /// <summary>
         /// Create new Property 
