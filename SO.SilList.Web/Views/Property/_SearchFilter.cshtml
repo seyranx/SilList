@@ -1,20 +1,35 @@
 ﻿@model SO.Utility.Models.ViewModels.SearchFilterVm
+@using SO.SilList.Manager.Models.ValueObjects;
+@using SO.SilList.Manager.Models.ViewModels;
+@using SO.Utility.Extensions;
+@using SO.SilList.Manager;
+@{
+    var result = Model.result.convertTo<PropertyVm>();            
+}
+           
  
-<style>
-    #isActive {
-        width:90px;
-    }
-</style>
 
-     @Html.ValidationSummary(true)
-     @Html.ValidationMessageFor(model => model.keyword)
+<form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index", "Property")">
 
-     @Html.TextBoxFor(model => model.keyword,new { Class = "input-large", placeholder =  "Search" })
+    @Html.ValidationSummary(true)
+    @Html.ValidationMessageFor(model => model.keyword)
 
-     <label class="checkbox" style="margin-left:10px;">
-         Active:
-         @Html.EditorFor(model => model.isActive)
-     </label>
+    <div class="search-title">
+        Property Search
+    </div>
+    <br />
+    <hr />
+    <div>
+        @Html.TextBoxFor(model => model.keyword, new { Class = "input-medium pull-left", placeholder = "Search" })
+        <br /><br />
+        <button id="btnSearch" name="submitButton" value="Search" class="btn btn-default pull-right"><i class="icon-search"></i></button>
+        <br /><br /><br /><br />
+    </div>
 
-     <button id="btnSearch" name="submitButton" value="Search" class="btn btn-default" style="margin-left:10px;">Search</button>
+    <div>
+        <div class="pull-left">     @* new { id = Model.result.propertyListingTypeId } *@
+            @Html.Action("propertyListingTypes", "DropDown", new { id = 1 })
+        </div>
+    </div>
 
+</form>
