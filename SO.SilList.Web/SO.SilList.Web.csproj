@@ -196,6 +196,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\themes\base\images\glyphicons-halflings.png" />
+    <Content Include="Content\themes\base\images\topBack.jpg" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -252,17 +255,15 @@
     <Content Include="Views\Account\Details.cshtml" />
     <Content Include="Views\Property\Create.cshtml" />
     <Content Include="Views\Shared\_TopMenu.cshtml" />
-    <Content Include="Views\Property\_List.cshtml" />
     <Content Include="Views\Shared\_InnerLayout.cshtml" />
     <Content Include="Views\Shared\_Menu.cshtml" />
     <Content Include="Views\Property\_Filter.cshtml" />
-    <Content Include="Views\Property\_Menu.cshtml" />
     <Content Include="Views\Property\_PropertyItem.cshtml" />
-    <Content Include="Views\Property\Create.cshtml" />
     <Content Include="Views\Property\Detail.cshtml" />
     <Content Include="Views\Property\Listings.cshtml" />
     <Content Include="Views\Shared\_SearchFilter.cshtml" />
     <Content Include="Views\Property\_SearchFilter.cshtml" />
+    <Content Include="Views\Shared\_Pagination.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

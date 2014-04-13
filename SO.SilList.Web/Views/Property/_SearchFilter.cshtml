@@ -1,20 +1,60 @@
 ﻿@model SO.Utility.Models.ViewModels.SearchFilterVm
- 
-<style>
-    #isActive {
-        width:90px;
-    }
-</style>
+@using SO.SilList.Manager.Models.ValueObjects;
+@using SO.SilList.Manager.Models.ViewModels;
+@using SO.Utility.Extensions;
+@using SO.SilList.Manager;
+@{
+    var result = Model.result.convertTo<PropertyVo>();            
+}
+         
 
-     @Html.ValidationSummary(true)
-     @Html.ValidationMessageFor(model => model.keyword)
+<form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index", "Property")">
 
-     @Html.TextBoxFor(model => model.keyword,new { Class = "input-large", placeholder =  "Search" })
+    @Html.ValidationSummary(true)
+    @Html.ValidationMessageFor(model => model.keyword)
 
-     <label class="checkbox" style="margin-left:10px;">
-         Active:
-         @Html.EditorFor(model => model.isActive)
-     </label>
+    <div class="search-title">
+        Search Listings
+    </div> 
+    <br /><hr />
+    <div>
+        @Html.TextBoxFor(model => model.keyword, new { Class = "input-medium pull-left", placeholder = "Keyword" })
+        <br /><br />
+        @Html.TextBoxFor(model => model.filter_cityTypeId, new { Class = "input-medium pull-left", placeholder = "City, State" })
+        <br /><br />
+        @Html.TextBoxFor(model => model.filter_zip, new { Class = "input-medium pull-left", placeholder = "Zip Code" })
+        <br /><br />
+    </div>
 
-     <button id="btnSearch" name="submitButton" value="Search" class="btn btn-default" style="margin-left:10px;">Search</button>
+    <div>
+        <button id="btnSearch" name="submitButton" value="Search" class="btn btn-default pull-right"><i class="icon-search"></i></button>
+        <br /><br />
+    </div>
 
+    @*@Html.ValidationSummary(true)
+    @Html.ValidationMessageFor(model => model.keyword)
+
+    <div class="search-title">
+        Property Search
+    </div>
+    <br />
+    <hr />
+    <div>
+        @Html.TextBoxFor(model => model.keyword, new { Class = "input-medium pull-left", placeholder = "Search" })
+        <br /><br />
+        <button id="btnSearch" name="submitButton" value="Search" class="btn btn-default pull-right"><i class="icon-search"></i></button>
+        <br /><br />
+    </div>
+    <div>
+        @Html.TextBoxFor(model => model.keyword, new { Class = "input-medium pull-left", placeholder = "Search" })
+        <br /><br />
+    </div>*@
+    <hr />
+    <ul class="nav nav-pills nav-stacked">
+        <li><a href="#">Sell</a></li>
+        <li><a href="#">Buy</a></li>
+        <li><a href="#">Rent</a></li>
+    </ul>
+    <hr />
+
+</form>

@@ -135,7 +135,7 @@ namespace  SO.SilList.Manager.Managers
             }
         }
 
-        public PropertyVm search(PropertyVm input)
+        public SearchFilterVm search(SearchFilterVm input)
         {
             DateTime listingDate = new DateTime();
             listingDate = DateTime.Today.Date;
@@ -178,16 +178,16 @@ namespace  SO.SilList.Manager.Managers
                             .Where(e => (input.isActive == null || e.isActive == input.isActive)
                                       && ((e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                                             || (e.title.Contains(input.keyword) || e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword)))
-                                      && (input.zip == null || e.zip == input.zip)
+                                      && (input.filter_zip == null || e.zip == input.filter_zip)
                                       && (input.filter_cityTypeId == null || e.cityTypeId == input.filter_cityTypeId)
-                                      && (input.propertyTypeId == null || e.propertyTypeId == input.propertyTypeId)
-                                      && (input.propertyListingTypeId == null || e.propertyListingTypeId == input.propertyListingTypeId)
-                                      //&& (e.bedroomTypeId == input.bedroomTypeId || input.bedroomTypeId == null)
-                                      //&& (e.bathroomTypeId == input.bathroomTypeId || input.bathroomTypeId == null)
-                                      && ((e.price >= input.startingPrice || input.startingPrice == null)
-                                      && (e.price <= input.endingPrice || input.endingPrice == null))
-                                      //&& (input.acceptsSection8TypeId == null || e.acceptsSection8TypeId == input.acceptsSection8TypeId)
-                                      //&& (input.isPetAllowedTypeId == null || e.isPetAllowedTypeId == input.isPetAllowedTypeId)
+                                      //&& (input.propertyTypeId == null || e.propertyTypeId == input.propertyTypeId)
+                                      //&& (input.propertyListingTypeId == null || e.propertyListingTypeId == input.propertyListingTypeId)
+                                         //&& (e.bedroomTypeId == input.bedroomTypeId || input.bedroomTypeId == null)
+                                         //&& (e.bathroomTypeId == input.bathroomTypeId || input.bathroomTypeId == null)
+                                      //&& ((e.price >= input.startingPrice || input.startingPrice == null)
+                                      //&& (e.price <= input.endingPrice || input.endingPrice == null))
+                                         //&& (input.acceptsSection8TypeId == null || e.acceptsSection8TypeId == input.acceptsSection8TypeId)
+                                         //&& (input.isPetAllowedTypeId == null || e.isPetAllowedTypeId == input.isPetAllowedTypeId)
 
                                       /*
                                       && (input.showPendingOnly == null || input.showPendingOnly == false || e.entryStatusType.name.Equals(EntryStatusTypeStrings.csPending)) 
@@ -202,7 +202,7 @@ namespace  SO.SilList.Manager.Managers
                              .OrderBy(b => b.title)
                              .Skip(input.paging.skip)
                              .Take(input.paging.rowCount)
-                             .ToList();
+                             .ToList().ToList<object>();
 
                 return input;
             }

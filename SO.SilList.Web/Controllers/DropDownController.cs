@@ -15,6 +15,7 @@ namespace SO.SilList.Web.Controllers
         private PropertyTypeManager propertyTypeManager = new PropertyTypeManager();
         private PropertyManager propertyManager = new PropertyManager();
         private BusinessCategoryTypeManager businessCategoryTypeManager = new BusinessCategoryTypeManager();
+        private PropertyListingTypeManager propertyListingTypeManager = new PropertyListingTypeManager();
 
         /// <summary>
         /// /DropDown/propertyTypes
@@ -30,6 +31,24 @@ namespace SO.SilList.Web.Controllers
             vo.selectedValue = id;
             vo.optionLabel = "Property Types";
             vo.items = propertyTypeManager.getAll(true);
+
+            return View("_DropDown", vo);
+        }
+
+        /// <summary>
+        /// /DropDown/propertyListingTypes
+        /// 
+        ///   @Html.Action("propertyListingTypes", "DropDown", new { id = Model.propertyListingTypeId })
+        /// </summary>
+        public ActionResult propertyListingTypes(int? id = null)
+        {
+            var vo = new DropDownVm();
+            vo.propertyName = "propertyListingTypeId";
+            vo.dataValueField = "propertyListingTypeId";
+            vo.dataTextField = "name";
+            vo.selectedValue = id;
+            vo.optionLabel = "Select Type";
+            vo.items = propertyListingTypeManager.getAll(true);
 
             return View("_DropDown", vo);
         }
