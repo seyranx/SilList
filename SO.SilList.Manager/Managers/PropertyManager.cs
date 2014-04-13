@@ -181,7 +181,7 @@ namespace  SO.SilList.Manager.Managers
                                       && (input.filter_zip == null || e.zip == input.filter_zip)
                                       && (input.filter_cityTypeId == null || e.cityTypeId == input.filter_cityTypeId)
                                       //&& (input.propertyTypeId == null || e.propertyTypeId == input.propertyTypeId)
-                                      //&& (input.propertyListingTypeId == null || e.propertyListingTypeId == input.propertyListingTypeId)
+                                      && (input.propertyListingTypeId == null || e.propertyListingTypeId == input.propertyListingTypeId)
                                          //&& (e.bedroomTypeId == input.bedroomTypeId || input.bedroomTypeId == null)
                                          //&& (e.bathroomTypeId == input.bathroomTypeId || input.bathroomTypeId == null)
                                       //&& ((e.price >= input.startingPrice || input.startingPrice == null)

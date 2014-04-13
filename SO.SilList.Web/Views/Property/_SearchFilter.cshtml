@@ -10,6 +10,7 @@
 
 <form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index", "Property")">
 
+    @Html.HiddenFor(model => model.propertyListingTypeId)
     @Html.ValidationSummary(true)
     @Html.ValidationMessageFor(model => model.keyword)
 
@@ -31,30 +32,15 @@
         <br /><br />
     </div>
 
-    @*@Html.ValidationSummary(true)
-    @Html.ValidationMessageFor(model => model.keyword)
-
-    <div class="search-title">
-        Property Search
-    </div>
-    <br />
-    <hr />
-    <div>
-        @Html.TextBoxFor(model => model.keyword, new { Class = "input-medium pull-left", placeholder = "Search" })
-        <br /><br />
-        <button id="btnSearch" name="submitButton" value="Search" class="btn btn-default pull-right"><i class="icon-search"></i></button>
-        <br /><br />
-    </div>
-    <div>
-        @Html.TextBoxFor(model => model.keyword, new { Class = "input-medium pull-left", placeholder = "Search" })
-        <br /><br />
-    </div>*@
-    <hr />
-    <ul class="nav nav-pills nav-stacked">
+    <hr/>
+    @Html.Action("SelectList", "Property", new { id = Model.propertyListingTypeId, propertyName = "propertyListingTypeId", propertyType = typeof(PropertyListingTypeVo) })
+    @*<ul class="nav nav-pills">
         <li><a href="#">Sell</a></li>
         <li><a href="#">Buy</a></li>
         <li><a href="#">Rent</a></li>
-    </ul>
+    </ul>*@
     <hr />
+
+
 
 </form>

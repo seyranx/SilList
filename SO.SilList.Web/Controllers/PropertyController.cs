@@ -14,6 +14,8 @@ namespace SO.SilList.Web.Controllers
     public class PropertyController : Controller
     {
         private PropertyManager propertyManager = new PropertyManager();
+        private PropertyTypeManager propertyTypeManager = new PropertyTypeManager();
+        private PropertyListingTypeManager propertyListingTypeManager = new PropertyListingTypeManager();
 
         public ActionResult Index(SearchFilterVm input = null, Paging paging = null)
         {
@@ -60,6 +62,27 @@ namespace SO.SilList.Web.Controllers
         {
             var vo = new PropertyVo();
             return View(vo);
+        }
+
+        public ActionResult SelectList(int? id = null, string propertyName = null, Type propertyType = null)
+        {
+            ViewBag.selectedId = id;
+            ViewBag.propertyName = propertyName;
+
+            if (propertyType == typeof(PropertyTypeVo))
+            {
+                ViewBag.list = propertyTypeManager.getAll(true);
+                ViewBag.propertyId = "propertyTypeId";
+                ViewBag.titleName = "Property Type";
+            }
+            else if (propertyType == typeof(PropertyListingTypeVo))
+            {
+                ViewBag.list = propertyListingTypeManager.getAll(true);
+                ViewBag.propertyId = "propertyListingTypeId";
+                ViewBag.titleName = "Listing Type";
+            }
+
+            return PartialView("_SelectList");
         }
 
 	}

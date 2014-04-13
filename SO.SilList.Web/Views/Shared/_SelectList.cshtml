@@ -1,0 +1,38 @@
+﻿
+
+<ul class="nav nav-pills">
+    @{
+                int count = ViewBag.list.Count;
+                int id = 0;
+                int max = 10;
+
+                if (count < 10)
+                {
+                    max = count;
+                }
+
+                for (int i = 0; i < max; i++)
+                {
+                    var item = ViewBag.list[i];
+
+                    id = item.GetType().GetProperty(ViewBag.propertyId).GetValue(item);
+
+                    <li><a href="#" id="@item.name" onclick="selectAction(@id,'@ViewBag.propertyName')">@item.name</a></li>
+                }
+    }
+</ul>
+
+    
+
+
+
+<script>
+
+function selectAction(value,idName) {
+    $("#"+idName).val(value);
+    $("#filterForm").submit();
+}
+
+</script>
+    
+
