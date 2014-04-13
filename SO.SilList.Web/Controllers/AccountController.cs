@@ -67,6 +67,7 @@ namespace SO.SilList.Web.Controllers
 
         [HttpPost]
         [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterVm input)
         {
             if (this.ModelState.IsValid)
@@ -123,6 +124,12 @@ namespace SO.SilList.Web.Controllers
                 return RedirectToAction("ConfirmEmail", "Member");
             }
 
+            return View();
+        }
+
+        [AllowAnonymous]
+        public ActionResult ForgotPassword()
+        {
             return View();
         }
 

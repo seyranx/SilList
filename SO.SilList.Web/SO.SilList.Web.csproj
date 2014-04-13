@@ -264,6 +264,7 @@
     <Content Include="Views\Shared\_SearchFilter.cshtml" />
     <Content Include="Views\Property\_SearchFilter.cshtml" />
     <Content Include="Views\Shared\_Pagination.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
