@@ -178,7 +178,6 @@ namespace SO.SilList.Web.Controllers
         [AllowAnonymous]
         public ActionResult ResetPassword(string un, string rt)
         {
-            UsersContext db = new UsersContext();
             //TODO: Check the un and rt matching and then perform following
             //get userid of received username
             var userid = (from i in db.UserProfiles
