@@ -175,6 +175,63 @@ namespace SO.SilList.Web.Controllers
             return View();
         }
 
+        [AllowAnonymous]
+        public ActionResult ResetPassword(string un, string rt)
+        {
+            UsersContext db = new UsersContext();
+            //TODO: Check the un and rt matching and then perform following
+            //get userid of received username
+            var userid = (from i in db.UserProfiles
+                          where i.UserName == un
+                          select i.UserId).FirstOrDefault();
+            //check userid and token matches
+            bool any = (from j in db.webpages_Memberships
+                        where (j.UserId == userid)
+                        && (j.PasswordVerificationToken == rt)
+                        //&& (j.PasswordVerificationTokenExpirationDate < DateTime.Now)
+                        select j).Any();
+
+            if (any == true)
+            {
+                //generate random password
+                string newpassword = GenerateRandomPassword(6);
+                //reset password
+                bool response = WebSecurity.ResetPassword(rt, newpassword);
+                if (response == true)
+                {
+                    //get user emailid to send password
+                    var emailid = (from i in db.UserProfiles
+                                   where i.UserName == un
+                                   select i.EmailId).FirstOrDefault();
+                    //send email
+                    string subject = "New Password";
+                    string body = "<b>Please find the New Password</b><br/>" + newpassword; //edit it
+                    try
+                    {
+                        SendEMail(emailid, subject, body);
+                        TempData["Message"] = "Mail Sent.";
+                    }
+                    catch (Exception ex)
+                    {
+                        TempData["Message"] = "Error occured while sending email." + ex.Message;
+                    }
+
+                    //display message
+                    TempData["Message"] = "Success! Check email we sent. Your New Password Is " + newpassword;
+                }
+                else
+                {
+                    TempData["Message"] = "Hey, avoid random request on this page.";
+                }
+            }
+            else
+            {
+                TempData["Message"] = "Username and token not maching.";
+            }
+
+            return View();
+        }
+
         public ActionResult Profile()
         {
             var result = CurrentMember.member;
