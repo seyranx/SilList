@@ -11,6 +11,7 @@ using EntityFramework.Extensions;
 using SO.SilList.Manager.Managers;
 using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Models.ViewModels;
+using SO.Utility.Classes.Email;
 
 namespace SO.SilList.Web.Controllers
 {
@@ -19,6 +20,7 @@ namespace SO.SilList.Web.Controllers
         MemberManager memberManager = new MemberManager();
         MemberRoleLookupManager memberRoleLookupManager = new MemberRoleLookupManager();
         MemberRoleTypeManager memberRoleTypeManager = new MemberRoleTypeManager();
+        EmailSender emailSender = new EmailSender();
 
         [HttpPost]
         [AllowAnonymous]
@@ -130,6 +132,46 @@ namespace SO.SilList.Web.Controllers
         [AllowAnonymous]
         public ActionResult ForgotPassword()
         {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult ForgotPassword(string userName)
+        {
+            //check user existance
+            MemberVo member = memberManager.getByUsername(userName);
+            if (member == null)
+            {
+                TempData["Message"] = "User Does not exist.";
+            }
+            else
+            {
+                //generate password token
+                var token = WebSecurity.GeneratePasswordResetToken(userName);
+                //create url with above token
+                var resetLink = "<a href='" + Url.Action("ResetPassword", "Account", new { un = userName, rt = token }, "http") + "'>Reset Password</a>";
+                //get user emailid
+                var emailid = member.email;
+
+                //send mail
+                string subject = "Password Reset Token";
+                string body = "<b>Please find the Password Reset Token</b><br/>" + resetLink; //edit it
+                try
+                {
+                    emailSender.setCredentials("admin@sillist.com", "todo: add password?", "sillist?google?");
+                    emailSender.send("SilList System Administrator", emailid, subject, body);
+                    TempData["Message"] = "Mail Sent.";
+                }
+                catch (Exception ex)
+                {
+                    TempData["Message"] = "Error occured while sending email." + ex.Message;
+                }
+                //only for testing
+                TempData["Message"] = resetLink;
+            }
+
             return View();
         }
 
