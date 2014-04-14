@@ -34,6 +34,7 @@
 
     <hr/>
     @Html.Action("SelectList", "Property", new { id = Model.propertyListingTypeId, propertyName = "propertyListingTypeId", propertyType = typeof(PropertyListingTypeVo) })
+    @Html.Action("SelectList", "Property", new { id = Model.propertyTypeId, propertyName = "propertyTypeId", propertyType = typeof(PropertyTypeVo) })
     @*<ul class="nav nav-pills">
         <li><a href="#">Sell</a></li>
         <li><a href="#">Buy</a></li>

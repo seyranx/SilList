@@ -1,6 +1,32 @@
 ﻿
 
-<ul class="nav nav-pills">
+<table width="100%">
+    <tr><br />
+        <td class="filter-title"> @ViewBag.titleName </td>
+    </tr>
+    @{
+        int count = ViewBag.list.Count;
+        int id = 0;
+        int max = 10;
+        if (count < 10)
+        {
+            max = count;
+        }
+        for (int i = 0; i < max; i++)
+        {
+            var item = ViewBag.list[i];
+            
+            id = item.GetType().GetProperty(ViewBag.propertyId).GetValue(item);
+
+            <tr>
+                <td class="filter-option"> <input id="@ViewBag.propertyName-@id" type="checkbox" name="@ViewBag.propertyName-@id"></input> @item.name </td>
+            </tr>
+        }
+    }
+    
+</table>
+
+@*<ul class="nav nav-pills">
     @{
                 int count = ViewBag.list.Count;
                 int id = 0;
@@ -20,7 +46,7 @@
                     <li><a href="#" id="@item.name" onclick="selectAction(@id,'@ViewBag.propertyName')">@item.name</a></li>
                 }
     }
-</ul>
+</ul>*@
 
     
 

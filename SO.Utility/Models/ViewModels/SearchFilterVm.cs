@@ -28,6 +28,7 @@ namespace SO.Utility.Models.ViewModels
         public int? listingDate { get; set; }
         //
         public int? propertyListingTypeId { get; set; }
+        public int? propertyTypeId { get; set; }
         // 
        
 

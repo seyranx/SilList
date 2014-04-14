@@ -1,0 +1,42 @@
+﻿@using SO.SilList.Manager.Managers
+
+
+<ul class="nav nav-pills nav-list-menu" style="padding-top:6px;">
+
+    @if (CurrentMember.isAuthenticated)
+    {
+        <li style="padding-left:5%;font-size:large;">
+            <a href="@Url.Action("Index", "Home")" class="white"><b><i>SilList</i></b></a>
+        </li>
+
+        <li class="dropdown">
+            <a href="@Url.Action("Index", "Home")" class="dropdown-toggle white">Home<b class="caret white-caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a href="@Url.Action("Index", "Home")">Action 1</a></li>
+                <li><a href="@Url.Action("Index", "Home")">Action 2</a></li>
+               <li class="divider"></li>
+                <li><a href="@Url.Action("Index", "Home")">Submit New</a></li>
+            </ul>
+        </li>
+       
+        <li class="dropdown">
+            <a href="@Url.Action("Index", "Property")" class="dropdown-toggle white">Property<b class="caret white-caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a href="@Url.Action("Index", "Property")">Action 1</a></li>
+                <li><a href="@Url.Action("Index", "Property")">Action 2</a></li>
+               <li class="divider"></li>
+                <li><a href="@Url.Action("Index", "Property")">Submit New</a></li>
+            </ul>
+        </li>
+                
+        @*<li class="dropdown">
+            <a href="@Url.Action("About", "Home")" class="dropdown-toggle">Help<b class="caret white-caret"></b></a>
+            <ul class="dropdown-menu">
+
+                <li><a href="@Url.Action("About", "Home")">About</a></li>
+                <li><a href="@Url.Action("CreatedBy", "Home")">Created by</a></li>
+            </ul>
+        </li>*@
+        
+    }
+</ul>
