@@ -1,9 +1,12 @@
 ﻿
-
 <table width="100%">
-    <tr><br />
+    <tr>
+        <br />
         <td class="filter-title"> @ViewBag.titleName </td>
     </tr>
+</table>
+
+<table width="100%" style="max-height:90%;">
     @{
         int count = ViewBag.list.Count;
         int id = 0;
@@ -15,11 +18,13 @@
         for (int i = 0; i < max; i++)
         {
             var item = ViewBag.list[i];
-            
             id = item.GetType().GetProperty(ViewBag.propertyId).GetValue(item);
+            var pid = @ViewBag.propertyName + '-' + id.ToString();
 
             <tr>
-                <td class="filter-option"> <input id="@ViewBag.propertyName-@id" type="checkbox" name="@ViewBag.propertyName-@id"></input> @item.name </td>
+                <td class="filter-option"> 
+                    <input id="@pid" type="checkbox" name="@pid" onclick="selectAction(@pid,'@ViewBag.propertyName')"></input> @item.name 
+                </td>
             </tr>
         }
     }
@@ -47,8 +52,6 @@
                 }
     }
 </ul>*@
-
-    
 
 
 
