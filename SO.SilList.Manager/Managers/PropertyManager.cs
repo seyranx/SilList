@@ -164,6 +164,21 @@ namespace  SO.SilList.Manager.Managers
                 }
             }
 
+            if (input.propertyTypeIdFilter != null)
+            {
+               // List<int> listOfIds = input.propertyTypeIdFilter.Split('-').ToList<int>();
+
+                //var numbers = input.propertyTypeIdFilter.Split('-').Select(n => int.Parse(n)).ToList();
+
+                //int[] Ids = input.propertyTypeIdFilter.Split('-').ToList<int>();
+
+                //foreach (string item in Ids)
+                //{
+                //    Object x = (object)item;
+                //    listOfIds.Add((int)x);
+                //}
+            }
+
             using (var db = new MainDb())
             {
                 var query = db.properties
@@ -179,8 +194,8 @@ namespace  SO.SilList.Manager.Managers
                                       && ((e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                                             || (e.title.Contains(input.keyword) || e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword)))
                                       && (input.filter_zip == null || e.zip == input.filter_zip)
-                                      && (input.filter_cityTypeId == null || e.cityTypeId == input.filter_cityTypeId)
-                                      //&& (input.propertyTypeIdFilter == null || input.propertyTypeIdFilter.Contains("23"))
+                                      //&& (input.filter_cityTypeId == null || e.cityTypeId == input.filter_cityTypeId)
+                                      && (input.propertyTypeIdFilter == null || input.propertyTypeIdFilter.Contains("23"))
                                       //&& (input.propertyListingTypeId == null || e.propertyListingTypeId == input.propertyListingTypeId)
  
                                       //&& (e.bedroomTypeId == input.bedroomTypeId || input.bedroomTypeId == null)
