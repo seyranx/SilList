@@ -10,7 +10,8 @@
 
 <form id="filterForm" class="form-inline" method="get" action="@Url.Action("Index", "Property")">
 
-    @Html.HiddenFor(model => model.propertyListingTypeId)
+    @Html.Hidden("propertyListingTypeIdFilter")
+    @Html.Hidden("propertyTypeIdFilter")
     @Html.ValidationSummary(true)
     @Html.ValidationMessageFor(model => model.keyword)
 
@@ -33,15 +34,30 @@
     </div>
 
     <hr/>
-    @Html.Action("SelectList", "Property", new { id = Model.propertyListingTypeId, propertyName = "propertyListingTypeId", propertyType = typeof(PropertyListingTypeVo) })
-    @Html.Action("SelectList", "Property", new { id = Model.propertyTypeId, propertyName = "propertyTypeId", propertyType = typeof(PropertyTypeVo) })
-    @*<ul class="nav nav-pills">
-        <li><a href="#">Sell</a></li>
-        <li><a href="#">Buy</a></li>
-        <li><a href="#">Rent</a></li>
-    </ul>*@
+    @Html.Action("SelectList", "Property", new { propertyType = typeof(PropertyListingTypeVo) })
+    @Html.Action("SelectList", "Property", new { propertyType = typeof(PropertyTypeVo) })
     <hr />
 
-
-
 </form>
+
+<script>
+
+    function markAllSelected(id, hiddenName) {
+
+        var selectedList = $("#" + hiddenName).val();
+        var selectedValues = selectedList.split("-");
+        
+        if (selectedValues.length > 1)
+            for (var i = 1; i < selectedValues.length; i++) {
+
+                $("#" + id + "-" + selectedValues[i]).attr('checked','checked');
+            }
+    }
+
+    window.onload = function () {
+
+        markAllSelected("propertyTypeId", "propertyTypeIdFilter");
+        markAllSelected("propertyListingTypeId", "propertyListingTypeIdFilter");
+    }
+
+</script>

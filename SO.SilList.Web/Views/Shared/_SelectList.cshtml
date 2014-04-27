@@ -15,21 +15,42 @@
         {
             max = count;
         }
+        
         for (int i = 0; i < max; i++)
         {
             var item = ViewBag.list[i];
             id = item.GetType().GetProperty(ViewBag.propertyId).GetValue(item);
-            var pid = @ViewBag.propertyName + '-' + id.ToString();
+            var pid = @ViewBag.propertyId + '-' + id.ToString();
 
             <tr>
                 <td class="filter-option"> 
-                    <input id="@pid" type="checkbox" name="@pid" onclick="selectAction(@pid,'@ViewBag.propertyName')"></input> @item.name 
+                    <input id="@pid" type="checkbox" name="@pid" onclick="selectAction('@pid','@ViewBag.hiddenName')"></input> @item.name 
                 </td>
             </tr>
         }
     }
     
 </table>
+
+<script>
+
+    function selectAction(id, hiddenName) {
+
+        var selectedList = $("#" + hiddenName).val();
+        var myValue = id.split("-")[1];
+
+        if ($("#" + id).is(':checked')) {
+            $("#" + hiddenName).val(selectedList + '-' + myValue);
+        }
+        else {
+            var updateSelectedList = selectedList.replace("-" + myValue, "");
+            $("#" + hiddenName).val(updateSelectedList);
+        }
+
+        $("#filterForm").submit();
+    }
+
+</script>
 
 @*<ul class="nav nav-pills">
     @{
@@ -55,13 +76,6 @@
 
 
 
-<script>
 
-function selectAction(value,idName) {
-    $("#"+idName).val(value);
-    $("#filterForm").submit();
-}
-
-</script>
     
 

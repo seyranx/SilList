@@ -180,9 +180,10 @@ namespace  SO.SilList.Manager.Managers
                                             || (e.title.Contains(input.keyword) || e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword)))
                                       && (input.filter_zip == null || e.zip == input.filter_zip)
                                       && (input.filter_cityTypeId == null || e.cityTypeId == input.filter_cityTypeId)
-                                      //&& (input.propertyTypeId == null || e.propertyTypeId == input.propertyTypeId)
-                                      && (input.propertyListingTypeId == null || e.propertyListingTypeId == input.propertyListingTypeId)
-                                         //&& (e.bedroomTypeId == input.bedroomTypeId || input.bedroomTypeId == null)
+                                      //&& (input.propertyTypeIdFilter == null || input.propertyTypeIdFilter.Contains("23"))
+                                      //&& (input.propertyListingTypeId == null || e.propertyListingTypeId == input.propertyListingTypeId)
+ 
+                                      //&& (e.bedroomTypeId == input.bedroomTypeId || input.bedroomTypeId == null)
                                          //&& (e.bathroomTypeId == input.bathroomTypeId || input.bathroomTypeId == null)
                                       //&& ((e.price >= input.startingPrice || input.startingPrice == null)
                                       //&& (e.price <= input.endingPrice || input.endingPrice == null))

@@ -64,22 +64,22 @@ namespace SO.SilList.Web.Controllers
             return View(vo);
         }
 
-        public ActionResult SelectList(int? id = null, string propertyName = null, Type propertyType = null)
+        public ActionResult SelectList(int? id = null, Type propertyType = null)
         {
-            ViewBag.selectedId = id;
-            ViewBag.propertyName = propertyName;
 
             if (propertyType == typeof(PropertyTypeVo))
             {
                 ViewBag.list = propertyTypeManager.getAll(true);
                 ViewBag.propertyId = "propertyTypeId";
                 ViewBag.titleName = "Property Type";
+                ViewBag.hiddenName = "propertyTypeIdFilter";
             }
             else if (propertyType == typeof(PropertyListingTypeVo))
             {
                 ViewBag.list = propertyListingTypeManager.getAll(true);
                 ViewBag.propertyId = "propertyListingTypeId";
                 ViewBag.titleName = "Listing Type";
+                ViewBag.hiddenName = "propertyListingTypeIdFilter";
             }
 
             return PartialView("_SelectList");
