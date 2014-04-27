@@ -70,6 +70,21 @@ namespace SO.SilList.Manager.Managers
             member.lastLogin = DateTime.Now;
             return update(member);
         }
+
+
+        public bool CheckIfUserIdAndVerifTokenMatch(int userId, string rt)
+        {
+            //check userid and token matches
+            using (var db = new MainDb())
+            {
+                bool any = (from j in db.webpages_Memberships
+                            where (j.UserId == userId)
+                        && (j.PasswordVerificationToken == rt)
+                            //&& (j.PasswordVerificationTokenExpirationDate < DateTime.Now)
+                            select j).Any();
+                return any;
+            }
+        }
     }
 }
 

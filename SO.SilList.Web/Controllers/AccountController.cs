@@ -180,16 +180,14 @@ namespace SO.SilList.Web.Controllers
         {
             //TODO: Check the un and rt matching and then perform following
             //get userid of received username
-            var userid = (from i in db.UserProfiles
+            /*
+             * var userid = (from i in db.UserProfiles
                           where i.UserName == un
                           select i.UserId).FirstOrDefault();
-            //check userid and token matches
-            bool any = (from j in db.webpages_Memberships
-                        where (j.UserId == userid)
-                        && (j.PasswordVerificationToken == rt)
-                        //&& (j.PasswordVerificationTokenExpirationDate < DateTime.Now)
-                        select j).Any();
+            */
+            var userId = memberManager.getByUsername(un);
 
+            bool any = memberManager.CheckIfUserIdAndVerifTokenMatch(userId, rt);
             if (any == true)
             {
                 //generate random password
