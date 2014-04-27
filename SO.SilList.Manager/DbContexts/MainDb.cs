@@ -1,5 +1,4 @@
 ﻿
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,6 +53,6 @@ namespace SO.SilList.Manager.DbContexts
         public DbSet<MemberRoleLookupVo> memberRoleLookups { get; set; }
         public DbSet<PropertyVo> properties { get; set; }
         public DbSet<RatingVo> ratings { get; set; }
-        public DbSet<Webpages_MembershipsVo> webpages_Memberships { get; set; }
+        public DbSet<webpages_MembershipsVo> webpages_Memberships { get; set; }
     }
 }

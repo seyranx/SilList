@@ -13,6 +13,11 @@ using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Models.ViewModels;
 using SO.Utility.Classes.Email;
 
+/*
+ *  Forgot password 
+    http://www.itorian.com/2013/03/PasswordResetting.html
+*/
+
 namespace SO.SilList.Web.Controllers
 {
     public class AccountController : Controller
@@ -191,7 +196,7 @@ namespace SO.SilList.Web.Controllers
             if (any == true)
             {
                 //generate random password
-                string newpassword = GenerateRandomPassword(6);
+                string newpassword = memberManager.GenerateRandomPassword(6);
                 //reset password
                 bool response = WebSecurity.ResetPassword(rt, newpassword);
                 if (response == true)
