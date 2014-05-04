@@ -175,22 +175,21 @@ input[type="checkbox"].input-validation-error {
 	font: bold;
     position: absolute;
     font-size: large;
-    padding: 2%;
 }
 
-.sub-title {
-  color: blue;
+.filter-title {
+  color: orange;
   font: bold;
-  position: static;
-  font-size: medium;
-  padding: 2%;
+  font-size: large;
+  text-align: left;
+  padding-left: 10px;
 }
 
-.sub-option {
+.filter-option {
   color: white;
-  position: static;
-  font-size: small;
+  font-size: medium;
   padding-left: 5%;
+  text-align: left;
 }
 
 .leftColumn_old {

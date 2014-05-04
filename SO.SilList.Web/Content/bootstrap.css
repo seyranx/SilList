@@ -3027,6 +3027,7 @@ input[type="button"].btn-block {
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
           box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 }
+
 .dropdown-menu.pull-right {
   right: 0;
   left: auto;
@@ -3464,7 +3465,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
-  background-color: #eee;
+  background-color: #CC0502;
 }
 .nav > li.disabled > a {
   color: #999;

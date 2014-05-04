@@ -1,0 +1,74 @@
+﻿@using SO.SilList.Manager.Managers
+
+<div class="btn-group">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+        Action <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Separated link</a></li>
+    </ul>
+</div>
+
+@*<ul class="nav nav-pills pull-left nav-list-menu">
+
+    <li style="padding-left:5%;font-size:large;">
+        <a href="@Url.Action("Index", "Home")" class="white"><b><i>SilList</i></b></a>
+    </li>
+
+    <li class="dropdown">
+        <a href="@Url.Action("Index", "Member", new { isActive = true })" class="dropdown-toggle">Users<b class="caret white-caret"></b></a>
+        <ul class="dropdown-menu">
+            <li><a href="@Url.Action("Index", "MemberRoleType", new { isActive = true})">System Roles</a></li>
+            <li><a href="@Url.Action("Index", "Member", new { isActive = true })">User Manager</a></li>
+            <li class="divider"></li>
+            <li><a href="@Url.Action("Create", "Member")">New User</a></li>
+        </ul>
+    </li>
+
+    <li class="dropdown">
+        <a href="@Url.Action("Index", "Client", new { isActive = true })" class="dropdown-toggle">Clients<b class="caret white-caret"></b></a>
+        <ul class="dropdown-menu">
+            <li><a href="@Url.Action("Index", "Client", new { isActive = true })">Clients</a></li>
+                <li class="divider"></li>
+                <li><a href="@Url.Action("Create","Client")">New Client</a></li>
+        </ul>
+    </li>
+
+</ul>*@
+
+
+@*<ul class="nav nav-pills nav-list-menu" style="padding-top:6px;">
+
+    @if (CurrentMember.isAuthenticated)
+    {
+        <li style="padding-left:5%;font-size:large;">
+            <a href="@Url.Action("Index", "Home")" class="white"><b><i>SilList</i></b></a>
+        </li>
+
+        <li class="dropdown">
+            <a href="@Url.Action("Index", "Home")" class="dropdown-toggle white">Home<b class="caret white-caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a href="@Url.Action("Index", "Home")">Action 1</a></li>
+                <li><a href="@Url.Action("Index", "Home")">Action 2</a></li>
+               <li class="divider"></li>
+                <li><a href="@Url.Action("Index", "Home")">Submit New</a></li>
+            </ul>
+        </li>
+       
+        <li class="dropdown">
+            <a href="@Url.Action("Index", "Property")" class="dropdown-toggle white">Property<b class="caret white-caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a href="@Url.Action("Index", "Property")">Action 1</a></li>
+                <li><a href="@Url.Action("Index", "Property")">Action 2</a></li>
+               <li class="divider"></li>
+                <li><a href="@Url.Action("Index", "Property")">Submit New</a></li>
+            </ul>
+        </li>
+
+        
+    }
+</ul>*@

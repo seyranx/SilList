@@ -1,0 +1,81 @@
+﻿
+<table width="100%">
+    <tr>
+        <br />
+        <td class="filter-title"> @ViewBag.titleName </td>
+    </tr>
+</table>
+
+<table width="100%" style="max-height:90%;">
+    @{
+        int count = ViewBag.list.Count;
+        int id = 0;
+        int max = 10;
+        if (count < 10)
+        {
+            max = count;
+        }
+        
+        for (int i = 0; i < max; i++)
+        {
+            var item = ViewBag.list[i];
+            id = item.GetType().GetProperty(ViewBag.propertyId).GetValue(item);
+            var pid = @ViewBag.propertyId + '-' + id.ToString();
+
+            <tr>
+                <td class="filter-option"> 
+                    <input id="@pid" type="checkbox" name="@pid" onclick="selectAction('@pid','@ViewBag.hiddenName')"></input> @item.name 
+                </td>
+            </tr>
+        }
+    }
+    
+</table>
+
+<script>
+
+    function selectAction(id, hiddenName) {
+
+        var selectedList = $("#" + hiddenName).val();
+        var myValue = id.split("-")[1];
+
+        if ($("#" + id).is(':checked')) {
+            $("#" + hiddenName).val(selectedList + '-' + myValue);
+        }
+        else {
+            var updateSelectedList = selectedList.replace("-" + myValue, "");
+            $("#" + hiddenName).val(updateSelectedList);
+        }
+
+        $("#filterForm").submit();
+    }
+
+</script>
+
+@*<ul class="nav nav-pills">
+    @{
+                int count = ViewBag.list.Count;
+                int id = 0;
+                int max = 10;
+
+                if (count < 10)
+                {
+                    max = count;
+                }
+
+                for (int i = 0; i < max; i++)
+                {
+                    var item = ViewBag.list[i];
+
+                    id = item.GetType().GetProperty(ViewBag.propertyId).GetValue(item);
+
+                    <li><a href="#" id="@item.name" onclick="selectAction(@id,'@ViewBag.propertyName')">@item.name</a></li>
+                }
+    }
+</ul>*@
+
+
+
+
+    
+

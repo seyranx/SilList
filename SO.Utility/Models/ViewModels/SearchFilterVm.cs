@@ -19,12 +19,17 @@ namespace SO.Utility.Models.ViewModels
         [DisplayName("isActive: ")]
         public bool? isActive { get; set; }
         public string submitButton { get; set; }
+        public Paging paging;
+
         //
         public int? filter_cityTypeId { get; set; }
         public int? filter_zip { get; set; }
         public int? listingDate { get; set; }
-        //
-        public Paging paging;
+        //public int? propertyListingTypeId { get; set; }
+        //public int? propertyTypeId { get; set; }
+        public string propertyListingTypeIdFilter { get; set; }
+        public string propertyTypeIdFilter { get; set; }
+        // 
 
         public SearchFilterVm()
         {

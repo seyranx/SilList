@@ -164,6 +164,23 @@ namespace  SO.SilList.Manager.Managers
                 }
             }
 
+            List<int> listofIDs = new List<int>();
+            List<int> listofLTypeIDs = new List<int>();
+
+            if (input.propertyTypeIdFilter != null) // -23-24-25
+            {
+                var listofIDsString = input.propertyTypeIdFilter.Split('-').ToList();
+
+                listofIDs = listofIDsString.Skip(1).Select(int.Parse).ToList(); ;
+            }
+
+            if (input.propertyListingTypeIdFilter != null) // -23-24-25
+            {
+                var listofIDsString = input.propertyListingTypeIdFilter.Split('-').ToList();
+
+                listofLTypeIDs = listofIDsString.Skip(1).Select(int.Parse).ToList(); ;
+            }
+
             using (var db = new MainDb())
             {
                 var query = db.properties
@@ -179,10 +196,11 @@ namespace  SO.SilList.Manager.Managers
                                       && ((e.title.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword))
                                             || (e.title.Contains(input.keyword) || e.description.Contains(input.keyword) || string.IsNullOrEmpty(input.keyword)))
                                       && (input.filter_zip == null || e.zip == input.filter_zip)
-                                      && (input.filter_cityTypeId == null || e.cityTypeId == input.filter_cityTypeId)
-                                      //&& (input.propertyTypeId == null || e.propertyTypeId == input.propertyTypeId)
-                                      //&& (input.propertyListingTypeId == null || e.propertyListingTypeId == input.propertyListingTypeId)
-                                         //&& (e.bedroomTypeId == input.bedroomTypeId || input.bedroomTypeId == null)
+                                      //&& (input.filter_cityTypeId == null || e.cityTypeId == input.filter_cityTypeId)
+                                      && (input.propertyTypeIdFilter == null || listofIDs.Contains(e.propertyTypeId.Value))
+                                      && (input.propertyListingTypeIdFilter == null || listofLTypeIDs.Contains(e.propertyListingTypeId.Value))
+ 
+                                      //&& (e.bedroomTypeId == input.bedroomTypeId || input.bedroomTypeId == null)
                                          //&& (e.bathroomTypeId == input.bathroomTypeId || input.bathroomTypeId == null)
                                       //&& ((e.price >= input.startingPrice || input.startingPrice == null)
                                       //&& (e.price <= input.endingPrice || input.endingPrice == null))
