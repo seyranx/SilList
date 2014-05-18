@@ -42,7 +42,7 @@ namespace SO.Utility.Classes.Email
 
               var nc = (NetworkCredential)smtpClient.Credentials;
 
-              if (string.IsNullOrEmpty(email.fromEmail))
+              if (string.IsNullOrEmpty(email.fromEmail) && nc!=null)
                   email.fromEmail = nc.UserName;
 
               message.IsBodyHtml = true;
@@ -52,8 +52,10 @@ namespace SO.Utility.Classes.Email
 
             message.BodyEncoding = Encoding.GetEncoding("Windows-1252");
 
+            if (email.fromEmail != null) { 
             message.From = new MailAddress(email.fromEmail, email.fromName);
             message.ReplyToList.Add(new MailAddress(email.fromEmail, email.fromName));
+              }
 
             message.To.Add(new MailAddress(email.toEmail));
 
@@ -64,11 +66,12 @@ namespace SO.Utility.Classes.Email
             return true;
         }
 
-        public void setCredentials(string email, string password, string host = null)
+        public void setCredentials(string email, string password, string host = null, int smtpPort=587)
         {
             if (string.IsNullOrEmpty(host))
                 host = "smtp.gmail.com";
             smtpClient.Host = host;
+            smtpClient.Port = smtpPort;
             smtpClient.Credentials = new NetworkCredential(email, password);
         }
     }
