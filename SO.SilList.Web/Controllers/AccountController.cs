@@ -11,6 +11,11 @@ using EntityFramework.Extensions;
 using SO.SilList.Manager.Managers;
 using SO.SilList.Manager.Models.ValueObjects;
 using SO.SilList.Manager.Models.ViewModels;
+using SO.Utility.Classes.Email;
+using WebMatrix.WebData;
+using SO.Utility.Helpers;
+
+
 
 namespace SO.SilList.Web.Controllers
 {
@@ -19,6 +24,7 @@ namespace SO.SilList.Web.Controllers
         MemberManager memberManager = new MemberManager();
         MemberRoleLookupManager memberRoleLookupManager = new MemberRoleLookupManager();
         MemberRoleTypeManager memberRoleTypeManager = new MemberRoleTypeManager();
+        EmailSender emailSender = new EmailSender();
 
         [HttpPost]
         [AllowAnonymous]
@@ -67,6 +73,7 @@ namespace SO.SilList.Web.Controllers
 
         [HttpPost]
         [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterVm input)
         {
             if (this.ModelState.IsValid)
@@ -121,6 +128,102 @@ namespace SO.SilList.Web.Controllers
                 }
 
                 return RedirectToAction("ConfirmEmail", "Member");
+            }
+
+            return View();
+        }
+
+        [AllowAnonymous]
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult ForgotPassword(string userName)
+        {
+            //check user existance
+            MemberVo member = memberManager.getByUsername(userName);
+            if (member == null)
+            {
+                TempData["Message"] = "User Does not exist.";
+            }
+            else
+            {
+                //generate password token
+                var token = Guid.NewGuid(); //  WebSecurity.GeneratePasswordResetToken(userName, 4320); // 72 hours
+                // set password reset token to database
+                member.passwordResetToken = token;
+                memberManager.update(member);
+                //create url with above token
+                var resetLink = "<a href='" + Url.Action("ResetPassword", "Account", new { un = userName, rt = token }, "http") + "'>Reset Password</a>";
+                //get user emailid
+                var emailid = member.email;
+
+                //send mail
+                string subject = "Password Reset Token";
+                string body = "<b>Please find the Password Reset Token</b><br/>" + resetLink; //edit it
+                try
+                {
+                    string adminEmailPsw = ConfigHelper.getAppSetting("adminEmailPassCode");
+                    string adminEmail = ConfigHelper.getAppSetting("adminEmail");
+                    string adminEmailSmtp = ConfigHelper.getAppSetting("adminEmailSmtp");
+                //    emailSender.setCredentials(adminEmail, adminEmailPsw, adminEmailSmtp);
+                    // emailSender.send("SilList System Administrator", emailid, subject, body/*, "dontreply@outlook.com"*/);
+                    TempData["Message"] = "Mail Sent.";
+                }
+                catch (Exception ex)
+                {
+                    TempData["Message"] = "Error occured while sending email." + ex.Message;
+                }
+                //only for testing
+                TempData["Message"] += "<hr> <hr> ------------------------------------------------------------ ";
+                TempData["Message"] += resetLink;
+            }
+
+            return View();
+        }
+
+        [AllowAnonymous]
+        public ActionResult ResetPassword(string un, Guid rt)
+        {
+            //TODO: Check the un and rt matching and then perform following
+            //get member of received username
+            MemberVo member = memberManager.getByUsername(un);
+
+            if (member.passwordResetToken != null && member.passwordResetToken == rt)
+            {
+                //generate random password
+                string newpassword = memberManager.GenerateRandomPassword(6);
+                //reset password
+                member.password = CurrentMember.HashWord(newpassword);
+                member.passwordResetToken = null;
+                memberManager.update(member);
+
+                //get user emailid to send password
+                string emailid = member.email;
+
+                //send email
+                string subject = "New Password";
+                string body = "<b>Please find the New Password</b><br/>" + newpassword; //edit it
+                try
+                {
+                    emailSender.send("SilList System Administrator", emailid, subject, body);
+                    TempData["Message"] = "Mail Sent.";
+                }
+                catch (Exception ex)
+                {
+                    TempData["Message"] = "Error occured while sending email." + ex.Message;
+                }
+
+                //display message
+                TempData["Message"] = "Success! Check email we sent. Your New Password Is " + newpassword;
+            }
+            else
+            {
+                TempData["Message"] = "Username and token not maching.";
             }
 
             return View();

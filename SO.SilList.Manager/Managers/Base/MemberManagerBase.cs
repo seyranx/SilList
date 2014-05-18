@@ -123,8 +123,8 @@ namespace SO.SilList.Manager.Managers.Base
 
                 if (!string.IsNullOrEmpty(input.passwordReset))
                     input.password = CurrentMember.HashWord(input.passwordReset);
-                else
-                    input.password = res.password;
+                //else if(input.password == null)
+                //    input.password = res.password;
 
                 input.created = res.created;
                 // input.createdBy = res.createdBy;

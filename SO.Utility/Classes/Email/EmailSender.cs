@@ -50,7 +50,7 @@ namespace SO.Utility.Classes.Email
 
               message.Body = email.body;
 
-            message.BodyEncoding = Encoding.GetEncoding("Windows-1254"); // Turkish Character Encoding
+            message.BodyEncoding = Encoding.GetEncoding("Windows-1252");
 
             message.From = new MailAddress(email.fromEmail, email.fromName);
             message.ReplyToList.Add(new MailAddress(email.fromEmail, email.fromName));
@@ -62,7 +62,6 @@ namespace SO.Utility.Classes.Email
             smtpClient.Send(message);
 
             return true;
-
         }
 
         public void setCredentials(string email, string password, string host = null)
@@ -71,9 +70,6 @@ namespace SO.Utility.Classes.Email
                 host = "smtp.gmail.com";
             smtpClient.Host = host;
             smtpClient.Credentials = new NetworkCredential(email, password);
-
         }
-
-
     }
 }

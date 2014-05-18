@@ -17,6 +17,7 @@
     [ipAddress]         NVARCHAR (50)  NULL,
     [lastLogin]         DATETIME       CONSTRAINT [DF__Member__lastLogi__628FA481] DEFAULT (getdate()) NOT NULL,
     [isEmailSubscribed] BIT            CONSTRAINT [DF__Member__isEmailS__6383C8BA] DEFAULT ((0)) NULL,
+    [passwordResetToken] UNIQUEIDENTIFIER NULL,
     [created]           DATETIME       CONSTRAINT [DF__Member__created__6477ECF3] DEFAULT (getdate()) NOT NULL,
     [modified]          DATETIME       CONSTRAINT [DF__Member__modified__656C112C] DEFAULT (getdate()) NOT NULL,
     [createdBy]         INT            NULL,

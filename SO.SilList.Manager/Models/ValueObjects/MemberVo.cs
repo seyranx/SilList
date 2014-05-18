@@ -127,6 +127,9 @@ namespace SO.SilList.Manager.Models.ValueObjects
         [NotMapped]
         public string passwordReset { get; set; }
 
+        // forgot password link 
+        public Guid? passwordResetToken { get; set; }
+
         public MemberVo()
         {
             this.isActive = true;
