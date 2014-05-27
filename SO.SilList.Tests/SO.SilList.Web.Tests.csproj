@@ -115,6 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountControllerTest.cs" />
+    <Compile Include="Email\EmailSenderTest.cs" />
     <Compile Include="Managers\BusinessManagerTest.cs" />
     <Compile Include="Managers\CarManagerTest.cs" />
     <Compile Include="Managers\PropertyTypeManagerTest.cs" />
